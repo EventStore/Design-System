@@ -21,15 +21,12 @@
         "test.watch": "stencil test --spec --e2e --watchAll",
         "generate": "stencil generate"
     },
-    "peerDependencies": {
-        "@eventstore/components": "0.0.1"
-    },
     "dependencies": {
+        "@eventstore/components": "0.0.1",
         "@eventstore/utils": "0.0.1",
         "@stencil/store": "1.3.0"
     },
     "devDependencies": {
-        "@stencil/core": "^1.12.2",
-        "@eventstore/components": "0.0.1"
+        "@stencil/core": "^1.12.2"
     }
 }

@@ -7,7 +7,7 @@ import {
     State,
     Method,
 } from '@stencil/core';
-import { Toast } from './es-toaster';
+import { Toast } from './types';
 
 @Component({
     tag: 'es-toast',

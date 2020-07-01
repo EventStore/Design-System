@@ -1,14 +1,6 @@
-import { Component, h, Prop, Host, VNode } from '@stencil/core';
+import { Component, h, Prop, Host } from '@stencil/core';
 import { Link } from '@eventstore/router';
-
-export interface CellProps<T> {
-    data: T;
-}
-export interface Col<T> {
-    name: string | keyof T;
-    title: string;
-    cell?: (d: CellProps<T>) => string | VNode | VNode[] | null;
-}
+import { TableColumn } from './types';
 
 @Component({
     tag: 'es-table',
@@ -17,7 +9,7 @@ export interface Col<T> {
 })
 export class Table<T> {
     @Prop() data!: Record<string, any>;
-    @Prop() columns!: Col<any>[];
+    @Prop() columns!: TableColumn<any>[];
     @Prop() rows!: string[];
     @Prop() linkRowTo?: (row: any) => string;
     @Prop() rowClass: (

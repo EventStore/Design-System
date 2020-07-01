@@ -1,15 +1,6 @@
 import { Component, h, Prop, Host, State, Watch, Listen } from '@stencil/core';
 import { findAssignedSlot } from '@eventstore/utils';
-
-export type SectionVariant = 'default' | 'mega' | 'field' | 'text' | 'footer';
-
-export interface Section {
-    name: string;
-    variant?: SectionVariant;
-    title?: string;
-    collapsable?: boolean;
-    defaultCollapsed?: boolean;
-}
+import { AccordianSection } from './types';
 
 @Component({
     tag: 'es-accordian',
@@ -17,7 +8,7 @@ export interface Section {
     shadow: true,
 })
 export class Accordian {
-    @Prop() sections!: Section[];
+    @Prop() sections!: AccordianSection[];
 
     @State() collapsed: Set<string> = new Set();
 
@@ -37,7 +28,7 @@ export class Accordian {
     }
 
     @Watch('sections')
-    updateCollapsed(sections: Section[]) {
+    updateCollapsed(sections: AccordianSection[]) {
         const collapsed = new Set<string>();
         for (const {
             name,
