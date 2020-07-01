@@ -1,0 +1,38 @@
+:host {
+    display: inline-block;
+}
+
+svg {
+    fill: currentColor;
+    display: block;
+    animation-name: spinClockwise;
+    animation-iteration-count: 0;
+    animation-timing-function: linear;
+    animation-duration: 500ms;
+
+    &.antiClockwise {
+        animation-name: spinAntiClockwise;
+    }
+
+    &.spin {
+        animation-iteration-count: infinite;
+    }
+}
+
+@keyframes spinClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinAntiClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}

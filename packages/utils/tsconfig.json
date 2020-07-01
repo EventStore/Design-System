@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "allowUnreachableCode": false,
+        "declaration": true,
+        "experimentalDecorators": true,
+        "lib": ["dom", "es2017"],
+        "moduleResolution": "node",
+        "module": "esnext",
+        "target": "es5",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": "./dist"
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
+}

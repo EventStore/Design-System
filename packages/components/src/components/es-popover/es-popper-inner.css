@@ -1,0 +1,16 @@
+:host {
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.inner {
+    background-color: var(--color-white);
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.11);
+    overflow: hidden;
+    pointer-events: all;
+}

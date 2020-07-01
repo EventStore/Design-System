@@ -1,0 +1,53 @@
+# es-icon
+
+
+
+<!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property            | Attribute        | Description | Type                             | Default       |
+| ------------------- | ---------------- | ----------- | -------------------------------- | ------------- |
+| `angle`             | `angle`          |             | `number`                         | `0`           |
+| `icon` _(required)_ | `icon`           |             | `string`                         | `undefined`   |
+| `size`              | `size`           |             | `number`                         | `24`          |
+| `spin`              | `spin`           |             | `boolean \| undefined`           | `undefined`   |
+| `spinDirection`     | `spin-direction` |             | `"antiClockwise" \| "clockwise"` | `'clockwise'` |
+
+
+## Methods
+
+### `spinEnd() => Promise<unknown>`
+
+
+
+#### Returns
+
+Type: `Promise<unknown>`
+
+
+
+
+## Dependencies
+
+### Used by
+
+ - [es-accordian](../es-accordian)
+ - [es-modal](../es-modal)
+ - [es-status](../es-status)
+ - [es-toast](../es-toaster)
+
+### Graph
+```mermaid
+graph TD;
+  es-accordian --> es-icon
+  es-modal --> es-icon
+  es-status --> es-icon
+  es-toast --> es-icon
+  style es-icon fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

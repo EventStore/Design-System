@@ -1,0 +1,15 @@
+{
+    "name": "@eventstore/utils",
+    "version": "0.0.1",
+    "description": "Utilities for Event Store Design System",
+    "license": "UNLICENSED",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "@eventstore/configs": "*",
+        "jest": "24.5.0",
+        "typescript": "3.9.5"
+    }
+}

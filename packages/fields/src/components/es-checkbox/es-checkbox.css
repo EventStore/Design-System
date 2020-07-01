@@ -1,0 +1,52 @@
+:host {
+    display: block;
+    --field-grid-columns: [before] 1fr [input] 24px [label] 311px [after] 1fr;
+}
+
+.input {
+    visibility: hidden;
+
+    &:checked ~ .checkbox {
+        color: var(--color-secondary);
+    }
+
+    &:disabled ~ .checkbox {
+        border-color: var(--color-grey-100);
+        background-color: var(--color-grey-100);
+    }
+
+    &:focus ~ .checkbox {
+        border-color: var(--color-secondary);
+    }
+}
+
+.checkbox {
+    grid-column-start: input;
+    grid-column-end: input;
+    color: var(--color-grey-200);
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-grey-400);
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-property: color, border-color, background-color;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+}
+
+.label {
+    text-align: left;
+    grid-column-start: label;
+    grid-column-end: after;
+}
+
+.invalid {
+    & .checkbox {
+        border-color: var(--color-error);
+    }
+}

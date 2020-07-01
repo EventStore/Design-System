@@ -1,0 +1,96 @@
+es-typeahead {
+    display: block;
+}
+
+.inner.typeahead {
+    display: flex;
+    width: 350px;
+    border-radius: 20px;
+    border-bottom-right-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-grey-400);
+    outline: none;
+    box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.01);
+    background-color: transparent;
+    padding-top: 40px;
+    transition: max-height 200ms ease, opacity 200ms ease;
+    max-height: 40px;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+
+    &.entered {
+        max-height: 200px;
+        opacity: 1;
+    }
+
+    &.exiting .list {
+        overflow-y: hidden;
+    }
+}
+
+.list_sizer {
+    background-color: var(--color-white);
+    overflow: hidden;
+    width: 100%;
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    max-height: 100%;
+    pointer-events: all;
+}
+
+.list_item {
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+.empty_message,
+.option {
+    --background: transparent;
+    --foreground: var(--color-text);
+
+    display: flex;
+    align-items: center;
+    text-align: left;
+    border: none;
+    padding: 12px 20px;
+    min-height: 40px;
+    width: 100%;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    background-color: var(--background);
+    color: var(--foreground);
+    transition-property: background-color, color;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+
+    &:hover {
+        --background: var(--color-grey-100);
+    }
+
+    &:focus {
+        --background: var(--color-grey-200);
+    }
+
+    &.active {
+        --background: var(--color-secondary);
+        --foreground: var(--color-secondary-contrast);
+    }
+}
+
+.empty_message {
+    color: var(--color-grey-400);
+
+    &:hover {
+        background-color: transparent;
+    }
+}

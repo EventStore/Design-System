@@ -1,0 +1,35 @@
+{
+    "name": "@eventstore/fields",
+    "version": "0.0.1",
+    "description": "Forms and fields for Event Store Design System",
+    "license": "UNLICENSED",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "es2015": "dist/esm/index.mjs",
+    "es2017": "dist/esm/index.mjs",
+    "types": "dist/types/index.d.ts",
+    "collection": "dist/collection/collection-manifest.json",
+    "collection:main": "dist/collection/index.js",
+    "unpkg": "dist/fields/fields.js",
+    "files": [
+        "dist/"
+    ],
+    "scripts": {
+        "build": "stencil build --docs",
+        "start": "stencil build --dev --watch --serve",
+        "test": "stencil test --spec --e2e",
+        "test.watch": "stencil test --spec --e2e --watchAll",
+        "generate": "stencil generate"
+    },
+    "peerDependencies": {
+        "@eventstore/components": "0.0.1"
+    },
+    "dependencies": {
+        "@eventstore/utils": "0.0.1",
+        "@stencil/store": "1.3.0"
+    },
+    "devDependencies": {
+        "@stencil/core": "^1.12.2",
+        "@eventstore/components": "0.0.1"
+    }
+}
