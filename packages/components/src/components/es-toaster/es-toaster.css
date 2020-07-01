@@ -1,0 +1,9 @@
+:host {
+    position: fixed;
+    top: var(--layout-body-top);
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 12px 0;
+}

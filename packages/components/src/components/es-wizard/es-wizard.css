@@ -1,0 +1,40 @@
+:host {
+    display: block;
+}
+
+.pages {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    transition-property: min-height;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+}
+
+.page {
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+    transform: translateX(0%);
+    background-color: var(--color-white);
+
+    &.passed {
+        pointer-events: none;
+    }
+
+    &.future {
+        pointer-events: none;
+        transform: translateX(5%);
+    }
+
+    &.active {
+        position: relative;
+        opacity: 1;
+        z-index: 1;
+    }
+}
