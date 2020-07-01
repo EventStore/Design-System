@@ -33,20 +33,13 @@
 ### Depends on
 
 - [es-typeahead](../es-typeahead)
-- es-button
-- es-icon
 - [es-validation-messages](../es-validation-messages)
 
 ### Graph
 ```mermaid
 graph TD;
   es-list-creator --> es-typeahead
-  es-list-creator --> es-button
-  es-list-creator --> es-icon
   es-list-creator --> es-validation-messages
-  es-typeahead --> es-popover
-  es-popover --> es-popper
-  es-popover --> es-popper-inner
   style es-list-creator fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

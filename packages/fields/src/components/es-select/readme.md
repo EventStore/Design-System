@@ -34,19 +34,14 @@
 
 ### Depends on
 
-- es-icon
 - [es-typeahead](../es-typeahead)
 - [es-validation-messages](../es-validation-messages)
 
 ### Graph
 ```mermaid
 graph TD;
-  es-select --> es-icon
   es-select --> es-typeahead
   es-select --> es-validation-messages
-  es-typeahead --> es-popover
-  es-popover --> es-popper
-  es-popover --> es-popper-inner
   style es-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
