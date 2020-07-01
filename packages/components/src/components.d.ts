@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Section } from "./components/es-accordian/es-accordian";
+import { AccordianSection } from "./components/es-accordian/types";
 import { VNode } from "@stencil/core";
 import { Crumb } from "./components/es-breadcrumb/es-breadcrumb";
 import { ButtonColor, ButtonVariant } from "./components/es-button/types";
@@ -13,13 +13,12 @@ import { CounterVariant } from "./components/es-counter/es-counter";
 import { Position } from "./components/es-popover/es-popper-inner";
 import { Checkpoint } from "./components/es-progression/es-progression";
 import { Status } from "./components/es-status/es-status";
-import { Col } from "./components/es-table/es-table";
-import { Toast } from "./components/es-toaster/es-toaster";
-import { Bread, Toast as Toast1 } from "./components/es-toaster/es-toaster";
+import { TableColumn } from "./components/es-table/types";
+import { Bread, Toast } from "./components/es-toaster/types";
 import { WizardPage } from "./components/es-wizard/es-wizard";
 export namespace Components {
     interface EsAccordian {
-        "sections": Section[];
+        "sections": AccordianSection[];
     }
     interface EsBackdrop {
         "close": () => Promise<unknown>;
@@ -108,7 +107,7 @@ export namespace Components {
         "status": Status;
     }
     interface EsTable {
-        "columns": Col<any>[];
+        "columns": TableColumn<any>[];
         "data": Record<string, any>;
         "linkRowTo"?: (row: any) => string;
         "rowClass": (
@@ -276,7 +275,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface EsAccordian {
-        "sections": Section[];
+        "sections": AccordianSection[];
     }
     interface EsBackdrop {
         "onClosed"?: (event: CustomEvent<any>) => void;
@@ -366,7 +365,7 @@ declare namespace LocalJSX {
         "status": Status;
     }
     interface EsTable {
-        "columns": Col<any>[];
+        "columns": TableColumn<any>[];
         "data": Record<string, any>;
         "linkRowTo"?: (row: any) => string;
         "rowClass"?: (
