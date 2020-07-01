@@ -1,0 +1,81 @@
+@import '../Field/field.css';
+
+::host {
+    display: block;
+}
+
+.input {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    border-radius: 20px;
+    width: 100%;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-grey-400);
+    outline: none;
+    padding: 0 20px;
+    transition-property: border-color;
+    transition-duration: 200ms;
+
+    &.disabled {
+        border-color: var(--color-grey-100);
+        background-color: var(--color-grey-100);
+
+        & es-icon {
+            color: var(--color-grey-400);
+        }
+    }
+
+    &.open {
+        border-color: transparent;
+        & es-icon {
+            transform: rotate(-180deg);
+        }
+    }
+}
+
+.placeholder {
+    color: var(--color-grey-400);
+}
+
+.true_input {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    bottom: 0;
+    left: 20px;
+    height: 40px;
+    width: calc(100% - 40px);
+    border: transparent;
+    outline: transparent;
+    background-color: transparent;
+    padding: 0;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--color-text);
+}
+
+.select_wrapper {
+    position: relative;
+    grid-column-start: input;
+    grid-column-end: input;
+}
+
+es-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 15px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    pointer-events: none;
+
+    transition: transform 500ms ease;
+    transform: rotate(0deg);
+}

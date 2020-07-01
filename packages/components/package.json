@@ -1,0 +1,31 @@
+{
+    "name": "@eventstore/components",
+    "version": "0.0.1",
+    "description": "Core components for Event Store Design System",
+    "license": "Apache-2.0",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "es2015": "dist/esm/index.mjs",
+    "es2017": "dist/esm/index.mjs",
+    "types": "dist/types/index.d.ts",
+    "collection": "dist/collection/collection-manifest.json",
+    "collection:main": "dist/collection/index.js",
+    "unpkg": "dist/components/components.js",
+    "files": [
+        "dist/"
+    ],
+    "scripts": {
+        "build": "stencil build --docs",
+        "start": "stencil build --dev --watch --serve",
+        "test": "stencil test --spec --e2e",
+        "test.watch": "stencil test --spec --e2e --watchAll",
+        "generate": "stencil generate"
+    },
+    "dependencies": {
+        "@eventstore/router": "0.0.1",
+        "@eventstore/utils": "0.0.1"
+    },
+    "devDependencies": {
+        "@stencil/core": "^1.12.2"
+    }
+}

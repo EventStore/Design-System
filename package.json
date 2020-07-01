@@ -1,0 +1,15 @@
+{
+    "private": true,
+    "repository": "git@github.com:EventStore/Design-System.git",
+    "workspaces": [
+        "packages/*",
+        "tools/*"
+    ],
+    "prettier": "@eventstore/configs/prettier",
+    "scripts": {
+        "build": "yarn workspaces run build"
+    },
+    "devDependencies": {
+        "@eventstore/configs": "*"
+    }
+}

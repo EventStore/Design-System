@@ -1,0 +1,95 @@
+@import '../Field/field.css';
+@import '../es-input/es-input.css';
+
+:host {
+    display: block;
+}
+
+.input {
+    height: 40px;
+    border-radius: 20px;
+    width: 100%;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-grey-400);
+    outline: none;
+    padding: 0 20px;
+    transition-property: border-color;
+    transition-duration: 200ms;
+
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--color-text);
+
+    &:disabled {
+        border-color: var(--color-grey-100);
+        background-color: var(--color-grey-100);
+    }
+
+    &.open {
+        border-color: transparent;
+    }
+
+    &::placeholder {
+        color: var(--color-grey-400);
+    }
+}
+
+.create {
+    height: 40px;
+    width: 40px;
+
+    --spacing: 0;
+    --border-color: var(--color-grey-200);
+    border-width: 2px;
+
+    & es-icon {
+        margin: auto;
+    }
+}
+
+.value_list {
+    display: grid;
+    align-items: center;
+    grid-template-columns: var(
+        --field-grid-columns,
+        [before] 1fr [input] 350px [after] 1fr
+    );
+    grid-auto-columns: auto;
+    column-gap: var(--field-grid-gap, 15px);
+    row-gap: var(--field-grid-gap, 15px);
+    padding: 0;
+    padding-top: var(--field-grid-gap, 15px);
+    padding-bottom: var(--field-grid-gap), 15px;
+    margin: 0;
+}
+
+.value_list_item {
+    display: contents;
+}
+
+.value_list_item_icon {
+    margin-left: auto;
+}
+
+.value_list_item_delete {
+    height: 40px;
+    width: 40px;
+
+    --spacing: 0;
+    --border-color: transparent;
+    --text-color: var(--color-text);
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+        --background-color: var(--color-white);
+        --text-color: var(--color-error);
+    }
+
+    & es-icon {
+        margin: auto;
+    }
+}
