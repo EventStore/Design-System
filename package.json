@@ -1,15 +1,24 @@
 {
     "private": true,
-    "repository": "git@github.com:EventStore/Design-System.git",
+    "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:EventStore/Design-System.git"
+    },
     "workspaces": [
         "packages/*",
         "tools/*"
     ],
     "prettier": "@eventstore/configs/prettier",
     "scripts": {
-        "build": "yarn workspaces run build"
+        "build": "lerna run build",
+        "test": "lerna run test",
+        "lint": "lerna run lint",
+        "bump": "lerna version --no-push --no-git-tag-version",
+        "release": "lerna publish from-package"
     },
     "devDependencies": {
-        "@eventstore/configs": "*"
+        "@eventstore/configs": "*",
+        "lerna": "^3.22.1"
     }
 }
