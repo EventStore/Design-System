@@ -1,0 +1,32 @@
+{
+    "name": "@eventstore/configs",
+    "version": "0.0.2",
+    "description": "Configs for the Event Store Design System",
+    "license": "UNLICENSED",
+    "prettier": "./prettier",
+    "scripts": {
+        "build": "echo \"Nothing to do\"",
+        "test": "echo \"Nothing to test\"",
+        "lint": "echo \"Nothing to lint\""
+    },
+    "files": [
+        "eslint.js",
+        "prettier.js"
+    ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "directory": "tools/configs"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^3.5.0",
+        "@typescript-eslint/parser": "^3.5.0",
+        "eslint": "^7.3.1",
+        "prettier": "^2.0.5",
+        "typescript": "^3.9.5"
+    }
+}

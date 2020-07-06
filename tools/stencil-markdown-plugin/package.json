@@ -1,21 +1,39 @@
 {
     "name": "@eventstore/stencil-markdown-plugin",
-    "private": true,
-    "version": "0.0.1",
+    "version": "0.0.2",
+    "description": "Import md and mdx files into stencil projects",
+    "license": "UNLICENSED",
     "main": "./dist/index.js",
+    "files": [
+        "dist/",
+        "plugin.js",
+        "plugin.d.ts"
+    ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "directory": "tools/stencil-markdown-plugin"
+    },
     "scripts": {
         "build": "run-s build:*",
         "build:plugin": "tsc --project ./src/plugin/tsconfig.json --outDir ./ --declaration",
         "build:component": "tsc --project ./src/components/tsconfig.json --outDir ./dist --declaration",
-        "dev": "run-p \"build:* -- --watch\""
+        "dev": "run-p \"build:* -- --watch\"",
+        "test": "jest --passWithNoTests",
+        "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "dependencies": {
-        "@stencil/core": "^1.15.0",
         "@mdx-js/mdx": "^1.6.6",
-        "@rollup/pluginutils": "^3.1.0"
+        "@rollup/pluginutils": "^3.1.0",
+        "@stencil/core": "^1.15.0"
     },
     "devDependencies": {
         "@types/node": "^12.0.7",
+        "jest": "^26.1.0",
         "npm-run-all": "^4.1.5",
         "rollup": "^2.18.2",
         "typescript": "^3.9.6"

@@ -1,13 +1,26 @@
 {
     "name": "@eventstore/router",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Router for Stencil",
     "license": "UNLICENSED",
     "main": "dist/index.js",
+    "files": [
+        "dist/"
+    ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "directory": "packages/router"
+    },
     "scripts": {
         "build": "tsc --outDir ./dist --declaration",
         "test": "stencil test --spec",
-        "test.watch": "stencil test --spec --watchAll"
+        "test.watch": "stencil test --spec --watchAll",
+        "lint": "prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "devDependencies": {
         "@stencil/core": "^1.15.0",

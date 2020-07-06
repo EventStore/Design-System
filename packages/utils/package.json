@@ -1,15 +1,29 @@
 {
     "name": "@eventstore/utils",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Utilities for Event Store Design System",
     "license": "UNLICENSED",
     "main": "dist/index.js",
+    "files": [
+        "dist/"
+    ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "directory": "packages/utils"
+    },
     "scripts": {
-        "build": "tsc"
+        "build": "tsc",
+        "test": "jest --passWithNoTests",
+        "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "devDependencies": {
-        "@eventstore/configs": "*",
-        "jest": "24.5.0",
+        "@eventstore/configs": "^0.0.2",
+        "jest": "^26.1.0",
         "typescript": "3.9.5"
     }
 }
