@@ -14,6 +14,15 @@
     "files": [
         "dist/"
     ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "directory": "packages/fields"
+    },
     "scripts": {
         "build": "stencil build --docs",
         "start": "stencil build --dev --watch --serve",
