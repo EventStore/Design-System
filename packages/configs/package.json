@@ -5,7 +5,8 @@
     "license": "UNLICENSED",
     "prettier": "./prettier",
     "scripts": {
-        "build": "echo \"Nothing to do\""
+        "build": "echo \"Nothing to do\"",
+        "test": "echo \"Nothing to test\""
     },
     "files": [
         "eslint.js",

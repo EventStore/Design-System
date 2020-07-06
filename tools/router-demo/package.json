@@ -6,8 +6,8 @@
     "scripts": {
         "build": "stencil build",
         "start": "stencil build --dev --watch --serve --no-open",
-        "test": "jest",
-        "test.watch": "jest --watch"
+        "test": "stencil test --spec --passWithNoTests",
+        "test.watch": "stencil test --spec --watchAll"
     },
     "dependencies": {
         "@eventstore/router": "0.0.1"
