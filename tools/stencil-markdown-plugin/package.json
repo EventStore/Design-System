@@ -1,8 +1,21 @@
 {
     "name": "@eventstore/stencil-markdown-plugin",
-    "private": true,
     "version": "0.0.1",
     "main": "./dist/index.js",
+    "files": [
+        "dist/",
+        "plugin.js",
+        "plugin.d.ts"
+    ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "directory": "tools/stencil-markdown-plugin"
+    },
     "scripts": {
         "build": "run-s build:*",
         "build:plugin": "tsc --project ./src/plugin/tsconfig.json --outDir ./ --declaration",
