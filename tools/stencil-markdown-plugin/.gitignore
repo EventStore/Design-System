@@ -1,0 +1,17 @@
+dist
+*~
+*.log
+*.tmp
+*.tmp.*
+log.txt
+
+node_modules/
+$RECYCLE.BIN/
+
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+.env
+
+/plugin.js
+/plugin.d.ts
