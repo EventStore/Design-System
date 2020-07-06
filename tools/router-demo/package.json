@@ -1,16 +1,17 @@
 {
     "name": "router-demo",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "private": true,
     "description": "Demo for @eventstore/router",
     "scripts": {
         "build": "stencil build",
         "start": "stencil build --dev --watch --serve --no-open",
-        "test": "jest",
-        "test.watch": "jest --watch"
+        "test": "stencil test --spec --passWithNoTests",
+        "test.watch": "stencil test --spec --watchAll",
+        "lint": "prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "dependencies": {
-        "@eventstore/router": "0.0.1"
+        "@eventstore/router": "^0.0.2"
     },
     "devDependencies": {
         "@stencil/core": "^1.15.0"
