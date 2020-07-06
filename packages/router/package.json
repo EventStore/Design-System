@@ -19,7 +19,8 @@
     "scripts": {
         "build": "tsc --outDir ./dist --declaration",
         "test": "stencil test --spec",
-        "test.watch": "stencil test --spec --watchAll"
+        "test.watch": "stencil test --spec --watchAll",
+        "lint": "prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "devDependencies": {
         "@stencil/core": "^1.15.0",

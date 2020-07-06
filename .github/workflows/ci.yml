@@ -1,0 +1,42 @@
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+
+jobs:
+    build:
+        runs-on: ubuntu-18.04
+
+        # Steps represent a sequence of tasks that will be executed as part of the job
+        steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v2
+
+            # Install node
+            - name: Setup Node
+              uses: actions/setup-node@v1
+              with:
+                  node-version: '14.x'
+
+            # install libgbm1 (see: https://github.com/actions/virtual-environments/issues/732)
+            - name: install libgbm1
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y libgbm1
+
+            # install ds
+            - run: yarn install
+
+            # build
+            - run: yarn build
+
+            # run tests
+            - run: yarn test
+
+            # run lints
+            - run: yarn lint

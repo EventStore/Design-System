@@ -18,7 +18,8 @@
     },
     "scripts": {
         "build": "tsc",
-        "test": "jest --passWithNoTests"
+        "test": "jest --passWithNoTests",
+        "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "devDependencies": {
         "@eventstore/configs": "*",
