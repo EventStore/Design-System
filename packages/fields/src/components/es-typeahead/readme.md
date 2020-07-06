@@ -36,9 +36,16 @@
  - [es-list-creator](../es-list-creator)
  - [es-select](../es-select)
 
+### Depends on
+
+- es-popover
+
 ### Graph
 ```mermaid
 graph TD;
+  es-typeahead --> es-popover
+  es-popover --> es-popper
+  es-popover --> es-popper-inner
   es-list-creator --> es-typeahead
   es-select --> es-typeahead
   style es-typeahead fill:#f9f,stroke:#333,stroke-width:4px

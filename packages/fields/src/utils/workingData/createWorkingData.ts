@@ -1,4 +1,5 @@
 import { HTTPError } from '@eventstore/utils';
+import { toast } from '@eventstore/components';
 
 import { logger } from '../logger';
 import { WorkingDataOptions, WorkingData } from '../../types';
@@ -177,7 +178,7 @@ export const createWorkingData = <T extends object>(
                 } catch (error) {
                     if (error instanceof HTTPError) {
                         const details = await error.details();
-                        logger.error({
+                        toast.error({
                             title: error.statusText ?? 'Error',
                             message: details.Message,
                         });
