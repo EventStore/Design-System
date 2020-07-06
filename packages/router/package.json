@@ -4,6 +4,18 @@
     "description": "Router for Stencil",
     "license": "UNLICENSED",
     "main": "dist/index.js",
+    "files": [
+        "dist/"
+    ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "directory": "packages/router"
+    },
     "scripts": {
         "build": "tsc --outDir ./dist --declaration",
         "test": "stencil test --spec",

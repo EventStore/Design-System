@@ -14,12 +14,20 @@
     "files": [
         "dist/"
     ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "directory": "packages/components"
+    },
     "scripts": {
         "build": "stencil build --docs",
         "start": "stencil build --dev --watch --serve",
         "test": "stencil test --spec --e2e",
-        "test.watch": "stencil test --spec --e2e --watchAll",
-        "generate": "stencil generate"
+        "test.watch": "stencil test --spec --e2e --watchAll"
     },
     "dependencies": {
         "@eventstore/router": "0.0.1",
