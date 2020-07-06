@@ -17,11 +17,12 @@
         "directory": "packages/utils"
     },
     "scripts": {
-        "build": "tsc"
+        "build": "tsc",
+        "test": "jest --passWithNoTests"
     },
     "devDependencies": {
         "@eventstore/configs": "*",
-        "jest": "24.5.0",
+        "jest": "^26.1.0",
         "typescript": "3.9.5"
     }
 }
