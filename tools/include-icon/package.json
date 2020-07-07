@@ -1,0 +1,28 @@
+{
+    "name": "@eventstore/include-icon",
+    "version": "0.0.2",
+    "description": "Automated icon inclusion for Event Store design system",
+    "license": "Apache-2.0",
+    "bin": "./index.js",
+    "files": [
+        "index.js",
+        "optimise.js"
+    ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "directory": "tools/include-icon"
+    },
+    "prettier": "@eventstore/configs/prettier",
+    "dependencies": {
+        "yargs": "^15.3.1",
+        "clipboardy": "^2.3.0",
+        "svgo": "^1.3.2",
+        "prettier": "^2.0.5",
+        "js-convert-case": "^4.0.1"
+    }
+}
