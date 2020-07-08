@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": false,
+        "strict": true,
+        "declaration": false,
+        "experimentalDecorators": true,
+        "lib": ["dom", "es2018"],
+        "moduleResolution": "node",
+        "target": "es2018",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "jsx": "react",
+        "jsxFactory": "h",
+        "module": "CommonJS"
+    },
+    "include": ["./src"],
+    "exclude": ["node_modules"]
+}
