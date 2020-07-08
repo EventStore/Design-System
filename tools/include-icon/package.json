@@ -3,7 +3,9 @@
     "version": "0.0.2",
     "description": "Automated icon inclusion for Event Store design system",
     "license": "UNLICENSED",
-    "bin": "./dist/index.js",
+    "bin": {
+        "include-icon": "./dist/index.js"
+    },
     "files": [
         "./dist"
     ],

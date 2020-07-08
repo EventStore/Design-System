@@ -5,8 +5,8 @@ import * as process from 'process';
 import { resolve, isAbsolute } from 'path';
 import { promisify } from 'util';
 
-import * as camelCase from 'camelcase';
 import { removeFromIndex } from '../utils/indexFile';
+import { componentMetadata } from '../utils/componentMetadata';
 
 const removeFile = promisify(fs.unlink);
 
@@ -17,10 +17,11 @@ interface RemoveIconOptions {
 
 export const removeIcon = async ({ name, dir }: RemoveIconOptions) => {
     const directory = isAbsolute(dir) ? dir : resolve(process.cwd(), dir);
-    const componentName = camelCase(name, { pascalCase: true });
-    const filePath = resolve(directory, `${componentName}.tsx`);
+    const metadata = componentMetadata(name);
 
-    await removeFromIndex(directory, componentName);
+    const filePath = resolve(directory, metadata.path);
+
+    await removeFromIndex(directory, metadata);
     await removeFile(filePath);
 
     console.log(`removed ${name} from ${filePath}`);

@@ -2,27 +2,31 @@ import * as fs from 'fs';
 import { join } from 'path';
 import { promisify } from 'util';
 
-import * as camelCase from 'camelcase';
 import { prettify } from './prettify';
 import { convertToLoader } from '../components/loader';
+import { ComponentMetadata } from './componentMetadata';
 
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 const pathExists = promisify(fs.exists);
 
-export type IndexMap = Map<string, string>;
+export type IndexMap = Map<string, ComponentMetadata>;
 
 const readIndex = async (destination: string): Promise<IndexMap> => {
     const indexPath = join(destination, 'icons.json');
     const exists = await pathExists(indexPath);
-    const indexFile = exists ? (await readFile(indexPath)).toString() : '[]';
+    const indexFile = exists ? (await readFile(indexPath)).toString() : '{}';
     const index = JSON.parse(indexFile);
-    return new Map<string, string>(index);
+    return new Map<string, ComponentMetadata>(Object.entries(index));
 };
 
 const writeIndex = async (destination: string, indexMap: IndexMap) => {
     const indexPath = join(destination, 'icons.json');
-    const index = JSON.stringify(Array.from(indexMap));
+    const index = JSON.stringify(
+        Array.from(indexMap)
+            .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
+            .reduce((acc, [name, info]) => ({ ...acc, [name]: info }), {}),
+    );
     const prettyIndex = await prettify(index, indexPath);
     return writeFile(indexPath, prettyIndex);
 };
@@ -39,15 +43,20 @@ const updateIndex = async (destination: string, indexMap: IndexMap) => {
     await writeLoader(destination, indexMap);
 };
 
-export const addToIndex = async (destination: string, name: string) => {
-    const componentName = camelCase(name, { pascalCase: true });
+export const addToIndex = async (
+    destination: string,
+    component: ComponentMetadata,
+) => {
     const indexFile = await readIndex(destination);
-    indexFile.set(name, `./${componentName}`);
+    indexFile.set(component.name, component);
     return updateIndex(destination, indexFile);
 };
 
-export const removeFromIndex = async (destination: string, name: string) => {
+export const removeFromIndex = async (
+    destination: string,
+    component: ComponentMetadata,
+) => {
     const indexFile = await readIndex(destination);
-    indexFile.delete(name);
+    indexFile.delete(component.name);
     return updateIndex(destination, indexFile);
 };
