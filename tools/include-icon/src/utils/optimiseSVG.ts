@@ -1,4 +1,4 @@
-const SVGO = require('svgo');
+import * as SVGO from 'svgo';
 
 const svgo = new SVGO({
     js2svg: {
@@ -115,4 +115,7 @@ const svgo = new SVGO({
     ],
 });
 
-module.exports = svgo;
+export const optimiseSVG = async (icon: string) => {
+    const { data } = await svgo.optimize(icon);
+    return data;
+};
