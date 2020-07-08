@@ -1,7 +1,15 @@
-import { Component, h, Prop, Method, Element } from '@stencil/core';
+import {
+    Component,
+    h,
+    Prop,
+    Method,
+    Element,
+    FunctionalComponent,
+    State,
+    Watch,
+} from '@stencil/core';
 import { createLogger } from '@eventstore/utils';
-
-import * as icons from './icons';
+import { iconStore } from '../../utils/iconStore';
 
 const logger = createLogger('es-icon', 'orange');
 
@@ -19,6 +27,10 @@ export class Icon {
     @Prop() spin?: boolean;
     @Prop() spinDirection: 'clockwise' | 'antiClockwise' = 'clockwise';
 
+    @State() Component: FunctionalComponent<any> = (props) => (
+        <svg {...props}></svg>
+    );
+
     @Method() async spinEnd() {
         const spinner = this.host.shadowRoot?.querySelector('.spin');
         if (!spinner) return;
@@ -31,13 +43,19 @@ export class Icon {
         });
     }
 
-    render() {
-        if (!icons[this.icon as keyof typeof icons]) {
-            logger.log.once(`Unknown Icon '${this.icon}'`);
-        }
+    componentWillLoad() {
+        this.loadIcon(this.icon);
+    }
 
-        const Component =
-            icons[this.icon as keyof typeof icons] || icons.unknown;
+    @Watch('icon')
+    onIconChange(icon: string, previousIcon: string) {
+        if (icon !== previousIcon) {
+            this.loadIcon(this.icon);
+        }
+    }
+
+    render() {
+        const Component = this.Component;
 
         return (
             <Component
@@ -56,4 +74,18 @@ export class Icon {
             />
         );
     }
+
+    private loadIcon = async (name: string) => {
+        if (!iconStore.has(name)) {
+            logger.log.once(
+                `Unknown icon: '${name}'`,
+                'Please add it to iconStore.',
+            );
+            return;
+        }
+
+        const component = await iconStore.get(name);
+
+        this.Component = component;
+    };
 }
