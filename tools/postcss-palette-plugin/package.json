@@ -1,0 +1,49 @@
+{
+    "name": "@eventstore/postcss-palette-plugin",
+    "version": "0.0.4",
+    "description": "PostCSS plugin that imports a palette into your css by convert a js palette into css vars.",
+    "license": "UNLICENSED",
+    "main": "./dist/injectPalettePlugin",
+    "files": [
+        "./dist"
+    ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "directory": "tools/include-icon"
+    },
+    "scripts": {
+        "build": "tsc --outDir ./dist --declaration",
+        "dev": "tsc --outDir ./dist --declaration --watch",
+        "test": "jest",
+        "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
+    },
+    "prettier": "@eventstore/configs/prettier",
+    "dependencies": {
+        "postcss": "^5.0.4"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.10.4",
+        "@babel/preset-env": "^7.10.4",
+        "@babel/preset-typescript": "^7.10.4",
+        "babel-jest": "^26.1.0",
+        "jest": "^26.1.0"
+    },
+    "babel": {
+        "presets": [
+            [
+                "@babel/preset-env",
+                {
+                    "targets": {
+                        "node": "current"
+                    }
+                }
+            ],
+            "@babel/preset-typescript"
+        ]
+    }
+}
