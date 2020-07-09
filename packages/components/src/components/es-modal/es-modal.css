@@ -6,7 +6,7 @@
     display: block;
     background-color: var(--color-white);
     max-width: 640px;
-    padding: 32px 30px;
+    max-height: 80vh;
     border-radius: 20px;
     position: absolute;
     left: 0;
@@ -18,6 +18,8 @@
     pointer-events: all;
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .close {
@@ -49,7 +51,9 @@
 
 header {
     border-bottom: 5px solid var(--color-grey-100);
-    margin-bottom: 30px;
+    padding: 32px 30px;
+    padding-bottom: 0;
+    margin: 0;
 }
 
 ::slotted(h1[slot='header']) {
@@ -68,11 +72,18 @@ header {
     margin-bottom: 17px;
 }
 
+.body {
+    padding: 15px 30px;
+    overflow: auto;
+}
+
 footer {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    margin-top: 30px;
+    padding: 32px 30px;
+    padding-top: 0;
+    margin: 0;
 }
 
 ::slotted(*[slot='footer']) {
