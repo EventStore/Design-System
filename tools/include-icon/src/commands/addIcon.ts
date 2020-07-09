@@ -30,13 +30,14 @@ export const addIcon = async ({
     dir,
 }: AddIconOptions) => {
     const directory = isAbsolute(dir) ? dir : resolve(process.cwd(), dir);
-    await createDirIfMissing(directory);
-
     const metadata = componentMetadata(name);
+    const filePath = join(directory, metadata.path);
+
+    await createDirIfMissing(filePath);
+
     const icon = await loadIcon({ clipboard, file });
     const optimised = await optimiseSVG(icon);
     const component = convertToComponent(optimised, metadata);
-    const filePath = join(directory, metadata.path);
     const cleanedUp = await prettify(component, filePath);
 
     await addToIndex(directory, metadata);
