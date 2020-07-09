@@ -1,4 +1,4 @@
-import { Component, h, Host, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Host, Event, EventEmitter, Prop } from '@stencil/core';
 
 @Component({
     tag: 'es-modal',
@@ -7,24 +7,32 @@ import { Component, h, Host, Event, EventEmitter } from '@stencil/core';
 })
 export class Modal {
     @Event() requestClose!: EventEmitter;
+    @Prop() header: boolean = true;
+    @Prop() footer: boolean = true;
 
     render() {
         return (
             <Host>
-                <header>
-                    <slot name={'header'} />
-                    <button
-                        class={'close'}
-                        role={'button'}
-                        onClick={this.requestClose.emit}
-                    >
-                        <es-icon icon={'close'} size={22} />
-                    </button>
-                </header>
-                <slot />
-                <footer>
-                    <slot name={'footer'} />
-                </footer>
+                <button
+                    class={'close'}
+                    role={'button'}
+                    onClick={this.requestClose.emit}
+                >
+                    <es-icon icon={'close'} size={22} />
+                </button>
+                {this.header && (
+                    <header>
+                        <slot name={'header'} />
+                    </header>
+                )}
+                <div class={'body'}>
+                    <slot />
+                </div>
+                {this.footer && (
+                    <footer>
+                        <slot name={'footer'} />
+                    </footer>
+                )}
             </Host>
         );
     }

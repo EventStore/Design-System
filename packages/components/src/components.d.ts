@@ -70,6 +70,8 @@ export namespace Components {
         "width": number;
     }
     interface EsModal {
+        "footer": boolean;
+        "header": boolean;
     }
     interface EsPageTitle {
     }
@@ -326,6 +328,8 @@ declare namespace LocalJSX {
         "width"?: number;
     }
     interface EsModal {
+        "footer"?: boolean;
+        "header"?: boolean;
         "onRequestClose"?: (event: CustomEvent<any>) => void;
     }
     interface EsPageTitle {
