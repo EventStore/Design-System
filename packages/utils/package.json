@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/utils",
-    "version": "0.0.4",
+    "version": "0.0.6",
     "description": "Utilities for Event Store Design System",
     "license": "UNLICENSED",
     "main": "dist/index.js",
@@ -22,7 +22,7 @@
         "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "devDependencies": {
-        "@eventstore/configs": "^0.0.4",
+        "@eventstore/configs": "^0.0.6",
         "jest": "^26.1.0",
         "typescript": "3.9.5"
     }
