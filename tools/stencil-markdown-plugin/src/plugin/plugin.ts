@@ -1,8 +1,11 @@
+import { resolve } from 'path';
+
 import { transpile } from '@stencil/core/compiler';
 import { createFilter } from '@rollup/pluginutils';
 import { createCompiler } from '@mdx-js/mdx';
 
 const mdxLayoutDefinition = 'const MDXLayout = "wrapper"\n';
+const componentPath = resolve(__dirname, './dist/MDXLayout');
 
 const postProcess = (contents: string) => {
     let content = contents;
@@ -10,9 +13,7 @@ const postProcess = (contents: string) => {
 
     if (content.includes(mdxLayoutDefinition)) {
         content = content.replace(mdxLayoutDefinition, '');
-        imports.push(
-            "import { MDXLayout } from '@eventstore/stencil-markdown-plugin/dist/MDXLayout';",
-        );
+        imports.push(`import { MDXLayout } from '${componentPath}';`);
     }
 
     return `
