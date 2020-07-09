@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-
+import { parse } from 'path';
 import { promisify } from 'util';
 
 const createDir = promisify(fs.mkdir);
@@ -7,7 +7,8 @@ const createDir = promisify(fs.mkdir);
 const pathExists = promisify(fs.exists);
 
 export const createDirIfMissing = async (directory: string) => {
-    const exists = await pathExists(directory);
+    const { dir } = parse(directory);
+    const exists = await pathExists(dir);
     if (exists) return;
-    return createDir(directory, { recursive: true });
+    return createDir(dir, { recursive: true });
 };

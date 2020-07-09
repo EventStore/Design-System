@@ -9,5 +9,5 @@ export interface ComponentMetadata {
 export const componentMetadata = (name: string): ComponentMetadata => ({
     name,
     component: camelCase(name, { pascalCase: true }),
-    path: `./${camelCase(name, { pascalCase: true })}.tsx`,
+    path: `./components/${camelCase(name, { pascalCase: true })}.tsx`,
 });
