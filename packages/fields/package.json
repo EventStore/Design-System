@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/fields",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "Forms and fields for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.js",
@@ -31,8 +31,8 @@
         "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "dependencies": {
-        "@eventstore/components": "^0.0.6",
-        "@eventstore/utils": "^0.0.6",
+        "@eventstore/components": "^0.0.7",
+        "@eventstore/utils": "^0.0.7",
         "@stencil/store": "1.3.0"
     },
     "devDependencies": {
