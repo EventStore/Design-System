@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/utils",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "description": "Utilities for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.js",
@@ -22,8 +22,25 @@
         "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "devDependencies": {
-        "@eventstore/configs": "^0.0.9",
+        "@babel/core": "^7.10.4",
+        "@babel/preset-env": "^7.10.4",
+        "@babel/preset-typescript": "^7.10.4",
+        "@eventstore/configs": "^0.0.10",
+        "babel-jest": "^26.1.0",
         "jest": "^26.1.0",
         "typescript": "3.9.5"
+    },
+    "babel": {
+        "presets": [
+            [
+                "@babel/preset-env",
+                {
+                    "targets": {
+                        "node": "current"
+                    }
+                }
+            ],
+            "@babel/preset-typescript"
+        ]
     }
 }
