@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/components",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "description": "Core components for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.js",
@@ -31,8 +31,8 @@
         "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "dependencies": {
-        "@eventstore/router": "^0.0.9",
-        "@eventstore/utils": "^0.0.9"
+        "@eventstore/router": "^0.0.10",
+        "@eventstore/utils": "^0.0.10"
     },
     "devDependencies": {
         "@stencil/core": "^1.15.0",
