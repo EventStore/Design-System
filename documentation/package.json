@@ -1,0 +1,25 @@
+{
+    "name": "@eventstore/docs",
+    "private": true,
+    "version": "0.0.10",
+    "description": "Documentation for Event Store Design System",
+    "license": "Apache-2.0",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "directory": "documentation"
+    },
+    "scripts": {
+        "build": "stencil build",
+        "start": "stencil build --dev --watch --serve",
+        "test": "stencil test --spec --e2e",
+        "test.watch": "stencil test --spec --e2e --watchAll"
+    },
+    "devDependencies": {
+        "@stencil/core": "^1.15.0"
+    }
+}

@@ -6,6 +6,7 @@
         "url": "ssh://git@github.com:EventStore/Design-System.git"
     },
     "workspaces": [
+        "documentation",
         "packages/*",
         "tools/*"
     ],
