@@ -1,17 +1,37 @@
 import { Config } from '@stencil/core';
-
-// https://stenciljs.com/docs/config
+import { postcss } from '@stencil/postcss';
+import postcssPresetEnv from 'postcss-preset-env';
+import { mdx } from '@eventstore/stencil-markdown-plugin/plugin';
+import injectPalettePlugin from '@eventstore/postcss-palette-plugin';
+import { palette } from './src/global/palette';
 
 export const config: Config = {
-  globalStyle: 'src/global/app.css',
-  globalScript: 'src/global/app.ts',
-  taskQueue: 'async',
-  outputTargets: [
-    {
-      type: 'www',
-      // comment the following line to disable service workers in production
-      serviceWorker: null,
-      baseUrl: 'https://myapp.local/'
-    }
-  ]
+    globalStyle: 'src/global/app.css',
+    globalScript: 'src/global/app.ts',
+    taskQueue: 'async',
+    outputTargets: [
+        {
+            type: 'www',
+            serviceWorker: null,
+            baseUrl: 'https://myapp.local/',
+        },
+    ],
+    devServer: {
+        openBrowser: false,
+    },
+    plugins: [
+        mdx(),
+        postcss({
+            plugins: [
+                injectPalettePlugin({ palette }),
+                postcssPresetEnv({
+                    stage: 2,
+                    features: {
+                        'nesting-rules': true,
+                    },
+                    browsers: ['defaults', 'not IE 11'],
+                }),
+            ],
+        }),
+    ],
 };

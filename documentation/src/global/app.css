@@ -1,16 +1,69 @@
-/*
-  Global App CSS
-  ----------------------
-  Use this file for styles that should be applied to all components.
-  For example, "font-family" within the "body" selector is a CSS property
-  most apps will want applied to all components.
+:root {
+    /* see palette.ts for color palette  */
+    @inject-palette;
 
-  Any global CSS variables should also be applied here.
-*/
+    --layout-max-width: 1680px;
+    --layout-content-max-width: 1430px;
+    --layout-header-height: 90px;
+    --layout-banner-height: 0px;
+    --layout-body-top: calc(
+        var(--layout-header-height) + var(--layout-banner-height)
+    );
+    --layout-sidebar-width: 250px;
+    --layout-footer-height: 90px;
+}
 
+@font-face {
+    font-family: 'MuseoSans';
+    src: url('../assets/fonts/MuseoSans_100-webfont.woff2') format('woff2'),
+        url('../assets/fonts//MuseoSans_100-webfont.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MuseoSans';
+    src: url('../assets/fonts/MuseoSans_300-webfont.woff2') format('woff2'),
+        url('../assets/fonts/MuseoSans_300-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MuseoSans';
+    src: url('../assets/fonts/MuseoSans_500-webfont.woff2') format('woff2'),
+        url('../assets/fonts/MuseoSans_500-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MuseoSans';
+    src: url('../assets/fonts/MuseoSans_700-webfont.woff2') format('woff2'),
+        url('../assets/fonts/MuseoSans_700-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MuseoSans';
+    src: url('../assets/fonts/MuseoSans_900-webfont.woff2') format('woff2'),
+        url('../assets/fonts/MuseoSans_900-webfont.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
 
 body {
-  margin: 0px;
-  padding: 0px;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-family: 'MuseoSans', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0px;
+    padding: 0px;
+    color: #435261;
+    overflow-x: hidden;
 }
