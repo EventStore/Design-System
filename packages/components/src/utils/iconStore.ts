@@ -1,4 +1,4 @@
-import { FunctionalComponent } from '@stencil/core';
+import type { FunctionalComponent } from '@stencil/core';
 
 type Icons = Record<string, Promise<FunctionalComponent<any>>>;
 
