@@ -30,11 +30,13 @@
         "test.watch": "stencil test --spec --e2e --watchAll",
         "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
-    "dependencies": {
+    "peerDependencies": {
         "@eventstore/router": "^0.0.10",
         "@eventstore/utils": "^0.0.10"
     },
     "devDependencies": {
+        "@eventstore/router": "^0.0.10",
+        "@eventstore/utils": "^0.0.10",
         "@stencil/core": "^1.15.0",
         "@types/puppeteer": "2.0.1",
         "jest": "^26.0.1",
