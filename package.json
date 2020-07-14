@@ -13,7 +13,7 @@
     "prettier": "@eventstore/configs/prettier",
     "scripts": {
         "build": "lerna run build",
-        "dev": "yarn workspace @eventstore/docs run dev",
+        "docs:dev": "yarn workspace @eventstore/docs run dev",
         "test": "lerna run test",
         "lint": "lerna run lint",
         "bump": "lerna version --no-push",

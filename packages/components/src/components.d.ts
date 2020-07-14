@@ -7,10 +7,14 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordianSection } from "./components/es-accordian/types";
 import { VNode } from "@stencil/core";
+<<<<<<< HEAD
 import { BadgeColor, BadgeVariant } from "./components/es-badge/es-badge";
 import { Crumb } from "./components/es-breadcrumb/es-breadcrumb";
 import { ButtonColor, ButtonVariant } from "./components/buttons/types";
 import { EsCalloutVariant } from "./components/es-callout/es-callout";
+=======
+import { ButtonColor, ButtonVariant } from "./components/es-button/types";
+>>>>>>> cf9efe9 ([docs] basics)
 import { CounterVariant } from "./components/es-counter/es-counter";
 import { AttachmentX, AttachmentY, Constrain, Position, PositionX, PositionY } from "./utils/calcPosition";
 import { Checkpoint } from "./components/es-progression/es-progression";
@@ -29,6 +33,7 @@ export namespace Components {
         "renderNode": (node: VNode | null) => Promise<void>;
         "showBackdrop": boolean;
     }
+<<<<<<< HEAD
     interface EsBadge {
         "color": BadgeColor;
         "count": number;
@@ -40,6 +45,8 @@ export namespace Components {
         "crumbs": Crumb[];
         "noValidate": boolean;
     }
+=======
+>>>>>>> cf9efe9 ([docs] basics)
     interface EsButton {
         "color": ButtonColor;
         "disabled"?: boolean;
@@ -85,15 +92,9 @@ export namespace Components {
         "spinDirection": 'clockwise' | 'antiClockwise';
         "spinEnd": () => Promise<void>;
     }
-    interface EsLogo {
-        "height": number;
-        "width": number;
-    }
     interface EsModal {
         "footer": boolean;
         "header": boolean;
-    }
-    interface EsPageTitle {
     }
     interface EsPopover {
         "attachTo"?: HTMLElement;
@@ -213,6 +214,7 @@ declare global {
         prototype: HTMLEsBackdropElement;
         new (): HTMLEsBackdropElement;
     };
+<<<<<<< HEAD
     interface HTMLEsBadgeElement extends Components.EsBadge, HTMLStencilElement {
     }
     var HTMLEsBadgeElement: {
@@ -225,6 +227,8 @@ declare global {
         prototype: HTMLEsBreadcrumbElement;
         new (): HTMLEsBreadcrumbElement;
     };
+=======
+>>>>>>> cf9efe9 ([docs] basics)
     interface HTMLEsButtonElement extends Components.EsButton, HTMLStencilElement {
     }
     var HTMLEsButtonElement: {
@@ -261,23 +265,11 @@ declare global {
         prototype: HTMLEsIconElement;
         new (): HTMLEsIconElement;
     };
-    interface HTMLEsLogoElement extends Components.EsLogo, HTMLStencilElement {
-    }
-    var HTMLEsLogoElement: {
-        prototype: HTMLEsLogoElement;
-        new (): HTMLEsLogoElement;
-    };
     interface HTMLEsModalElement extends Components.EsModal, HTMLStencilElement {
     }
     var HTMLEsModalElement: {
         prototype: HTMLEsModalElement;
         new (): HTMLEsModalElement;
-    };
-    interface HTMLEsPageTitleElement extends Components.EsPageTitle, HTMLStencilElement {
-    }
-    var HTMLEsPageTitleElement: {
-        prototype: HTMLEsPageTitleElement;
-        new (): HTMLEsPageTitleElement;
     };
     interface HTMLEsPopoverElement extends Components.EsPopover, HTMLStencilElement {
     }
@@ -372,17 +364,18 @@ declare global {
     interface HTMLElementTagNameMap {
         "es-accordian": HTMLEsAccordianElement;
         "es-backdrop": HTMLEsBackdropElement;
+<<<<<<< HEAD
         "es-badge": HTMLEsBadgeElement;
         "es-breadcrumb": HTMLEsBreadcrumbElement;
+=======
+>>>>>>> cf9efe9 ([docs] basics)
         "es-button": HTMLEsButtonElement;
         "es-button-link": HTMLEsButtonLinkElement;
         "es-callout": HTMLEsCalloutElement;
         "es-copy": HTMLEsCopyElement;
         "es-counter": HTMLEsCounterElement;
         "es-icon": HTMLEsIconElement;
-        "es-logo": HTMLEsLogoElement;
         "es-modal": HTMLEsModalElement;
-        "es-page-title": HTMLEsPageTitleElement;
         "es-popover": HTMLEsPopoverElement;
         "es-popper": HTMLEsPopperElement;
         "es-popper-inner": HTMLEsPopperInnerElement;
@@ -410,6 +403,7 @@ declare namespace LocalJSX {
         "onRequestClose"?: (event: CustomEvent<any>) => void;
         "showBackdrop"?: boolean;
     }
+<<<<<<< HEAD
     interface EsBadge {
         "color"?: BadgeColor;
         "count": number;
@@ -421,6 +415,8 @@ declare namespace LocalJSX {
         "crumbs"?: Crumb[];
         "noValidate"?: boolean;
     }
+=======
+>>>>>>> cf9efe9 ([docs] basics)
     interface EsButton {
         "color"?: ButtonColor;
         "disabled"?: boolean;
@@ -464,16 +460,10 @@ declare namespace LocalJSX {
         "spin"?: boolean;
         "spinDirection"?: 'clockwise' | 'antiClockwise';
     }
-    interface EsLogo {
-        "height"?: number;
-        "width"?: number;
-    }
     interface EsModal {
         "footer"?: boolean;
         "header"?: boolean;
         "onRequestClose"?: (event: CustomEvent<any>) => void;
-    }
-    interface EsPageTitle {
     }
     interface EsPopover {
         "attachTo"?: HTMLElement;
@@ -585,17 +575,18 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "es-accordian": EsAccordian;
         "es-backdrop": EsBackdrop;
+<<<<<<< HEAD
         "es-badge": EsBadge;
         "es-breadcrumb": EsBreadcrumb;
+=======
+>>>>>>> cf9efe9 ([docs] basics)
         "es-button": EsButton;
         "es-button-link": EsButtonLink;
         "es-callout": EsCallout;
         "es-copy": EsCopy;
         "es-counter": EsCounter;
         "es-icon": EsIcon;
-        "es-logo": EsLogo;
         "es-modal": EsModal;
-        "es-page-title": EsPageTitle;
         "es-popover": EsPopover;
         "es-popper": EsPopper;
         "es-popper-inner": EsPopperInner;
@@ -619,17 +610,18 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "es-accordian": LocalJSX.EsAccordian & JSXBase.HTMLAttributes<HTMLEsAccordianElement>;
             "es-backdrop": LocalJSX.EsBackdrop & JSXBase.HTMLAttributes<HTMLEsBackdropElement>;
+<<<<<<< HEAD
             "es-badge": LocalJSX.EsBadge & JSXBase.HTMLAttributes<HTMLEsBadgeElement>;
             "es-breadcrumb": LocalJSX.EsBreadcrumb & JSXBase.HTMLAttributes<HTMLEsBreadcrumbElement>;
+=======
+>>>>>>> cf9efe9 ([docs] basics)
             "es-button": LocalJSX.EsButton & JSXBase.HTMLAttributes<HTMLEsButtonElement>;
             "es-button-link": LocalJSX.EsButtonLink & JSXBase.HTMLAttributes<HTMLEsButtonLinkElement>;
             "es-callout": LocalJSX.EsCallout & JSXBase.HTMLAttributes<HTMLEsCalloutElement>;
             "es-copy": LocalJSX.EsCopy & JSXBase.HTMLAttributes<HTMLEsCopyElement>;
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
             "es-icon": LocalJSX.EsIcon & JSXBase.HTMLAttributes<HTMLEsIconElement>;
-            "es-logo": LocalJSX.EsLogo & JSXBase.HTMLAttributes<HTMLEsLogoElement>;
             "es-modal": LocalJSX.EsModal & JSXBase.HTMLAttributes<HTMLEsModalElement>;
-            "es-page-title": LocalJSX.EsPageTitle & JSXBase.HTMLAttributes<HTMLEsPageTitleElement>;
             "es-popover": LocalJSX.EsPopover & JSXBase.HTMLAttributes<HTMLEsPopoverElement>;
             "es-popper": LocalJSX.EsPopper & JSXBase.HTMLAttributes<HTMLEsPopperElement>;
             "es-popper-inner": LocalJSX.EsPopperInner & JSXBase.HTMLAttributes<HTMLEsPopperInnerElement>;

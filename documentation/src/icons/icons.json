@@ -1,0 +1,227 @@
+{
+    "angle-down": {
+        "name": "angle-down",
+        "component": "AngleDown",
+        "path": "./components/AngleDown.tsx"
+    },
+    "backups": {
+        "name": "backups",
+        "component": "Backups",
+        "path": "./components/Backups.tsx"
+    },
+    "bell": {
+        "name": "bell",
+        "component": "Bell",
+        "path": "./components/Bell.tsx"
+    },
+    "building": {
+        "name": "building",
+        "component": "Building",
+        "path": "./components/Building.tsx"
+    },
+    "caret": {
+        "name": "caret",
+        "component": "Caret",
+        "path": "./components/Caret.tsx"
+    },
+    "check": {
+        "name": "check",
+        "component": "Check",
+        "path": "./components/Check.tsx"
+    },
+    "chevron": {
+        "name": "chevron",
+        "component": "Chevron",
+        "path": "./components/Chevron.tsx"
+    },
+    "circle": {
+        "name": "circle",
+        "component": "Circle",
+        "path": "./components/Circle.tsx"
+    },
+    "close": {
+        "name": "close",
+        "component": "Close",
+        "path": "./components/Close.tsx"
+    },
+    "clusters": {
+        "name": "clusters",
+        "component": "Clusters",
+        "path": "./components/Clusters.tsx"
+    },
+    "cog": {
+        "name": "cog",
+        "component": "Cog",
+        "path": "./components/Cog.tsx"
+    },
+    "credit-card": {
+        "name": "credit-card",
+        "component": "CreditCard",
+        "path": "./components/CreditCard.tsx"
+    },
+    "critical": {
+        "name": "critical",
+        "component": "Critical",
+        "path": "./components/Critical.tsx"
+    },
+    "degraded": {
+        "name": "degraded",
+        "component": "Degraded",
+        "path": "./components/Degraded.tsx"
+    },
+    "ellipsis": {
+        "name": "ellipsis",
+        "component": "Ellipsis",
+        "path": "./components/Ellipsis.tsx"
+    },
+    "error": {
+        "name": "error",
+        "component": "Error",
+        "path": "./components/Error.tsx"
+    },
+    "eye": {
+        "name": "eye",
+        "component": "Eye",
+        "path": "./components/Eye.tsx"
+    },
+    "folder": {
+        "name": "folder",
+        "component": "Folder",
+        "path": "./components/Folder.tsx"
+    },
+    "gift": {
+        "name": "gift",
+        "component": "Gift",
+        "path": "./components/Gift.tsx"
+    },
+    "go-back": {
+        "name": "go-back",
+        "component": "GoBack",
+        "path": "./components/GoBack.tsx"
+    },
+    "id-card": {
+        "name": "id-card",
+        "component": "IdCard",
+        "path": "./components/IdCard.tsx"
+    },
+    "info": {
+        "name": "info",
+        "component": "Info",
+        "path": "./components/Info.tsx"
+    },
+    "invite": {
+        "name": "invite",
+        "component": "Invite",
+        "path": "./components/Invite.tsx"
+    },
+    "networks": {
+        "name": "networks",
+        "component": "Networks",
+        "path": "./components/Networks.tsx"
+    },
+    "okay": {
+        "name": "okay",
+        "component": "Okay",
+        "path": "./components/Okay.tsx"
+    },
+    "peering": {
+        "name": "peering",
+        "component": "Peering",
+        "path": "./components/Peering.tsx"
+    },
+    "pen": {
+        "name": "pen",
+        "component": "Pen",
+        "path": "./components/Pen.tsx"
+    },
+    "plus": {
+        "name": "plus",
+        "component": "Plus",
+        "path": "./components/Plus.tsx"
+    },
+    "refresh": {
+        "name": "refresh",
+        "component": "Refresh",
+        "path": "./components/Refresh.tsx"
+    },
+    "scroll": {
+        "name": "scroll",
+        "component": "Scroll",
+        "path": "./components/Scroll.tsx"
+    },
+    "shield": {
+        "name": "shield",
+        "component": "Shield",
+        "path": "./components/Shield.tsx"
+    },
+    "sign-in": {
+        "name": "sign-in",
+        "component": "SignIn",
+        "path": "./components/SignIn.tsx"
+    },
+    "sign-out": {
+        "name": "sign-out",
+        "component": "SignOut",
+        "path": "./components/SignOut.tsx"
+    },
+    "signs": {
+        "name": "signs",
+        "component": "Signs",
+        "path": "./components/Signs.tsx"
+    },
+    "spinner": {
+        "name": "spinner",
+        "component": "Spinner",
+        "path": "./components/Spinner.tsx"
+    },
+    "testing-icon": {
+        "name": "testing-icon",
+        "component": "TestingIcon",
+        "path": "./components/TestingIcon.tsx"
+    },
+    "trash": {
+        "name": "trash",
+        "component": "Trash",
+        "path": "./components/Trash.tsx"
+    },
+    "unknown": {
+        "name": "unknown",
+        "component": "Unknown",
+        "path": "./components/Unknown.tsx"
+    },
+    "user": {
+        "name": "user",
+        "component": "User",
+        "path": "./components/User.tsx"
+    },
+    "user-circle": {
+        "name": "user-circle",
+        "component": "UserCircle",
+        "path": "./components/UserCircle.tsx"
+    },
+    "user-cog": {
+        "name": "user-cog",
+        "component": "UserCog",
+        "path": "./components/UserCog.tsx"
+    },
+    "user-edit": {
+        "name": "user-edit",
+        "component": "UserEdit",
+        "path": "./components/UserEdit.tsx"
+    },
+    "user-shield": {
+        "name": "user-shield",
+        "component": "UserShield",
+        "path": "./components/UserShield.tsx"
+    },
+    "users": {
+        "name": "users",
+        "component": "Users",
+        "path": "./components/Users.tsx"
+    },
+    "warning": {
+        "name": "warning",
+        "component": "Warning",
+        "path": "./components/Warning.tsx"
+    }
+}

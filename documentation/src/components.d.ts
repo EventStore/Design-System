@@ -6,32 +6,77 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface EsdRoot {
+    interface DocsCode {
+        "code": string;
+        "language": string;
+    }
+    interface DocsMermaid {
+        "code": string;
+    }
+    interface DocsPage {
+    }
+    interface DocsRoot {
     }
 }
 declare global {
-    interface HTMLEsdRootElement extends Components.EsdRoot, HTMLStencilElement {
+    interface HTMLDocsCodeElement extends Components.DocsCode, HTMLStencilElement {
     }
-    var HTMLEsdRootElement: {
-        prototype: HTMLEsdRootElement;
-        new (): HTMLEsdRootElement;
+    var HTMLDocsCodeElement: {
+        prototype: HTMLDocsCodeElement;
+        new (): HTMLDocsCodeElement;
+    };
+    interface HTMLDocsMermaidElement extends Components.DocsMermaid, HTMLStencilElement {
+    }
+    var HTMLDocsMermaidElement: {
+        prototype: HTMLDocsMermaidElement;
+        new (): HTMLDocsMermaidElement;
+    };
+    interface HTMLDocsPageElement extends Components.DocsPage, HTMLStencilElement {
+    }
+    var HTMLDocsPageElement: {
+        prototype: HTMLDocsPageElement;
+        new (): HTMLDocsPageElement;
+    };
+    interface HTMLDocsRootElement extends Components.DocsRoot, HTMLStencilElement {
+    }
+    var HTMLDocsRootElement: {
+        prototype: HTMLDocsRootElement;
+        new (): HTMLDocsRootElement;
     };
     interface HTMLElementTagNameMap {
-        "esd-root": HTMLEsdRootElement;
+        "docs-code": HTMLDocsCodeElement;
+        "docs-mermaid": HTMLDocsMermaidElement;
+        "docs-page": HTMLDocsPageElement;
+        "docs-root": HTMLDocsRootElement;
     }
 }
 declare namespace LocalJSX {
-    interface EsdRoot {
+    interface DocsCode {
+        "code": string;
+        "language": string;
+    }
+    interface DocsMermaid {
+        "code": string;
+    }
+    interface DocsPage {
+    }
+    interface DocsRoot {
     }
     interface IntrinsicElements {
-        "esd-root": EsdRoot;
+        "docs-code": DocsCode;
+        "docs-mermaid": DocsMermaid;
+        "docs-page": DocsPage;
+        "docs-root": DocsRoot;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "esd-root": LocalJSX.EsdRoot & JSXBase.HTMLAttributes<HTMLEsdRootElement>;
+            "docs-code": LocalJSX.DocsCode & JSXBase.HTMLAttributes<HTMLDocsCodeElement>;
+            "docs-mermaid": LocalJSX.DocsMermaid & JSXBase.HTMLAttributes<HTMLDocsMermaidElement>;
+            "docs-page": LocalJSX.DocsPage & JSXBase.HTMLAttributes<HTMLDocsPageElement>;
+            "docs-root": LocalJSX.DocsRoot & JSXBase.HTMLAttributes<HTMLDocsRootElement>;
         }
     }
 }
