@@ -1,6 +1,14 @@
 # es-status
 
+Display the status of something
 
+## Example
+
+```jsx
+<es-status status={'okay'} />
+```
+
+<es-status status={'okay'} />
 
 <!-- Auto Generated Below -->
 
@@ -27,4 +35,4 @@ graph TD;
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+

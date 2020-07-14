@@ -1,0 +1,25 @@
+:host {
+    display: flex;
+    justify-content: center;
+    grid-area: header;
+    padding: 0 40px;
+    height: var(--layout-header-height);
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+header {
+    width: 100%;
+    max-width: var(--layout-max-width);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header_right {
+    margin-left: auto;
+}

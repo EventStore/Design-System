@@ -32,7 +32,7 @@
         "@eventstore/postcss-palette-plugin": "0.0.59",
         "@eventstore/stencil-markdown-plugin": "0.0.59",
         "@rollup/plugin-replace": "2.3.2",
-        "@stencil/core": "^1.15.0",
+        "@stencil/core": "^1.16.2",
         "@stencil/postcss": "1.0.1",
         "@types/jest": "25.2.1",
         "@types/puppeteer": "2.0.1",
@@ -43,7 +43,8 @@
         "postcss-preset-env": "6.7.0",
         "prettier": "^2.0.5",
         "puppeteer": "3.0.2",
-        "rollup": "2.18.1",
+        "rollup": "2.21.0",
+        "rollup-plugin-require-context": "1.0.0",
         "typescript": "3.9.5",
         "workbox-build": "^5.1.3"
     }

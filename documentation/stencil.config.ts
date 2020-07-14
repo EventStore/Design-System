@@ -1,8 +1,11 @@
 import { Config } from '@stencil/core';
 import { postcss } from '@stencil/postcss';
 import postcssPresetEnv from 'postcss-preset-env';
+import requireContext from 'rollup-plugin-require-context';
+
 import { mdx } from '@eventstore/stencil-markdown-plugin/plugin';
 import injectPalettePlugin from '@eventstore/postcss-palette-plugin';
+
 import { palette } from './src/global/palette';
 
 export const config: Config = {
@@ -18,6 +21,7 @@ export const config: Config = {
     ],
     devServer: {
         openBrowser: false,
+        reloadStrategy: 'pageReload',
     },
     plugins: [
         mdx(),
@@ -34,4 +38,7 @@ export const config: Config = {
             ],
         }),
     ],
+    rollupPlugins: {
+        before: [requireContext({ include: ['**/*.ts', '**/*.tsx'] })],
+    },
 };

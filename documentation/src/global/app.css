@@ -3,13 +3,13 @@
     @inject-palette;
 
     --layout-max-width: 1680px;
-    --layout-content-max-width: 1430px;
-    --layout-header-height: 90px;
+    --layout-content-max-width: 980px;
+    --layout-header-height: 70px;
     --layout-banner-height: 0px;
     --layout-body-top: calc(
         var(--layout-header-height) + var(--layout-banner-height)
     );
-    --layout-sidebar-width: 250px;
+    --layout-sidebar-width: 290px;
     --layout-footer-height: 90px;
 }
 
