@@ -2,7 +2,7 @@ import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
     tag: 'es-checkbox',
-    styleUrls: ['../Field/field.css', 'es-checkbox.css'],
+    styleUrl: 'es-checkbox.css',
     shadow: {
         delegatesFocus: true,
     },

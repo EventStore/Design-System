@@ -1,3 +1,5 @@
+@import '../Field/field.css';
+
 :host {
     display: block;
     --field-grid-columns: [before] 1fr [input] 24px [label] 311px [after] 1fr;
