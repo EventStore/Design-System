@@ -14,7 +14,7 @@
         "build": "lerna run build",
         "test": "lerna run test",
         "lint": "lerna run lint",
-        "bump": "lerna version --no-push --no-git-tag-version",
+        "bump": "lerna version --no-push",
         "release": "run-s release:*",
         "release:pre": "run-s lint build test",
         "release:publish": "lerna publish from-package"
