@@ -179,8 +179,8 @@ export const createWorkingData = <T extends object>(
                     if (error instanceof HTTPError) {
                         const details = await error.details();
                         toast.error({
-                            title: error.statusText ?? 'Error',
-                            message: details.Message,
+                            title: details.title,
+                            message: details.detail,
                         });
                     } else {
                         logger.error(error);
