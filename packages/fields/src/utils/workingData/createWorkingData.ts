@@ -1,11 +1,9 @@
 import { HTTPError } from '@eventstore/utils';
 import { toast } from '@eventstore/components';
-
 import { logger } from '../logger';
-import { WorkingDataOptions, WorkingData } from '../../types';
+import { WorkingDataOptions, WorkingData, Severity } from '../../types';
 import { expandOptions } from './expandOptions';
 import { createStores } from './createStores';
-
 export const createWorkingData = <T extends object>(
     options: WorkingDataOptions<T>,
 ): WorkingData<T> => {
@@ -17,19 +15,26 @@ export const createWorkingData = <T extends object>(
         fields,
         refs,
     } = createStores(fullOptions);
-
+    const insertMessage = (
+        key: keyof T,
+        severity: Severity,
+        message: string,
+    ) => {
+        messages[key] = {
+            ...messages[key],
+            [severity]: [...messages[key][severity], message],
+        };
+    };
     let failedValidation = false;
     let validationTimeout: number;
     let forcingFocus = false;
     let awaiters: Array<(
         value?: boolean | PromiseLike<boolean> | undefined,
     ) => void> = [];
-
     const runValidation = async (forceFocus = true) => {
         resetMessages();
         const promises: Promise<void>[] = [];
         const failures = new Set<keyof T>();
-
         try {
             for (const [
                 k,
@@ -43,69 +48,54 @@ export const createWorkingData = <T extends object>(
                 const key = k as keyof T;
                 const value = data[key];
                 const exists = checkExists(value);
-
                 if (!exists) {
                     if (!optional) {
                         failures.add(key);
-                        messages[key] = {
-                            ...messages[key],
-                            error: [
-                                ...messages[key].error,
-                                typeof requiredMessage === 'string'
-                                    ? requiredMessage
-                                    : requiredMessage(value, data),
-                            ],
-                        };
+                        insertMessage(
+                            key,
+                            'error',
+                            typeof requiredMessage === 'string'
+                                ? requiredMessage
+                                : requiredMessage(value, data),
+                        );
                     }
-
                     continue;
                 }
-
                 validations.forEach(
                     ({ validator, message, severity = 'error' }) =>
                         promises.push(
                             (async () => {
                                 const success = await validator(value, data);
                                 if (success) return;
-
                                 failures.add(key);
-                                messages[key] = {
-                                    ...messages[key],
-                                    [severity]: [
-                                        ...messages[key][severity],
-                                        typeof message === 'string'
-                                            ? message
-                                            : message(value, data),
-                                    ],
-                                };
+                                insertMessage(
+                                    key,
+                                    severity,
+                                    typeof message === 'string'
+                                        ? message
+                                        : message(value, data),
+                                );
                             })(),
                         ),
                 );
             }
-
             await Promise.all(promises);
-
             failedValidation = !!failures.size;
-
             if (!failedValidation) return true;
-
             if (forceFocus) {
                 for (const failure of failures) {
                     const ref = refs.get(failure);
                     if (!ref) continue;
                     ref.focus({ preventScroll: true });
                     ref.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
                     break;
                 }
             }
         } catch (error) {
             logger.error('Validation Failed', error);
         }
-
         return false;
     };
-
     const validate = (forceFocus = true) => {
         return new Promise<boolean>((resolve) => {
             forcingFocus = forcingFocus || forceFocus;
@@ -119,7 +109,6 @@ export const createWorkingData = <T extends object>(
             });
         });
     };
-
     return {
         get data() {
             return { ...data };
@@ -157,12 +146,9 @@ export const createWorkingData = <T extends object>(
         onChange,
         listen: (e) => {
             e.stopPropagation();
-
             if (state.frozen) return;
-
             const { name, value } = e.detail;
             data[name] = value;
-
             if (failedValidation) {
                 validate(false);
             }
@@ -171,16 +157,26 @@ export const createWorkingData = <T extends object>(
         submit: async (fn, options = {}) => {
             if (state.frozen) return;
             state.frozen = true;
-
             if (await validate(options.forceFocus)) {
                 try {
                     await fn({ ...data });
                 } catch (error) {
                     if (error instanceof HTTPError) {
-                        const details = await error.details();
+                        const {
+                            title,
+                            detail,
+                            fields = {},
+                        } = await error.details();
+                        for (const [key, message] of Object.entries(fields)) {
+                            insertMessage(
+                                key as keyof T,
+                                'error',
+                                message as string,
+                            );
+                        }
                         toast.error({
-                            title: details.title,
-                            message: details.detail,
+                            title,
+                            message: detail,
                         });
                     } else {
                         logger.error(error);

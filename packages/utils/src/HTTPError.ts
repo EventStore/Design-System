@@ -1,6 +1,7 @@
 export interface HTTPProblemDetails {
     title: string;
     detail: string;
+    fields?: Record<string, string>;
 }
 
 type ExtractDetails = (response: Response) => Promise<HTTPProblemDetails>;
@@ -10,6 +11,7 @@ const defaultExtractDetails: ExtractDetails = async (response) => {
         return {
             title: details.title,
             detail: details.detail,
+            fields: details.fields,
         };
     } catch (error) {
         return {
