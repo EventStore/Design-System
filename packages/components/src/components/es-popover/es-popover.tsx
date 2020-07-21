@@ -6,8 +6,10 @@ import {
     Element,
     Event,
     EventEmitter,
+    writeTask,
 } from '@stencil/core';
 import { calcPosition } from '../../utils/calcPosition';
+import { shadowMutationObserver } from '../../utils/shadowMutationObserver';
 
 @Component({
     tag: 'es-popover',
@@ -36,9 +38,14 @@ export class Popover {
     private popper?: HTMLEsPopperElement;
     private popperShadow?: HTMLEsPopperInnerElement;
     private popperInner?: HTMLDivElement;
+    private mutationObserver!: MutationObserver;
 
     connectedCallback() {
         this.assigedNodes = Array.from(this.host.childNodes);
+        this.mutationObserver = shadowMutationObserver(
+            this.host,
+            this.mutation,
+        );
 
         if (this.open) {
             this.attachPopper();
@@ -46,6 +53,8 @@ export class Popover {
     }
 
     disconnectedCallback() {
+        this.mutationObserver.disconnect();
+
         if (this.open) {
             this.closePopper();
         }
@@ -216,6 +225,11 @@ export class Popover {
         }
 
         return parent;
+    };
+
+    private mutation: MutationCallback = () => {
+        if (!this.open) return;
+        writeTask(this.positionPopper);
     };
 
     private positionPopper = () => {
