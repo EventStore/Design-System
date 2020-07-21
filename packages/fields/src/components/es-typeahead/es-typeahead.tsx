@@ -103,6 +103,8 @@ export class EsTypeahead {
                             option: true,
                             active,
                         }}
+                        onMouseDown={this.forceFocus}
+                        onTouchStart={this.forceFocus}
                         onClick={this.clickOption(option.value)}
                         tabIndex={0}
                         onFocus={this.onFocus}
@@ -164,6 +166,11 @@ export class EsTypeahead {
     private inputElement?: HTMLInputElement;
     private captureInput = (ref?: HTMLInputElement) => {
         this.inputElement = ref;
+    };
+
+    // safari doesn't focus a button on click, so we need to force it for compatability
+    private forceFocus = (e: any) => {
+        e?.target?.focus?.();
     };
 
     private onFocus = () => {
