@@ -20,6 +20,11 @@ export const createWorkingData = <T extends object>(
         severity: Severity,
         message: string,
     ) => {
+        if (!messages[key]) {
+            logger.warn(`Unknown key "${key}" passed to validation messages`);
+            return;
+        }
+
         messages[key] = {
             ...messages[key],
             [severity]: [...messages[key][severity], message],
