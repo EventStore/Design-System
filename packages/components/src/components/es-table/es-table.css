@@ -7,6 +7,50 @@ es-table {
         display: table-row;
         height: 50px;
         background-color: transparent;
+
+        &.selectable {
+            cursor: pointer;
+            transition: color 500ms ease;
+
+            & *[role='cell']:first-child::before {
+                content: '';
+                display: block;
+                position: absolute;
+                background-color: currentColor;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                right: 100%;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                transition: transform 500ms ease, opacity 500ms ease;
+                opacity: 0;
+            }
+
+            &.selected {
+                color: var(--color-secondary);
+
+                &:hover,
+                &:focus,
+                & {
+                    & *[role='cell']:first-child::before {
+                        transform: translateX(10px);
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &:hover,
+            &:focus {
+                color: var(--color-secondary);
+
+                & *[role='cell']:first-child::before {
+                    transform: translateX(5px);
+                    opacity: 0.5;
+                }
+            }
+        }
     }
 
     & *[role='columnheader'] {
@@ -52,6 +96,8 @@ es-table {
     }
 
     & *[role='cell'] {
+        position: relative;
+        overflow: hidden;
         display: table-cell;
         padding-left: 24px;
         vertical-align: middle;
