@@ -1,7 +1,7 @@
 :host {
     display: flex;
     flex-direction: row;
-    font-size: 12px;
+    font-size: var(--breadcrumb-size, 14px);
     color: var(--color-grey-600);
     margin-bottom: 46px;
 }
