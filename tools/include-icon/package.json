@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/include-icon",
-    "version": "0.0.15",
+    "version": "0.0.16",
     "description": "Automated icon inclusion for Event Store design system",
     "license": "Apache-2.0",
     "bin": {
