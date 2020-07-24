@@ -1,28 +1,38 @@
-import { Component, h, Prop, Host } from '@stencil/core';
+import { Component, h, Prop, Host, Event, EventEmitter } from '@stencil/core';
 import { Link } from '@eventstore/router';
-import { TableColumn } from './types';
+import { TableCells } from './types';
 
 @Component({
     tag: 'es-table',
     styleUrl: 'es-table.css',
     shadow: false,
 })
-export class Table<T> {
+export class Table {
     @Prop() data!: Record<string, any>;
-    @Prop() columns!: TableColumn<any>[];
+    @Prop() cells!: TableCells<any>;
+    @Prop() columns?: string[];
     @Prop() rows!: string[];
     @Prop() linkRowTo?: (row: any) => string;
     @Prop() rowClass: (
         row: any,
     ) => Record<string, boolean> | string | undefined = () => undefined;
 
+    @Event() clickRow!: EventEmitter<any>;
+
+    private emitRowClick = (data: any) => () => {
+        this.clickRow.emit(data);
+    };
+
     private renderHeader = () => (
         <div role={'row'}>
-            {this.columns!.map(({ title }) => (
-                <div role={'columnheader'} aria-sort="none">
-                    {title}
-                </div>
-            ))}
+            {(this.columns || Object.keys(this.cells)).map((name) => {
+                const { title } = this.cells[name];
+                return (
+                    <div role={'columnheader'} aria-sort="none">
+                        {title}
+                    </div>
+                );
+            })}
         </div>
     );
 
@@ -37,6 +47,7 @@ export class Table<T> {
                     aria-rowindex={i}
                     key={key}
                     class={this.rowClass(data)}
+                    onClick={this.emitRowClick(data)}
                 >
                     {this.renderCells(data)}
                 </Link>
@@ -49,14 +60,16 @@ export class Table<T> {
                 aria-rowindex={i}
                 key={key}
                 class={this.rowClass(data)}
+                onClick={this.emitRowClick(data)}
             >
                 {this.renderCells(data)}
             </div>
         );
     };
 
-    private renderCells = (data: T) =>
-        this.columns.map(({ cell: Cell, name }) => {
+    private renderCells = (data: any) =>
+        (this.columns || Object.keys(this.cells)).map((name) => {
+            const { cell: Cell } = this.cells[name];
             const value = (data as any)[name];
             const child =
                 typeof value === 'string' || typeof value === 'number'
@@ -71,7 +84,7 @@ export class Table<T> {
     render() {
         return (
             <Host role={'table'}>
-                {this.columns && this.renderHeader()}
+                {this.renderHeader()}
                 <div role={'rowgroup'}>{this.rows.map(this.renderRow)}</div>
             </Host>
         );

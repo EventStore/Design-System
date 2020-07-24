@@ -13,7 +13,7 @@ import { CounterVariant } from "./components/es-counter/es-counter";
 import { Position } from "./components/es-popover/es-popper-inner";
 import { Checkpoint } from "./components/es-progression/es-progression";
 import { Status } from "./components/es-status/es-status";
-import { TableColumn } from "./components/es-table/types";
+import { TableCells } from "./components/es-table/types";
 import { Bread, Toast } from "./components/es-toaster/types";
 import { WizardPage } from "./components/es-wizard/es-wizard";
 export namespace Components {
@@ -109,13 +109,20 @@ export namespace Components {
         "status": Status;
     }
     interface EsTable {
-        "columns": TableColumn<any>[];
+        "cells": TableCells<any>;
+        "columns"?: string[];
         "data": Record<string, any>;
         "linkRowTo"?: (row: any) => string;
         "rowClass": (
         row: any,
     ) => Record<string, boolean> | string | undefined;
         "rows": string[];
+    }
+    interface EsTableDetail {
+        "cells": TableCells<any>;
+        "columns"?: Array<string>;
+        "data": any;
+        "titleKey": string;
     }
     interface EsToast {
         "close": () => Promise<unknown>;
@@ -234,6 +241,12 @@ declare global {
         prototype: HTMLEsTableElement;
         new (): HTMLEsTableElement;
     };
+    interface HTMLEsTableDetailElement extends Components.EsTableDetail, HTMLStencilElement {
+    }
+    var HTMLEsTableDetailElement: {
+        prototype: HTMLEsTableDetailElement;
+        new (): HTMLEsTableDetailElement;
+    };
     interface HTMLEsToastElement extends Components.EsToast, HTMLStencilElement {
     }
     var HTMLEsToastElement: {
@@ -270,6 +283,7 @@ declare global {
         "es-progression": HTMLEsProgressionElement;
         "es-status": HTMLEsStatusElement;
         "es-table": HTMLEsTableElement;
+        "es-table-detail": HTMLEsTableDetailElement;
         "es-toast": HTMLEsToastElement;
         "es-toaster": HTMLEsToasterElement;
         "es-wizard": HTMLEsWizardElement;
@@ -369,13 +383,21 @@ declare namespace LocalJSX {
         "status": Status;
     }
     interface EsTable {
-        "columns": TableColumn<any>[];
+        "cells": TableCells<any>;
+        "columns"?: string[];
         "data": Record<string, any>;
         "linkRowTo"?: (row: any) => string;
+        "onClickRow"?: (event: CustomEvent<any>) => void;
         "rowClass"?: (
         row: any,
     ) => Record<string, boolean> | string | undefined;
         "rows": string[];
+    }
+    interface EsTableDetail {
+        "cells": TableCells<any>;
+        "columns"?: Array<string>;
+        "data": any;
+        "titleKey": string;
     }
     interface EsToast {
         "count": Toast['count'];
@@ -407,6 +429,7 @@ declare namespace LocalJSX {
         "es-progression": EsProgression;
         "es-status": EsStatus;
         "es-table": EsTable;
+        "es-table-detail": EsTableDetail;
         "es-toast": EsToast;
         "es-toaster": EsToaster;
         "es-wizard": EsWizard;
@@ -433,6 +456,7 @@ declare module "@stencil/core" {
             "es-progression": LocalJSX.EsProgression & JSXBase.HTMLAttributes<HTMLEsProgressionElement>;
             "es-status": LocalJSX.EsStatus & JSXBase.HTMLAttributes<HTMLEsStatusElement>;
             "es-table": LocalJSX.EsTable & JSXBase.HTMLAttributes<HTMLEsTableElement>;
+            "es-table-detail": LocalJSX.EsTableDetail & JSXBase.HTMLAttributes<HTMLEsTableDetailElement>;
             "es-toast": LocalJSX.EsToast & JSXBase.HTMLAttributes<HTMLEsToastElement>;
             "es-toaster": LocalJSX.EsToaster & JSXBase.HTMLAttributes<HTMLEsToasterElement>;
             "es-wizard": LocalJSX.EsWizard & JSXBase.HTMLAttributes<HTMLEsWizardElement>;

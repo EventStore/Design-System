@@ -1,0 +1,59 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+:host {
+    display: block;
+    --grid-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-grey-200);
+    min-height: 61px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_title {
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--color-primary-dark);
+    margin: 0;
+}
+
+.header_actions {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+}
+
+dl {
+    display: grid;
+    grid-template-columns: var(--grid-columns);
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.cell {
+    display: flex;
+    flex-direction: row;
+}
+
+dt {
+    font-weight: bold;
+    text-align: right;
+    flex: 0 0 50%;
+    margin: 0;
+    margin-right: 10px;
+}
+
+dd {
+    flex: 0 0 50%;
+    margin: 0;
+    margin-left: 10px;
+}
