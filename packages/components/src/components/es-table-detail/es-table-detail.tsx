@@ -8,7 +8,6 @@ import { TableCells, TableCell } from '../es-table/types';
 })
 export class TableDetail {
     @Prop() data!: any;
-    @Prop() titleKey!: string;
     @Prop() cells!: TableCells<any>;
     @Prop() columns?: Array<string>;
 
@@ -28,18 +27,9 @@ export class TableDetail {
         const columns =
             this.columns ||
             Object.keys(this.cells).filter((name) => name !== 'actions');
-        const Actions = this.cells.actions.cell;
 
         return (
             <Host>
-                <header class={'header'}>
-                    <h1 class={'header_title'}>{this.data[this.titleKey]}</h1>
-                    {Actions && (
-                        <div class={'header_actions'}>
-                            <Actions data={this.data} />
-                        </div>
-                    )}
-                </header>
                 <dl>
                     {columns.map((name) => {
                         const cell = this.cells[name];
