@@ -4,32 +4,9 @@
     box-sizing: border-box;
 }
 
-:host {
+es-table-detail {
     display: block;
-    --grid-columns: repeat(auto-fill, minmax(300px, 1fr));
-}
-
-.header {
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--color-grey-200);
-    min-height: 61px;
-    align-items: center;
-    justify-content: center;
-}
-
-.header_title {
-    font-size: 22px;
-    font-weight: 300;
-    color: var(--color-primary-dark);
-    margin: 0;
-}
-
-.header_actions {
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
+    --grid-columns: repeat(2, 1fr);
 }
 
 dl {
@@ -46,14 +23,13 @@ dl {
 
 dt {
     font-weight: bold;
-    text-align: right;
-    flex: 0 0 50%;
+    text-align: left;
+    flex: 0 0 80px;
     margin: 0;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 dd {
-    flex: 0 0 50%;
+    flex: 1 1 100%;
     margin: 0;
-    margin-left: 10px;
 }
