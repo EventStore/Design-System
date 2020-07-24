@@ -52,6 +52,9 @@ export namespace Components {
         "url"?: string;
         "variant": ButtonVariant;
     }
+    interface EsCopy {
+        "copy": () => Promise<void>;
+    }
     interface EsCounter {
         "count": number;
         "size": number;
@@ -122,6 +125,10 @@ export namespace Components {
         "cells": TableCells<any>;
         "columns"?: Array<string>;
         "data": any;
+    }
+    interface EsTableDetailHeader {
+        "cells": TableCells<any>;
+        "data": any;
         "titleKey": string;
     }
     interface EsToast {
@@ -168,6 +175,12 @@ declare global {
     var HTMLEsButtonLinkElement: {
         prototype: HTMLEsButtonLinkElement;
         new (): HTMLEsButtonLinkElement;
+    };
+    interface HTMLEsCopyElement extends Components.EsCopy, HTMLStencilElement {
+    }
+    var HTMLEsCopyElement: {
+        prototype: HTMLEsCopyElement;
+        new (): HTMLEsCopyElement;
     };
     interface HTMLEsCounterElement extends Components.EsCounter, HTMLStencilElement {
     }
@@ -247,6 +260,12 @@ declare global {
         prototype: HTMLEsTableDetailElement;
         new (): HTMLEsTableDetailElement;
     };
+    interface HTMLEsTableDetailHeaderElement extends Components.EsTableDetailHeader, HTMLStencilElement {
+    }
+    var HTMLEsTableDetailHeaderElement: {
+        prototype: HTMLEsTableDetailHeaderElement;
+        new (): HTMLEsTableDetailHeaderElement;
+    };
     interface HTMLEsToastElement extends Components.EsToast, HTMLStencilElement {
     }
     var HTMLEsToastElement: {
@@ -271,6 +290,7 @@ declare global {
         "es-breadcrumb": HTMLEsBreadcrumbElement;
         "es-button": HTMLEsButtonElement;
         "es-button-link": HTMLEsButtonLinkElement;
+        "es-copy": HTMLEsCopyElement;
         "es-counter": HTMLEsCounterElement;
         "es-icon": HTMLEsIconElement;
         "es-logo": HTMLEsLogoElement;
@@ -284,6 +304,7 @@ declare global {
         "es-status": HTMLEsStatusElement;
         "es-table": HTMLEsTableElement;
         "es-table-detail": HTMLEsTableDetailElement;
+        "es-table-detail-header": HTMLEsTableDetailHeaderElement;
         "es-toast": HTMLEsToastElement;
         "es-toaster": HTMLEsToasterElement;
         "es-wizard": HTMLEsWizardElement;
@@ -324,6 +345,8 @@ declare namespace LocalJSX {
         "target"?: string;
         "url"?: string;
         "variant"?: ButtonVariant;
+    }
+    interface EsCopy {
     }
     interface EsCounter {
         "count"?: number;
@@ -397,6 +420,10 @@ declare namespace LocalJSX {
         "cells": TableCells<any>;
         "columns"?: Array<string>;
         "data": any;
+    }
+    interface EsTableDetailHeader {
+        "cells": TableCells<any>;
+        "data": any;
         "titleKey": string;
     }
     interface EsToast {
@@ -417,6 +444,7 @@ declare namespace LocalJSX {
         "es-breadcrumb": EsBreadcrumb;
         "es-button": EsButton;
         "es-button-link": EsButtonLink;
+        "es-copy": EsCopy;
         "es-counter": EsCounter;
         "es-icon": EsIcon;
         "es-logo": EsLogo;
@@ -430,6 +458,7 @@ declare namespace LocalJSX {
         "es-status": EsStatus;
         "es-table": EsTable;
         "es-table-detail": EsTableDetail;
+        "es-table-detail-header": EsTableDetailHeader;
         "es-toast": EsToast;
         "es-toaster": EsToaster;
         "es-wizard": EsWizard;
@@ -444,6 +473,7 @@ declare module "@stencil/core" {
             "es-breadcrumb": LocalJSX.EsBreadcrumb & JSXBase.HTMLAttributes<HTMLEsBreadcrumbElement>;
             "es-button": LocalJSX.EsButton & JSXBase.HTMLAttributes<HTMLEsButtonElement>;
             "es-button-link": LocalJSX.EsButtonLink & JSXBase.HTMLAttributes<HTMLEsButtonLinkElement>;
+            "es-copy": LocalJSX.EsCopy & JSXBase.HTMLAttributes<HTMLEsCopyElement>;
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
             "es-icon": LocalJSX.EsIcon & JSXBase.HTMLAttributes<HTMLEsIconElement>;
             "es-logo": LocalJSX.EsLogo & JSXBase.HTMLAttributes<HTMLEsLogoElement>;
@@ -457,6 +487,7 @@ declare module "@stencil/core" {
             "es-status": LocalJSX.EsStatus & JSXBase.HTMLAttributes<HTMLEsStatusElement>;
             "es-table": LocalJSX.EsTable & JSXBase.HTMLAttributes<HTMLEsTableElement>;
             "es-table-detail": LocalJSX.EsTableDetail & JSXBase.HTMLAttributes<HTMLEsTableDetailElement>;
+            "es-table-detail-header": LocalJSX.EsTableDetailHeader & JSXBase.HTMLAttributes<HTMLEsTableDetailHeaderElement>;
             "es-toast": LocalJSX.EsToast & JSXBase.HTMLAttributes<HTMLEsToastElement>;
             "es-toaster": LocalJSX.EsToaster & JSXBase.HTMLAttributes<HTMLEsToasterElement>;
             "es-wizard": LocalJSX.EsWizard & JSXBase.HTMLAttributes<HTMLEsWizardElement>;
