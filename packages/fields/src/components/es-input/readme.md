@@ -12,6 +12,7 @@
 | `disabled`                 | `disabled`    |             | `boolean \| undefined`                                                 | `undefined` |
 | `invalid`                  | `invalid`     |             | `boolean \| undefined`                                                 | `undefined` |
 | `label` _(required)_       | `label`       |             | `string`                                                               | `undefined` |
+| `mask`                     | --            |             | `MaskOptions \| undefined`                                             | `undefined` |
 | `messages`                 | --            |             | `undefined \| { error: string[]; warning: string[]; info: string[]; }` | `undefined` |
 | `name` _(required)_        | `name`        |             | `string`                                                               | `undefined` |
 | `placeholder` _(required)_ | `placeholder` |             | `string`                                                               | `undefined` |

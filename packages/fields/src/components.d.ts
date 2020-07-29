@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ValidationMessages } from "./types";
+import { MaskOptions } from "./components/es-input/es-input";
 import { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
 import { VNode } from "@stencil/core";
 import { RadioCardGroupOption, RenderCard } from "./components/es-radio-card-group/es-radio-card-group";
@@ -22,6 +23,7 @@ export namespace Components {
         "disabled"?: boolean;
         "invalid"?: boolean;
         "label": string;
+        "mask"?: MaskOptions;
         "messages"?: ValidationMessages;
         "name": string;
         "placeholder": string;
@@ -196,6 +198,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "invalid"?: boolean;
         "label": string;
+        "mask"?: MaskOptions;
         "messages"?: ValidationMessages;
         "name": string;
         "onEnter"?: (event: CustomEvent<any>) => void;
