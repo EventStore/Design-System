@@ -1,6 +1,17 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
+import iMask, { InputMask } from 'imask';
 import { ValidationMessages } from '../../types';
 import { Field } from '../Field/Field';
+
+export interface MaskOptions {
+    mask: any;
+    unmask?: boolean;
+    overwrite?: boolean;
+    placeholderChar?: string;
+    lazy?: boolean;
+    definitions?: Record<string, any>;
+    blocks?: Record<string, any>;
+}
 
 @Component({
     tag: 'es-input',
@@ -22,6 +33,37 @@ export class EsInput {
     @Prop() invalid?: boolean;
     @Prop() messages?: ValidationMessages;
 
+    @Prop() mask?: MaskOptions;
+
+    private input?: HTMLInputElement;
+    private inputMask?: InputMask<any>;
+
+    componentDidLoad() {
+        if (!this.mask) {
+            this.destroyMask();
+            if (this.input) this.input.value = this.value;
+        } else if (this.inputMask) {
+            this.updateMask();
+        } else {
+            this.initMask();
+        }
+    }
+
+    componentDidUpdate() {
+        if (!this.mask) {
+            this.destroyMask();
+            if (this.input) this.input.value = this.value;
+        } else if (this.inputMask) {
+            this.updateMask();
+        } else {
+            this.initMask();
+        }
+    }
+
+    componentDidUnload() {
+        this.destroyMask();
+    }
+
     render() {
         return (
             <Field
@@ -31,17 +73,55 @@ export class EsInput {
             >
                 <input
                     class={'input'}
-                    value={this.value}
                     onInput={this.onChange}
                     onKeyUp={this.onKeyUp}
                     placeholder={this.placeholder}
                     disabled={this.disabled}
                     readonly={this.readonly}
+                    ref={this.captureInput}
                 />
                 <slot />
             </Field>
         );
     }
+
+    private get maskValue() {
+        if (!this.inputMask) return this.input?.value ?? '';
+        if (this.mask?.unmask) return this.inputMask.unmaskedValue;
+        return this.inputMask.value;
+    }
+
+    private set maskValue(v: string) {
+        if (!this.inputMask) return;
+
+        const value = v == null ? '' : v;
+
+        if (this.mask?.unmask) {
+            this.inputMask.unmaskedValue = value;
+        } else {
+            this.inputMask.value = value;
+        }
+    }
+
+    private initMask = () => {
+        if (!this.input) return;
+        this.inputMask = iMask(this.input, this.mask as any);
+        this.maskValue = this.value;
+    };
+
+    private updateMask = () => {
+        this.inputMask?.updateOptions(this.mask as any);
+    };
+
+    private destroyMask = () => {
+        if (!this.inputMask) return;
+        this.inputMask.destroy();
+        delete this.inputMask;
+    };
+
+    private captureInput = (ref?: HTMLInputElement) => {
+        this.input = ref;
+    };
 
     private onKeyUp = (e: KeyboardEvent) => {
         if (e.key === 'Enter' && !e.shiftKey && !e.altKey && !e.metaKey) {
@@ -49,10 +129,10 @@ export class EsInput {
         }
     };
 
-    private onChange = (e: any) => {
+    private onChange = () => {
         this.fieldchange.emit({
             name: this.name,
-            value: e?.target?.value,
+            value: this.maskValue,
         });
     };
 }
