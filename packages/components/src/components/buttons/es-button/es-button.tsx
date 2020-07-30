@@ -1,9 +1,9 @@
 import { Component, h, Prop, Element, Listen } from '@stencil/core';
-import { ButtonVariant, ButtonColor } from './types';
+import { ButtonVariant, ButtonColor } from '../types';
 
 @Component({
     tag: 'es-button',
-    styleUrl: 'es-button.css',
+    styleUrl: '../button.css',
     shadow: true,
 })
 export class Button {
