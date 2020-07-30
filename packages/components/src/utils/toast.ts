@@ -1,4 +1,4 @@
-import type { Bread } from '../components/es-toaster/types';
+import type { Bread } from '../components/toast/types';
 
 const popToast = (level: Bread['level']) => (
     options: Omit<Bread, 'level'>,
