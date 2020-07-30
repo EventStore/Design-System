@@ -37,7 +37,7 @@ Type: `Promise<unknown>`
  - [es-copy](../es-copy)
  - [es-modal](../es-modal)
  - [es-status](../es-status)
- - [es-toast](../es-toaster)
+ - [es-toast](../toast/es-toast)
 
 ### Graph
 ```mermaid
