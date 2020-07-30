@@ -18,7 +18,7 @@
 
 ### Used by
 
- - [es-toast](../es-toaster)
+ - [es-toast](../toast/es-toast)
 
 ### Graph
 ```mermaid

@@ -8,13 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordianSection } from "./components/es-accordian/types";
 import { VNode } from "@stencil/core";
 import { Crumb } from "./components/es-breadcrumb/es-breadcrumb";
-import { ButtonColor, ButtonVariant } from "./components/es-button/types";
+import { ButtonColor, ButtonVariant } from "./components/buttons/types";
 import { CounterVariant } from "./components/es-counter/es-counter";
-import { Position } from "./components/es-popover/es-popper-inner";
+import { Position } from "./components/es-popover/components/es-popper-inner/es-popper-inner";
 import { Checkpoint } from "./components/es-progression/es-progression";
 import { Status } from "./components/es-status/es-status";
 import { TableCells } from "./components/es-table/types";
-import { Bread, Toast } from "./components/es-toaster/types";
+import { Bread, Toast } from "./components/toast/types";
 import { WizardPage } from "./components/es-wizard/es-wizard";
 export namespace Components {
     interface EsAccordian {

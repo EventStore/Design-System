@@ -1,4 +1,4 @@
-# es-portal
+# es-popper
 
 
 
@@ -7,10 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default |
-| -------- | --------- | ----------- | --------- | ------- |
-| `footer` | `footer`  |             | `boolean` | `true`  |
-| `header` | `header`  |             | `boolean` | `true`  |
+| Property   | Attribute  | Description | Type      | Default |
+| ---------- | ---------- | ----------- | --------- | ------- |
+| `backdrop` | `backdrop` |             | `boolean` | `false` |
 
 
 ## Events
@@ -22,15 +21,15 @@
 
 ## Dependencies
 
-### Depends on
+### Used by
 
-- [es-icon](../es-icon)
+ - [es-popover](../..)
 
 ### Graph
 ```mermaid
 graph TD;
-  es-modal --> es-icon
-  style es-modal fill:#f9f,stroke:#333,stroke-width:4px
+  es-popover --> es-popper
+  style es-popper fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
