@@ -6,7 +6,7 @@ import {
     Element,
     forceUpdate,
 } from '@stencil/core';
-import { Toast, Level, Bread } from './types';
+import { Toast, Level, Bread } from '../types';
 
 @Component({
     tag: 'es-toaster',

@@ -1,11 +1,11 @@
 import { Component, h, Prop } from '@stencil/core';
 import { Link } from '@eventstore/router';
 
-import { ButtonVariant, ButtonColor } from './types';
+import { ButtonVariant, ButtonColor } from '../types';
 
 @Component({
     tag: 'es-button-link',
-    styleUrl: 'es-button.css',
+    styleUrl: '../button.css',
     shadow: true,
 })
 export class ButtonLink {
