@@ -39,25 +39,11 @@ export class EsInput {
     private inputMask?: InputMask<any>;
 
     componentDidLoad() {
-        if (!this.mask) {
-            this.destroyMask();
-            if (this.input) this.input.value = this.value;
-        } else if (this.inputMask) {
-            this.updateMask();
-        } else {
-            this.initMask();
-        }
+        this.prepareComponent();
     }
 
     componentDidUpdate() {
-        if (!this.mask) {
-            this.destroyMask();
-            if (this.input) this.input.value = this.value;
-        } else if (this.inputMask) {
-            this.updateMask();
-        } else {
-            this.initMask();
-        }
+        this.prepareComponent();
     }
 
     componentDidUnload() {
@@ -73,7 +59,7 @@ export class EsInput {
             >
                 <input
                     class={'input'}
-                    onInput={this.onChange}
+                    onInput={this.onInput}
                     onKeyUp={this.onKeyUp}
                     placeholder={this.placeholder}
                     disabled={this.disabled}
@@ -103,10 +89,24 @@ export class EsInput {
         }
     }
 
+    private prepareComponent = () => {
+        if (!this.mask) {
+            this.destroyMask();
+            if (this.input) {
+                this.input.value = this.value;
+            }
+        } else if (this.inputMask) {
+            this.updateMask();
+        } else {
+            this.initMask();
+        }
+    };
+
     private initMask = () => {
         if (!this.input) return;
         this.inputMask = iMask(this.input, this.mask as any);
         this.maskValue = this.value;
+        this.inputMask.on('accept', this.onAccept);
     };
 
     private updateMask = () => {
@@ -129,10 +129,19 @@ export class EsInput {
         }
     };
 
-    private onChange = () => {
+    private onAccept = () => {
+        if (!this.mask) return;
         this.fieldchange.emit({
             name: this.name,
             value: this.maskValue,
+        });
+    };
+
+    private onInput = (e: any) => {
+        if (this.mask) return;
+        this.fieldchange.emit({
+            name: this.name,
+            value: e?.target?.value,
         });
     };
 }
