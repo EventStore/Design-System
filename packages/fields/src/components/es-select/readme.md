@@ -7,20 +7,20 @@
 
 ## Properties
 
-| Property               | Attribute     | Description | Type                                                                                      | Default     |
-| ---------------------- | ------------- | ----------- | ----------------------------------------------------------------------------------------- | ----------- |
-| `disabled`             | `disabled`    |             | `boolean \| undefined`                                                                    | `undefined` |
-| `invalid`              | `invalid`     |             | `boolean \| undefined`                                                                    | `undefined` |
-| `label` _(required)_   | `label`       |             | `string`                                                                                  | `undefined` |
-| `messages`             | --            |             | `undefined \| { error: string[]; warning: string[]; info: string[]; }`                    | `undefined` |
-| `name` _(required)_    | `name`        |             | `string`                                                                                  | `undefined` |
-| `optionFilter`         | --            |             | `((filter: string, option: TypeaheadOption) => boolean) \| undefined`                     | `undefined` |
-| `options` _(required)_ | --            |             | `TypeaheadOption[]`                                                                       | `undefined` |
-| `placeholder`          | `placeholder` |             | `string \| undefined`                                                                     | `undefined` |
-| `readonly`             | `readonly`    |             | `boolean \| undefined`                                                                    | `undefined` |
-| `renderOption`         | --            |             | `((option: TypeaheadOption, chosen: boolean) => string \| VNode \| VNode[]) \| undefined` | `undefined` |
-| `renderValue`          | --            |             | `(value: string) => string \| VNode`                                                      | `(v) => v`  |
-| `value` _(required)_   | `value`       |             | `null \| string`                                                                          | `undefined` |
+| Property               | Attribute     | Description | Type                                                                                      | Default                  |
+| ---------------------- | ------------- | ----------- | ----------------------------------------------------------------------------------------- | ------------------------ |
+| `disabled`             | `disabled`    |             | `boolean \| undefined`                                                                    | `undefined`              |
+| `invalid`              | `invalid`     |             | `boolean \| undefined`                                                                    | `undefined`              |
+| `label` _(required)_   | `label`       |             | `string`                                                                                  | `undefined`              |
+| `messages`             | --            |             | `undefined \| { error: string[]; warning: string[]; info: string[]; }`                    | `undefined`              |
+| `name` _(required)_    | `name`        |             | `string`                                                                                  | `undefined`              |
+| `optionFilter`         | --            |             | `((filter: string, option: TypeaheadOption) => boolean) \| undefined`                     | `undefined`              |
+| `options` _(required)_ | --            |             | `TypeaheadOption[]`                                                                       | `undefined`              |
+| `placeholder`          | `placeholder` |             | `string \| undefined`                                                                     | `undefined`              |
+| `readonly`             | `readonly`    |             | `boolean \| undefined`                                                                    | `undefined`              |
+| `renderOption`         | --            |             | `((option: TypeaheadOption, chosen: boolean) => string \| VNode \| VNode[]) \| undefined` | `undefined`              |
+| `renderValue`          | --            |             | `(value: TypeaheadOption \| undefined, rawValue: string) => string \| VNode`              | `(o, v) => o?.name ?? v` |
+| `value` _(required)_   | `value`       |             | `null \| string`                                                                          | `undefined`              |
 
 
 ## Events
