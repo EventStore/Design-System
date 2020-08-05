@@ -16,7 +16,10 @@ import {
     RenderTypeaheadOption,
 } from '../es-typeahead/types';
 
-export type RenderSelectValue = (value: string) => VNode | string;
+export type RenderSelectValue = (
+    value: TypeaheadOption | undefined,
+    rawValue: string,
+) => VNode | string;
 
 @Component({
     tag: 'es-select',
@@ -36,7 +39,7 @@ export class EsSelect {
 
     @Prop() options!: TypeaheadOption[];
     @Prop() renderOption?: RenderTypeaheadOption;
-    @Prop() renderValue: RenderSelectValue = (v) => v;
+    @Prop() renderValue: RenderSelectValue = (o, v) => o?.name ?? v;
     @Prop() optionFilter?: OptionFilter;
     @Prop() placeholder?: string;
     @Prop() disabled?: boolean;
@@ -53,7 +56,7 @@ export class EsSelect {
             <Input class={'true_input'} />
             {!open || !filter
                 ? this.value
-                    ? this.renderValue(this.value)
+                    ? this.renderValue(this.findOption(this.value), this.value)
                     : this.renderPlaceholder()
                 : null}
             <es-icon icon={'chevron'} size={14} />
@@ -82,6 +85,10 @@ export class EsSelect {
             </Field>
         );
     }
+
+    private findOption = (value: string) => {
+        return this.options.find((o) => o.value === value);
+    };
 
     private onTypeaheadChange = (
         e: FieldChangeEvent<{ typeahead: string[] }>,
