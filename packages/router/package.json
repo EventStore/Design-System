@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/router",
-    "version": "0.0.21",
+    "version": "0.0.22",
     "description": "Router for Stencil",
     "license": "UNLICENSED",
     "main": "dist/index.js",
@@ -23,7 +23,7 @@
         "lint": "prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "devDependencies": {
-        "@stencil/core": "^1.17.2",
+        "@stencil/core": "^1.17.3",
         "@types/jest": "26.0.3",
         "jest": "^26.0.1",
         "typescript": "^3.8.3"
