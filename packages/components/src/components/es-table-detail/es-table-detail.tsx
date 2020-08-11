@@ -7,6 +7,7 @@ import { TableCells, TableCell } from '../es-table/types';
     shadow: false,
 })
 export class TableDetail {
+    @Prop() identifier: string = 'detail';
     @Prop() data!: any;
     @Prop() cells!: TableCells<any>;
     @Prop() columns?: Array<string>;
@@ -20,7 +21,15 @@ export class TableDetail {
                 ? value
                 : null;
 
-        return <dd>{Cell ? <Cell data={this.data} /> : child}</dd>;
+        return (
+            <dd>
+                {Cell ? (
+                    <Cell data={this.data} parent={this.identifier} />
+                ) : (
+                    child
+                )}
+            </dd>
+        );
     };
 
     render() {

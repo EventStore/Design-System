@@ -115,6 +115,7 @@ export namespace Components {
         "cells": TableCells<any>;
         "columns"?: string[];
         "data": Record<string, any>;
+        "identifier": string;
         "linkRowTo"?: (row: any) => string;
         "rowClass": (
         row: any,
@@ -125,10 +126,12 @@ export namespace Components {
         "cells": TableCells<any>;
         "columns"?: Array<string>;
         "data": any;
+        "identifier": string;
     }
     interface EsTableDetailHeader {
         "cells": TableCells<any>;
         "data": any;
+        "identifier": string;
         "titleKey": string;
     }
     interface EsToast {
@@ -409,6 +412,7 @@ declare namespace LocalJSX {
         "cells": TableCells<any>;
         "columns"?: string[];
         "data": Record<string, any>;
+        "identifier"?: string;
         "linkRowTo"?: (row: any) => string;
         "onClickRow"?: (event: CustomEvent<any>) => void;
         "rowClass"?: (
@@ -420,10 +424,12 @@ declare namespace LocalJSX {
         "cells": TableCells<any>;
         "columns"?: Array<string>;
         "data": any;
+        "identifier"?: string;
     }
     interface EsTableDetailHeader {
         "cells": TableCells<any>;
         "data": any;
+        "identifier"?: string;
         "titleKey": string;
     }
     interface EsToast {
