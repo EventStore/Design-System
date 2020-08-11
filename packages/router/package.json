@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/router",
-    "version": "0.0.21",
+    "version": "0.0.22",
     "description": "Router for Stencil",
     "license": "Apache-2.0",
     "main": "dist/index.js",
