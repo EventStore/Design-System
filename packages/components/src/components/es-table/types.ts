@@ -2,6 +2,7 @@ import { VNode } from '@stencil/core';
 
 export interface CellProps<T> {
     data: T;
+    parent: string;
 }
 
 export interface TableCell<T> {
