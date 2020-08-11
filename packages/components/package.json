@@ -37,7 +37,7 @@
     "devDependencies": {
         "@eventstore/router": "^0.0.21",
         "@eventstore/utils": "^0.0.21",
-        "@stencil/core": "^1.17.2",
+        "@stencil/core": "^1.17.3",
         "@types/puppeteer": "2.0.1",
         "jest": "^26.0.1",
         "puppeteer": "2.1.1"
