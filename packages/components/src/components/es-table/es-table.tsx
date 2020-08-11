@@ -8,6 +8,7 @@ import { TableCells } from './types';
     shadow: false,
 })
 export class Table {
+    @Prop() identifier: string = 'table';
     @Prop() data!: Record<string, any>;
     @Prop() cells!: TableCells<any>;
     @Prop() columns?: string[];
@@ -77,7 +78,13 @@ export class Table {
                     : null;
 
             return (
-                <span role={'cell'}>{Cell ? <Cell data={data} /> : child}</span>
+                <span role={'cell'}>
+                    {Cell ? (
+                        <Cell data={data} parent={this.identifier} />
+                    ) : (
+                        child
+                    )}
+                </span>
             );
         });
 
