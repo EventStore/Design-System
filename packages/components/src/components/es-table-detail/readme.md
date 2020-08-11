@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property             | Attribute | Description | Type                               | Default     |
-| -------------------- | --------- | ----------- | ---------------------------------- | ----------- |
-| `cells` _(required)_ | --        |             | `{ [x: string]: TableCell<any>; }` | `undefined` |
-| `columns`            | --        |             | `string[] \| undefined`            | `undefined` |
-| `data` _(required)_  | `data`    |             | `any`                              | `undefined` |
+| Property             | Attribute    | Description | Type                               | Default     |
+| -------------------- | ------------ | ----------- | ---------------------------------- | ----------- |
+| `cells` _(required)_ | --           |             | `{ [x: string]: TableCell<any>; }` | `undefined` |
+| `columns`            | --           |             | `string[] \| undefined`            | `undefined` |
+| `data` _(required)_  | `data`       |             | `any`                              | `undefined` |
+| `identifier`         | `identifier` |             | `string`                           | `'detail'`  |
 
 
 ----------------------------------------------

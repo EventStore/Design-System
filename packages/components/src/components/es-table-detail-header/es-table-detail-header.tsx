@@ -7,6 +7,7 @@ import { TableCells } from '../es-table/types';
     shadow: false,
 })
 export class TableDetailHeader {
+    @Prop() identifier: string = 'detail-header';
     @Prop() data!: any;
     @Prop() titleKey!: string;
     @Prop() cells!: TableCells<any>;
@@ -19,7 +20,7 @@ export class TableDetailHeader {
                 <h1 class={'header_title'}>{this.data[this.titleKey]}</h1>
                 {Actions && (
                     <div class={'header_actions'}>
-                        <Actions data={this.data} />
+                        <Actions data={this.data} parent={this.identifier} />
                     </div>
                 )}
             </Host>
