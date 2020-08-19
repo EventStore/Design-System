@@ -27,6 +27,7 @@ export namespace Components {
     }
     interface EsBreadcrumb {
         "crumbs": Crumb[];
+        "noValidate": boolean;
     }
     interface EsButton {
         "color": ButtonColor;
@@ -324,6 +325,7 @@ declare namespace LocalJSX {
     }
     interface EsBreadcrumb {
         "crumbs"?: Crumb[];
+        "noValidate"?: boolean;
     }
     interface EsButton {
         "color"?: ButtonColor;
