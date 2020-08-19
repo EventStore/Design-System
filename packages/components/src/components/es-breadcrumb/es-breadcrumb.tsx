@@ -1,5 +1,6 @@
-import { Component, h, Host, Prop } from '@stencil/core';
-import { Link } from '@eventstore/router';
+import { Component, h, Host, Prop, Build } from '@stencil/core';
+import { Link, router } from '@eventstore/router';
+import { logger } from '../../utils/logger';
 
 export interface Crumb {
     path: string;
@@ -13,9 +14,14 @@ export interface Crumb {
 })
 export class BreadCrumb {
     @Prop() crumbs: Crumb[] = [];
+    @Prop() noValidate: boolean = false;
 
     render() {
         let track = '';
+
+        if (Build.isDev && !this.noValidate) {
+            this.validate();
+        }
 
         return (
             <Host>
@@ -32,4 +38,21 @@ export class BreadCrumb {
             </Host>
         );
     }
+
+    private validate = () => {
+        if (!router.location) return;
+
+        const breadcrumb = this.crumbs.reduce(
+            (track, { path }) => path.replace(/^./, track),
+            '/',
+        );
+
+        if (breadcrumb !== router.location.pathname) {
+            logger.warn.once(
+                `<es-breadcrumb /> doesn't match active route.
+route:       ${router.location.pathname}
+breadcrumb:  ${breadcrumb}`,
+            );
+        }
+    };
 }
