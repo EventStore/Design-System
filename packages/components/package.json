@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/components",
-    "version": "0.0.25",
+    "version": "0.0.26",
     "description": "Core components for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.js",
@@ -35,8 +35,8 @@
         "@eventstore/utils": "0.0.x"
     },
     "devDependencies": {
-        "@eventstore/router": "^0.0.25",
-        "@eventstore/utils": "^0.0.25",
+        "@eventstore/router": "^0.0.26",
+        "@eventstore/utils": "^0.0.26",
         "@stencil/core": "^1.17.3",
         "@types/puppeteer": "2.0.1",
         "jest": "^26.0.1",
