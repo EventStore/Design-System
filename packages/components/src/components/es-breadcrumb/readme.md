@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default |
-| -------- | --------- | ----------- | --------- | ------- |
-| `crumbs` | --        |             | `Crumb[]` | `[]`    |
+| Property     | Attribute     | Description | Type      | Default |
+| ------------ | ------------- | ----------- | --------- | ------- |
+| `crumbs`     | --            |             | `Crumb[]` | `[]`    |
+| `noValidate` | `no-validate` |             | `boolean` | `false` |
 
 
 ----------------------------------------------
