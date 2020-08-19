@@ -16,12 +16,12 @@ export class BreadCrumb {
     @Prop() crumbs: Crumb[] = [];
     @Prop() noValidate: boolean = false;
 
+    componentDidLoad() {
+        this.validate(this.crumbs);
+    }
+
     render() {
         let track = '';
-
-        if (Build.isDev && !this.noValidate) {
-            this.validate();
-        }
 
         return (
             <Host>
@@ -39,10 +39,10 @@ export class BreadCrumb {
         );
     }
 
-    private validate = () => {
-        if (!router.location) return;
+    private validate = (crumbs: Crumb[]) => {
+        if (!Build.isDev || this.noValidate || !router.location) return;
 
-        const breadcrumb = this.crumbs.reduce(
+        const breadcrumb = crumbs.reduce(
             (track, { path }) => path.replace(/^./, track),
             '/',
         );
