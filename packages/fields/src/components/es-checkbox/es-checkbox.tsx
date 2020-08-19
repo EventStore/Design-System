@@ -26,6 +26,7 @@ export class EsCheckbox {
                     onChange={this.onChange}
                     disabled={this.disabled}
                     readonly={this.readonly}
+                    checked={this.value}
                 />
                 <es-icon icon={'check'} class={'checkbox'} size={12} />
                 <span class={'label'}>

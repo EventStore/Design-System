@@ -52,7 +52,7 @@ export const createWorkingData = <T extends object>(
             ] of fields) {
                 const key = k as keyof T;
                 const value = data[key];
-                const exists = checkExists(value);
+                const exists = checkExists(value, data);
                 if (!exists) {
                     if (!optional) {
                         failures.add(key);
