@@ -7,7 +7,7 @@
     background-color: transparent;
     transition: opacity 400ms ease;
     pointer-events: none;
-    z-index: 10000;
+    z-index: var(--zindex-backdrop, 1000);
 
     opacity: 0;
 }
