@@ -14,6 +14,6 @@
         "@eventstore/router": "^0.0.26"
     },
     "devDependencies": {
-        "@stencil/core": "^1.17.3"
+        "@stencil/core": "^2.0.3"
     }
 }
