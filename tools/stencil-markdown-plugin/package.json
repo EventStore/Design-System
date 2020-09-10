@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/stencil-markdown-plugin",
-    "version": "0.0.26",
+    "version": "0.0.27",
     "description": "Import md and mdx files into stencil projects",
     "license": "Apache-2.0",
     "main": "./dist/index.js",
@@ -29,13 +29,13 @@
     "dependencies": {
         "@mdx-js/mdx": "^1.6.6",
         "@rollup/pluginutils": "^3.1.0",
-        "@stencil/core": "^1.17.3"
+        "@stencil/core": "^2.0.3"
     },
     "devDependencies": {
         "@types/node": "^12.0.7",
         "jest": "^26.1.0",
         "npm-run-all": "^4.1.5",
         "rollup": "^2.18.2",
-        "typescript": "^3.9.6"
+        "typescript": "^4.0.2"
     }
 }

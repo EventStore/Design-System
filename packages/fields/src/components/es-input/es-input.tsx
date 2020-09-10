@@ -46,7 +46,7 @@ export class EsInput {
         this.prepareComponent();
     }
 
-    componentDidUnload() {
+    disconnectedCallback() {
         this.destroyMask();
     }
 
