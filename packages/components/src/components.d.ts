@@ -109,6 +109,8 @@ export namespace Components {
         "checkpoints": Checkpoint[];
         "location": string;
     }
+    interface EsResizeObserver {
+    }
     interface EsStatus {
         "status": Status;
     }
@@ -246,6 +248,12 @@ declare global {
         prototype: HTMLEsProgressionElement;
         new (): HTMLEsProgressionElement;
     };
+    interface HTMLEsResizeObserverElement extends Components.EsResizeObserver, HTMLStencilElement {
+    }
+    var HTMLEsResizeObserverElement: {
+        prototype: HTMLEsResizeObserverElement;
+        new (): HTMLEsResizeObserverElement;
+    };
     interface HTMLEsStatusElement extends Components.EsStatus, HTMLStencilElement {
     }
     var HTMLEsStatusElement: {
@@ -305,6 +313,7 @@ declare global {
         "es-popper-inner": HTMLEsPopperInnerElement;
         "es-portal": HTMLEsPortalElement;
         "es-progression": HTMLEsProgressionElement;
+        "es-resize-observer": HTMLEsResizeObserverElement;
         "es-status": HTMLEsStatusElement;
         "es-table": HTMLEsTableElement;
         "es-table-detail": HTMLEsTableDetailElement;
@@ -407,6 +416,9 @@ declare namespace LocalJSX {
         "location": string;
         "onProgressionRequest"?: (event: CustomEvent<any>) => void;
     }
+    interface EsResizeObserver {
+        "onSizeChanged"?: (event: CustomEvent<DOMRectReadOnly>) => void;
+    }
     interface EsStatus {
         "status": Status;
     }
@@ -463,6 +475,7 @@ declare namespace LocalJSX {
         "es-popper-inner": EsPopperInner;
         "es-portal": EsPortal;
         "es-progression": EsProgression;
+        "es-resize-observer": EsResizeObserver;
         "es-status": EsStatus;
         "es-table": EsTable;
         "es-table-detail": EsTableDetail;
@@ -492,6 +505,7 @@ declare module "@stencil/core" {
             "es-popper-inner": LocalJSX.EsPopperInner & JSXBase.HTMLAttributes<HTMLEsPopperInnerElement>;
             "es-portal": LocalJSX.EsPortal & JSXBase.HTMLAttributes<HTMLEsPortalElement>;
             "es-progression": LocalJSX.EsProgression & JSXBase.HTMLAttributes<HTMLEsProgressionElement>;
+            "es-resize-observer": LocalJSX.EsResizeObserver & JSXBase.HTMLAttributes<HTMLEsResizeObserverElement>;
             "es-status": LocalJSX.EsStatus & JSXBase.HTMLAttributes<HTMLEsStatusElement>;
             "es-table": LocalJSX.EsTable & JSXBase.HTMLAttributes<HTMLEsTableElement>;
             "es-table-detail": LocalJSX.EsTableDetail & JSXBase.HTMLAttributes<HTMLEsTableDetailElement>;
