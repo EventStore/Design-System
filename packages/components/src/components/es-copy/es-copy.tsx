@@ -26,7 +26,7 @@ export class EsCopy {
         await this.copyText();
     }
 
-    componentDidUnload() {
+    disconnectedCallback() {
         clearTimeout(this.timeout);
     }
 
