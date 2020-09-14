@@ -15,6 +15,7 @@ export interface LinkProps {
     activeClass?: string;
     class?: string | Record<string, boolean>;
     disabled?: boolean;
+    onClick?: (e: MouseEvent) => void | boolean;
     [key: string]: any;
 }
 
@@ -29,6 +30,7 @@ const Link: FunctionalComponent<LinkProps> = (
         activeClass = 'link-active',
         class: classes = {},
         disabled,
+        onClick,
         ...props
     },
     children,
@@ -46,8 +48,17 @@ const Link: FunctionalComponent<LinkProps> = (
             }}
             disabled={disabled}
             aria-disabled={disabled}
+            data-router={'yes'}
             onClick={(e: MouseEvent) => {
-                if (disabled || forceRefresh || isModifiedEvent(e) || !url) {
+                const cancel = onClick?.(e);
+
+                if (
+                    cancel === false ||
+                    disabled ||
+                    forceRefresh ||
+                    isModifiedEvent(e) ||
+                    !url
+                ) {
                     return;
                 }
 
