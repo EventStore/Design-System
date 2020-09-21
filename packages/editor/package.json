@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/editor",
-    "version": "0.0.28",
+    "version": "0.0.29",
     "description": "Monaco Editor for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
@@ -30,7 +30,7 @@
         "workers": "run-p workers:*",
         "workers:main": "rollup ../../node_modules/monaco-editor/esm/vs/editor/editor.worker.js --file ./workers/editor.worker.js --format iife",
         "workers:json": "rollup ../../node_modules/monaco-editor/esm/vs/language/json/json.worker.js --file ./workers/json.worker.js --format iife",
-        "test": "stencil test --spec --e2e",
+        "test": "stencil test --spec --e2e --passWithNoTests",
         "test.watch": "stencil test --spec --e2e --watchAll",
         "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
@@ -42,8 +42,8 @@
         "@eventstore/utils": "0.0.x"
     },
     "devDependencies": {
-        "@eventstore/components": "^0.0.28",
-        "@eventstore/utils": "^0.0.28",
+        "@eventstore/components": "^0.0.29",
+        "@eventstore/utils": "^0.0.29",
         "@stencil/core": "^2.0.3",
         "@types/puppeteer": "2.0.1",
         "jest": "^26.0.1",
