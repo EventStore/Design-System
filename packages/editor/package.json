@@ -1,7 +1,7 @@
 {
-    "name": "@eventstore/components",
+    "name": "@eventstore/editor",
     "version": "0.0.29",
-    "description": "Core components for Event Store Design System",
+    "description": "Monaco Editor for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
     "module": "dist/index.js",
@@ -26,24 +26,28 @@
     },
     "scripts": {
         "build": "stencil build --docs",
-        "start": "stencil build --dev --watch --serve",
-        "test": "stencil test --spec --e2e",
+        "start": "stencil build --dev --watch --serve --openBrowser=false",
+        "workers": "run-p workers:*",
+        "workers:main": "rollup ../../node_modules/monaco-editor/esm/vs/editor/editor.worker.js --file ./workers/editor.worker.js --format iife",
+        "workers:json": "rollup ../../node_modules/monaco-editor/esm/vs/language/json/json.worker.js --file ./workers/json.worker.js --format iife",
+        "test": "stencil test --spec --e2e --passWithNoTests",
         "test.watch": "stencil test --spec --e2e --watchAll",
         "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "dependencies": {
-        "resize-observer-polyfill": "1.5.1"
+        "monaco-editor": "^0.20.0"
     },
     "peerDependencies": {
-        "@eventstore/router": "0.0.x",
+        "@eventstore/components": "0.0.x",
         "@eventstore/utils": "0.0.x"
     },
     "devDependencies": {
-        "@eventstore/router": "^0.0.29",
+        "@eventstore/components": "^0.0.29",
         "@eventstore/utils": "^0.0.29",
         "@stencil/core": "^2.0.3",
         "@types/puppeteer": "2.0.1",
         "jest": "^26.0.1",
+        "npm-run-all": "^4.1.5",
         "puppeteer": "2.1.1"
     }
 }
