@@ -13,7 +13,8 @@
     "collection:main": "dist/collection/index.js",
     "unpkg": "dist/components/components.js",
     "files": [
-        "dist/"
+        "dist/",
+        "workers/"
     ],
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/",
