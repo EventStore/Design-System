@@ -1,0 +1,13 @@
+@import './monaco.css';
+
+:host {
+    display: contents;
+    outline: none;
+}
+
+.container {
+    max-width: var(--editor-width, 100%);
+    width: var(--editor-width, 100%);
+    max-height: var(--editor-height, 300px);
+    height: var(--editor-height, 300px);
+}
