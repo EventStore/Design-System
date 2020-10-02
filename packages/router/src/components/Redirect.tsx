@@ -6,7 +6,7 @@ export interface RedirectProps {
     url: string;
 }
 
-const Redirect: FunctionalComponent<RedirectProps> = (
+export const Redirect: FunctionalComponent<RedirectProps> = (
     props,
     _children,
     utils,
@@ -20,5 +20,3 @@ const Redirect: FunctionalComponent<RedirectProps> = (
         utils,
     );
 };
-
-export default Redirect;

@@ -19,7 +19,7 @@ export interface LinkProps {
     [key: string]: any;
 }
 
-const Link: FunctionalComponent<LinkProps> = (
+export const Link: FunctionalComponent<LinkProps> = (
     {
         element: Element = 'a',
         url,
@@ -73,5 +73,3 @@ const Link: FunctionalComponent<LinkProps> = (
         </Element>
     );
 };
-
-export default Link;

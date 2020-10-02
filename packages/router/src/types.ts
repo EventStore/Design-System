@@ -31,6 +31,8 @@ export type LocationSegmentPart =
     | 'state'
     | 'key';
 
+export type Listener = (...args: any[]) => void;
+
 export interface RouterHistory {
     length: number;
     action: string;
@@ -42,7 +44,7 @@ export interface RouterHistory {
     goBack: () => void;
     goForward: () => void;
     block: (prompt?: string | Prompt) => () => void;
-    listen: (listener: Function) => () => void;
+    listen: (listener: Listener) => () => void;
     win: Window;
 }
 
