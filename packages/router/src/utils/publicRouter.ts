@@ -1,5 +1,6 @@
 import { RouterHistory, LocationSegments } from '../types';
 import internalRouter, { RouterOptions } from './internalRouter';
+import { compile } from './path-to-regex';
 
 class PublicRouter {
     public init = (options: RouterOptions) => {
@@ -15,6 +16,24 @@ class PublicRouter {
         internalRouter.updateInterestedParties();
         return internalRouter.location;
     }
+
+    public fillPath = (
+        path: string,
+        parameters?: Record<string, string>,
+    ): string => {
+        internalRouter.updateInterestedParties();
+
+        const params =
+            parameters ??
+            internalRouter.match({
+                path,
+                exact: false,
+                strict: true,
+            })?.params ??
+            {};
+
+        return compile(path)(params);
+    };
 }
 
-export default new PublicRouter();
+export const router = new PublicRouter();
