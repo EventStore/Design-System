@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/router",
-    "version": "0.0.30",
+    "version": "0.0.31",
     "description": "Router for Stencil",
     "license": "UNLICENSED",
     "main": "dist/index.js",
