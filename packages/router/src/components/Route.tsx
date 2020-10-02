@@ -13,7 +13,7 @@ export interface RouteProps {
 
 export const ROUTE_DELIMITER = '\n'.repeat(3);
 
-const Route: FunctionalComponent<RouteProps> = (
+export const Route: FunctionalComponent<RouteProps> = (
     { url, exact, routeRender },
     children,
     utils,
@@ -51,5 +51,3 @@ const Route: FunctionalComponent<RouteProps> = (
         ROUTE_DELIMITER,
     ];
 };
-
-export default Route;

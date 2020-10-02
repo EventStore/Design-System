@@ -6,7 +6,7 @@ export interface PageTitleProps {
     noSuffix?: boolean;
 }
 
-const PageTitle: FunctionalComponent<PageTitleProps> = (
+export const PageTitle: FunctionalComponent<PageTitleProps> = (
     { noSuffix },
     children,
     utils,
@@ -24,5 +24,3 @@ const PageTitle: FunctionalComponent<PageTitleProps> = (
         utils,
     );
 };
-
-export default PageTitle;
