@@ -21,12 +21,14 @@ export class BreadCrumb {
     }
 
     render() {
-        let track = '';
+        let track = '/';
 
         return (
             <Host>
                 {this.crumbs.map(({ name, path }, i, crumbs) => {
-                    const fullPath = path.replace(/^./, track);
+                    const fullPath = path
+                        .replace(/^./, track)
+                        .replace(/[/]{2,}/, '/');
                     track = fullPath;
                     return [
                         <Link exact url={fullPath} key={path}>
@@ -43,7 +45,8 @@ export class BreadCrumb {
         if (!Build.isDev || this.noValidate || !router.location) return;
 
         const breadcrumb = crumbs.reduce(
-            (track, { path }) => path.replace(/^./, track),
+            (track, { path }) =>
+                path.replace(/^./, track).replace(/[/]{2,}/, '/'),
             '/',
         );
 
