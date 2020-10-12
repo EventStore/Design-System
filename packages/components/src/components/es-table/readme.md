@@ -11,9 +11,11 @@
 | -------------------- | ------------ | ----------- | -------------------------------------------------------------- | ----------------- |
 | `cells` _(required)_ | --           |             | `{ [x: string]: TableCell<any>; }`                             | `undefined`       |
 | `columns`            | --           |             | `string[] \| undefined`                                        | `undefined`       |
-| `data` _(required)_  | --           |             | `{ [x: string]: any; }`                                        | `undefined`       |
+| `getCellData`        | --           |             | `((key: string) => any) \| undefined`                          | `undefined`       |
+| `headless`           | `headless`   |             | `boolean`                                                      | `false`           |
 | `identifier`         | `identifier` |             | `string`                                                       | `'table'`         |
 | `linkRowTo`          | --           |             | `((row: any) => string) \| undefined`                          | `undefined`       |
+| `renderExpansion`    | --           |             | `(key: string) => VNode \| null`                               | `() => null`      |
 | `rowClass`           | --           |             | `(row: any) => string \| Record<string, boolean> \| undefined` | `() => undefined` |
 | `rows` _(required)_  | --           |             | `string[]`                                                     | `undefined`       |
 
@@ -24,6 +26,19 @@
 | ---------- | ----------- | ------------------ |
 | `clickRow` |             | `CustomEvent<any>` |
 
+
+## Dependencies
+
+### Used by
+
+ - [es-table-nested](../es-table-nested)
+
+### Graph
+```mermaid
+graph TD;
+  es-table-nested --> es-table
+  style es-table fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
