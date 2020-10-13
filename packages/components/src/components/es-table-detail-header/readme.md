@@ -1,4 +1,4 @@
-# es-table-detail
+# es-table-detail-header
 
 
 
@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property                | Attribute    | Description | Type                               | Default           |
-| ----------------------- | ------------ | ----------- | ---------------------------------- | ----------------- |
-| `cells` _(required)_    | --           |             | `{ [x: string]: TableCell<any>; }` | `undefined`       |
-| `data` _(required)_     | `data`       |             | `any`                              | `undefined`       |
-| `identifier`            | `identifier` |             | `string`                           | `'detail-header'` |
-| `titleKey` _(required)_ | `title-key`  |             | `string`                           | `undefined`       |
+| Property                | Attribute      | Description | Type                               | Default           |
+| ----------------------- | -------------- | ----------- | ---------------------------------- | ----------------- |
+| `actionsCell`           | `actions-cell` |             | `string`                           | `'actions'`       |
+| `cells` _(required)_    | --             |             | `{ [x: string]: TableCell<any>; }` | `undefined`       |
+| `data` _(required)_     | `data`         |             | `any`                              | `undefined`       |
+| `identifier`            | `identifier`   |             | `string`                           | `'detail-header'` |
+| `titleKey` _(required)_ | `title-key`    |             | `string`                           | `undefined`       |
 
 
 ----------------------------------------------

@@ -19,6 +19,11 @@ dl {
 .cell {
     display: flex;
     flex-direction: row;
+    line-height: 1.5;
+
+    &.full_width {
+        grid-column: 1 / -1;
+    }
 }
 
 dt {

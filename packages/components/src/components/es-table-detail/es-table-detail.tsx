@@ -12,9 +12,9 @@ export class TableDetail {
     @Prop() cells!: TableCells<any>;
     @Prop() columns?: Array<string>;
 
-    private renderHeader = ({ title }: TableCell<any>) => <dt>{title}</dt>;
+    private renderHeader = (title: string) => <dt>{title}</dt>;
 
-    private renderCell = (name: string, { cell: Cell }: TableCell<any>) => {
+    private renderCell = (name: string, Cell: TableCell<any>['cell']) => {
         const value = this.data[name];
         const child =
             typeof value === 'string' || typeof value === 'number'
@@ -24,7 +24,11 @@ export class TableDetail {
         return (
             <dd>
                 {Cell ? (
-                    <Cell data={this.data} parent={this.identifier} />
+                    <Cell
+                        data={this.data}
+                        key={name}
+                        parent={this.identifier}
+                    />
                 ) : (
                     child
                 )}
@@ -41,10 +45,20 @@ export class TableDetail {
             <Host>
                 <dl>
                     {columns.map((name) => {
-                        const cell = this.cells[name];
+                        const { title, variant, cell } = this.getCell(name);
+                        const variants =
+                            typeof variant === 'string'
+                                ? [variant]
+                                : variant ?? [];
                         return (
-                            <div class={'cell'}>
-                                {this.renderHeader(cell)}
+                            <div
+                                class={{
+                                    cell: true,
+                                    full_width: variants.includes('full-width'),
+                                    centered: variants.includes('centered'),
+                                }}
+                            >
+                                {this.renderHeader(title)}
                                 {this.renderCell(name, cell)}
                             </div>
                         );
@@ -53,4 +67,8 @@ export class TableDetail {
             </Host>
         );
     }
+
+    private getCell = (col: string): TableCell<unknown> => {
+        return this.cells[col] ?? { title: '' };
+    };
 }

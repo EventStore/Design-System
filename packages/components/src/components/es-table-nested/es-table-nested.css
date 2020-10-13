@@ -1,0 +1,31 @@
+es-table-nested {
+    & es-table.nested {
+        display: contents;
+
+        & *[role='rowgroup'] {
+            --row-color: inherit;
+            --border-bottom-color: var(--color-primary-extra-light);
+
+            &:first-child {
+                --border-top-color: var(--color-primary-extra-light);
+
+                & .borderless {
+                    border-top: 1px solid var(--border-top-color);
+                }
+            }
+
+            &:last-child {
+                & .borderless {
+                    border-bottom: 1px solid var(--border-bottom-color);
+                }
+            }
+        }
+    }
+
+    & .expander {
+        height: 100%;
+        width: 100%;
+
+        --current-color: var(--color-primary-dark);
+    }
+}

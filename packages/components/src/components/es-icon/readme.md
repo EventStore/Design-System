@@ -37,6 +37,7 @@ Type: `Promise<unknown>`
  - [es-copy](../es-copy)
  - [es-modal](../es-modal)
  - [es-status](../es-status)
+ - [es-table-nested](../es-table-nested)
  - [es-toast](../toast/es-toast)
 
 ### Graph
@@ -46,6 +47,7 @@ graph TD;
   es-copy --> es-icon
   es-modal --> es-icon
   es-status --> es-icon
+  es-table-nested --> es-icon
   es-toast --> es-icon
   style es-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

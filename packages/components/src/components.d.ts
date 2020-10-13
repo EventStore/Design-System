@@ -117,9 +117,11 @@ export namespace Components {
     interface EsTable {
         "cells": TableCells<any>;
         "columns"?: string[];
-        "data": Record<string, any>;
+        "getCellData"?: (key: string) => any;
+        "headless": boolean;
         "identifier": string;
         "linkRowTo"?: (row: any) => string;
+        "renderExpansion": (key: string) => VNode | null;
         "rowClass": (
         row: any,
     ) => Record<string, boolean> | string | undefined;
@@ -132,10 +134,28 @@ export namespace Components {
         "identifier": string;
     }
     interface EsTableDetailHeader {
+        "actionsCell": string;
         "cells": TableCells<any>;
         "data": any;
         "identifier": string;
         "titleKey": string;
+    }
+    interface EsTableNested {
+        "canExpand": (key: string, data: any) => boolean;
+        "cells": TableCells<any>;
+        "columns"?: string[];
+        "getCellData"?: (key: string) => any;
+        "getNestedCellData"?: (key: string) => any;
+        "getNestedRows"?: (key: string) => string[] | undefined;
+        "linkRowTo"?: (row: any) => string;
+        "loadNested"?: (key: string, data: any) => Promise<void>;
+        "nestedColumns"?: string[];
+        "nestedIdentifier": string;
+        "outerIdentifier": string;
+        "rowClass": (
+        row: any,
+    ) => Record<string, boolean> | string | undefined;
+        "rows": string[];
     }
     interface EsToast {
         "close": () => Promise<unknown>;
@@ -278,6 +298,12 @@ declare global {
         prototype: HTMLEsTableDetailHeaderElement;
         new (): HTMLEsTableDetailHeaderElement;
     };
+    interface HTMLEsTableNestedElement extends Components.EsTableNested, HTMLStencilElement {
+    }
+    var HTMLEsTableNestedElement: {
+        prototype: HTMLEsTableNestedElement;
+        new (): HTMLEsTableNestedElement;
+    };
     interface HTMLEsToastElement extends Components.EsToast, HTMLStencilElement {
     }
     var HTMLEsToastElement: {
@@ -318,6 +344,7 @@ declare global {
         "es-table": HTMLEsTableElement;
         "es-table-detail": HTMLEsTableDetailElement;
         "es-table-detail-header": HTMLEsTableDetailHeaderElement;
+        "es-table-nested": HTMLEsTableNestedElement;
         "es-toast": HTMLEsToastElement;
         "es-toaster": HTMLEsToasterElement;
         "es-wizard": HTMLEsWizardElement;
@@ -425,10 +452,12 @@ declare namespace LocalJSX {
     interface EsTable {
         "cells": TableCells<any>;
         "columns"?: string[];
-        "data": Record<string, any>;
+        "getCellData"?: (key: string) => any;
+        "headless"?: boolean;
         "identifier"?: string;
         "linkRowTo"?: (row: any) => string;
         "onClickRow"?: (event: CustomEvent<any>) => void;
+        "renderExpansion"?: (key: string) => VNode | null;
         "rowClass"?: (
         row: any,
     ) => Record<string, boolean> | string | undefined;
@@ -441,10 +470,30 @@ declare namespace LocalJSX {
         "identifier"?: string;
     }
     interface EsTableDetailHeader {
+        "actionsCell"?: string;
         "cells": TableCells<any>;
         "data": any;
         "identifier"?: string;
         "titleKey": string;
+    }
+    interface EsTableNested {
+        "canExpand"?: (key: string, data: any) => boolean;
+        "cells": TableCells<any>;
+        "columns"?: string[];
+        "getCellData"?: (key: string) => any;
+        "getNestedCellData"?: (key: string) => any;
+        "getNestedRows"?: (key: string) => string[] | undefined;
+        "linkRowTo"?: (row: any) => string;
+        "loadNested"?: (key: string, data: any) => Promise<void>;
+        "nestedColumns"?: string[];
+        "nestedIdentifier"?: string;
+        "onClickRow"?: (event: CustomEvent<any>) => void;
+        "onExpansion"?: (event: CustomEvent<{ data: any; key: string }>) => void;
+        "outerIdentifier"?: string;
+        "rowClass"?: (
+        row: any,
+    ) => Record<string, boolean> | string | undefined;
+        "rows": string[];
     }
     interface EsToast {
         "count": Toast['count'];
@@ -480,6 +529,7 @@ declare namespace LocalJSX {
         "es-table": EsTable;
         "es-table-detail": EsTableDetail;
         "es-table-detail-header": EsTableDetailHeader;
+        "es-table-nested": EsTableNested;
         "es-toast": EsToast;
         "es-toaster": EsToaster;
         "es-wizard": EsWizard;
@@ -510,6 +560,7 @@ declare module "@stencil/core" {
             "es-table": LocalJSX.EsTable & JSXBase.HTMLAttributes<HTMLEsTableElement>;
             "es-table-detail": LocalJSX.EsTableDetail & JSXBase.HTMLAttributes<HTMLEsTableDetailElement>;
             "es-table-detail-header": LocalJSX.EsTableDetailHeader & JSXBase.HTMLAttributes<HTMLEsTableDetailHeaderElement>;
+            "es-table-nested": LocalJSX.EsTableNested & JSXBase.HTMLAttributes<HTMLEsTableNestedElement>;
             "es-toast": LocalJSX.EsToast & JSXBase.HTMLAttributes<HTMLEsToastElement>;
             "es-toaster": LocalJSX.EsToaster & JSXBase.HTMLAttributes<HTMLEsToasterElement>;
             "es-wizard": LocalJSX.EsWizard & JSXBase.HTMLAttributes<HTMLEsWizardElement>;
