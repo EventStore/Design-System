@@ -157,11 +157,11 @@ class InternalRouter {
                 };
             }
 
-            if (!this.pendingActions.has(ref)) {
+            if (this.pendingActions.has(ref)) {
+                this.pendingActions.get(ref)!.add(callback);
+            } else {
                 this.pendingActions.set(ref, new Set([callback]));
                 this.queueActionOnRef(ref);
-            } else {
-                this.pendingActions.get(ref)!.add(callback);
             }
 
             return () => {
@@ -171,8 +171,10 @@ class InternalRouter {
     }
 
     private queueActionOnRef = async (ref: any) => {
-        await getElement(ref).componentOnReady();
-        this.pendingActions.get(ref)!.forEach((cb) => cb());
+        const element = await getElement(ref).componentOnReady();
+        if (element?.ownerDocument?.contains(element)) {
+            this.pendingActions.get(ref)?.forEach((cb) => cb());
+        }
         this.pendingActions.delete(ref);
     };
 }
