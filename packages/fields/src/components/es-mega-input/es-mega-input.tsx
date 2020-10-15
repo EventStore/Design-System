@@ -5,9 +5,7 @@ import { Field } from '../Field/Field';
 @Component({
     tag: 'es-mega-input',
     styleUrl: 'es-mega-input.css',
-    shadow: {
-        delegatesFocus: true,
-    },
+    shadow: true,
 })
 export class EsMegaInput {
     @Event({ bubbles: true }) fieldchange!: EventEmitter;
