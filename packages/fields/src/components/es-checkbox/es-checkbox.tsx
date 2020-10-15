@@ -3,9 +3,7 @@ import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 @Component({
     tag: 'es-checkbox',
     styleUrl: 'es-checkbox.css',
-    shadow: {
-        delegatesFocus: true,
-    },
+    shadow: true,
 })
 export class EsCheckbox {
     @Event({ bubbles: true }) fieldchange!: EventEmitter;

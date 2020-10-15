@@ -1,4 +1,14 @@
-import { Component, h, Host, Event, EventEmitter, Prop } from '@stencil/core';
+import { delegateFocus, trapFocus } from '@eventstore/utils';
+import {
+    Component,
+    h,
+    Host,
+    Event,
+    EventEmitter,
+    Prop,
+    getElement,
+    Listen,
+} from '@stencil/core';
 
 @Component({
     tag: 'es-modal',
@@ -10,6 +20,25 @@ export class Modal {
     @Prop() header: boolean = true;
     @Prop() footer: boolean = true;
 
+    private releaseFocus?: () => void;
+
+    componentDidLoad() {
+        delegateFocus(getElement(this));
+    }
+
+    connectedCallback() {
+        this.releaseFocus = trapFocus(getElement(this));
+    }
+
+    disconnectedCallback() {
+        this.releaseFocus?.();
+    }
+
+    @Listen('keyup') onEscape(e: KeyboardEvent) {
+        if (e.key !== 'Escape') return;
+        this.requestClose.emit();
+    }
+
     render() {
         return (
             <Host>
@@ -17,6 +46,7 @@ export class Modal {
                     class={'close'}
                     role={'button'}
                     onClick={this.requestClose.emit}
+                    data-skip-focus-delegation
                 >
                     <es-icon icon={'close'} size={22} />
                 </button>
