@@ -1,4 +1,4 @@
-import { Environment } from 'monaco-editor';
+import type { Environment } from 'monaco-editor';
 
 declare global {
     interface Window {
