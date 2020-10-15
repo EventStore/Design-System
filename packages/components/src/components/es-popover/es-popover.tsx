@@ -23,6 +23,7 @@ export class Popover {
     @Prop() target = 'body';
     @Prop({ reflect: true }) open: boolean = false;
     @Prop() backdrop: boolean = false;
+    @Prop({ attribute: 'trap-focus' }) trapFocus: boolean = false;
 
     @Prop() positionY: string = 'top';
     @Prop() positionX: string = 'middle';
@@ -125,6 +126,7 @@ export class Popover {
 
         popper.style.opacity = '0';
         popper.setAttribute('backdrop', `${this.backdrop}`);
+        popper.setAttribute('trap-focus', `${this.trapFocus}`);
         popperInner.classList.add('inner');
 
         if (this.popperClass) {

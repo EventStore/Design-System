@@ -4,7 +4,7 @@ import { editor } from 'monaco-editor';
 @Component({
     tag: 'es-editor',
     styleUrl: 'es-editor.css',
-    shadow: { delegatesFocus: true },
+    shadow: true,
 })
 export class YEditor {
     @Element() host!: HTMLEsEditorElement;

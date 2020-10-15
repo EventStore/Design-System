@@ -24,9 +24,7 @@ export type RenderSelectValue = (
 @Component({
     tag: 'es-select',
     styleUrl: 'es-select.css',
-    shadow: {
-        delegatesFocus: true,
-    },
+    shadow: true,
 })
 export class EsSelect {
     @Element() host!: HTMLEsListCreatorElement;
