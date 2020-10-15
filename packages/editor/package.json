@@ -14,7 +14,11 @@
     "unpkg": "dist/components/components.js",
     "files": [
         "dist/",
-        "workers/"
+        "workers/",
+        "/initialize.d.ts",
+        "/initialize.js",
+        "/monaco.d.ts",
+        "/monaco.js"
     ],
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/",
@@ -26,9 +30,12 @@
         "directory": "packages/components"
     },
     "scripts": {
-        "build": "stencil build --docs",
+        "build": "run-p build:*",
         "start": "stencil build --dev --watch --serve --openBrowser=false",
-        "workers": "run-p workers:*",
+        "build:stencil": "stencil build --docs",
+        "build:initialize": "tsc ./utils/initialize.ts --declaration --outDir . ",
+        "build:monaco": "tsc ./utils/monaco.ts --declaration --outDir . ",
+        "build:workers": "run-p workers:*",
         "workers:main": "rollup ../../node_modules/monaco-editor/esm/vs/editor/editor.worker.js --file ./workers/editor.worker.js --format iife",
         "workers:json": "rollup ../../node_modules/monaco-editor/esm/vs/language/json/json.worker.js --file ./workers/json.worker.js --format iife",
         "test": "stencil test --spec --e2e --passWithNoTests",
