@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default |
-| ---------- | ---------- | ----------- | --------- | ------- |
-| `backdrop` | `backdrop` |             | `boolean` | `false` |
+| Property    | Attribute    | Description | Type      | Default |
+| ----------- | ------------ | ----------- | --------- | ------- |
+| `backdrop`  | `backdrop`   |             | `boolean` | `false` |
+| `trapFocus` | `trap-focus` |             | `boolean` | `false` |
 
 
 ## Events

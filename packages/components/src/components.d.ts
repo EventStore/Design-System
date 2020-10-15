@@ -90,9 +90,11 @@ export namespace Components {
         "positionX": string;
         "positionY": string;
         "target": string;
+        "trapFocus": boolean;
     }
     interface EsPopper {
         "backdrop": boolean;
+        "trapFocus": boolean;
     }
     interface EsPopperInner {
         "setPosition": (position: Position) => Promise<void>;
@@ -424,10 +426,12 @@ declare namespace LocalJSX {
         "positionX"?: string;
         "positionY"?: string;
         "target"?: string;
+        "trapFocus"?: boolean;
     }
     interface EsPopper {
         "backdrop"?: boolean;
         "onRequestClose"?: (event: CustomEvent<any>) => void;
+        "trapFocus"?: boolean;
     }
     interface EsPopperInner {
     }

@@ -1,9 +1,10 @@
-import { HTTPError } from '@eventstore/utils';
+import { delegateFocus, HTTPError } from '@eventstore/utils';
 import { toast } from '@eventstore/components';
 import { logger } from '../logger';
 import { WorkingDataOptions, WorkingData, Severity } from '../../types';
 import { expandOptions } from './expandOptions';
 import { createStores } from './createStores';
+
 export const createWorkingData = <T extends object>(
     options: WorkingDataOptions<T>,
 ): WorkingData<T> => {
@@ -91,7 +92,7 @@ export const createWorkingData = <T extends object>(
                 for (const failure of failures) {
                     const ref = refs.get(failure);
                     if (!ref) continue;
-                    ref.focus({ preventScroll: true });
+                    delegateFocus(ref, { preventScroll: true });
                     ref.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     break;
                 }
