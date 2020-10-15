@@ -127,6 +127,7 @@ export namespace Components {
         "rowClass": (
         row: any,
     ) => Record<string, boolean> | string | undefined;
+        "rowTakesFocus"?: boolean;
         "rows": string[];
     }
     interface EsTableDetail {
@@ -153,10 +154,12 @@ export namespace Components {
         "loadNested"?: (key: string, data: any) => Promise<void>;
         "nestedColumns"?: string[];
         "nestedIdentifier": string;
+        "nestedRowTakesFocus"?: boolean;
         "outerIdentifier": string;
         "rowClass": (
         row: any,
     ) => Record<string, boolean> | string | undefined;
+        "rowTakesFocus"?: boolean;
         "rows": string[];
     }
     interface EsToast {
@@ -465,6 +468,7 @@ declare namespace LocalJSX {
         "rowClass"?: (
         row: any,
     ) => Record<string, boolean> | string | undefined;
+        "rowTakesFocus"?: boolean;
         "rows": string[];
     }
     interface EsTableDetail {
@@ -491,12 +495,14 @@ declare namespace LocalJSX {
         "loadNested"?: (key: string, data: any) => Promise<void>;
         "nestedColumns"?: string[];
         "nestedIdentifier"?: string;
+        "nestedRowTakesFocus"?: boolean;
         "onClickRow"?: (event: CustomEvent<any>) => void;
         "onExpansion"?: (event: CustomEvent<{ data: any; key: string }>) => void;
         "outerIdentifier"?: string;
         "rowClass"?: (
         row: any,
     ) => Record<string, boolean> | string | undefined;
+        "rowTakesFocus"?: boolean;
         "rows": string[];
     }
     interface EsToast {
