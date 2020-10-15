@@ -24,9 +24,7 @@ export type RenderCard<T extends RadioCardGroupOption> = (
 @Component({
     tag: 'es-radio-card-group',
     styleUrl: 'es-radio-card-group.css',
-    shadow: {
-        delegatesFocus: true,
-    },
+    shadow: true,
 })
 export class RadioCardGroup {
     @Event({ bubbles: true }) fieldchange!: EventEmitter;
