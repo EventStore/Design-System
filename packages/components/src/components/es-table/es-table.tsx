@@ -7,7 +7,7 @@ import {
     EventEmitter,
     VNode,
 } from '@stencil/core';
-import { Link } from '@eventstore/router';
+import { Link, router } from '@eventstore/router';
 import { TableCell, TableCells } from './types';
 import { logger } from '../../utils/logger';
 
@@ -24,6 +24,7 @@ export class Table {
     @Prop() columns?: string[];
     @Prop() rows!: string[];
     @Prop() linkRowTo?: (row: any) => string;
+    @Prop() rowTakesFocus?: boolean;
     @Prop() rowClass: (
         row: any,
     ) => Record<string, boolean> | string | undefined = () => undefined;
@@ -71,6 +72,7 @@ export class Table {
                     key={key}
                     class={this.rowClass(data)}
                     onClick={this.emitRowClick(data)}
+                    tabindex={'-1'}
                 >
                     {this.renderCells(data, key)}
                 </Link>
@@ -84,6 +86,7 @@ export class Table {
                 key={key}
                 class={this.rowClass(data)}
                 onClick={this.emitRowClick(data)}
+                tabindex={'-1'}
             >
                 {this.renderCells(data, key)}
             </div>
@@ -91,7 +94,7 @@ export class Table {
     };
 
     private renderCells = (data: any, key: string) =>
-        this.getColumns().map((name) => {
+        this.getColumns().map((name, i) => {
             const { cell: Cell, variant } = this.getCell(name);
             const value = data[name];
             const variants =
@@ -101,13 +104,21 @@ export class Table {
                     ? value
                     : null;
 
+            const focusCell =
+                i === 0 && (!!this.rowTakesFocus || !!this.linkRowTo);
+
             return (
                 <span
                     role={'cell'}
+                    tabindex={focusCell ? '0' : undefined}
+                    onKeyDown={
+                        focusCell ? this.focusCellKeyPress(data) : undefined
+                    }
                     class={{
                         no_pad: variants.includes('no-pad'),
                         borderless: variants.includes('borderless'),
                         centered: variants.includes('centered'),
+                        focusCell,
                     }}
                 >
                     {Cell ? (
@@ -130,6 +141,16 @@ export class Table {
             </Host>
         );
     }
+
+    private focusCellKeyPress = (data: any) => (e: KeyboardEvent) => {
+        if (e.code !== 'Space' && e.code !== 'Enter') return;
+
+        this.clickRow.emit(data);
+        if (this.linkRowTo) {
+            const link = this.linkRowTo(data);
+            router.history?.push(link);
+        }
+    };
 
     private emitRowClick = (data: any) => () => {
         this.clickRow.emit(data);
