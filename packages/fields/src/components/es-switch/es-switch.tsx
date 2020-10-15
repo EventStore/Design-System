@@ -11,9 +11,7 @@ import {
 @Component({
     tag: 'es-switch',
     styleUrl: 'es-switch.css',
-    shadow: {
-        delegatesFocus: true,
-    },
+    shadow: true,
 })
 export class EsSwitch {
     @Event({ bubbles: true }) fieldchange!: EventEmitter;

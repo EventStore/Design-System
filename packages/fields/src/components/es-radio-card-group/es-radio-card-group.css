@@ -97,6 +97,7 @@ input {
     position: absolute;
     opacity: 0;
     width: 0;
+    bottom: 0;
 }
 
 .label {

@@ -16,9 +16,7 @@ export interface MaskOptions {
 @Component({
     tag: 'es-input',
     styleUrl: 'es-input.css',
-    shadow: {
-        delegatesFocus: true,
-    },
+    shadow: true,
 })
 export class EsInput {
     @Event({ bubbles: true }) fieldchange!: EventEmitter;

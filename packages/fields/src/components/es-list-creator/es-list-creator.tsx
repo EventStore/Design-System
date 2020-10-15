@@ -18,9 +18,7 @@ import { Field } from '../Field/Field';
 @Component({
     tag: 'es-list-creator',
     styleUrl: 'es-list-creator.css',
-    shadow: {
-        delegatesFocus: true,
-    },
+    shadow: true,
 })
 export class ListCreator {
     @Element() host!: HTMLEsListCreatorElement;

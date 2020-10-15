@@ -4,9 +4,7 @@ import { Field } from '../Field/Field';
 @Component({
     tag: 'es-number-input',
     styleUrl: 'es-number-input.css',
-    shadow: {
-        delegatesFocus: true,
-    },
+    shadow: true,
 })
 export class EsNumberInput {
     @Event({ bubbles: true }) fieldchange!: EventEmitter;

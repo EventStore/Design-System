@@ -19,6 +19,7 @@
 | `positionX`   | `position-x`   |             | `string`              | `'middle'`  |
 | `positionY`   | `position-y`   |             | `string`              | `'top'`     |
 | `target`      | `target`       |             | `string`              | `'body'`    |
+| `trapFocus`   | `trap-focus`   |             | `boolean`             | `false`     |
 
 
 ## Events
