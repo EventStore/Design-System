@@ -13,6 +13,7 @@ export class TableNested {
     @Prop() columns?: string[];
     @Prop() rows!: string[];
     @Prop() linkRowTo?: (row: any) => string;
+    @Prop() rowTakesFocus?: boolean;
     @Prop() rowClass: (
         row: any,
     ) => Record<string, boolean> | string | undefined = () => undefined;
@@ -22,6 +23,7 @@ export class TableNested {
     @Prop() getNestedRows?: (key: string) => string[] | undefined;
     @Prop() getNestedCellData?: (key: string) => any;
     @Prop() loadNested?: (key: string, data: any) => Promise<void>;
+    @Prop() nestedRowTakesFocus?: boolean;
     @Prop() canExpand: (key: string, data: any) => boolean = () => true;
 
     @State() expanded: Set<string> = new Set();
@@ -37,6 +39,7 @@ export class TableNested {
             <es-table
                 headless
                 class={'nested'}
+                rowTakesFocus={this.nestedRowTakesFocus ?? this.rowTakesFocus}
                 identifier={this.outerIdentifier}
                 getCellData={this.getNestedCellData ?? this.getCellData}
                 cells={this.cellsWithExpander()}
@@ -51,6 +54,7 @@ export class TableNested {
     render() {
         return (
             <es-table
+                rowTakesFocus={this.rowTakesFocus}
                 identifier={this.outerIdentifier}
                 getCellData={this.getCellData}
                 cells={this.cellsWithExpander()}
