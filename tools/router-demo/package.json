@@ -1,6 +1,6 @@
 {
     "name": "router-demo",
-    "version": "0.0.35",
+    "version": "0.0.36",
     "private": true,
     "description": "Demo for @eventstore/router",
     "scripts": {
@@ -11,7 +11,7 @@
         "lint": "prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "dependencies": {
-        "@eventstore/router": "^0.0.35"
+        "@eventstore/router": "^0.0.36"
     },
     "devDependencies": {
         "@stencil/core": "^2.0.3"

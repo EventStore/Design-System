@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/include-icon",
-    "version": "0.0.35",
+    "version": "0.0.36",
     "description": "Automated icon inclusion for Event Store design system",
     "license": "UNLICENSED",
     "bin": {
