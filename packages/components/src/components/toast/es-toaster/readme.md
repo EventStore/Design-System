@@ -7,7 +7,7 @@
 
 ## Methods
 
-### `popToast({ message, title, level, duration, icon, }: Bread) => Promise<void>`
+### `popToast({ message, title, level, duration, icon, onClick, }: Bread) => Promise<void>`
 
 
 
