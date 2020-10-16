@@ -31,6 +31,7 @@ export class EsToast {
         level = 'error',
         duration = 5000,
         icon = this.defaultIcons[level],
+        onClick,
     }: Bread) {
         const id = `${level}-${title}-${message}`;
 
@@ -49,6 +50,7 @@ export class EsToast {
                 level,
                 icon,
                 duration,
+                onClick,
                 count: 1,
                 timeout: setTimeout(this.eatToast(id), duration),
             };
@@ -62,13 +64,15 @@ export class EsToast {
     render() {
         return Array.from(
             this.slices,
-            ([id, { count, level, title, message, icon }]) => (
+            ([id, { count, level, title, message, icon, onClick }]) => (
                 <es-toast
                     key={id}
                     level={level}
                     count={count}
                     icon={icon}
+                    onClick={onClick}
                     ref={this.captureToast(id)}
+                    class={{ clickable: !!onClick }}
                 >
                     <strong>{title}</strong>
                     <span>{message}</span>
