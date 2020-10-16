@@ -169,7 +169,7 @@ export namespace Components {
         "level": Toast['level'];
     }
     interface EsToaster {
-        "popToast": ({ message, title, level, duration, icon, }: Bread) => Promise<void>;
+        "popToast": ({ message, title, level, duration, icon, onClick, }: Bread) => Promise<void>;
     }
     interface EsWizard {
         "location": string;
