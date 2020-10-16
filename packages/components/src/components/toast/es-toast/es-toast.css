@@ -31,6 +31,10 @@
     --contrast-color: var(--color-success);
 }
 
+:host(.clickable) {
+    cursor: pointer;
+}
+
 :host(.mounting) {
     opacity: 0;
     transform: translateX(100%);
