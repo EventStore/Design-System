@@ -122,6 +122,18 @@ const hostPath = (node: Node) => {
     return path;
 };
 
+const stopPropagation = (event: FocusEvent) => {
+    event.stopPropagation();
+};
+
+export const allowFocus = (element: HTMLElement) => {
+    element.addEventListener('focusin', stopPropagation);
+
+    return () => {
+        element.removeEventListener('focusin', stopPropagation);
+    };
+};
+
 export const trapFocus = (trap: HTMLElement, focusOptions?: FocusOptions) => {
     const previousFocus = activeElement();
     delegateFocus(trap, focusOptions);
@@ -160,10 +172,6 @@ export const trapFocus = (trap: HTMLElement, focusOptions?: FocusOptions) => {
         }
 
         return delegateFocus(trap, focusOptions);
-    };
-
-    const stopPropagation = (event: FocusEvent) => {
-        event.stopPropagation();
     };
 
     const trapTab = (event: KeyboardEvent) => {
