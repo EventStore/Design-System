@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/editor",
-    "version": "0.0.38",
+    "version": "0.0.39",
     "description": "Monaco Editor for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
@@ -50,8 +50,8 @@
         "@eventstore/utils": "0.0.x"
     },
     "devDependencies": {
-        "@eventstore/components": "^0.0.38",
-        "@eventstore/utils": "^0.0.38",
+        "@eventstore/components": "^0.0.39",
+        "@eventstore/utils": "^0.0.39",
         "@stencil/core": "^2.0.3",
         "@types/puppeteer": "2.0.1",
         "jest": "^26.0.1",
