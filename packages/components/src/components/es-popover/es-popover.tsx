@@ -8,6 +8,7 @@ import {
     EventEmitter,
     writeTask,
 } from '@stencil/core';
+import { allowFocus } from '@eventstore/utils';
 import { calcPosition } from '../../utils/calcPosition';
 import { shadowMutationObserver } from '../../utils/shadowMutationObserver';
 
@@ -40,6 +41,7 @@ export class Popover {
     private popperShadow?: HTMLEsPopperInnerElement;
     private popperInner?: HTMLDivElement;
     private mutationObserver!: MutationObserver;
+    private detachAllowFocus?: ReturnType<typeof allowFocus>;
 
     connectedCallback() {
         this.assigedNodes = Array.from(this.host.childNodes);
@@ -169,6 +171,7 @@ export class Popover {
     };
 
     private attachDocumentListeners = () => {
+        this.detachAllowFocus = allowFocus(this.popperInner!);
         window.addEventListener('scroll', this.positionPopper, {
             passive: true,
         });
@@ -178,19 +181,19 @@ export class Popover {
     };
 
     private detachDocumentListeners = () => {
+        this.detachAllowFocus?.();
         window.removeEventListener('scroll', this.positionPopper);
         window.removeEventListener('resize', this.positionPopper);
     };
 
     private enterPopper = () => {
-        if (!this.popper) return;
-        this.popperInner?.classList.add('entered');
+        if (!this.popper || !this.popperInner) return;
+
+        this.popperInner.classList.add('entered');
         this.popper.style.opacity = '1';
     };
 
     private closePopper = () => {
-        if (!this.popper) return;
-
         this.popperInner?.classList.add('exiting');
         this.popperInner?.classList.remove('entered');
         setTimeout(this.detachPopper, 400);
@@ -214,7 +217,7 @@ export class Popover {
     };
 
     private bubbleRequestClose = (e: any) => {
-        this.requestClose.emit(e);
+        this.requestClose.emit(e.detail);
     };
 
     private getParentNode = (): HTMLElement | null => {
