@@ -21,6 +21,7 @@ export namespace Components {
     }
     interface EsInput {
         "disabled"?: boolean;
+        "inputProps"?: Record<string, any>;
         "invalid"?: boolean;
         "label": string;
         "mask"?: MaskOptions;
@@ -44,6 +45,7 @@ export namespace Components {
     }
     interface EsMegaInput {
         "disabled"?: boolean;
+        "inputProps"?: Record<string, any>;
         "invalid"?: boolean;
         "label": string;
         "messages"?: ValidationMessages;
@@ -54,6 +56,7 @@ export namespace Components {
     }
     interface EsNumberInput {
         "disabled"?: boolean;
+        "inputProps"?: Record<string, any>;
         "invalid"?: boolean;
         "label": string;
         "messages"?: ValidationMessages;
@@ -93,6 +96,17 @@ export namespace Components {
         "readonly"?: boolean;
         "setPending": (pending: boolean) => Promise<void>;
         "value": boolean;
+    }
+    interface EsTextarea {
+        "disabled"?: boolean;
+        "inputProps"?: Record<string, any>;
+        "invalid"?: boolean;
+        "label": string;
+        "messages"?: ValidationMessages;
+        "name": string;
+        "placeholder": string;
+        "readonly"?: boolean;
+        "value": string;
     }
     interface EsTypeahead {
         "clearOnSelect": boolean;
@@ -159,6 +173,12 @@ declare global {
         prototype: HTMLEsSwitchElement;
         new (): HTMLEsSwitchElement;
     };
+    interface HTMLEsTextareaElement extends Components.EsTextarea, HTMLStencilElement {
+    }
+    var HTMLEsTextareaElement: {
+        prototype: HTMLEsTextareaElement;
+        new (): HTMLEsTextareaElement;
+    };
     interface HTMLEsTypeaheadElement extends Components.EsTypeahead, HTMLStencilElement {
     }
     var HTMLEsTypeaheadElement: {
@@ -180,6 +200,7 @@ declare global {
         "es-radio-card-group": HTMLEsRadioCardGroupElement;
         "es-select": HTMLEsSelectElement;
         "es-switch": HTMLEsSwitchElement;
+        "es-textarea": HTMLEsTextareaElement;
         "es-typeahead": HTMLEsTypeaheadElement;
         "es-validation-messages": HTMLEsValidationMessagesElement;
     }
@@ -196,6 +217,7 @@ declare namespace LocalJSX {
     }
     interface EsInput {
         "disabled"?: boolean;
+        "inputProps"?: Record<string, any>;
         "invalid"?: boolean;
         "label": string;
         "mask"?: MaskOptions;
@@ -222,6 +244,7 @@ declare namespace LocalJSX {
     }
     interface EsMegaInput {
         "disabled"?: boolean;
+        "inputProps"?: Record<string, any>;
         "invalid"?: boolean;
         "label": string;
         "messages"?: ValidationMessages;
@@ -233,6 +256,7 @@ declare namespace LocalJSX {
     }
     interface EsNumberInput {
         "disabled"?: boolean;
+        "inputProps"?: Record<string, any>;
         "invalid"?: boolean;
         "label": string;
         "messages"?: ValidationMessages;
@@ -278,6 +302,18 @@ declare namespace LocalJSX {
         "readonly"?: boolean;
         "value": boolean;
     }
+    interface EsTextarea {
+        "disabled"?: boolean;
+        "inputProps"?: Record<string, any>;
+        "invalid"?: boolean;
+        "label": string;
+        "messages"?: ValidationMessages;
+        "name": string;
+        "onFieldchange"?: (event: CustomEvent<any>) => void;
+        "placeholder": string;
+        "readonly"?: boolean;
+        "value": string;
+    }
     interface EsTypeahead {
         "clearOnSelect"?: boolean;
         "closeOnSelect"?: boolean;
@@ -304,6 +340,7 @@ declare namespace LocalJSX {
         "es-radio-card-group": EsRadioCardGroup;
         "es-select": EsSelect;
         "es-switch": EsSwitch;
+        "es-textarea": EsTextarea;
         "es-typeahead": EsTypeahead;
         "es-validation-messages": EsValidationMessages;
     }
@@ -320,6 +357,7 @@ declare module "@stencil/core" {
             "es-radio-card-group": LocalJSX.EsRadioCardGroup & JSXBase.HTMLAttributes<HTMLEsRadioCardGroupElement>;
             "es-select": LocalJSX.EsSelect & JSXBase.HTMLAttributes<HTMLEsSelectElement>;
             "es-switch": LocalJSX.EsSwitch & JSXBase.HTMLAttributes<HTMLEsSwitchElement>;
+            "es-textarea": LocalJSX.EsTextarea & JSXBase.HTMLAttributes<HTMLEsTextareaElement>;
             "es-typeahead": LocalJSX.EsTypeahead & JSXBase.HTMLAttributes<HTMLEsTypeaheadElement>;
             "es-validation-messages": LocalJSX.EsValidationMessages & JSXBase.HTMLAttributes<HTMLEsValidationMessagesElement>;
         }
