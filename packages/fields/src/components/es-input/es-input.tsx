@@ -30,6 +30,7 @@ export class EsInput {
     @Prop() readonly?: boolean;
     @Prop() invalid?: boolean;
     @Prop() messages?: ValidationMessages;
+    @Prop() inputProps?: Record<string, any>;
 
     @Prop() mask?: MaskOptions;
 
@@ -56,6 +57,7 @@ export class EsInput {
                 messages={this.messages}
             >
                 <input
+                    {...(this.inputProps ?? {})}
                     class={'input'}
                     onInput={this.onInput}
                     onKeyUp={this.onKeyUp}

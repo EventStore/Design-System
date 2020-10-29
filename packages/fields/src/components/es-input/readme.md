@@ -10,6 +10,7 @@
 | Property                   | Attribute     | Description | Type                                                                   | Default     |
 | -------------------------- | ------------- | ----------- | ---------------------------------------------------------------------- | ----------- |
 | `disabled`                 | `disabled`    |             | `boolean \| undefined`                                                 | `undefined` |
+| `inputProps`               | --            |             | `undefined \| { [x: string]: any; }`                                   | `undefined` |
 | `invalid`                  | `invalid`     |             | `boolean \| undefined`                                                 | `undefined` |
 | `label` _(required)_       | `label`       |             | `string`                                                               | `undefined` |
 | `mask`                     | --            |             | `MaskOptions \| undefined`                                             | `undefined` |

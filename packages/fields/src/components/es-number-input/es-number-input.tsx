@@ -19,6 +19,7 @@ export class EsNumberInput {
     @Prop() invalid?: boolean;
     @Prop() messages?: ValidationMessages;
     @Prop() unit?: string;
+    @Prop() inputProps?: Record<string, any>;
 
     render() {
         return (
@@ -29,6 +30,7 @@ export class EsNumberInput {
             >
                 <div class={'input_wrapper'}>
                     <input
+                        {...(this.inputProps ?? {})}
                         class={'input'}
                         type={'text'}
                         inputmode={'numeric'}
