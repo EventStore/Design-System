@@ -1,4 +1,4 @@
-# es-mega-input
+# es-textarea
 
 
 
@@ -36,8 +36,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  es-mega-input --> es-validation-messages
-  style es-mega-input fill:#f9f,stroke:#333,stroke-width:4px
+  es-textarea --> es-validation-messages
+  style es-textarea fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
