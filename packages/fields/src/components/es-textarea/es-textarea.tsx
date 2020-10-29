@@ -3,8 +3,8 @@ import { ValidationMessages } from '../../types';
 import { Field } from '../Field/Field';
 
 @Component({
-    tag: 'es-mega-input',
-    styleUrl: 'es-mega-input.css',
+    tag: 'es-textarea',
+    styleUrl: 'es-textarea.css',
     shadow: true,
 })
 export class EsMegaInput {
@@ -27,7 +27,7 @@ export class EsMegaInput {
                 invalid={this.invalid}
                 messages={this.messages}
             >
-                <input
+                <textarea
                     {...(this.inputProps ?? {})}
                     class={'input'}
                     value={this.value}
