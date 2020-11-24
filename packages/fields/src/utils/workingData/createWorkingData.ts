@@ -175,7 +175,7 @@ export const createWorkingData = <T extends object>(
                         } = await error.details();
                         for (const [key, message] of Object.entries(fields)) {
                             insertMessage(
-                                key as keyof T,
+                                key.split('.').shift()! as keyof T,
                                 'error',
                                 message as string,
                             );
