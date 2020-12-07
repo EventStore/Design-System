@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/stencil-markdown-plugin",
-    "version": "0.0.41",
+    "version": "0.0.42",
     "description": "Import md and mdx files into stencil projects",
     "license": "Apache-2.0",
     "main": "./dist/index.js",
