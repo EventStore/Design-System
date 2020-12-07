@@ -18,11 +18,13 @@
 
 ### Used by
 
+ - [es-accordian](../es-accordian)
  - [es-toast](../toast/es-toast)
 
 ### Graph
 ```mermaid
 graph TD;
+  es-accordian --> es-counter
   es-toast --> es-counter
   style es-counter fill:#f9f,stroke:#333,stroke-width:4px
 ```

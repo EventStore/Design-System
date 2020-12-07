@@ -68,16 +68,24 @@ section {
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding: 14px 0px;
 
     &.collapsable {
         cursor: pointer;
     }
 
     & h1 {
+        display: flex;
+        align-items: center;
         font-size: 16px;
         font-weight: 500;
         margin: 0;
         color: var(--color-text);
+
+        & .step {
+            color: var(--color-secondary);
+            margin-right: 14px;
+        }
     }
 
     & es-icon {
