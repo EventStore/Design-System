@@ -19,6 +19,7 @@ import { WizardPage } from "./components/es-wizard/es-wizard";
 export namespace Components {
     interface EsAccordian {
         "sections": AccordianSection[];
+        "steps": boolean;
     }
     interface EsBackdrop {
         "close": () => Promise<unknown>;
@@ -174,6 +175,7 @@ export namespace Components {
     interface EsWizard {
         "location": string;
         "pages": WizardPage[];
+        "scrollOffset": number;
     }
 }
 declare global {
@@ -358,6 +360,7 @@ declare global {
 declare namespace LocalJSX {
     interface EsAccordian {
         "sections": AccordianSection[];
+        "steps"?: boolean;
     }
     interface EsBackdrop {
         "onClosed"?: (event: CustomEvent<any>) => void;
@@ -514,8 +517,8 @@ declare namespace LocalJSX {
     }
     interface EsWizard {
         "location": string;
-        "onProgressionRequest"?: (event: CustomEvent<any>) => void;
         "pages": WizardPage[];
+        "scrollOffset"?: number;
     }
     interface IntrinsicElements {
         "es-accordian": EsAccordian;

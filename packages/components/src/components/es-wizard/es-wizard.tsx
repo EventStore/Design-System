@@ -1,13 +1,5 @@
-import {
-    Component,
-    h,
-    Prop,
-    Host,
-    Event,
-    EventEmitter,
-    Watch,
-    Element,
-} from '@stencil/core';
+import { Component, h, Prop, Watch, Element } from '@stencil/core';
+import { delegateFocus } from '@eventstore/utils';
 
 export interface WizardPage {
     id: string;
@@ -24,10 +16,10 @@ const PAGE_REF = '__PAGE_REF__';
 })
 export class Wizard {
     @Element() host!: HTMLEsWizardElement;
-    @Event({ bubbles: true }) progressionRequest!: EventEmitter;
 
     @Prop() pages!: WizardPage[];
     @Prop() location!: string;
+    @Prop() scrollOffset: number = 0;
 
     private index: number = 0;
 
@@ -41,28 +33,26 @@ export class Wizard {
 
     render() {
         return (
-            <Host>
-                <es-progression
-                    checkpoints={this.pages}
-                    location={this.location}
-                />
-                <div class={'pages'} ref={this.capture(PAGE_REF)}>
-                    {this.pages.map(({ id }, i) => (
-                        <section
-                            key={id}
-                            ref={this.capture(id)}
-                            class={{
-                                page: true,
-                                active: id === this.location,
-                                passed: i < this.index,
-                                future: i > this.index,
-                            }}
-                        >
-                            <slot name={id} />
-                        </section>
-                    ))}
-                </div>
-            </Host>
+            <div
+                class={'pages'}
+                ref={this.capture(PAGE_REF)}
+                onScroll={this.preventFocusShift}
+            >
+                {this.pages.map(({ id }, i) => (
+                    <section
+                        key={id}
+                        ref={this.capture(id)}
+                        class={{
+                            page: true,
+                            active: id === this.location,
+                            passed: i < this.index,
+                            future: i > this.index,
+                        }}
+                    >
+                        <slot name={id} />
+                    </section>
+                ))}
+            </div>
         );
     }
 
@@ -75,6 +65,11 @@ export class Wizard {
         }
     };
 
+    private preventFocusShift = () => {
+        if (!this.elements.has(PAGE_REF)) return;
+        this.elements.get(PAGE_REF)!.scrollTop = 0;
+    };
+
     @Watch('location') animateHeight(newLocation: string) {
         const page = this.elements.get(PAGE_REF);
 
@@ -83,16 +78,39 @@ export class Wizard {
         const currentHeight = page.offsetHeight;
         const nextHeight = this.elements.get(newLocation)?.offsetHeight ?? 0;
 
-        page.style.transitionProperty = 'none';
-        page.style.minHeight = `${currentHeight}px`;
+        page.style.setProperty('transition-property', 'none');
+        page.style.setProperty('min-height', `${currentHeight}px`);
+
+        page.addEventListener(
+            'transitionend',
+            () => {
+                page.style.removeProperty('transition-property');
+                page.style.removeProperty('min-height');
+            },
+            {
+                once: true,
+                passive: true,
+            },
+        );
 
         requestAnimationFrame(() => {
-            page.style.transitionProperty = 'min-height';
-            page.style.minHeight = `${nextHeight}px`;
+            page.style.setProperty('transition-property', 'min-height');
+            page.style.setProperty('min-height', `${nextHeight}px`);
 
-            window.scrollBy({
+            if (this.elements.has(newLocation)) {
+                delegateFocus(this.elements.get(newLocation)!, {
+                    preventScroll: true,
+                });
+            }
+
+            const top =
+                this.host.getBoundingClientRect().top +
+                window.scrollY +
+                this.scrollOffset;
+
+            window.scroll({
                 behavior: 'smooth',
-                top: this.host.getBoundingClientRect().top,
+                top,
             });
         });
     }
