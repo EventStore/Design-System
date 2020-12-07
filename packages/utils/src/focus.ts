@@ -21,9 +21,11 @@ const tabbables = [
 ].join(',');
 
 const keyboardSkips = ['[tabindex="-1"]'].join(',');
-const delegationSkips = ['[data-skip-focus-delegation]', keyboardSkips].join(
-    ',',
-);
+const delegationSkips = [
+    '[data-skip-focus-delegation]',
+    '[data-skip-focus-delegation] *',
+    keyboardSkips,
+].join(',');
 
 const isFocusable = (node: Node, skip?: string): boolean =>
     (node as HTMLElement).matches?.(tabbables) &&
