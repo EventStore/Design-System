@@ -9,6 +9,7 @@ import { AccordianSection } from './types';
 })
 export class Accordian {
     @Prop() sections!: AccordianSection[];
+    @Prop() steps = false;
 
     @State() collapsed: Set<string> = new Set();
 
@@ -46,12 +47,15 @@ export class Accordian {
         return (
             <Host>
                 {this.sections.map(
-                    ({
-                        name,
-                        title,
-                        collapsable = false,
-                        variant = 'default',
-                    }) => {
+                    (
+                        {
+                            name,
+                            title,
+                            collapsable = false,
+                            variant = 'default',
+                        },
+                        i,
+                    ) => {
                         const collapsed = this.collapsed.has(name);
 
                         return (
@@ -82,7 +86,16 @@ export class Accordian {
                                         }
                                         aria-expanded={`${!collapsed}`}
                                     >
-                                        <h1>{title}</h1>
+                                        <h1>
+                                            {this.steps && (
+                                                <es-counter
+                                                    variant={'outline'}
+                                                    count={i + 1}
+                                                    class={'step'}
+                                                />
+                                            )}
+                                            {title}
+                                        </h1>
                                         {collapsable && (
                                             <es-icon
                                                 icon={'chevron'}
