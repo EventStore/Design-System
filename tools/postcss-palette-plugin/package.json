@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/postcss-palette-plugin",
-    "version": "0.0.42",
+    "version": "0.0.43",
     "description": "PostCSS plugin that imports a palette into your css by convert a js palette into css vars.",
     "license": "UNLICENSED",
     "main": "./dist/injectPalettePlugin",
