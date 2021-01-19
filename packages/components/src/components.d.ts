@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordianSection } from "./components/es-accordian/types";
 import { VNode } from "@stencil/core";
+import { BadgeColor, BadgeVariant } from "./components/es-badge/es-badge";
 import { Crumb } from "./components/es-breadcrumb/es-breadcrumb";
 import { ButtonColor, ButtonVariant } from "./components/buttons/types";
 import { EsCalloutVariant } from "./components/es-callout/es-callout";
@@ -26,6 +27,13 @@ export namespace Components {
         "close": () => Promise<unknown>;
         "renderNode": (node: VNode | null) => Promise<void>;
         "showBackdrop": boolean;
+    }
+    interface EsBadge {
+        "color": BadgeColor;
+        "count": number;
+        "showZero": boolean;
+        "size"?: number;
+        "variant": BadgeVariant;
     }
     interface EsBreadcrumb {
         "crumbs": Crumb[];
@@ -197,6 +205,12 @@ declare global {
         prototype: HTMLEsBackdropElement;
         new (): HTMLEsBackdropElement;
     };
+    interface HTMLEsBadgeElement extends Components.EsBadge, HTMLStencilElement {
+    }
+    var HTMLEsBadgeElement: {
+        prototype: HTMLEsBadgeElement;
+        new (): HTMLEsBadgeElement;
+    };
     interface HTMLEsBreadcrumbElement extends Components.EsBreadcrumb, HTMLStencilElement {
     }
     var HTMLEsBreadcrumbElement: {
@@ -344,6 +358,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "es-accordian": HTMLEsAccordianElement;
         "es-backdrop": HTMLEsBackdropElement;
+        "es-badge": HTMLEsBadgeElement;
         "es-breadcrumb": HTMLEsBreadcrumbElement;
         "es-button": HTMLEsButtonElement;
         "es-button-link": HTMLEsButtonLinkElement;
@@ -379,6 +394,13 @@ declare namespace LocalJSX {
         "onClosed"?: (event: CustomEvent<any>) => void;
         "onRequestClose"?: (event: CustomEvent<any>) => void;
         "showBackdrop"?: boolean;
+    }
+    interface EsBadge {
+        "color"?: BadgeColor;
+        "count": number;
+        "showZero"?: boolean;
+        "size"?: number;
+        "variant"?: BadgeVariant;
     }
     interface EsBreadcrumb {
         "crumbs"?: Crumb[];
@@ -541,6 +563,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "es-accordian": EsAccordian;
         "es-backdrop": EsBackdrop;
+        "es-badge": EsBadge;
         "es-breadcrumb": EsBreadcrumb;
         "es-button": EsButton;
         "es-button-link": EsButtonLink;
@@ -573,6 +596,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "es-accordian": LocalJSX.EsAccordian & JSXBase.HTMLAttributes<HTMLEsAccordianElement>;
             "es-backdrop": LocalJSX.EsBackdrop & JSXBase.HTMLAttributes<HTMLEsBackdropElement>;
+            "es-badge": LocalJSX.EsBadge & JSXBase.HTMLAttributes<HTMLEsBadgeElement>;
             "es-breadcrumb": LocalJSX.EsBreadcrumb & JSXBase.HTMLAttributes<HTMLEsBreadcrumbElement>;
             "es-button": LocalJSX.EsButton & JSXBase.HTMLAttributes<HTMLEsButtonElement>;
             "es-button-link": LocalJSX.EsButtonLink & JSXBase.HTMLAttributes<HTMLEsButtonLinkElement>;
