@@ -23,10 +23,10 @@
         "directory": "tools/configs"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^3.5.0",
-        "@typescript-eslint/parser": "^3.5.0",
-        "eslint": "^7.3.1",
-        "prettier": "^2.0.5",
-        "typescript": "^4.0.2"
+        "@typescript-eslint/eslint-plugin": "^4.14.0",
+        "@typescript-eslint/parser": "^4.14.0",
+        "eslint": "^7.18.0",
+        "prettier": "^2.2.1",
+        "typescript": "^4.1.3"
     }
 }
