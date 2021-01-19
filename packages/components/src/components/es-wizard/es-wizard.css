@@ -11,6 +11,10 @@
     transition-timing-function: ease;
 }
 
+.animating .page {
+    display: block;
+}
+
 .page {
     top: 0;
     position: absolute;
@@ -22,6 +26,7 @@
     transition-timing-function: ease;
     transform: translateX(0%);
     background-color: var(--color-white);
+    display: none;
 
     &.passed {
         pointer-events: none;
@@ -36,5 +41,6 @@
         position: relative;
         opacity: 1;
         z-index: 1;
+        display: block;
     }
 }
