@@ -7,3 +7,4 @@ export { Switch } from './components/Switch';
 
 export * from './types';
 export { router } from './utils/publicRouter';
+export { searchParam } from './utils/searchParam';
