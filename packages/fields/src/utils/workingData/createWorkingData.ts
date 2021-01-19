@@ -34,9 +34,7 @@ export const createWorkingData = <T extends object>(
     let failedValidation = false;
     let validationTimeout: number;
     let forcingFocus = false;
-    let awaiters: Array<(
-        value?: boolean | PromiseLike<boolean> | undefined,
-    ) => void> = [];
+    let awaiters: Array<(value: boolean | PromiseLike<boolean>) => void> = [];
     const runValidation = async (forceFocus = true) => {
         resetMessages();
         const promises: Promise<void>[] = [];
