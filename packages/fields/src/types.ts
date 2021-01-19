@@ -52,7 +52,7 @@ export type WorkingDataOptions<T> = {
 
 export interface FieldOptions<T, U> {
     initialValue: T;
-    optional?: boolean;
+    optional?: boolean | ((data: U) => boolean);
     message?: Message<T, U> | string;
     checkExists?: CheckExists<T, U>;
     validations?: Validation<T, U>[];
@@ -62,7 +62,10 @@ export type InternalWorkingDataOptions<T> = {
     [key in keyof T]: InternalFieldOptions<T[key], T>;
 };
 
-export type InternalFieldOptions<T, U> = Required<FieldOptions<T, U>>;
+export interface InternalFieldOptions<T, U>
+    extends Required<Omit<FieldOptions<T, U>, 'optional'>> {
+    optional: (data: U) => boolean;
+}
 
 export type CheckExists<T, U> = (value: T, data: U) => boolean;
 
