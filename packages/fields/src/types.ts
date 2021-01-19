@@ -1,9 +1,11 @@
-interface CEV<T extends object, K extends keyof T> {
+interface ChangeEventValue<T extends object, K extends keyof T> {
     name: K;
     value: T[K];
 }
 
-export type FieldChangeEvent<T extends object> = CustomEvent<CEV<T, keyof T>>;
+export type FieldChangeEvent<T extends object> = CustomEvent<
+    ChangeEventValue<T, keyof T>
+>;
 
 export type Severity = 'error' | 'warning' | 'info';
 export type ValidationMessages = Record<Severity, string[]>;
@@ -26,6 +28,8 @@ export interface WorkingData<T extends object> {
     ) => Promise<void>;
     listen: (e: FieldChangeEvent<T>) => void;
     onChange: OnChangeHandler<T>;
+    onValidationFailed: OnValidationFailedHandler<T>;
+    onBeforeFocus: OnBeforeFocusHandler<T>;
     freeze: () => void;
     unfreeze: () => void;
 }
@@ -44,6 +48,22 @@ export interface Connector<T> {
 
 export interface OnChangeHandler<T> {
     <Key extends keyof T>(key: Key, cb: (newValue: T[Key]) => void): () => void;
+}
+
+export type ValidationFailedCallback = (
+    info: { id: string; severity: Severity; message: string },
+    ref?: HTMLElement,
+) => void;
+export interface OnValidationFailedHandler<T> {
+    <Key extends keyof T>(key: Key, cb: ValidationFailedCallback): () => void;
+}
+
+export type BeforeFocusCallback<K> = (
+    key: K,
+    ref: HTMLElement,
+) => boolean | void | Promise<boolean | void>;
+export interface OnBeforeFocusHandler<T> {
+    (cb: BeforeFocusCallback<keyof T>): () => void;
 }
 
 export type WorkingDataOptions<T> = {
@@ -77,6 +97,7 @@ export type Validator<T, U> = (
 export type Message<T, U> = (value: T, data: U) => string;
 
 export interface Validation<T, U> {
+    id?: string;
     validator: Validator<T, U>;
     message: Message<T, U> | string;
     severity?: Severity;
