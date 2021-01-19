@@ -34,6 +34,7 @@ Type: `Promise<unknown>`
 ### Used by
 
  - [es-accordian](../es-accordian)
+ - [es-callout](../es-callout)
  - [es-copy](../es-copy)
  - [es-modal](../es-modal)
  - [es-status](../es-status)
@@ -44,6 +45,7 @@ Type: `Promise<unknown>`
 ```mermaid
 graph TD;
   es-accordian --> es-icon
+  es-callout --> es-icon
   es-copy --> es-icon
   es-modal --> es-icon
   es-status --> es-icon

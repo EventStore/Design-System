@@ -1,0 +1,55 @@
+:host,
+* {
+    box-sizing: border-box;
+}
+
+:host {
+    display: block;
+    border-left-width: 8px;
+    border-left-style: solid;
+    border-left-color: var(--strong-color);
+    background-color: var(--weak-color);
+    position: relative;
+    padding: 20px 30px;
+    color: var(--color-text);
+    margin: 0 16px 20px 16px;
+}
+
+:host([variant='tip']) {
+    --strong-color: var(--color-success);
+    --weak-color: var(--color-success-extra-light);
+}
+
+:host([variant='warning']) {
+    --strong-color: var(--color-warning);
+    --weak-color: var(--color-warning-extra-light);
+}
+
+:host([variant='error']) {
+    --strong-color: var(--color-error);
+    --weak-color: var(--color-error-extra-light);
+}
+
+es-icon {
+    position: absolute;
+    top: 12px;
+    left: -24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid var(--strong-color);
+    background-color: var(--weak-color);
+    color: var(--strong-color);
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--strong-color);
+    margin: 0;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
