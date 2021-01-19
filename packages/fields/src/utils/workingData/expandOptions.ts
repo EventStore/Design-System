@@ -8,7 +8,7 @@ import { defaultCheckExists } from './defaultCheckExists';
 const defaults: InternalFieldOptions<any, any> = {
     initialValue: null,
     checkExists: defaultCheckExists,
-    optional: false,
+    optional: () => false,
     message: 'Field is required',
     validations: [],
 };
@@ -27,6 +27,10 @@ export const expandOptions = <T>(
             expandedOptions[key] = {
                 ...defaults,
                 ...value,
+                optional:
+                    typeof value.optional === 'boolean'
+                        ? () => value.optional
+                        : value.optional ?? defaults.optional,
             };
         } else {
             expandedOptions[key] = {
