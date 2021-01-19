@@ -152,7 +152,14 @@ export const createWorkingData = <T extends object>(
             e.stopPropagation();
             if (state.frozen) return;
             const { name, value } = e.detail;
+
+            if (!fields.has(name)) {
+                logger.warn(`Unknown event "${name}" passed to listen`);
+                return;
+            }
+
             data[name] = value;
+
             if (failedValidation) {
                 validate(false);
             }
