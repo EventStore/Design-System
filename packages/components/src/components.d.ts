@@ -16,6 +16,7 @@ import { Position } from "./components/es-popover/components/es-popper-inner/es-
 import { Checkpoint } from "./components/es-progression/es-progression";
 import { Status } from "./components/es-status/es-status";
 import { TableCells } from "./components/es-table/types";
+import { Tab } from "./components/es-tabs/types";
 import { Bread, Toast } from "./components/toast/types";
 import { WizardPage } from "./components/es-wizard/types";
 export namespace Components {
@@ -177,6 +178,10 @@ export namespace Components {
         "rowTakesFocus"?: boolean;
         "rows": string[];
     }
+    interface EsTabs {
+        "activeParam": string;
+        "tabs": Tab[];
+    }
     interface EsToast {
         "close": () => Promise<unknown>;
         "count": Toast['count'];
@@ -337,6 +342,12 @@ declare global {
         prototype: HTMLEsTableNestedElement;
         new (): HTMLEsTableNestedElement;
     };
+    interface HTMLEsTabsElement extends Components.EsTabs, HTMLStencilElement {
+    }
+    var HTMLEsTabsElement: {
+        prototype: HTMLEsTabsElement;
+        new (): HTMLEsTabsElement;
+    };
     interface HTMLEsToastElement extends Components.EsToast, HTMLStencilElement {
     }
     var HTMLEsToastElement: {
@@ -380,6 +391,7 @@ declare global {
         "es-table-detail": HTMLEsTableDetailElement;
         "es-table-detail-header": HTMLEsTableDetailHeaderElement;
         "es-table-nested": HTMLEsTableNestedElement;
+        "es-tabs": HTMLEsTabsElement;
         "es-toast": HTMLEsToastElement;
         "es-toaster": HTMLEsToasterElement;
         "es-wizard": HTMLEsWizardElement;
@@ -548,6 +560,10 @@ declare namespace LocalJSX {
         "rowTakesFocus"?: boolean;
         "rows": string[];
     }
+    interface EsTabs {
+        "activeParam"?: string;
+        "tabs": Tab[];
+    }
     interface EsToast {
         "count": Toast['count'];
         "icon": Toast['icon'];
@@ -585,6 +601,7 @@ declare namespace LocalJSX {
         "es-table-detail": EsTableDetail;
         "es-table-detail-header": EsTableDetailHeader;
         "es-table-nested": EsTableNested;
+        "es-tabs": EsTabs;
         "es-toast": EsToast;
         "es-toaster": EsToaster;
         "es-wizard": EsWizard;
@@ -618,6 +635,7 @@ declare module "@stencil/core" {
             "es-table-detail": LocalJSX.EsTableDetail & JSXBase.HTMLAttributes<HTMLEsTableDetailElement>;
             "es-table-detail-header": LocalJSX.EsTableDetailHeader & JSXBase.HTMLAttributes<HTMLEsTableDetailHeaderElement>;
             "es-table-nested": LocalJSX.EsTableNested & JSXBase.HTMLAttributes<HTMLEsTableNestedElement>;
+            "es-tabs": LocalJSX.EsTabs & JSXBase.HTMLAttributes<HTMLEsTabsElement>;
             "es-toast": LocalJSX.EsToast & JSXBase.HTMLAttributes<HTMLEsToastElement>;
             "es-toaster": LocalJSX.EsToaster & JSXBase.HTMLAttributes<HTMLEsToasterElement>;
             "es-wizard": LocalJSX.EsWizard & JSXBase.HTMLAttributes<HTMLEsWizardElement>;
