@@ -2,7 +2,7 @@ import { Component, h, Prop, Watch, Element } from '@stencil/core';
 import { delegateFocus } from '@eventstore/utils';
 import type { WizardPage } from './types';
 
-const PAGE_REF = '__PAGE_REF__';
+const PAGES_REF = '__PAGES_REF__';
 
 @Component({
     tag: 'es-wizard',
@@ -22,15 +22,11 @@ export class Wizard {
         this.updateIndex(this.location);
     }
 
-    @Watch('location') updateIndex(location: string) {
-        this.index = this.pages.findIndex(({ id }) => id === location);
-    }
-
     render() {
         return (
             <div
                 class={'pages'}
-                ref={this.capture(PAGE_REF)}
+                ref={this.capture(PAGES_REF)}
                 onScroll={this.preventFocusShift}
             >
                 {this.pages.map(({ id }, i) => (
@@ -61,26 +57,34 @@ export class Wizard {
     };
 
     private preventFocusShift = () => {
-        if (!this.elements.has(PAGE_REF)) return;
-        this.elements.get(PAGE_REF)!.scrollTop = 0;
+        if (!this.elements.has(PAGES_REF)) return;
+        this.elements.get(PAGES_REF)!.scrollTop = 0;
     };
 
+    updateIndex(location: string) {
+        this.index = this.pages.findIndex(({ id }) => id === location);
+    }
+
     @Watch('location') animateHeight(newLocation: string) {
-        const page = this.elements.get(PAGE_REF);
+        const pages = this.elements.get(PAGES_REF);
 
-        if (!page) return;
+        if (!pages) return;
 
-        const currentHeight = page.offsetHeight;
+        pages.classList.add('animating');
+        this.updateIndex(newLocation);
+
+        const currentHeight = pages.offsetHeight;
         const nextHeight = this.elements.get(newLocation)?.offsetHeight ?? 0;
 
-        page.style.setProperty('transition-property', 'none');
-        page.style.setProperty('min-height', `${currentHeight}px`);
+        pages.style.setProperty('transition-property', 'none');
+        pages.style.setProperty('min-height', `${currentHeight}px`);
 
-        page.addEventListener(
+        pages.addEventListener(
             'transitionend',
             () => {
-                page.style.removeProperty('transition-property');
-                page.style.removeProperty('min-height');
+                pages.style.removeProperty('transition-property');
+                pages.style.removeProperty('min-height');
+                pages.classList.remove('animating');
             },
             {
                 once: true,
@@ -89,8 +93,8 @@ export class Wizard {
         );
 
         requestAnimationFrame(() => {
-            page.style.setProperty('transition-property', 'min-height');
-            page.style.setProperty('min-height', `${nextHeight}px`);
+            pages.style.setProperty('transition-property', 'min-height');
+            pages.style.setProperty('min-height', `${nextHeight}px`);
 
             if (this.elements.has(newLocation)) {
                 delegateFocus(this.elements.get(newLocation)!, {
