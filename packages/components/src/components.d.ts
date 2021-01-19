@@ -9,6 +9,7 @@ import { AccordianSection } from "./components/es-accordian/types";
 import { VNode } from "@stencil/core";
 import { Crumb } from "./components/es-breadcrumb/es-breadcrumb";
 import { ButtonColor, ButtonVariant } from "./components/buttons/types";
+import { EsCalloutVariant } from "./components/es-callout/es-callout";
 import { CounterVariant } from "./components/es-counter/es-counter";
 import { Position } from "./components/es-popover/components/es-popper-inner/es-popper-inner";
 import { Checkpoint } from "./components/es-progression/es-progression";
@@ -53,6 +54,11 @@ export namespace Components {
         "target"?: string;
         "url"?: string;
         "variant": ButtonVariant;
+    }
+    interface EsCallout {
+        "heading": string;
+        "icon"?: string;
+        "variant": EsCalloutVariant;
     }
     interface EsCopy {
         "copy": () => Promise<void>;
@@ -209,6 +215,12 @@ declare global {
         prototype: HTMLEsButtonLinkElement;
         new (): HTMLEsButtonLinkElement;
     };
+    interface HTMLEsCalloutElement extends Components.EsCallout, HTMLStencilElement {
+    }
+    var HTMLEsCalloutElement: {
+        prototype: HTMLEsCalloutElement;
+        new (): HTMLEsCalloutElement;
+    };
     interface HTMLEsCopyElement extends Components.EsCopy, HTMLStencilElement {
     }
     var HTMLEsCopyElement: {
@@ -335,6 +347,7 @@ declare global {
         "es-breadcrumb": HTMLEsBreadcrumbElement;
         "es-button": HTMLEsButtonElement;
         "es-button-link": HTMLEsButtonLinkElement;
+        "es-callout": HTMLEsCalloutElement;
         "es-copy": HTMLEsCopyElement;
         "es-counter": HTMLEsCounterElement;
         "es-icon": HTMLEsIconElement;
@@ -394,6 +407,11 @@ declare namespace LocalJSX {
         "target"?: string;
         "url"?: string;
         "variant"?: ButtonVariant;
+    }
+    interface EsCallout {
+        "heading": string;
+        "icon"?: string;
+        "variant"?: EsCalloutVariant;
     }
     interface EsCopy {
     }
@@ -526,6 +544,7 @@ declare namespace LocalJSX {
         "es-breadcrumb": EsBreadcrumb;
         "es-button": EsButton;
         "es-button-link": EsButtonLink;
+        "es-callout": EsCallout;
         "es-copy": EsCopy;
         "es-counter": EsCounter;
         "es-icon": EsIcon;
@@ -557,6 +576,7 @@ declare module "@stencil/core" {
             "es-breadcrumb": LocalJSX.EsBreadcrumb & JSXBase.HTMLAttributes<HTMLEsBreadcrumbElement>;
             "es-button": LocalJSX.EsButton & JSXBase.HTMLAttributes<HTMLEsButtonElement>;
             "es-button-link": LocalJSX.EsButtonLink & JSXBase.HTMLAttributes<HTMLEsButtonLinkElement>;
+            "es-callout": LocalJSX.EsCallout & JSXBase.HTMLAttributes<HTMLEsCalloutElement>;
             "es-copy": LocalJSX.EsCopy & JSXBase.HTMLAttributes<HTMLEsCopyElement>;
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
             "es-icon": LocalJSX.EsIcon & JSXBase.HTMLAttributes<HTMLEsIconElement>;
