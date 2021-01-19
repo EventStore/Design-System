@@ -4,6 +4,8 @@ import {
     InternalFieldOptions,
     WorkingDataState,
     ValidationMessages,
+    ValidationFailedCallback,
+    BeforeFocusCallback,
 } from '../../types';
 
 type MessageStore<T> = { [key in keyof T]: ValidationMessages };
@@ -14,6 +16,8 @@ interface Stores<T> {
     state: ObservableMap<WorkingDataState>;
     fields: Map<keyof T, Required<InternalFieldOptions<any, T>>>;
     refs: Map<keyof T, HTMLElement>;
+    validationFailedCallbacks: Map<keyof T, Set<ValidationFailedCallback>>;
+    beforeFocusCallbacks: Set<BeforeFocusCallback<keyof T>>;
 }
 
 export const blankMessages = (): ValidationMessages => ({
@@ -46,5 +50,7 @@ export const createStores = <T>(
         state: createStore<WorkingDataState>(defaultState),
         fields: fields as any,
         refs: new Map(),
+        validationFailedCallbacks: new Map(),
+        beforeFocusCallbacks: new Set(),
     };
 };
