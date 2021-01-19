@@ -2,7 +2,6 @@ import { createStore, ObservableMap } from '@stencil/store';
 import {
     InternalWorkingDataOptions,
     InternalFieldOptions,
-    FieldOptions,
     WorkingDataState,
     ValidationMessages,
 } from '../../types';
@@ -13,7 +12,7 @@ interface Stores<T> {
     dataStore: ObservableMap<T>;
     messageStore: ObservableMap<MessageStore<T>>;
     state: ObservableMap<WorkingDataState>;
-    fields: Map<keyof T, Required<FieldOptions<any, T>>>;
+    fields: Map<keyof T, Required<InternalFieldOptions<any, T>>>;
     refs: Map<keyof T, HTMLElement>;
 }
 

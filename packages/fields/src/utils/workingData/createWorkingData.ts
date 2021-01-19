@@ -53,7 +53,7 @@ export const createWorkingData = <T extends object>(
                 const value = data[key];
                 const exists = checkExists(value, data);
                 if (!exists) {
-                    if (!optional) {
+                    if (!optional(data)) {
                         failures.add(key);
                         insertMessage(
                             key,
