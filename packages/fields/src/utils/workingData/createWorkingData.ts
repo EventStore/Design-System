@@ -15,16 +15,24 @@ export const createWorkingData = <T extends object>(
         state: { state },
         fields,
         refs,
+        validationFailedCallbacks,
+        beforeFocusCallbacks,
     } = createStores(fullOptions);
-    const insertMessage = (
+
+    const processValidationFailure = (
         key: keyof T,
         severity: Severity,
         message: string,
+        id: string,
     ) => {
         if (!messages[key]) {
-            logger.warn(`Unknown key "${key}" passed to validation messages`);
+            logger.warn(`Unknown key "${key}" passed to validation failure`);
             return;
         }
+
+        validationFailedCallbacks
+            .get(key)
+            ?.forEach((cb) => cb({ id, severity, message }, refs.get(key)));
 
         messages[key] = {
             ...messages[key],
@@ -55,29 +63,33 @@ export const createWorkingData = <T extends object>(
                 if (!exists) {
                     if (!optional(data)) {
                         failures.add(key);
-                        insertMessage(
+
+                        processValidationFailure(
                             key,
                             'error',
                             typeof requiredMessage === 'string'
                                 ? requiredMessage
                                 : requiredMessage(value, data),
+                            'required',
                         );
                     }
                     continue;
                 }
                 validations.forEach(
-                    ({ validator, message, severity = 'error' }) =>
+                    ({ validator, message, severity = 'error', id }, i) =>
                         promises.push(
                             (async () => {
                                 const success = await validator(value, data);
                                 if (success) return;
+
                                 failures.add(key);
-                                insertMessage(
+                                processValidationFailure(
                                     key,
                                     severity,
                                     typeof message === 'string'
                                         ? message
                                         : message(value, data),
+                                    id ?? `${i}`,
                                 );
                             })(),
                         ),
@@ -87,9 +99,30 @@ export const createWorkingData = <T extends object>(
             failedValidation = !!failures.size;
             if (!failedValidation) return true;
             if (forceFocus) {
-                for (const failure of failures) {
-                    const ref = refs.get(failure);
+                for (const key of fields.keys()) {
+                    if (!failures.has(key)) continue;
+
+                    const ref = refs.get(key);
                     if (!ref) continue;
+
+                    const before = await Promise.all(
+                        Array.from(
+                            beforeFocusCallbacks,
+                            async (cb): Promise<boolean> => {
+                                try {
+                                    const result = await cb(key, ref);
+                                    return typeof result === 'boolean'
+                                        ? result
+                                        : true;
+                                } catch (error) {
+                                    return false;
+                                }
+                            },
+                        ),
+                    );
+
+                    if (!before.every(Boolean)) continue;
+
                     delegateFocus(ref, { preventScroll: true });
                     ref.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     break;
@@ -148,6 +181,24 @@ export const createWorkingData = <T extends object>(
             },
         }),
         onChange,
+        onValidationFailed: (key, callback) => {
+            if (!validationFailedCallbacks.has(key)) {
+                validationFailedCallbacks.set(key, new Set());
+            }
+
+            validationFailedCallbacks.get(key)?.add(callback);
+
+            return () => {
+                validationFailedCallbacks.get(key)?.delete(callback);
+            };
+        },
+        onBeforeFocus: (callback) => {
+            beforeFocusCallbacks.add(callback);
+
+            return () => {
+                beforeFocusCallbacks.delete(callback);
+            };
+        },
         listen: (e) => {
             e.stopPropagation();
             if (state.frozen) return;
@@ -179,10 +230,11 @@ export const createWorkingData = <T extends object>(
                             fields = {},
                         } = await error.details();
                         for (const [key, message] of Object.entries(fields)) {
-                            insertMessage(
+                            processValidationFailure(
                                 key.split('.').shift()! as keyof T,
                                 'error',
                                 message as string,
+                                'submit',
                             );
                         }
                         toast.error({
