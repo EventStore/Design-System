@@ -1,11 +1,6 @@
 import { Component, h, Prop, Watch, Element } from '@stencil/core';
 import { delegateFocus } from '@eventstore/utils';
-
-export interface WizardPage {
-    id: string;
-    title: string;
-    disabled?: true;
-}
+import type { WizardPage } from './types';
 
 const PAGE_REF = '__PAGE_REF__';
 

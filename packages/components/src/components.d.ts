@@ -15,7 +15,7 @@ import { Checkpoint } from "./components/es-progression/es-progression";
 import { Status } from "./components/es-status/es-status";
 import { TableCells } from "./components/es-table/types";
 import { Bread, Toast } from "./components/toast/types";
-import { WizardPage } from "./components/es-wizard/es-wizard";
+import { WizardPage } from "./components/es-wizard/types";
 export namespace Components {
     interface EsAccordian {
         "sections": AccordianSection[];
