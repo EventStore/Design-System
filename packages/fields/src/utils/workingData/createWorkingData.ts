@@ -1,9 +1,16 @@
 import { delegateFocus, HTTPError } from '@eventstore/utils';
 import { toast } from '@eventstore/components';
 import { logger } from '../logger';
-import { WorkingDataOptions, WorkingData, Severity } from '../../types';
+import {
+    WorkingDataOptions,
+    WorkingData,
+    Severity,
+    FieldChangeEvent,
+} from '../../types';
 import { expandOptions } from './expandOptions';
 import { createStores } from './createStores';
+import { focusError, insertError, wDKey } from '../../symbols';
+import { isWorkingData } from './isWorkingData';
 
 export const createWorkingData = <T extends object>(
     options: WorkingDataOptions<T>,
@@ -15,9 +22,27 @@ export const createWorkingData = <T extends object>(
         state: { state },
         fields,
         refs,
+        children,
         validationFailedCallbacks,
         beforeFocusCallbacks,
     } = createStores(fullOptions);
+
+    const failures = new Set<keyof T>();
+
+    let failedValidation = false;
+    let validationTimeout: number;
+    let forcingFocus = false;
+    let awaiters: Array<(value: boolean | PromiseLike<boolean>) => void> = [];
+
+    const fullData = (): T =>
+        Array.from(fields.entries()).reduce<T>((acc, [key, field]) => {
+            if (isWorkingData(field)) {
+                acc[key] = field.data;
+            } else {
+                acc[key] = data[key];
+            }
+            return acc;
+        }, {} as T);
 
     const processValidationFailure = (
         key: keyof T,
@@ -32,32 +57,137 @@ export const createWorkingData = <T extends object>(
 
         validationFailedCallbacks
             .get(key)
-            ?.forEach((cb) => cb({ id, severity, message }, refs.get(key)));
+            ?.forEach((cb) =>
+                cb({ id, severity, message, key }, refs.get(key)),
+            );
+        validationFailedCallbacks
+            .get('*' as never)
+            ?.forEach((cb) =>
+                cb({ id, severity, message, key }, refs.get(key)),
+            );
 
         messages[key] = {
             ...messages[key],
             [severity]: [...messages[key][severity], message],
         };
     };
-    let failedValidation = false;
-    let validationTimeout: number;
-    let forcingFocus = false;
-    let awaiters: Array<(value: boolean | PromiseLike<boolean>) => void> = [];
+
+    const insertValidationError = (
+        [k, ...path]: string[],
+        severity: Severity,
+        message: string,
+        id: string,
+    ) => {
+        const key = k as keyof T;
+        const field = fields.get(key);
+
+        if (field && !path.length) {
+            failures.add(key);
+            processValidationFailure(key, severity, message, id);
+            return;
+        }
+
+        if (isWorkingData(field)) {
+            failures.add(key);
+            field[insertError](path, severity, message, id);
+            return;
+        }
+
+        logger.warn(
+            `Unknown keys "${[k, ...path].join(
+                '.',
+            )}" passed to validation failure`,
+        );
+        return;
+    };
+
+    const focusFirstError = async (): Promise<boolean> => {
+        for (const [key, field] of fields) {
+            if (!failures.has(key)) continue;
+
+            if (isWorkingData(field)) {
+                const focused = await field[focusError]();
+                if (focused) return true;
+                continue;
+            }
+
+            const ref = refs.get(key);
+            const before = await Promise.all(
+                Array.from(
+                    beforeFocusCallbacks,
+                    async (cb): Promise<boolean> => {
+                        try {
+                            const result = await cb(key, ref);
+                            return typeof result === 'boolean' ? result : true;
+                        } catch (error) {
+                            return false;
+                        }
+                    },
+                ),
+            );
+
+            if (!ref || !before.every(Boolean)) continue;
+
+            delegateFocus(ref, { preventScroll: true });
+            ref.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            return true;
+        }
+
+        return false;
+    };
+
+    const freeze = () => {
+        state.frozen = true;
+        children.forEach((d) => d.freeze());
+    };
+
+    const unfreeze = () => {
+        state.frozen = false;
+        children.forEach((d) => d.unfreeze());
+    };
+
+    const listen = (e: FieldChangeEvent<T>) => {
+        e.stopPropagation();
+        if (state.frozen) return;
+        const { name, value } = e.detail;
+
+        if (!fields.has(name)) {
+            logger.warn(`Unknown event "${name}" passed to listen`);
+            return;
+        }
+
+        data[name] = value;
+
+        if (failedValidation) {
+            validate(false);
+        }
+    };
+
     const runValidation = async (forceFocus = true) => {
         resetMessages();
-        const promises: Promise<void>[] = [];
-        const failures = new Set<keyof T>();
+        const validationPromises: Promise<void>[] = [];
+        failures.clear();
         try {
-            for (const [
-                k,
-                {
+            for (const [key, field] of fields) {
+                if (isWorkingData(field)) {
+                    validationPromises.push(
+                        (async () => {
+                            const success = await field.validate(false);
+                            if (success) return;
+                            failures.add(key);
+                        })(),
+                    );
+                    continue;
+                }
+
+                const {
                     optional,
                     checkExists,
                     message: requiredMessage,
                     validations,
-                },
-            ] of fields) {
-                const key = k as keyof T;
+                } = field;
+
                 const value = data[key];
                 const exists = checkExists(value, data);
                 if (!exists) {
@@ -77,7 +207,7 @@ export const createWorkingData = <T extends object>(
                 }
                 validations.forEach(
                     ({ validator, message, severity = 'error', id }, i) =>
-                        promises.push(
+                        validationPromises.push(
                             (async () => {
                                 const success = await validator(value, data);
                                 if (success) return;
@@ -95,44 +225,20 @@ export const createWorkingData = <T extends object>(
                         ),
                 );
             }
-            await Promise.all(promises);
+            await Promise.all(validationPromises);
+
             failedValidation = !!failures.size;
+
             if (!failedValidation) return true;
             if (forceFocus) {
-                for (const key of fields.keys()) {
-                    if (!failures.has(key)) continue;
-
-                    const ref = refs.get(key);
-                    if (!ref) continue;
-
-                    const before = await Promise.all(
-                        Array.from(
-                            beforeFocusCallbacks,
-                            async (cb): Promise<boolean> => {
-                                try {
-                                    const result = await cb(key, ref);
-                                    return typeof result === 'boolean'
-                                        ? result
-                                        : true;
-                                } catch (error) {
-                                    return false;
-                                }
-                            },
-                        ),
-                    );
-
-                    if (!before.every(Boolean)) continue;
-
-                    delegateFocus(ref, { preventScroll: true });
-                    ref.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    break;
-                }
+                await focusFirstError();
             }
         } catch (error) {
             logger.error('Validation Failed', error);
         }
         return false;
     };
+
     const validate = (forceFocus = true) => {
         return new Promise<boolean>((resolve) => {
             forcingFocus = forcingFocus || forceFocus;
@@ -146,82 +252,87 @@ export const createWorkingData = <T extends object>(
             });
         });
     };
+
     return {
         get data() {
-            return { ...data };
+            return fullData();
         },
         get frozen() {
             return state.frozen;
         },
+        get [wDKey](): true {
+            return true;
+        },
         reset: () => {
             resetData();
             resetMessages();
+            children.forEach((d) => d.reset());
         },
         update: (partial) => {
             if (state.frozen) return;
-            for (const [key, value] of Object.entries(partial)) {
-                (data as any)[key] = value;
+            for (const [key, value] of Object.entries<any>(partial)) {
+                const wd = fields.get(key as keyof T);
+                if (isWorkingData(wd)) {
+                    wd.update(value);
+                } else {
+                    (data as any)[key] = value;
+                }
             }
         },
         set: (key, value) => {
             if (state.frozen) return;
             data[key] = value;
         },
-        connect: (key) => ({
-            name: key as string,
-            value: data[key],
-            invalid: !!messages[key].error.length,
-            messages: messages[key],
-            ref: (r) => {
-                if (r) {
-                    refs.set(key, r);
-                } else {
-                    refs.delete(key);
-                }
-            },
-        }),
+        connect: (key: keyof T, ...args: any[]) => {
+            const wd = fields.get(key);
+
+            if (isWorkingData(wd) && args.length) {
+                return (wd.connect as any)(...args);
+            }
+
+            if (!isWorkingData(wd) && !args.length) {
+                return {
+                    name: key as string,
+                    value: data[key],
+                    invalid: !!messages[key].error.length,
+                    messages: messages[key],
+                    onFieldchange: listen,
+                    ref: (r?: HTMLElement) => {
+                        if (r) {
+                            refs.set(key, r);
+                        } else {
+                            refs.delete(key);
+                        }
+                    },
+                };
+            }
+
+            throw new Error(`Bad path in workingdata connect: ${args}`);
+        },
         onChange,
         onValidationFailed: (key, callback) => {
             if (!validationFailedCallbacks.has(key)) {
                 validationFailedCallbacks.set(key, new Set());
             }
-
             validationFailedCallbacks.get(key)?.add(callback);
-
             return () => {
                 validationFailedCallbacks.get(key)?.delete(callback);
             };
         },
         onBeforeFocus: (callback) => {
             beforeFocusCallbacks.add(callback);
-
             return () => {
                 beforeFocusCallbacks.delete(callback);
             };
         },
-        listen: (e) => {
-            e.stopPropagation();
-            if (state.frozen) return;
-            const { name, value } = e.detail;
-
-            if (!fields.has(name)) {
-                logger.warn(`Unknown event "${name}" passed to listen`);
-                return;
-            }
-
-            data[name] = value;
-
-            if (failedValidation) {
-                validate(false);
-            }
-        },
+        listen,
         validate,
-        submit: async (fn, options = {}) => {
+        submit: async (fn, { forceFocus = true } = {}) => {
             if (state.frozen) return;
-            state.frozen = true;
-            if (await validate(options.forceFocus)) {
+            freeze();
+            if (await validate(forceFocus)) {
                 try {
-                    await fn({ ...data });
+                    await fn(fullData());
                 } catch (error) {
                     if (error instanceof HTTPError) {
                         const {
@@ -230,8 +341,8 @@ export const createWorkingData = <T extends object>(
                             fields = {},
                         } = await error.details();
                         for (const [key, message] of Object.entries(fields)) {
-                            processValidationFailure(
-                                key.split('.').shift()! as keyof T,
+                            insertValidationError(
+                                key.split('.'),
                                 'error',
                                 message as string,
                                 'submit',
@@ -241,18 +352,17 @@ export const createWorkingData = <T extends object>(
                             title,
                             message: detail,
                         });
+                        if (forceFocus) await focusFirstError();
                     } else {
                         logger.error(error);
                     }
                 }
             }
-            state.frozen = false;
+            unfreeze();
         },
-        freeze: () => {
-            state.frozen = true;
-        },
-        unfreeze: () => {
-            state.frozen = false;
-        },
+        freeze,
+        unfreeze,
+        [focusError]: focusFirstError,
+        [insertError]: insertValidationError,
     };
 };
