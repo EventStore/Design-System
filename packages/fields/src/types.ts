@@ -1,3 +1,5 @@
+import { wDKey, focusError, insertError } from './symbols';
+
 interface ChangeEventValue<T extends object, K extends keyof T> {
     name: K;
     value: T[K];
@@ -17,11 +19,12 @@ interface SubmitOptions {
 export interface WorkingData<T extends object> {
     readonly data: T;
     readonly frozen: boolean;
+    readonly [wDKey]: true;
     reset: () => void;
     set: (key: keyof T, item: T[typeof key], options?: any) => void;
     update: (update: Partial<T>) => void;
     connect: Connector<T>;
-    validate: () => Promise<any>;
+    validate: (forceFocus?: boolean) => Promise<any>;
     submit: (
         fn: (data: T) => Promise<any>,
         options?: SubmitOptions,
@@ -32,42 +35,85 @@ export interface WorkingData<T extends object> {
     onBeforeFocus: OnBeforeFocusHandler<T>;
     freeze: () => void;
     unfreeze: () => void;
+
+    [focusError]: () => Promise<boolean>;
+    [insertError]: (
+        keys: string[],
+        severity: Severity,
+        message: string,
+        id: string,
+    ) => void;
 }
 
-export interface Connection<U> {
+export interface Connection<K extends string, U> {
     value: U;
     invalid: boolean;
     messages: ValidationMessages;
-    name: string;
+    name: K;
+    onFieldChange: (
+        e: CustomEvent<{
+            name: K;
+            value: U;
+        }>,
+    ) => void;
     ref: (ref?: HTMLElement) => void;
 }
 
 export interface Connector<T> {
-    <Key extends keyof T>(key: Key, options?: any): Connection<T[Key]>;
+    <K extends string & keyof T>(key: K): Connection<K, T[K]>;
+    <K extends string & keyof T, K2 extends string & keyof T[K]>(
+        key: K,
+        key2: K2,
+    ): Connection<K2, T[K][K2]>;
+    <
+        K extends string & keyof T,
+        K2 extends string & keyof T[K],
+        K3 extends string & keyof T[K][K2]
+    >(
+        key: K,
+        key2: K2,
+        key3: K3,
+    ): Connection<K3, T[K][K2][K3]>;
+    <
+        K extends string & keyof T,
+        K2 extends string & keyof T[K],
+        K3 extends string & keyof T[K][K2],
+        K4 extends string & keyof T[K][K2][K3]
+    >(
+        key: K,
+        key2: K2,
+        key3: K3,
+        key4: K4,
+    ): Connection<K4, T[K][K2][K3][K4]>;
 }
 
 export interface OnChangeHandler<T> {
     <Key extends keyof T>(key: Key, cb: (newValue: T[Key]) => void): () => void;
 }
 
-export type ValidationFailedCallback = (
-    info: { id: string; severity: Severity; message: string },
+export type ValidationFailedCallback<T> = (
+    info: { id: string; severity: Severity; message: string; key: keyof T },
     ref?: HTMLElement,
 ) => void;
 export interface OnValidationFailedHandler<T> {
-    <Key extends keyof T>(key: Key, cb: ValidationFailedCallback): () => void;
+    <Key extends keyof T>(
+        key: Key | '*',
+        cb: ValidationFailedCallback<T>,
+    ): () => void;
 }
 
 export type BeforeFocusCallback<K> = (
     key: K,
-    ref: HTMLElement,
+    ref: HTMLElement | undefined,
 ) => boolean | void | Promise<boolean | void>;
 export interface OnBeforeFocusHandler<T> {
     (cb: BeforeFocusCallback<keyof T>): () => void;
 }
 
 export type WorkingDataOptions<T> = {
-    [key in keyof T]: FieldOptions<T[key], T> | T[key];
+    [key in keyof T]: T[key] extends object
+        ? FieldOptions<T[key], T> | T[key] | WorkingData<T[key]>
+        : FieldOptions<T[key], T> | T[key];
 };
 
 export interface FieldOptions<T, U> {
@@ -79,7 +125,9 @@ export interface FieldOptions<T, U> {
 }
 
 export type InternalWorkingDataOptions<T> = {
-    [key in keyof T]: InternalFieldOptions<T[key], T>;
+    [key in keyof T]: T[key] extends object
+        ? InternalFieldOptions<T[key], T> | WorkingData<T[key]>
+        : InternalFieldOptions<T[key], T>;
 };
 
 export interface InternalFieldOptions<T, U>
