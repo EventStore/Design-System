@@ -6,6 +6,9 @@ import {
     WorkingData,
     Severity,
     FieldChangeEvent,
+    ExtendOptions,
+    FieldOptions,
+    InternalFieldOptions,
 } from '../../types';
 import { expandOptions } from './expandOptions';
 import { createStores } from './createStores';
@@ -286,11 +289,18 @@ export const createWorkingData = <T extends object>(
         connect: (key: keyof T, ...args: any[]) => {
             const wd = fields.get(key);
 
-            if (isWorkingData(wd) && args.length) {
-                return (wd.connect as any)(...args);
+            if (isWorkingData(wd)) {
+                if (args.length) {
+                    return (wd.connect as any)(...args);
+                }
+
+                return {
+                    name: key as string,
+                    data: wd,
+                };
             }
 
-            if (!isWorkingData(wd) && !args.length) {
+            if (!args.length) {
                 return {
                     name: key as string,
                     value: data[key],
@@ -307,7 +317,9 @@ export const createWorkingData = <T extends object>(
                 };
             }
 
-            throw new Error(`Bad path in workingdata connect: ${args}`);
+            throw new Error(
+                `Bad path in workingdata connect: ${[key, ...args]}`,
+            );
         },
         onChange,
         onValidationFailed: (key, callback) => {
@@ -362,6 +374,41 @@ export const createWorkingData = <T extends object>(
         },
         freeze,
         unfreeze,
+        extend: (options) => {
+            for (const [k, value] of Object.entries(options)) {
+                const key = k as keyof T;
+                const field = fields.get(key);
+
+                if (!field) {
+                    logger.warn(`Unknown key "${key}" passed to extend`);
+                    continue;
+                }
+
+                if (isWorkingData(field)) {
+                    field.extend(value as ExtendOptions<T[typeof key]>);
+                    continue;
+                }
+
+                const options = value as Partial<
+                    FieldOptions<T[typeof key], T>
+                >;
+                const expanded: InternalFieldOptions<T[typeof key], T> = {
+                    ...field,
+                    ...options,
+                    optional:
+                        typeof options.optional === 'boolean'
+                            ? () => options.optional as boolean
+                            : options.optional ?? field.optional,
+                    validations: [
+                        ...field.validations,
+                        ...(options.validations ?? []),
+                    ],
+                };
+
+                fields.set(key, expanded);
+            }
+        },
+
         [focusError]: focusFirstError,
         [insertError]: insertValidationError,
     };
