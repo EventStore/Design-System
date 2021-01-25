@@ -35,6 +35,7 @@ export interface WorkingData<T extends object> {
     onBeforeFocus: OnBeforeFocusHandler<T>;
     freeze: () => void;
     unfreeze: () => void;
+    extend: (options: ExtendOptions<T>) => void;
 
     [focusError]: () => Promise<boolean>;
     [insertError]: (
@@ -45,19 +46,30 @@ export interface WorkingData<T extends object> {
     ) => void;
 }
 
-export interface Connection<K extends string, U> {
-    value: U;
+interface BasicConnection<K extends string, V> {
+    value: V;
     invalid: boolean;
     messages: ValidationMessages;
     name: K;
     onFieldChange: (
         e: CustomEvent<{
             name: K;
-            value: U;
+            value: V;
         }>,
     ) => void;
     ref: (ref?: HTMLElement) => void;
 }
+
+interface WDConnection<K extends string, V extends object> {
+    name: K;
+    data: WorkingData<V>;
+}
+
+export type Connection<K extends string, V> = V extends Array<any>
+    ? BasicConnection<K, V>
+    : V extends object
+    ? WDConnection<K, V>
+    : BasicConnection<K, V>;
 
 export interface Connector<T> {
     <K extends string & keyof T>(key: K): Connection<K, T[K]>;
@@ -109,6 +121,12 @@ export type BeforeFocusCallback<K> = (
 export interface OnBeforeFocusHandler<T> {
     (cb: BeforeFocusCallback<keyof T>): () => void;
 }
+
+export type ExtendOptions<T> = {
+    [key in keyof T]?: T[key] extends object
+        ? Omit<FieldOptions<T[key], T>, 'initialValue'> | ExtendOptions<T[key]>
+        : Omit<FieldOptions<T[key], T>, 'initialValue'>;
+};
 
 export type WorkingDataOptions<T> = {
     [key in keyof T]: T[key] extends object
