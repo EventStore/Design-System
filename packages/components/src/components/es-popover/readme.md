@@ -7,19 +7,20 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type                  | Default     |
-| ------------- | -------------- | ----------- | --------------------- | ----------- |
-| `attachmentX` | `attachment-x` |             | `string`              | `'middle'`  |
-| `attachmentY` | `attachment-y` |             | `string`              | `'bottom'`  |
-| `backdrop`    | `backdrop`     |             | `boolean`             | `false`     |
-| `offsetX`     | `offset-x`     |             | `number`              | `0`         |
-| `offsetY`     | `offset-y`     |             | `number`              | `0`         |
-| `open`        | `open`         |             | `boolean`             | `false`     |
-| `popperClass` | `popper-class` |             | `string \| undefined` | `undefined` |
-| `positionX`   | `position-x`   |             | `string`              | `'middle'`  |
-| `positionY`   | `position-y`   |             | `string`              | `'top'`     |
-| `target`      | `target`       |             | `string`              | `'body'`    |
-| `trapFocus`   | `trap-focus`   |             | `boolean`             | `false`     |
+| Property      | Attribute      | Description | Type                                      | Default     |
+| ------------- | -------------- | ----------- | ----------------------------------------- | ----------- |
+| `attachmentX` | `attachment-x` |             | `"left" \| "middle" \| "right"`           | `'middle'`  |
+| `attachmentY` | `attachment-y` |             | `"bottom" \| "middle" \| "top"`           | `'bottom'`  |
+| `backdrop`    | `backdrop`     |             | `boolean`                                 | `false`     |
+| `constrain`   | `constrain`    |             | `"both" \| "height" \| "none" \| "width"` | `'none'`    |
+| `offsetX`     | `offset-x`     |             | `number`                                  | `0`         |
+| `offsetY`     | `offset-y`     |             | `number`                                  | `0`         |
+| `open`        | `open`         |             | `boolean`                                 | `false`     |
+| `popperClass` | `popper-class` |             | `string \| undefined`                     | `undefined` |
+| `positionX`   | `position-x`   |             | `"left" \| "middle" \| "right"`           | `'middle'`  |
+| `positionY`   | `position-y`   |             | `"bottom" \| "middle" \| "top"`           | `'top'`     |
+| `target`      | `target`       |             | `string`                                  | `'body'`    |
+| `trapFocus`   | `trap-focus`   |             | `boolean`                                 | `false`     |
 
 
 ## Events

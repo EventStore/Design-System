@@ -1,11 +1,5 @@
 import { Component, h, State, Method, Host } from '@stencil/core';
-
-export interface Position {
-    top?: number;
-    right?: number;
-    bottom?: number;
-    left?: number;
-}
+import { Position } from '../../../../utils/calcPosition';
 
 @Component({
     tag: 'es-popper-inner',
@@ -39,6 +33,14 @@ export class Popper {
                         this.position.left != null
                             ? `${this.position.left}px`
                             : 'auto',
+                    width:
+                        this.position.width != null
+                            ? `${this.position.width}px`
+                            : 'unset',
+                    height:
+                        this.position.height != null
+                            ? `${this.position.height}px`
+                            : 'unset',
                 }}
             >
                 <slot />

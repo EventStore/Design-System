@@ -75,6 +75,7 @@ export class EsTypeahead {
     renderInput = (props: any) => (
         <input
             type={'text'}
+            part={'input'}
             onInput={this.onChangeInput}
             onKeyDown={this.onKeyDown}
             disabled={this.disabled}
@@ -103,6 +104,7 @@ export class EsTypeahead {
                             option: true,
                             active,
                         }}
+                        part={'option'}
                         onMouseDown={this.forceFocus}
                         onTouchStart={this.forceFocus}
                         onClick={this.clickOption(option.value)}
@@ -137,9 +139,14 @@ export class EsTypeahead {
                         positionX={'left'}
                         attachmentY={'top'}
                         positionY={'top'}
+                        constrain={'width'}
                     >
                         <div class={'list_sizer'}>
-                            <ul class={'list'} ref={this.captureList}>
+                            <ul
+                                class={'list'}
+                                part={'list'}
+                                ref={this.captureList}
+                            >
                                 {!this.filteredOptions.length && (
                                     <li class={'list_item'}>
                                         <span class={'empty_message'}>

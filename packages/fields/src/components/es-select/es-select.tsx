@@ -50,7 +50,10 @@ export class EsSelect {
     );
 
     renderField: RenderTypeaheadField = ({ Input, open, filter }) => (
-        <div class={{ input: true, open, disabled: !!this.disabled }}>
+        <div
+            class={{ input: true, open, disabled: !!this.disabled }}
+            part={'input'}
+        >
             <Input class={'true_input'} />
             {!open || !filter
                 ? this.value
