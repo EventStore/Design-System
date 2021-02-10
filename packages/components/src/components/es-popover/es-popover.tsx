@@ -9,7 +9,14 @@ import {
     writeTask,
 } from '@stencil/core';
 import { allowFocus } from '@eventstore/utils';
-import { calcPosition } from '../../utils/calcPosition';
+import {
+    AttachmentX,
+    AttachmentY,
+    calcPosition,
+    Constrain,
+    PositionX,
+    PositionY,
+} from '../../utils/calcPosition';
 import { shadowMutationObserver } from '../../utils/shadowMutationObserver';
 
 @Component({
@@ -26,10 +33,11 @@ export class Popover {
     @Prop() backdrop: boolean = false;
     @Prop({ attribute: 'trap-focus' }) trapFocus: boolean = false;
 
-    @Prop() positionY: string = 'top';
-    @Prop() positionX: string = 'middle';
-    @Prop() attachmentY: string = 'bottom';
-    @Prop() attachmentX: string = 'middle';
+    @Prop() constrain: Constrain = 'none';
+    @Prop() positionY: PositionY = 'top';
+    @Prop() positionX: PositionX = 'middle';
+    @Prop() attachmentY: AttachmentY = 'bottom';
+    @Prop() attachmentX: AttachmentX = 'middle';
     @Prop() offsetY: number = 0;
     @Prop() offsetX: number = 0;
 
@@ -251,6 +259,7 @@ export class Popover {
             attachmentX: this.attachmentX,
             positionX: this.positionX,
             offsetX: this.offsetX,
+            constrain: this.constrain,
         });
 
         this.popperShadow.setPosition(position);

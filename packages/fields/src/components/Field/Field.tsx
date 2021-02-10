@@ -12,7 +12,9 @@ export const Field: FunctionalComponent<FieldProps> = (
     children,
 ) => (
     <label class={{ field: true, invalid }}>
-        <span class={'label'}>{label}</span>
+        <span class={'label'} part={'label'}>
+            {label}
+        </span>
         {children}
         <es-validation-messages messages={messages} />
     </label>
