@@ -29,6 +29,14 @@
 | `fieldchange` |             | `CustomEvent<any>` |
 
 
+## Shadow Parts
+
+| Part       | Description |
+| ---------- | ----------- |
+| `"list"`   |             |
+| `"option"` |             |
+
+
 ## Dependencies
 
 ### Used by

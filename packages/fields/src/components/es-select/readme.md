@@ -30,6 +30,13 @@
 | `fieldchange` |             | `CustomEvent<any>` |
 
 
+## Shadow Parts
+
+| Part      | Description |
+| --------- | ----------- |
+| `"input"` |             |
+
+
 ## Dependencies
 
 ### Depends on

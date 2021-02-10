@@ -19,7 +19,9 @@ interface SubmitOptions {
 export interface WorkingData<T extends object> {
     readonly data: T;
     readonly frozen: boolean;
+    readonly messages: ValidationMessages;
     readonly [wDKey]: true;
+
     reset: () => void;
     set: (key: keyof T, item: T[typeof key], options?: any) => void;
     update: (update: Partial<T>) => void;
