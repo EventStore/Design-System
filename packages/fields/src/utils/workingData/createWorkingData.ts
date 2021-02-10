@@ -9,6 +9,7 @@ import {
     ExtendOptions,
     FieldOptions,
     InternalFieldOptions,
+    ValidationMessages,
 } from '../../types';
 import { expandOptions } from './expandOptions';
 import { createStores } from './createStores';
@@ -84,15 +85,25 @@ export const createWorkingData = <T extends object>(
         const key = k as keyof T;
         const field = fields.get(key);
 
+        if (isWorkingData(field)) {
+            failures.add(key);
+            field[insertError](
+                !path.length ? [':root'] : path,
+                severity,
+                message,
+                id,
+            );
+            return;
+        }
+
         if (field && !path.length) {
             failures.add(key);
             processValidationFailure(key, severity, message, id);
             return;
         }
 
-        if (isWorkingData(field)) {
-            failures.add(key);
-            field[insertError](path, severity, message, id);
+        if (key === ':root') {
+            processValidationFailure(key, severity, message, id);
             return;
         }
 
@@ -262,6 +273,19 @@ export const createWorkingData = <T extends object>(
         },
         get frozen() {
             return state.frozen;
+        },
+        get messages() {
+            return Object.values<ValidationMessages>(
+                messages,
+            ).reduce<ValidationMessages>(
+                (acc, field) => {
+                    acc.error.push(...field.error);
+                    acc.warning.push(...field.warning);
+                    acc.info.push(...field.info);
+                    return acc;
+                },
+                { error: [], warning: [], info: [] },
+            );
         },
         get [wDKey](): true {
             return true;

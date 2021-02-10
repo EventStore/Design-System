@@ -1,17 +1,27 @@
+export type AttachmentY = 'top' | 'middle' | 'bottom';
+export type PositionY = 'top' | 'middle' | 'bottom';
+export type AttachmentX = 'right' | 'middle' | 'left';
+export type PositionX = 'right' | 'middle' | 'left';
+export type Constrain = 'none' | 'width' | 'height' | 'both';
+
 export interface Position {
     top?: number;
     right?: number;
     bottom?: number;
     left?: number;
+    width?: number;
+    height?: number;
 }
 interface AttachmentInformation {
-    attachmentY: string;
-    positionY: string;
+    attachmentY: AttachmentY;
+    positionY: PositionY;
     offsetY: number;
 
-    attachmentX: string;
-    positionX: string;
+    attachmentX: AttachmentX;
+    positionX: PositionX;
     offsetX: number;
+
+    constrain: Constrain;
 }
 
 const calcPosition = (
@@ -23,6 +33,7 @@ const calcPosition = (
         attachmentX,
         positionX,
         offsetX,
+        constrain,
     }: AttachmentInformation,
 ) => {
     const position: Position = {};
@@ -102,6 +113,14 @@ const calcPosition = (
         }
 
         position.left! += offsetX;
+    }
+
+    if (constrain === 'height' || constrain === 'both') {
+        position.height = clientRect.height;
+    }
+
+    if (constrain === 'width' || constrain === 'both') {
+        position.width = clientRect.width;
     }
 
     return position;

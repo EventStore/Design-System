@@ -40,7 +40,9 @@ export const createStores = <T>(
 ): Stores<T> => {
     const initialValues: Record<string, any> = {};
     const children = new Map<string, WorkingData<any>>();
-    const messages: Record<string, any> = {};
+    const messages: Record<string, any> = {
+        [':root']: blankMessages(),
+    };
     const fields = new Map<string, any>();
     const defaultState: WorkingDataState = {
         frozen: false,
