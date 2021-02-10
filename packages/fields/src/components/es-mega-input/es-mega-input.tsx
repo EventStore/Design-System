@@ -30,6 +30,7 @@ export class EsMegaInput {
                 <input
                     {...(this.inputProps ?? {})}
                     class={'input'}
+                    part={'input'}
                     value={this.value}
                     onInput={this.onChange}
                     placeholder={this.placeholder}

@@ -12,7 +12,7 @@ import { Crumb } from "./components/es-breadcrumb/es-breadcrumb";
 import { ButtonColor, ButtonVariant } from "./components/buttons/types";
 import { EsCalloutVariant } from "./components/es-callout/es-callout";
 import { CounterVariant } from "./components/es-counter/es-counter";
-import { Position } from "./components/es-popover/components/es-popper-inner/es-popper-inner";
+import { AttachmentX, AttachmentY, Constrain, Position, PositionX, PositionY } from "./utils/calcPosition";
 import { Checkpoint } from "./components/es-progression/es-progression";
 import { Status } from "./components/es-status/es-status";
 import { TableCells } from "./components/es-table/types";
@@ -96,15 +96,16 @@ export namespace Components {
     interface EsPageTitle {
     }
     interface EsPopover {
-        "attachmentX": string;
-        "attachmentY": string;
+        "attachmentX": AttachmentX;
+        "attachmentY": AttachmentY;
         "backdrop": boolean;
+        "constrain": Constrain;
         "offsetX": number;
         "offsetY": number;
         "open": boolean;
         "popperClass"?: string;
-        "positionX": string;
-        "positionY": string;
+        "positionX": PositionX;
+        "positionY": PositionY;
         "target": string;
         "trapFocus": boolean;
     }
@@ -473,16 +474,17 @@ declare namespace LocalJSX {
     interface EsPageTitle {
     }
     interface EsPopover {
-        "attachmentX"?: string;
-        "attachmentY"?: string;
+        "attachmentX"?: AttachmentX;
+        "attachmentY"?: AttachmentY;
         "backdrop"?: boolean;
+        "constrain"?: Constrain;
         "offsetX"?: number;
         "offsetY"?: number;
         "onRequestClose"?: (event: CustomEvent<any>) => void;
         "open"?: boolean;
         "popperClass"?: string;
-        "positionX"?: string;
-        "positionY"?: string;
+        "positionX"?: PositionX;
+        "positionY"?: PositionY;
         "target"?: string;
         "trapFocus"?: boolean;
     }

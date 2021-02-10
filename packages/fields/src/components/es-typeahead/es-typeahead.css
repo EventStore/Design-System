@@ -4,7 +4,7 @@ es-typeahead {
 
 .inner.typeahead {
     display: flex;
-    width: 350px;
+    width: 100%;
     border-radius: 20px;
     border-bottom-right-radius: 2px;
     border-width: 1px;

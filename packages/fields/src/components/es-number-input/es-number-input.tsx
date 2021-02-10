@@ -32,6 +32,7 @@ export class EsNumberInput {
                     <input
                         {...(this.inputProps ?? {})}
                         class={'input'}
+                        part={'input'}
                         type={'text'}
                         inputmode={'numeric'}
                         onInput={this.onChange}

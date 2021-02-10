@@ -88,9 +88,13 @@ export class ListCreator {
                     </es-button>
                 </Field>
                 {!!this.value.length && (
-                    <ul class={'value_list'}>
+                    <ul class={'value_list'} part={'value-list'}>
                         {this.expandedValues.map((value) => (
-                            <li key={value.value} class={'value_list_item'}>
+                            <li
+                                key={value.value}
+                                class={'value_list_item'}
+                                part={'value-list-item'}
+                            >
                                 <es-icon
                                     icon={this.icon}
                                     class={'value_list_item_icon'}

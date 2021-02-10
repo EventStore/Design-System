@@ -28,6 +28,14 @@
 | `fieldchange` |             | `CustomEvent<any>` |
 
 
+## Shadow Parts
+
+| Part                | Description |
+| ------------------- | ----------- |
+| `"value-list"`      |             |
+| `"value-list-item"` |             |
+
+
 ## Dependencies
 
 ### Depends on
