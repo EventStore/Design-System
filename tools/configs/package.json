@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/configs",
-    "version": "0.0.47",
+    "version": "0.0.48",
     "description": "Configs for the Event Store Design System",
     "license": "Apache-2.0",
     "prettier": "./prettier",
