@@ -13,6 +13,18 @@ export const initialize = (
                 return '/workers/json.worker.js';
             }
 
+            if (label === 'typescript' || label === 'javascript') {
+                return '/workers/ts.worker.js';
+            }
+
+            if (label === 'css') {
+                return '/workers/css.worker.js';
+            }
+
+            if (label === 'html') {
+                return '/workers/html.worker.js';
+            }
+
             return '/workers/editor.worker.js';
         },
     },
