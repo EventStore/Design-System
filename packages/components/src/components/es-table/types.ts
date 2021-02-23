@@ -11,13 +11,18 @@ export type TableCellVariant =
     | 'no-pad'
     | 'borderless'
     | 'centered'
-    | 'full-width';
+    | 'full-width'
+    | 'exclude';
 
 export interface TableCell<T> {
     title: string;
     cell?: (d: CellProps<T>) => string | VNode | VNode[] | null;
     width?: string;
     variant?: TableCellVariant | TableCellVariant[];
+    class?:
+        | ((d: T) => string | Record<string, boolean>)
+        | string
+        | Record<string, boolean>;
 }
 
 export type TableCells<T> = Record<string, TableCell<T>>;
