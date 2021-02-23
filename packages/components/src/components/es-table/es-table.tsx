@@ -36,11 +36,13 @@ export class Table {
         if (this.headless) return null;
         return (
             <div role={'row'}>
-                {this.getColumns().map((name) => (
-                    <div role={'columnheader'} aria-sort="none">
-                        {this.getCell(name).title}
-                    </div>
-                ))}
+                {this.getColumns()
+                    .filter((col) => this.getCell(col).variant !== 'exclude')
+                    .map((name) => (
+                        <div role={'columnheader'} aria-sort="none">
+                            {this.getCell(name).title}
+                        </div>
+                    ))}
             </div>
         );
     };
@@ -95,7 +97,9 @@ export class Table {
 
     private renderCells = (data: any, key: string) =>
         this.getColumns().map((name, i) => {
-            const { cell: Cell, variant } = this.getCell(name);
+            const { cell: Cell, variant, class: rawClasses } = this.getCell(
+                name,
+            );
             const value = data[name];
             const variants =
                 typeof variant === 'string' ? [variant] : variant ?? [];
@@ -106,6 +110,17 @@ export class Table {
 
             const focusCell =
                 i === 0 && (!!this.rowTakesFocus || !!this.linkRowTo);
+
+            const classes =
+                typeof rawClasses === 'function'
+                    ? rawClasses(data)
+                    : rawClasses;
+
+            const extraClasses = !classes
+                ? {}
+                : typeof classes === 'string'
+                ? { classes: true }
+                : classes;
 
             return (
                 <span
@@ -119,6 +134,7 @@ export class Table {
                         borderless: variants.includes('borderless'),
                         centered: variants.includes('centered'),
                         focusCell,
+                        ...extraClasses,
                     }}
                 >
                     {Cell ? (
@@ -166,7 +182,9 @@ export class Table {
     };
 
     private gridTemplateColumns = () =>
-        this.getColumns()
-            .map((col) => this.getCell(col).width ?? 'auto')
-            .join(' ');
+        this.getColumns().reduce((acc, col) => {
+            const cell = this.getCell(col);
+            if (cell.variant === 'exclude') return acc;
+            return `${acc} ${cell.width ?? 'auto'}`;
+        }, '');
 }
