@@ -11,6 +11,7 @@ export interface RenderTypeaheadFieldParams {
     value: string[];
     open: boolean;
     filter: string;
+    ref: (element?: HTMLElement) => void;
 }
 
 export type RenderTypeaheadField = (

@@ -49,12 +49,13 @@ export class EsSelect {
         <span class={'placeholder'}>{this.placeholder}</span>
     );
 
-    renderField: RenderTypeaheadField = ({ Input, open, filter }) => (
+    renderField: RenderTypeaheadField = ({ Input, open, filter, ref }) => (
         <div
+            ref={ref}
             class={{ input: true, open, disabled: !!this.disabled }}
             part={'input'}
         >
-            <Input class={'true_input'} />
+            <Input class={'true_input'} part={'true_input'} />
             {!open || !filter
                 ? this.value
                     ? this.renderValue(this.findOption(this.value), this.value)

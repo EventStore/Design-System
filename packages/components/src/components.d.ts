@@ -96,6 +96,7 @@ export namespace Components {
     interface EsPageTitle {
     }
     interface EsPopover {
+        "attachTo"?: HTMLElement;
         "attachmentX": AttachmentX;
         "attachmentY": AttachmentY;
         "backdrop": boolean;
@@ -474,6 +475,7 @@ declare namespace LocalJSX {
     interface EsPageTitle {
     }
     interface EsPopover {
+        "attachTo"?: HTMLElement;
         "attachmentX"?: AttachmentX;
         "attachmentY"?: AttachmentY;
         "backdrop"?: boolean;
