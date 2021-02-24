@@ -9,6 +9,7 @@
 
 | Property      | Attribute      | Description | Type                                      | Default     |
 | ------------- | -------------- | ----------- | ----------------------------------------- | ----------- |
+| `attachTo`    | --             |             | `HTMLElement \| undefined`                | `undefined` |
 | `attachmentX` | `attachment-x` |             | `"left" \| "middle" \| "right"`           | `'middle'`  |
 | `attachmentY` | `attachment-y` |             | `"bottom" \| "middle" \| "top"`           | `'bottom'`  |
 | `backdrop`    | `backdrop`     |             | `boolean`                                 | `false`     |
