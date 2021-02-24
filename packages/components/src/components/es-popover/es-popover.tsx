@@ -33,6 +33,7 @@ export class Popover {
     @Prop() backdrop: boolean = false;
     @Prop({ attribute: 'trap-focus' }) trapFocus: boolean = false;
 
+    @Prop() attachTo?: HTMLElement;
     @Prop() constrain: Constrain = 'none';
     @Prop() positionY: PositionY = 'top';
     @Prop() positionX: PositionX = 'middle';
@@ -246,11 +247,11 @@ export class Popover {
     };
 
     private positionPopper = () => {
-        const parentNode = this.getParentNode();
+        const attachment = this.attachTo ?? this.getParentNode();
 
-        if (!parentNode || !this.popperShadow) return;
+        if (!attachment || !this.popperShadow) return;
 
-        const clientRect = parentNode.getBoundingClientRect();
+        const clientRect = attachment.getBoundingClientRect();
 
         const position = calcPosition(clientRect, {
             attachmentY: this.attachmentY,
