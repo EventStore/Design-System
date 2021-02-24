@@ -76,6 +76,13 @@ export class EsTypeahead {
         <input
             type={'text'}
             part={'input'}
+            autocapitalize={'none'}
+            autocomplete={'off'}
+            autocorrect={'off'}
+            spellcheck={'false'}
+            aria-autocomplete={'list'}
+            {...props}
+            ref={this.captureInput}
             onInput={this.onChangeInput}
             onKeyDown={this.onKeyDown}
             disabled={this.disabled}
@@ -83,14 +90,7 @@ export class EsTypeahead {
             onFocus={this.onFocus}
             onClick={this.onFocus}
             onBlur={this.onBlur}
-            ref={this.captureInput}
             value={this.filter}
-            autocapitalize={'none'}
-            autocomplete={'off'}
-            autocorrect={'off'}
-            spellcheck={'false'}
-            aria-autocomplete={'list'}
-            {...props}
         />
     );
 
@@ -130,11 +130,13 @@ export class EsTypeahead {
                     value: this.value,
                     open: this.open,
                     filter: this.filter,
+                    ref: this.captureField,
                 })}
                 {this.open && (
                     <es-popover
                         open={this.open}
                         popperClass={'typeahead'}
+                        attachTo={this.fieldElement}
                         attachmentX={'left'}
                         positionX={'left'}
                         attachmentY={'top'}
@@ -173,6 +175,11 @@ export class EsTypeahead {
     private inputElement?: HTMLInputElement;
     private captureInput = (ref?: HTMLInputElement) => {
         this.inputElement = ref;
+    };
+
+    private fieldElement?: HTMLElement;
+    private captureField = (ref?: HTMLElement) => {
+        this.fieldElement = ref;
     };
 
     // safari doesn't focus a button on click, so we need to force it for compatability

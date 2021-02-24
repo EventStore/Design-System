@@ -32,9 +32,10 @@
 
 ## Shadow Parts
 
-| Part      | Description |
-| --------- | ----------- |
-| `"input"` |             |
+| Part           | Description |
+| -------------- | ----------- |
+| `"input"`      |             |
+| `"true_input"` |             |
 
 
 ## Dependencies
