@@ -162,6 +162,7 @@ export namespace Components {
         "titleKey": string;
     }
     interface EsTableNested {
+        "activePath"?: string[];
         "canExpand": (key: string, data: any) => boolean;
         "cells": TableCells<any>;
         "columns"?: string[];
@@ -544,6 +545,7 @@ declare namespace LocalJSX {
         "titleKey": string;
     }
     interface EsTableNested {
+        "activePath"?: string[];
         "canExpand"?: (key: string, data: any) => boolean;
         "cells": TableCells<any>;
         "columns"?: string[];
