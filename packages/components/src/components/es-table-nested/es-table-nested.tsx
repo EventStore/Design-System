@@ -26,26 +26,37 @@ export class TableNested {
     @Prop() nestedRowTakesFocus?: boolean;
     @Prop() canExpand: (key: string, data: any) => boolean = () => true;
 
+    @Prop() activePath?: string[];
+
     @State() expanded: Set<string> = new Set();
     @State() loading: Set<string> = new Set();
 
     @Event() clickRow!: EventEmitter<any>;
     @Event() expansion!: EventEmitter<{ data: any; key: string }>;
 
-    renderExpansion = (key: string) => {
-        if (!this.expanded.has(key)) return null;
+    renderExpansion = (depth: number) => (key: string) => {
+        const expanded = this.expanded.has(key);
+        const nestedActive =
+            !expanded && this.activePath && this.activePath[depth] === key
+                ? this.activePath[depth + 1]
+                : false;
+        if (!expanded && !nestedActive) return null;
 
         return (
             <es-table
                 headless
                 class={'nested'}
                 rowTakesFocus={this.nestedRowTakesFocus ?? this.rowTakesFocus}
-                identifier={this.outerIdentifier}
+                identifier={this.nestedIdentifier}
                 getCellData={this.getNestedCellData ?? this.getCellData}
                 cells={this.cellsWithExpander()}
                 columns={this.nestedColumns ?? this.columns}
-                rows={this.getNestedRows?.(key) ?? []}
-                renderExpansion={this.renderExpansion}
+                rows={
+                    nestedActive
+                        ? [nestedActive]
+                        : this.getNestedRows?.(key) ?? []
+                }
+                renderExpansion={this.renderExpansion(depth + 1)}
                 rowClass={this.rowClass}
             />
         );
@@ -60,7 +71,7 @@ export class TableNested {
                 cells={this.cellsWithExpander()}
                 columns={this.columns}
                 rows={this.rows}
-                renderExpansion={this.renderExpansion}
+                renderExpansion={this.renderExpansion(0)}
                 rowClass={this.rowClass}
             />
         );
