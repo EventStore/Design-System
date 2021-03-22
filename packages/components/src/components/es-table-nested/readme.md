@@ -9,6 +9,7 @@
 
 | Property              | Attribute                | Description | Type                                                           | Default           |
 | --------------------- | ------------------------ | ----------- | -------------------------------------------------------------- | ----------------- |
+| `activePath`          | --                       |             | `string[] \| undefined`                                        | `undefined`       |
 | `canExpand`           | --                       |             | `(key: string, data: any) => boolean`                          | `() => true`      |
 | `cells` _(required)_  | --                       |             | `{ [x: string]: TableCell<any>; }`                             | `undefined`       |
 | `columns`             | --                       |             | `string[] \| undefined`                                        | `undefined`       |
