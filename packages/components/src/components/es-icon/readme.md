@@ -18,13 +18,13 @@
 
 ## Methods
 
-### `spinEnd() => Promise<unknown>`
+### `spinEnd() => Promise<void>`
 
 
 
 #### Returns
 
-Type: `Promise<unknown>`
+Type: `Promise<void>`
 
 
 
