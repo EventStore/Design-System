@@ -34,7 +34,7 @@ export class Icon {
     @Method() async spinEnd() {
         const spinner = this.host.shadowRoot?.querySelector('.spin');
         if (!spinner) return;
-        return new Promise((resolve) => {
+        return new Promise<void>((resolve) => {
             const spinComplete = () => {
                 spinner.removeEventListener('animationiteration', spinComplete);
                 resolve();
@@ -68,8 +68,10 @@ export class Icon {
                     spin: this.spin || this.icon === 'spinner',
                     antiClockwise: this.spinDirection === 'antiClockwise',
                 }}
-                transform={
-                    this.angle !== 0 ? `rotate(${this.angle})` : undefined
+                style={
+                    this.angle !== 0
+                        ? { transform: `rotate(${this.angle}deg)` }
+                        : undefined
                 }
             />
         );

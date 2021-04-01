@@ -83,7 +83,7 @@ export namespace Components {
         "size": number;
         "spin"?: boolean;
         "spinDirection": 'clockwise' | 'antiClockwise';
-        "spinEnd": () => Promise<unknown>;
+        "spinEnd": () => Promise<void>;
     }
     interface EsLogo {
         "height": number;
