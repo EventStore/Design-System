@@ -196,13 +196,12 @@ export class EsTypeahead {
         if (
             this.open &&
             !e.relatedTarget &&
-            (e.target as HTMLElement).nodeName === 'BUTTON' &&
-            !this.filteredOptions.find(
-                (o) =>
-                    o.value === (e.target as HTMLElement).getAttribute('value'),
-            )
+            (e.target as HTMLElement).nodeName === 'BUTTON'
         ) {
-            this.inputElement?.focus();
+            const targetValue = (e.target as HTMLElement).getAttribute('value');
+            if (!this.filteredOptions.find((o) => o.value === targetValue)) {
+                this.inputElement?.focus();
+            }
         } else {
             this.open = false;
         }
