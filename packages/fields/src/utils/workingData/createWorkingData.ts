@@ -96,13 +96,13 @@ export const createWorkingData = <T extends object>(
             return;
         }
 
-        if (field && !path.length) {
-            failures.add(key);
+        if (key === ':root') {
             processValidationFailure(key, severity, message, id);
             return;
         }
 
-        if (key === ':root') {
+        if (field) {
+            failures.add(key);
             processValidationFailure(key, severity, message, id);
             return;
         }
