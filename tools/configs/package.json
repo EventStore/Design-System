@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/configs",
-    "version": "0.0.52",
+    "version": "0.0.53",
     "description": "Configs for the Event Store Design System",
     "license": "UNLICENSED",
     "prettier": "./prettier",
