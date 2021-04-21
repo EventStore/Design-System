@@ -26,6 +26,7 @@ export class HTTPError extends Error {
     public statusText: string;
     public extractDetails: ExtractDetails;
     private response: Response;
+    private detailsPromise?: Promise<HTTPProblemDetails>;
 
     constructor(
         response: Response,
@@ -41,6 +42,9 @@ export class HTTPError extends Error {
     }
 
     public details = (): Promise<HTTPProblemDetails> => {
-        return this.extractDetails(this.response);
+        if (!this.detailsPromise) {
+            this.detailsPromise = this.extractDetails(this.response);
+        }
+        return this.detailsPromise;
     };
 }
