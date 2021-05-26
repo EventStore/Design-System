@@ -114,3 +114,15 @@ input {
     font-size: 26px;
     font-weight: 100;
 }
+
+.group-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.5;
+
+    text-align: left;
+    text-transform: capitalize;
+    padding: 20px 0;
+    display: block;
+}

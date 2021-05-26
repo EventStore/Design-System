@@ -67,6 +67,7 @@ export namespace Components {
         "value": string;
     }
     interface EsRadioCardGroup {
+        "groupBy"?: string;
         "invalid": boolean;
         "labelledby": string;
         "messages"?: ValidationMessages;
@@ -269,6 +270,7 @@ declare namespace LocalJSX {
         "value": string;
     }
     interface EsRadioCardGroup {
+        "groupBy"?: string;
         "invalid"?: boolean;
         "labelledby": string;
         "messages"?: ValidationMessages;

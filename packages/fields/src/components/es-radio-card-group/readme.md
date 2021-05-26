@@ -9,6 +9,7 @@
 
 | Property                  | Attribute         | Description | Type                                                                   | Default                            |
 | ------------------------- | ----------------- | ----------- | ---------------------------------------------------------------------- | ---------------------------------- |
+| `groupBy`                 | `group-by`        |             | `string \| undefined`                                                  | `undefined`                        |
 | `invalid`                 | `invalid`         |             | `boolean`                                                              | `false`                            |
 | `labelledby` _(required)_ | `aria-labelledby` |             | `string`                                                               | `undefined`                        |
 | `messages`                | --                |             | `undefined \| { error: string[]; warning: string[]; info: string[]; }` | `undefined`                        |
@@ -23,6 +24,13 @@
 | Event         | Description | Type               |
 | ------------- | ----------- | ------------------ |
 | `fieldchange` |             | `CustomEvent<any>` |
+
+
+## Shadow Parts
+
+| Part            | Description |
+| --------------- | ----------- |
+| `"group-title"` |             |
 
 
 ## Dependencies
