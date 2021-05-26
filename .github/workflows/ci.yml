@@ -23,12 +23,6 @@ jobs:
               with:
                   node-version: '14.x'
 
-            # install libgbm1 (see: https://github.com/actions/virtual-environments/issues/732)
-            - name: install libgbm1
-              run: |
-                  sudo apt-get update
-                  sudo apt-get install -y libgbm1
-
             # install ds
             - run: yarn install
 
