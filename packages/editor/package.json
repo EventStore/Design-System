@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/editor",
-    "version": "0.0.53",
+    "version": "0.0.54",
     "description": "Monaco Editor for Event Store Design System",
     "license": "UNLICENSED",
     "main": "dist/index.cjs.js",
@@ -53,8 +53,8 @@
         "@eventstore/utils": "0.0.x"
     },
     "devDependencies": {
-        "@eventstore/components": "^0.0.53",
-        "@eventstore/utils": "^0.0.53",
+        "@eventstore/components": "^0.0.54",
+        "@eventstore/utils": "^0.0.54",
         "@stencil/core": "^2.3.0",
         "@types/puppeteer": "^5.4.3",
         "jest": "^26.6.3",
