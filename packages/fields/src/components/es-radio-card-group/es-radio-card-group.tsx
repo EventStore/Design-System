@@ -6,6 +6,7 @@ import {
     EventEmitter,
     VNode,
     Host,
+    Fragment,
 } from '@stencil/core';
 import { ValidationMessages } from '../../types';
 
@@ -33,6 +34,7 @@ export class RadioCardGroup {
     @Prop() options!: RadioCardGroupOption[];
     @Prop() value!: string | null;
     @Prop() name!: string;
+    @Prop() groupBy?: string;
     @Prop() renderCard: RenderCard<any> = RadioCardGroup.defaultRenderCard;
     @Prop() invalid: boolean = false;
     @Prop() messages?: ValidationMessages;
@@ -45,30 +47,56 @@ export class RadioCardGroup {
     render() {
         return (
             <Host class={{ invalid: this.invalid }}>
-                <div class={'group-inner'}>
-                    {this.options.map((option) => {
-                        const active = option.id === this.value;
-                        return (
-                            <label
-                                class={{ active, disabled: !!option.disabled }}
-                            >
-                                <input
-                                    type={'radio'}
-                                    name={this.name}
-                                    value={option.id}
-                                    checked={active}
-                                    onChange={this.handleChange}
-                                    disabled={option.disabled}
-                                />
-                                {this.renderCard(option, active)}
-                            </label>
-                        );
-                    })}
-                </div>
+                {this.groupOptions().map(([title, group]) => (
+                    <Fragment>
+                        {!!title.length && (
+                            <span class={'group-title'} part={'group-title'}>
+                                {title}
+                            </span>
+                        )}
+                        <div class={'group-inner'}>
+                            {group.map((option) => {
+                                const active = option.id === this.value;
+                                return (
+                                    <label
+                                        class={{
+                                            active,
+                                            disabled: !!option.disabled,
+                                        }}
+                                    >
+                                        <input
+                                            type={'radio'}
+                                            name={this.name}
+                                            value={option.id}
+                                            checked={active}
+                                            onChange={this.handleChange}
+                                            disabled={option.disabled}
+                                        />
+                                        {this.renderCard(option, active)}
+                                    </label>
+                                );
+                            })}
+                        </div>
+                    </Fragment>
+                ))}
                 <es-validation-messages messages={this.messages} />
             </Host>
         );
     }
+
+    private groupOptions = (): Array<[string, RadioCardGroupOption[]]> => {
+        if (!this.groupBy) return [['', this.options]];
+        return Array.from(
+            this.options.reduce((acc, option) => {
+                const group = option[this.groupBy!] ?? '';
+                if (!acc.has(group)) {
+                    acc.set(group, []);
+                }
+                acc.get(group)!.push(option);
+                return acc;
+            }, new Map<string, RadioCardGroupOption[]>()),
+        );
+    };
 
     private handleChange = (e: any) => {
         e.preventDefault();
