@@ -85,8 +85,9 @@ export class Accordian {
                                                 : undefined
                                         }
                                         aria-expanded={`${!collapsed}`}
+                                        part={'section_header'}
                                     >
-                                        <h1>
+                                        <h1 part={'section_header_title'}>
                                             {this.steps && (
                                                 <es-counter
                                                     variant={'outline'}
@@ -110,8 +111,12 @@ export class Accordian {
                                     key={`${name}-content`}
                                     aria-hidden={`${collapsed}`}
                                     ref={this.captureElement(name)}
+                                    part={'section_content'}
                                 >
-                                    <div class={'section_content_inner'}>
+                                    <div
+                                        class={'section_content_inner'}
+                                        part={'section_content_inner'}
+                                    >
                                         <slot name={name} />
                                     </div>
                                 </div>
