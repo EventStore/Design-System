@@ -13,6 +13,16 @@
 | `steps`                 | `steps`   |             | `boolean`            | `false`     |
 
 
+## Shadow Parts
+
+| Part                      | Description |
+| ------------------------- | ----------- |
+| `"section_content"`       |             |
+| `"section_content_inner"` |             |
+| `"section_header"`        |             |
+| `"section_header_title"`  |             |
+
+
 ## Dependencies
 
 ### Depends on
