@@ -32,6 +32,10 @@ dt {
     flex: 0 0 150px;
     margin: 0;
     margin-right: 20px;
+
+    &::after {
+        content: ':';
+    }
 }
 
 dd {
