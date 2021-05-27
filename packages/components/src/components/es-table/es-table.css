@@ -107,7 +107,7 @@ es-table {
         --border-bottom-color: transparent;
 
         &:nth-child(2n + 1) {
-            --row-color: var(--color-grey-100);
+            --row-color: var(--color-grey-50);
         }
     }
 
