@@ -9,11 +9,9 @@
     --gap: 20px;
 }
 
-:host(:focus-within) {
-    & label {
-        padding: 19px;
-        border-width: 2px;
-    }
+:host(:focus-within) label:not(.disabled) {
+    padding: 19px;
+    border-width: 2px;
 }
 
 label {
