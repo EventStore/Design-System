@@ -76,11 +76,11 @@ label {
 
     &.disabled {
         cursor: not-allowed;
-        filter: grayscale(1);
         border-color: var(--color-grey-100);
         background-color: var(--color-grey-100);
 
-        & > *:not(input) {
+        & > *:not(input, .no-fade) {
+            filter: grayscale(1);
             opacity: 0.8;
         }
     }
