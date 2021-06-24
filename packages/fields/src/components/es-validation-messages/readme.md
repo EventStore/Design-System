@@ -17,6 +17,7 @@
 ### Used by
 
  - [es-input](../es-input)
+ - [es-input-list](../es-input-list)
  - [es-list-creator](../es-list-creator)
  - [es-mega-input](../es-mega-input)
  - [es-number-input](../es-number-input)
@@ -28,6 +29,7 @@
 ```mermaid
 graph TD;
   es-input --> es-validation-messages
+  es-input-list --> es-validation-messages
   es-list-creator --> es-validation-messages
   es-mega-input --> es-validation-messages
   es-number-input --> es-validation-messages

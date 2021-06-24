@@ -31,6 +31,16 @@ export namespace Components {
         "readonly"?: boolean;
         "value": string;
     }
+    interface EsInputList {
+        "additionText": string;
+        "disabled"?: boolean;
+        "invalid"?: boolean;
+        "label": string;
+        "messages"?: ValidationMessages;
+        "name": string;
+        "placeholder": string;
+        "value": string[];
+    }
     interface EsListCreator {
         "disabled"?: boolean;
         "icon": string;
@@ -138,6 +148,12 @@ declare global {
         prototype: HTMLEsInputElement;
         new (): HTMLEsInputElement;
     };
+    interface HTMLEsInputListElement extends Components.EsInputList, HTMLStencilElement {
+    }
+    var HTMLEsInputListElement: {
+        prototype: HTMLEsInputListElement;
+        new (): HTMLEsInputListElement;
+    };
     interface HTMLEsListCreatorElement extends Components.EsListCreator, HTMLStencilElement {
     }
     var HTMLEsListCreatorElement: {
@@ -195,6 +211,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "es-checkbox": HTMLEsCheckboxElement;
         "es-input": HTMLEsInputElement;
+        "es-input-list": HTMLEsInputListElement;
         "es-list-creator": HTMLEsListCreatorElement;
         "es-mega-input": HTMLEsMegaInputElement;
         "es-number-input": HTMLEsNumberInputElement;
@@ -229,6 +246,17 @@ declare namespace LocalJSX {
         "placeholder": string;
         "readonly"?: boolean;
         "value": string;
+    }
+    interface EsInputList {
+        "additionText"?: string;
+        "disabled"?: boolean;
+        "invalid"?: boolean;
+        "label": string;
+        "messages"?: ValidationMessages;
+        "name": string;
+        "onFieldchange"?: (event: CustomEvent<any>) => void;
+        "placeholder": string;
+        "value": string[];
     }
     interface EsListCreator {
         "disabled"?: boolean;
@@ -336,6 +364,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "es-checkbox": EsCheckbox;
         "es-input": EsInput;
+        "es-input-list": EsInputList;
         "es-list-creator": EsListCreator;
         "es-mega-input": EsMegaInput;
         "es-number-input": EsNumberInput;
@@ -353,6 +382,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "es-checkbox": LocalJSX.EsCheckbox & JSXBase.HTMLAttributes<HTMLEsCheckboxElement>;
             "es-input": LocalJSX.EsInput & JSXBase.HTMLAttributes<HTMLEsInputElement>;
+            "es-input-list": LocalJSX.EsInputList & JSXBase.HTMLAttributes<HTMLEsInputListElement>;
             "es-list-creator": LocalJSX.EsListCreator & JSXBase.HTMLAttributes<HTMLEsListCreatorElement>;
             "es-mega-input": LocalJSX.EsMegaInput & JSXBase.HTMLAttributes<HTMLEsMegaInputElement>;
             "es-number-input": LocalJSX.EsNumberInput & JSXBase.HTMLAttributes<HTMLEsNumberInputElement>;

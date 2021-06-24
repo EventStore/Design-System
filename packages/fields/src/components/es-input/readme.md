@@ -31,6 +31,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [es-input-list](../es-input-list)
+
 ### Depends on
 
 - [es-validation-messages](../es-validation-messages)
@@ -39,6 +43,7 @@
 ```mermaid
 graph TD;
   es-input --> es-validation-messages
+  es-input-list --> es-input
   style es-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
