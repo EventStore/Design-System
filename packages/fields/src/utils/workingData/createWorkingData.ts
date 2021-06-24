@@ -384,6 +384,7 @@ export const createWorkingData = <T extends object>(
                                 'submit',
                             );
                         }
+                        failedValidation = true;
                         toast.error({
                             title,
                             message: detail,
