@@ -39,4 +39,5 @@ es-input:not(:first-child)::part(label) {
 .add_item {
     grid-column: input;
     justify-self: end;
+    --text-color: var(--color-text);
 }

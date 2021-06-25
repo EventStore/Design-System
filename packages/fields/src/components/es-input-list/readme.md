@@ -7,23 +7,14 @@
 
 ## Properties
 
-| Property                   | Attribute       | Description | Type                                                                   | Default      |
-| -------------------------- | --------------- | ----------- | ---------------------------------------------------------------------- | ------------ |
-| `additionText`             | `addition-text` |             | `string`                                                               | `'Add item'` |
-| `disabled`                 | `disabled`      |             | `boolean \| undefined`                                                 | `undefined`  |
-| `invalid`                  | `invalid`       |             | `boolean \| undefined`                                                 | `undefined`  |
-| `label` _(required)_       | `label`         |             | `string`                                                               | `undefined`  |
-| `messages`                 | --              |             | `undefined \| { error: string[]; warning: string[]; info: string[]; }` | `undefined`  |
-| `name` _(required)_        | `name`          |             | `string`                                                               | `undefined`  |
-| `placeholder` _(required)_ | `placeholder`   |             | `string`                                                               | `undefined`  |
-| `value` _(required)_       | --              |             | `string[]`                                                             | `undefined`  |
-
-
-## Events
-
-| Event         | Description | Type               |
-| ------------- | ----------- | ------------------ |
-| `fieldchange` |             | `CustomEvent<any>` |
+| Property                   | Attribute       | Description | Type                       | Default      |
+| -------------------------- | --------------- | ----------- | -------------------------- | ------------ |
+| `additionText`             | `addition-text` |             | `string`                   | `'Add item'` |
+| `data` _(required)_        | --              |             | `WorkingDataArray<string>` | `undefined`  |
+| `disabled`                 | `disabled`      |             | `boolean \| undefined`     | `undefined`  |
+| `label` _(required)_       | `label`         |             | `string`                   | `undefined`  |
+| `name` _(required)_        | `name`          |             | `string`                   | `undefined`  |
+| `placeholder` _(required)_ | `placeholder`   |             | `string`                   | `undefined`  |
 
 
 ## Dependencies

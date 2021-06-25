@@ -11,7 +11,7 @@ import {
     VNode,
 } from '@stencil/core';
 
-import { ValidationMessages, FieldChangeEvent } from '../../types';
+import { FieldChangeEvent, WorkingDataArray } from '../../types';
 import { RenderTypeaheadField, TypeaheadOption } from '../es-typeahead/types';
 import { Field } from '../Field/Field';
 
@@ -25,14 +25,14 @@ export class ListCreator {
     @Event({ bubbles: true }) fieldchange!: EventEmitter;
 
     @Prop() label!: string;
-    @Prop() invalid?: boolean;
-    @Prop() messages?: ValidationMessages;
-    @Prop() name!: string;
-    @Prop() value!: string[];
     @Prop() placeholder!: string;
     @Prop() disabled?: boolean;
     @Prop() icon!: string;
     @Prop() options!: TypeaheadOption[];
+
+    @Prop() name!: string;
+    @Prop() data!: WorkingDataArray<string>;
+
     @Prop() renderItem = ({ name }: TypeaheadOption): VNode => (
         <input readonly class={'input'} value={name} tabindex={-1} />
     );
@@ -43,12 +43,13 @@ export class ListCreator {
 
     componentWillLoad() {
         this.updateOptions();
+        this.data.onChange(() => this.updateOptions());
     }
 
-    @Watch('value')
     @Watch('options')
     updateOptions() {
-        const { value: values, options } = this;
+        const options = this.options;
+        const values = this.data.data;
 
         this.remainingOptions = options.filter(
             ({ value }) => !values.includes(value),
@@ -67,13 +68,13 @@ export class ListCreator {
             <Host>
                 <Field
                     label={this.label}
-                    messages={this.messages}
-                    invalid={this.invalid}
+                    messages={this.data.messages}
+                    invalid={!!this.data.messages.error.length}
                 >
                     <es-typeahead
                         clearOnSelect
                         name={`${this.name}-typeahead`}
-                        value={this.value}
+                        value={this.data.data}
                         options={this.remainingOptions}
                         renderField={this.renderField}
                         onFieldchange={this.onTypeaheadChange}
@@ -87,9 +88,9 @@ export class ListCreator {
                         <es-icon icon={'plus'} size={20} />
                     </es-button>
                 </Field>
-                {!!this.value.length && (
+                {!!this.data.data.length && (
                     <ul class={'value_list'} part={'value-list'}>
-                        {this.expandedValues.map((value) => (
+                        {this.expandedValues.map((value, i) => (
                             <li
                                 key={value.value}
                                 class={'value_list_item'}
@@ -104,7 +105,7 @@ export class ListCreator {
                                     class={'value_list_item_delete'}
                                     variant={'outline'}
                                     color={'secondary'}
-                                    onClick={this.onDelete(value)}
+                                    onClick={this.onDelete(i)}
                                 >
                                     <es-icon icon={'trash'} size={20} />
                                 </es-button>
@@ -116,21 +117,14 @@ export class ListCreator {
         );
     }
 
-    private onDelete = ({ value }: TypeaheadOption) => () => {
-        this.fieldchange.emit({
-            name: this.name,
-            value: this.value.filter((v) => v !== value),
-        });
+    private onDelete = (index: number) => () => {
+        this.data.delete(index);
     };
 
     private onTypeaheadChange = (
         e: FieldChangeEvent<{ typeahead: string[] }>,
     ) => {
         e.stopPropagation();
-
-        this.fieldchange.emit({
-            name: this.name,
-            value: e.detail.value,
-        });
+        this.data.update(e.detail.value);
     };
 }

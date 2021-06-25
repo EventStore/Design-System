@@ -1,14 +1,6 @@
-import {
-    Component,
-    h,
-    Prop,
-    Event,
-    EventEmitter,
-    Element,
-    Host,
-} from '@stencil/core';
+import { Component, h, Prop, Element, Host } from '@stencil/core';
 
-import { ValidationMessages, FieldChangeEvent } from '../../types';
+import { WorkingDataArray } from '../../types';
 
 @Component({
     tag: 'es-input-list',
@@ -17,32 +9,28 @@ import { ValidationMessages, FieldChangeEvent } from '../../types';
 })
 export class InputList {
     @Element() host!: HTMLEsListCreatorElement;
-    @Event({ bubbles: true }) fieldchange!: EventEmitter;
 
     @Prop() label!: string;
-    @Prop() invalid?: boolean;
-    @Prop() messages?: ValidationMessages;
-    @Prop() name!: string;
-    @Prop() value!: string[];
     @Prop() placeholder!: string;
     @Prop() disabled?: boolean;
     @Prop() additionText: string = 'Add item';
 
-    renderInput = (value: string, i: number) => (
+    @Prop() name!: string;
+    @Prop() data!: WorkingDataArray<string>;
+
+    renderInput = (v: string, i: number) => (
         <es-input
             label={this.label}
-            name={`${this.name}-${i}`}
             placeholder={this.placeholder}
-            value={value}
-            onFieldchange={this.subFieldChange(i)}
-            invalid={this.invalid}
             disabled={this.disabled}
+            {...this.data.connect(i)}
+            value={v}
         >
             <es-button
                 class={'delete_item'}
                 variant={'outline'}
                 color={'secondary'}
-                onClick={this.onDelete(i)}
+                onClick={() => this.data.delete(i)}
             >
                 <es-icon icon={'trash'} size={20} />
             </es-button>
@@ -52,10 +40,12 @@ export class InputList {
     render() {
         return (
             <Host>
-                {!this.value.length
+                {!this.data.data.length
                     ? this.renderInput('', 0)
-                    : this.value.map(this.renderInput)}
-
+                    : this.data.data.map(this.renderInput)}
+                <div class={'row'}>
+                    <es-validation-messages messages={this.data.messages} />
+                </div>
                 {!this.disabled && (
                     <div class={'row'}>
                         <es-button
@@ -68,45 +58,11 @@ export class InputList {
                         </es-button>
                     </div>
                 )}
-                <div class={'row'}>
-                    <es-validation-messages messages={this.messages} />
-                </div>
             </Host>
         );
     }
 
     private onAdd = () => {
-        this.fieldchange.emit({
-            name: this.name,
-            value: this.value.length === 0 ? ['', ''] : [...this.value, ''],
-        });
-    };
-
-    private onDelete = (i: number) => () => {
-        const value = [...this.value];
-        value.splice(i, 1);
-        this.fieldchange.emit({
-            name: this.name,
-            value,
-        });
-    };
-
-    private subFieldChange = (i: number) => (
-        e: FieldChangeEvent<Record<string, string>>,
-    ) => {
-        e.stopPropagation();
-
-        const value = [...this.value];
-
-        if (i === this.value.length) {
-            value.push('');
-        }
-
-        value[i] = e.detail.value;
-
-        this.fieldchange.emit({
-            name: this.name,
-            value,
-        });
+        this.data.set(this.data.data.length, '');
     };
 }

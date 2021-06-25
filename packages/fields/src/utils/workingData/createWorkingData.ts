@@ -14,7 +14,11 @@ import {
 import { expandOptions } from './expandOptions';
 import { createStores } from './createStores';
 import { focusError, insertError, wDKey } from '../../symbols';
-import { isWorkingData } from './isWorkingData';
+import {
+    isChildData,
+    isWorkingData,
+    isWorkingDataArray,
+} from './isWorkingData';
 
 export const createWorkingData = <T extends object>(
     options: WorkingDataOptions<T>,
@@ -40,7 +44,7 @@ export const createWorkingData = <T extends object>(
 
     const fullData = (): T =>
         Array.from(fields.entries()).reduce<T>((acc, [key, field]) => {
-            if (isWorkingData(field)) {
+            if (isChildData(field)) {
                 acc[key] = field.data;
             } else {
                 acc[key] = data[key];
@@ -85,7 +89,7 @@ export const createWorkingData = <T extends object>(
         const key = k as keyof T;
         const field = fields.get(key);
 
-        if (isWorkingData(field)) {
+        if (isChildData(field)) {
             failures.add(key);
             field[insertError](
                 !path.length ? [':root'] : path,
@@ -119,7 +123,7 @@ export const createWorkingData = <T extends object>(
         for (const [key, field] of fields) {
             if (!failures.has(key)) continue;
 
-            if (isWorkingData(field)) {
+            if (isChildData(field)) {
                 const focused = await field[focusError]();
                 if (focused) return true;
                 continue;
@@ -184,7 +188,7 @@ export const createWorkingData = <T extends object>(
         failures.clear();
         try {
             for (const [key, field] of fields) {
-                if (isWorkingData(field)) {
+                if (isChildData(field)) {
                     validationPromises.push(
                         (async () => {
                             const success = await field.validate(false);
@@ -299,7 +303,7 @@ export const createWorkingData = <T extends object>(
             if (state.frozen) return;
             for (const [key, value] of Object.entries<any>(partial)) {
                 const wd = fields.get(key as keyof T);
-                if (isWorkingData(wd)) {
+                if (isChildData(wd)) {
                     wd.update(value);
                 } else {
                     (data as any)[key] = value;
@@ -313,7 +317,7 @@ export const createWorkingData = <T extends object>(
         connect: (key: keyof T, ...args: any[]) => {
             const wd = fields.get(key);
 
-            if (isWorkingData(wd)) {
+            if (isChildData(wd)) {
                 if (args.length) {
                     return (wd.connect as any)(...args);
                 }
@@ -411,6 +415,10 @@ export const createWorkingData = <T extends object>(
 
                 if (isWorkingData(field)) {
                     field.extend(value as ExtendOptions<T[typeof key]>);
+                    continue;
+                }
+
+                if (isWorkingDataArray(field)) {
                     continue;
                 }
 
