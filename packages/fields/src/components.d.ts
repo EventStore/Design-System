@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ValidationMessages } from "./types";
+import { ValidationMessages, WorkingDataArray } from "./types";
 import { MaskOptions } from "./components/es-input/es-input";
 import { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
 import { VNode } from "@stencil/core";
@@ -31,17 +31,23 @@ export namespace Components {
         "readonly"?: boolean;
         "value": string;
     }
+    interface EsInputList {
+        "additionText": string;
+        "data": WorkingDataArray<string>;
+        "disabled"?: boolean;
+        "label": string;
+        "name": string;
+        "placeholder": string;
+    }
     interface EsListCreator {
+        "data": WorkingDataArray<string>;
         "disabled"?: boolean;
         "icon": string;
-        "invalid"?: boolean;
         "label": string;
-        "messages"?: ValidationMessages;
         "name": string;
         "options": TypeaheadOption[];
         "placeholder": string;
         "renderItem": ({ name }: TypeaheadOption) => VNode;
-        "value": string[];
     }
     interface EsMegaInput {
         "disabled"?: boolean;
@@ -138,6 +144,12 @@ declare global {
         prototype: HTMLEsInputElement;
         new (): HTMLEsInputElement;
     };
+    interface HTMLEsInputListElement extends Components.EsInputList, HTMLStencilElement {
+    }
+    var HTMLEsInputListElement: {
+        prototype: HTMLEsInputListElement;
+        new (): HTMLEsInputListElement;
+    };
     interface HTMLEsListCreatorElement extends Components.EsListCreator, HTMLStencilElement {
     }
     var HTMLEsListCreatorElement: {
@@ -195,6 +207,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "es-checkbox": HTMLEsCheckboxElement;
         "es-input": HTMLEsInputElement;
+        "es-input-list": HTMLEsInputListElement;
         "es-list-creator": HTMLEsListCreatorElement;
         "es-mega-input": HTMLEsMegaInputElement;
         "es-number-input": HTMLEsNumberInputElement;
@@ -230,18 +243,24 @@ declare namespace LocalJSX {
         "readonly"?: boolean;
         "value": string;
     }
+    interface EsInputList {
+        "additionText"?: string;
+        "data": WorkingDataArray<string>;
+        "disabled"?: boolean;
+        "label": string;
+        "name": string;
+        "placeholder": string;
+    }
     interface EsListCreator {
+        "data": WorkingDataArray<string>;
         "disabled"?: boolean;
         "icon": string;
-        "invalid"?: boolean;
         "label": string;
-        "messages"?: ValidationMessages;
         "name": string;
         "onFieldchange"?: (event: CustomEvent<any>) => void;
         "options": TypeaheadOption[];
         "placeholder": string;
         "renderItem"?: ({ name }: TypeaheadOption) => VNode;
-        "value": string[];
     }
     interface EsMegaInput {
         "disabled"?: boolean;
@@ -336,6 +355,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "es-checkbox": EsCheckbox;
         "es-input": EsInput;
+        "es-input-list": EsInputList;
         "es-list-creator": EsListCreator;
         "es-mega-input": EsMegaInput;
         "es-number-input": EsNumberInput;
@@ -353,6 +373,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "es-checkbox": LocalJSX.EsCheckbox & JSXBase.HTMLAttributes<HTMLEsCheckboxElement>;
             "es-input": LocalJSX.EsInput & JSXBase.HTMLAttributes<HTMLEsInputElement>;
+            "es-input-list": LocalJSX.EsInputList & JSXBase.HTMLAttributes<HTMLEsInputListElement>;
             "es-list-creator": LocalJSX.EsListCreator & JSXBase.HTMLAttributes<HTMLEsListCreatorElement>;
             "es-mega-input": LocalJSX.EsMegaInput & JSXBase.HTMLAttributes<HTMLEsMegaInputElement>;
             "es-number-input": LocalJSX.EsNumberInput & JSXBase.HTMLAttributes<HTMLEsNumberInputElement>;
