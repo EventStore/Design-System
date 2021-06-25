@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ValidationMessages } from "./types";
+import { ValidationMessages, WorkingDataArray } from "./types";
 import { MaskOptions } from "./components/es-input/es-input";
 import { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
 import { VNode } from "@stencil/core";
@@ -33,25 +33,21 @@ export namespace Components {
     }
     interface EsInputList {
         "additionText": string;
+        "data": WorkingDataArray<string>;
         "disabled"?: boolean;
-        "invalid"?: boolean;
         "label": string;
-        "messages"?: ValidationMessages;
         "name": string;
         "placeholder": string;
-        "value": string[];
     }
     interface EsListCreator {
+        "data": WorkingDataArray<string>;
         "disabled"?: boolean;
         "icon": string;
-        "invalid"?: boolean;
         "label": string;
-        "messages"?: ValidationMessages;
         "name": string;
         "options": TypeaheadOption[];
         "placeholder": string;
         "renderItem": ({ name }: TypeaheadOption) => VNode;
-        "value": string[];
     }
     interface EsMegaInput {
         "disabled"?: boolean;
@@ -249,27 +245,22 @@ declare namespace LocalJSX {
     }
     interface EsInputList {
         "additionText"?: string;
+        "data": WorkingDataArray<string>;
         "disabled"?: boolean;
-        "invalid"?: boolean;
         "label": string;
-        "messages"?: ValidationMessages;
         "name": string;
-        "onFieldchange"?: (event: CustomEvent<any>) => void;
         "placeholder": string;
-        "value": string[];
     }
     interface EsListCreator {
+        "data": WorkingDataArray<string>;
         "disabled"?: boolean;
         "icon": string;
-        "invalid"?: boolean;
         "label": string;
-        "messages"?: ValidationMessages;
         "name": string;
         "onFieldchange"?: (event: CustomEvent<any>) => void;
         "options": TypeaheadOption[];
         "placeholder": string;
         "renderItem"?: ({ name }: TypeaheadOption) => VNode;
-        "value": string[];
     }
     interface EsMegaInput {
         "disabled"?: boolean;

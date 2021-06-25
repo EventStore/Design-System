@@ -1,4 +1,4 @@
-import { wDKey, focusError, insertError } from './symbols';
+import { wDKey, focusError, insertError, wDAKey } from './symbols';
 
 interface ChangeEventValue<T extends object, K extends keyof T> {
     name: K;
@@ -48,12 +48,45 @@ export interface WorkingData<T extends object> {
     ) => void;
 }
 
+export interface WorkingDataArray<T> {
+    readonly name: string;
+    readonly data: T[];
+    readonly frozen: boolean;
+    readonly messages: ValidationMessages;
+    readonly [wDAKey]: true;
+
+    reset: () => void;
+    delete: (index: number, options?: any) => void;
+    set: (index: number, item: T, options?: any) => void;
+    update: (update: T[]) => void;
+    connect: (i: number) => BasicConnection<string, T>;
+    validate: (forceFocus?: boolean) => Promise<any>;
+    submit: (
+        fn: (data: T[]) => Promise<any>,
+        options?: SubmitOptions,
+    ) => Promise<void>;
+    listen: (e: FieldChangeEvent<Record<string, T>>) => void;
+    onChange(cb: (newValue: T) => void): () => void;
+    onValidationFailed: OnValidationFailedHandler<Record<number, T>>;
+    onBeforeFocus: OnBeforeFocusHandler<Record<number, T>>;
+    freeze: () => void;
+    unfreeze: () => void;
+
+    [focusError]: () => Promise<boolean>;
+    [insertError]: (
+        keys: string[],
+        severity: Severity,
+        message: string,
+        id: string,
+    ) => void;
+}
+
 interface BasicConnection<K extends string, V> {
     value: V;
     invalid: boolean;
     messages: ValidationMessages;
     name: K;
-    onFieldChange: (
+    onFieldchange: (
         e: CustomEvent<{
             name: K;
             value: V;
@@ -67,8 +100,13 @@ interface WDConnection<K extends string, V extends object> {
     data: WorkingData<V>;
 }
 
+interface WDAConnection<V> {
+    name: string;
+    data: WorkingDataArray<V>;
+}
+
 export type Connection<K extends string, V> = V extends Array<any>
-    ? BasicConnection<K, V>
+    ? WDAConnection<V[0]>
     : V extends object
     ? WDConnection<K, V>
     : BasicConnection<K, V>;
@@ -131,7 +169,9 @@ export type ExtendOptions<T> = {
 };
 
 export type WorkingDataOptions<T> = {
-    [key in keyof T]: T[key] extends object
+    [key in keyof T]: T[key] extends Array<any>
+        ? FieldOptions<T[key], T> | T[key] | WorkingDataArray<T[key][0]>
+        : T[key] extends object
         ? FieldOptions<T[key], T> | T[key] | WorkingData<T[key]>
         : FieldOptions<T[key], T> | T[key];
 };
@@ -142,6 +182,36 @@ export interface FieldOptions<T, U> {
     message?: Message<T, U> | string;
     checkExists?: CheckExists<T, U>;
     validations?: Validation<T, U>[];
+}
+
+export interface ArrayOptions<T> {
+    name: string;
+    initialValue?: T[];
+
+    minLength?: {
+        value: number;
+        message: Message<T[], void> | string;
+    };
+    maxLength?: {
+        value: number;
+        message: Message<T[], void> | string;
+    };
+    globalValidations?: Validation<T[], void>[];
+
+    valueOptional?: boolean | ((i: number, data: T) => boolean);
+    checkValueExists?: CheckExists<T, T[]>;
+    requiredValueMessage?: Message<T, T[]> | string;
+    validations?: Validation<T, T[]>[];
+}
+
+export interface InternalArrayOptions<T>
+    extends Omit<
+        Required<ArrayOptions<T>>,
+        'minLength' | 'maxLength' | 'optional'
+    > {
+    minLength?: ArrayOptions<T>['minLength'];
+    maxLength?: ArrayOptions<T>['minLength'];
+    valueOptional: (i: number, data: T) => boolean;
 }
 
 export type InternalWorkingDataOptions<T> = {
