@@ -1,0 +1,43 @@
+@import '../Field/field.css';
+@import '../es-input/es-input.css';
+
+:host {
+    display: block;
+}
+
+.delete_item {
+    height: 40px;
+    width: 40px;
+
+    --spacing: 0;
+    --border-color: transparent;
+    --text-color: var(--color-text);
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+        --background-color: var(--color-white);
+        --text-color: var(--color-error);
+    }
+
+    & es-icon {
+        margin: auto;
+    }
+}
+
+es-input:not(:first-child)::part(label) {
+    visibility: hidden;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: var(--field-grid-columns);
+    column-gap: var(--field-grid-gap);
+    align-items: center;
+}
+
+.add_item {
+    grid-column: input;
+    justify-self: end;
+    --text-color: var(--color-text);
+}
