@@ -1,114 +1,92 @@
 export interface Handlers<T> {
-  dispose: DisposeEventHandler[];
-  get: GetEventHandler<T>[];
-  reset: ResetEventHandler[];
-  set: SetEventHandler<T>[];
+    delete: Set<DeleteEventHandler<T>>;
+    dispose: Set<DisposeEventHandler>;
+    get: Set<GetEventHandler<T>>;
+    insert: Set<InsertEventHandler<T>>;
+    keys: Set<KeysEventHandler>;
+    reset: Set<ResetEventHandler>;
+    set: Set<SetEventHandler<T>>;
 }
 
 export type SetEventHandler<StoreType> = (
-  key: keyof StoreType,
-  newValue: any,
-  oldValue: any
+    key: keyof StoreType,
+    newValue: any,
+    oldValue: any,
+) => void;
+export type InsertEventHandler<StoreType> = (
+    key: keyof StoreType,
+    value: any,
 ) => void;
 export type GetEventHandler<StoreType> = (key: keyof StoreType) => void;
+export type DeleteEventHandler<StoreType> = (key: keyof StoreType) => void;
+export type KeysEventHandler = () => void;
 export type ResetEventHandler = () => void;
 export type DisposeEventHandler = () => void;
 
 export interface OnHandler<StoreType> {
-  (eventName: 'set', callback: SetEventHandler<StoreType>): () => void;
-  (eventName: 'get', callback: GetEventHandler<StoreType>): () => void;
-  (eventName: 'dispose', callback: DisposeEventHandler): () => void;
-  (eventName: 'reset', callback: ResetEventHandler): () => void;
+    (eventName: 'delete', callback: DeleteEventHandler<StoreType>): () => void;
+    (eventName: 'dispose', callback: DisposeEventHandler): () => void;
+    (eventName: 'get', callback: GetEventHandler<StoreType>): () => void;
+    (eventName: 'insert', callback: InsertEventHandler<StoreType>): () => void;
+    (eventName: 'keys', callback: KeysEventHandler): () => void;
+    (eventName: 'reset', callback: ResetEventHandler): () => void;
+    (eventName: 'set', callback: SetEventHandler<StoreType>): () => void;
 }
 
 export interface OnChangeHandler<StoreType> {
-  <Key extends keyof StoreType>(propName: Key, cb: (newValue: StoreType[Key]) => void): () => void;
+    <Key extends keyof StoreType>(
+        propName: Key,
+        cb: (newValue: StoreType[Key]) => void,
+    ): () => void;
 }
 
 export interface Subscription<StoreType> {
-  get?<KeyFromStoreType extends keyof StoreType>(key: KeyFromStoreType): void;
-  set?<KeyFromStoreType extends keyof StoreType>(
-    key: KeyFromStoreType,
-    newValue: StoreType[KeyFromStoreType],
-    oldValue: StoreType[KeyFromStoreType]
-  ): void;
-  reset?(): void;
-}
-
-export interface Getter<T> {
-  <P extends keyof T>(propName: P & string): T[P];
-}
-
-export interface Setter<T> {
-  <P extends keyof T>(propName: P & string, value: T[P]): void;
+    delete?: DeleteEventHandler<StoreType>;
+    dispose?: DisposeEventHandler;
+    get?: GetEventHandler<StoreType>;
+    insert?: InsertEventHandler<StoreType>;
+    keys?: KeysEventHandler;
+    reset?: ResetEventHandler;
+    set?: SetEventHandler<StoreType>;
 }
 
 export interface ObservableMap<T> {
-  /**
-   * Proxied object that will detect dependencies and call
-   * the subscriptions and computed properties.
-   *
-   * If available, it will detect from which Stencil Component
-   * it was called and rerender it when the property changes.
-   *
-   * Note: Proxy objects are not supported by IE11 (not even with a polyfill)
-   * so you need to use the store.get and store.set methods of the API if you wish to support IE11.
-   *
-   */
-  state: T;
+    /**
+     * Proxied object that will detect dependencies and call
+     * the subscriptions and computed properties.
+     */
+    state: T;
 
-  /**
-   * Only useful if you need to support IE11.
-   *
-   * @example
-   * const { state, get } = createStore({ hola: 'hello', adios: 'goodbye' });
-   * console.log(state.hola); // If you don't need to support IE11, use this way.
-   * console.log(get('hola')); // If you need to support IE11, use this other way.
-   */
-  get: Getter<T>;
+    /**
+     * @example
+     * store.on('set', (prop, value) => {
+     *   console.log(`Prop ${prop} changed to: ${value}`);
+     * });
+     */
+    on: OnHandler<T>;
 
-  /**
-   * Only useful if you need to support IE11.
-   *
-   * @example
-   * const { state, get } = createStore({ hola: 'hello', adios: 'goodbye' });
-   * state.hola = 'ola'; // If you don't need to support IE11, use this way.
-   * set('hola', 'ola')); // If you need to support IE11, use this other way.
-   */
-  set: Setter<T>;
+    /**
+     * Easily listen for value changes of the specified key.
+     */
+    onChange: OnChangeHandler<T>;
 
-  /**
-   * Register a event listener, you can listen to `set`, `get` and `reset` events.
-   *
-   * @example
-   * store.on('set', (prop, value) => {
-   *   console.log(`Prop ${prop} changed to: ${value}`);
-   * });
-   */
-  on: OnHandler<T>;
+    /**
+     * Resets the state to its original state and
+     * signals a dispose event to all the plugins.
+     *
+     * This method is intended for plugins to reset
+     * all their internal state between tests.
+     */
+    dispose(): void;
 
-  /**
-   * Easily listen for value changes of the specified key.
-   */
-  onChange: OnChangeHandler<T>;
+    /**
+     * Resets the state to its original state.
+     */
+    reset(): void;
 
-  /**
-   * Resets the state to its original state and
-   * signals a dispose event to all the plugins.
-   *
-   * This method is intended for plugins to reset
-   * all their internal state between tests.
-   */
-  dispose(): void;
-
-  /**
-   * Resets the state to its original state.
-   */
-  reset(): void;
-
-  /**
-   * Registers a subscription that will be called whenever the user gets, sets, or
-   * resets a value.
-   */
-  use(...plugins: Subscription<T>[]): void;
+    /**
+     * Registers a subscription that will be called whenever the user gets, sets, or
+     * resets a value.
+     */
+    use(...plugins: Subscription<T>[]): void;
 }
