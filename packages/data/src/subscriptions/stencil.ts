@@ -1,54 +1,79 @@
-import { forceUpdate, getRenderingRef } from '@stencil/core';
-import { ObservableMap } from '../types';
-import { appendToMap, debounce } from '../utils';
+import { forceUpdate, getRenderingRef, getElement } from '@stencil/core';
+import type { ObservableMap } from '../types';
 
-/**
- * Check if a possible element isConnected.
- * The property might not be there, so we check for it.
- *
- * We want it to return true if isConnected is not a property,
- * otherwise we would remove these elements and would not update.
- *
- * Better leak in Edge than to be useless.
- */
-const isConnected = (maybeElement: any) =>
-  !('isConnected' in maybeElement) || maybeElement.isConnected;
+type Element = any;
 
-const cleanupElements = debounce((map: Map<string, any[]>) => {
-  for (let key of map.keys()) {
-    map.set(key, map.get(key).filter(isConnected));
-  }
-}, 2_000);
+const $keys = Symbol('keys');
 
 export const stencilSubscription = <T>({ on }: ObservableMap<T>) => {
-  const elmsToUpdate = new Map<string, any[]>();
-
-  if (typeof getRenderingRef === 'function') {
     // If we are not in a stencil project, we do nothing.
     // This function is not really exported by @stencil/core.
+    if (typeof getRenderingRef !== 'function') return;
+
+    type Key = symbol | keyof T;
+
+    const elementsToUpdate = new Map<Key, Set<Element>>();
+
+    const refreshElements = (key: Key) => {
+        if (!elementsToUpdate.has(key)) return;
+
+        const elements = Array.from(elementsToUpdate.get(key)!);
+
+        for (const el of elements) {
+            if (getElement(el)?.isConnected) {
+                forceUpdate(el);
+            } else {
+                elementsToUpdate.get(key)?.delete(el);
+
+                if (elementsToUpdate.get(key)?.size === 0) {
+                    elementsToUpdate.delete(key);
+                }
+            }
+        }
+    };
 
     on('dispose', () => {
-      elmsToUpdate.clear();
+        elementsToUpdate.clear();
     });
 
     on('get', (propName) => {
-      const elm = getRenderingRef();
-      if (elm) {
-        appendToMap(elmsToUpdate, propName as string, elm);
-      }
+        const elm = getRenderingRef();
+        if (elm) {
+            addToMapSet(elementsToUpdate, propName, elm);
+        }
+    });
+
+    on('keys', () => {
+        const elm = getRenderingRef();
+        if (elm) {
+            addToMapSet(elementsToUpdate, $keys, elm);
+        }
     });
 
     on('set', (propName) => {
-      const elements = elmsToUpdate.get(propName as string);
-      if (elements) {
-        elmsToUpdate.set(propName as string, elements.filter(forceUpdate));
-      }
-      cleanupElements(elmsToUpdate);
+        refreshElements(propName);
+    });
+
+    on('delete', (propName) => {
+        refreshElements($keys);
+        requestAnimationFrame(() => {
+            refreshElements(propName);
+        });
+    });
+
+    on('insert', () => {
+        refreshElements($keys);
     });
 
     on('reset', () => {
-      elmsToUpdate.forEach((elms) => elms.forEach(forceUpdate));
-      cleanupElements(elmsToUpdate);
+        elementsToUpdate.forEach((elms) => elms.forEach(forceUpdate));
     });
-  }
+};
+
+const addToMapSet = <K, V>(map: Map<K, Set<V>>, key: K, value: V) => {
+    if (!map.has(key)) {
+        map.set(key, new Set());
+    }
+
+    map.get(key)!.add(value);
 };

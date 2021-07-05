@@ -1,5 +1,4 @@
-export { createStore } from './store';
-export { createObservableMap } from './observable-map';
+export { createStore } from './stores/createStore';
+export { createObservableMap } from './utils/observableMap';
 
-// Types
-export { ObservableMap, Subscription } from './types';
+export type { ObservableMap, Subscription } from './types';
