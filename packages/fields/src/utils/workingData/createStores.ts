@@ -1,4 +1,4 @@
-import { createStore, ObservableMap } from '@stencil/store';
+import { createStore, Store } from '@eventstore/stores';
 import {
     InternalWorkingDataOptions,
     InternalFieldOptions,
@@ -14,9 +14,9 @@ import { isChildData } from './isWorkingData';
 type MessageStore<T> = { [key in keyof T]: ValidationMessages };
 
 interface Stores<T> {
-    dataStore: ObservableMap<T>;
-    messageStore: ObservableMap<MessageStore<T>>;
-    state: ObservableMap<WorkingDataState>;
+    dataStore: Store<T>;
+    messageStore: Store<MessageStore<T>>;
+    state: Store<WorkingDataState>;
     fields: Map<
         keyof T,
         | Required<InternalFieldOptions<any, T>>
