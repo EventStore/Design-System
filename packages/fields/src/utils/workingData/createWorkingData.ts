@@ -25,9 +25,9 @@ export const createWorkingData = <T extends object>(
 ): WorkingData<T> => {
     const fullOptions = expandOptions(options);
     const {
-        dataStore: { data, reset: resetData, onChange },
-        messageStore: { data: messages, reset: resetMessages },
-        state: { data: state },
+        dataStore: { state: data, reset: resetData, onChange },
+        messageStore: { state: messages, reset: resetMessages },
+        state: { state },
         fields,
         refs,
         children,

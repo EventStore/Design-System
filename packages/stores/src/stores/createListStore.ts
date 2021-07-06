@@ -2,7 +2,7 @@ import { createStore } from './createStore';
 
 export interface ListStore<T extends object> {
     reset: () => void;
-    readonly data: Record<string, T>;
+    readonly state: Record<string, T>;
     delete: (id: string) => boolean;
     entries: () => Array<[string, T]>;
     extract: <R = T>(
@@ -34,7 +34,7 @@ export interface ListStore<T extends object> {
 export const createListStore = <T extends object>(
     initialState: Record<string, T> = {},
 ): ListStore<T> => {
-    const { data: state, onChange, reset, on } = createStore(initialState);
+    const { state, onChange, reset, on } = createStore(initialState);
 
     const update = (id: string, updater: (tem: T) => T) => {
         if (id in state) {
@@ -46,7 +46,7 @@ export const createListStore = <T extends object>(
 
     return {
         reset,
-        get data() {
+        get state() {
             return state;
         },
         delete: (id) => {
