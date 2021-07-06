@@ -11,7 +11,7 @@ export interface Store<T> {
      * Proxied object that will detect dependencies and call
      * the subscriptions and computed properties.
      */
-    readonly data: T;
+    readonly state: T;
 
     /**
      * check if store has key
@@ -129,7 +129,7 @@ export const createStore = <T extends { [key: string]: any }>(
         });
     };
 
-    const data = new Proxy<T>(defaultState, {
+    const state = new Proxy<T>(defaultState, {
         get(_, propName: any) {
             handlers.get.forEach((cb) => cb(propName));
             return backingMap.get(propName);
@@ -174,13 +174,13 @@ export const createStore = <T extends { [key: string]: any }>(
     });
 
     const store: Store<T> = {
-        data,
+        state,
         has: (key) => backingMap.has(key),
-        get: (key) => data[key],
-        set: (key, value) => (data[key] = value),
+        get: (key) => state[key],
+        set: (key, value) => (state[key] = value),
         delete: (key) => {
             const existed = backingMap.has(key);
-            delete data[key];
+            delete state[key];
             return existed;
         },
         on,

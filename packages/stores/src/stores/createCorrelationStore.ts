@@ -8,7 +8,7 @@ export interface CorrelatableItem {
 }
 
 export interface CorrelationStore<T extends CorrelatableItem> {
-    readonly data: Record<string, string[]>;
+    readonly state: Record<string, string[]>;
     delete: (id: string) => boolean;
     firstItem: (id: string) => T | undefined;
     get: (id: string) => string[] | undefined;
@@ -51,7 +51,7 @@ export const createCorrelationStore = <T extends CorrelatableItem>(
     };
 
     const store: CorrelationStore<T> = {
-        data: ids.data,
+        state: ids.state,
         delete: (id) => {
             invalidateMemos();
             ids.get(id)?.forEach(items.delete);
