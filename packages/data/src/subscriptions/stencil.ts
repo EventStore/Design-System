@@ -1,11 +1,11 @@
 import { forceUpdate, getRenderingRef, getElement } from '@stencil/core';
-import type { ObservableMap } from '../types';
+import type { Store } from '../stores/createStore';
 
 type Element = any;
 
 const $keys = Symbol('keys');
 
-export const stencilSubscription = <T>({ on }: ObservableMap<T>) => {
+export const stencilSubscription = <T>({ on }: Store<T>) => {
     // If we are not in a stencil project, we do nothing.
     // This function is not really exported by @stencil/core.
     if (typeof getRenderingRef !== 'function') return;
@@ -37,16 +37,16 @@ export const stencilSubscription = <T>({ on }: ObservableMap<T>) => {
     });
 
     on('get', (propName) => {
-        const elm = getRenderingRef();
-        if (elm) {
-            addToMapSet(elementsToUpdate, propName, elm);
+        const el = getRenderingRef();
+        if (el) {
+            addToMapSet(elementsToUpdate, propName, el);
         }
     });
 
     on('keys', () => {
-        const elm = getRenderingRef();
-        if (elm) {
-            addToMapSet(elementsToUpdate, $keys, elm);
+        const el = getRenderingRef();
+        if (el) {
+            addToMapSet(elementsToUpdate, $keys, el);
         }
     });
 
@@ -66,7 +66,7 @@ export const stencilSubscription = <T>({ on }: ObservableMap<T>) => {
     });
 
     on('reset', () => {
-        elementsToUpdate.forEach((elms) => elms.forEach(forceUpdate));
+        elementsToUpdate.forEach((elements) => elements.forEach(forceUpdate));
     });
 };
 
