@@ -26,7 +26,7 @@ export const createWorkingDataArray = <T>(
 ): WorkingDataArray<T> => {
     const fullOptions = expandArrayOptions(options);
     const {
-        state: { data: wd },
+        state: { state: wd },
         refs,
         validationFailedCallbacks,
         beforeFocusCallbacks,
@@ -34,7 +34,7 @@ export const createWorkingDataArray = <T>(
         expandOptions({ ':root': fullOptions.initialValue } as any),
     );
 
-    const { data: state, reset, onChange } = createStore<{
+    const { state: state, reset, onChange } = createStore<{
         value: T[];
         messages: Record<number, ValidationMessages>;
         rootMessages: ValidationMessages;

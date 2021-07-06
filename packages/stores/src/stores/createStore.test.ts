@@ -4,37 +4,37 @@ describe.each<[label: string, method: 'reset' | 'dispose']>([
     ['reset', 'reset'],
     ['dispose calls reset', 'dispose'],
 ])('%s', (_, methodName) => {
-    test('returns all variable to their original data', () => {
-        const { [methodName]: method, data } = createStore({
+    test('returns all variable to their original state', () => {
+        const { [methodName]: method, state } = createStore({
             hola: 'hola',
             name: 'Sergio',
         });
 
-        data.hola = 'hello';
-        data.name = 'Manu';
+        state.hola = 'hello';
+        state.name = 'Manu';
 
-        expect(data.hola).toBe('hello');
-        expect(data.name).toBe('Manu');
+        expect(state.hola).toBe('hello');
+        expect(state.name).toBe('Manu');
 
         method();
 
-        expect(data.hola).toBe('hola');
-        expect(data.name).toBe('Sergio');
+        expect(state.hola).toBe('hola');
+        expect(state.name).toBe('Sergio');
     });
 
     test('extra properties get removed', () => {
-        const { [methodName]: method, data } = createStore<
+        const { [methodName]: method, state } = createStore<
             Record<string, string>
         >({});
 
-        data.hola = 'hello';
+        state.hola = 'hello';
 
-        expect(data).toHaveProperty('hola');
-        expect(data.hola).toBe('hello');
+        expect(state).toHaveProperty('hola');
+        expect(state.hola).toBe('hello');
 
         method();
 
-        expect(data).not.toHaveProperty('hola');
+        expect(state).not.toHaveProperty('hola');
     });
 
     test('calls on', () => {
@@ -66,31 +66,31 @@ describe('dispose', () => {
 
 describe('get', () => {
     test('returns the value for the property in the store', () => {
-        const { data } = createStore({
+        const { state } = createStore({
             hola: 'hello',
         });
 
-        expect(data.hola).toBe('hello');
+        expect(state.hola).toBe('hello');
     });
 
     test('returns the modified value after being set', () => {
-        const { data } = createStore({
+        const { state } = createStore({
             hola: 'hello',
         });
 
-        data.hola = 'ola';
+        state.hola = 'ola';
 
-        expect(data.hola).toBe('ola');
+        expect(state.hola).toBe('ola');
     });
 
     test('calls on', () => {
-        const { on, data } = createStore({
+        const { on, state } = createStore({
             hola: 'hello',
         });
         const subscription = jest.fn();
         on('get', subscription);
 
-        data.hola;
+        state.hola;
 
         expect(subscription).toHaveBeenCalledWith('hola');
     });
@@ -98,59 +98,59 @@ describe('get', () => {
 
 describe('set', () => {
     test('sets the value for a property', () => {
-        const { data } = createStore({
+        const { state } = createStore({
             hola: 'hello',
         });
 
-        data.hola = 'ola';
+        state.hola = 'ola';
 
-        expect(data.hola).toBe('ola');
+        expect(state.hola).toBe('ola');
     });
 
     test('calls on', () => {
-        const { on, data } = createStore({
+        const { on, state } = createStore({
             hola: 'hello',
         });
         const subscription = jest.fn();
         on('set', subscription);
 
-        data.hola = 'ola';
+        state.hola = 'ola';
 
         expect(subscription).toHaveBeenCalledWith('hola', 'ola', 'hello');
     });
 
     test('calls onChange', () => {
-        const { onChange, data } = createStore({
+        const { onChange, state } = createStore({
             hola: 'hello',
         });
         const subscription = jest.fn();
         onChange('hola', subscription);
 
-        data.hola = 'ola';
+        state.hola = 'ola';
 
         expect(subscription).toHaveBeenCalledWith('ola');
     });
 
     test('enumerable keys', () => {
-        const { data } = createStore<any>({});
-        expect(Object.keys(data)).toEqual([]);
-        data.hello = 'hola';
-        expect(Object.keys(data)).toEqual(['hello']);
-        expect(Object.getOwnPropertyNames(data)).toEqual(['hello']);
-        const copy = { ...data };
+        const { state } = createStore<any>({});
+        expect(Object.keys(state)).toEqual([]);
+        state.hello = 'hola';
+        expect(Object.keys(state)).toEqual(['hello']);
+        expect(Object.getOwnPropertyNames(state)).toEqual(['hello']);
+        const copy = { ...state };
         expect(copy).toEqual({ hello: 'hola' });
     });
 
     test('in operator', () => {
-        const { data } = createStore<any>({});
-        expect('hello' in data).toBe(false);
-        data.hello = 'hola';
-        expect('hello' in data).toBe(true);
+        const { state } = createStore<any>({});
+        expect('hello' in state).toBe(false);
+        state.hello = 'hola';
+        expect('hello' in state).toBe(true);
     });
 });
 
 test('unregister events', () => {
-    const { reset, data, on, onChange } = createStore({
+    const { reset, state, on, onChange } = createStore({
         hola: 'hola',
         name: 'Sergio',
     });
@@ -164,18 +164,18 @@ test('unregister events', () => {
     const unreset = on('reset', RESET);
     const unChange = onChange('hola', CHANGE);
 
-    data.hola = 'hola2';
-    data.name = 'hola2';
+    state.hola = 'hola2';
+    state.name = 'hola2';
     expect(SET).toHaveBeenCalledTimes(2);
     unset();
-    data.hola = 'hola3';
+    state.hola = 'hola3';
     expect(SET).toHaveBeenCalledTimes(2);
 
-    data.hola;
-    data.name;
+    state.hola;
+    state.name;
     expect(GET).toHaveBeenCalledTimes(2);
     unget();
-    data.name;
+    state.name;
     expect(GET).toHaveBeenCalledTimes(2);
 
     reset();
@@ -188,7 +188,7 @@ test('unregister events', () => {
     expect(CHANGE).toHaveBeenCalledTimes(5);
     unChange();
     reset();
-    data.hola = 'hola';
+    state.hola = 'hola';
     expect(CHANGE).toHaveBeenCalledTimes(5);
 });
 
@@ -198,9 +198,9 @@ test('default change detector', () => {
     });
     const SET = jest.fn();
     store.on('set', SET);
-    store.data.str = 'hola';
+    store.state.str = 'hola';
     expect(SET).not.toBeCalled();
-    store.data.str = 'hola2';
+    store.state.str = 'hola2';
     expect(SET).toBeCalledWith('str', 'hola2', 'hola');
 });
 
@@ -212,11 +212,11 @@ test('custom change detector, values', () => {
         },
         comparer,
     );
-    store.data.str = 'hola';
+    store.state.str = 'hola';
     expect(comparer).toBeCalledWith('hola', 'hola', 'str');
-    store.data.str = 'hola2';
+    store.state.str = 'hola2';
     expect(comparer).toBeCalledWith('hola2', 'hola', 'str');
-    store.data.str = 'hola3';
+    store.state.str = 'hola3';
     expect(comparer).toBeCalledWith('hola3', 'hola2', 'str');
 });
 
@@ -229,9 +229,9 @@ test('custom change detector, prevent all mutations', () => {
     );
     const SET = jest.fn();
     store.on('set', SET);
-    store.data.str = 'hola';
+    store.state.str = 'hola';
     expect(SET).not.toBeCalled();
-    store.data.str = 'hola2';
+    store.state.str = 'hola2';
     expect(SET).not.toBeCalled();
-    expect(store.data.str).toEqual('hola');
+    expect(store.state.str).toEqual('hola');
 });

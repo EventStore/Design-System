@@ -5,7 +5,7 @@ export interface StandardStore {
     bar: boolean;
 }
 
-export const { data: standardStore } = createStore<StandardStore>({
+export const { state: standardStore } = createStore<StandardStore>({
     foo: 'hello',
     bar: false,
 });
