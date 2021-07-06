@@ -5,4 +5,4 @@ export interface Data {
     name: string;
 }
 
-export const { state: recordStore } = createStore<Record<string, Data>>({});
+export const { data: recordStore } = createStore<Record<string, Data>>({});
