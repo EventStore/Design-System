@@ -1,6 +1,5 @@
 import { Component, h, Host } from '@stencil/core';
-import { setFoo } from 'stores/standardStore/actions/setFoo';
-import { toggleBar } from 'stores/standardStore/actions/toggleBar';
+import { setFoo, toggleBar } from 'stores/standardStore/actions';
 
 @Component({
     tag: 'standard-store-form',
