@@ -1,8 +1,8 @@
 {
-    "name": "data-demo",
+    "name": "stores-demo",
     "version": "0.0.58",
     "private": true,
-    "description": "Demo for @eventstore/data",
+    "description": "Demo for @eventstore/stores",
     "scripts": {
         "build": "stencil build",
         "start": "stencil build --dev --watch --serve --no-open",
@@ -11,7 +11,7 @@
         "lint": "prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "dependencies": {
-        "@eventstore/data": "^0.0.58"
+        "@eventstore/stores": "^0.0.58"
     },
     "devDependencies": {
         "@stencil/core": "^2.3.0"
