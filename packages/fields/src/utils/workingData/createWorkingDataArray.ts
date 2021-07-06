@@ -1,4 +1,4 @@
-import { createStore } from '@stencil/store';
+import { createStore } from '@eventstore/stores';
 import { delegateFocus, HTTPError } from '@eventstore/utils';
 import { toast } from '@eventstore/components';
 
@@ -26,7 +26,7 @@ export const createWorkingDataArray = <T>(
 ): WorkingDataArray<T> => {
     const fullOptions = expandArrayOptions(options);
     const {
-        state: { state: wd },
+        state: { data: wd },
         refs,
         validationFailedCallbacks,
         beforeFocusCallbacks,
@@ -34,7 +34,7 @@ export const createWorkingDataArray = <T>(
         expandOptions({ ':root': fullOptions.initialValue } as any),
     );
 
-    const { state, reset, onChange } = createStore<{
+    const { data: state, reset, onChange } = createStore<{
         value: T[];
         messages: Record<number, ValidationMessages>;
         rootMessages: ValidationMessages;
