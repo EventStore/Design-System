@@ -1,4 +1,5 @@
 export { createStore } from './stores/createStore';
-export { createObservableMap } from './utils/observableMap';
+export { createListStore } from './stores/createListStore';
+export { createCorrelationStore } from './stores/createCorrelationStore';
 
-export type { ObservableMap, Subscription } from './types';
+export type { Subscription } from './types';
