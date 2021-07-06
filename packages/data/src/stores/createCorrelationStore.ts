@@ -7,7 +7,7 @@ export interface CorrelatableItem {
     id: string;
 }
 
-interface CorrelationStore<T extends CorrelatableItem> {
+export interface CorrelationStore<T extends CorrelatableItem> {
     readonly data: Record<string, string[]>;
     delete: (id: string) => boolean;
     firstItem: (id: string) => T | undefined;
