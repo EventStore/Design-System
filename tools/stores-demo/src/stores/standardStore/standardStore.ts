@@ -1,4 +1,4 @@
-import { createStore } from '@eventstore/data';
+import { createStore } from '@eventstore/stores';
 
 export interface StandardStore {
     foo: string;

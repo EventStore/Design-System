@@ -1,5 +1,5 @@
 {
-    "name": "@eventstore/data",
+    "name": "@eventstore/stores",
     "version": "0.0.58",
     "description": "Data stores for Stencil",
     "license": "UNLICENSED",

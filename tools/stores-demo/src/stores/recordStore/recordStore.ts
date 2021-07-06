@@ -1,4 +1,4 @@
-import { createStore } from '@eventstore/data';
+import { createStore } from '@eventstore/stores';
 
 export interface Data {
     id: string;
