@@ -1,3 +1,3 @@
-# @eventstore/data-store
+# @eventstore/stores
 
 Data stores for stencil
