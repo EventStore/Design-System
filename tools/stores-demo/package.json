@@ -1,6 +1,6 @@
 {
     "name": "stores-demo",
-    "version": "0.0.58",
+    "version": "0.0.59",
     "private": true,
     "description": "Demo for @eventstore/stores",
     "scripts": {
@@ -11,8 +11,8 @@
         "lint": "prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "dependencies": {
-        "@eventstore/stores": "^0.0.58",
-        "@eventstore/utils": "^0.0.58"
+        "@eventstore/stores": "^0.0.59",
+        "@eventstore/utils": "^0.0.59"
     },
     "devDependencies": {
         "@stencil/core": "^2.3.0"
