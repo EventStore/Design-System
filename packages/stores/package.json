@@ -16,14 +16,14 @@
     "repository": {
         "type": "git",
         "url": "ssh://git@github.com:EventStore/Design-System.git",
-        "directory": "packages/data"
+        "directory": "packages/stores"
     },
     "scripts": {
         "build": "run-s build:*",
         "build:clean": "rm -rf ./dist",
         "build:ts": "tsc -p .",
         "build:rollup": "rollup -c rollup.config.js",
-        "build:cleanop": "rm -rf ./build",
+        "build:cleanup": "rm -rf ./build",
         "test": "stencil test --spec",
         "test.watch": "stencil test --spec --watchAll",
         "lint": "prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
