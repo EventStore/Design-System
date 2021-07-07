@@ -4,7 +4,7 @@
     "description": "Automated icon inclusion for Event Store design system",
     "license": "Apache-2.0",
     "bin": {
-        "include-icon": "./dist/index.js"
+        "icon": "./dist/index.js"
     },
     "files": [
         "dist/"
