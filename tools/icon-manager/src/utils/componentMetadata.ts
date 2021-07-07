@@ -4,6 +4,7 @@ export interface ComponentMetadata {
     name: string;
     component: string;
     path: string;
+    aliases?: string[];
 }
 
 export const componentMetadata = (name: string): ComponentMetadata => ({
