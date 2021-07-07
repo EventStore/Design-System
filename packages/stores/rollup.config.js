@@ -1,5 +1,6 @@
 import pkg from './package.json';
 
+// eslint-disable-next-line no-restricted-syntax
 export default {
     input: 'build/index.js',
 
@@ -13,5 +14,5 @@ export default {
             file: pkg.module,
         },
     ],
-    external: ['@stencil/core'],
+    external: ['@stencil/core', '@eventstore/utils'],
 };

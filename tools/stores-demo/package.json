@@ -11,7 +11,8 @@
         "lint": "prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "dependencies": {
-        "@eventstore/stores": "^0.0.58"
+        "@eventstore/stores": "^0.0.58",
+        "@eventstore/utils": "^0.0.58"
     },
     "devDependencies": {
         "@stencil/core": "^2.3.0"

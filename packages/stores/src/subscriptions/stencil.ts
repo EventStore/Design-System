@@ -1,9 +1,26 @@
 import { forceUpdate, getRenderingRef, getElement } from '@stencil/core';
+import { debounce } from '@eventstore/utils';
 import type { Store } from '../stores/createStore';
 
 type Element = any;
 
 const $keys = Symbol('keys');
+
+const allSubscriptions = new Set<Map<string | number | symbol, Set<Element>>>();
+
+const scheduleCleanup = debounce(() => {
+    for (const elementsToUpdate of allSubscriptions) {
+        for (const [key, elements] of elementsToUpdate) {
+            for (const el of Array.from(elements)) {
+                if (getElement(el)?.isConnected) continue;
+                elementsToUpdate.get(key)?.delete(el);
+                if (elementsToUpdate.get(key)?.size === 0) {
+                    elementsToUpdate.delete(key);
+                }
+            }
+        }
+    }
+}, 2_000);
 
 export const stencilSubscription = <T>({ on }: Store<T>) => {
     // If we are not in a stencil project, we do nothing.
@@ -14,15 +31,16 @@ export const stencilSubscription = <T>({ on }: Store<T>) => {
 
     const elementsToUpdate = new Map<Key, Set<Element>>();
 
+    allSubscriptions.add(elementsToUpdate);
+
     const refreshElements = (key: Key) => {
         if (!elementsToUpdate.has(key)) return;
 
-        const elements = Array.from(elementsToUpdate.get(key)!);
+        for (const el of Array.from(elementsToUpdate.get(key)!)) {
+            // force update returns false if it fails but is typed wrong
+            const successfullyUpdated = (forceUpdate(el) as unknown) as boolean;
 
-        for (const el of elements) {
-            if (getElement(el)?.isConnected) {
-                forceUpdate(el);
-            } else {
+            if (!successfullyUpdated) {
                 elementsToUpdate.get(key)?.delete(el);
 
                 if (elementsToUpdate.get(key)?.size === 0) {
@@ -41,6 +59,7 @@ export const stencilSubscription = <T>({ on }: Store<T>) => {
         if (el) {
             addToMapSet(elementsToUpdate, propName, el);
         }
+        scheduleCleanup();
     });
 
     on('keys', () => {
@@ -48,10 +67,12 @@ export const stencilSubscription = <T>({ on }: Store<T>) => {
         if (el) {
             addToMapSet(elementsToUpdate, $keys, el);
         }
+        scheduleCleanup();
     });
 
     on('set', (propName) => {
         refreshElements(propName);
+        scheduleCleanup();
     });
 
     on('delete', (propName) => {
@@ -59,14 +80,17 @@ export const stencilSubscription = <T>({ on }: Store<T>) => {
         requestAnimationFrame(() => {
             refreshElements(propName);
         });
+        scheduleCleanup();
     });
 
     on('insert', () => {
         refreshElements($keys);
+        scheduleCleanup();
     });
 
     on('reset', () => {
         elementsToUpdate.forEach((elements) => elements.forEach(forceUpdate));
+        scheduleCleanup();
     });
 };
 
