@@ -1,0 +1,17 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    padding: 5px;
+}
+
+label {
+    display: block;
+}
+
+label span,
+label input {
+    margin-right: 5px;
+}

@@ -1,0 +1,12 @@
+:host {
+    display: block;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+label span {
+    margin-right: 5px;
+}
