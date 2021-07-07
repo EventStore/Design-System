@@ -1,5 +1,5 @@
 {
-    "name": "@eventstore/include-icon",
+    "name": "@eventstore/icon-manager",
     "version": "0.0.59",
     "description": "Automated icon inclusion for Event Store design system",
     "license": "Apache-2.0",
@@ -16,7 +16,7 @@
     "repository": {
         "type": "git",
         "url": "ssh://git@github.com:EventStore/Design-System.git",
-        "directory": "tools/include-icon"
+        "directory": "tools/icon-manager"
     },
     "scripts": {
         "build": "tsc --outDir ./dist --declaration",
