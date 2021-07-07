@@ -2,6 +2,7 @@
 
 import * as yargs from 'yargs';
 import { addIcon } from './commands/addIcon';
+import { aliasIcon } from './commands/aliasIcon';
 import { removeIcon } from './commands/removeIcon';
 
 yargs
@@ -28,6 +29,10 @@ yargs
                         type: 'string',
                         conflicts: ['clipboard'],
                     },
+                    force: {
+                        describe: 'Overwrite existing files or aliases',
+                        type: 'boolean',
+                    },
                 })
                 .check(({ clipboard, file }) => {
                     if (!clipboard && !file) {
@@ -41,7 +46,7 @@ yargs
     )
     .command(
         'remove [name]',
-        'remove an icon',
+        'remove an icon or alias',
         (yargs) => {
             yargs.positional('name', {
                 describe: 'The icon to remove',
@@ -50,6 +55,24 @@ yargs
             });
         },
         removeIcon,
+    )
+    .command(
+        'alias [name] [alias]',
+        'add an icon alias',
+        (yargs) => {
+            yargs
+                .positional('name', {
+                    describe: 'The icon to apply the alias to',
+                    type: 'string',
+                    demandOption: true,
+                })
+                .positional('alias', {
+                    describe: 'The alias to apply',
+                    type: 'string',
+                    demandOption: true,
+                });
+        },
+        aliasIcon,
     )
     .option('dir', {
         alias: 'd',

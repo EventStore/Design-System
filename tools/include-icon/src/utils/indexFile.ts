@@ -43,12 +43,90 @@ const updateIndex = async (destination: string, indexMap: IndexMap) => {
     await writeLoader(destination, indexMap);
 };
 
+type ExistDetails = [exists: boolean, aliasOf?: string];
+
+export const isInIndex = async (
+    destination: string,
+    name: string,
+): Promise<ExistDetails> => {
+    const indexFile = await readIndex(destination);
+
+    if (indexFile.has(name)) return [true];
+
+    const aliased = Array.from(indexFile.values()).find(({ aliases }) =>
+        aliases?.includes(name),
+    );
+
+    if (aliased) return [true, aliased.name];
+
+    return [false];
+};
+
 export const addToIndex = async (
     destination: string,
     component: ComponentMetadata,
 ) => {
     const indexFile = await readIndex(destination);
     indexFile.set(component.name, component);
+    return updateIndex(destination, indexFile);
+};
+
+export const addAliasToIndex = async (
+    destination: string,
+    name: string,
+    alias: string,
+) => {
+    const indexFile = await readIndex(destination);
+
+    if (!indexFile.has(name)) {
+        throw `Unable to alias ${name} as ${alias}, because no icon named ${name} exists`;
+    }
+
+    if (indexFile.has(alias)) {
+        throw `Unable to alias ${name} as ${alias}, because ${alias} is an existing icon`;
+    }
+
+    const existing = Array.from(indexFile.values()).find(({ aliases }) =>
+        aliases?.includes(alias),
+    );
+
+    if (existing) {
+        throw `Unable to alias ${name} as ${alias}, because ${alias} already exists as an alias of ${existing.name}`;
+    }
+
+    const component = indexFile.get(name)!;
+
+    indexFile.set(name, {
+        ...component,
+        aliases: [...(component.aliases ?? []), alias].sort(),
+    });
+
+    return updateIndex(destination, indexFile);
+};
+
+export const removeAliasFromIndex = async (
+    destination: string,
+    name: string,
+    alias: string,
+) => {
+    const indexFile = await readIndex(destination);
+
+    if (!indexFile.has(name)) {
+        throw `Unable to remove alias ${alias} from ${name}, as no icon named ${name} exists`;
+    }
+
+    const { aliases: prior, ...component } = indexFile.get(name)!;
+    const aliases = prior?.filter((a) => a !== alias);
+
+    if (aliases?.length) {
+        indexFile.set(name, {
+            ...component,
+            aliases,
+        });
+    } else {
+        indexFile.set(name, component);
+    }
+
     return updateIndex(destination, indexFile);
 };
 
