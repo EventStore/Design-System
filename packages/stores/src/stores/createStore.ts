@@ -1,0 +1,199 @@
+import type {
+    OnHandler,
+    OnChangeHandler,
+    Subscription,
+    Handlers,
+} from '../types';
+import { stencilSubscription } from '../subscriptions/stencil';
+
+export interface Store<T> {
+    /**
+     * Proxied object that will detect dependencies and call
+     * the subscriptions and computed properties.
+     */
+    readonly state: T;
+
+    /**
+     * check if store has key
+     */
+    has<K extends keyof T>(key: K): boolean;
+
+    /**
+     * get value for key in store
+     */
+    get<K extends keyof T>(key: K): T[K];
+
+    /**
+     * set value for key in store
+     */
+    set<K extends keyof T>(key: K, value: T[K]): void;
+
+    /**
+     * remove value for key in store
+     */
+    delete<K extends keyof T>(key: K): boolean;
+
+    /**
+     * subscribe to events within the store
+     */
+    on: OnHandler<T>;
+
+    /**
+     * Listen for value changes on a specified key.
+     */
+    onChange: OnChangeHandler<T>;
+
+    /**
+     * Resets the state to its original state and
+     * signals a dispose event to all the plugins.
+     */
+    dispose(): void;
+
+    /**
+     * Resets the state to its original state.
+     */
+    reset(): void;
+
+    /**
+     * Registers a subscription that will be called whenever the user gets, sets, or
+     * resets a value.
+     */
+    use(...plugins: Subscription<T>[]): void;
+
+    /**
+     * the number of key / value pairs in the store
+     */
+    readonly size: number;
+}
+
+export const createStore = <T extends { [key: string]: any }>(
+    defaultState: T,
+    shouldUpdate: (newV: any, oldValue: any, prop: keyof T) => boolean = (
+        a,
+        b,
+    ) => a !== b,
+): Store<T> => {
+    let backingMap = new Map<any, any>(Object.entries(defaultState ?? {}));
+
+    const handlers: Handlers<T> = {
+        dispose: new Set(),
+        keys: new Set(),
+        get: new Set(),
+        set: new Set(),
+        reset: new Set(),
+        delete: new Set(),
+        insert: new Set(),
+    };
+
+    const reset = (): void => {
+        backingMap = new Map<string, any>(Object.entries(defaultState ?? {}));
+        handlers.reset.forEach((cb) => cb());
+    };
+
+    const dispose = (): void => {
+        // Call first dispose as resetting the state would
+        // cause less updates ;)
+        handlers.dispose.forEach((cb) => cb());
+        reset();
+    };
+
+    const on: OnHandler<T> = (eventName: keyof Handlers<T>, callback: any) => {
+        handlers[eventName].add(callback);
+        return () => {
+            handlers[eventName].delete(callback);
+        };
+    };
+
+    const onChange: OnChangeHandler<T> = (propName, cb) => {
+        const unSet = on('set', (key, newValue) => {
+            if (key === propName) {
+                cb(newValue);
+            }
+        });
+        const unReset = on('reset', () => cb(defaultState?.[propName] as any));
+        return () => {
+            unSet();
+            unReset();
+        };
+    };
+
+    const use = (...subscriptions: Subscription<T>[]): void => {
+        subscriptions.forEach((subscription) => {
+            if (subscription.delete) on('delete', subscription.delete);
+            if (subscription.dispose) on('dispose', subscription.dispose);
+            if (subscription.get) on('get', subscription.get);
+            if (subscription.insert) on('insert', subscription.insert);
+            if (subscription.keys) on('keys', subscription.keys);
+            if (subscription.reset) on('reset', subscription.reset);
+            if (subscription.set) on('set', subscription.set);
+        });
+    };
+
+    const state = new Proxy<T>(defaultState, {
+        get(_, propName: any) {
+            handlers.get.forEach((cb) => cb(propName));
+            return backingMap.get(propName);
+        },
+        ownKeys(_) {
+            handlers.keys.forEach((cb) => cb());
+            return Array.from(backingMap.keys());
+        },
+        getOwnPropertyDescriptor() {
+            return {
+                enumerable: true,
+                configurable: true,
+            };
+        },
+        has(_, propName: any) {
+            return backingMap.has(propName);
+        },
+        set(_, propName: any, value) {
+            const oldValue = backingMap.get(propName);
+            const isInsert = !backingMap.has(propName);
+
+            if (shouldUpdate(value, oldValue, propName)) {
+                backingMap.set(propName, value);
+
+                if (isInsert) {
+                    handlers.insert.forEach((cb) => cb(propName, value));
+                }
+
+                handlers.set.forEach((cb) => cb(propName, value, oldValue));
+            }
+            return true;
+        },
+        deleteProperty(_, propName: any) {
+            const success = backingMap.delete(propName);
+
+            if (success) {
+                handlers.delete.forEach((cb) => cb(propName));
+            }
+
+            return success;
+        },
+    });
+
+    const store: Store<T> = {
+        state,
+        has: (key) => backingMap.has(key),
+        get: (key) => state[key],
+        set: (key, value) => (state[key] = value),
+        delete: (key) => {
+            const existed = backingMap.has(key);
+            delete state[key];
+            return existed;
+        },
+        on,
+        onChange,
+        dispose,
+        reset,
+        use,
+        get size() {
+            return backingMap.size;
+        },
+    };
+
+    stencilSubscription(store);
+
+    return store;
+};

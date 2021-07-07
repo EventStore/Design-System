@@ -1,0 +1,12 @@
+:host {
+    padding: 5px;
+    display: flex;
+}
+
+button {
+    margin-left: 10px;
+}
+
+button:first-of-type {
+    margin-left: auto;
+}
