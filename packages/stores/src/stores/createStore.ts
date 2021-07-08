@@ -58,7 +58,7 @@ export interface Store<T> {
      * Registers a subscription that will be called whenever the user gets, sets, or
      * resets a value.
      */
-    use(...plugins: Subscription<T>[]): void;
+    use(...plugins: Subscription<T>[]): () => void;
 
     /**
      * the number of key / value pairs in the store
@@ -117,16 +117,39 @@ export const createStore = <T extends { [key: string]: any }>(
         };
     };
 
-    const use = (...subscriptions: Subscription<T>[]): void => {
-        subscriptions.forEach((subscription) => {
-            if (subscription.delete) on('delete', subscription.delete);
-            if (subscription.dispose) on('dispose', subscription.dispose);
-            if (subscription.get) on('get', subscription.get);
-            if (subscription.insert) on('insert', subscription.insert);
-            if (subscription.keys) on('keys', subscription.keys);
-            if (subscription.reset) on('reset', subscription.reset);
-            if (subscription.set) on('set', subscription.set);
-        });
+    const use = (...subscriptions: Subscription<T>[]): (() => void) => {
+        const unsubscribes = subscriptions.reduce<Array<() => void>>(
+            (acc, subscription) => {
+                if (subscription.delete) {
+                    acc.push(on('delete', subscription.delete));
+                }
+                if (subscription.dispose) {
+                    acc.push(on('dispose', subscription.dispose));
+                }
+                if (subscription.get) {
+                    acc.push(on('get', subscription.get));
+                }
+                if (subscription.insert) {
+                    acc.push(on('insert', subscription.insert));
+                }
+                if (subscription.keys) {
+                    acc.push(on('keys', subscription.keys));
+                }
+                if (subscription.reset) {
+                    acc.push(on('reset', subscription.reset));
+                }
+                if (subscription.set) {
+                    acc.push(on('set', subscription.set));
+                }
+
+                return acc;
+            },
+            [],
+        );
+
+        return () => {
+            unsubscribes.forEach((fn) => fn());
+        };
     };
 
     const state = new Proxy<T>(defaultState, {
@@ -193,7 +216,7 @@ export const createStore = <T extends { [key: string]: any }>(
         },
     };
 
-    stencilSubscription(store);
+    store.use(stencilSubscription());
 
     return store;
 };
