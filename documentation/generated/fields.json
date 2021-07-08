@@ -1,0 +1,2222 @@
+{
+  "timestamp": "2021-07-08T12:47:40",
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "2.3.0",
+    "typescriptVersion": "4.0.5"
+  },
+  "components": [
+    {
+      "filePath": "./src/components/es-checkbox/es-checkbox.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-checkbox",
+      "readme": "# es-checkbox\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "invalid",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "enter",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "event": "fieldchange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-icon"
+      ],
+      "dependencyGraph": {
+        "es-checkbox": [
+          "es-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-input/es-input.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-input",
+      "readme": "# es-input\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "inputProps",
+          "type": "undefined | { [x: string]: any; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ [x: string]: any; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "invalid",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "mask",
+          "type": "MaskOptions | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "MaskOptions"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "messages",
+          "type": "undefined | { error: string[]; warning: string[]; info: string[]; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ error: string[]; warning: string[]; info: string[]; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "enter",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "event": "fieldchange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "es-input-list"
+      ],
+      "dependencies": [
+        "es-validation-messages"
+      ],
+      "dependencyGraph": {
+        "es-input": [
+          "es-validation-messages"
+        ],
+        "es-input-list": [
+          "es-input"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-input-list/es-input-list.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-input-list",
+      "readme": "# es-list-creator\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "additionText",
+          "type": "string",
+          "mutable": false,
+          "attr": "addition-text",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'Add item'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "WorkingDataArray<string>",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "WorkingDataArray<string>"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-input",
+        "es-button",
+        "es-icon",
+        "es-validation-messages"
+      ],
+      "dependencyGraph": {
+        "es-input-list": [
+          "es-input",
+          "es-button",
+          "es-icon",
+          "es-validation-messages"
+        ],
+        "es-input": [
+          "es-validation-messages"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-list-creator/es-list-creator.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-list-creator",
+      "readme": "# es-list-creator\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "data",
+          "type": "WorkingDataArray<string>",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "WorkingDataArray<string>"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "options",
+          "type": "TypeaheadOption[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "TypeaheadOption[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "renderItem",
+          "type": "({ name }: TypeaheadOption) => VNode",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "({ name }: TypeaheadOption): VNode => (\n        <input readonly class={'input'} value={name} tabindex={-1} />\n    )",
+          "values": [
+            {
+              "type": "({ name }: TypeaheadOption) => VNode"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "fieldchange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "value-list",
+          "docs": ""
+        },
+        {
+          "name": "value-list-item",
+          "docs": ""
+        }
+      ],
+      "dependents": [],
+      "dependencies": [
+        "es-typeahead",
+        "es-button",
+        "es-icon",
+        "es-validation-messages"
+      ],
+      "dependencyGraph": {
+        "es-list-creator": [
+          "es-typeahead",
+          "es-button",
+          "es-icon",
+          "es-validation-messages"
+        ],
+        "es-typeahead": [
+          "es-popover"
+        ],
+        "es-popover": [
+          "es-popper",
+          "es-popper-inner"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-mega-input/es-mega-input.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-mega-input",
+      "readme": "# es-mega-input\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "inputProps",
+          "type": "undefined | { [x: string]: any; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ [x: string]: any; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "invalid",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "messages",
+          "type": "undefined | { error: string[]; warning: string[]; info: string[]; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ error: string[]; warning: string[]; info: string[]; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "fieldchange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-validation-messages"
+      ],
+      "dependencyGraph": {
+        "es-mega-input": [
+          "es-validation-messages"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-number-input/es-number-input.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-number-input",
+      "readme": "# es-number-input\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "inputProps",
+          "type": "undefined | { [x: string]: any; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ [x: string]: any; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "invalid",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "messages",
+          "type": "undefined | { error: string[]; warning: string[]; info: string[]; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ error: string[]; warning: string[]; info: string[]; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "placeholder",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "unit",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "unit",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "enter",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "event": "fieldchange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-validation-messages"
+      ],
+      "dependencyGraph": {
+        "es-number-input": [
+          "es-validation-messages"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-radio-card-group/es-radio-card-group.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-radio-card-group",
+      "readme": "# es-radio-card-group\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "groupBy",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "group-by",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "invalid",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "labelledby",
+          "type": "string",
+          "mutable": false,
+          "attr": "aria-labelledby",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "messages",
+          "type": "undefined | { error: string[]; warning: string[]; info: string[]; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ error: string[]; warning: string[]; info: string[]; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "options",
+          "type": "RadioCardGroupOption[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "RadioCardGroupOption[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "renderCard",
+          "type": "(option: any, active: boolean) => VNode | VNode[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "RadioCardGroup.defaultRenderCard",
+          "values": [
+            {
+              "type": "(option: any, active: boolean) => VNode"
+            },
+            {
+              "type": "VNode[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "null | string",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "fieldchange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "group-title",
+          "docs": ""
+        }
+      ],
+      "dependents": [],
+      "dependencies": [
+        "es-validation-messages"
+      ],
+      "dependencyGraph": {
+        "es-radio-card-group": [
+          "es-validation-messages"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-select/es-select.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-select",
+      "readme": "# es-select\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "invalid",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "messages",
+          "type": "undefined | { error: string[]; warning: string[]; info: string[]; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ error: string[]; warning: string[]; info: string[]; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "optionFilter",
+          "type": "((filter: string, option: TypeaheadOption) => boolean) | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "((filter: string, option: TypeaheadOption) => boolean)"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "TypeaheadOption[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "TypeaheadOption[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "placeholder",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "renderOption",
+          "type": "((option: TypeaheadOption, chosen: boolean) => string | VNode | VNode[]) | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "((option: TypeaheadOption, chosen: boolean) => string"
+            },
+            {
+              "type": "VNode"
+            },
+            {
+              "type": "VNode[])"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "renderValue",
+          "type": "(value: TypeaheadOption | undefined, rawValue: string) => string | VNode",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "(o, v) => o?.name ?? v",
+          "values": [
+            {
+              "type": "(value: TypeaheadOption"
+            },
+            {
+              "type": "undefined, rawValue: string) => string"
+            },
+            {
+              "type": "VNode"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "null | string",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "fieldchange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "input",
+          "docs": ""
+        },
+        {
+          "name": "true_input",
+          "docs": ""
+        }
+      ],
+      "dependents": [],
+      "dependencies": [
+        "es-icon",
+        "es-typeahead",
+        "es-validation-messages"
+      ],
+      "dependencyGraph": {
+        "es-select": [
+          "es-icon",
+          "es-typeahead",
+          "es-validation-messages"
+        ],
+        "es-typeahead": [
+          "es-popover"
+        ],
+        "es-popover": [
+          "es-popper",
+          "es-popper-inner"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-switch/es-switch.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-switch",
+      "readme": "# es-switch\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "invalid",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "setPending",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setPending(pending: boolean) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "enter",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "event": "fieldchange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/es-textarea/es-textarea.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-textarea",
+      "readme": "# es-textarea\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "inputProps",
+          "type": "undefined | { [x: string]: any; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ [x: string]: any; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "invalid",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "messages",
+          "type": "undefined | { error: string[]; warning: string[]; info: string[]; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ error: string[]; warning: string[]; info: string[]; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "fieldchange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-validation-messages"
+      ],
+      "dependencyGraph": {
+        "es-textarea": [
+          "es-validation-messages"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-typeahead/es-typeahead.tsx",
+      "encapsulation": "none",
+      "tag": "es-typeahead",
+      "readme": "# es-typeahead\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "clearOnSelect",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "clear-on-select",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "closeOnSelect",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "close-on-select",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "optionFilter",
+          "type": "(filter: string, option: TypeaheadOption) => boolean",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "(f, { name }) => {\n        return name.toLowerCase().includes(f.toLowerCase());\n    }",
+          "values": [
+            {
+              "type": "(filter: string, option: TypeaheadOption) => boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "TypeaheadOption[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "TypeaheadOption[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "renderField",
+          "type": "(params: RenderTypeaheadFieldParams) => VNode | VNode[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "(params: RenderTypeaheadFieldParams) => VNode"
+            },
+            {
+              "type": "VNode[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "renderOption",
+          "type": "(option: TypeaheadOption, chosen: boolean) => string | VNode | VNode[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "({ name }) => name",
+          "values": [
+            {
+              "type": "(option: TypeaheadOption, chosen: boolean) => string"
+            },
+            {
+              "type": "VNode"
+            },
+            {
+              "type": "VNode[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "enter",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "event": "fieldchange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "list",
+          "docs": ""
+        },
+        {
+          "name": "option",
+          "docs": ""
+        }
+      ],
+      "dependents": [
+        "es-list-creator",
+        "es-select"
+      ],
+      "dependencies": [
+        "es-popover"
+      ],
+      "dependencyGraph": {
+        "es-typeahead": [
+          "es-popover"
+        ],
+        "es-popover": [
+          "es-popper",
+          "es-popper-inner"
+        ],
+        "es-list-creator": [
+          "es-typeahead"
+        ],
+        "es-select": [
+          "es-typeahead"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-validation-messages/es-validation-messages.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-validation-messages",
+      "readme": "# es-validation-messages\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "messages",
+          "type": "undefined | { error?: string[] | undefined; warning?: string[] | undefined; info?: string[] | undefined; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "undefined"
+            },
+            {
+              "type": "{ error?: string[]"
+            },
+            {
+              "type": "undefined; warning?: string[]"
+            },
+            {
+              "type": "undefined; info?: string[]"
+            },
+            {
+              "type": "undefined; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "es-input",
+        "es-input-list",
+        "es-list-creator",
+        "es-mega-input",
+        "es-number-input",
+        "es-radio-card-group",
+        "es-select",
+        "es-textarea"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "es-input": [
+          "es-validation-messages"
+        ],
+        "es-input-list": [
+          "es-validation-messages"
+        ],
+        "es-list-creator": [
+          "es-validation-messages"
+        ],
+        "es-mega-input": [
+          "es-validation-messages"
+        ],
+        "es-number-input": [
+          "es-validation-messages"
+        ],
+        "es-radio-card-group": [
+          "es-validation-messages"
+        ],
+        "es-select": [
+          "es-validation-messages"
+        ],
+        "es-textarea": [
+          "es-validation-messages"
+        ]
+      }
+    }
+  ]
+}

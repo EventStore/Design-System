@@ -1,9 +1,9 @@
-import { Component, h, Host } from '@stencil/core';
-import { Switch, Route, router } from '@eventstore/router';
+import { Component, h, Host, Fragment, VNode } from '@stencil/core';
+import { Switch, Route, router, Link } from '@eventstore/router';
 import { MDXComponentMap } from '@eventstore/stencil-markdown-plugin';
 
-import { pages } from 'utils/pages';
-import Home from './home.mdx';
+import { DocsPage } from 'utils/pages';
+import { sitemap } from 'sitemap';
 
 @Component({
     tag: 'docs-root',
@@ -19,48 +19,44 @@ export class Root {
     render() {
         return (
             <Host>
-                <es-header />
-                <es-sidebar>
-                    {pages.map(({ url, title }) => (
-                        <es-sidebar-link icon={'somethign'} url={url}>
-                            {title}
-                        </es-sidebar-link>
-                    ))}
-                </es-sidebar>
+                <docs-header />
                 <Switch>
-                    <Route exact url={'/'}>
-                        <es-page pageTitle={'Hello!'}>
-                            <Home components={this.components} />
-                        </es-page>
-                    </Route>
-                    {pages.map(({ url, title, Page }) => (
-                        <Route exact url={url}>
-                            <es-page pageTitle={title}>
-                                <Page components={this.components} />
-                            </es-page>
-                        </Route>
-                    ))}
+                    <Route exact url={'/'} routeRender={() => <docs-home />} />
+                    {sitemap.map((section) =>
+                        section.children.map(({ title, ...lib }) => (
+                            <Route
+                                url={`/${lib.slug}`}
+                                routeRender={() => (
+                                    <docs-package
+                                        packageTitle={title}
+                                        {...lib}
+                                    />
+                                )}
+                            />
+                        )),
+                    )}
+                    <Route routeRender={() => <div>{'404!'}</div>} />
                 </Switch>
             </Host>
         );
     }
 
+    renderPages = ({ title, url, children, Page }: DocsPage): VNode => (
+        <>
+            {Page && (
+                <Route exact url={url}>
+                    <docs-page pageTitle={title}>
+                        <Page components={this.components} />
+                    </docs-page>
+                </Route>
+            )}
+            {children && children.map(this.renderPages)}
+        </>
+    );
+
     components: MDXComponentMap = {
-        h1: 'es-page-title',
-        a: ({ href, ...props }: any, children) => {
-            return (
-                <a
-                    {...props}
-                    href={
-                        href.startsWith('../')
-                            ? href.replace(/^..\//, './')
-                            : href
-                    }
-                >
-                    {children}
-                </a>
-            );
-        },
+        h1: 'docs-page-title',
+        a: Link,
         code: ({ class: className }: any, children, utils) => {
             let code = '';
 

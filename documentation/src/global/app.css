@@ -11,6 +11,9 @@
     );
     --layout-sidebar-width: 290px;
     --layout-footer-height: 90px;
+
+    --font-sans: 500 16px 'MuseoSans', Arial, sans-serif;
+    --font-monospace: 400 16px 'Source Code Pro', monospace;
 }
 
 @font-face {
@@ -56,6 +59,24 @@
     font-weight: 900;
     font-style: normal;
     font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: local('Source Code Pro Regular'), local('SourceCodePro-Regular'),
+        url('/assets/fonts/SourceCodePro_400-webfont.woff2') format('woff2'),
+        url('/assets/fonts/SourceCodePro_400-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: local('Source Code Pro Medium'), local('SourceCodePro-Medium'),
+        url('/assets/fonts/SourceCodePro_500-webfont.woff2') format('woff2'),
+        url('/assets/fonts/SourceCodePro_500-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
 }
 
 body {

@@ -1,0 +1,15 @@
+section {
+    margin-bottom: 27px;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 300;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}

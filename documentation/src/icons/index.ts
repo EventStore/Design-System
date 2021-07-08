@@ -40,6 +40,20 @@ iconStore.addIcons({
     get cog() {
         return import('./components/Cog').then((module) => module.Cog);
     },
+    get components() {
+        return import('./components/Components').then(
+            (module) => module.Components,
+        );
+    },
+    get '@eventstore/components'() {
+        return this['components'];
+    },
+    get configs() {
+        return import('./components/Configs').then((module) => module.Configs);
+    },
+    get '@eventstore/configs'() {
+        return this['configs'];
+    },
     get 'credit-card'() {
         return import('./components/CreditCard').then(
             (module) => module.CreditCard,
@@ -55,6 +69,12 @@ iconStore.addIcons({
             (module) => module.Degraded,
         );
     },
+    get editor() {
+        return import('./components/Editor').then((module) => module.Editor);
+    },
+    get '@eventstore/editor'() {
+        return this['editor'];
+    },
     get ellipsis() {
         return import('./components/Ellipsis').then(
             (module) => module.Ellipsis,
@@ -66,6 +86,12 @@ iconStore.addIcons({
     get eye() {
         return import('./components/Eye').then((module) => module.Eye);
     },
+    get fields() {
+        return import('./components/Fields').then((module) => module.Fields);
+    },
+    get '@eventstore/fields'() {
+        return this['fields'];
+    },
     get folder() {
         return import('./components/Folder').then((module) => module.Folder);
     },
@@ -75,6 +101,14 @@ iconStore.addIcons({
     get 'go-back'() {
         return import('./components/GoBack').then((module) => module.GoBack);
     },
+    get 'icon-manager'() {
+        return import('./components/IconManager').then(
+            (module) => module.IconManager,
+        );
+    },
+    get '@eventstore/icon-manager'() {
+        return this['icon-manager'];
+    },
     get 'id-card'() {
         return import('./components/IdCard').then((module) => module.IdCard);
     },
@@ -83,6 +117,17 @@ iconStore.addIcons({
     },
     get invite() {
         return import('./components/Invite').then((module) => module.Invite);
+    },
+    get markdown() {
+        return import('./components/Markdown').then(
+            (module) => module.Markdown,
+        );
+    },
+    get '@eventstore/stencil-markdown-plugin'() {
+        return this['markdown'];
+    },
+    get 'stencil-markdown-plugin'() {
+        return this['markdown'];
     },
     get networks() {
         return import('./components/Networks').then(
@@ -101,8 +146,22 @@ iconStore.addIcons({
     get plus() {
         return import('./components/Plus').then((module) => module.Plus);
     },
+    get 'postcss-palette-plugin'() {
+        return import('./components/PostcssPalettePlugin').then(
+            (module) => module.PostcssPalettePlugin,
+        );
+    },
+    get '@eventstore/postcss-palette-plugin'() {
+        return this['postcss-palette-plugin'];
+    },
     get refresh() {
         return import('./components/Refresh').then((module) => module.Refresh);
+    },
+    get router() {
+        return import('./components/Router').then((module) => module.Router);
+    },
+    get '@eventstore/router'() {
+        return this['router'];
     },
     get scroll() {
         return import('./components/Scroll').then((module) => module.Scroll);
@@ -121,6 +180,12 @@ iconStore.addIcons({
     },
     get spinner() {
         return import('./components/Spinner').then((module) => module.Spinner);
+    },
+    get stores() {
+        return import('./components/Stores').then((module) => module.Stores);
+    },
+    get '@eventstore/stores'() {
+        return this['stores'];
     },
     get 'testing-icon'() {
         return import('./components/TestingIcon').then(
@@ -156,6 +221,12 @@ iconStore.addIcons({
     },
     get users() {
         return import('./components/Users').then((module) => module.Users);
+    },
+    get utils() {
+        return import('./components/Utils').then((module) => module.Utils);
+    },
+    get '@eventstore/utils'() {
+        return this['utils'];
     },
     get warning() {
         return import('./components/Warning').then((module) => module.Warning);

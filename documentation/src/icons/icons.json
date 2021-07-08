@@ -54,6 +54,18 @@
         "component": "Cog",
         "path": "./components/Cog.tsx"
     },
+    "components": {
+        "name": "components",
+        "component": "Components",
+        "path": "./components/Components.tsx",
+        "aliases": ["@eventstore/components"]
+    },
+    "configs": {
+        "name": "configs",
+        "component": "Configs",
+        "path": "./components/Configs.tsx",
+        "aliases": ["@eventstore/configs"]
+    },
     "credit-card": {
         "name": "credit-card",
         "component": "CreditCard",
@@ -68,6 +80,12 @@
         "name": "degraded",
         "component": "Degraded",
         "path": "./components/Degraded.tsx"
+    },
+    "editor": {
+        "name": "editor",
+        "component": "Editor",
+        "path": "./components/Editor.tsx",
+        "aliases": ["@eventstore/editor"]
     },
     "ellipsis": {
         "name": "ellipsis",
@@ -84,6 +102,12 @@
         "component": "Eye",
         "path": "./components/Eye.tsx"
     },
+    "fields": {
+        "name": "fields",
+        "component": "Fields",
+        "path": "./components/Fields.tsx",
+        "aliases": ["@eventstore/fields"]
+    },
     "folder": {
         "name": "folder",
         "component": "Folder",
@@ -99,6 +123,12 @@
         "component": "GoBack",
         "path": "./components/GoBack.tsx"
     },
+    "icon-manager": {
+        "name": "icon-manager",
+        "component": "IconManager",
+        "path": "./components/IconManager.tsx",
+        "aliases": ["@eventstore/icon-manager"]
+    },
     "id-card": {
         "name": "id-card",
         "component": "IdCard",
@@ -113,6 +143,15 @@
         "name": "invite",
         "component": "Invite",
         "path": "./components/Invite.tsx"
+    },
+    "markdown": {
+        "name": "markdown",
+        "component": "Markdown",
+        "path": "./components/Markdown.tsx",
+        "aliases": [
+            "@eventstore/stencil-markdown-plugin",
+            "stencil-markdown-plugin"
+        ]
     },
     "networks": {
         "name": "networks",
@@ -139,10 +178,22 @@
         "component": "Plus",
         "path": "./components/Plus.tsx"
     },
+    "postcss-palette-plugin": {
+        "name": "postcss-palette-plugin",
+        "component": "PostcssPalettePlugin",
+        "path": "./components/PostcssPalettePlugin.tsx",
+        "aliases": ["@eventstore/postcss-palette-plugin"]
+    },
     "refresh": {
         "name": "refresh",
         "component": "Refresh",
         "path": "./components/Refresh.tsx"
+    },
+    "router": {
+        "name": "router",
+        "component": "Router",
+        "path": "./components/Router.tsx",
+        "aliases": ["@eventstore/router"]
     },
     "scroll": {
         "name": "scroll",
@@ -173,6 +224,12 @@
         "name": "spinner",
         "component": "Spinner",
         "path": "./components/Spinner.tsx"
+    },
+    "stores": {
+        "name": "stores",
+        "component": "Stores",
+        "path": "./components/Stores.tsx",
+        "aliases": ["@eventstore/stores"]
     },
     "testing-icon": {
         "name": "testing-icon",
@@ -218,6 +275,12 @@
         "name": "users",
         "component": "Users",
         "path": "./components/Users.tsx"
+    },
+    "utils": {
+        "name": "utils",
+        "component": "Utils",
+        "path": "./components/Utils.tsx",
+        "aliases": ["@eventstore/utils"]
     },
     "warning": {
         "name": "warning",
