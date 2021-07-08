@@ -1,6 +1,6 @@
 import { forceUpdate, getRenderingRef, getElement } from '@stencil/core';
 import { debounce } from '@eventstore/utils';
-import type { Store } from '../stores/createStore';
+import { Subscription } from '../types';
 
 type Element = any;
 
@@ -22,10 +22,18 @@ const scheduleCleanup = debounce(() => {
     }
 }, 2_000);
 
-export const stencilSubscription = <T>({ on }: Store<T>) => {
+const addToMapSet = <K, V>(map: Map<K, Set<V>>, key: K, value: V) => {
+    if (!map.has(key)) {
+        map.set(key, new Set());
+    }
+
+    map.get(key)!.add(value);
+};
+
+export const stencilSubscription = <T>(): Subscription<T> => {
     // If we are not in a stencil project, we do nothing.
     // This function is not really exported by @stencil/core.
-    if (typeof getRenderingRef !== 'function') return;
+    if (typeof getRenderingRef !== 'function') return {};
 
     type Key = symbol | keyof T;
 
@@ -50,54 +58,44 @@ export const stencilSubscription = <T>({ on }: Store<T>) => {
         }
     };
 
-    on('dispose', () => {
-        elementsToUpdate.clear();
-    });
-
-    on('get', (propName) => {
-        const el = getRenderingRef();
-        if (el) {
-            addToMapSet(elementsToUpdate, propName, el);
-        }
-        scheduleCleanup();
-    });
-
-    on('keys', () => {
-        const el = getRenderingRef();
-        if (el) {
-            addToMapSet(elementsToUpdate, $keys, el);
-        }
-        scheduleCleanup();
-    });
-
-    on('set', (propName) => {
-        refreshElements(propName);
-        scheduleCleanup();
-    });
-
-    on('delete', (propName) => {
-        refreshElements($keys);
-        requestAnimationFrame(() => {
+    return {
+        dispose: () => {
+            elementsToUpdate.clear();
+        },
+        get: (propName) => {
+            const el = getRenderingRef();
+            if (el) {
+                addToMapSet(elementsToUpdate, propName, el);
+            }
+            scheduleCleanup();
+        },
+        keys: () => {
+            const el = getRenderingRef();
+            if (el) {
+                addToMapSet(elementsToUpdate, $keys, el);
+            }
+            scheduleCleanup();
+        },
+        set: (propName) => {
             refreshElements(propName);
-        });
-        scheduleCleanup();
-    });
-
-    on('insert', () => {
-        refreshElements($keys);
-        scheduleCleanup();
-    });
-
-    on('reset', () => {
-        elementsToUpdate.forEach((elements) => elements.forEach(forceUpdate));
-        scheduleCleanup();
-    });
-};
-
-const addToMapSet = <K, V>(map: Map<K, Set<V>>, key: K, value: V) => {
-    if (!map.has(key)) {
-        map.set(key, new Set());
-    }
-
-    map.get(key)!.add(value);
+            scheduleCleanup();
+        },
+        delete: (propName) => {
+            refreshElements($keys);
+            requestAnimationFrame(() => {
+                refreshElements(propName);
+            });
+            scheduleCleanup();
+        },
+        insert: () => {
+            refreshElements($keys);
+            scheduleCleanup();
+        },
+        reset: () => {
+            elementsToUpdate.forEach((elements) =>
+                elements.forEach(forceUpdate),
+            );
+            scheduleCleanup();
+        },
+    };
 };
