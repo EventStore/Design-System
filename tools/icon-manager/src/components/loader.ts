@@ -15,7 +15,7 @@ iconStore.addIcons({
             );
 
             aliases?.forEach((alias) => {
-                acc.push(`get '${alias}'(){return this.${name}}`);
+                acc.push(`get '${alias}'(){return this['${name}']}`);
             });
 
             return acc;

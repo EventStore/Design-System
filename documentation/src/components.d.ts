@@ -5,25 +5,122 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { backgroundVariant } from "./components/layout/docs-background/docs-background";
+import { Crumb } from "./components/layout/docs-breadcrumb/docs-breadcrumb";
+import { JsonDocs } from "@stencil/core/internal";
+import { PageState } from "./components/layout/docs-page/docs-page";
+import { VNode } from "@stencil/core";
+import { SidebarLinkVariant } from "./components/layout/docs-sidebar/components/docs-sidebar-link/docs-sidebar-link";
 export namespace Components {
+    interface DocsBackground {
+        /**
+          * Sets the background variant.
+         */
+        "variant": backgroundVariant;
+    }
+    interface DocsBreadcrumb {
+        "crumbs": Crumb[];
+        "noValidate": boolean;
+    }
     interface DocsCode {
         "code": string;
         "language": string;
     }
+    interface DocsHeader {
+        "background": HTMLDocsBackgroundElement['variant'] | 'none';
+    }
+    interface DocsHome {
+    }
+    interface DocsLogo {
+        "height": number;
+        "width": number;
+    }
     interface DocsMermaid {
         "code": string;
     }
+    interface DocsPackage {
+        "docs"?: JsonDocs;
+        "packageName": string;
+        "packageTitle": string;
+        "path": string;
+        "slug": string;
+    }
     interface DocsPage {
+        "crumbs"?: HTMLDocsBreadcrumbElement['crumbs'];
+        "empty": boolean;
+        "headerRight"?: () => VNode | VNode[];
+        "headerTitle"?: string | false;
+        "noSidebar"?: boolean;
+        "pageTitle": string;
+        "renderEmptyState"?: () => VNode | VNode[];
+        "state": PageState;
+    }
+    interface DocsPageTitle {
     }
     interface DocsRoot {
     }
+    interface DocsSidebar {
+    }
+    interface DocsSidebarLink {
+        "disabled": boolean;
+        "icon"?: string;
+        "url"?: string;
+        "urlMatch"?: string;
+        "variant": SidebarLinkVariant;
+    }
+    interface DocsSidebarSection {
+        "depth": number;
+        "icon"?: string;
+        "sectionTitle": string;
+        "url"?: string;
+    }
+    interface DocsSidebarTree {
+        "icon"?: string;
+        "name": string;
+        "root": boolean;
+        "url"?: string;
+        "urlMatch"?: string;
+    }
+    interface EsFooter {
+        "noSidebar"?: boolean;
+    }
 }
 declare global {
+    interface HTMLDocsBackgroundElement extends Components.DocsBackground, HTMLStencilElement {
+    }
+    var HTMLDocsBackgroundElement: {
+        prototype: HTMLDocsBackgroundElement;
+        new (): HTMLDocsBackgroundElement;
+    };
+    interface HTMLDocsBreadcrumbElement extends Components.DocsBreadcrumb, HTMLStencilElement {
+    }
+    var HTMLDocsBreadcrumbElement: {
+        prototype: HTMLDocsBreadcrumbElement;
+        new (): HTMLDocsBreadcrumbElement;
+    };
     interface HTMLDocsCodeElement extends Components.DocsCode, HTMLStencilElement {
     }
     var HTMLDocsCodeElement: {
         prototype: HTMLDocsCodeElement;
         new (): HTMLDocsCodeElement;
+    };
+    interface HTMLDocsHeaderElement extends Components.DocsHeader, HTMLStencilElement {
+    }
+    var HTMLDocsHeaderElement: {
+        prototype: HTMLDocsHeaderElement;
+        new (): HTMLDocsHeaderElement;
+    };
+    interface HTMLDocsHomeElement extends Components.DocsHome, HTMLStencilElement {
+    }
+    var HTMLDocsHomeElement: {
+        prototype: HTMLDocsHomeElement;
+        new (): HTMLDocsHomeElement;
+    };
+    interface HTMLDocsLogoElement extends Components.DocsLogo, HTMLStencilElement {
+    }
+    var HTMLDocsLogoElement: {
+        prototype: HTMLDocsLogoElement;
+        new (): HTMLDocsLogoElement;
     };
     interface HTMLDocsMermaidElement extends Components.DocsMermaid, HTMLStencilElement {
     }
@@ -31,11 +128,23 @@ declare global {
         prototype: HTMLDocsMermaidElement;
         new (): HTMLDocsMermaidElement;
     };
+    interface HTMLDocsPackageElement extends Components.DocsPackage, HTMLStencilElement {
+    }
+    var HTMLDocsPackageElement: {
+        prototype: HTMLDocsPackageElement;
+        new (): HTMLDocsPackageElement;
+    };
     interface HTMLDocsPageElement extends Components.DocsPage, HTMLStencilElement {
     }
     var HTMLDocsPageElement: {
         prototype: HTMLDocsPageElement;
         new (): HTMLDocsPageElement;
+    };
+    interface HTMLDocsPageTitleElement extends Components.DocsPageTitle, HTMLStencilElement {
+    }
+    var HTMLDocsPageTitleElement: {
+        prototype: HTMLDocsPageTitleElement;
+        new (): HTMLDocsPageTitleElement;
     };
     interface HTMLDocsRootElement extends Components.DocsRoot, HTMLStencilElement {
     }
@@ -43,40 +152,167 @@ declare global {
         prototype: HTMLDocsRootElement;
         new (): HTMLDocsRootElement;
     };
+    interface HTMLDocsSidebarElement extends Components.DocsSidebar, HTMLStencilElement {
+    }
+    var HTMLDocsSidebarElement: {
+        prototype: HTMLDocsSidebarElement;
+        new (): HTMLDocsSidebarElement;
+    };
+    interface HTMLDocsSidebarLinkElement extends Components.DocsSidebarLink, HTMLStencilElement {
+    }
+    var HTMLDocsSidebarLinkElement: {
+        prototype: HTMLDocsSidebarLinkElement;
+        new (): HTMLDocsSidebarLinkElement;
+    };
+    interface HTMLDocsSidebarSectionElement extends Components.DocsSidebarSection, HTMLStencilElement {
+    }
+    var HTMLDocsSidebarSectionElement: {
+        prototype: HTMLDocsSidebarSectionElement;
+        new (): HTMLDocsSidebarSectionElement;
+    };
+    interface HTMLDocsSidebarTreeElement extends Components.DocsSidebarTree, HTMLStencilElement {
+    }
+    var HTMLDocsSidebarTreeElement: {
+        prototype: HTMLDocsSidebarTreeElement;
+        new (): HTMLDocsSidebarTreeElement;
+    };
+    interface HTMLEsFooterElement extends Components.EsFooter, HTMLStencilElement {
+    }
+    var HTMLEsFooterElement: {
+        prototype: HTMLEsFooterElement;
+        new (): HTMLEsFooterElement;
+    };
     interface HTMLElementTagNameMap {
+        "docs-background": HTMLDocsBackgroundElement;
+        "docs-breadcrumb": HTMLDocsBreadcrumbElement;
         "docs-code": HTMLDocsCodeElement;
+        "docs-header": HTMLDocsHeaderElement;
+        "docs-home": HTMLDocsHomeElement;
+        "docs-logo": HTMLDocsLogoElement;
         "docs-mermaid": HTMLDocsMermaidElement;
+        "docs-package": HTMLDocsPackageElement;
         "docs-page": HTMLDocsPageElement;
+        "docs-page-title": HTMLDocsPageTitleElement;
         "docs-root": HTMLDocsRootElement;
+        "docs-sidebar": HTMLDocsSidebarElement;
+        "docs-sidebar-link": HTMLDocsSidebarLinkElement;
+        "docs-sidebar-section": HTMLDocsSidebarSectionElement;
+        "docs-sidebar-tree": HTMLDocsSidebarTreeElement;
+        "es-footer": HTMLEsFooterElement;
     }
 }
 declare namespace LocalJSX {
+    interface DocsBackground {
+        /**
+          * Sets the background variant.
+         */
+        "variant"?: backgroundVariant;
+    }
+    interface DocsBreadcrumb {
+        "crumbs"?: Crumb[];
+        "noValidate"?: boolean;
+    }
     interface DocsCode {
         "code": string;
         "language": string;
     }
+    interface DocsHeader {
+        "background"?: HTMLDocsBackgroundElement['variant'] | 'none';
+    }
+    interface DocsHome {
+    }
+    interface DocsLogo {
+        "height"?: number;
+        "width"?: number;
+    }
     interface DocsMermaid {
         "code": string;
     }
+    interface DocsPackage {
+        "docs"?: JsonDocs;
+        "packageName": string;
+        "packageTitle": string;
+        "path": string;
+        "slug": string;
+    }
     interface DocsPage {
+        "crumbs"?: HTMLDocsBreadcrumbElement['crumbs'];
+        "empty"?: boolean;
+        "headerRight"?: () => VNode | VNode[];
+        "headerTitle"?: string | false;
+        "noSidebar"?: boolean;
+        "pageTitle": string;
+        "renderEmptyState"?: () => VNode | VNode[];
+        "state"?: PageState;
+    }
+    interface DocsPageTitle {
     }
     interface DocsRoot {
     }
+    interface DocsSidebar {
+    }
+    interface DocsSidebarLink {
+        "disabled"?: boolean;
+        "icon"?: string;
+        "url"?: string;
+        "urlMatch"?: string;
+        "variant"?: SidebarLinkVariant;
+    }
+    interface DocsSidebarSection {
+        "depth": number;
+        "icon"?: string;
+        "sectionTitle": string;
+        "url"?: string;
+    }
+    interface DocsSidebarTree {
+        "icon"?: string;
+        "name": string;
+        "root"?: boolean;
+        "url"?: string;
+        "urlMatch"?: string;
+    }
+    interface EsFooter {
+        "noSidebar"?: boolean;
+    }
     interface IntrinsicElements {
+        "docs-background": DocsBackground;
+        "docs-breadcrumb": DocsBreadcrumb;
         "docs-code": DocsCode;
+        "docs-header": DocsHeader;
+        "docs-home": DocsHome;
+        "docs-logo": DocsLogo;
         "docs-mermaid": DocsMermaid;
+        "docs-package": DocsPackage;
         "docs-page": DocsPage;
+        "docs-page-title": DocsPageTitle;
         "docs-root": DocsRoot;
+        "docs-sidebar": DocsSidebar;
+        "docs-sidebar-link": DocsSidebarLink;
+        "docs-sidebar-section": DocsSidebarSection;
+        "docs-sidebar-tree": DocsSidebarTree;
+        "es-footer": EsFooter;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "docs-background": LocalJSX.DocsBackground & JSXBase.HTMLAttributes<HTMLDocsBackgroundElement>;
+            "docs-breadcrumb": LocalJSX.DocsBreadcrumb & JSXBase.HTMLAttributes<HTMLDocsBreadcrumbElement>;
             "docs-code": LocalJSX.DocsCode & JSXBase.HTMLAttributes<HTMLDocsCodeElement>;
+            "docs-header": LocalJSX.DocsHeader & JSXBase.HTMLAttributes<HTMLDocsHeaderElement>;
+            "docs-home": LocalJSX.DocsHome & JSXBase.HTMLAttributes<HTMLDocsHomeElement>;
+            "docs-logo": LocalJSX.DocsLogo & JSXBase.HTMLAttributes<HTMLDocsLogoElement>;
             "docs-mermaid": LocalJSX.DocsMermaid & JSXBase.HTMLAttributes<HTMLDocsMermaidElement>;
+            "docs-package": LocalJSX.DocsPackage & JSXBase.HTMLAttributes<HTMLDocsPackageElement>;
             "docs-page": LocalJSX.DocsPage & JSXBase.HTMLAttributes<HTMLDocsPageElement>;
+            "docs-page-title": LocalJSX.DocsPageTitle & JSXBase.HTMLAttributes<HTMLDocsPageTitleElement>;
             "docs-root": LocalJSX.DocsRoot & JSXBase.HTMLAttributes<HTMLDocsRootElement>;
+            "docs-sidebar": LocalJSX.DocsSidebar & JSXBase.HTMLAttributes<HTMLDocsSidebarElement>;
+            "docs-sidebar-link": LocalJSX.DocsSidebarLink & JSXBase.HTMLAttributes<HTMLDocsSidebarLinkElement>;
+            "docs-sidebar-section": LocalJSX.DocsSidebarSection & JSXBase.HTMLAttributes<HTMLDocsSidebarSectionElement>;
+            "docs-sidebar-tree": LocalJSX.DocsSidebarTree & JSXBase.HTMLAttributes<HTMLDocsSidebarTreeElement>;
+            "es-footer": LocalJSX.EsFooter & JSXBase.HTMLAttributes<HTMLEsFooterElement>;
         }
     }
 }

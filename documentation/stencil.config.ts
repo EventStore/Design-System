@@ -1,6 +1,7 @@
 import { Config } from '@stencil/core';
 import { postcss } from '@stencil/postcss';
 import postcssPresetEnv from 'postcss-preset-env';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 import requireContext from 'rollup-plugin-require-context';
 
 import { mdx } from '@eventstore/stencil-markdown-plugin/plugin';
@@ -40,5 +41,6 @@ export const config: Config = {
     ],
     rollupPlugins: {
         before: [requireContext({ include: ['**/*.ts', '**/*.tsx'] })],
+        after: [nodePolyfills()],
     },
 };
