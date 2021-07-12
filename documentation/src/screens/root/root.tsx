@@ -7,7 +7,7 @@ import { sitemap } from 'sitemap';
 
 @Component({
     tag: 'docs-root',
-    styleUrl: 'docs-root.css',
+    styleUrl: 'root.css',
 })
 export class Root {
     componentWillLoad() {
@@ -23,15 +23,10 @@ export class Root {
                 <Switch>
                     <Route exact url={'/'} routeRender={() => <docs-home />} />
                     {sitemap.map((section) =>
-                        section.children.map(({ title, ...lib }) => (
+                        section.children.map((lib) => (
                             <Route
                                 url={`/${lib.slug}`}
-                                routeRender={() => (
-                                    <docs-package
-                                        packageTitle={title}
-                                        {...lib}
-                                    />
-                                )}
+                                routeRender={() => <docs-package lib={lib} />}
                             />
                         )),
                     )}

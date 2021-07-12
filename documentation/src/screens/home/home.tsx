@@ -4,7 +4,7 @@ import { sitemap } from 'sitemap';
 
 @Component({
     tag: 'docs-home',
-    styleUrl: 'docs-home.css',
+    styleUrl: 'home.css',
     shadow: true,
 })
 export class DocsHome {
@@ -18,16 +18,15 @@ export class DocsHome {
                             {children.map(({ title, slug, packageJson }) => (
                                 <acticle key={title} class={'nav_grid_item'}>
                                     <Link url={`/${slug}`}>
-                                        <es-icon icon={packageJson.name} />
+                                        <es-icon
+                                            icon={packageJson.name}
+                                            size={24}
+                                        />
                                         <h1>{title}</h1>
                                         <span class={'package_name'}>
                                             {packageJson.name}
                                         </span>
-
                                         <p>{packageJson.description}</p>
-                                        <div class={'version'}>
-                                            {packageJson.version}
-                                        </div>
                                     </Link>
                                 </acticle>
                             ))}
