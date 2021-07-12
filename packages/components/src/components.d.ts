@@ -29,10 +29,25 @@ export namespace Components {
         "showBackdrop": boolean;
     }
     interface EsBadge {
+        /**
+          * Choose the color variant of the badge
+         */
         "color": BadgeColor;
+        /**
+          * What number to display in the counter (or if the dot should display)
+         */
         "count": number;
+        /**
+          * Show the dot and counter even if the count 0 (or negative)
+         */
         "showZero": boolean;
+        /**
+          * The base size (in px) of the counter (has no effect on the dot)
+         */
         "size"?: number;
+        /**
+          * Select the display variant of the badge
+         */
         "variant": BadgeVariant;
     }
     interface EsButton {
@@ -126,7 +141,7 @@ export namespace Components {
     interface EsTable {
         "cells": TableCells<any>;
         "columns"?: string[];
-        "getCellData"?: (key: string) => any;
+        "getCellData": <T = string>(key: T) => any;
         "headless": boolean;
         "identifier": string;
         "linkRowTo"?: (row: any) => string;
@@ -135,7 +150,7 @@ export namespace Components {
         row: any,
     ) => Record<string, boolean> | string | undefined;
         "rowTakesFocus"?: boolean;
-        "rows": string[];
+        "rows": any[];
     }
     interface EsTableDetail {
         "cells": TableCells<any>;
@@ -155,9 +170,9 @@ export namespace Components {
         "canExpand": (key: string, data: any) => boolean;
         "cells": TableCells<any>;
         "columns"?: string[];
-        "getCellData"?: (key: string) => any;
-        "getNestedCellData"?: (key: string) => any;
-        "getNestedRows"?: (key: string) => string[] | undefined;
+        "getCellData"?: <T = string>(key: T) => any;
+        "getNestedCellData"?: <T = string>(key: T) => any;
+        "getNestedRows"?: (key: string) => any[] | undefined;
         "linkRowTo"?: (row: any) => string;
         "loadNested"?: (key: string, data: any) => Promise<void>;
         "nestedColumns"?: string[];
@@ -168,7 +183,7 @@ export namespace Components {
         row: any,
     ) => Record<string, boolean> | string | undefined;
         "rowTakesFocus"?: boolean;
-        "rows": string[];
+        "rows": any[];
     }
     interface EsTabs {
         "activeParam": string;
@@ -379,10 +394,25 @@ declare namespace LocalJSX {
         "showBackdrop"?: boolean;
     }
     interface EsBadge {
+        /**
+          * Choose the color variant of the badge
+         */
         "color"?: BadgeColor;
+        /**
+          * What number to display in the counter (or if the dot should display)
+         */
         "count": number;
+        /**
+          * Show the dot and counter even if the count 0 (or negative)
+         */
         "showZero"?: boolean;
+        /**
+          * The base size (in px) of the counter (has no effect on the dot)
+         */
         "size"?: number;
+        /**
+          * Select the display variant of the badge
+         */
         "variant"?: BadgeVariant;
     }
     interface EsButton {
@@ -477,7 +507,7 @@ declare namespace LocalJSX {
     interface EsTable {
         "cells": TableCells<any>;
         "columns"?: string[];
-        "getCellData"?: (key: string) => any;
+        "getCellData"?: <T = string>(key: T) => any;
         "headless"?: boolean;
         "identifier"?: string;
         "linkRowTo"?: (row: any) => string;
@@ -487,7 +517,7 @@ declare namespace LocalJSX {
         row: any,
     ) => Record<string, boolean> | string | undefined;
         "rowTakesFocus"?: boolean;
-        "rows": string[];
+        "rows": any[];
     }
     interface EsTableDetail {
         "cells": TableCells<any>;
@@ -507,9 +537,9 @@ declare namespace LocalJSX {
         "canExpand"?: (key: string, data: any) => boolean;
         "cells": TableCells<any>;
         "columns"?: string[];
-        "getCellData"?: (key: string) => any;
-        "getNestedCellData"?: (key: string) => any;
-        "getNestedRows"?: (key: string) => string[] | undefined;
+        "getCellData"?: <T = string>(key: T) => any;
+        "getNestedCellData"?: <T = string>(key: T) => any;
+        "getNestedRows"?: (key: string) => any[] | undefined;
         "linkRowTo"?: (row: any) => string;
         "loadNested"?: (key: string, data: any) => Promise<void>;
         "nestedColumns"?: string[];
@@ -522,7 +552,7 @@ declare namespace LocalJSX {
         row: any,
     ) => Record<string, boolean> | string | undefined;
         "rowTakesFocus"?: boolean;
-        "rows": string[];
+        "rows": any[];
     }
     interface EsTabs {
         "activeParam"?: string;

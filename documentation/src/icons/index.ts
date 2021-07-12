@@ -129,6 +129,9 @@ iconStore.addIcons({
     get 'stencil-markdown-plugin'() {
         return this['markdown'];
     },
+    get mutable() {
+        return import('./components/Mutable').then((module) => module.Mutable);
+    },
     get networks() {
         return import('./components/Networks').then(
             (module) => module.Networks,
@@ -154,8 +157,26 @@ iconStore.addIcons({
     get '@eventstore/postcss-palette-plugin'() {
         return this['postcss-palette-plugin'];
     },
+    get question() {
+        return import('./components/Question').then(
+            (module) => module.Question,
+        );
+    },
+    get optional() {
+        return this['question'];
+    },
+    get 'reflect-to-attr'() {
+        return import('./components/ReflectToAttr').then(
+            (module) => module.ReflectToAttr,
+        );
+    },
     get refresh() {
         return import('./components/Refresh').then((module) => module.Refresh);
+    },
+    get required() {
+        return import('./components/Required').then(
+            (module) => module.Required,
+        );
     },
     get router() {
         return import('./components/Router').then((module) => module.Router);
