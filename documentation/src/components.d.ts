@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { backgroundVariant } from "./components/layout/docs-background/docs-background";
 import { Crumb } from "./components/layout/docs-breadcrumb/docs-breadcrumb";
 import { JsonDocs } from "@stencil/core/internal";
+import { Lib } from "sitemap";
 import { PageState } from "./components/layout/docs-page/docs-page";
 import { VNode } from "@stencil/core";
 import { SidebarLinkVariant } from "./components/layout/docs-sidebar/components/docs-sidebar-link/docs-sidebar-link";
@@ -26,6 +27,9 @@ export namespace Components {
         "code": string;
         "language": string;
     }
+    interface DocsComponentDocs {
+        "comp": JsonDocs['components'][0];
+    }
     interface DocsHeader {
         "background": HTMLDocsBackgroundElement['variant'] | 'none';
     }
@@ -35,15 +39,8 @@ export namespace Components {
         "height": number;
         "width": number;
     }
-    interface DocsMermaid {
-        "code": string;
-    }
     interface DocsPackage {
-        "docs"?: JsonDocs;
-        "packageName": string;
-        "packageTitle": string;
-        "path": string;
-        "slug": string;
+        "lib": Lib;
     }
     interface DocsPage {
         "crumbs"?: HTMLDocsBreadcrumbElement['crumbs'];
@@ -61,6 +58,9 @@ export namespace Components {
     }
     interface DocsSidebar {
     }
+    interface DocsSidebarDropdown {
+        "active": Lib;
+    }
     interface DocsSidebarLink {
         "disabled": boolean;
         "icon"?: string;
@@ -69,10 +69,7 @@ export namespace Components {
         "variant": SidebarLinkVariant;
     }
     interface DocsSidebarSection {
-        "depth": number;
-        "icon"?: string;
         "sectionTitle": string;
-        "url"?: string;
     }
     interface DocsSidebarTree {
         "icon"?: string;
@@ -104,6 +101,12 @@ declare global {
         prototype: HTMLDocsCodeElement;
         new (): HTMLDocsCodeElement;
     };
+    interface HTMLDocsComponentDocsElement extends Components.DocsComponentDocs, HTMLStencilElement {
+    }
+    var HTMLDocsComponentDocsElement: {
+        prototype: HTMLDocsComponentDocsElement;
+        new (): HTMLDocsComponentDocsElement;
+    };
     interface HTMLDocsHeaderElement extends Components.DocsHeader, HTMLStencilElement {
     }
     var HTMLDocsHeaderElement: {
@@ -121,12 +124,6 @@ declare global {
     var HTMLDocsLogoElement: {
         prototype: HTMLDocsLogoElement;
         new (): HTMLDocsLogoElement;
-    };
-    interface HTMLDocsMermaidElement extends Components.DocsMermaid, HTMLStencilElement {
-    }
-    var HTMLDocsMermaidElement: {
-        prototype: HTMLDocsMermaidElement;
-        new (): HTMLDocsMermaidElement;
     };
     interface HTMLDocsPackageElement extends Components.DocsPackage, HTMLStencilElement {
     }
@@ -158,6 +155,12 @@ declare global {
         prototype: HTMLDocsSidebarElement;
         new (): HTMLDocsSidebarElement;
     };
+    interface HTMLDocsSidebarDropdownElement extends Components.DocsSidebarDropdown, HTMLStencilElement {
+    }
+    var HTMLDocsSidebarDropdownElement: {
+        prototype: HTMLDocsSidebarDropdownElement;
+        new (): HTMLDocsSidebarDropdownElement;
+    };
     interface HTMLDocsSidebarLinkElement extends Components.DocsSidebarLink, HTMLStencilElement {
     }
     var HTMLDocsSidebarLinkElement: {
@@ -186,15 +189,16 @@ declare global {
         "docs-background": HTMLDocsBackgroundElement;
         "docs-breadcrumb": HTMLDocsBreadcrumbElement;
         "docs-code": HTMLDocsCodeElement;
+        "docs-component-docs": HTMLDocsComponentDocsElement;
         "docs-header": HTMLDocsHeaderElement;
         "docs-home": HTMLDocsHomeElement;
         "docs-logo": HTMLDocsLogoElement;
-        "docs-mermaid": HTMLDocsMermaidElement;
         "docs-package": HTMLDocsPackageElement;
         "docs-page": HTMLDocsPageElement;
         "docs-page-title": HTMLDocsPageTitleElement;
         "docs-root": HTMLDocsRootElement;
         "docs-sidebar": HTMLDocsSidebarElement;
+        "docs-sidebar-dropdown": HTMLDocsSidebarDropdownElement;
         "docs-sidebar-link": HTMLDocsSidebarLinkElement;
         "docs-sidebar-section": HTMLDocsSidebarSectionElement;
         "docs-sidebar-tree": HTMLDocsSidebarTreeElement;
@@ -216,6 +220,9 @@ declare namespace LocalJSX {
         "code": string;
         "language": string;
     }
+    interface DocsComponentDocs {
+        "comp": JsonDocs['components'][0];
+    }
     interface DocsHeader {
         "background"?: HTMLDocsBackgroundElement['variant'] | 'none';
     }
@@ -225,15 +232,8 @@ declare namespace LocalJSX {
         "height"?: number;
         "width"?: number;
     }
-    interface DocsMermaid {
-        "code": string;
-    }
     interface DocsPackage {
-        "docs"?: JsonDocs;
-        "packageName": string;
-        "packageTitle": string;
-        "path": string;
-        "slug": string;
+        "lib": Lib;
     }
     interface DocsPage {
         "crumbs"?: HTMLDocsBreadcrumbElement['crumbs'];
@@ -251,6 +251,9 @@ declare namespace LocalJSX {
     }
     interface DocsSidebar {
     }
+    interface DocsSidebarDropdown {
+        "active": Lib;
+    }
     interface DocsSidebarLink {
         "disabled"?: boolean;
         "icon"?: string;
@@ -259,10 +262,7 @@ declare namespace LocalJSX {
         "variant"?: SidebarLinkVariant;
     }
     interface DocsSidebarSection {
-        "depth": number;
-        "icon"?: string;
         "sectionTitle": string;
-        "url"?: string;
     }
     interface DocsSidebarTree {
         "icon"?: string;
@@ -278,15 +278,16 @@ declare namespace LocalJSX {
         "docs-background": DocsBackground;
         "docs-breadcrumb": DocsBreadcrumb;
         "docs-code": DocsCode;
+        "docs-component-docs": DocsComponentDocs;
         "docs-header": DocsHeader;
         "docs-home": DocsHome;
         "docs-logo": DocsLogo;
-        "docs-mermaid": DocsMermaid;
         "docs-package": DocsPackage;
         "docs-page": DocsPage;
         "docs-page-title": DocsPageTitle;
         "docs-root": DocsRoot;
         "docs-sidebar": DocsSidebar;
+        "docs-sidebar-dropdown": DocsSidebarDropdown;
         "docs-sidebar-link": DocsSidebarLink;
         "docs-sidebar-section": DocsSidebarSection;
         "docs-sidebar-tree": DocsSidebarTree;
@@ -300,15 +301,16 @@ declare module "@stencil/core" {
             "docs-background": LocalJSX.DocsBackground & JSXBase.HTMLAttributes<HTMLDocsBackgroundElement>;
             "docs-breadcrumb": LocalJSX.DocsBreadcrumb & JSXBase.HTMLAttributes<HTMLDocsBreadcrumbElement>;
             "docs-code": LocalJSX.DocsCode & JSXBase.HTMLAttributes<HTMLDocsCodeElement>;
+            "docs-component-docs": LocalJSX.DocsComponentDocs & JSXBase.HTMLAttributes<HTMLDocsComponentDocsElement>;
             "docs-header": LocalJSX.DocsHeader & JSXBase.HTMLAttributes<HTMLDocsHeaderElement>;
             "docs-home": LocalJSX.DocsHome & JSXBase.HTMLAttributes<HTMLDocsHomeElement>;
             "docs-logo": LocalJSX.DocsLogo & JSXBase.HTMLAttributes<HTMLDocsLogoElement>;
-            "docs-mermaid": LocalJSX.DocsMermaid & JSXBase.HTMLAttributes<HTMLDocsMermaidElement>;
             "docs-package": LocalJSX.DocsPackage & JSXBase.HTMLAttributes<HTMLDocsPackageElement>;
             "docs-page": LocalJSX.DocsPage & JSXBase.HTMLAttributes<HTMLDocsPageElement>;
             "docs-page-title": LocalJSX.DocsPageTitle & JSXBase.HTMLAttributes<HTMLDocsPageTitleElement>;
             "docs-root": LocalJSX.DocsRoot & JSXBase.HTMLAttributes<HTMLDocsRootElement>;
             "docs-sidebar": LocalJSX.DocsSidebar & JSXBase.HTMLAttributes<HTMLDocsSidebarElement>;
+            "docs-sidebar-dropdown": LocalJSX.DocsSidebarDropdown & JSXBase.HTMLAttributes<HTMLDocsSidebarDropdownElement>;
             "docs-sidebar-link": LocalJSX.DocsSidebarLink & JSXBase.HTMLAttributes<HTMLDocsSidebarLinkElement>;
             "docs-sidebar-section": LocalJSX.DocsSidebarSection & JSXBase.HTMLAttributes<HTMLDocsSidebarSectionElement>;
             "docs-sidebar-tree": LocalJSX.DocsSidebarTree & JSXBase.HTMLAttributes<HTMLDocsSidebarTreeElement>;
