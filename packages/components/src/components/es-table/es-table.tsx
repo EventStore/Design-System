@@ -19,10 +19,10 @@ import { logger } from '../../utils/logger';
 export class Table {
     @Prop() identifier: string = 'table';
     @Prop() headless: boolean = false;
-    @Prop() getCellData?: (key: string) => any;
+    @Prop() getCellData: <T = string>(key: T) => any = (d) => d;
     @Prop() cells!: TableCells<any>;
     @Prop() columns?: string[];
-    @Prop() rows!: string[];
+    @Prop() rows!: any[];
     @Prop() linkRowTo?: (row: any) => string;
     @Prop() rowTakesFocus?: boolean;
     @Prop() rowClass: (
@@ -119,7 +119,7 @@ export class Table {
             const extraClasses = !classes
                 ? {}
                 : typeof classes === 'string'
-                ? { classes: true }
+                ? { [classes]: true }
                 : classes;
 
             return (

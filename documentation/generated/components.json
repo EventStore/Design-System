@@ -1,5 +1,5 @@
 {
-  "timestamp": "2021-07-08T12:47:25",
+  "timestamp": "2021-07-12T15:31:40",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.3.0",
@@ -179,7 +179,7 @@
       "encapsulation": "shadow",
       "tag": "es-badge",
       "readme": "# es-badge\n\n\n",
-      "docs": "",
+      "docs": "Display a counter or dot beside a component to indicate action being required.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -189,7 +189,7 @@
           "mutable": false,
           "attr": "color",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Choose the color variant of the badge",
           "docsTags": [],
           "default": "'error'",
           "values": [
@@ -215,7 +215,7 @@
           "mutable": false,
           "attr": "count",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "What number to display in the counter (or if the dot should display)",
           "docsTags": [],
           "values": [
             {
@@ -231,7 +231,7 @@
           "mutable": false,
           "attr": "show-zero",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Show the dot and counter even if the count 0 (or negative)",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -248,7 +248,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The base size (in px) of the counter (has no effect on the dot)",
           "docsTags": [],
           "values": [
             {
@@ -267,7 +267,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Select the display variant of the badge",
           "docsTags": [],
           "default": "'filled'",
           "values": [
@@ -295,7 +295,18 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--badge-background-color",
+          "annotation": "prop",
+          "docs": "Background color of the badge. Can be set to a default via the color prop."
+        },
+        {
+          "name": "--badge-foreground-color",
+          "annotation": "prop",
+          "docs": "Foreground (text) color of the badge. Can be set to a default via the color prop."
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -1972,20 +1983,18 @@
         },
         {
           "name": "getCellData",
-          "type": "((key: string) => any) | undefined",
+          "type": "<T = string>(key: T) => any",
           "mutable": false,
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
+          "default": "(d) => d",
           "values": [
             {
-              "type": "((key: string) => any)"
-            },
-            {
-              "type": "undefined"
+              "type": "<T = string>(key: T) => any"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false
         },
         {
@@ -2102,14 +2111,14 @@
         },
         {
           "name": "rows",
-          "type": "string[]",
+          "type": "any[]",
           "mutable": false,
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
           "values": [
             {
-              "type": "string[]"
+              "type": "any[]"
             }
           ],
           "optional": false,
@@ -2407,14 +2416,14 @@
         },
         {
           "name": "getCellData",
-          "type": "((key: string) => any) | undefined",
+          "type": "(<T = string>(key: T) => any) | undefined",
           "mutable": false,
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
           "values": [
             {
-              "type": "((key: string) => any)"
+              "type": "(<T = string>(key: T) => any)"
             },
             {
               "type": "undefined"
@@ -2425,14 +2434,14 @@
         },
         {
           "name": "getNestedCellData",
-          "type": "((key: string) => any) | undefined",
+          "type": "(<T = string>(key: T) => any) | undefined",
           "mutable": false,
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
           "values": [
             {
-              "type": "((key: string) => any)"
+              "type": "(<T = string>(key: T) => any)"
             },
             {
               "type": "undefined"
@@ -2443,14 +2452,14 @@
         },
         {
           "name": "getNestedRows",
-          "type": "((key: string) => string[] | undefined) | undefined",
+          "type": "((key: string) => any[] | undefined) | undefined",
           "mutable": false,
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
           "values": [
             {
-              "type": "((key: string) => string[]"
+              "type": "((key: string) => any[]"
             },
             {
               "type": "undefined)"
@@ -2612,14 +2621,14 @@
         },
         {
           "name": "rows",
-          "type": "string[]",
+          "type": "any[]",
           "mutable": false,
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
           "values": [
             {
-              "type": "string[]"
+              "type": "any[]"
             }
           ],
           "optional": false,

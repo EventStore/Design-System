@@ -11,14 +11,14 @@
 | -------------------- | ----------------- | ----------- | -------------------------------------------------------------- | ----------------- |
 | `cells` _(required)_ | --                |             | `{ [x: string]: TableCell<any>; }`                             | `undefined`       |
 | `columns`            | --                |             | `string[] \| undefined`                                        | `undefined`       |
-| `getCellData`        | --                |             | `((key: string) => any) \| undefined`                          | `undefined`       |
+| `getCellData`        | --                |             | `<T = string>(key: T) => any`                                  | `(d) => d`        |
 | `headless`           | `headless`        |             | `boolean`                                                      | `false`           |
 | `identifier`         | `identifier`      |             | `string`                                                       | `'table'`         |
 | `linkRowTo`          | --                |             | `((row: any) => string) \| undefined`                          | `undefined`       |
 | `renderExpansion`    | --                |             | `(key: string) => VNode \| null`                               | `() => null`      |
 | `rowClass`           | --                |             | `(row: any) => string \| Record<string, boolean> \| undefined` | `() => undefined` |
 | `rowTakesFocus`      | `row-takes-focus` |             | `boolean \| undefined`                                         | `undefined`       |
-| `rows` _(required)_  | --                |             | `string[]`                                                     | `undefined`       |
+| `rows` _(required)_  | --                |             | `any[]`                                                        | `undefined`       |
 
 
 ## Events

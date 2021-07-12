@@ -153,6 +153,11 @@
             "stencil-markdown-plugin"
         ]
     },
+    "mutable": {
+        "name": "mutable",
+        "component": "Mutable",
+        "path": "./components/Mutable.tsx"
+    },
     "networks": {
         "name": "networks",
         "component": "Networks",
@@ -184,10 +189,26 @@
         "path": "./components/PostcssPalettePlugin.tsx",
         "aliases": ["@eventstore/postcss-palette-plugin"]
     },
+    "question": {
+        "name": "question",
+        "component": "Question",
+        "path": "./components/Question.tsx",
+        "aliases": ["optional"]
+    },
+    "reflect-to-attr": {
+        "name": "reflect-to-attr",
+        "component": "ReflectToAttr",
+        "path": "./components/ReflectToAttr.tsx"
+    },
     "refresh": {
         "name": "refresh",
         "component": "Refresh",
         "path": "./components/Refresh.tsx"
+    },
+    "required": {
+        "name": "required",
+        "component": "Required",
+        "path": "./components/Required.tsx"
     },
     "router": {
         "name": "router",

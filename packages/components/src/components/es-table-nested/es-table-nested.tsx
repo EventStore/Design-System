@@ -8,10 +8,10 @@ import { TableCells } from '../es-table/types';
 })
 export class TableNested {
     @Prop() outerIdentifier: string = 'table';
-    @Prop() getCellData?: (key: string) => any;
+    @Prop() getCellData?: <T = string>(key: T) => any;
     @Prop() cells!: TableCells<any>;
     @Prop() columns?: string[];
-    @Prop() rows!: string[];
+    @Prop() rows!: any[];
     @Prop() linkRowTo?: (row: any) => string;
     @Prop() rowTakesFocus?: boolean;
     @Prop() rowClass: (
@@ -20,8 +20,8 @@ export class TableNested {
 
     @Prop() nestedIdentifier: string = 'nested-table';
     @Prop() nestedColumns?: string[];
-    @Prop() getNestedRows?: (key: string) => string[] | undefined;
-    @Prop() getNestedCellData?: (key: string) => any;
+    @Prop() getNestedRows?: (key: string) => any[] | undefined;
+    @Prop() getNestedCellData?: <T = string>(key: T) => any;
     @Prop() loadNested?: (key: string, data: any) => Promise<void>;
     @Prop() nestedRowTakesFocus?: boolean;
     @Prop() canExpand: (key: string, data: any) => boolean = () => true;
