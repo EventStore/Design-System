@@ -144,6 +144,11 @@
         "component": "Invite",
         "path": "./components/Invite.tsx"
     },
+    "light": {
+        "name": "light",
+        "component": "Light",
+        "path": "./components/Light.tsx"
+    },
     "markdown": {
         "name": "markdown",
         "component": "Markdown",
@@ -220,6 +225,11 @@
         "name": "scroll",
         "component": "Scroll",
         "path": "./components/Scroll.tsx"
+    },
+    "shadow": {
+        "name": "shadow",
+        "component": "Shadow",
+        "path": "./components/Shadow.tsx"
     },
     "shield": {
         "name": "shield",

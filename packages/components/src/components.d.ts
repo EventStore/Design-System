@@ -186,7 +186,8 @@ export namespace Components {
         "rows": any[];
     }
     interface EsTabs {
-        "activeParam": string;
+        "active"?: string;
+        "activeParam": string | false;
         "tabs": Tab[];
     }
     interface EsToast {
@@ -555,7 +556,9 @@ declare namespace LocalJSX {
         "rows": any[];
     }
     interface EsTabs {
-        "activeParam"?: string;
+        "active"?: string;
+        "activeParam"?: string | false;
+        "onTabChange"?: (event: CustomEvent<string>) => void;
         "tabs": Tab[];
     }
     interface EsToast {

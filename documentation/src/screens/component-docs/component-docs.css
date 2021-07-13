@@ -6,6 +6,15 @@
     display: contents;
 }
 
+header {
+    display: flex;
+    align-items: center;
+
+    & es-icon {
+        margin-left: auto;
+    }
+}
+
 h1 {
     font: var(--font-monospace);
     color: var(--color-heading);

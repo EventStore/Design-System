@@ -1,5 +1,5 @@
 {
-  "timestamp": "2021-07-12T15:31:40",
+  "timestamp": "2021-07-14T15:09:16",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.3.0",
@@ -178,10 +178,12 @@
       "filePath": "./src/components/es-badge/es-badge.tsx",
       "encapsulation": "shadow",
       "tag": "es-badge",
-      "readme": "# es-badge\n\n\n",
+      "readme": "# es-badge\n",
       "docs": "Display a counter or dot beside a component to indicate action being required.",
       "docsTags": [],
-      "usage": {},
+      "usage": {
+        "examples": "```jsx\n<es-badge color={'error'} count={state.error}>\n    <es-button>{'Error'}</es-button>\n</es-badge>\n```\n\n<!-- render\n    {/* counters */}\n\n    <es-badge\n        color={\"error\"}\n        count={state.error}\n    >\n        <es-button onClick={() => state.error += 1}>\n            {'Error'}\n        </es-button>\n    </es-badge>\n\n    <es-badge\n        color={\"warning\"}\n        count={state.warning}\n    >\n        <es-button onClick={() => state.warning += 1}>\n            {'Warning'}\n        </es-button>\n    </es-badge>\n\n    <es-badge\n        color={\"okay\"}\n        count={state.okay}\n    >\n        <es-button onClick={() => state.okay += 1}>\n            {'Okay'}\n        </es-button>\n    </es-badge>\n\n    {/* variants */}\n\n    <es-badge\n        color={\"error\"}\n        count={state.error}\n        variant={'outline'}\n    >\n        <es-icon icon={'cog'}/>\n    </es-badge>\n\n    <es-badge\n        color={\"warning\"}\n        count={state.warning}\n        showZero\n    >\n        <es-icon icon={'cog'}/>\n    </es-badge>\n\n    <es-badge\n        color={\"okay\"}\n        count={state.okay}\n        variant={'minimal'}\n    >\n        <es-icon icon={'cog'}/>\n    </es-badge>\n\n    {/* dot */}\n\n    <es-badge\n        variant={\"dot\"}\n        color={\"error\"}\n        count={state.error}\n    >\n        <es-button variant={'outline'} onClick={() => state.error += 1}>\n            {'Error'}\n        </es-button>\n    </es-badge>\n\n    <es-badge\n        variant={\"dot\"}\n        color={\"warning\"}\n        count={state.warning}\n    >\n        <es-button variant={'outline'} onClick={() => state.warning += 1}>\n            {'Warning'}\n        </es-button>\n    </es-badge>\n\n    <es-badge\n        variant={\"dot\"}\n        color={\"okay\"}\n        count={state.okay}\n    >\n        <es-button variant={'outline'} onClick={() => state.okay += 1}>\n            {'Okay'}\n        </es-button>\n    </es-badge>\n-->\n\n<!-- css\n:host {\n    display: grid;\n    grid-template-columns: auto auto auto;\n    gap: 40px;\n    align-items: center;\n    justify-items: center;\n    align-content: center;\n    justify-content: center;\n    height: 100vh;\n}\n -->\n\n<!-- setup\nimport { createStore } from '@eventstore/stores';\n\ninterface CountStore {\n    error: number;\n    warning: number;\n    okay: number;\n}\n\nconst { state } = createStore<CountStore>({\n    error: 1,\n    warning: 0,\n    okay: 1000,\n});\n-->\n"
+      },
       "props": [
         {
           "name": "color",
@@ -2684,8 +2686,27 @@
       "usage": {},
       "props": [
         {
+          "name": "active",
+          "type": "string | undefined",
+          "mutable": true,
+          "attr": "active",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "activeParam",
-          "type": "string",
+          "type": "boolean | string",
           "mutable": false,
           "attr": "active-param",
           "reflectToAttr": false,
@@ -2693,6 +2714,9 @@
           "docsTags": [],
           "default": "'tab'",
           "values": [
+            {
+              "type": "boolean"
+            },
             {
               "type": "string"
             }
@@ -2717,7 +2741,17 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "tabChange",
+          "detail": "string",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "listeners": [],
       "styles": [],
       "slots": [],
