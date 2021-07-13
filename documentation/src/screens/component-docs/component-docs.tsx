@@ -22,12 +22,31 @@ export class DocsPackage {
                         },
                     ]}
                 />
-                <h1>{this.comp.tag}</h1>
+                <header>
+                    <h1>{this.comp.tag}</h1>
+                    <es-icon
+                        size={45}
+                        icon={
+                            this.comp.encapsulation === 'shadow'
+                                ? 'shadow'
+                                : 'light'
+                        }
+                        title={
+                            this.comp.encapsulation === 'shadow'
+                                ? 'Shadow DOM'
+                                : 'Light DOM'
+                        }
+                    />
+                </header>
                 <p>{this.comp.docs}</p>
+                {Object.entries(this.comp.usage).map(([name, usage]) => (
+                    <docs-usage key={name} usage={usage} />
+                ))}
                 {!!this.comp.props.length && (
                     <>
                         <h2>{'Props'}</h2>
                         <es-table
+                            key={'props'}
                             cells={this.propsCells}
                             rows={this.comp.props}
                             rowClass={this.propsRowClass}
@@ -38,6 +57,7 @@ export class DocsPackage {
                     <>
                         <h2>{'CSS variables'}</h2>
                         <es-table
+                            key={'css'}
                             cells={this.cssCells}
                             rows={this.comp.styles}
                         />

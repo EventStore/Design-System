@@ -78,6 +78,9 @@ export namespace Components {
         "url"?: string;
         "urlMatch"?: string;
     }
+    interface DocsUsage {
+        "usage": string;
+    }
     interface EsFooter {
         "noSidebar"?: boolean;
     }
@@ -179,6 +182,12 @@ declare global {
         prototype: HTMLDocsSidebarTreeElement;
         new (): HTMLDocsSidebarTreeElement;
     };
+    interface HTMLDocsUsageElement extends Components.DocsUsage, HTMLStencilElement {
+    }
+    var HTMLDocsUsageElement: {
+        prototype: HTMLDocsUsageElement;
+        new (): HTMLDocsUsageElement;
+    };
     interface HTMLEsFooterElement extends Components.EsFooter, HTMLStencilElement {
     }
     var HTMLEsFooterElement: {
@@ -202,6 +211,7 @@ declare global {
         "docs-sidebar-link": HTMLDocsSidebarLinkElement;
         "docs-sidebar-section": HTMLDocsSidebarSectionElement;
         "docs-sidebar-tree": HTMLDocsSidebarTreeElement;
+        "docs-usage": HTMLDocsUsageElement;
         "es-footer": HTMLEsFooterElement;
     }
 }
@@ -271,6 +281,9 @@ declare namespace LocalJSX {
         "url"?: string;
         "urlMatch"?: string;
     }
+    interface DocsUsage {
+        "usage": string;
+    }
     interface EsFooter {
         "noSidebar"?: boolean;
     }
@@ -291,6 +304,7 @@ declare namespace LocalJSX {
         "docs-sidebar-link": DocsSidebarLink;
         "docs-sidebar-section": DocsSidebarSection;
         "docs-sidebar-tree": DocsSidebarTree;
+        "docs-usage": DocsUsage;
         "es-footer": EsFooter;
     }
 }
@@ -314,6 +328,7 @@ declare module "@stencil/core" {
             "docs-sidebar-link": LocalJSX.DocsSidebarLink & JSXBase.HTMLAttributes<HTMLDocsSidebarLinkElement>;
             "docs-sidebar-section": LocalJSX.DocsSidebarSection & JSXBase.HTMLAttributes<HTMLDocsSidebarSectionElement>;
             "docs-sidebar-tree": LocalJSX.DocsSidebarTree & JSXBase.HTMLAttributes<HTMLDocsSidebarTreeElement>;
+            "docs-usage": LocalJSX.DocsUsage & JSXBase.HTMLAttributes<HTMLDocsUsageElement>;
             "es-footer": LocalJSX.EsFooter & JSXBase.HTMLAttributes<HTMLEsFooterElement>;
         }
     }

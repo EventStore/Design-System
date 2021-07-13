@@ -1,4 +1,12 @@
-import { Component, h, Prop, Host, State, Watch } from '@stencil/core';
+import {
+    Component,
+    h,
+    Prop,
+    Host,
+    Event,
+    Watch,
+    EventEmitter,
+} from '@stencil/core';
 import { searchParam } from '@eventstore/router';
 import type { Tab } from './types';
 
@@ -9,23 +17,32 @@ import type { Tab } from './types';
 })
 export class EsTabs {
     @Prop() tabs!: Tab[];
-    @Prop() activeParam: string = 'tab';
-    @State() active!: string;
+    @Prop() activeParam: string | false = 'tab';
+    @Prop({ mutable: true }) active?: string;
 
-    private searchParam = searchParam(this.activeParam);
+    @Event() tabChange!: EventEmitter<string>;
+
+    private searchParam = this.activeParam
+        ? searchParam(this.activeParam)
+        : undefined;
 
     componentWillLoad() {
-        this.active = this.searchParam.value ?? this.tabs[0].id;
+        if (this.active && this.searchParam && !this.searchParam.value) {
+            this.searchParam.set(this.active);
+        }
+
+        this.active = this.searchParam?.value ?? this.active ?? this.tabs[0].id;
     }
 
     disconnectedCallback() {
-        this.searchParam.delete();
+        this.searchParam?.delete();
         cancelAnimationFrame(this.frame1);
         cancelAnimationFrame(this.frame2);
     }
 
-    @Watch('active') updateUrl(active?: string) {
-        this.searchParam.set(active);
+    @Watch('active') updateActive(active?: string) {
+        this.searchParam?.set(active);
+        this.tabChange.emit(active);
     }
 
     renderTab = ({ title, id, badge }: Tab) => (
@@ -99,8 +116,8 @@ export class EsTabs {
     private frame1!: ReturnType<typeof requestAnimationFrame>;
     private frame2!: ReturnType<typeof requestAnimationFrame>;
 
-    @Watch('active') positionIndicator(active: string) {
-        const tab = this.tabRefs.get(active);
+    @Watch('active') positionIndicator(active?: string) {
+        const tab = this.tabRefs.get(active!);
         const indicator = this.indicator;
         if (!indicator || !tab) return;
 

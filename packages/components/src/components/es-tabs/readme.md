@@ -7,10 +7,18 @@
 
 ## Properties
 
-| Property            | Attribute      | Description | Type     | Default     |
-| ------------------- | -------------- | ----------- | -------- | ----------- |
-| `activeParam`       | `active-param` |             | `string` | `'tab'`     |
-| `tabs` _(required)_ | --             |             | `Tab[]`  | `undefined` |
+| Property            | Attribute      | Description | Type                  | Default     |
+| ------------------- | -------------- | ----------- | --------------------- | ----------- |
+| `active`            | `active`       |             | `string \| undefined` | `undefined` |
+| `activeParam`       | `active-param` |             | `boolean \| string`   | `'tab'`     |
+| `tabs` _(required)_ | --             |             | `Tab[]`               | `undefined` |
+
+
+## Events
+
+| Event       | Description | Type                  |
+| ----------- | ----------- | --------------------- |
+| `tabChange` |             | `CustomEvent<string>` |
 
 
 ----------------------------------------------

@@ -1,0 +1,12 @@
+:host {
+    display: flex;
+}
+
+iframe {
+    width: 50%;
+    border: 0;
+}
+
+es-tabs {
+    width: 50%;
+}

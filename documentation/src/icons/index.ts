@@ -118,6 +118,9 @@ iconStore.addIcons({
     get invite() {
         return import('./components/Invite').then((module) => module.Invite);
     },
+    get light() {
+        return import('./components/Light').then((module) => module.Light);
+    },
     get markdown() {
         return import('./components/Markdown').then(
             (module) => module.Markdown,
@@ -186,6 +189,9 @@ iconStore.addIcons({
     },
     get scroll() {
         return import('./components/Scroll').then((module) => module.Scroll);
+    },
+    get shadow() {
+        return import('./components/Shadow').then((module) => module.Shadow);
     },
     get shield() {
         return import('./components/Shield').then((module) => module.Shield);
