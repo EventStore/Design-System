@@ -5,6 +5,7 @@ import type {
     Handlers,
 } from '../types';
 import { stencilSubscription } from '../subscriptions/stencil';
+import { $data } from '../symbols';
 
 export interface Store<T> {
     /**
@@ -64,6 +65,11 @@ export interface Store<T> {
      * the number of key / value pairs in the store
      */
     readonly size: number;
+
+    /**
+     * internal access to data
+     */
+    readonly [$data]: Readonly<Map<keyof T, T>>;
 }
 
 export const createStore = <T extends { [key: string]: any }>(
@@ -214,6 +220,7 @@ export const createStore = <T extends { [key: string]: any }>(
         get size() {
             return backingMap.size;
         },
+        [$data]: backingMap,
     };
 
     store.use(stencilSubscription());

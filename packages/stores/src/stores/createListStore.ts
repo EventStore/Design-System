@@ -1,3 +1,4 @@
+import { $data } from '../symbols';
 import { createStore } from './createStore';
 
 export interface ListStore<T extends object> {
@@ -29,12 +30,17 @@ export interface ListStore<T extends object> {
     ) => boolean;
     values: () => Array<T>;
     [Symbol.iterator]: () => Array<[string, T]>;
+    /**
+     * internal access to data
+     */
+    readonly [$data]: Readonly<Map<string, T>>;
 }
 
 export const createListStore = <T extends object>(
     initialState: Record<string, T> = {},
 ): ListStore<T> => {
-    const { state, onChange, reset, on } = createStore(initialState);
+    const store = createStore<Record<any, any>>(initialState);
+    const { state, onChange, reset, on } = store;
 
     const update = (id: string, updater: (tem: T) => T) => {
         if (id in state) {
@@ -117,5 +123,6 @@ export const createListStore = <T extends object>(
         },
         values: () => Object.values(state),
         [Symbol.iterator]: () => Object.entries(state),
+        [$data]: store[$data],
     };
 };
