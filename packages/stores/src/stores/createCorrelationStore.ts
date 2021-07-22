@@ -1,3 +1,4 @@
+import { $data } from '../symbols';
 import { createListStore, ListStore } from './createListStore';
 
 export type Group = Record<string, unknown>;
@@ -71,10 +72,13 @@ export const createCorrelationStore = <T extends CorrelatableItem>(
                 ((item[correlateBy] as unknown) as string) ?? item.id;
             const itemIds = ids.get(correlationId) ?? [];
             items.set(item.id, item);
+
+            const itemData = items[$data];
+
             ids.set(
                 correlationId,
                 Array.from(new Set([...itemIds, item.id])).sort((a, b) =>
-                    sortingFunction(items.get(a)!, items.get(b)!),
+                    sortingFunction(itemData.get(a)!, itemData.get(b)!),
                 ),
             );
         },
@@ -99,10 +103,11 @@ export const createCorrelationStore = <T extends CorrelatableItem>(
                 }, []);
 
             if (sort) {
+                const itemData = items[$data];
                 result = result.sort((a, b) =>
                     sort(
-                        items.get(ids.get(a)![0])!,
-                        items.get(ids.get(b)![0])!,
+                        itemData.get(ids.get(a)![0])!,
+                        itemData.get(ids.get(b)![0])!,
                     ),
                 );
             }
