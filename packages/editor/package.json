@@ -41,7 +41,9 @@
         "workers:typescript": "rollup ../../node_modules/monaco-editor/esm/vs/language/typescript/ts.worker.js --file ./workers/ts.worker.js --format iife",
         "workers:css": "rollup ../../node_modules/monaco-editor/esm/vs/language/css/css.worker.js --file ./workers/css.worker.js --format iife",
         "workers:html": "rollup ../../node_modules/monaco-editor/esm/vs/language/html/html.worker.js --file ./workers/html.worker.js --format iife",
-        "docs": "stencil build --docs-json ../../documentation/generated/editor.json",
+        "docs": "run-s docs:*",
+        "docs:stencil": "stencil build --docs-json ../../documentation/generated/editor.stencil.json",
+        "docs:typedoc": "typedoc --json ../../documentation/generated/editor.typedoc.json",
         "test": "stencil test --spec --e2e --passWithNoTests",
         "test.watch": "stencil test --spec --e2e --watchAll",
         "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
@@ -56,10 +58,12 @@
     "devDependencies": {
         "@eventstore/components": "^0.0.60",
         "@eventstore/utils": "^0.0.60",
-        "@stencil/core": "^2.3.0",
+        "@stencil/core": "^2.6.0",
         "@types/puppeteer": "^5.4.3",
         "jest": "^26.6.3",
         "npm-run-all": "^4.1.5",
-        "puppeteer": "^5.5.0"
+        "puppeteer": "^5.5.0",
+        "typedoc": "^0.21.4",
+        "typescript": "4.2.3"
     }
 }

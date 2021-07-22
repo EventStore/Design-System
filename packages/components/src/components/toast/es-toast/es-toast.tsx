@@ -24,7 +24,7 @@ export class EsToast {
     @State() transitionState: string = 'mounting';
 
     @Method() async close() {
-        return new Promise((resolve) => {
+        return new Promise<void>((resolve) => {
             const hasLeft = () => {
                 this.host.removeEventListener('transitionend', hasLeft);
                 resolve();

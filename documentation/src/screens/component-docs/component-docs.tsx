@@ -1,6 +1,9 @@
-import { Component, h, Prop, Fragment, Host } from '@stencil/core';
-import type { JsonDocs, JsonDocsProp } from '@stencil/core/internal';
-import { TableCells } from '@eventstore/components';
+import { Component, h, Prop, Host } from '@stencil/core';
+import type { JsonDocs } from '@stencil/core/internal';
+import type { JSONOutput } from 'typedoc';
+
+import type { Lib } from 'sitemap';
+import { extractTypes, tryFindTypeInTypedocs } from 'utils/isIntrinsic';
 
 @Component({
     tag: 'docs-component-docs',
@@ -9,130 +12,83 @@ import { TableCells } from '@eventstore/components';
 })
 export class DocsPackage {
     @Prop() comp!: JsonDocs['components'][0];
+    @Prop() lib!: Lib;
 
     render() {
+        const { tag, encapsulation, docs, usage, props, styles } = this.comp;
+        const relatedTypes = this.findRelatedTypes();
+
         return (
             <Host>
                 <docs-breadcrumb
                     crumbs={[
                         { name: 'Components', path: '/components' },
                         {
-                            name: this.comp.tag,
-                            path: `./${this.comp.tag}`,
+                            name: tag,
+                            path: `./${tag}`,
                         },
                     ]}
                 />
                 <header>
-                    <h1>{this.comp.tag}</h1>
+                    <h1>{tag}</h1>
                     <es-icon
                         size={45}
-                        icon={
-                            this.comp.encapsulation === 'shadow'
-                                ? 'shadow'
-                                : 'light'
-                        }
+                        icon={encapsulation === 'shadow' ? 'shadow' : 'light'}
                         title={
-                            this.comp.encapsulation === 'shadow'
+                            encapsulation === 'shadow'
                                 ? 'Shadow DOM'
                                 : 'Light DOM'
                         }
                     />
                 </header>
-                <p>{this.comp.docs}</p>
-                {Object.entries(this.comp.usage).map(([name, usage]) => (
+                <p>{docs}</p>
+
+                {Object.entries(usage).map(([name, usage]) => (
                     <docs-usage key={name} usage={usage} />
                 ))}
-                {!!this.comp.props.length && (
-                    <>
-                        <h2>{'Props'}</h2>
-                        <es-table
-                            key={'props'}
-                            cells={this.propsCells}
-                            rows={this.comp.props}
-                            rowClass={this.propsRowClass}
-                        />
-                    </>
-                )}
-                {!!this.comp.styles.length && (
-                    <>
-                        <h2>{'CSS variables'}</h2>
-                        <es-table
-                            key={'css'}
-                            cells={this.cssCells}
-                            rows={this.comp.styles}
-                        />
-                    </>
-                )}
+
+                <docs-props-table id={'props'} props={props} />
+
+                {relatedTypes.map((relatedType) => (
+                    <docs-type-table
+                        id={relatedType.name}
+                        key={relatedType.name}
+                        declaration={relatedType}
+                    />
+                ))}
+
+                <docs-styles-table id={'css'} styles={styles} />
             </Host>
         );
     }
 
-    private propsCells: TableCells<JsonDocsProp> = {
-        name: {
-            title: 'Name',
-            cell: ({ data: { name, deprecation } }) => (
-                <pre class={{ depreciated: !!deprecation }}>{name}</pre>
-            ),
-        },
+    private findRelatedTypes = (): JSONOutput.DeclarationReflection[] => {
+        const { typeDocs } = this.lib;
+        const { props } = this.comp;
+        if (!typeDocs) return [];
 
-        docs: {
-            title: 'Description',
-            cell: ({ data: { docs, deprecation } }) => (
-                <>
-                    <span class={{ depreciated: !!deprecation }}>{docs}</span>
-                    {deprecation && <span>{deprecation}</span>}
-                </>
-            ),
-        },
-        type: {
-            title: 'Type',
-            cell: ({ data: { values } }) =>
-                values.map(({ type, value }, i, c) => (
-                    <>
-                        <pre class={type}>{value ?? type}</pre>
-                        {i !== c.length - 1 && <span>{'or'}</span>}
-                    </>
-                )),
-            class: 'types',
-        },
-        default: {
-            title: 'Default',
-            cell: ({ data: { default: d } }) =>
-                d ? (
-                    <pre class={d.startsWith("'") ? 'string' : 'default'}>
-                        {d.replace(/'/g, '')}
-                    </pre>
-                ) : null,
-        },
-        extras: {
-            title: '',
-            cell: ({ data: { mutable, reflectToAttr, required, attr } }) => (
-                <>
-                    {required && (
-                        <es-icon icon={'required'} title={'Required'} />
-                    )}
-                    {mutable && <es-icon icon={'mutable'} title={'Mutable'} />}
-                    {reflectToAttr && (
-                        <es-icon
-                            icon={'reflect-to-attr'}
-                            title={`Reflects To Attribute: "${attr}"`}
-                        />
-                    )}
-                </>
-            ),
-        },
-    };
+        console.log(this.comp);
 
-    private propsRowClass = ({ required }: JsonDocsProp) => ({
-        required,
-    });
+        const relatedTypes = new Map<
+            string,
+            JSONOutput.DeclarationReflection
+        >();
 
-    private cssCells: TableCells<JsonDocsProp> = {
-        name: {
-            title: 'Name',
-        },
-        docs: {
-            title: 'Description',
-        },
+        for (const prop of props) {
+            for (const value of prop.values) {
+                for (const relatedType of extractTypes(value.type)) {
+                    const typeDoc = tryFindTypeInTypedocs(
+                        typeDocs,
+                        relatedType,
+                    );
+
+                    if (typeDoc) {
+                        relatedTypes.set(relatedType, typeDoc);
+                    }
+                }
+            }
+        }
+
+        return Array.from(relatedTypes.values());
     };
 }

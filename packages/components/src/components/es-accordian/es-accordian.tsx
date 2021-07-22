@@ -2,13 +2,22 @@ import { Component, h, Prop, Host, State, Watch, Listen } from '@stencil/core';
 import { findAssignedSlot } from '@eventstore/utils';
 import { AccordianSection } from './types';
 
+/**
+ * Optionally collapsible sectioned view. Each section can be targeted via a part.
+ */
 @Component({
     tag: 'es-accordian',
     styleUrl: 'es-accordian.css',
     shadow: true,
 })
 export class Accordian {
+    /**
+     * An array of sections to display
+     */
     @Prop() sections!: AccordianSection[];
+    /**
+     * Display numbered counters beside each title
+     */
     @Prop() steps = false;
 
     @State() collapsed: Set<string> = new Set();

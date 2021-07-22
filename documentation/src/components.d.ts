@@ -7,11 +7,12 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { backgroundVariant } from "./components/layout/docs-background/docs-background";
 import { Crumb } from "./components/layout/docs-breadcrumb/docs-breadcrumb";
-import { JsonDocs } from "@stencil/core/internal";
+import { JsonDocs, JsonDocsProp, JsonDocsStyle } from "@stencil/core/internal";
 import { Lib } from "sitemap";
 import { PageState } from "./components/layout/docs-page/docs-page";
 import { VNode } from "@stencil/core";
 import { SidebarLinkVariant } from "./components/layout/docs-sidebar/components/docs-sidebar-link/docs-sidebar-link";
+import { JSONOutput } from "typedoc";
 export namespace Components {
     interface DocsBackground {
         /**
@@ -29,6 +30,7 @@ export namespace Components {
     }
     interface DocsComponentDocs {
         "comp": JsonDocs['components'][0];
+        "lib": Lib;
     }
     interface DocsHeader {
         "background": HTMLDocsBackgroundElement['variant'] | 'none';
@@ -54,6 +56,9 @@ export namespace Components {
     }
     interface DocsPageTitle {
     }
+    interface DocsPropsTable {
+        "props": JsonDocsProp[];
+    }
     interface DocsRoot {
     }
     interface DocsSidebar {
@@ -77,6 +82,12 @@ export namespace Components {
         "root": boolean;
         "url"?: string;
         "urlMatch"?: string;
+    }
+    interface DocsStylesTable {
+        "styles": JsonDocsStyle[];
+    }
+    interface DocsTypeTable {
+        "declaration": JSONOutput.DeclarationReflection;
     }
     interface DocsUsage {
         "usage": string;
@@ -146,6 +157,12 @@ declare global {
         prototype: HTMLDocsPageTitleElement;
         new (): HTMLDocsPageTitleElement;
     };
+    interface HTMLDocsPropsTableElement extends Components.DocsPropsTable, HTMLStencilElement {
+    }
+    var HTMLDocsPropsTableElement: {
+        prototype: HTMLDocsPropsTableElement;
+        new (): HTMLDocsPropsTableElement;
+    };
     interface HTMLDocsRootElement extends Components.DocsRoot, HTMLStencilElement {
     }
     var HTMLDocsRootElement: {
@@ -182,6 +199,18 @@ declare global {
         prototype: HTMLDocsSidebarTreeElement;
         new (): HTMLDocsSidebarTreeElement;
     };
+    interface HTMLDocsStylesTableElement extends Components.DocsStylesTable, HTMLStencilElement {
+    }
+    var HTMLDocsStylesTableElement: {
+        prototype: HTMLDocsStylesTableElement;
+        new (): HTMLDocsStylesTableElement;
+    };
+    interface HTMLDocsTypeTableElement extends Components.DocsTypeTable, HTMLStencilElement {
+    }
+    var HTMLDocsTypeTableElement: {
+        prototype: HTMLDocsTypeTableElement;
+        new (): HTMLDocsTypeTableElement;
+    };
     interface HTMLDocsUsageElement extends Components.DocsUsage, HTMLStencilElement {
     }
     var HTMLDocsUsageElement: {
@@ -205,12 +234,15 @@ declare global {
         "docs-package": HTMLDocsPackageElement;
         "docs-page": HTMLDocsPageElement;
         "docs-page-title": HTMLDocsPageTitleElement;
+        "docs-props-table": HTMLDocsPropsTableElement;
         "docs-root": HTMLDocsRootElement;
         "docs-sidebar": HTMLDocsSidebarElement;
         "docs-sidebar-dropdown": HTMLDocsSidebarDropdownElement;
         "docs-sidebar-link": HTMLDocsSidebarLinkElement;
         "docs-sidebar-section": HTMLDocsSidebarSectionElement;
         "docs-sidebar-tree": HTMLDocsSidebarTreeElement;
+        "docs-styles-table": HTMLDocsStylesTableElement;
+        "docs-type-table": HTMLDocsTypeTableElement;
         "docs-usage": HTMLDocsUsageElement;
         "es-footer": HTMLEsFooterElement;
     }
@@ -232,6 +264,7 @@ declare namespace LocalJSX {
     }
     interface DocsComponentDocs {
         "comp": JsonDocs['components'][0];
+        "lib": Lib;
     }
     interface DocsHeader {
         "background"?: HTMLDocsBackgroundElement['variant'] | 'none';
@@ -257,6 +290,9 @@ declare namespace LocalJSX {
     }
     interface DocsPageTitle {
     }
+    interface DocsPropsTable {
+        "props": JsonDocsProp[];
+    }
     interface DocsRoot {
     }
     interface DocsSidebar {
@@ -281,6 +317,12 @@ declare namespace LocalJSX {
         "url"?: string;
         "urlMatch"?: string;
     }
+    interface DocsStylesTable {
+        "styles": JsonDocsStyle[];
+    }
+    interface DocsTypeTable {
+        "declaration": JSONOutput.DeclarationReflection;
+    }
     interface DocsUsage {
         "usage": string;
     }
@@ -298,12 +340,15 @@ declare namespace LocalJSX {
         "docs-package": DocsPackage;
         "docs-page": DocsPage;
         "docs-page-title": DocsPageTitle;
+        "docs-props-table": DocsPropsTable;
         "docs-root": DocsRoot;
         "docs-sidebar": DocsSidebar;
         "docs-sidebar-dropdown": DocsSidebarDropdown;
         "docs-sidebar-link": DocsSidebarLink;
         "docs-sidebar-section": DocsSidebarSection;
         "docs-sidebar-tree": DocsSidebarTree;
+        "docs-styles-table": DocsStylesTable;
+        "docs-type-table": DocsTypeTable;
         "docs-usage": DocsUsage;
         "es-footer": EsFooter;
     }
@@ -322,12 +367,15 @@ declare module "@stencil/core" {
             "docs-package": LocalJSX.DocsPackage & JSXBase.HTMLAttributes<HTMLDocsPackageElement>;
             "docs-page": LocalJSX.DocsPage & JSXBase.HTMLAttributes<HTMLDocsPageElement>;
             "docs-page-title": LocalJSX.DocsPageTitle & JSXBase.HTMLAttributes<HTMLDocsPageTitleElement>;
+            "docs-props-table": LocalJSX.DocsPropsTable & JSXBase.HTMLAttributes<HTMLDocsPropsTableElement>;
             "docs-root": LocalJSX.DocsRoot & JSXBase.HTMLAttributes<HTMLDocsRootElement>;
             "docs-sidebar": LocalJSX.DocsSidebar & JSXBase.HTMLAttributes<HTMLDocsSidebarElement>;
             "docs-sidebar-dropdown": LocalJSX.DocsSidebarDropdown & JSXBase.HTMLAttributes<HTMLDocsSidebarDropdownElement>;
             "docs-sidebar-link": LocalJSX.DocsSidebarLink & JSXBase.HTMLAttributes<HTMLDocsSidebarLinkElement>;
             "docs-sidebar-section": LocalJSX.DocsSidebarSection & JSXBase.HTMLAttributes<HTMLDocsSidebarSectionElement>;
             "docs-sidebar-tree": LocalJSX.DocsSidebarTree & JSXBase.HTMLAttributes<HTMLDocsSidebarTreeElement>;
+            "docs-styles-table": LocalJSX.DocsStylesTable & JSXBase.HTMLAttributes<HTMLDocsStylesTableElement>;
+            "docs-type-table": LocalJSX.DocsTypeTable & JSXBase.HTMLAttributes<HTMLDocsTypeTableElement>;
             "docs-usage": LocalJSX.DocsUsage & JSXBase.HTMLAttributes<HTMLDocsUsageElement>;
             "es-footer": LocalJSX.EsFooter & JSXBase.HTMLAttributes<HTMLEsFooterElement>;
         }

@@ -31,7 +31,7 @@ export class Backdrop {
 
     private closingPromise?: () => void;
     @Method() close() {
-        return new Promise((resolve) => {
+        return new Promise<void>((resolve) => {
             this.closingPromise = resolve;
             this.state = 'exiting';
         });

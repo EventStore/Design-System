@@ -19,7 +19,7 @@ export class DocsPackage {
                         <docs-sidebar-dropdown active={this.lib} />
                     </docs-sidebar-section>
                     <docs-sidebar-section sectionTitle={'Components'}>
-                        {this.lib.docs?.components.map(({ tag }) => (
+                        {this.lib.stencilDocs?.components.map(({ tag }) => (
                             <docs-sidebar-link url={`/${this.lib.slug}/${tag}`}>
                                 {tag}
                             </docs-sidebar-link>
@@ -36,9 +36,12 @@ export class DocsPackage {
                                 return <Readme />;
                             }}
                         />
-                        {this.lib.docs?.components.map((doc) => (
+                        {this.lib.stencilDocs?.components.map((doc) => (
                             <Route exact url={`/${this.lib.slug}/${doc.tag}`}>
-                                <docs-component-docs comp={doc} />
+                                <docs-component-docs
+                                    lib={this.lib}
+                                    comp={doc}
+                                />
                             </Route>
                         ))}
                     </Switch>

@@ -1,5 +1,4 @@
 import { Component, Element, Event, EventEmitter } from '@stencil/core';
-import ResizeObserver from 'resize-observer-polyfill';
 
 @Component({
     tag: 'es-resize-observer',
