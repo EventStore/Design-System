@@ -10,20 +10,27 @@ export function debounce<T extends (...args: any[]) => any>(
 ): Debounce<T> {
     let timeoutId: ReturnType<typeof setTimeout>;
     let action: () => void;
+    let frame: ReturnType<typeof requestAnimationFrame> = -1;
 
     function Debounce(...args: Parameters<T>) {
-        clearTimeout(timeoutId);
         action = () => fn(...args);
-        timeoutId = setTimeout(action, ms);
+        if (frame !== -1) return;
+        clearTimeout(timeoutId);
+        frame = requestAnimationFrame(() => {
+            frame = -1;
+            timeoutId = setTimeout(action, ms);
+        });
     }
 
     Debounce.clear = () => {
         clearTimeout(timeoutId);
+        cancelAnimationFrame(frame);
     };
 
     Debounce.flush = () => {
-        action?.();
         clearTimeout(timeoutId);
+        cancelAnimationFrame(frame);
+        action?.();
     };
 
     return Debounce;
