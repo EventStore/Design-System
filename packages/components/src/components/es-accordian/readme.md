@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property                | Attribute | Description | Type                 | Default     |
-| ----------------------- | --------- | ----------- | -------------------- | ----------- |
-| `sections` _(required)_ | --        |             | `AccordianSection[]` | `undefined` |
-| `steps`                 | `steps`   |             | `boolean`            | `false`     |
+| Property                | Attribute | Description                                 | Type                 | Default     |
+| ----------------------- | --------- | ------------------------------------------- | -------------------- | ----------- |
+| `sections` _(required)_ | --        | An array of sections to display             | `AccordianSection[]` | `undefined` |
+| `steps`                 | `steps`   | Display numbered counters beside each title | `boolean`            | `false`     |
 
 
 ## Shadow Parts

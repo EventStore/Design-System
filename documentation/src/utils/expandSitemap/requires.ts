@@ -1,5 +1,6 @@
 import { MDXLayoutProps } from '@eventstore/stencil-markdown-plugin';
 import { FunctionalComponent, JsonDocs } from '@stencil/core/internal';
+import type { JSONOutput } from 'typedoc';
 import { PackageJson } from '.';
 
 interface RequireContext<T> {
@@ -27,15 +28,29 @@ export const requirePackageJson = require.context<PackageJson>(
     /^((?!node_modules|dist).)*\/package\.json$/,
 );
 
-const requireDocs = require.context<JsonDocs>(
+const requireStencilDocs = require.context<JsonDocs>(
     '../../../generated',
     true,
-    /.*\.json$/,
+    /.*\.stencil\.json$/,
 );
 
-export const optionallyRequireDocs = (slug: string) => {
+export const optionallyRequireStencilDocs = (slug: string) => {
     try {
-        return requireDocs(`./${slug}.json`);
+        return requireStencilDocs(`./${slug}.stencil.json`);
+    } catch (error) {
+        return undefined;
+    }
+};
+
+const requireTypeDocs = require.context<JSONOutput.ProjectReflection>(
+    '../../../generated',
+    true,
+    /.*\.typedoc\.json$/,
+);
+
+export const optionallyRequireTypeDocs = (slug: string) => {
+    try {
+        return requireTypeDocs(`./${slug}.typedoc.json`);
     } catch (error) {
         return undefined;
     }

@@ -20,11 +20,17 @@ import { Bread, Toast } from "./components/toast/types";
 import { WizardPage } from "./components/es-wizard/types";
 export namespace Components {
     interface EsAccordian {
+        /**
+          * An array of sections to display
+         */
         "sections": AccordianSection[];
+        /**
+          * Display numbered counters beside each title
+         */
         "steps": boolean;
     }
     interface EsBackdrop {
-        "close": () => Promise<unknown>;
+        "close": () => Promise<void>;
         "renderNode": (node: VNode | null) => Promise<void>;
         "showBackdrop": boolean;
     }
@@ -191,7 +197,7 @@ export namespace Components {
         "tabs": Tab[];
     }
     interface EsToast {
-        "close": () => Promise<unknown>;
+        "close": () => Promise<void>;
         "count": Toast['count'];
         "icon": Toast['icon'];
         "level": Toast['level'];
@@ -386,7 +392,13 @@ declare global {
 }
 declare namespace LocalJSX {
     interface EsAccordian {
+        /**
+          * An array of sections to display
+         */
         "sections": AccordianSection[];
+        /**
+          * Display numbered counters beside each title
+         */
         "steps"?: boolean;
     }
     interface EsBackdrop {
