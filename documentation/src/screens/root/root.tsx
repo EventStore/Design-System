@@ -59,10 +59,6 @@ export class Root {
                 code += node.vtext;
             });
 
-            if (className === 'language-mermaid') {
-                return <docs-mermaid code={code} />;
-            }
-
             return (
                 <docs-code
                     language={className.replace('language-', '')}

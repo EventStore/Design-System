@@ -1,8 +1,6 @@
 import { Component, h, Prop, Fragment, Host } from '@stencil/core';
-import { JsonDocsProp } from '@stencil/core/internal';
 import { TableCells } from '@eventstore/components';
 import { JSONOutput } from 'typedoc';
-import { displaySomeType } from 'utils/someType';
 
 @Component({
     tag: 'docs-type-table',
@@ -13,12 +11,9 @@ export class DocsTypeTable {
     @Prop() declaration!: JSONOutput.DeclarationReflection;
 
     render() {
-        console.log(this.declaration);
         return (
             <Host>
-                <h2>
-                    <pre>{this.declaration.name}</pre>
-                </h2>
+                <h2>{this.declaration.name}</h2>
                 {this.declaration.comment?.text && (
                     <p>{this.declaration.comment.text}</p>
                 )}
@@ -37,15 +32,14 @@ export class DocsTypeTable {
         name: {
             title: 'Name',
             cell: ({ data: { name, comment } }) => (
-                <pre
-                    class={{
-                        depreciated: !!comment?.tags?.find(
+                <docs-type
+                    string={name}
+                    depreciated={
+                        !!comment?.tags?.find(
                             ({ tag }) => tag === 'depreciated',
-                        ),
-                    }}
-                >
-                    {name}
-                </pre>
+                        )
+                    }
+                />
             ),
         },
 
@@ -58,35 +52,37 @@ export class DocsTypeTable {
 
                 return (
                     <>
-                        <span
+                        <p
                             class={{
+                                description: true,
                                 depreciated: !!deprecation,
                             }}
                         >
                             {comment?.text ?? comment?.shortText}
-                        </span>
-                        {deprecation && <span>{deprecation}</span>}
+                            {deprecation && <span>{deprecation}</span>}
+                        </p>
                     </>
                 );
             },
         },
         type: {
             title: 'Type',
-            cell: ({ data: { type } }) => <pre>{displaySomeType(type)}</pre>,
+            cell: ({ data: { type } }) => <docs-type someType={type} />,
             class: 'types',
         },
-        default: {
-            title: 'Default',
-            cell: ({ data: { defaultValue: d } }) =>
-                d && d !== '...' ? (
-                    <pre class={d.startsWith("'") ? 'string' : 'default'}>
-                        {d.replace(/'/g, '')}
-                    </pre>
-                ) : null,
+        extras: {
+            title: '',
+            cell: ({ data: { flags } }) => (
+                <>
+                    {!flags.isOptional && (
+                        <es-icon icon={'required'} title={'Required'} />
+                    )}
+                </>
+            ),
         },
     };
 
-    private rowClass = ({ required }: JsonDocsProp) => ({
-        required,
+    private rowClass = ({ flags }: JSONOutput.DeclarationReflection) => ({
+        required: !flags.isOptional,
     });
 }

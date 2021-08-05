@@ -16,7 +16,7 @@ export const displaySomeType = (someType?: JSONOutput.SomeType): string => {
     }
 
     if (isUnknownType(someType)) {
-        return `unknown`;
+        return 'unknown';
     }
 
     if (isPredicateType(someType)) {
@@ -90,76 +90,76 @@ export const displaySomeType = (someType?: JSONOutput.SomeType): string => {
     return 'unknown';
 };
 
-const isArrayType = (
+export const isArrayType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.ArrayType => someType.type === 'array';
 
-const isConditionalType = (
+export const isConditionalType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.ConditionalType => someType.type === 'conditional';
 
-const isIndexedAccessType = (
+export const isIndexedAccessType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.IndexedAccessType =>
     someType.type === 'indexedAccess';
 
-const isInferredType = (
+export const isInferredType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.InferredType => someType.type === 'inferred';
 
-const isIntersectionType = (
+export const isIntersectionType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.IntersectionType => someType.type === 'intersection';
 
-const isIntrinsicType = (
+export const isIntrinsicType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.IntrinsicType => someType.type === 'intrinsic';
 
-const isLiteralType = (
+export const isLiteralType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.LiteralType => someType.type === 'literal';
 
-const isOptionalType = (
+export const isOptionalType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.OptionalType => someType.type === 'optional';
 
-const isPredicateType = (
+export const isPredicateType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.PredicateType => someType.type === 'predicate';
 
-const isQueryType = (
+export const isQueryType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.QueryType => someType.type === 'query';
 
-const isReferenceType = (
+export const isReferenceType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.ReferenceType => someType.type === 'reference';
 
-const isReflectionType = (
+export const isReflectionType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.ReflectionType => someType.type === 'reflection';
 
-const isRestType = (
+export const isRestType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.RestType => someType.type === 'rest';
 
-const isTupleType = (
+export const isTupleType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.TupleType => someType.type === 'tuple';
 
-const isTypeOperatorType = (
+export const isTypeOperatorType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.TypeOperatorType => someType.type === 'typeOperator';
 
-const isTypeParameterType = (
+export const isTypeParameterType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.TypeParameterType =>
     someType.type === 'typeParameter';
 
-const isUnionType = (
+export const isUnionType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.UnionType => someType.type === 'union';
 
-const isUnknownType = (
+export const isUnknownType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.UnknownType => someType.type === 'unknown';

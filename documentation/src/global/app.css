@@ -14,6 +14,16 @@
 
     --font-sans: 500 16px 'MuseoSans', Arial, sans-serif;
     --font-monospace: 400 16px 'Source Code Pro', monospace;
+
+    /* One light ----------------------------------- */
+    --code-cyan: hsl(198, 99%, 37%);
+    --code-blue: hsl(221, 87%, 60%);
+    --code-purple: hsl(301, 63%, 40%);
+    --code-green: hsl(119, 34%, 47%);
+    --code-red: hsl(344, 84%, 43%);
+    --code-orange: hsl(35, 99%, 40%);
+    --code-fg: hsl(230, 8%, 24%);
+    --code-bg: hsl(230, 1%, 98%);
 }
 
 @font-face {

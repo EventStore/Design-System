@@ -1,0 +1,23 @@
+:host {
+    background-color: var(--code-bg);
+    color: var(--code-fg);
+    padding: 5px 6px;
+    border-radius: 4px;
+    margin: 5px;
+    font: var(--font-monospace);
+}
+
+:host([depreciated]) {
+    text-decoration: line-through;
+}
+
+.intrinsic {
+    color: var(--code-orange);
+    &.string {
+        color: var(--code-green);
+    }
+}
+
+.reference {
+    color: var(--code-blue);
+}

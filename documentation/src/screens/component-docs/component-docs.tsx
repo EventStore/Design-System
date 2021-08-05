@@ -3,7 +3,7 @@ import type { JsonDocs } from '@stencil/core/internal';
 import type { JSONOutput } from 'typedoc';
 
 import type { Lib } from 'sitemap';
-import { extractTypes, tryFindTypeInTypedocs } from 'utils/isIntrinsic';
+import { extractTypes } from 'utils/typedoc/isIntrinsic';
 
 @Component({
     tag: 'docs-component-docs',
@@ -67,8 +67,6 @@ export class DocsPackage {
         const { props } = this.comp;
         if (!typeDocs) return [];
 
-        console.log(this.comp);
-
         const relatedTypes = new Map<
             string,
             JSONOutput.DeclarationReflection
@@ -77,11 +75,7 @@ export class DocsPackage {
         for (const prop of props) {
             for (const value of prop.values) {
                 for (const relatedType of extractTypes(value.type)) {
-                    const typeDoc = tryFindTypeInTypedocs(
-                        typeDocs,
-                        relatedType,
-                    );
-
+                    const typeDoc = typeDocs.lookup.get(relatedType);
                     if (typeDoc) {
                         relatedTypes.set(relatedType, typeDoc);
                     }

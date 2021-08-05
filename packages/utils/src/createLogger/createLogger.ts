@@ -22,18 +22,15 @@ export interface LogEvent {
 type Subscription = (event: LogEvent) => void;
 const subscriptions = new Set<Subscription>();
 
-const subscribe = (fn: Subscription) => {
-    subscriptions.add(fn);
-
-    return () => {
-        subscriptions.delete(fn);
-    };
-};
-
 const isBrowser =
     typeof process === 'undefined' || process?.versions?.node == null;
 
-const createLogger = (name: string, color = 'black'): Logger => {
+interface createLogger {
+    (name: string, color?: string): Logger;
+    subscribe(fn: Subscription): () => void;
+}
+
+export function createLogger(name: string, color = 'black'): Logger {
     const styles = [
         `background: ${color}`,
         'border-radius: 0.5em',
@@ -103,8 +100,12 @@ const createLogger = (name: string, color = 'black'): Logger => {
         groupCollapsed: createLogFunction('groupCollapsed'),
         groupEnd: createLogFunction('groupEnd'),
     };
+}
+
+createLogger.subscribe = (fn: Subscription) => {
+    subscriptions.add(fn);
+
+    return () => {
+        subscriptions.delete(fn);
+    };
 };
-
-createLogger.subscribe = subscribe;
-
-export { createLogger };
