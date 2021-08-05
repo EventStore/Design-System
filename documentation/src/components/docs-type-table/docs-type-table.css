@@ -10,26 +10,8 @@
     text-decoration: line-through;
 }
 
-pre {
-    background-color: var(--color-grey-200);
-    padding: 5px;
-    border-radius: 4px;
-    margin: 5px;
-
-    &.string {
-        color: rgb(4, 131, 4);
-        &::before,
-        &::after {
-            content: "'";
-        }
-    }
-
-    &.default,
-    &.boolean,
-    &.number,
-    &.undefined {
-        color: rgb(255, 94, 0);
-    }
+.description {
+    white-space: pre-line;
 }
 
 .types {
