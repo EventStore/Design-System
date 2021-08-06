@@ -17,38 +17,36 @@ export const logger = createLogger(
 );
 
 const fs = new Map<string, string>();
-const resolveLookup = new Map<string, string>();
+const resolveLookup = new Map<string, string>([
+    ['@stencil/core', '/modules/@stencil/core/internal/client/index.js'],
+    [
+        '@stencil/core/internal/client',
+        '/modules/@stencil/core/internal/client/index.js',
+    ],
+    [
+        '@stencil/core/internal/app-data',
+        '/modules/@stencil/core/internal/app-data/index.js',
+    ],
+    ['@eventstore/components', '/modules/@eventstore/components/index.js'],
+    ['@eventstore/fields', '/modules/@eventstore/fields/index.js'],
+    ['@eventstore/editor', '/modules/@eventstore/editor/index.js'],
+    ['@eventstore/router', '/modules/@eventstore/router/index.js'],
+    ['@eventstore/utils', '/modules/@eventstore/utils/index.mjs'],
+    ['@eventstore/stores', '/modules/@eventstore/stores/index.mjs'],
+]);
 
 let ready: Promise<void>;
 
 const fetchDependency = async (path: string) => {
     const response = await fetch(path);
+    if (response.status !== 200) {
+        throw new Error(response.statusText);
+    }
     const code = await response.text();
     fs.set(path, code);
 };
 
 const loadDeps = async () => {
-    resolveLookup.set(
-        '@stencil/core',
-        '/modules/@stencil/core/internal/client/index.js',
-    );
-    resolveLookup.set(
-        '@stencil/core/internal/client',
-        '/modules/@stencil/core/internal/client/index.js',
-    );
-    resolveLookup.set(
-        '@stencil/core/internal/app-data',
-        '/modules/@stencil/core/internal/app-data/index.js',
-    );
-    resolveLookup.set(
-        '@eventstore/stores',
-        '/modules/@eventstore/stores/index.mjs',
-    );
-    resolveLookup.set(
-        '@eventstore/utils',
-        '/modules/@eventstore/utils/index.mjs',
-    );
-
     await Promise.all([
         await fetchDependency(
             '/modules/@stencil/core/internal/client/index.js',
@@ -118,6 +116,14 @@ export const bundle = async (entry: string, files: Files) => {
                         return u.pathname + u.search;
                     }
 
+                    if (files[importee]) {
+                        return `/${importee}`;
+                    }
+
+                    if (files[`${importee}.tsx`]) {
+                        return `/${importee}.tsx`;
+                    }
+
                     if (resolveLookup.has(importee)) {
                         return resolveLookup.get(importee);
                     }
@@ -166,6 +172,8 @@ export const bundle = async (entry: string, files: Files) => {
         if (e.frame) {
             errorMessage += '\n\n\n' + e.frame;
         }
+
+        logger.error(errorMessage);
 
         return { error: errorMessage };
     }

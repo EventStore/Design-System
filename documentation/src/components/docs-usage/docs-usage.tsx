@@ -6,20 +6,23 @@ import { generatePreview } from './utils/generatePreview';
 import type { Models, Parts } from './utils/types';
 import { bundle } from './utils/usage.worker';
 
+const HTML = '/preview.html';
+
 @Component({
     shadow: true,
     tag: 'docs-usage',
     styleUrl: 'docs-usage.css',
 })
-export class AppRoot {
+export class DocsUsage {
     private iframe?: HTMLIFrameElement;
 
+    @Prop() identifier!: string;
     @Prop() usage!: string;
     @State() parts!: Parts;
     @State() error?: string;
     @State() active: keyof Models = 'render';
 
-    private models!: Models;
+    @State() models!: Models;
 
     @Watch('usage')
     componentWillLoad() {
@@ -42,7 +45,7 @@ export class AppRoot {
     render() {
         return (
             <Host>
-                <iframe ref={this.captureiFrame} src={'/preview.html'} />
+                <iframe ref={this.captureiFrame} src={HTML} />
                 <es-tabs
                     tabs={this.tabs}
                     active={this.active}
@@ -50,7 +53,7 @@ export class AppRoot {
                     onTabChange={this.tabChange}
                 >
                     <es-editor
-                        key={this.active}
+                        key={`${this.identifier}-${this.active}`}
                         slot={this.active}
                         options={{
                             model: this.models[this.active],
@@ -64,7 +67,6 @@ export class AppRoot {
     private tabs: HTMLEsTabsElement['tabs'] = [
         { title: 'Render', id: 'render' },
         { title: 'Style', id: 'css' },
-        { title: 'Setup', id: 'setup' },
     ];
 
     private tabChange = (e: CustomEvent<string>) => {
@@ -94,7 +96,14 @@ export class AppRoot {
             },
             { once: true },
         );
-        this.iframe.contentWindow!.location.reload();
+
+        const { location } = this.iframe.contentWindow!;
+
+        if (location.pathname !== HTML) {
+            location.pathname = HTML;
+        } else {
+            location.reload();
+        }
     };
 
     private captureiFrame = (el?: HTMLIFrameElement) => {

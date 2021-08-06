@@ -16,7 +16,7 @@
     },
     "typedocOptions": {
         "name": "@eventstore/components",
-        "entryPoints": ["./src/index.ts"],
+        "entryPoints": ["./src/index.ts"]
     },
     "include": ["src", "types/jsx.d.ts"],
     "exclude": ["node_modules"]

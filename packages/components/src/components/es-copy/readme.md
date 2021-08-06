@@ -5,6 +5,18 @@
 <!-- Auto Generated Below -->
 
 
+## Usage
+
+### Example
+
+```tsx
+export default () => (
+    <es-copy>{'Click to copy this text to your clipboard.'}</es-copy>
+);
+```
+
+
+
 ## Methods
 
 ### `copy() => Promise<void>`

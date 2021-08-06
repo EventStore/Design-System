@@ -4,6 +4,11 @@ import { AccordianSection } from './types';
 
 /**
  * Optionally collapsible sectioned view. Each section can be targeted via a part.
+ * @slot [sectionName] - Slots are created based off of the names of the passed sections.
+ * @part section_header - Target the header of each section.
+ * @part section_header_title - Target the header text of each section.
+ * @part section_content - Target the content wrapper of each section.
+ * @part section_content_inner - Target the content of each section.
  */
 @Component({
     tag: 'es-accordian',

@@ -15,8 +15,12 @@ const imports = [
     'rollup',
     '@stencil/core/compiler',
     '@stencil/core/internal',
-    '@eventstore/stores',
+    '@eventstore/components',
+    '@eventstore/fields',
+    '@eventstore/router',
+    '@eventstore/editor',
     '@eventstore/utils',
+    '@eventstore/stores',
 ].map((name) => ({
     src: dirname(require.resolve(name)),
     dest: `modules/${name}/`,
@@ -58,7 +62,9 @@ export const config: Config = {
         reloadStrategy: 'pageReload',
     },
     plugins: [
-        mdx(),
+        mdx({
+            visitors: [['comment', () => 'skip']],
+        }),
         postcss({
             plugins: [
                 injectPalettePlugin({ palette }),

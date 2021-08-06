@@ -53,6 +53,7 @@ export class EsTabs {
             aria-selected={this.active === id}
             id={`tab-${id}`}
             class={{ tab: true, active: this.active === id }}
+            part={'tab'}
             onClick={this.setActive(id)}
             ref={this.captureTab(id)}
         >
@@ -65,7 +66,7 @@ export class EsTabs {
     render() {
         return (
             <Host>
-                <header role={'tablist'}>
+                <header role={'tablist'} part={'tablist'}>
                     {this.tabs.map(this.renderTab)}
                 </header>
                 <div
@@ -75,11 +76,13 @@ export class EsTabs {
                         [this.getActive()?.panelVariant ?? '']: true,
                     }}
                     role={'tabpanel'}
+                    part={'panel'}
                 >
                     <div
                         role={'presentation'}
                         class={'indicator'}
                         ref={this.captureIndicatior}
+                        part={'indicator'}
                     />
                     <slot name={this.active} />
                 </div>

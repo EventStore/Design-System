@@ -1,6 +1,6 @@
 :host {
     display: flex;
-    min-height: 380px;
+    min-height: 500px;
 }
 
 iframe {
@@ -10,4 +10,13 @@ iframe {
 
 es-tabs {
     width: 50%;
+    margin-left: 10px;
+}
+
+es-tabs::part(panel) {
+    padding: 10px;
+}
+
+es-editor {
+    --editor-height: 100%;
 }

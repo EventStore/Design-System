@@ -15,7 +15,8 @@ export class DocsPackage {
     @Prop() lib!: Lib;
 
     render() {
-        const { tag, encapsulation, docs, usage, props, styles } = this.comp;
+        const { tag, encapsulation, docs, usage, props, styles, parts, slots } =
+            this.comp;
         const relatedTypes = this.findRelatedTypes();
 
         return (
@@ -44,7 +45,11 @@ export class DocsPackage {
                 <p>{docs}</p>
 
                 {Object.entries(usage).map(([name, usage]) => (
-                    <docs-usage key={name} usage={usage} />
+                    <docs-usage
+                        key={name}
+                        identifier={`${tag}-${name}`}
+                        usage={usage}
+                    />
                 ))}
 
                 <docs-props-table id={'props'} props={props} />
@@ -57,7 +62,10 @@ export class DocsPackage {
                     />
                 ))}
 
+                <docs-slots-table id={'slots'} slots={slots} />
+
                 <docs-styles-table id={'css'} styles={styles} />
+                <docs-parts-table id={'parts'} parts={parts} />
             </Host>
         );
     }

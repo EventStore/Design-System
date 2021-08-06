@@ -2,6 +2,19 @@
     box-sizing: border-box;
 }
 
+/**
+ * @prop --current-color: The foreground color of the button. (text, border, icon).
+ * @prop --contrast-color: The background color of the button. (text, border, icon).
+ * @prop --border-radius: The border radius of the button.
+ * @prop --border-width: The border width of the button.
+ * @prop --text-decoration: The text decoration of the button.
+ * @prop --transition-duration: The transition duration of the button.
+ * @prop --spacing: Internal spacing of the button (padding and between slots).
+ * @prop --align-inner: The flex align of the button content.
+ * @prop --text-color: Directly control the text color of the button.
+ * @prop --background-color: Directly control the background color of the button.
+ */
+
 :host {
     font-size: 16px;
     display: inline-block;

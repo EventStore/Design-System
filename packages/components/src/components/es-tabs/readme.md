@@ -21,6 +21,16 @@
 | `tabChange` |             | `CustomEvent<string>` |
 
 
+## Shadow Parts
+
+| Part          | Description |
+| ------------- | ----------- |
+| `"indicator"` |             |
+| `"panel"`     |             |
+| `"tab"`       |             |
+| `"tablist"`   |             |
+
+
 ----------------------------------------------
 
 

@@ -11,7 +11,7 @@ const componentPath = resolve(__dirname, './dist/MDXLayout');
 
 const postProcess = (contents: string) => {
     let content = contents;
-    const imports = ["import { h } from '@stencil/core';"];
+    const imports = ["import { h, Fragment } from '@stencil/core';"];
 
     if (content.includes(mdxLayoutDefinition)) {
         content = content.replace(mdxLayoutDefinition, '');
@@ -28,6 +28,20 @@ interface JSXNode extends Node {
     value: string;
 }
 
+export type Visitor = [
+    test: string,
+    visitor: (node: JSXNode, index: number, parent?: Node) => void | 'skip',
+];
+
+const pluginFromVisitor = ([test, visitor]: Visitor) => () => (tree: Node) => {
+    visit<JSXNode>(tree, test, (node, index, parent) => {
+        const reply = visitor(node, index, parent);
+        if (parent && reply === 'skip') {
+            parent.children.splice(index, 1);
+        }
+    });
+};
+
 const fixStyleTags = () => (tree: Node) => {
     visit(tree, 'jsx', (node: JSXNode) => {
         if (node.value.includes('<style>')) {
@@ -39,9 +53,14 @@ const fixStyleTags = () => (tree: Node) => {
     });
 };
 
-export const mdx = () => {
+export interface MDXOptions {
+    visitors?: Visitor[];
+}
+export const mdx = ({ visitors = [] }: MDXOptions = {}) => {
     const filter = createFilter(/mdx?$/);
-    const mdxCompiler = createCompiler({ remarkPlugins: [fixStyleTags] });
+    const mdxCompiler = createCompiler({
+        remarkPlugins: [...visitors.map(pluginFromVisitor), fixStyleTags],
+    });
 
     return {
         name: 'mdx',

@@ -21,11 +21,6 @@ export const createModels = (
             undefined,
             Uri.parse('render.tsx'),
         ),
-        setup: editor.createModel(
-            parts.setup,
-            undefined,
-            Uri.parse('setup.tsx'),
-        ),
         css: editor.createModel(parts.css, undefined, Uri.parse('render.css')),
     };
 
