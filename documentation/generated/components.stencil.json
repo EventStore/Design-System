@@ -1,0 +1,3116 @@
+{
+  "timestamp": "2021-08-06T15:20:30",
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "2.6.0",
+    "typescriptVersion": "4.2.3"
+  },
+  "components": [
+    {
+      "filePath": "./src/components/es-accordian/es-accordian.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-accordian",
+      "readme": "# es-accordian\n\n\n",
+      "docs": "Optionally collapsible sectioned view. Each section can be targeted via a part.",
+      "docsTags": [
+        {
+          "text": "[sectionName] - Slots are created based off of the names of the passed sections.",
+          "name": "slot"
+        },
+        {
+          "text": "section_header - Target the header of each section.",
+          "name": "part"
+        },
+        {
+          "text": "section_header_title - Target the header text of each section.",
+          "name": "part"
+        },
+        {
+          "text": "section_content - Target the content wrapper of each section.",
+          "name": "part"
+        },
+        {
+          "text": "section_content_inner - Target the content of each section.",
+          "name": "part"
+        }
+      ],
+      "usage": {
+        "example": "```tsx\nconst sections = [\n    {\n        name: 'section-1',\n        title: 'Section 1',\n        variant: 'text',\n    },\n    {\n        name: 'section-2',\n        title: 'Collapsable',\n        variant: 'text',\n        collapsable: true,\n    },\n    {\n        name: 'section-3',\n        title: 'Collapsed by default',\n        variant: 'text',\n        collapsable: true,\n        defaultCollapsed: true,\n    },\n    {\n        name: 'section-4',\n        title: 'Works with inputs',\n        variant: 'field',\n        collapsable: true,\n    },\n];\n\nexport default () => (\n    <es-accordian sections={sections}>\n        <p slot={'section-1'}>{'I am in section 1'}</p>\n        <p slot={'section-2'}>{'You can collapse this section'}</p>\n        <p slot={'section-3'}>\n            {'Hello 👋. You can alt-click to collapse or open all sections.'}\n        </p>\n        <es-input slot={'section-4'} value={'hello'} label={'My Field'} />\n    </es-accordian>\n);\n```\n"
+      },
+      "props": [
+        {
+          "name": "sections",
+          "type": "AccordianSection[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "An array of sections to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "AccordianSection[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "steps",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "steps",
+          "reflectToAttr": false,
+          "docs": "Display numbered counters beside each title",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [
+        {
+          "event": "focusin",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [
+        {
+          "name": "[sectionName]",
+          "docs": "Slots are created based off of the names of the passed sections."
+        }
+      ],
+      "parts": [
+        {
+          "name": "section_content",
+          "docs": "Target the content wrapper of each section."
+        },
+        {
+          "name": "section_content_inner",
+          "docs": "Target the content of each section."
+        },
+        {
+          "name": "section_header",
+          "docs": "Target the header of each section."
+        },
+        {
+          "name": "section_header_title",
+          "docs": "Target the header text of each section."
+        }
+      ],
+      "dependents": [],
+      "dependencies": [
+        "es-counter",
+        "es-icon"
+      ],
+      "dependencyGraph": {
+        "es-accordian": [
+          "es-counter",
+          "es-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-badge/es-badge.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-badge",
+      "readme": "# es-badge\n",
+      "docs": "Display a counter or dot beside a component to indicate action being required.",
+      "docsTags": [],
+      "usage": {
+        "example": "```tsx\nimport { createStore } from '@eventstore/stores';\n\ninterface CountStore {\n    error: number;\n    warning: number;\n    okay: number;\n}\n\nconst { state } = createStore<CountStore>({\n    error: 1,\n    warning: 0,\n    okay: 1000,\n});\n\nexport default () => (\n    <>\n        {/* counters */}\n\n        <es-badge color={'error'} count={state.error}>\n            <es-button onClick={() => (state.error += 1)}>{'Error'}</es-button>\n        </es-badge>\n\n        <es-badge color={'warning'} count={state.warning}>\n            <es-button onClick={() => (state.warning += 1)}>\n                {'Warning'}\n            </es-button>\n        </es-badge>\n\n        <es-badge color={'okay'} count={state.okay}>\n            <es-button onClick={() => (state.okay += 1)}>{'Okay'}</es-button>\n        </es-badge>\n\n        {/* variants */}\n\n        <es-badge color={'error'} count={state.error} variant={'outline'}>\n            <es-icon icon={'cog'} />\n        </es-badge>\n\n        <es-badge color={'warning'} count={state.warning} showZero>\n            <es-icon icon={'cog'} />\n        </es-badge>\n\n        <es-badge color={'okay'} count={state.okay} variant={'minimal'}>\n            <es-icon icon={'cog'} />\n        </es-badge>\n\n        {/* dot */}\n\n        <es-badge variant={'dot'} color={'error'} count={state.error}>\n            <es-button variant={'outline'} onClick={() => (state.error += 1)}>\n                {'Error'}\n            </es-button>\n        </es-badge>\n\n        <es-badge variant={'dot'} color={'warning'} count={state.warning}>\n            <es-button variant={'outline'} onClick={() => (state.warning += 1)}>\n                {'Warning'}\n            </es-button>\n        </es-badge>\n\n        <es-badge variant={'dot'} color={'okay'} count={state.okay}>\n            <es-button variant={'outline'} onClick={() => (state.okay += 1)}>\n                {'Okay'}\n            </es-button>\n        </es-badge>\n    </>\n);\n```\n\n```css\n:host {\n    display: grid;\n    grid-template-columns: auto auto auto;\n    gap: 40px;\n    align-items: center;\n    justify-items: center;\n    justify-content: center;\n    align-content: center;\n}\n```\n"
+      },
+      "props": [
+        {
+          "name": "color",
+          "type": "\"error\" | \"okay\" | \"warning\"",
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "Choose the color variant of the badge",
+          "docsTags": [],
+          "default": "'error'",
+          "values": [
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "okay",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "mutable": false,
+          "attr": "count",
+          "reflectToAttr": false,
+          "docs": "What number to display in the counter (or if the dot should display)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "showZero",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "show-zero",
+          "reflectToAttr": false,
+          "docs": "Show the dot and counter even if the count 0 (or negative)",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "number | undefined",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The base size (in px) of the counter (has no effect on the dot)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"dot\" | \"filled\" | \"minimal\" | \"outline\"",
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "Select the display variant of the badge",
+          "docsTags": [],
+          "default": "'filled'",
+          "values": [
+            {
+              "value": "dot",
+              "type": "string"
+            },
+            {
+              "value": "filled",
+              "type": "string"
+            },
+            {
+              "value": "minimal",
+              "type": "string"
+            },
+            {
+              "value": "outline",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [
+        {
+          "name": "--badge-background-color",
+          "annotation": "prop",
+          "docs": "Background color of the badge. Can be set to a default via the color prop."
+        },
+        {
+          "name": "--badge-foreground-color",
+          "annotation": "prop",
+          "docs": "Foreground (text) color of the badge. Can be set to a default via the color prop."
+        }
+      ],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-counter"
+      ],
+      "dependencyGraph": {
+        "es-badge": [
+          "es-counter"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/buttons/es-button/es-button.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-button",
+      "readme": "# es-button\n\n\n",
+      "docs": "A button.",
+      "docsTags": [
+        {
+          "text": "before - Placed before the main content with correct padding.",
+          "name": "slot"
+        },
+        {
+          "text": "after -  Placed after the main content with correct padding.",
+          "name": "slot"
+        }
+      ],
+      "usage": {
+        "example": "```tsx\nimport { randomIcon } from 'helpers';\n\nexport default () =>\n    ['filled', 'outline', 'minimal', 'link'].map((variant) =>\n        ['primary', 'secondary', 'white', 'text'].map((color) => (\n            <es-button variant={variant} color={color} onClick={console.log}>\n                <es-icon icon={randomIcon()} slot={'before'} />\n                {`${variant} ${color}`}\n            </es-button>\n        )),\n    );\n```\n\n```css\n:host {\n    display: grid;\n    grid-template-columns: auto auto;\n    gap: 20px;\n    align-items: center;\n    justify-items: center;\n}\n```\n"
+      },
+      "props": [
+        {
+          "name": "color",
+          "type": "\"primary\" | \"secondary\" | \"text\" | \"white\"",
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": true,
+          "docs": "Which color pair the button should use",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "form",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "form",
+          "reflectToAttr": false,
+          "docs": "The form element to associate the button with (its form owner).",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "The default behavior of the button.",
+          "docsTags": [],
+          "default": "'button'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"link\" | \"minimal\" | \"outline\"",
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": true,
+          "docs": "Which styling variant to use",
+          "docsTags": [],
+          "default": "'filled'",
+          "values": [
+            {
+              "value": "filled",
+              "type": "string"
+            },
+            {
+              "value": "link",
+              "type": "string"
+            },
+            {
+              "value": "minimal",
+              "type": "string"
+            },
+            {
+              "value": "outline",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [
+        {
+          "event": "keyup",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "click",
+          "capture": true,
+          "passive": false
+        }
+      ],
+      "styles": [
+        {
+          "name": "--align-inner",
+          "annotation": "prop",
+          "docs": "The flex align of the button content."
+        },
+        {
+          "name": "--background-color",
+          "annotation": "prop",
+          "docs": "Directly control the background color of the button."
+        },
+        {
+          "name": "--border-radius",
+          "annotation": "prop",
+          "docs": "The border radius of the button."
+        },
+        {
+          "name": "--border-width",
+          "annotation": "prop",
+          "docs": "The border width of the button."
+        },
+        {
+          "name": "--contrast-color",
+          "annotation": "prop",
+          "docs": "The background color of the button. (text, border, icon)."
+        },
+        {
+          "name": "--current-color",
+          "annotation": "prop",
+          "docs": "The foreground color of the button. (text, border, icon)."
+        },
+        {
+          "name": "--spacing",
+          "annotation": "prop",
+          "docs": "Internal spacing of the button (padding and between slots)."
+        },
+        {
+          "name": "--text-color",
+          "annotation": "prop",
+          "docs": "Directly control the text color of the button."
+        },
+        {
+          "name": "--text-decoration",
+          "annotation": "prop",
+          "docs": "The text decoration of the button."
+        },
+        {
+          "name": "--transition-duration",
+          "annotation": "prop",
+          "docs": "The transition duration of the button."
+        }
+      ],
+      "slots": [
+        {
+          "name": "after",
+          "docs": "Placed after the main content with correct padding."
+        },
+        {
+          "name": "before",
+          "docs": "Placed before the main content with correct padding."
+        }
+      ],
+      "parts": [],
+      "dependents": [
+        "es-table-nested"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "es-table-nested": [
+          "es-button"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/buttons/es-button-link/es-button-link.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-button-link",
+      "readme": "# es-button-link\n\n\n",
+      "docs": "Anchor link version of es-button, wraps a `Link` from `@eventstore/router`.",
+      "docsTags": [
+        {
+          "text": "before - Placed before the main content with correct padding.",
+          "name": "slot"
+        },
+        {
+          "text": "after -  Placed after the main content with correct padding.",
+          "name": "slot"
+        }
+      ],
+      "usage": {
+        "example": "```tsx\nimport { randomIcon } from 'helpers';\n\nexport default () =>\n    ['filled', 'outline', 'minimal', 'link'].map((variant) =>\n        ['primary', 'secondary', 'white', 'text'].map((color) => (\n            <es-button-link\n                variant={variant}\n                color={color}\n                forceRefresh\n                target={'_blank'}\n                url={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}\n            >\n                {`${variant} ${color}`}\n                <es-icon icon={randomIcon()} slot={'after'} />\n            </es-button-link>\n        )),\n    );\n```\n\n```css\n:host {\n    display: grid;\n    grid-template-columns: auto auto;\n    gap: 20px;\n    align-items: center;\n    justify-items: center;\n}\n```\n"
+      },
+      "props": [
+        {
+          "name": "anchorClass",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "anchor-class",
+          "reflectToAttr": false,
+          "docs": "Class for the contained anchor element",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "anchorId",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "anchor-id",
+          "reflectToAttr": false,
+          "docs": "Id for the contained anchor element",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "anchorRole",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "anchor-role",
+          "reflectToAttr": false,
+          "docs": "Role for the contained anchor element",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "anchorTabIndex",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "anchor-tab-index",
+          "reflectToAttr": false,
+          "docs": "Tab Index for the contained anchor element",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "anchorTitle",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "anchor-title",
+          "reflectToAttr": false,
+          "docs": "Title for the contained anchor element",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "ariaHaspopup",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "aria-haspopup",
+          "reflectToAttr": false,
+          "docs": "Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "aria-label",
+          "reflectToAttr": false,
+          "docs": "Fefines a string value that labels the current element.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "ariaPosinset",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "aria-posinset",
+          "reflectToAttr": false,
+          "docs": "Defines an element's number or position in the current set of listitems or treeitems.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "ariaSetsize",
+          "type": "number | undefined",
+          "mutable": false,
+          "attr": "aria-setsize",
+          "reflectToAttr": false,
+          "docs": "Defines the number of items in the current set of listitems or treeitems.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "\"primary\" | \"secondary\" | \"text\" | \"white\"",
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": true,
+          "docs": "Which color pair the button should use",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "If the link is disabled. Prevents the user from interacting with the link: it cannot be pressed or focused.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "forceRefresh",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "force-refresh",
+          "reflectToAttr": false,
+          "docs": "If the button should navigate within the router context, or force a refresh.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "Target for link (eg: target=\"_blank\")",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "url",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "url",
+          "reflectToAttr": false,
+          "docs": "Where the button should link to.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"link\" | \"minimal\" | \"outline\"",
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": true,
+          "docs": "Which styling variant to use",
+          "docsTags": [],
+          "default": "'filled'",
+          "values": [
+            {
+              "value": "filled",
+              "type": "string"
+            },
+            {
+              "value": "link",
+              "type": "string"
+            },
+            {
+              "value": "minimal",
+              "type": "string"
+            },
+            {
+              "value": "outline",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [
+        {
+          "name": "--align-inner",
+          "annotation": "prop",
+          "docs": "The flex align of the button content."
+        },
+        {
+          "name": "--background-color",
+          "annotation": "prop",
+          "docs": "Directly control the background color of the button."
+        },
+        {
+          "name": "--border-radius",
+          "annotation": "prop",
+          "docs": "The border radius of the button."
+        },
+        {
+          "name": "--border-width",
+          "annotation": "prop",
+          "docs": "The border width of the button."
+        },
+        {
+          "name": "--contrast-color",
+          "annotation": "prop",
+          "docs": "The background color of the button. (text, border, icon)."
+        },
+        {
+          "name": "--current-color",
+          "annotation": "prop",
+          "docs": "The foreground color of the button. (text, border, icon)."
+        },
+        {
+          "name": "--spacing",
+          "annotation": "prop",
+          "docs": "Internal spacing of the button (padding and between slots)."
+        },
+        {
+          "name": "--text-color",
+          "annotation": "prop",
+          "docs": "Directly control the text color of the button."
+        },
+        {
+          "name": "--text-decoration",
+          "annotation": "prop",
+          "docs": "The text decoration of the button."
+        },
+        {
+          "name": "--transition-duration",
+          "annotation": "prop",
+          "docs": "The transition duration of the button."
+        }
+      ],
+      "slots": [
+        {
+          "name": "after",
+          "docs": "Placed after the main content with correct padding."
+        },
+        {
+          "name": "before",
+          "docs": "Placed before the main content with correct padding."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/es-callout/es-callout.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-callout",
+      "readme": "# es-callout\n\n\n",
+      "docs": "Calls out a piece of information.",
+      "docsTags": [
+        {
+          "text": "heading - Targets the heading text.",
+          "name": "part"
+        },
+        {
+          "text": "icon - Targets the icon.",
+          "name": "part"
+        }
+      ],
+      "usage": {
+        "example": "```tsx\nimport { randomIcon } from 'helpers';\n\nexport default () => (\n    <>\n        <es-callout variant={'tip'} heading={'Just the tip.'}>\n            {'And only for a minute mind.'}\n        </es-callout>\n        <es-callout variant={'warning'} heading={'Beware.'}>\n            {'There is danger ahead.'}\n        </es-callout>\n        <es-callout variant={'error'} heading={'We have an error here.'}>\n            {'Something has gone horribly wrong.'}\n        </es-callout>\n        <es-callout\n            class={'custom'}\n            icon={randomIcon()}\n            heading={'I am custom.'}\n        >\n            {'Check the css tab to see the customisations'}\n        </es-callout>\n    </>\n);\n```\n\n```css\n.custom {\n    --strong-color: yellow;\n    --weak-color: #35363a;\n    color: #dadce0;\n    border-left-width: 5px;\n}\n\n.custom::part(heading) {\n    font-style: italic;\n}\n\n.custom::part(icon) {\n    border-radius: 0;\n    border-width: 5px;\n}\n```\n"
+      },
+      "props": [
+        {
+          "name": "heading",
+          "type": "string",
+          "mutable": false,
+          "attr": "heading",
+          "reflectToAttr": false,
+          "docs": "Heading text.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "icon",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": false,
+          "docs": "Override the variant icon.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"error\" | \"tip\" | \"warning\"",
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": true,
+          "docs": "Which color set to use.",
+          "docsTags": [],
+          "default": "'tip'",
+          "values": [
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "tip",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [
+        {
+          "name": "--strong-color",
+          "annotation": "prop",
+          "docs": "Header, icon and border color. Can be set to a default via the variant prop."
+        },
+        {
+          "name": "--weak-color",
+          "annotation": "prop",
+          "docs": "Background color. Can be set to a default via the variant prop."
+        }
+      ],
+      "slots": [],
+      "parts": [
+        {
+          "name": "heading",
+          "docs": "Targets the heading text."
+        },
+        {
+          "name": "icon",
+          "docs": "Targets the icon."
+        }
+      ],
+      "dependents": [],
+      "dependencies": [
+        "es-icon"
+      ],
+      "dependencyGraph": {
+        "es-callout": [
+          "es-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-copy/es-copy.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-copy",
+      "readme": "# es-copy\n\n\n",
+      "docs": "Copy the text passed to the slot",
+      "docsTags": [],
+      "usage": {
+        "example": "```tsx\nexport default () => (\n    <es-copy>{'Click to copy this text to your clipboard.'}</es-copy>\n);\n```\n"
+      },
+      "props": [],
+      "methods": [
+        {
+          "name": "copy",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "copy() => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "events": [],
+      "listeners": [
+        {
+          "event": "click",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-icon"
+      ],
+      "dependencyGraph": {
+        "es-copy": [
+          "es-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-counter/es-counter.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-counter",
+      "readme": "# es-counter\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "mutable": false,
+          "attr": "count",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "24",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"minimal\" | \"outline\"",
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "'filled'",
+          "values": [
+            {
+              "value": "filled",
+              "type": "string"
+            },
+            {
+              "value": "minimal",
+              "type": "string"
+            },
+            {
+              "value": "outline",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "es-accordian",
+        "es-badge",
+        "es-toast"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "es-accordian": [
+          "es-counter"
+        ],
+        "es-badge": [
+          "es-counter"
+        ],
+        "es-toast": [
+          "es-counter"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-icon/es-icon.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-icon",
+      "readme": "# es-icon\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "angle",
+          "type": "number",
+          "mutable": false,
+          "attr": "angle",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "24",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "spin",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "spin",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "spinDirection",
+          "type": "\"antiClockwise\" | \"clockwise\"",
+          "mutable": false,
+          "attr": "spin-direction",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'clockwise'",
+          "values": [
+            {
+              "value": "antiClockwise",
+              "type": "string"
+            },
+            {
+              "value": "clockwise",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "spinEnd",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "spinEnd() => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "es-accordian",
+        "es-callout",
+        "es-copy",
+        "es-modal",
+        "es-status",
+        "es-table-nested",
+        "es-toast"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "es-accordian": [
+          "es-icon"
+        ],
+        "es-callout": [
+          "es-icon"
+        ],
+        "es-copy": [
+          "es-icon"
+        ],
+        "es-modal": [
+          "es-icon"
+        ],
+        "es-status": [
+          "es-icon"
+        ],
+        "es-table-nested": [
+          "es-icon"
+        ],
+        "es-toast": [
+          "es-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-modal/es-modal.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-modal",
+      "readme": "# es-modal\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "footer",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "footer",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "header",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "header",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "requestClose",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "keyup",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-icon"
+      ],
+      "dependencyGraph": {
+        "es-modal": [
+          "es-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-popover/es-popover.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-popover",
+      "readme": "# es-popper-inner\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "attachTo",
+          "type": "HTMLElement | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "HTMLElement"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "attachmentX",
+          "type": "\"left\" | \"middle\" | \"right\"",
+          "mutable": false,
+          "attr": "attachment-x",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'middle'",
+          "values": [
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "middle",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "attachmentY",
+          "type": "\"bottom\" | \"middle\" | \"top\"",
+          "mutable": false,
+          "attr": "attachment-y",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'bottom'",
+          "values": [
+            {
+              "value": "bottom",
+              "type": "string"
+            },
+            {
+              "value": "middle",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "backdrop",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "backdrop",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "constrain",
+          "type": "\"both\" | \"height\" | \"none\" | \"width\"",
+          "mutable": false,
+          "attr": "constrain",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'none'",
+          "values": [
+            {
+              "value": "both",
+              "type": "string"
+            },
+            {
+              "value": "height",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "width",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "offsetX",
+          "type": "number",
+          "mutable": false,
+          "attr": "offset-x",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "offsetY",
+          "type": "number",
+          "mutable": false,
+          "attr": "offset-y",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "open",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "popperClass",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "popper-class",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "positionX",
+          "type": "\"left\" | \"middle\" | \"right\"",
+          "mutable": false,
+          "attr": "position-x",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'middle'",
+          "values": [
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "middle",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "positionY",
+          "type": "\"bottom\" | \"middle\" | \"top\"",
+          "mutable": false,
+          "attr": "position-y",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'top'",
+          "values": [
+            {
+              "value": "bottom",
+              "type": "string"
+            },
+            {
+              "value": "middle",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'body'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "trapFocus",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "trap-focus",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "requestClose",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-popper",
+        "es-popper-inner"
+      ],
+      "dependencyGraph": {
+        "es-popover": [
+          "es-popper",
+          "es-popper-inner"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-popover/components/es-popper/es-popper.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-popper",
+      "readme": "# es-popper\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "backdrop",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "backdrop",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "trapFocus",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "trap-focus",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "requestClose",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "keyup",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "es-popover"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "es-popover": [
+          "es-popper"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-popover/components/es-popper-inner/es-popper-inner.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-popper-inner",
+      "readme": "# es-popper-inner\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [
+        {
+          "name": "setPosition",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setPosition(position: Position) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "es-popover"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "es-popover": [
+          "es-popper-inner"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-portal/es-portal.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-portal",
+      "readme": "# es-portal\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "backdrop",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "backdrop",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "element",
+          "type": "VNode",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "VNode"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "open",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'body'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "attachElement",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "attachElement() => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "name": "detatchElement",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "detatchElement() => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "requestClose",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-backdrop"
+      ],
+      "dependencyGraph": {
+        "es-portal": [
+          "es-backdrop"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-progression/es-progression.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-progression",
+      "readme": "# es-progression\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "checkpoints",
+          "type": "Checkpoint[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "Checkpoint[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "location",
+          "type": "string",
+          "mutable": false,
+          "attr": "location",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "progressionRequest",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/es-resize-observer/es-resize-observer.tsx",
+      "encapsulation": "none",
+      "tag": "es-resize-observer",
+      "readme": "# es-resize-observer\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [
+        {
+          "event": "sizeChanged",
+          "detail": "DOMRectReadOnly",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/es-status/es-status.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-status",
+      "readme": "# es-status\n\nDisplay the status of something\n\n## Example\n\n```jsx\n<es-status status={'okay'} />\n```\n\n<es-status status={'okay'} />\n",
+      "docs": "Display the status of something",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "status",
+          "type": "\"critical\" | \"degraded\" | \"okay\"",
+          "mutable": false,
+          "attr": "status",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "critical",
+              "type": "string"
+            },
+            {
+              "value": "degraded",
+              "type": "string"
+            },
+            {
+              "value": "okay",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-icon"
+      ],
+      "dependencyGraph": {
+        "es-status": [
+          "es-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-table/es-table.tsx",
+      "encapsulation": "none",
+      "tag": "es-table",
+      "readme": "# es-table\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "cells",
+          "type": "{ [x: string]: TableCell<any>; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "{ [x: string]: TableCell<any>; }"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "columns",
+          "type": "string[] | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string[]"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "getCellData",
+          "type": "<T = string>(key: T) => any",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "(d) => d",
+          "values": [
+            {
+              "type": "<T = string>(key: T) => any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "headless",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "headless",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "identifier",
+          "type": "string",
+          "mutable": false,
+          "attr": "identifier",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'table'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "linkRowTo",
+          "type": "((row: any) => string) | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "((row: any) => string)"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "renderExpansion",
+          "type": "(key: string) => VNode | null",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "() => null",
+          "values": [
+            {
+              "type": "(key: string) => VNode"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "rowClass",
+          "type": "(row: any) => string | Record<string, boolean> | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "() => undefined",
+          "values": [
+            {
+              "type": "(row: any) => string"
+            },
+            {
+              "type": "Record<string, boolean>"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "rowTakesFocus",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "row-takes-focus",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "rows",
+          "type": "any[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "clickRow",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "es-table-nested"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "es-table-nested": [
+          "es-table"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-table-detail/es-table-detail.tsx",
+      "encapsulation": "none",
+      "tag": "es-table-detail",
+      "readme": "# es-table-detail\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "cells",
+          "type": "{ [x: string]: TableCell<any>; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "{ [x: string]: TableCell<any>; }"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "columns",
+          "type": "string[] | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string[]"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "mutable": false,
+          "attr": "data",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "identifier",
+          "type": "string",
+          "mutable": false,
+          "attr": "identifier",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'detail'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/es-table-detail-header/es-table-detail-header.tsx",
+      "encapsulation": "none",
+      "tag": "es-table-detail-header",
+      "readme": "# es-table-detail-header\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "actionsCell",
+          "type": "string",
+          "mutable": false,
+          "attr": "actions-cell",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'actions'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "cells",
+          "type": "{ [x: string]: TableCell<any>; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "{ [x: string]: TableCell<any>; }"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "data",
+          "type": "any",
+          "mutable": false,
+          "attr": "data",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "identifier",
+          "type": "string",
+          "mutable": false,
+          "attr": "identifier",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'detail-header'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "titleKey",
+          "type": "string",
+          "mutable": false,
+          "attr": "title-key",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/es-table-nested/es-table-nested.tsx",
+      "encapsulation": "none",
+      "tag": "es-table-nested",
+      "readme": "# es-table-nested\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "activePath",
+          "type": "string[] | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string[]"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "canExpand",
+          "type": "(key: string, data: any) => boolean",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "() => true",
+          "values": [
+            {
+              "type": "(key: string, data: any) => boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "cells",
+          "type": "{ [x: string]: TableCell<any>; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "{ [x: string]: TableCell<any>; }"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "columns",
+          "type": "string[] | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string[]"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "getCellData",
+          "type": "(<T = string>(key: T) => any) | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "(<T = string>(key: T) => any)"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "getNestedCellData",
+          "type": "(<T = string>(key: T) => any) | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "(<T = string>(key: T) => any)"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "getNestedRows",
+          "type": "((key: string) => any[] | undefined) | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "((key: string) => any[]"
+            },
+            {
+              "type": "undefined)"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "linkRowTo",
+          "type": "((row: any) => string) | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "((row: any) => string)"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "loadNested",
+          "type": "((key: string, data: any) => Promise<void>) | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "((key: string, data: any) => Promise<void>)"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "nestedColumns",
+          "type": "string[] | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string[]"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "nestedIdentifier",
+          "type": "string",
+          "mutable": false,
+          "attr": "nested-identifier",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'nested-table'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "nestedRowTakesFocus",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "nested-row-takes-focus",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "outerIdentifier",
+          "type": "string",
+          "mutable": false,
+          "attr": "outer-identifier",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'table'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "rowClass",
+          "type": "(row: any) => string | Record<string, boolean> | undefined",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "() => undefined",
+          "values": [
+            {
+              "type": "(row: any) => string"
+            },
+            {
+              "type": "Record<string, boolean>"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "rowTakesFocus",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "row-takes-focus",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "rows",
+          "type": "any[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "clickRow",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "event": "expansion",
+          "detail": "{ data: any; key: string; }",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-table",
+        "es-button",
+        "es-icon"
+      ],
+      "dependencyGraph": {
+        "es-table-nested": [
+          "es-table",
+          "es-button",
+          "es-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-tabs/es-tabs.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-tabs",
+      "readme": "# es-tabs\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "active",
+          "type": "string | undefined",
+          "mutable": true,
+          "attr": "active",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "activeParam",
+          "type": "boolean | string",
+          "mutable": false,
+          "attr": "active-param",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'tab'",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "tabs",
+          "type": "Tab[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "Tab[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "tabChange",
+          "detail": "string",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "indicator",
+          "docs": ""
+        },
+        {
+          "name": "panel",
+          "docs": ""
+        },
+        {
+          "name": "tab",
+          "docs": ""
+        },
+        {
+          "name": "tablist",
+          "docs": ""
+        }
+      ],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/toast/es-toast/es-toast.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-toast",
+      "readme": "# es-toast\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "mutable": false,
+          "attr": "count",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "level",
+          "type": "\"error\" | \"info\" | \"success\" | \"warning\"",
+          "mutable": false,
+          "attr": "level",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "close",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "close() => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "es-toaster"
+      ],
+      "dependencies": [
+        "es-counter",
+        "es-icon"
+      ],
+      "dependencyGraph": {
+        "es-toast": [
+          "es-counter",
+          "es-icon"
+        ],
+        "es-toaster": [
+          "es-toast"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/toast/es-toaster/es-toaster.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-toaster",
+      "readme": "# es-toaster\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [
+        {
+          "name": "popToast",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "popToast({ message, title, level, duration, icon, onClick, }: Bread) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-toast"
+      ],
+      "dependencyGraph": {
+        "es-toaster": [
+          "es-toast"
+        ],
+        "es-toast": [
+          "es-counter",
+          "es-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/es-wizard/es-wizard.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-wizard",
+      "readme": "# es-wizard\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "location",
+          "type": "string",
+          "mutable": false,
+          "attr": "location",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "pages",
+          "type": "WizardPage[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "WizardPage[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "scrollOffset",
+          "type": "number",
+          "mutable": false,
+          "attr": "scroll-offset",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    }
+  ]
+}

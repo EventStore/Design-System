@@ -57,32 +57,101 @@ export namespace Components {
         "variant": BadgeVariant;
     }
     interface EsButton {
+        /**
+          * Which color pair the button should use
+         */
         "color": ButtonColor;
+        /**
+          * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
+         */
         "disabled"?: boolean;
+        /**
+          * The form element to associate the button with (its form owner).
+         */
         "form"?: string;
+        /**
+          * The default behavior of the button.
+         */
         "type": string;
+        /**
+          * Which styling variant to use
+         */
         "variant": ButtonVariant;
     }
     interface EsButtonLink {
-        "anchorClass": string;
+        /**
+          * Class for the contained anchor element
+         */
+        "anchorClass"?: string;
+        /**
+          * Id for the contained anchor element
+         */
         "anchorId"?: string;
+        /**
+          * Role for the contained anchor element
+         */
         "anchorRole"?: string;
+        /**
+          * Tab Index for the contained anchor element
+         */
         "anchorTabIndex"?: string;
+        /**
+          * Title for the contained anchor element
+         */
         "anchorTitle"?: string;
+        /**
+          * Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element.
+         */
         "ariaHaspopup"?: string;
+        /**
+          * Fefines a string value that labels the current element.
+         */
         "ariaLabel"?: string;
+        /**
+          * Defines an element's number or position in the current set of listitems or treeitems.
+         */
         "ariaPosinset"?: string;
+        /**
+          * Defines the number of items in the current set of listitems or treeitems.
+         */
         "ariaSetsize"?: number;
+        /**
+          * Which color pair the button should use
+         */
         "color": ButtonColor;
+        /**
+          * If the link is disabled. Prevents the user from interacting with the link: it cannot be pressed or focused.
+         */
         "disabled"?: boolean;
+        /**
+          * If the button should navigate within the router context, or force a refresh.
+         */
         "forceRefresh"?: boolean;
+        /**
+          * Target for link (eg: target="_blank")
+         */
         "target"?: string;
+        /**
+          * Where the button should link to.
+         */
         "url"?: string;
+        /**
+          * Which styling variant to use
+         */
         "variant": ButtonVariant;
     }
     interface EsCallout {
+        /**
+          * Heading text.
+         */
         "heading": string;
+        /**
+          * Override the variant icon.
+         */
         "icon"?: string;
+        /**
+          * Which color set to use.
+         */
         "variant": EsCalloutVariant;
     }
     interface EsCopy {
@@ -429,32 +498,101 @@ declare namespace LocalJSX {
         "variant"?: BadgeVariant;
     }
     interface EsButton {
+        /**
+          * Which color pair the button should use
+         */
         "color"?: ButtonColor;
+        /**
+          * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
+         */
         "disabled"?: boolean;
+        /**
+          * The form element to associate the button with (its form owner).
+         */
         "form"?: string;
+        /**
+          * The default behavior of the button.
+         */
         "type"?: string;
+        /**
+          * Which styling variant to use
+         */
         "variant"?: ButtonVariant;
     }
     interface EsButtonLink {
+        /**
+          * Class for the contained anchor element
+         */
         "anchorClass"?: string;
+        /**
+          * Id for the contained anchor element
+         */
         "anchorId"?: string;
+        /**
+          * Role for the contained anchor element
+         */
         "anchorRole"?: string;
+        /**
+          * Tab Index for the contained anchor element
+         */
         "anchorTabIndex"?: string;
+        /**
+          * Title for the contained anchor element
+         */
         "anchorTitle"?: string;
+        /**
+          * Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element.
+         */
         "ariaHaspopup"?: string;
+        /**
+          * Fefines a string value that labels the current element.
+         */
         "ariaLabel"?: string;
+        /**
+          * Defines an element's number or position in the current set of listitems or treeitems.
+         */
         "ariaPosinset"?: string;
+        /**
+          * Defines the number of items in the current set of listitems or treeitems.
+         */
         "ariaSetsize"?: number;
+        /**
+          * Which color pair the button should use
+         */
         "color"?: ButtonColor;
+        /**
+          * If the link is disabled. Prevents the user from interacting with the link: it cannot be pressed or focused.
+         */
         "disabled"?: boolean;
+        /**
+          * If the button should navigate within the router context, or force a refresh.
+         */
         "forceRefresh"?: boolean;
+        /**
+          * Target for link (eg: target="_blank")
+         */
         "target"?: string;
+        /**
+          * Where the button should link to.
+         */
         "url"?: string;
+        /**
+          * Which styling variant to use
+         */
         "variant"?: ButtonVariant;
     }
     interface EsCallout {
+        /**
+          * Heading text.
+         */
         "heading": string;
+        /**
+          * Override the variant icon.
+         */
         "icon"?: string;
+        /**
+          * Which color set to use.
+         */
         "variant"?: EsCalloutVariant;
     }
     interface EsCopy {

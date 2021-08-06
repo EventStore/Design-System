@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { backgroundVariant } from "./components/layout/docs-background/docs-background";
 import { Crumb } from "./components/layout/docs-breadcrumb/docs-breadcrumb";
-import { JsonDocs, JsonDocsProp, JsonDocsStyle } from "@stencil/core/internal";
+import { JsonDocs, JsonDocsPart, JsonDocsProp, JsonDocsSlot, JsonDocsStyle } from "@stencil/core/internal";
 import { Lib } from "sitemap";
 import { PageState } from "./components/layout/docs-page/docs-page";
 import { VNode } from "@stencil/core";
@@ -58,6 +58,9 @@ export namespace Components {
     }
     interface DocsPageTitle {
     }
+    interface DocsPartsTable {
+        "parts": JsonDocsPart[];
+    }
     interface DocsPropsTable {
         "props": JsonDocsProp[];
     }
@@ -85,6 +88,9 @@ export namespace Components {
         "url"?: string;
         "urlMatch"?: string;
     }
+    interface DocsSlotsTable {
+        "slots": JsonDocsSlot[];
+    }
     interface DocsStylesTable {
         "styles": JsonDocsStyle[];
     }
@@ -97,6 +103,7 @@ export namespace Components {
         "declaration": JSONOutput.DeclarationReflection;
     }
     interface DocsUsage {
+        "identifier": string;
         "usage": string;
     }
     interface EsFooter {
@@ -170,6 +177,12 @@ declare global {
         prototype: HTMLDocsPageTitleElement;
         new (): HTMLDocsPageTitleElement;
     };
+    interface HTMLDocsPartsTableElement extends Components.DocsPartsTable, HTMLStencilElement {
+    }
+    var HTMLDocsPartsTableElement: {
+        prototype: HTMLDocsPartsTableElement;
+        new (): HTMLDocsPartsTableElement;
+    };
     interface HTMLDocsPropsTableElement extends Components.DocsPropsTable, HTMLStencilElement {
     }
     var HTMLDocsPropsTableElement: {
@@ -211,6 +224,12 @@ declare global {
     var HTMLDocsSidebarTreeElement: {
         prototype: HTMLDocsSidebarTreeElement;
         new (): HTMLDocsSidebarTreeElement;
+    };
+    interface HTMLDocsSlotsTableElement extends Components.DocsSlotsTable, HTMLStencilElement {
+    }
+    var HTMLDocsSlotsTableElement: {
+        prototype: HTMLDocsSlotsTableElement;
+        new (): HTMLDocsSlotsTableElement;
     };
     interface HTMLDocsStylesTableElement extends Components.DocsStylesTable, HTMLStencilElement {
     }
@@ -254,6 +273,7 @@ declare global {
         "docs-package": HTMLDocsPackageElement;
         "docs-page": HTMLDocsPageElement;
         "docs-page-title": HTMLDocsPageTitleElement;
+        "docs-parts-table": HTMLDocsPartsTableElement;
         "docs-props-table": HTMLDocsPropsTableElement;
         "docs-root": HTMLDocsRootElement;
         "docs-sidebar": HTMLDocsSidebarElement;
@@ -261,6 +281,7 @@ declare global {
         "docs-sidebar-link": HTMLDocsSidebarLinkElement;
         "docs-sidebar-section": HTMLDocsSidebarSectionElement;
         "docs-sidebar-tree": HTMLDocsSidebarTreeElement;
+        "docs-slots-table": HTMLDocsSlotsTableElement;
         "docs-styles-table": HTMLDocsStylesTableElement;
         "docs-type": HTMLDocsTypeElement;
         "docs-type-table": HTMLDocsTypeTableElement;
@@ -313,6 +334,9 @@ declare namespace LocalJSX {
     }
     interface DocsPageTitle {
     }
+    interface DocsPartsTable {
+        "parts": JsonDocsPart[];
+    }
     interface DocsPropsTable {
         "props": JsonDocsProp[];
     }
@@ -340,6 +364,9 @@ declare namespace LocalJSX {
         "url"?: string;
         "urlMatch"?: string;
     }
+    interface DocsSlotsTable {
+        "slots": JsonDocsSlot[];
+    }
     interface DocsStylesTable {
         "styles": JsonDocsStyle[];
     }
@@ -352,6 +379,7 @@ declare namespace LocalJSX {
         "declaration": JSONOutput.DeclarationReflection;
     }
     interface DocsUsage {
+        "identifier": string;
         "usage": string;
     }
     interface EsFooter {
@@ -369,6 +397,7 @@ declare namespace LocalJSX {
         "docs-package": DocsPackage;
         "docs-page": DocsPage;
         "docs-page-title": DocsPageTitle;
+        "docs-parts-table": DocsPartsTable;
         "docs-props-table": DocsPropsTable;
         "docs-root": DocsRoot;
         "docs-sidebar": DocsSidebar;
@@ -376,6 +405,7 @@ declare namespace LocalJSX {
         "docs-sidebar-link": DocsSidebarLink;
         "docs-sidebar-section": DocsSidebarSection;
         "docs-sidebar-tree": DocsSidebarTree;
+        "docs-slots-table": DocsSlotsTable;
         "docs-styles-table": DocsStylesTable;
         "docs-type": DocsType;
         "docs-type-table": DocsTypeTable;
@@ -398,6 +428,7 @@ declare module "@stencil/core" {
             "docs-package": LocalJSX.DocsPackage & JSXBase.HTMLAttributes<HTMLDocsPackageElement>;
             "docs-page": LocalJSX.DocsPage & JSXBase.HTMLAttributes<HTMLDocsPageElement>;
             "docs-page-title": LocalJSX.DocsPageTitle & JSXBase.HTMLAttributes<HTMLDocsPageTitleElement>;
+            "docs-parts-table": LocalJSX.DocsPartsTable & JSXBase.HTMLAttributes<HTMLDocsPartsTableElement>;
             "docs-props-table": LocalJSX.DocsPropsTable & JSXBase.HTMLAttributes<HTMLDocsPropsTableElement>;
             "docs-root": LocalJSX.DocsRoot & JSXBase.HTMLAttributes<HTMLDocsRootElement>;
             "docs-sidebar": LocalJSX.DocsSidebar & JSXBase.HTMLAttributes<HTMLDocsSidebarElement>;
@@ -405,6 +436,7 @@ declare module "@stencil/core" {
             "docs-sidebar-link": LocalJSX.DocsSidebarLink & JSXBase.HTMLAttributes<HTMLDocsSidebarLinkElement>;
             "docs-sidebar-section": LocalJSX.DocsSidebarSection & JSXBase.HTMLAttributes<HTMLDocsSidebarSectionElement>;
             "docs-sidebar-tree": LocalJSX.DocsSidebarTree & JSXBase.HTMLAttributes<HTMLDocsSidebarTreeElement>;
+            "docs-slots-table": LocalJSX.DocsSlotsTable & JSXBase.HTMLAttributes<HTMLDocsSlotsTableElement>;
             "docs-styles-table": LocalJSX.DocsStylesTable & JSXBase.HTMLAttributes<HTMLDocsStylesTableElement>;
             "docs-type": LocalJSX.DocsType & JSXBase.HTMLAttributes<HTMLDocsTypeElement>;
             "docs-type-table": LocalJSX.DocsTypeTable & JSXBase.HTMLAttributes<HTMLDocsTypeTableElement>;

@@ -66,6 +66,11 @@
         "path": "./components/Configs.tsx",
         "aliases": ["@eventstore/configs"]
     },
+    "copy": {
+        "name": "copy",
+        "component": "Copy",
+        "path": "./components/Copy.tsx"
+    },
     "credit-card": {
         "name": "credit-card",
         "component": "CreditCard",
@@ -148,6 +153,11 @@
         "name": "light",
         "component": "Light",
         "path": "./components/Light.tsx"
+    },
+    "lightbulb": {
+        "name": "lightbulb",
+        "component": "Lightbulb",
+        "path": "./components/Lightbulb.tsx"
     },
     "markdown": {
         "name": "markdown",

@@ -7,23 +7,24 @@ export interface AccordianSection {
     name: string;
     /**
      * Apply styling to a section
-     * default: Default styling
-     * mega: for containing es-mega-input
-     * field: for containing inputs and other fields
-     * text: for containing text blocks
-     * footer: applies specific styles to inserted buttons
+     *
+     * 'default': Default styling.
+     * 'mega': For containing es-mega-input.
+     * 'field': For containing inputs and other fields.
+     * 'text': For containing text blocks.
+     * 'footer': Applies specific styles to inserted buttons.
      */
     variant?: SectionVariant;
     /**
-     * The title to display in the header
+     * The title to display in the header.
      */
     title?: string;
     /**
-     * If the section should be collapseable
+     * If the section should be collapseable.
      */
     collapsable?: boolean;
     /**
-     * If the section should be collapsed by default
+     * If the section should be collapsed by default.
      */
     defaultCollapsed?: boolean;
 }

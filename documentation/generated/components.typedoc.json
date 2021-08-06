@@ -1,0 +1,9311 @@
+{
+	"id": 0,
+	"name": "@eventstore/components",
+	"kind": 0,
+	"kindString": "Project",
+	"flags": {},
+	"children": [
+		{
+			"id": 1,
+			"name": "Components",
+			"kind": 2,
+			"kindString": "Namespace",
+			"flags": {},
+			"children": [
+				{
+					"id": 2,
+					"name": "EsAccordian",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 3,
+							"name": "sections",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "An array of sections to display"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 26,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 407,
+									"name": "AccordianSection"
+								}
+							}
+						},
+						{
+							"id": 4,
+							"name": "steps",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Display numbered counters beside each title"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 30,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								3,
+								4
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 22,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 5,
+					"name": "EsBackdrop",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 11,
+							"name": "showBackdrop",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 35,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 6,
+							"name": "close",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 33,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 7,
+									"name": "close",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
+						},
+						{
+							"id": 8,
+							"name": "renderNode",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 34,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 9,
+									"name": "renderNode",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 10,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "literal",
+														"value": null
+													},
+													{
+														"type": "reference",
+														"name": "VNode"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								11
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								6,
+								8
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 32,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 12,
+					"name": "EsBadge",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 13,
+							"name": "color",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Choose the color variant of the badge"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 41,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "BadgeColor"
+							}
+						},
+						{
+							"id": 14,
+							"name": "count",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "What number to display in the counter (or if the dot should display)"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 45,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 15,
+							"name": "showZero",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Show the dot and counter even if the count 0 (or negative)"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 49,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 16,
+							"name": "size",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "The base size (in px) of the counter (has no effect on the dot)"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 53,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 17,
+							"name": "variant",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Select the display variant of the badge"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 57,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "BadgeVariant"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								13,
+								14,
+								15,
+								16,
+								17
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 37,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 18,
+					"name": "EsButton",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 19,
+							"name": "color",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Which color pair the button should use"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 63,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "ButtonColor"
+							}
+						},
+						{
+							"id": 20,
+							"name": "disabled",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 67,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 21,
+							"name": "form",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "The form element to associate the button with (its form owner)."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 71,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 22,
+							"name": "type",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "The default behavior of the button."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 75,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 23,
+							"name": "variant",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Which styling variant to use"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 79,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "ButtonVariant"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								19,
+								20,
+								21,
+								22,
+								23
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 59,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 24,
+					"name": "EsButtonLink",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 25,
+							"name": "anchorClass",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Class for the contained anchor element"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 85,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 26,
+							"name": "anchorId",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Id for the contained anchor element"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 89,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 27,
+							"name": "anchorRole",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Role for the contained anchor element"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 93,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 28,
+							"name": "anchorTabIndex",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Tab Index for the contained anchor element"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 97,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 29,
+							"name": "anchorTitle",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Title for the contained anchor element"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 101,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 30,
+							"name": "ariaHaspopup",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 105,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 31,
+							"name": "ariaLabel",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Fefines a string value that labels the current element."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 109,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 32,
+							"name": "ariaPosinset",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Defines an element's number or position in the current set of listitems or treeitems."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 113,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 33,
+							"name": "ariaSetsize",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Defines the number of items in the current set of listitems or treeitems."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 117,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 34,
+							"name": "color",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Which color pair the button should use"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 121,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "ButtonColor"
+							}
+						},
+						{
+							"id": 35,
+							"name": "disabled",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "If the link is disabled. Prevents the user from interacting with the link: it cannot be pressed or focused."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 125,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 36,
+							"name": "forceRefresh",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "If the button should navigate within the router context, or force a refresh."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 129,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 37,
+							"name": "target",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Target for link (eg: target=\"_blank\")"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 133,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 38,
+							"name": "url",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Where the button should link to."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 137,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 39,
+							"name": "variant",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Which styling variant to use"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 141,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "ButtonVariant"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								25,
+								26,
+								27,
+								28,
+								29,
+								30,
+								31,
+								32,
+								33,
+								34,
+								35,
+								36,
+								37,
+								38,
+								39
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 81,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 40,
+					"name": "EsCallout",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 41,
+							"name": "heading",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Heading text."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 147,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 42,
+							"name": "icon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Override the variant icon."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 151,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 43,
+							"name": "variant",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Which color set to use."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 155,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "EsCalloutVariant"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								41,
+								42,
+								43
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 143,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 44,
+					"name": "EsCopy",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 45,
+							"name": "copy",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 158,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 46,
+									"name": "copy",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								45
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 157,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 47,
+					"name": "EsCounter",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 48,
+							"name": "count",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 161,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 49,
+							"name": "size",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 162,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 50,
+							"name": "variant",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 163,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "CounterVariant"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								48,
+								49,
+								50
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 160,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 51,
+					"name": "EsIcon",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 52,
+							"name": "angle",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 166,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 53,
+							"name": "icon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 167,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 54,
+							"name": "size",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 168,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 55,
+							"name": "spin",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 169,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 56,
+							"name": "spinDirection",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 170,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "literal",
+										"value": "clockwise"
+									},
+									{
+										"type": "literal",
+										"value": "antiClockwise"
+									}
+								]
+							}
+						},
+						{
+							"id": 57,
+							"name": "spinEnd",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 171,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 58,
+									"name": "spinEnd",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								52,
+								53,
+								54,
+								55,
+								56
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								57
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 165,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 59,
+					"name": "EsModal",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 60,
+							"name": "footer",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 174,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 61,
+							"name": "header",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 175,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								60,
+								61
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 173,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 62,
+					"name": "EsPopover",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 63,
+							"name": "attachTo",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 178,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "HTMLElement"
+							}
+						},
+						{
+							"id": 64,
+							"name": "attachmentX",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 179,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "AttachmentX"
+							}
+						},
+						{
+							"id": 65,
+							"name": "attachmentY",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 180,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "AttachmentY"
+							}
+						},
+						{
+							"id": 66,
+							"name": "backdrop",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 181,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 67,
+							"name": "constrain",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 182,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Constrain"
+							}
+						},
+						{
+							"id": 68,
+							"name": "offsetX",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 183,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 69,
+							"name": "offsetY",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 184,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 70,
+							"name": "open",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 185,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 71,
+							"name": "popperClass",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 186,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 72,
+							"name": "positionX",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 187,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "PositionX"
+							}
+						},
+						{
+							"id": 73,
+							"name": "positionY",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 188,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "PositionY"
+							}
+						},
+						{
+							"id": 74,
+							"name": "target",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 189,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 75,
+							"name": "trapFocus",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 190,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								63,
+								64,
+								65,
+								66,
+								67,
+								68,
+								69,
+								70,
+								71,
+								72,
+								73,
+								74,
+								75
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 177,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 76,
+					"name": "EsPopper",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 77,
+							"name": "backdrop",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 193,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 78,
+							"name": "trapFocus",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 194,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								77,
+								78
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 192,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 79,
+					"name": "EsPopperInner",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 80,
+							"name": "setPosition",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 197,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 81,
+									"name": "setPosition",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 82,
+											"name": "position",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Position"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								80
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 196,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 83,
+					"name": "EsPortal",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 86,
+							"name": "backdrop",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 201,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 89,
+							"name": "element",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 203,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "VNode"
+							}
+						},
+						{
+							"id": 90,
+							"name": "open",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 204,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 91,
+							"name": "target",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 205,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 84,
+							"name": "attachElement",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 200,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 85,
+									"name": "attachElement",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
+						},
+						{
+							"id": 87,
+							"name": "detatchElement",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 202,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 88,
+									"name": "detatchElement",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								86,
+								89,
+								90,
+								91
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								84,
+								87
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 199,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 92,
+					"name": "EsProgression",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 93,
+							"name": "checkpoints",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 208,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"name": "Checkpoint"
+								}
+							}
+						},
+						{
+							"id": 94,
+							"name": "location",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 209,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								93,
+								94
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 207,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 95,
+					"name": "EsResizeObserver",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 211,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 96,
+					"name": "EsStatus",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 97,
+							"name": "status",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 214,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Status"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								97
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 213,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 98,
+					"name": "EsTable",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 99,
+							"name": "cells",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 217,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 413,
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "TableCells"
+							}
+						},
+						{
+							"id": 100,
+							"name": "columns",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 218,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 105,
+							"name": "headless",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 220,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 106,
+							"name": "identifier",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 221,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 116,
+							"name": "rowTakesFocus",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 227,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 117,
+							"name": "rows",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 228,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						},
+						{
+							"id": 101,
+							"name": "getCellData",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 219,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 102,
+									"name": "getCellData",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"typeParameter": [
+										{
+											"id": 103,
+											"name": "T",
+											"kind": 131072,
+											"kindString": "Type parameter",
+											"flags": {},
+											"default": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"parameters": [
+										{
+											"id": 104,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "T"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							]
+						},
+						{
+							"id": 107,
+							"name": "linkRowTo",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 222,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 108,
+									"name": "linkRowTo",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 109,
+											"name": "row",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							]
+						},
+						{
+							"id": 110,
+							"name": "renderExpansion",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 223,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 111,
+									"name": "renderExpansion",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 112,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "literal",
+												"value": null
+											},
+											{
+												"type": "reference",
+												"name": "VNode"
+											}
+										]
+									}
+								}
+							]
+						},
+						{
+							"id": 113,
+							"name": "rowClass",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 224,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 114,
+									"name": "rowClass",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 115,
+											"name": "row",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "boolean"
+													}
+												],
+												"name": "Record"
+											}
+										]
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								99,
+								100,
+								105,
+								106,
+								116,
+								117
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								101,
+								107,
+								110,
+								113
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 216,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 118,
+					"name": "EsTableDetail",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 119,
+							"name": "cells",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 231,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 413,
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "TableCells"
+							}
+						},
+						{
+							"id": 120,
+							"name": "columns",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 232,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 121,
+							"name": "data",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 233,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 122,
+							"name": "identifier",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 234,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								119,
+								120,
+								121,
+								122
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 230,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 123,
+					"name": "EsTableDetailHeader",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 124,
+							"name": "actionsCell",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 237,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 125,
+							"name": "cells",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 238,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 413,
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "TableCells"
+							}
+						},
+						{
+							"id": 126,
+							"name": "data",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 239,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 127,
+							"name": "identifier",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 240,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 128,
+							"name": "titleKey",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 241,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								124,
+								125,
+								126,
+								127,
+								128
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 236,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 129,
+					"name": "EsTableNested",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 130,
+							"name": "activePath",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 244,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 135,
+							"name": "cells",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 246,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 413,
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "TableCells"
+							}
+						},
+						{
+							"id": 136,
+							"name": "columns",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 247,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 155,
+							"name": "nestedColumns",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 253,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 156,
+							"name": "nestedIdentifier",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 254,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 157,
+							"name": "nestedRowTakesFocus",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 255,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 158,
+							"name": "outerIdentifier",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 256,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 162,
+							"name": "rowTakesFocus",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 260,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 163,
+							"name": "rows",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 261,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						},
+						{
+							"id": 131,
+							"name": "canExpand",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 245,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 132,
+									"name": "canExpand",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 133,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 134,
+											"name": "data",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							]
+						},
+						{
+							"id": 137,
+							"name": "getCellData",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 248,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 138,
+									"name": "getCellData",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"typeParameter": [
+										{
+											"id": 139,
+											"name": "T",
+											"kind": 131072,
+											"kindString": "Type parameter",
+											"flags": {},
+											"default": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"parameters": [
+										{
+											"id": 140,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "T"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							]
+						},
+						{
+							"id": 141,
+							"name": "getNestedCellData",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 249,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 142,
+									"name": "getNestedCellData",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"typeParameter": [
+										{
+											"id": 143,
+											"name": "T",
+											"kind": 131072,
+											"kindString": "Type parameter",
+											"flags": {},
+											"default": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"parameters": [
+										{
+											"id": 144,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "T"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							]
+						},
+						{
+							"id": 145,
+							"name": "getNestedRows",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 250,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 146,
+									"name": "getNestedRows",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 147,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "any"
+												}
+											}
+										]
+									}
+								}
+							]
+						},
+						{
+							"id": 148,
+							"name": "linkRowTo",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 251,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 149,
+									"name": "linkRowTo",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 150,
+											"name": "row",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							]
+						},
+						{
+							"id": 151,
+							"name": "loadNested",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 252,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 152,
+									"name": "loadNested",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 153,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 154,
+											"name": "data",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
+						},
+						{
+							"id": 159,
+							"name": "rowClass",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 257,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 160,
+									"name": "rowClass",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 161,
+											"name": "row",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "boolean"
+													}
+												],
+												"name": "Record"
+											}
+										]
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								130,
+								135,
+								136,
+								155,
+								156,
+								157,
+								158,
+								162,
+								163
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								131,
+								137,
+								141,
+								145,
+								148,
+								151,
+								159
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 243,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 164,
+					"name": "EsTabs",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 165,
+							"name": "active",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 264,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 166,
+							"name": "activeParam",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 265,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "literal",
+										"value": false
+									}
+								]
+							}
+						},
+						{
+							"id": 167,
+							"name": "tabs",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 266,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 431,
+									"name": "Tab"
+								}
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								165,
+								166,
+								167
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 263,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 168,
+					"name": "EsToast",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 171,
+							"name": "count",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 270,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 172,
+							"name": "icon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 271,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 173,
+							"name": "level",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 272,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Level"
+							}
+						},
+						{
+							"id": 169,
+							"name": "close",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 269,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 170,
+									"name": "close",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								171,
+								172,
+								173
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								169
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 268,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 174,
+					"name": "EsToaster",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 175,
+							"name": "popToast",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 275,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 176,
+									"name": "popToast",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 177,
+											"name": "__namedParameters",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Bread"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								175
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 274,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 178,
+					"name": "EsWizard",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 179,
+							"name": "location",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 278,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 180,
+							"name": "pages",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 279,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 427,
+									"name": "WizardPage"
+								}
+							}
+						},
+						{
+							"id": 181,
+							"name": "scrollOffset",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 280,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								179,
+								180,
+								181
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 277,
+							"character": 14
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						2,
+						5,
+						12,
+						18,
+						24,
+						40,
+						44,
+						47,
+						51,
+						59,
+						62,
+						76,
+						79,
+						83,
+						92,
+						95,
+						96,
+						98,
+						118,
+						123,
+						129,
+						164,
+						168,
+						174,
+						178
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "components.d.ts",
+					"line": 21,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 182,
+			"name": "JSX",
+			"kind": 2,
+			"kindString": "Namespace",
+			"flags": {},
+			"children": [
+				{
+					"id": 183,
+					"name": "EsAccordian",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 184,
+							"name": "sections",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "An array of sections to display"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 467,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 407,
+									"name": "AccordianSection"
+								}
+							}
+						},
+						{
+							"id": 185,
+							"name": "steps",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Display numbered counters beside each title"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 471,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								184,
+								185
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 463,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 186,
+					"name": "EsBackdrop",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 193,
+							"name": "showBackdrop",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 476,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 187,
+							"name": "onClosed",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 474,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 188,
+									"name": "onClosed",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 189,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 190,
+							"name": "onRequestClose",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 475,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 191,
+									"name": "onRequestClose",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 192,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								193
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								187,
+								190
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 473,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 194,
+					"name": "EsBadge",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 195,
+							"name": "color",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Choose the color variant of the badge"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 482,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "BadgeColor"
+							}
+						},
+						{
+							"id": 196,
+							"name": "count",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "What number to display in the counter (or if the dot should display)"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 486,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 197,
+							"name": "showZero",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Show the dot and counter even if the count 0 (or negative)"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 490,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 198,
+							"name": "size",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "The base size (in px) of the counter (has no effect on the dot)"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 494,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 199,
+							"name": "variant",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Select the display variant of the badge"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 498,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "BadgeVariant"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								195,
+								196,
+								197,
+								198,
+								199
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 478,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 200,
+					"name": "EsButton",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 201,
+							"name": "color",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Which color pair the button should use"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 504,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "ButtonColor"
+							}
+						},
+						{
+							"id": 202,
+							"name": "disabled",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 508,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 203,
+							"name": "form",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "The form element to associate the button with (its form owner)."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 512,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 204,
+							"name": "type",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "The default behavior of the button."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 516,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 205,
+							"name": "variant",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Which styling variant to use"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 520,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "ButtonVariant"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								201,
+								202,
+								203,
+								204,
+								205
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 500,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 206,
+					"name": "EsButtonLink",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 207,
+							"name": "anchorClass",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Class for the contained anchor element"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 526,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 208,
+							"name": "anchorId",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Id for the contained anchor element"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 530,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 209,
+							"name": "anchorRole",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Role for the contained anchor element"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 534,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 210,
+							"name": "anchorTabIndex",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Tab Index for the contained anchor element"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 538,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 211,
+							"name": "anchorTitle",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Title for the contained anchor element"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 542,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 212,
+							"name": "ariaHaspopup",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 546,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 213,
+							"name": "ariaLabel",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Fefines a string value that labels the current element."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 550,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 214,
+							"name": "ariaPosinset",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Defines an element's number or position in the current set of listitems or treeitems."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 554,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 215,
+							"name": "ariaSetsize",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Defines the number of items in the current set of listitems or treeitems."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 558,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 216,
+							"name": "color",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Which color pair the button should use"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 562,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "ButtonColor"
+							}
+						},
+						{
+							"id": 217,
+							"name": "disabled",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "If the link is disabled. Prevents the user from interacting with the link: it cannot be pressed or focused."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 566,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 218,
+							"name": "forceRefresh",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "If the button should navigate within the router context, or force a refresh."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 570,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 219,
+							"name": "target",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Target for link (eg: target=\"_blank\")"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 574,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 220,
+							"name": "url",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Where the button should link to."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 578,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 221,
+							"name": "variant",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Which styling variant to use"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 582,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "ButtonVariant"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								207,
+								208,
+								209,
+								210,
+								211,
+								212,
+								213,
+								214,
+								215,
+								216,
+								217,
+								218,
+								219,
+								220,
+								221
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 522,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 222,
+					"name": "EsCallout",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 223,
+							"name": "heading",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Heading text."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 588,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 224,
+							"name": "icon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Override the variant icon."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 592,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 225,
+							"name": "variant",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Which color set to use."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 596,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "EsCalloutVariant"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								223,
+								224,
+								225
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 584,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 226,
+					"name": "EsCopy",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 598,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 227,
+					"name": "EsCounter",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 228,
+							"name": "count",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 601,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 229,
+							"name": "size",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 602,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 230,
+							"name": "variant",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 603,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "CounterVariant"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								228,
+								229,
+								230
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 600,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 231,
+					"name": "EsIcon",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 232,
+							"name": "angle",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 606,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 233,
+							"name": "icon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 607,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 234,
+							"name": "size",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 608,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 235,
+							"name": "spin",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 609,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 236,
+							"name": "spinDirection",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 610,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "literal",
+										"value": "clockwise"
+									},
+									{
+										"type": "literal",
+										"value": "antiClockwise"
+									}
+								]
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								232,
+								233,
+								234,
+								235,
+								236
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 605,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 237,
+					"name": "EsModal",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 238,
+							"name": "footer",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 613,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 239,
+							"name": "header",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 614,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 240,
+							"name": "onRequestClose",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 615,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 241,
+									"name": "onRequestClose",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 242,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								238,
+								239
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								240
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 612,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 243,
+					"name": "EsPopover",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 244,
+							"name": "attachTo",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 618,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "HTMLElement"
+							}
+						},
+						{
+							"id": 245,
+							"name": "attachmentX",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 619,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "AttachmentX"
+							}
+						},
+						{
+							"id": 246,
+							"name": "attachmentY",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 620,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "AttachmentY"
+							}
+						},
+						{
+							"id": 247,
+							"name": "backdrop",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 621,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 248,
+							"name": "constrain",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 622,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Constrain"
+							}
+						},
+						{
+							"id": 249,
+							"name": "offsetX",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 623,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 250,
+							"name": "offsetY",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 624,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 254,
+							"name": "open",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 626,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 255,
+							"name": "popperClass",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 627,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 256,
+							"name": "positionX",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 628,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "PositionX"
+							}
+						},
+						{
+							"id": 257,
+							"name": "positionY",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 629,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "PositionY"
+							}
+						},
+						{
+							"id": 258,
+							"name": "target",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 630,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 259,
+							"name": "trapFocus",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 631,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 251,
+							"name": "onRequestClose",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 625,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 252,
+									"name": "onRequestClose",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 253,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								244,
+								245,
+								246,
+								247,
+								248,
+								249,
+								250,
+								254,
+								255,
+								256,
+								257,
+								258,
+								259
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								251
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 617,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 260,
+					"name": "EsPopper",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 261,
+							"name": "backdrop",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 634,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 265,
+							"name": "trapFocus",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 636,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 262,
+							"name": "onRequestClose",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 635,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 263,
+									"name": "onRequestClose",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 264,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								261,
+								265
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								262
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 633,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 266,
+					"name": "EsPopperInner",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 638,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 267,
+					"name": "EsPortal",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 268,
+							"name": "backdrop",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 641,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 269,
+							"name": "element",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 642,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "VNode"
+							}
+						},
+						{
+							"id": 273,
+							"name": "open",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 644,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 274,
+							"name": "target",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 645,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 270,
+							"name": "onRequestClose",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 643,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 271,
+									"name": "onRequestClose",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 272,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								268,
+								269,
+								273,
+								274
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								270
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 640,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 275,
+					"name": "EsProgression",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 276,
+							"name": "checkpoints",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 648,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"name": "Checkpoint"
+								}
+							}
+						},
+						{
+							"id": 277,
+							"name": "location",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 649,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 278,
+							"name": "onProgressionRequest",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 650,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 279,
+									"name": "onProgressionRequest",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 280,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								276,
+								277
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								278
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 647,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 281,
+					"name": "EsResizeObserver",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 282,
+							"name": "onSizeChanged",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 653,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 283,
+									"name": "onSizeChanged",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 284,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"name": "DOMRectReadOnly"
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								282
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 652,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 285,
+					"name": "EsStatus",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 286,
+							"name": "status",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 656,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Status"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								286
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 655,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 287,
+					"name": "EsTable",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 288,
+							"name": "cells",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 659,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 413,
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "TableCells"
+							}
+						},
+						{
+							"id": 289,
+							"name": "columns",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 660,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 294,
+							"name": "headless",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 662,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 295,
+							"name": "identifier",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 663,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 308,
+							"name": "rowTakesFocus",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 670,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 309,
+							"name": "rows",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 671,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						},
+						{
+							"id": 290,
+							"name": "getCellData",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 661,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 291,
+									"name": "getCellData",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"typeParameter": [
+										{
+											"id": 292,
+											"name": "T",
+											"kind": 131072,
+											"kindString": "Type parameter",
+											"flags": {},
+											"default": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"parameters": [
+										{
+											"id": 293,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "T"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							]
+						},
+						{
+							"id": 296,
+							"name": "linkRowTo",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 664,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 297,
+									"name": "linkRowTo",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 298,
+											"name": "row",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							]
+						},
+						{
+							"id": 299,
+							"name": "onClickRow",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 665,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 300,
+									"name": "onClickRow",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 301,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 302,
+							"name": "renderExpansion",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 666,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 303,
+									"name": "renderExpansion",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 304,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "literal",
+												"value": null
+											},
+											{
+												"type": "reference",
+												"name": "VNode"
+											}
+										]
+									}
+								}
+							]
+						},
+						{
+							"id": 305,
+							"name": "rowClass",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 667,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 306,
+									"name": "rowClass",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 307,
+											"name": "row",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "boolean"
+													}
+												],
+												"name": "Record"
+											}
+										]
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								288,
+								289,
+								294,
+								295,
+								308,
+								309
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								290,
+								296,
+								299,
+								302,
+								305
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 658,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 310,
+					"name": "EsTableDetail",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 311,
+							"name": "cells",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 674,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 413,
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "TableCells"
+							}
+						},
+						{
+							"id": 312,
+							"name": "columns",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 675,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 313,
+							"name": "data",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 676,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 314,
+							"name": "identifier",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 677,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								311,
+								312,
+								313,
+								314
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 673,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 315,
+					"name": "EsTableDetailHeader",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 316,
+							"name": "actionsCell",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 680,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 317,
+							"name": "cells",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 681,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 413,
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "TableCells"
+							}
+						},
+						{
+							"id": 318,
+							"name": "data",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 682,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 319,
+							"name": "identifier",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 683,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 320,
+							"name": "titleKey",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 684,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								316,
+								317,
+								318,
+								319,
+								320
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 679,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 321,
+					"name": "EsTableNested",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 322,
+							"name": "activePath",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 687,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 327,
+							"name": "cells",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 689,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 413,
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "TableCells"
+							}
+						},
+						{
+							"id": 328,
+							"name": "columns",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 690,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 347,
+							"name": "nestedColumns",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 696,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 348,
+							"name": "nestedIdentifier",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 697,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 349,
+							"name": "nestedRowTakesFocus",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 698,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 359,
+							"name": "outerIdentifier",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 701,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 363,
+							"name": "rowTakesFocus",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 705,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 364,
+							"name": "rows",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 706,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						},
+						{
+							"id": 323,
+							"name": "canExpand",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 688,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 324,
+									"name": "canExpand",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 325,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 326,
+											"name": "data",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							]
+						},
+						{
+							"id": 329,
+							"name": "getCellData",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 691,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 330,
+									"name": "getCellData",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"typeParameter": [
+										{
+											"id": 331,
+											"name": "T",
+											"kind": 131072,
+											"kindString": "Type parameter",
+											"flags": {},
+											"default": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"parameters": [
+										{
+											"id": 332,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "T"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							]
+						},
+						{
+							"id": 333,
+							"name": "getNestedCellData",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 692,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 334,
+									"name": "getNestedCellData",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"typeParameter": [
+										{
+											"id": 335,
+											"name": "T",
+											"kind": 131072,
+											"kindString": "Type parameter",
+											"flags": {},
+											"default": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"parameters": [
+										{
+											"id": 336,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "T"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							]
+						},
+						{
+							"id": 337,
+							"name": "getNestedRows",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 693,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 338,
+									"name": "getNestedRows",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 339,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "any"
+												}
+											}
+										]
+									}
+								}
+							]
+						},
+						{
+							"id": 340,
+							"name": "linkRowTo",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 694,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 341,
+									"name": "linkRowTo",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 342,
+											"name": "row",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							]
+						},
+						{
+							"id": 343,
+							"name": "loadNested",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 695,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 344,
+									"name": "loadNested",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 345,
+											"name": "key",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 346,
+											"name": "data",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
+						},
+						{
+							"id": 350,
+							"name": "onClickRow",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 699,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 351,
+									"name": "onClickRow",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 352,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 353,
+							"name": "onExpansion",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 700,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 354,
+									"name": "onExpansion",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 355,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reflection",
+														"declaration": {
+															"id": 356,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"children": [
+																{
+																	"id": 357,
+																	"name": "data",
+																	"kind": 1024,
+																	"kindString": "Property",
+																	"flags": {},
+																	"sources": [
+																		{
+																			"fileName": "components.d.ts",
+																			"line": 700,
+																			"character": 46
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																},
+																{
+																	"id": 358,
+																	"name": "key",
+																	"kind": 1024,
+																	"kindString": "Property",
+																	"flags": {},
+																	"sources": [
+																		{
+																			"fileName": "components.d.ts",
+																			"line": 700,
+																			"character": 57
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "string"
+																	}
+																}
+															],
+															"groups": [
+																{
+																	"title": "Properties",
+																	"kind": 1024,
+																	"children": [
+																		357,
+																		358
+																	]
+																}
+															]
+														}
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 360,
+							"name": "rowClass",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 702,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 361,
+									"name": "rowClass",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 362,
+											"name": "row",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "boolean"
+													}
+												],
+												"name": "Record"
+											}
+										]
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								322,
+								327,
+								328,
+								347,
+								348,
+								349,
+								359,
+								363,
+								364
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								323,
+								329,
+								333,
+								337,
+								340,
+								343,
+								350,
+								353,
+								360
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 686,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 365,
+					"name": "EsTabs",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 366,
+							"name": "active",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 709,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 367,
+							"name": "activeParam",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 710,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "literal",
+										"value": false
+									}
+								]
+							}
+						},
+						{
+							"id": 371,
+							"name": "tabs",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 712,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 431,
+									"name": "Tab"
+								}
+							}
+						},
+						{
+							"id": 368,
+							"name": "onTabChange",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 711,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 369,
+									"name": "onTabChange",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 370,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								366,
+								367,
+								371
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								368
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 708,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 372,
+					"name": "EsToast",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 373,
+							"name": "count",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 715,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 374,
+							"name": "icon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 716,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 375,
+							"name": "level",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 717,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Level"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								373,
+								374,
+								375
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 714,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 376,
+					"name": "EsToaster",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 719,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 377,
+					"name": "EsWizard",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 378,
+							"name": "location",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 722,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 379,
+							"name": "pages",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 723,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 427,
+									"name": "WizardPage"
+								}
+							}
+						},
+						{
+							"id": 380,
+							"name": "scrollOffset",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 724,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								378,
+								379,
+								380
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 721,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 381,
+					"name": "IntrinsicElements",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 382,
+							"name": "es-accordian",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 727,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 183,
+								"name": "EsAccordian"
+							}
+						},
+						{
+							"id": 383,
+							"name": "es-backdrop",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 728,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 186,
+								"name": "EsBackdrop"
+							}
+						},
+						{
+							"id": 384,
+							"name": "es-badge",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 729,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 194,
+								"name": "EsBadge"
+							}
+						},
+						{
+							"id": 385,
+							"name": "es-button",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 730,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 200,
+								"name": "EsButton"
+							}
+						},
+						{
+							"id": 386,
+							"name": "es-button-link",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 731,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 206,
+								"name": "EsButtonLink"
+							}
+						},
+						{
+							"id": 387,
+							"name": "es-callout",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 732,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 222,
+								"name": "EsCallout"
+							}
+						},
+						{
+							"id": 388,
+							"name": "es-copy",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 733,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 226,
+								"name": "EsCopy"
+							}
+						},
+						{
+							"id": 389,
+							"name": "es-counter",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 734,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 227,
+								"name": "EsCounter"
+							}
+						},
+						{
+							"id": 390,
+							"name": "es-icon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 735,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 231,
+								"name": "EsIcon"
+							}
+						},
+						{
+							"id": 391,
+							"name": "es-modal",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 736,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 237,
+								"name": "EsModal"
+							}
+						},
+						{
+							"id": 392,
+							"name": "es-popover",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 737,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 243,
+								"name": "EsPopover"
+							}
+						},
+						{
+							"id": 393,
+							"name": "es-popper",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 738,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 260,
+								"name": "EsPopper"
+							}
+						},
+						{
+							"id": 394,
+							"name": "es-popper-inner",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 739,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 266,
+								"name": "EsPopperInner"
+							}
+						},
+						{
+							"id": 395,
+							"name": "es-portal",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 740,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 267,
+								"name": "EsPortal"
+							}
+						},
+						{
+							"id": 396,
+							"name": "es-progression",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 741,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 275,
+								"name": "EsProgression"
+							}
+						},
+						{
+							"id": 397,
+							"name": "es-resize-observer",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 742,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 281,
+								"name": "EsResizeObserver"
+							}
+						},
+						{
+							"id": 398,
+							"name": "es-status",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 743,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 285,
+								"name": "EsStatus"
+							}
+						},
+						{
+							"id": 399,
+							"name": "es-table",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 744,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 287,
+								"name": "EsTable"
+							}
+						},
+						{
+							"id": 400,
+							"name": "es-table-detail",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 745,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 310,
+								"name": "EsTableDetail"
+							}
+						},
+						{
+							"id": 401,
+							"name": "es-table-detail-header",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 746,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 315,
+								"name": "EsTableDetailHeader"
+							}
+						},
+						{
+							"id": 402,
+							"name": "es-table-nested",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 747,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 321,
+								"name": "EsTableNested"
+							}
+						},
+						{
+							"id": 403,
+							"name": "es-tabs",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 748,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 365,
+								"name": "EsTabs"
+							}
+						},
+						{
+							"id": 404,
+							"name": "es-toast",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 749,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 372,
+								"name": "EsToast"
+							}
+						},
+						{
+							"id": 405,
+							"name": "es-toaster",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 750,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 376,
+								"name": "EsToaster"
+							}
+						},
+						{
+							"id": 406,
+							"name": "es-wizard",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 751,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 377,
+								"name": "EsWizard"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								382,
+								383,
+								384,
+								385,
+								386,
+								387,
+								388,
+								389,
+								390,
+								391,
+								392,
+								393,
+								394,
+								395,
+								396,
+								397,
+								398,
+								399,
+								400,
+								401,
+								402,
+								403,
+								404,
+								405,
+								406
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 726,
+							"character": 14
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						183,
+						186,
+						194,
+						200,
+						206,
+						222,
+						226,
+						227,
+						231,
+						237,
+						243,
+						260,
+						266,
+						267,
+						275,
+						281,
+						285,
+						287,
+						310,
+						315,
+						321,
+						365,
+						372,
+						376,
+						377,
+						381
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "components.d.ts",
+					"line": 462,
+					"character": 18
+				}
+			]
+		},
+		{
+			"id": 407,
+			"name": "AccordianSection",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {},
+			"children": [
+				{
+					"id": 411,
+					"name": "collapsable",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "If the section should be collapseable."
+					},
+					"sources": [
+						{
+							"fileName": "components/es-accordian/types.ts",
+							"line": 25,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 412,
+					"name": "defaultCollapsed",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "If the section should be collapsed by default."
+					},
+					"sources": [
+						{
+							"fileName": "components/es-accordian/types.ts",
+							"line": 29,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 408,
+					"name": "name",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"comment": {
+						"shortText": "The name of the section. Used as the slot identifier and id."
+					},
+					"sources": [
+						{
+							"fileName": "components/es-accordian/types.ts",
+							"line": 7,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 410,
+					"name": "title",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "The title to display in the header."
+					},
+					"sources": [
+						{
+							"fileName": "components/es-accordian/types.ts",
+							"line": 21,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 409,
+					"name": "variant",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "Apply styling to a section",
+						"text": "'default': Default styling.\n'mega': For containing es-mega-input.\n'field': For containing inputs and other fields.\n'text': For containing text blocks.\n'footer': Applies specific styles to inserted buttons.\n"
+					},
+					"sources": [
+						{
+							"fileName": "components/es-accordian/types.ts",
+							"line": 17,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "SectionVariant"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						411,
+						412,
+						408,
+						410,
+						409
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "components/es-accordian/types.ts",
+					"line": 3,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 431,
+			"name": "Tab",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {},
+			"children": [
+				{
+					"id": 432,
+					"name": "id",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "components/es-tabs/types.ts",
+							"line": 4,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 436,
+					"name": "panelVariant",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "components/es-tabs/types.ts",
+							"line": 7,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "PanelVariant"
+					}
+				},
+				{
+					"id": 433,
+					"name": "title",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "components/es-tabs/types.ts",
+							"line": 5,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 434,
+					"name": "badge",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "components/es-tabs/types.ts",
+							"line": 6,
+							"character": 4
+						}
+					],
+					"signatures": [
+						{
+							"id": 435,
+							"name": "badge",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						432,
+						436,
+						433
+					]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						434
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "components/es-tabs/types.ts",
+					"line": 3,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 415,
+			"name": "TableCell",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {},
+			"children": [
+				{
+					"id": 422,
+					"name": "class",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "components/es-table/types.ts",
+							"line": 22,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "string"
+							},
+							{
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								],
+								"name": "Record"
+							},
+							{
+								"type": "reflection",
+								"declaration": {
+									"id": 423,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 424,
+											"name": "__type",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 425,
+													"name": "d",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"name": "T"
+													}
+												}
+											],
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "intrinsic",
+																"name": "string"
+															},
+															{
+																"type": "intrinsic",
+																"name": "boolean"
+															}
+														],
+														"name": "Record"
+													}
+												]
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				},
+				{
+					"id": 416,
+					"name": "title",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "components/es-table/types.ts",
+							"line": 18,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 421,
+					"name": "variant",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "components/es-table/types.ts",
+							"line": 21,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "reference",
+								"name": "TableCellVariant"
+							},
+							{
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"name": "TableCellVariant"
+								}
+							}
+						]
+					}
+				},
+				{
+					"id": 420,
+					"name": "width",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "components/es-table/types.ts",
+							"line": 20,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 417,
+					"name": "cell",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "components/es-table/types.ts",
+							"line": 19,
+							"character": 4
+						}
+					],
+					"signatures": [
+						{
+							"id": 418,
+							"name": "cell",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 419,
+									"name": "d",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "T"
+											}
+										],
+										"name": "CellProps"
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "literal",
+										"value": null
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "reference",
+										"name": "VNode"
+									},
+									{
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"name": "VNode"
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						422,
+						416,
+						421,
+						420
+					]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						417
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "components/es-table/types.ts",
+					"line": 17,
+					"character": 17
+				}
+			],
+			"typeParameter": [
+				{
+					"id": 426,
+					"name": "T",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			]
+		},
+		{
+			"id": 427,
+			"name": "WizardPage",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {},
+			"children": [
+				{
+					"id": 430,
+					"name": "disabled",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "components/es-wizard/types.ts",
+							"line": 4,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "literal",
+						"value": true
+					}
+				},
+				{
+					"id": 428,
+					"name": "id",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "components/es-wizard/types.ts",
+							"line": 2,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 429,
+					"name": "title",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "components/es-wizard/types.ts",
+							"line": 3,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						430,
+						428,
+						429
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "components/es-wizard/types.ts",
+					"line": 1,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 413,
+			"name": "TableCells",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "components/es-table/types.ts",
+					"line": 28,
+					"character": 12
+				}
+			],
+			"typeParameter": [
+				{
+					"id": 414,
+					"name": "T",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			],
+			"type": {
+				"type": "reference",
+				"typeArguments": [
+					{
+						"type": "intrinsic",
+						"name": "string"
+					},
+					{
+						"type": "reference",
+						"id": 415,
+						"typeArguments": [
+							{
+								"type": "reference",
+								"name": "T"
+							}
+						],
+						"name": "TableCell"
+					}
+				],
+				"name": "Record"
+			}
+		},
+		{
+			"id": 459,
+			"name": "iconStore",
+			"kind": 32,
+			"kindString": "Variable",
+			"flags": {
+				"isConst": true
+			},
+			"sources": [
+				{
+					"fileName": "utils/iconStore.ts",
+					"line": 25,
+					"character": 13
+				}
+			],
+			"type": {
+				"type": "reference",
+				"name": "IconStore"
+			},
+			"defaultValue": "..."
+		},
+		{
+			"id": 437,
+			"name": "toast",
+			"kind": 32,
+			"kindString": "Variable",
+			"flags": {
+				"isConst": true
+			},
+			"sources": [
+				{
+					"fileName": "utils/toast.ts",
+					"line": 17,
+					"character": 13
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 438,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {},
+					"children": [
+						{
+							"id": 454,
+							"name": "error",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 455,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 456,
+											"name": "__type",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 457,
+													"name": "options",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "reference",
+																"name": "Bread"
+															},
+															{
+																"type": "literal",
+																"value": "level"
+															}
+														],
+														"name": "Omit"
+													}
+												},
+												{
+													"id": 458,
+													"name": "targetDocument",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"name": "Document"
+													},
+													"defaultValue": "..."
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							},
+							"defaultValue": "..."
+						},
+						{
+							"id": 444,
+							"name": "info",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 445,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 446,
+											"name": "__type",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 447,
+													"name": "options",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "reference",
+																"name": "Bread"
+															},
+															{
+																"type": "literal",
+																"value": "level"
+															}
+														],
+														"name": "Omit"
+													}
+												},
+												{
+													"id": 448,
+													"name": "targetDocument",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"name": "Document"
+													},
+													"defaultValue": "..."
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							},
+							"defaultValue": "..."
+						},
+						{
+							"id": 439,
+							"name": "success",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 440,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 441,
+											"name": "__type",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 442,
+													"name": "options",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "reference",
+																"name": "Bread"
+															},
+															{
+																"type": "literal",
+																"value": "level"
+															}
+														],
+														"name": "Omit"
+													}
+												},
+												{
+													"id": 443,
+													"name": "targetDocument",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"name": "Document"
+													},
+													"defaultValue": "..."
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							},
+							"defaultValue": "..."
+						},
+						{
+							"id": 449,
+							"name": "warning",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 450,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 451,
+											"name": "__type",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 452,
+													"name": "options",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "reference",
+																"name": "Bread"
+															},
+															{
+																"type": "literal",
+																"value": "level"
+															}
+														],
+														"name": "Omit"
+													}
+												},
+												{
+													"id": 453,
+													"name": "targetDocument",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"name": "Document"
+													},
+													"defaultValue": "..."
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							},
+							"defaultValue": "..."
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								454,
+								444,
+								439,
+								449
+							]
+						}
+					]
+				}
+			},
+			"defaultValue": "..."
+		}
+	],
+	"groups": [
+		{
+			"title": "Namespaces",
+			"kind": 2,
+			"children": [
+				1,
+				182
+			]
+		},
+		{
+			"title": "Interfaces",
+			"kind": 256,
+			"children": [
+				407,
+				431,
+				415,
+				427
+			]
+		},
+		{
+			"title": "Type aliases",
+			"kind": 4194304,
+			"children": [
+				413
+			]
+		},
+		{
+			"title": "Variables",
+			"kind": 32,
+			"children": [
+				459,
+				437
+			]
+		}
+	],
+	"sources": [
+		{
+			"fileName": "index.ts",
+			"line": 1,
+			"character": 0
+		}
+	]
+}

@@ -49,7 +49,7 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [es-backdrop](../es-backdrop)
+- es-backdrop
 
 ### Graph
 ```mermaid

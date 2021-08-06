@@ -54,6 +54,9 @@ iconStore.addIcons({
     get '@eventstore/configs'() {
         return this['configs'];
     },
+    get copy() {
+        return import('./components/Copy').then((module) => module.Copy);
+    },
     get 'credit-card'() {
         return import('./components/CreditCard').then(
             (module) => module.CreditCard,
@@ -120,6 +123,11 @@ iconStore.addIcons({
     },
     get light() {
         return import('./components/Light').then((module) => module.Light);
+    },
+    get lightbulb() {
+        return import('./components/Lightbulb').then(
+            (module) => module.Lightbulb,
+        );
     },
     get markdown() {
         return import('./components/Markdown').then(

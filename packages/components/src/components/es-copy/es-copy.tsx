@@ -10,6 +10,7 @@ import {
 
 export type Status = 'default' | 'thinking' | 'copied' | 'failed';
 
+/** Copies the text passed as a child when clicked. */
 @Component({
     tag: 'es-copy',
     styleUrl: 'es-copy.css',
