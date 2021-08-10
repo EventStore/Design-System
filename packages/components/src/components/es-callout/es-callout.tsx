@@ -13,17 +13,11 @@ export type EsCalloutVariant = 'tip' | 'warning' | 'error';
     shadow: true,
 })
 export class EsCallout {
-    /**
-     * Heading text.
-     */
+    /** Heading text. */
     @Prop() heading!: string;
-    /**
-     * Which color set to use.
-     */
+    /** Which color set to use. */
     @Prop({ reflect: true }) variant: EsCalloutVariant = 'tip';
-    /**
-     * Override the variant icon.
-     */
+    /** Override the variant icon. */
     @Prop() icon?: string;
 
     render() {

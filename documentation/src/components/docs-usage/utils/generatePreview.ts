@@ -1,5 +1,5 @@
-import { iconStore } from '@eventstore/components';
 import type { Parts, Files } from './types';
+import iconDetails from 'icons/icons.json';
 
 export const generatePreview = (parts: Parts): Files => {
     const previewComponent = `\
@@ -20,8 +20,9 @@ export const generatePreview = (parts: Parts): Files => {
     }`;
 
     const helpers = `\
-        export const icons = ${JSON.stringify(Object.keys(iconStore['icons']))};
-        export const randomIcon = () => icons[Math.floor(Math.random() * icons.length)];
+        export const random = (n) => Math.floor(Math.random() * n);
+        export const icons = ${JSON.stringify(Object.keys(iconDetails))};
+        export const randomIcon = () => icons[random(icons.length)];
     `;
 
     return {
@@ -32,6 +33,10 @@ export const generatePreview = (parts: Parts): Files => {
         `,
         'preview-component.tsx': previewComponent,
         'preview-component.css': `
+            * {
+                box-sizing: border-box;
+            }
+
             :host {
                 box-sizing: border-box;
                 display: block;

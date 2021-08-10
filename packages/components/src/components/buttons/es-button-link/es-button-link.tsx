@@ -14,66 +14,36 @@ import { ButtonVariant, ButtonColor } from '../types';
     shadow: true,
 })
 export class ButtonLink {
-    /**
-     * Which styling variant to use
-     */
+    /** Which styling variant to use */
     @Prop({ reflect: true }) variant: ButtonVariant = 'filled';
-    /**
-     * Which color pair the button should use
-     */
+    /** Which color pair the button should use. */
     @Prop({ reflect: true }) color: ButtonColor = 'primary';
-    /**
-     * If the link is disabled. Prevents the user from interacting with the link: it cannot be pressed or focused.
-     */
+    /** If the link is disabled. Prevents the user from interacting with the link: it cannot be pressed or focused. */
     @Prop({ reflect: true }) disabled?: boolean;
-    /**
-     * Where the button should link to.
-     */
+    /** Where the button should link to. */
     @Prop() url?: string;
-    /**
-     * If the button should navigate within the router context, or force a refresh.
-     */
+    /** If the button should navigate within the router context, or force a refresh. */
     @Prop() forceRefresh?: boolean;
 
-    /**
-     * Class for the contained anchor element
-     */
+    /** Class for the contained anchor element */
     @Prop() anchorClass?: string;
-    /**
-     * Role for the contained anchor element
-     */
+    /** Role for the contained anchor element */
     @Prop() anchorRole?: string;
-    /**
-     * Title for the contained anchor element
-     */
+    /** Title for the contained anchor element */
     @Prop() anchorTitle?: string;
-    /**
-     * Tab Index for the contained anchor element
-     */
+    /** Tab Index for the contained anchor element */
     @Prop() anchorTabIndex?: string;
-    /**
-     * Id for the contained anchor element
-     */
+    /** Id for the contained anchor element */
     @Prop() anchorId?: string;
-    /**
-     * Target for link (eg: target="_blank")
-     */
+    /** Target for link (eg: target="_blank") */
     @Prop() target?: string;
-    /**
-     * Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element.
-     */
+    /** Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. */
     @Prop() ariaHaspopup?: string;
-    /**
-     *  Defines an element's number or position in the current set of listitems or treeitems.
-     */
+    /**  Defines an element's number or position in the current set of listitems or treeitems. */
     @Prop() ariaPosinset?: string;
-    /**
-     * Defines the number of items in the current set of listitems or treeitems.
-     */
+    /** Defines the number of items in the current set of listitems or treeitems. */
     @Prop() ariaSetsize?: number;
-    /**
-     * Fefines a string value that labels the current element.
-     */
+    /** Fefines a string value that labels the current element. */
     @Prop() ariaLabel?: string;
 
     render() {

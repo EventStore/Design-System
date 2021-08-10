@@ -14,25 +14,15 @@ import { ButtonVariant, ButtonColor } from '../types';
 export class Button {
     @Element() host!: HTMLElement;
 
-    /**
-     * Which styling variant to use
-     */
+    /** Which styling variant to use. */
     @Prop({ reflect: true }) variant: ButtonVariant = 'filled';
-    /**
-     * Which color pair the button should use
-     */
+    /** Which color pair the button should use. */
     @Prop({ reflect: true }) color: ButtonColor = 'primary';
-    /**
-     * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
-     */
+    /** If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused. */
     @Prop({ reflect: true }) disabled?: boolean;
-    /**
-     * The default behavior of the button.
-     */
+    /** The default behavior of the button. */
     @Prop() type: string = 'button';
-    /**
-     * The form element to associate the button with (its form owner).
-     */
+    /** The form element to associate the button with (it's form owner). */
     @Prop() form?: string;
 
     private tabindex?: string;

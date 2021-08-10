@@ -26,7 +26,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "An array of sections to display"
+								"shortText": "An array of sections to display."
 							},
 							"sources": [
 								{
@@ -39,7 +39,7 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 407,
+									"id": 432,
 									"name": "AccordianSection"
 								}
 							}
@@ -51,7 +51,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Display numbered counters beside each title"
+								"shortText": "Display numbered counters beside each title."
 							},
 							"sources": [
 								{
@@ -373,7 +373,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Which color pair the button should use"
+								"shortText": "Which color pair the button should use."
 							},
 							"sources": [
 								{
@@ -419,7 +419,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The form element to associate the button with (its form owner)."
+								"shortText": "The form element to associate the button with (it's form owner)."
 							},
 							"sources": [
 								{
@@ -461,7 +461,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Which styling variant to use"
+								"shortText": "Which styling variant to use."
 							},
 							"sources": [
 								{
@@ -718,7 +718,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Which color pair the button should use"
+								"shortText": "Which color pair the button should use."
 							},
 							"sources": [
 								{
@@ -985,7 +985,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 158,
+									"line": 161,
 									"character": 8
 								}
 							],
@@ -996,6 +996,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Manually triggers the copy of the inner text."
+									},
 									"type": {
 										"type": "reference",
 										"typeArguments": [
@@ -1040,10 +1043,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The number to display"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 161,
+									"line": 167,
 									"character": 8
 								}
 							],
@@ -1058,10 +1064,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The height of the counter that the rest of the dimensions scale from"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 162,
+									"line": 171,
 									"character": 8
 								}
 							],
@@ -1076,10 +1085,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The display style of the counter."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 163,
+									"line": 175,
 									"character": 8
 								}
 							],
@@ -1103,7 +1115,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 160,
+							"line": 163,
 							"character": 14
 						}
 					]
@@ -1121,10 +1133,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Rotate the icon to a speciied angle."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 166,
+									"line": 181,
 									"character": 8
 								}
 							],
@@ -1139,10 +1154,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Which icon to display."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 167,
+									"line": 185,
 									"character": 8
 								}
 							],
@@ -1157,10 +1175,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The hight and width to scale the icon to."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 168,
+									"line": 189,
 									"character": 8
 								}
 							],
@@ -1177,10 +1198,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Apply a spin animation."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 169,
+									"line": 193,
 									"character": 8
 								}
 							],
@@ -1195,10 +1219,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "When spinning, should it spin clockwise or anticlockwise."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 170,
+									"line": 197,
 									"character": 8
 								}
 							],
@@ -1225,7 +1252,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 171,
+									"line": 201,
 									"character": 8
 								}
 							],
@@ -1236,6 +1263,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Provides a promise that resolves at the end of a single spin, if the icon is spinning."
+									},
 									"type": {
 										"type": "reference",
 										"typeArguments": [
@@ -1273,7 +1303,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 165,
+							"line": 177,
 							"character": 14
 						}
 					]
@@ -1291,10 +1321,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "If the modal should have a footer."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 174,
+									"line": 207,
 									"character": 8
 								}
 							],
@@ -1309,10 +1342,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "If the modal should have a header."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 175,
+									"line": 211,
 									"character": 8
 								}
 							],
@@ -1335,7 +1371,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 173,
+							"line": 203,
 							"character": 14
 						}
 					]
@@ -1355,10 +1391,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Pass an element to attach the popover to. (Defaults to the parent element.)"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 178,
+									"line": 217,
 									"character": 8
 								}
 							],
@@ -1373,10 +1412,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The Y axis attachment location."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 179,
+									"line": 221,
 									"character": 8
 								}
 							],
@@ -1391,10 +1433,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The Y axis attachment location."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 180,
+									"line": 225,
 									"character": 8
 								}
 							],
@@ -1409,10 +1454,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "If the popover should overlay a backdrop, to prevent external clicks."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 181,
+									"line": 229,
 									"character": 8
 								}
 							],
@@ -1427,10 +1475,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Constrain the size of the popover to the size of the attachment node."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 182,
+									"line": 233,
 									"character": 8
 								}
 							],
@@ -1445,10 +1496,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The offset the X axis in pixels."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 183,
+									"line": 237,
 									"character": 8
 								}
 							],
@@ -1463,10 +1517,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The offset the Y axis in pixels."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 184,
+									"line": 241,
 									"character": 8
 								}
 							],
@@ -1481,10 +1538,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Toggles if the popover is open or not."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 185,
+									"line": 245,
 									"character": 8
 								}
 							],
@@ -1501,10 +1561,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Class name for the popper"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 186,
+									"line": 249,
 									"character": 8
 								}
 							],
@@ -1519,10 +1582,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The X axis positioning location."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 187,
+									"line": 253,
 									"character": 8
 								}
 							],
@@ -1537,10 +1603,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The Y axis positioning location."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 188,
+									"line": 257,
 									"character": 8
 								}
 							],
@@ -1555,10 +1624,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A query selecter to select the element to portal the popper to."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 189,
+									"line": 261,
 									"character": 8
 								}
 							],
@@ -1573,10 +1645,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "If the popover should trap focus within, and return focus on close."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 190,
+									"line": 265,
 									"character": 8
 								}
 							],
@@ -1610,7 +1685,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 177,
+							"line": 213,
 							"character": 14
 						}
 					]
@@ -1631,7 +1706,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 193,
+									"line": 268,
 									"character": 8
 								}
 							],
@@ -1649,7 +1724,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 194,
+									"line": 269,
 									"character": 8
 								}
 							],
@@ -1672,7 +1747,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 192,
+							"line": 267,
 							"character": 14
 						}
 					]
@@ -1693,7 +1768,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 197,
+									"line": 272,
 									"character": 8
 								}
 							],
@@ -1743,7 +1818,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 196,
+							"line": 271,
 							"character": 14
 						}
 					]
@@ -1761,10 +1836,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "If the portal should overlay a backdrop, to prevent external clicks."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 201,
+									"line": 279,
 									"character": 8
 								}
 							],
@@ -1779,10 +1857,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The element to render."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 203,
+									"line": 284,
 									"character": 8
 								}
 							],
@@ -1797,10 +1878,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "If the element is portaled or not."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 204,
+									"line": 288,
 									"character": 8
 								}
 							],
@@ -1815,10 +1899,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A query selector to select the location to portal to."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 205,
+									"line": 292,
 									"character": 8
 								}
 							],
@@ -1836,7 +1923,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 200,
+									"line": 275,
 									"character": 8
 								}
 							],
@@ -1869,7 +1956,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 202,
+									"line": 280,
 									"character": 8
 								}
 							],
@@ -1917,7 +2004,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 199,
+							"line": 274,
 							"character": 14
 						}
 					]
@@ -1935,10 +2022,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A list of checkpoints to display."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 208,
+									"line": 298,
 									"character": 8
 								}
 							],
@@ -1956,10 +2046,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The current active location."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 209,
+									"line": 302,
 									"character": 8
 								}
 							],
@@ -1982,7 +2075,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 207,
+							"line": 294,
 							"character": 14
 						}
 					]
@@ -1996,7 +2089,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 211,
+							"line": 304,
 							"character": 14
 						}
 					]
@@ -2017,7 +2110,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 214,
+									"line": 307,
 									"character": 8
 								}
 							],
@@ -2039,7 +2132,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 213,
+							"line": 306,
 							"character": 14
 						}
 					]
@@ -2060,13 +2153,13 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 217,
+									"line": 310,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 413,
+								"id": 438,
 								"typeArguments": [
 									{
 										"type": "intrinsic",
@@ -2087,7 +2180,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 218,
+									"line": 311,
 									"character": 8
 								}
 							],
@@ -2108,7 +2201,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 220,
+									"line": 313,
 									"character": 8
 								}
 							],
@@ -2126,7 +2219,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 221,
+									"line": 314,
 									"character": 8
 								}
 							],
@@ -2146,7 +2239,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 227,
+									"line": 320,
 									"character": 8
 								}
 							],
@@ -2164,7 +2257,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 228,
+									"line": 321,
 									"character": 8
 								}
 							],
@@ -2185,7 +2278,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 219,
+									"line": 312,
 									"character": 8
 								}
 							],
@@ -2240,7 +2333,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 222,
+									"line": 315,
 									"character": 8
 								}
 							],
@@ -2280,7 +2373,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 223,
+									"line": 316,
 									"character": 8
 								}
 							],
@@ -2329,7 +2422,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 224,
+									"line": 317,
 									"character": 8
 								}
 							],
@@ -2411,7 +2504,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 216,
+							"line": 309,
 							"character": 14
 						}
 					]
@@ -2432,13 +2525,13 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 231,
+									"line": 324,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 413,
+								"id": 438,
 								"typeArguments": [
 									{
 										"type": "intrinsic",
@@ -2459,7 +2552,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 232,
+									"line": 325,
 									"character": 8
 								}
 							],
@@ -2480,7 +2573,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 233,
+									"line": 326,
 									"character": 8
 								}
 							],
@@ -2498,7 +2591,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 234,
+									"line": 327,
 									"character": 8
 								}
 							],
@@ -2523,7 +2616,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 230,
+							"line": 323,
 							"character": 14
 						}
 					]
@@ -2544,7 +2637,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 237,
+									"line": 330,
 									"character": 8
 								}
 							],
@@ -2562,13 +2655,13 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 238,
+									"line": 331,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 413,
+								"id": 438,
 								"typeArguments": [
 									{
 										"type": "intrinsic",
@@ -2587,7 +2680,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 239,
+									"line": 332,
 									"character": 8
 								}
 							],
@@ -2605,7 +2698,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 240,
+									"line": 333,
 									"character": 8
 								}
 							],
@@ -2623,7 +2716,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 241,
+									"line": 334,
 									"character": 8
 								}
 							],
@@ -2649,7 +2742,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 236,
+							"line": 329,
 							"character": 14
 						}
 					]
@@ -2672,7 +2765,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 244,
+									"line": 337,
 									"character": 8
 								}
 							],
@@ -2693,13 +2786,13 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 246,
+									"line": 339,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 413,
+								"id": 438,
 								"typeArguments": [
 									{
 										"type": "intrinsic",
@@ -2720,7 +2813,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 247,
+									"line": 340,
 									"character": 8
 								}
 							],
@@ -2743,7 +2836,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 253,
+									"line": 346,
 									"character": 8
 								}
 							],
@@ -2764,7 +2857,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 254,
+									"line": 347,
 									"character": 8
 								}
 							],
@@ -2784,7 +2877,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 255,
+									"line": 348,
 									"character": 8
 								}
 							],
@@ -2802,7 +2895,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 256,
+									"line": 349,
 									"character": 8
 								}
 							],
@@ -2822,7 +2915,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 260,
+									"line": 353,
 									"character": 8
 								}
 							],
@@ -2840,7 +2933,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 261,
+									"line": 354,
 									"character": 8
 								}
 							],
@@ -2861,7 +2954,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 245,
+									"line": 338,
 									"character": 8
 								}
 							],
@@ -2914,7 +3007,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 248,
+									"line": 341,
 									"character": 8
 								}
 							],
@@ -2969,7 +3062,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 249,
+									"line": 342,
 									"character": 8
 								}
 							],
@@ -3024,7 +3117,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 250,
+									"line": 343,
 									"character": 8
 								}
 							],
@@ -3078,7 +3171,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 251,
+									"line": 344,
 									"character": 8
 								}
 							],
@@ -3120,7 +3213,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 252,
+									"line": 345,
 									"character": 8
 								}
 							],
@@ -3177,7 +3270,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 257,
+									"line": 350,
 									"character": 8
 								}
 							],
@@ -3265,7 +3358,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 243,
+							"line": 336,
 							"character": 14
 						}
 					]
@@ -3288,7 +3381,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 264,
+									"line": 357,
 									"character": 8
 								}
 							],
@@ -3306,7 +3399,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 265,
+									"line": 358,
 									"character": 8
 								}
 							],
@@ -3333,7 +3426,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 266,
+									"line": 359,
 									"character": 8
 								}
 							],
@@ -3341,7 +3434,7 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 431,
+									"id": 456,
 									"name": "Tab"
 								}
 							}
@@ -3361,46 +3454,48 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 263,
+							"line": 356,
 							"character": 14
 						}
 					]
 				},
 				{
 					"id": 168,
-					"name": "EsToast",
+					"name": "EsThinkingButton",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 171,
-							"name": "count",
+							"id": 172,
+							"name": "color",
 							"kind": 1024,
 							"kindString": "Property",
-							"flags": {},
+							"flags": {
+								"isOptional": true
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 270,
+									"line": 363,
 									"character": 8
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "number"
+								"type": "reference",
+								"name": "ButtonColor"
 							}
 						},
 						{
-							"id": 172,
-							"name": "icon",
+							"id": 173,
+							"name": "completeIcon",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 271,
+									"line": 364,
 									"character": 8
 								}
 							],
@@ -3410,7 +3505,240 @@
 							}
 						},
 						{
-							"id": 173,
+							"id": 174,
+							"name": "defaultIcon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 365,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 175,
+							"name": "disabled",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 366,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 176,
+							"name": "failedIcon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 367,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 177,
+							"name": "text",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 368,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 178,
+							"name": "thinkingIcon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 369,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 179,
+							"name": "variant",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 370,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "ButtonVariant"
+							}
+						},
+						{
+							"id": 169,
+							"name": "action",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 362,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 170,
+									"name": "action",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 171,
+											"name": "e",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "MouseEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "unknown"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								172,
+								173,
+								174,
+								175,
+								176,
+								177,
+								178,
+								179
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								169
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 361,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 180,
+					"name": "EsToast",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 183,
+							"name": "count",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 374,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 184,
+							"name": "icon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 375,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 185,
 							"name": "level",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3418,7 +3746,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 272,
+									"line": 376,
 									"character": 8
 								}
 							],
@@ -3428,7 +3756,7 @@
 							}
 						},
 						{
-							"id": 169,
+							"id": 181,
 							"name": "close",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3436,13 +3764,13 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 269,
+									"line": 373,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 170,
+									"id": 182,
 									"name": "close",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -3466,36 +3794,36 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								171,
-								172,
-								173
+								183,
+								184,
+								185
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								169
+								181
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 268,
+							"line": 372,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 174,
+					"id": 186,
 					"name": "EsToaster",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 175,
+							"id": 187,
 							"name": "popToast",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3503,20 +3831,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 275,
+									"line": 379,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 176,
+									"id": 188,
 									"name": "popToast",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 177,
+											"id": 189,
 											"name": "__namedParameters",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3546,27 +3874,27 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								175
+								187
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 274,
+							"line": 378,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 178,
+					"id": 190,
 					"name": "EsWizard",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 179,
+							"id": 191,
 							"name": "location",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3574,7 +3902,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 278,
+									"line": 382,
 									"character": 8
 								}
 							],
@@ -3584,7 +3912,7 @@
 							}
 						},
 						{
-							"id": 180,
+							"id": 192,
 							"name": "pages",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3592,7 +3920,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 279,
+									"line": 383,
 									"character": 8
 								}
 							],
@@ -3600,13 +3928,13 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 427,
+									"id": 452,
 									"name": "WizardPage"
 								}
 							}
 						},
 						{
-							"id": 181,
+							"id": 193,
 							"name": "scrollOffset",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3614,7 +3942,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 280,
+									"line": 384,
 									"character": 8
 								}
 							],
@@ -3629,16 +3957,16 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								179,
-								180,
-								181
+								191,
+								192,
+								193
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 277,
+							"line": 381,
 							"character": 14
 						}
 					]
@@ -3672,8 +4000,9 @@
 						129,
 						164,
 						168,
-						174,
-						178
+						180,
+						186,
+						190
 					]
 				}
 			],
@@ -3686,32 +4015,32 @@
 			]
 		},
 		{
-			"id": 182,
+			"id": 194,
 			"name": "JSX",
 			"kind": 2,
 			"kindString": "Namespace",
 			"flags": {},
 			"children": [
 				{
-					"id": 183,
+					"id": 195,
 					"name": "EsAccordian",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 184,
+							"id": 196,
 							"name": "sections",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "An array of sections to display"
+								"shortText": "An array of sections to display."
 							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 467,
+									"line": 578,
 									"character": 8
 								}
 							],
@@ -3719,13 +4048,13 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 407,
+									"id": 432,
 									"name": "AccordianSection"
 								}
 							}
 						},
 						{
-							"id": 185,
+							"id": 197,
 							"name": "steps",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3733,12 +4062,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Display numbered counters beside each title"
+								"shortText": "Display numbered counters beside each title."
 							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 471,
+									"line": 582,
 									"character": 8
 								}
 							],
@@ -3753,28 +4082,28 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								184,
-								185
+								196,
+								197
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 463,
+							"line": 574,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 186,
+					"id": 198,
 					"name": "EsBackdrop",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 193,
+							"id": 205,
 							"name": "showBackdrop",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3784,7 +4113,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 476,
+									"line": 587,
 									"character": 8
 								}
 							],
@@ -3794,7 +4123,7 @@
 							}
 						},
 						{
-							"id": 187,
+							"id": 199,
 							"name": "onClosed",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3804,20 +4133,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 474,
+									"line": 585,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 188,
+									"id": 200,
 									"name": "onClosed",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 189,
+											"id": 201,
 											"name": "event",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3842,7 +4171,7 @@
 							]
 						},
 						{
-							"id": 190,
+							"id": 202,
 							"name": "onRequestClose",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3852,20 +4181,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 475,
+									"line": 586,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 191,
+									"id": 203,
 									"name": "onRequestClose",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 192,
+											"id": 204,
 											"name": "event",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3895,35 +4224,35 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								193
+								205
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								187,
-								190
+								199,
+								202
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 473,
+							"line": 584,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 194,
+					"id": 206,
 					"name": "EsBadge",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 195,
+							"id": 207,
 							"name": "color",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3936,7 +4265,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 482,
+									"line": 593,
 									"character": 8
 								}
 							],
@@ -3946,7 +4275,7 @@
 							}
 						},
 						{
-							"id": 196,
+							"id": 208,
 							"name": "count",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3957,7 +4286,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 486,
+									"line": 597,
 									"character": 8
 								}
 							],
@@ -3967,7 +4296,7 @@
 							}
 						},
 						{
-							"id": 197,
+							"id": 209,
 							"name": "showZero",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3980,7 +4309,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 490,
+									"line": 601,
 									"character": 8
 								}
 							],
@@ -3990,7 +4319,7 @@
 							}
 						},
 						{
-							"id": 198,
+							"id": 210,
 							"name": "size",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4003,7 +4332,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 494,
+									"line": 605,
 									"character": 8
 								}
 							],
@@ -4013,7 +4342,7 @@
 							}
 						},
 						{
-							"id": 199,
+							"id": 211,
 							"name": "variant",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4026,7 +4355,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 498,
+									"line": 609,
 									"character": 8
 								}
 							],
@@ -4041,31 +4370,31 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								195,
-								196,
-								197,
-								198,
-								199
+								207,
+								208,
+								209,
+								210,
+								211
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 478,
+							"line": 589,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 200,
+					"id": 212,
 					"name": "EsButton",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 201,
+							"id": 213,
 							"name": "color",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4073,12 +4402,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Which color pair the button should use"
+								"shortText": "Which color pair the button should use."
 							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 504,
+									"line": 615,
 									"character": 8
 								}
 							],
@@ -4088,7 +4417,7 @@
 							}
 						},
 						{
-							"id": 202,
+							"id": 214,
 							"name": "disabled",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4101,7 +4430,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 508,
+									"line": 619,
 									"character": 8
 								}
 							],
@@ -4111,7 +4440,7 @@
 							}
 						},
 						{
-							"id": 203,
+							"id": 215,
 							"name": "form",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4119,12 +4448,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The form element to associate the button with (its form owner)."
+								"shortText": "The form element to associate the button with (it's form owner)."
 							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 512,
+									"line": 623,
 									"character": 8
 								}
 							],
@@ -4134,7 +4463,7 @@
 							}
 						},
 						{
-							"id": 204,
+							"id": 216,
 							"name": "type",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4147,7 +4476,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 516,
+									"line": 627,
 									"character": 8
 								}
 							],
@@ -4157,7 +4486,7 @@
 							}
 						},
 						{
-							"id": 205,
+							"id": 217,
 							"name": "variant",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4165,12 +4494,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Which styling variant to use"
+								"shortText": "Which styling variant to use."
 							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 520,
+									"line": 631,
 									"character": 8
 								}
 							],
@@ -4185,31 +4514,31 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								201,
-								202,
-								203,
-								204,
-								205
+								213,
+								214,
+								215,
+								216,
+								217
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 500,
+							"line": 611,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 206,
+					"id": 218,
 					"name": "EsButtonLink",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 207,
+							"id": 219,
 							"name": "anchorClass",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4222,7 +4551,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 526,
+									"line": 637,
 									"character": 8
 								}
 							],
@@ -4232,7 +4561,7 @@
 							}
 						},
 						{
-							"id": 208,
+							"id": 220,
 							"name": "anchorId",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4245,7 +4574,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 530,
+									"line": 641,
 									"character": 8
 								}
 							],
@@ -4255,7 +4584,7 @@
 							}
 						},
 						{
-							"id": 209,
+							"id": 221,
 							"name": "anchorRole",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4268,7 +4597,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 534,
+									"line": 645,
 									"character": 8
 								}
 							],
@@ -4278,7 +4607,7 @@
 							}
 						},
 						{
-							"id": 210,
+							"id": 222,
 							"name": "anchorTabIndex",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4291,7 +4620,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 538,
+									"line": 649,
 									"character": 8
 								}
 							],
@@ -4301,7 +4630,7 @@
 							}
 						},
 						{
-							"id": 211,
+							"id": 223,
 							"name": "anchorTitle",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4314,7 +4643,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 542,
+									"line": 653,
 									"character": 8
 								}
 							],
@@ -4324,7 +4653,7 @@
 							}
 						},
 						{
-							"id": 212,
+							"id": 224,
 							"name": "ariaHaspopup",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4337,7 +4666,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 546,
+									"line": 657,
 									"character": 8
 								}
 							],
@@ -4347,7 +4676,7 @@
 							}
 						},
 						{
-							"id": 213,
+							"id": 225,
 							"name": "ariaLabel",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4360,7 +4689,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 550,
+									"line": 661,
 									"character": 8
 								}
 							],
@@ -4370,7 +4699,7 @@
 							}
 						},
 						{
-							"id": 214,
+							"id": 226,
 							"name": "ariaPosinset",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4383,7 +4712,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 554,
+									"line": 665,
 									"character": 8
 								}
 							],
@@ -4393,7 +4722,7 @@
 							}
 						},
 						{
-							"id": 215,
+							"id": 227,
 							"name": "ariaSetsize",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4406,7 +4735,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 558,
+									"line": 669,
 									"character": 8
 								}
 							],
@@ -4416,7 +4745,7 @@
 							}
 						},
 						{
-							"id": 216,
+							"id": 228,
 							"name": "color",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4424,12 +4753,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Which color pair the button should use"
+								"shortText": "Which color pair the button should use."
 							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 562,
+									"line": 673,
 									"character": 8
 								}
 							],
@@ -4439,7 +4768,7 @@
 							}
 						},
 						{
-							"id": 217,
+							"id": 229,
 							"name": "disabled",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4452,7 +4781,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 566,
+									"line": 677,
 									"character": 8
 								}
 							],
@@ -4462,7 +4791,7 @@
 							}
 						},
 						{
-							"id": 218,
+							"id": 230,
 							"name": "forceRefresh",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4475,7 +4804,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 570,
+									"line": 681,
 									"character": 8
 								}
 							],
@@ -4485,7 +4814,7 @@
 							}
 						},
 						{
-							"id": 219,
+							"id": 231,
 							"name": "target",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4498,7 +4827,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 574,
+									"line": 685,
 									"character": 8
 								}
 							],
@@ -4508,7 +4837,7 @@
 							}
 						},
 						{
-							"id": 220,
+							"id": 232,
 							"name": "url",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4521,7 +4850,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 578,
+									"line": 689,
 									"character": 8
 								}
 							],
@@ -4531,7 +4860,7 @@
 							}
 						},
 						{
-							"id": 221,
+							"id": 233,
 							"name": "variant",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4544,7 +4873,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 582,
+									"line": 693,
 									"character": 8
 								}
 							],
@@ -4559,41 +4888,41 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								207,
-								208,
-								209,
-								210,
-								211,
-								212,
-								213,
-								214,
-								215,
-								216,
-								217,
-								218,
 								219,
 								220,
-								221
+								221,
+								222,
+								223,
+								224,
+								225,
+								226,
+								227,
+								228,
+								229,
+								230,
+								231,
+								232,
+								233
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 522,
+							"line": 633,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 222,
+					"id": 234,
 					"name": "EsCallout",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 223,
+							"id": 235,
 							"name": "heading",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4604,7 +4933,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 588,
+									"line": 699,
 									"character": 8
 								}
 							],
@@ -4614,7 +4943,7 @@
 							}
 						},
 						{
-							"id": 224,
+							"id": 236,
 							"name": "icon",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4627,7 +4956,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 592,
+									"line": 703,
 									"character": 8
 								}
 							],
@@ -4637,7 +4966,7 @@
 							}
 						},
 						{
-							"id": 225,
+							"id": 237,
 							"name": "variant",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4650,7 +4979,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 596,
+									"line": 707,
 									"character": 8
 								}
 							],
@@ -4665,22 +4994,22 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								223,
-								224,
-								225
+								235,
+								236,
+								237
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 584,
+							"line": 695,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 226,
+					"id": 238,
 					"name": "EsCopy",
 					"kind": 256,
 					"kindString": "Interface",
@@ -4688,30 +5017,33 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 598,
+							"line": 709,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 227,
+					"id": 239,
 					"name": "EsCounter",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 228,
+							"id": 240,
 							"name": "count",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The number to display"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 601,
+									"line": 715,
 									"character": 8
 								}
 							],
@@ -4721,17 +5053,20 @@
 							}
 						},
 						{
-							"id": 229,
+							"id": 241,
 							"name": "size",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The height of the counter that the rest of the dimensions scale from"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 602,
+									"line": 719,
 									"character": 8
 								}
 							],
@@ -4741,17 +5076,20 @@
 							}
 						},
 						{
-							"id": 230,
+							"id": 242,
 							"name": "variant",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The display style of the counter."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 603,
+									"line": 723,
 									"character": 8
 								}
 							],
@@ -4766,39 +5104,42 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								228,
-								229,
-								230
+								240,
+								241,
+								242
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 600,
+							"line": 711,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 231,
+					"id": 243,
 					"name": "EsIcon",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 232,
+							"id": 244,
 							"name": "angle",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Rotate the icon to a speciied angle."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 606,
+									"line": 729,
 									"character": 8
 								}
 							],
@@ -4808,15 +5149,18 @@
 							}
 						},
 						{
-							"id": 233,
+							"id": 245,
 							"name": "icon",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Which icon to display."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 607,
+									"line": 733,
 									"character": 8
 								}
 							],
@@ -4826,17 +5170,20 @@
 							}
 						},
 						{
-							"id": 234,
+							"id": 246,
 							"name": "size",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The hight and width to scale the icon to."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 608,
+									"line": 737,
 									"character": 8
 								}
 							],
@@ -4846,17 +5193,20 @@
 							}
 						},
 						{
-							"id": 235,
+							"id": 247,
 							"name": "spin",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Apply a spin animation."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 609,
+									"line": 741,
 									"character": 8
 								}
 							],
@@ -4866,17 +5216,20 @@
 							}
 						},
 						{
-							"id": 236,
+							"id": 248,
 							"name": "spinDirection",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "When spinning, should it spin clockwise or anticlockwise."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 610,
+									"line": 745,
 									"character": 8
 								}
 							],
@@ -4900,402 +5253,44 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								232,
-								233,
-								234,
-								235,
-								236
+								244,
+								245,
+								246,
+								247,
+								248
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 605,
+							"line": 725,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 237,
+					"id": 249,
 					"name": "EsModal",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 238,
+							"id": 250,
 							"name": "footer",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
 								"isOptional": true
 							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 613,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "boolean"
-							}
-						},
-						{
-							"id": 239,
-							"name": "header",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
+							"comment": {
+								"shortText": "If the modal should have a footer."
 							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 614,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "boolean"
-							}
-						},
-						{
-							"id": 240,
-							"name": "onRequestClose",
-							"kind": 2048,
-							"kindString": "Method",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 615,
-									"character": 8
-								}
-							],
-							"signatures": [
-								{
-									"id": 241,
-									"name": "onRequestClose",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {},
-									"parameters": [
-										{
-											"id": 242,
-											"name": "event",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "reference",
-												"typeArguments": [
-													{
-														"type": "intrinsic",
-														"name": "any"
-													}
-												],
-												"name": "CustomEvent"
-											}
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "void"
-									}
-								}
-							]
-						}
-					],
-					"groups": [
-						{
-							"title": "Properties",
-							"kind": 1024,
-							"children": [
-								238,
-								239
-							]
-						},
-						{
-							"title": "Methods",
-							"kind": 2048,
-							"children": [
-								240
-							]
-						}
-					],
-					"sources": [
-						{
-							"fileName": "components.d.ts",
-							"line": 612,
-							"character": 14
-						}
-					]
-				},
-				{
-					"id": 243,
-					"name": "EsPopover",
-					"kind": 256,
-					"kindString": "Interface",
-					"flags": {},
-					"children": [
-						{
-							"id": 244,
-							"name": "attachTo",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 618,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "HTMLElement"
-							}
-						},
-						{
-							"id": 245,
-							"name": "attachmentX",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 619,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "AttachmentX"
-							}
-						},
-						{
-							"id": 246,
-							"name": "attachmentY",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 620,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "AttachmentY"
-							}
-						},
-						{
-							"id": 247,
-							"name": "backdrop",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 621,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "boolean"
-							}
-						},
-						{
-							"id": 248,
-							"name": "constrain",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 622,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "Constrain"
-							}
-						},
-						{
-							"id": 249,
-							"name": "offsetX",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 623,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "number"
-							}
-						},
-						{
-							"id": 250,
-							"name": "offsetY",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 624,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "number"
-							}
-						},
-						{
-							"id": 254,
-							"name": "open",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 626,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "boolean"
-							}
-						},
-						{
-							"id": 255,
-							"name": "popperClass",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 627,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "string"
-							}
-						},
-						{
-							"id": 256,
-							"name": "positionX",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 628,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "PositionX"
-							}
-						},
-						{
-							"id": 257,
-							"name": "positionY",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 629,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "PositionY"
-							}
-						},
-						{
-							"id": 258,
-							"name": "target",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 630,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "string"
-							}
-						},
-						{
-							"id": 259,
-							"name": "trapFocus",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 631,
+									"line": 751,
 									"character": 8
 								}
 							],
@@ -5306,6 +5301,29 @@
 						},
 						{
 							"id": 251,
+							"name": "header",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "If the modal should have a header."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 755,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 252,
 							"name": "onRequestClose",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5315,20 +5333,406 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 625,
+									"line": 759,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 252,
+									"id": 253,
 									"name": "onRequestClose",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Triggers when the modal requests to be closed."
+									},
 									"parameters": [
 										{
-											"id": 253,
+											"id": 254,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "void"
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								250,
+								251
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								252
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 747,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 255,
+					"name": "EsPopover",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 256,
+							"name": "attachTo",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Pass an element to attach the popover to. (Defaults to the parent element.)"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 765,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "HTMLElement"
+							}
+						},
+						{
+							"id": 257,
+							"name": "attachmentX",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "The Y axis attachment location."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 769,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "AttachmentX"
+							}
+						},
+						{
+							"id": 258,
+							"name": "attachmentY",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "The Y axis attachment location."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 773,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "AttachmentY"
+							}
+						},
+						{
+							"id": 259,
+							"name": "backdrop",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "If the popover should overlay a backdrop, to prevent external clicks."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 777,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 260,
+							"name": "constrain",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Constrain the size of the popover to the size of the attachment node."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 781,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Constrain"
+							}
+						},
+						{
+							"id": 261,
+							"name": "offsetX",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "The offset the X axis in pixels."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 785,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 262,
+							"name": "offsetY",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "The offset the Y axis in pixels."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 789,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 266,
+							"name": "open",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Toggles if the popover is open or not."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 797,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 267,
+							"name": "popperClass",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Class name for the popper"
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 801,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 268,
+							"name": "positionX",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "The X axis positioning location."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 805,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "PositionX"
+							}
+						},
+						{
+							"id": 269,
+							"name": "positionY",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "The Y axis positioning location."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 809,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "PositionY"
+							}
+						},
+						{
+							"id": 270,
+							"name": "target",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "A query selecter to select the element to portal the popper to."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 813,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 271,
+							"name": "trapFocus",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "If the popover should trap focus within, and return focus on close."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 817,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 263,
+							"name": "onRequestClose",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 793,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 264,
+									"name": "onRequestClose",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Triggers when the popover requests to close."
+									},
+									"parameters": [
+										{
+											"id": 265,
 											"name": "event",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5358,46 +5762,46 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								244,
-								245,
-								246,
-								247,
-								248,
-								249,
-								250,
-								254,
-								255,
 								256,
 								257,
 								258,
-								259
+								259,
+								260,
+								261,
+								262,
+								266,
+								267,
+								268,
+								269,
+								270,
+								271
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								251
+								263
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 617,
+							"line": 761,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 260,
+					"id": 272,
 					"name": "EsPopper",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 261,
+							"id": 273,
 							"name": "backdrop",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5407,7 +5811,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 634,
+									"line": 820,
 									"character": 8
 								}
 							],
@@ -5417,7 +5821,7 @@
 							}
 						},
 						{
-							"id": 265,
+							"id": 277,
 							"name": "trapFocus",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5427,160 +5831,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 636,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "boolean"
-							}
-						},
-						{
-							"id": 262,
-							"name": "onRequestClose",
-							"kind": 2048,
-							"kindString": "Method",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 635,
-									"character": 8
-								}
-							],
-							"signatures": [
-								{
-									"id": 263,
-									"name": "onRequestClose",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {},
-									"parameters": [
-										{
-											"id": 264,
-											"name": "event",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "reference",
-												"typeArguments": [
-													{
-														"type": "intrinsic",
-														"name": "any"
-													}
-												],
-												"name": "CustomEvent"
-											}
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "void"
-									}
-								}
-							]
-						}
-					],
-					"groups": [
-						{
-							"title": "Properties",
-							"kind": 1024,
-							"children": [
-								261,
-								265
-							]
-						},
-						{
-							"title": "Methods",
-							"kind": 2048,
-							"children": [
-								262
-							]
-						}
-					],
-					"sources": [
-						{
-							"fileName": "components.d.ts",
-							"line": 633,
-							"character": 14
-						}
-					]
-				},
-				{
-					"id": 266,
-					"name": "EsPopperInner",
-					"kind": 256,
-					"kindString": "Interface",
-					"flags": {},
-					"sources": [
-						{
-							"fileName": "components.d.ts",
-							"line": 638,
-							"character": 14
-						}
-					]
-				},
-				{
-					"id": 267,
-					"name": "EsPortal",
-					"kind": 256,
-					"kindString": "Interface",
-					"flags": {},
-					"children": [
-						{
-							"id": 268,
-							"name": "backdrop",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 641,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "boolean"
-							}
-						},
-						{
-							"id": 269,
-							"name": "element",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 642,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "VNode"
-							}
-						},
-						{
-							"id": 273,
-							"name": "open",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 644,
+									"line": 822,
 									"character": 8
 								}
 							],
@@ -5591,26 +5842,6 @@
 						},
 						{
 							"id": 274,
-							"name": "target",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"sources": [
-								{
-									"fileName": "components.d.ts",
-									"line": 645,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "string"
-							}
-						},
-						{
-							"id": 270,
 							"name": "onRequestClose",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5620,20 +5851,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 643,
+									"line": 821,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 271,
+									"id": 275,
 									"name": "onRequestClose",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 272,
+											"id": 276,
 											"name": "event",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5663,45 +5894,236 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								268,
-								269,
 								273,
-								274
+								277
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								270
+								274
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 640,
+							"line": 819,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 275,
+					"id": 278,
+					"name": "EsPopperInner",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 824,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 279,
+					"name": "EsPortal",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 280,
+							"name": "backdrop",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "If the portal should overlay a backdrop, to prevent external clicks."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 830,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 281,
+							"name": "element",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "The element to render."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 834,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "VNode"
+							}
+						},
+						{
+							"id": 285,
+							"name": "open",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "If the element is portaled or not."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 842,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 286,
+							"name": "target",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "A query selector to select the location to portal to."
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 846,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 282,
+							"name": "onRequestClose",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 838,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 283,
+									"name": "onRequestClose",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Triggers when the popover requests to close."
+									},
+									"parameters": [
+										{
+											"id": 284,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "CustomEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								280,
+								281,
+								285,
+								286
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								282
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 826,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 287,
 					"name": "EsProgression",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 276,
+							"id": 288,
 							"name": "checkpoints",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A list of checkpoints to display."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 648,
+									"line": 852,
 									"character": 8
 								}
 							],
@@ -5714,15 +6136,18 @@
 							}
 						},
 						{
-							"id": 277,
+							"id": 289,
 							"name": "location",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The current active location."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 649,
+									"line": 856,
 									"character": 8
 								}
 							],
@@ -5732,7 +6157,7 @@
 							}
 						},
 						{
-							"id": 278,
+							"id": 290,
 							"name": "onProgressionRequest",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5742,20 +6167,23 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 650,
+									"line": 860,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 279,
+									"id": 291,
 									"name": "onProgressionRequest",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Emitted when a checkpoint is clicked."
+									},
 									"parameters": [
 										{
-											"id": 280,
+											"id": 292,
 											"name": "event",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5765,7 +6193,7 @@
 												"typeArguments": [
 													{
 														"type": "intrinsic",
-														"name": "any"
+														"name": "string"
 													}
 												],
 												"name": "CustomEvent"
@@ -5785,35 +6213,35 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								276,
-								277
+								288,
+								289
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								278
+								290
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 647,
+							"line": 848,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 281,
+					"id": 293,
 					"name": "EsResizeObserver",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 282,
+							"id": 294,
 							"name": "onSizeChanged",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5823,20 +6251,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 653,
+									"line": 863,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 283,
+									"id": 295,
 									"name": "onSizeChanged",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 284,
+											"id": 296,
 											"name": "event",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5866,27 +6294,27 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								282
+								294
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 652,
+							"line": 862,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 285,
+					"id": 297,
 					"name": "EsStatus",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 286,
+							"id": 298,
 							"name": "status",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5894,7 +6322,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 656,
+									"line": 866,
 									"character": 8
 								}
 							],
@@ -5909,27 +6337,27 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								286
+								298
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 655,
+							"line": 865,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 287,
+					"id": 299,
 					"name": "EsTable",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 288,
+							"id": 300,
 							"name": "cells",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5937,13 +6365,13 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 659,
+									"line": 869,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 413,
+								"id": 438,
 								"typeArguments": [
 									{
 										"type": "intrinsic",
@@ -5954,7 +6382,7 @@
 							}
 						},
 						{
-							"id": 289,
+							"id": 301,
 							"name": "columns",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5964,7 +6392,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 660,
+									"line": 870,
 									"character": 8
 								}
 							],
@@ -5977,7 +6405,7 @@
 							}
 						},
 						{
-							"id": 294,
+							"id": 306,
 							"name": "headless",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5987,7 +6415,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 662,
+									"line": 872,
 									"character": 8
 								}
 							],
@@ -5997,7 +6425,7 @@
 							}
 						},
 						{
-							"id": 295,
+							"id": 307,
 							"name": "identifier",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6007,7 +6435,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 663,
+									"line": 873,
 									"character": 8
 								}
 							],
@@ -6017,7 +6445,7 @@
 							}
 						},
 						{
-							"id": 308,
+							"id": 320,
 							"name": "rowTakesFocus",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6027,7 +6455,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 670,
+									"line": 880,
 									"character": 8
 								}
 							],
@@ -6037,7 +6465,7 @@
 							}
 						},
 						{
-							"id": 309,
+							"id": 321,
 							"name": "rows",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6045,7 +6473,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 671,
+									"line": 881,
 									"character": 8
 								}
 							],
@@ -6058,7 +6486,7 @@
 							}
 						},
 						{
-							"id": 290,
+							"id": 302,
 							"name": "getCellData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6068,20 +6496,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 661,
+									"line": 871,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 291,
+									"id": 303,
 									"name": "getCellData",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"typeParameter": [
 										{
-											"id": 292,
+											"id": 304,
 											"name": "T",
 											"kind": 131072,
 											"kindString": "Type parameter",
@@ -6094,7 +6522,7 @@
 									],
 									"parameters": [
 										{
-											"id": 293,
+											"id": 305,
 											"name": "key",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6113,7 +6541,7 @@
 							]
 						},
 						{
-							"id": 296,
+							"id": 308,
 							"name": "linkRowTo",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6123,20 +6551,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 664,
+									"line": 874,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 297,
+									"id": 309,
 									"name": "linkRowTo",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 298,
+											"id": 310,
 											"name": "row",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6155,7 +6583,7 @@
 							]
 						},
 						{
-							"id": 299,
+							"id": 311,
 							"name": "onClickRow",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6165,20 +6593,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 665,
+									"line": 875,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 300,
+									"id": 312,
 									"name": "onClickRow",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 301,
+											"id": 313,
 											"name": "event",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6203,7 +6631,7 @@
 							]
 						},
 						{
-							"id": 302,
+							"id": 314,
 							"name": "renderExpansion",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6213,20 +6641,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 666,
+									"line": 876,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 303,
+									"id": 315,
 									"name": "renderExpansion",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 304,
+											"id": 316,
 											"name": "key",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6254,7 +6682,7 @@
 							]
 						},
 						{
-							"id": 305,
+							"id": 317,
 							"name": "rowClass",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6264,20 +6692,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 667,
+									"line": 877,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 306,
+									"id": 318,
 									"name": "rowClass",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 307,
+											"id": 319,
 											"name": "row",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6324,43 +6752,43 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								288,
-								289,
-								294,
-								295,
-								308,
-								309
+								300,
+								301,
+								306,
+								307,
+								320,
+								321
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								290,
-								296,
-								299,
 								302,
-								305
+								308,
+								311,
+								314,
+								317
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 658,
+							"line": 868,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 310,
+					"id": 322,
 					"name": "EsTableDetail",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 311,
+							"id": 323,
 							"name": "cells",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6368,13 +6796,13 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 674,
+									"line": 884,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 413,
+								"id": 438,
 								"typeArguments": [
 									{
 										"type": "intrinsic",
@@ -6385,7 +6813,7 @@
 							}
 						},
 						{
-							"id": 312,
+							"id": 324,
 							"name": "columns",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6395,7 +6823,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 675,
+									"line": 885,
 									"character": 8
 								}
 							],
@@ -6408,7 +6836,7 @@
 							}
 						},
 						{
-							"id": 313,
+							"id": 325,
 							"name": "data",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6416,7 +6844,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 676,
+									"line": 886,
 									"character": 8
 								}
 							],
@@ -6426,7 +6854,7 @@
 							}
 						},
 						{
-							"id": 314,
+							"id": 326,
 							"name": "identifier",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6436,7 +6864,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 677,
+									"line": 887,
 									"character": 8
 								}
 							],
@@ -6451,30 +6879,30 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								311,
-								312,
-								313,
-								314
+								323,
+								324,
+								325,
+								326
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 673,
+							"line": 883,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 315,
+					"id": 327,
 					"name": "EsTableDetailHeader",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 316,
+							"id": 328,
 							"name": "actionsCell",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6484,7 +6912,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 680,
+									"line": 890,
 									"character": 8
 								}
 							],
@@ -6494,7 +6922,7 @@
 							}
 						},
 						{
-							"id": 317,
+							"id": 329,
 							"name": "cells",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6502,13 +6930,13 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 681,
+									"line": 891,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 413,
+								"id": 438,
 								"typeArguments": [
 									{
 										"type": "intrinsic",
@@ -6519,7 +6947,7 @@
 							}
 						},
 						{
-							"id": 318,
+							"id": 330,
 							"name": "data",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6527,7 +6955,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 682,
+									"line": 892,
 									"character": 8
 								}
 							],
@@ -6537,7 +6965,7 @@
 							}
 						},
 						{
-							"id": 319,
+							"id": 331,
 							"name": "identifier",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6547,7 +6975,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 683,
+									"line": 893,
 									"character": 8
 								}
 							],
@@ -6557,7 +6985,7 @@
 							}
 						},
 						{
-							"id": 320,
+							"id": 332,
 							"name": "titleKey",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6565,7 +6993,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 684,
+									"line": 894,
 									"character": 8
 								}
 							],
@@ -6580,31 +7008,31 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								316,
-								317,
-								318,
-								319,
-								320
+								328,
+								329,
+								330,
+								331,
+								332
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 679,
+							"line": 889,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 321,
+					"id": 333,
 					"name": "EsTableNested",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 322,
+							"id": 334,
 							"name": "activePath",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6614,7 +7042,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 687,
+									"line": 897,
 									"character": 8
 								}
 							],
@@ -6627,7 +7055,7 @@
 							}
 						},
 						{
-							"id": 327,
+							"id": 339,
 							"name": "cells",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6635,13 +7063,13 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 689,
+									"line": 899,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 413,
+								"id": 438,
 								"typeArguments": [
 									{
 										"type": "intrinsic",
@@ -6652,7 +7080,7 @@
 							}
 						},
 						{
-							"id": 328,
+							"id": 340,
 							"name": "columns",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6662,7 +7090,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 690,
+									"line": 900,
 									"character": 8
 								}
 							],
@@ -6675,7 +7103,7 @@
 							}
 						},
 						{
-							"id": 347,
+							"id": 359,
 							"name": "nestedColumns",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6685,7 +7113,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 696,
+									"line": 906,
 									"character": 8
 								}
 							],
@@ -6698,7 +7126,7 @@
 							}
 						},
 						{
-							"id": 348,
+							"id": 360,
 							"name": "nestedIdentifier",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6708,7 +7136,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 697,
+									"line": 907,
 									"character": 8
 								}
 							],
@@ -6718,7 +7146,7 @@
 							}
 						},
 						{
-							"id": 349,
+							"id": 361,
 							"name": "nestedRowTakesFocus",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6728,7 +7156,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 698,
+									"line": 908,
 									"character": 8
 								}
 							],
@@ -6738,7 +7166,7 @@
 							}
 						},
 						{
-							"id": 359,
+							"id": 371,
 							"name": "outerIdentifier",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6748,7 +7176,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 701,
+									"line": 911,
 									"character": 8
 								}
 							],
@@ -6758,7 +7186,7 @@
 							}
 						},
 						{
-							"id": 363,
+							"id": 375,
 							"name": "rowTakesFocus",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6768,7 +7196,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 705,
+									"line": 915,
 									"character": 8
 								}
 							],
@@ -6778,7 +7206,7 @@
 							}
 						},
 						{
-							"id": 364,
+							"id": 376,
 							"name": "rows",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6786,7 +7214,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 706,
+									"line": 916,
 									"character": 8
 								}
 							],
@@ -6799,7 +7227,7 @@
 							}
 						},
 						{
-							"id": 323,
+							"id": 335,
 							"name": "canExpand",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6809,20 +7237,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 688,
+									"line": 898,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 324,
+									"id": 336,
 									"name": "canExpand",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 325,
+											"id": 337,
 											"name": "key",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6833,7 +7261,7 @@
 											}
 										},
 										{
-											"id": 326,
+											"id": 338,
 											"name": "data",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6852,7 +7280,7 @@
 							]
 						},
 						{
-							"id": 329,
+							"id": 341,
 							"name": "getCellData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6862,20 +7290,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 691,
+									"line": 901,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 330,
+									"id": 342,
 									"name": "getCellData",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"typeParameter": [
 										{
-											"id": 331,
+											"id": 343,
 											"name": "T",
 											"kind": 131072,
 											"kindString": "Type parameter",
@@ -6888,7 +7316,7 @@
 									],
 									"parameters": [
 										{
-											"id": 332,
+											"id": 344,
 											"name": "key",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6907,7 +7335,7 @@
 							]
 						},
 						{
-							"id": 333,
+							"id": 345,
 							"name": "getNestedCellData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6917,20 +7345,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 692,
+									"line": 902,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 334,
+									"id": 346,
 									"name": "getNestedCellData",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"typeParameter": [
 										{
-											"id": 335,
+											"id": 347,
 											"name": "T",
 											"kind": 131072,
 											"kindString": "Type parameter",
@@ -6943,7 +7371,7 @@
 									],
 									"parameters": [
 										{
-											"id": 336,
+											"id": 348,
 											"name": "key",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6962,7 +7390,7 @@
 							]
 						},
 						{
-							"id": 337,
+							"id": 349,
 							"name": "getNestedRows",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6972,20 +7400,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 693,
+									"line": 903,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 338,
+									"id": 350,
 									"name": "getNestedRows",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 339,
+											"id": 351,
 											"name": "key",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7016,7 +7444,7 @@
 							]
 						},
 						{
-							"id": 340,
+							"id": 352,
 							"name": "linkRowTo",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7026,20 +7454,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 694,
+									"line": 904,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 341,
+									"id": 353,
 									"name": "linkRowTo",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 342,
+											"id": 354,
 											"name": "row",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7058,7 +7486,7 @@
 							]
 						},
 						{
-							"id": 343,
+							"id": 355,
 							"name": "loadNested",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7068,20 +7496,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 695,
+									"line": 905,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 344,
+									"id": 356,
 									"name": "loadNested",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 345,
+											"id": 357,
 											"name": "key",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7092,7 +7520,7 @@
 											}
 										},
 										{
-											"id": 346,
+											"id": 358,
 											"name": "data",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7117,7 +7545,7 @@
 							]
 						},
 						{
-							"id": 350,
+							"id": 362,
 							"name": "onClickRow",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7127,20 +7555,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 699,
+									"line": 909,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 351,
+									"id": 363,
 									"name": "onClickRow",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 352,
+											"id": 364,
 											"name": "event",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7165,7 +7593,7 @@
 							]
 						},
 						{
-							"id": 353,
+							"id": 365,
 							"name": "onExpansion",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7175,20 +7603,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 700,
+									"line": 910,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 354,
+									"id": 366,
 									"name": "onExpansion",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 355,
+											"id": 367,
 											"name": "event",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7199,14 +7627,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 356,
+															"id": 368,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
 															"flags": {},
 															"children": [
 																{
-																	"id": 357,
+																	"id": 369,
 																	"name": "data",
 																	"kind": 1024,
 																	"kindString": "Property",
@@ -7214,7 +7642,7 @@
 																	"sources": [
 																		{
 																			"fileName": "components.d.ts",
-																			"line": 700,
+																			"line": 910,
 																			"character": 46
 																		}
 																	],
@@ -7224,7 +7652,7 @@
 																	}
 																},
 																{
-																	"id": 358,
+																	"id": 370,
 																	"name": "key",
 																	"kind": 1024,
 																	"kindString": "Property",
@@ -7232,7 +7660,7 @@
 																	"sources": [
 																		{
 																			"fileName": "components.d.ts",
-																			"line": 700,
+																			"line": 910,
 																			"character": 57
 																		}
 																	],
@@ -7247,8 +7675,8 @@
 																	"title": "Properties",
 																	"kind": 1024,
 																	"children": [
-																		357,
-																		358
+																		369,
+																		370
 																	]
 																}
 															]
@@ -7267,7 +7695,7 @@
 							]
 						},
 						{
-							"id": 360,
+							"id": 372,
 							"name": "rowClass",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7277,20 +7705,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 702,
+									"line": 912,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 361,
+									"id": 373,
 									"name": "rowClass",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 362,
+											"id": 374,
 											"name": "row",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7337,50 +7765,50 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								322,
-								327,
-								328,
-								347,
-								348,
-								349,
+								334,
+								339,
+								340,
 								359,
-								363,
-								364
+								360,
+								361,
+								371,
+								375,
+								376
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								323,
-								329,
-								333,
-								337,
-								340,
-								343,
-								350,
-								353,
-								360
+								335,
+								341,
+								345,
+								349,
+								352,
+								355,
+								362,
+								365,
+								372
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 686,
+							"line": 896,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 365,
+					"id": 377,
 					"name": "EsTabs",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 366,
+							"id": 378,
 							"name": "active",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7390,7 +7818,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 709,
+									"line": 919,
 									"character": 8
 								}
 							],
@@ -7400,7 +7828,7 @@
 							}
 						},
 						{
-							"id": 367,
+							"id": 379,
 							"name": "activeParam",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7410,7 +7838,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 710,
+									"line": 920,
 									"character": 8
 								}
 							],
@@ -7429,7 +7857,7 @@
 							}
 						},
 						{
-							"id": 371,
+							"id": 383,
 							"name": "tabs",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7437,7 +7865,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 712,
+									"line": 922,
 									"character": 8
 								}
 							],
@@ -7445,13 +7873,13 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 431,
+									"id": 456,
 									"name": "Tab"
 								}
 							}
 						},
 						{
-							"id": 368,
+							"id": 380,
 							"name": "onTabChange",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7461,20 +7889,20 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 711,
+									"line": 921,
 									"character": 8
 								}
 							],
 							"signatures": [
 								{
-									"id": 369,
+									"id": 381,
 									"name": "onTabChange",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 370,
+											"id": 382,
 											"name": "event",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7504,62 +7932,66 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								366,
-								367,
-								371
+								378,
+								379,
+								383
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								368
+								380
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 708,
+							"line": 918,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 372,
-					"name": "EsToast",
+					"id": 384,
+					"name": "EsThinkingButton",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 373,
-							"name": "count",
+							"id": 388,
+							"name": "color",
 							"kind": 1024,
 							"kindString": "Property",
-							"flags": {},
+							"flags": {
+								"isOptional": true
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 715,
+									"line": 926,
 									"character": 8
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "number"
+								"type": "reference",
+								"name": "ButtonColor"
 							}
 						},
 						{
-							"id": 374,
-							"name": "icon",
+							"id": 389,
+							"name": "completeIcon",
 							"kind": 1024,
 							"kindString": "Property",
-							"flags": {},
+							"flags": {
+								"isOptional": true
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 716,
+									"line": 927,
 									"character": 8
 								}
 							],
@@ -7569,7 +8001,246 @@
 							}
 						},
 						{
-							"id": 375,
+							"id": 390,
+							"name": "defaultIcon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 928,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 391,
+							"name": "disabled",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 929,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 392,
+							"name": "failedIcon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 930,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 393,
+							"name": "text",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 931,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 394,
+							"name": "thinkingIcon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 932,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 395,
+							"name": "variant",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 933,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "ButtonVariant"
+							}
+						},
+						{
+							"id": 385,
+							"name": "action",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 925,
+									"character": 8
+								}
+							],
+							"signatures": [
+								{
+									"id": 386,
+									"name": "action",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 387,
+											"name": "e",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "MouseEvent"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "unknown"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								388,
+								389,
+								390,
+								391,
+								392,
+								393,
+								394,
+								395
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								385
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "components.d.ts",
+							"line": 924,
+							"character": 14
+						}
+					]
+				},
+				{
+					"id": 396,
+					"name": "EsToast",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 397,
+							"name": "count",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 936,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 398,
+							"name": "icon",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 937,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 399,
 							"name": "level",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7577,7 +8248,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 717,
+									"line": 938,
 									"character": 8
 								}
 							],
@@ -7592,22 +8263,22 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								373,
-								374,
-								375
+								397,
+								398,
+								399
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 714,
+							"line": 935,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 376,
+					"id": 400,
 					"name": "EsToaster",
 					"kind": 256,
 					"kindString": "Interface",
@@ -7615,20 +8286,20 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 719,
+							"line": 940,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 377,
+					"id": 401,
 					"name": "EsWizard",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 378,
+							"id": 402,
 							"name": "location",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7636,7 +8307,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 722,
+									"line": 943,
 									"character": 8
 								}
 							],
@@ -7646,7 +8317,7 @@
 							}
 						},
 						{
-							"id": 379,
+							"id": 403,
 							"name": "pages",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7654,7 +8325,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 723,
+									"line": 944,
 									"character": 8
 								}
 							],
@@ -7662,13 +8333,13 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 427,
+									"id": 452,
 									"name": "WizardPage"
 								}
 							}
 						},
 						{
-							"id": 380,
+							"id": 404,
 							"name": "scrollOffset",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7678,7 +8349,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 724,
+									"line": 945,
 									"character": 8
 								}
 							],
@@ -7693,29 +8364,29 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								378,
-								379,
-								380
+								402,
+								403,
+								404
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 721,
+							"line": 942,
 							"character": 14
 						}
 					]
 				},
 				{
-					"id": 381,
+					"id": 405,
 					"name": "IntrinsicElements",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 382,
+							"id": 406,
 							"name": "es-accordian",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7723,18 +8394,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 727,
+									"line": 948,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 183,
+								"id": 195,
 								"name": "EsAccordian"
 							}
 						},
 						{
-							"id": 383,
+							"id": 407,
 							"name": "es-backdrop",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7742,18 +8413,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 728,
+									"line": 949,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 186,
+								"id": 198,
 								"name": "EsBackdrop"
 							}
 						},
 						{
-							"id": 384,
+							"id": 408,
 							"name": "es-badge",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7761,18 +8432,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 729,
+									"line": 950,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 194,
+								"id": 206,
 								"name": "EsBadge"
 							}
 						},
 						{
-							"id": 385,
+							"id": 409,
 							"name": "es-button",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7780,18 +8451,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 730,
+									"line": 951,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 200,
+								"id": 212,
 								"name": "EsButton"
 							}
 						},
 						{
-							"id": 386,
+							"id": 410,
 							"name": "es-button-link",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7799,18 +8470,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 731,
+									"line": 952,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 206,
+								"id": 218,
 								"name": "EsButtonLink"
 							}
 						},
 						{
-							"id": 387,
+							"id": 411,
 							"name": "es-callout",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7818,18 +8489,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 732,
+									"line": 953,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 222,
+								"id": 234,
 								"name": "EsCallout"
 							}
 						},
 						{
-							"id": 388,
+							"id": 412,
 							"name": "es-copy",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7837,18 +8508,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 733,
+									"line": 954,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 226,
+								"id": 238,
 								"name": "EsCopy"
 							}
 						},
 						{
-							"id": 389,
+							"id": 413,
 							"name": "es-counter",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7856,18 +8527,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 734,
+									"line": 955,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 227,
+								"id": 239,
 								"name": "EsCounter"
 							}
 						},
 						{
-							"id": 390,
+							"id": 414,
 							"name": "es-icon",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7875,18 +8546,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 735,
+									"line": 956,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 231,
+								"id": 243,
 								"name": "EsIcon"
 							}
 						},
 						{
-							"id": 391,
+							"id": 415,
 							"name": "es-modal",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7894,18 +8565,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 736,
+									"line": 957,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 237,
+								"id": 249,
 								"name": "EsModal"
 							}
 						},
 						{
-							"id": 392,
+							"id": 416,
 							"name": "es-popover",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7913,18 +8584,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 737,
+									"line": 958,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 243,
+								"id": 255,
 								"name": "EsPopover"
 							}
 						},
 						{
-							"id": 393,
+							"id": 417,
 							"name": "es-popper",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7932,18 +8603,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 738,
+									"line": 959,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 260,
+								"id": 272,
 								"name": "EsPopper"
 							}
 						},
 						{
-							"id": 394,
+							"id": 418,
 							"name": "es-popper-inner",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7951,18 +8622,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 739,
+									"line": 960,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 266,
+								"id": 278,
 								"name": "EsPopperInner"
 							}
 						},
 						{
-							"id": 395,
+							"id": 419,
 							"name": "es-portal",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7970,18 +8641,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 740,
+									"line": 961,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 267,
+								"id": 279,
 								"name": "EsPortal"
 							}
 						},
 						{
-							"id": 396,
+							"id": 420,
 							"name": "es-progression",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7989,18 +8660,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 741,
+									"line": 962,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 275,
+								"id": 287,
 								"name": "EsProgression"
 							}
 						},
 						{
-							"id": 397,
+							"id": 421,
 							"name": "es-resize-observer",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8008,18 +8679,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 742,
+									"line": 963,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 281,
+								"id": 293,
 								"name": "EsResizeObserver"
 							}
 						},
 						{
-							"id": 398,
+							"id": 422,
 							"name": "es-status",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8027,18 +8698,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 743,
+									"line": 964,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 285,
+								"id": 297,
 								"name": "EsStatus"
 							}
 						},
 						{
-							"id": 399,
+							"id": 423,
 							"name": "es-table",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8046,18 +8717,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 744,
+									"line": 965,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 287,
+								"id": 299,
 								"name": "EsTable"
 							}
 						},
 						{
-							"id": 400,
+							"id": 424,
 							"name": "es-table-detail",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8065,18 +8736,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 745,
+									"line": 966,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 310,
+								"id": 322,
 								"name": "EsTableDetail"
 							}
 						},
 						{
-							"id": 401,
+							"id": 425,
 							"name": "es-table-detail-header",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8084,18 +8755,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 746,
+									"line": 967,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 315,
+								"id": 327,
 								"name": "EsTableDetailHeader"
 							}
 						},
 						{
-							"id": 402,
+							"id": 426,
 							"name": "es-table-nested",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8103,18 +8774,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 747,
+									"line": 968,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 321,
+								"id": 333,
 								"name": "EsTableNested"
 							}
 						},
 						{
-							"id": 403,
+							"id": 427,
 							"name": "es-tabs",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8122,18 +8793,37 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 748,
+									"line": 969,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 365,
+								"id": 377,
 								"name": "EsTabs"
 							}
 						},
 						{
-							"id": 404,
+							"id": 428,
+							"name": "es-thinking-button",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "components.d.ts",
+									"line": 970,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 384,
+								"name": "EsThinkingButton"
+							}
+						},
+						{
+							"id": 429,
 							"name": "es-toast",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8141,18 +8831,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 749,
+									"line": 971,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 372,
+								"id": 396,
 								"name": "EsToast"
 							}
 						},
 						{
-							"id": 405,
+							"id": 430,
 							"name": "es-toaster",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8160,18 +8850,18 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 750,
+									"line": 972,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 376,
+								"id": 400,
 								"name": "EsToaster"
 							}
 						},
 						{
-							"id": 406,
+							"id": 431,
 							"name": "es-wizard",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8179,13 +8869,13 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 751,
+									"line": 973,
 									"character": 8
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 377,
+								"id": 401,
 								"name": "EsWizard"
 							}
 						}
@@ -8195,38 +8885,39 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								382,
-								383,
-								384,
-								385,
-								386,
-								387,
-								388,
-								389,
-								390,
-								391,
-								392,
-								393,
-								394,
-								395,
-								396,
-								397,
-								398,
-								399,
-								400,
-								401,
-								402,
-								403,
-								404,
-								405,
-								406
+								406,
+								407,
+								408,
+								409,
+								410,
+								411,
+								412,
+								413,
+								414,
+								415,
+								416,
+								417,
+								418,
+								419,
+								420,
+								421,
+								422,
+								423,
+								424,
+								425,
+								426,
+								427,
+								428,
+								429,
+								430,
+								431
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 726,
+							"line": 947,
 							"character": 14
 						}
 					]
@@ -8237,52 +8928,53 @@
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						183,
-						186,
-						194,
-						200,
+						195,
+						198,
 						206,
-						222,
-						226,
-						227,
-						231,
-						237,
+						212,
+						218,
+						234,
+						238,
+						239,
 						243,
-						260,
-						266,
-						267,
-						275,
-						281,
-						285,
+						249,
+						255,
+						272,
+						278,
+						279,
 						287,
-						310,
-						315,
-						321,
-						365,
-						372,
-						376,
+						293,
+						297,
+						299,
+						322,
+						327,
+						333,
 						377,
-						381
+						384,
+						396,
+						400,
+						401,
+						405
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "components.d.ts",
-					"line": 462,
+					"line": 573,
 					"character": 18
 				}
 			]
 		},
 		{
-			"id": 407,
+			"id": 432,
 			"name": "AccordianSection",
 			"kind": 256,
 			"kindString": "Interface",
 			"flags": {},
 			"children": [
 				{
-					"id": 411,
+					"id": 436,
 					"name": "collapsable",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8305,7 +8997,7 @@
 					}
 				},
 				{
-					"id": 412,
+					"id": 437,
 					"name": "defaultCollapsed",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8328,7 +9020,7 @@
 					}
 				},
 				{
-					"id": 408,
+					"id": 433,
 					"name": "name",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8349,7 +9041,7 @@
 					}
 				},
 				{
-					"id": 410,
+					"id": 435,
 					"name": "title",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8372,7 +9064,7 @@
 					}
 				},
 				{
-					"id": 409,
+					"id": 434,
 					"name": "variant",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8401,11 +9093,11 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						411,
-						412,
-						408,
-						410,
-						409
+						436,
+						437,
+						433,
+						435,
+						434
 					]
 				}
 			],
@@ -8418,14 +9110,14 @@
 			]
 		},
 		{
-			"id": 431,
+			"id": 456,
 			"name": "Tab",
 			"kind": 256,
 			"kindString": "Interface",
 			"flags": {},
 			"children": [
 				{
-					"id": 432,
+					"id": 457,
 					"name": "id",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8443,7 +9135,7 @@
 					}
 				},
 				{
-					"id": 436,
+					"id": 461,
 					"name": "panelVariant",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8463,7 +9155,7 @@
 					}
 				},
 				{
-					"id": 433,
+					"id": 458,
 					"name": "title",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8481,7 +9173,7 @@
 					}
 				},
 				{
-					"id": 434,
+					"id": 459,
 					"name": "badge",
 					"kind": 2048,
 					"kindString": "Method",
@@ -8497,7 +9189,7 @@
 					],
 					"signatures": [
 						{
-							"id": 435,
+							"id": 460,
 							"name": "badge",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -8515,16 +9207,16 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						432,
-						436,
-						433
+						457,
+						461,
+						458
 					]
 				},
 				{
 					"title": "Methods",
 					"kind": 2048,
 					"children": [
-						434
+						459
 					]
 				}
 			],
@@ -8537,14 +9229,14 @@
 			]
 		},
 		{
-			"id": 415,
+			"id": 440,
 			"name": "TableCell",
 			"kind": 256,
 			"kindString": "Interface",
 			"flags": {},
 			"children": [
 				{
-					"id": 422,
+					"id": 447,
 					"name": "class",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8582,21 +9274,21 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 423,
+									"id": 448,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 424,
+											"id": 449,
 											"name": "__type",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 425,
+													"id": 450,
 													"name": "d",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -8638,7 +9330,7 @@
 					}
 				},
 				{
-					"id": 416,
+					"id": 441,
 					"name": "title",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8656,7 +9348,7 @@
 					}
 				},
 				{
-					"id": 421,
+					"id": 446,
 					"name": "variant",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8688,7 +9380,7 @@
 					}
 				},
 				{
-					"id": 420,
+					"id": 445,
 					"name": "width",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8708,7 +9400,7 @@
 					}
 				},
 				{
-					"id": 417,
+					"id": 442,
 					"name": "cell",
 					"kind": 2048,
 					"kindString": "Method",
@@ -8724,14 +9416,14 @@
 					],
 					"signatures": [
 						{
-							"id": 418,
+							"id": 443,
 							"name": "cell",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 419,
+									"id": 444,
 									"name": "d",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8781,17 +9473,17 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						422,
-						416,
-						421,
-						420
+						447,
+						441,
+						446,
+						445
 					]
 				},
 				{
 					"title": "Methods",
 					"kind": 2048,
 					"children": [
-						417
+						442
 					]
 				}
 			],
@@ -8804,7 +9496,7 @@
 			],
 			"typeParameter": [
 				{
-					"id": 426,
+					"id": 451,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -8813,14 +9505,14 @@
 			]
 		},
 		{
-			"id": 427,
+			"id": 452,
 			"name": "WizardPage",
 			"kind": 256,
 			"kindString": "Interface",
 			"flags": {},
 			"children": [
 				{
-					"id": 430,
+					"id": 455,
 					"name": "disabled",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8840,7 +9532,7 @@
 					}
 				},
 				{
-					"id": 428,
+					"id": 453,
 					"name": "id",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8858,7 +9550,7 @@
 					}
 				},
 				{
-					"id": 429,
+					"id": 454,
 					"name": "title",
 					"kind": 1024,
 					"kindString": "Property",
@@ -8881,9 +9573,9 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						430,
-						428,
-						429
+						455,
+						453,
+						454
 					]
 				}
 			],
@@ -8896,7 +9588,7 @@
 			]
 		},
 		{
-			"id": 413,
+			"id": 438,
 			"name": "TableCells",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -8910,7 +9602,7 @@
 			],
 			"typeParameter": [
 				{
-					"id": 414,
+					"id": 439,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -8926,7 +9618,7 @@
 					},
 					{
 						"type": "reference",
-						"id": 415,
+						"id": 440,
 						"typeArguments": [
 							{
 								"type": "reference",
@@ -8940,7 +9632,7 @@
 			}
 		},
 		{
-			"id": 459,
+			"id": 484,
 			"name": "iconStore",
 			"kind": 32,
 			"kindString": "Variable",
@@ -8961,7 +9653,7 @@
 			"defaultValue": "..."
 		},
 		{
-			"id": 437,
+			"id": 462,
 			"name": "toast",
 			"kind": 32,
 			"kindString": "Variable",
@@ -8978,14 +9670,14 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 438,
+					"id": 463,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"children": [
 						{
-							"id": 454,
+							"id": 479,
 							"name": "error",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8993,21 +9685,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 455,
+									"id": 480,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 456,
+											"id": 481,
 											"name": "__type",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 457,
+													"id": 482,
 													"name": "options",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9028,7 +9720,7 @@
 													}
 												},
 												{
-													"id": 458,
+													"id": 483,
 													"name": "targetDocument",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9051,7 +9743,7 @@
 							"defaultValue": "..."
 						},
 						{
-							"id": 444,
+							"id": 469,
 							"name": "info",
 							"kind": 1024,
 							"kindString": "Property",
@@ -9059,21 +9751,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 445,
+									"id": 470,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 446,
+											"id": 471,
 											"name": "__type",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 447,
+													"id": 472,
 													"name": "options",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9094,7 +9786,7 @@
 													}
 												},
 												{
-													"id": 448,
+													"id": 473,
 													"name": "targetDocument",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9117,7 +9809,7 @@
 							"defaultValue": "..."
 						},
 						{
-							"id": 439,
+							"id": 464,
 							"name": "success",
 							"kind": 1024,
 							"kindString": "Property",
@@ -9125,21 +9817,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 440,
+									"id": 465,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 441,
+											"id": 466,
 											"name": "__type",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 442,
+													"id": 467,
 													"name": "options",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9160,7 +9852,7 @@
 													}
 												},
 												{
-													"id": 443,
+													"id": 468,
 													"name": "targetDocument",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9183,7 +9875,7 @@
 							"defaultValue": "..."
 						},
 						{
-							"id": 449,
+							"id": 474,
 							"name": "warning",
 							"kind": 1024,
 							"kindString": "Property",
@@ -9191,21 +9883,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 450,
+									"id": 475,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 451,
+											"id": 476,
 											"name": "__type",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 452,
+													"id": 477,
 													"name": "options",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9226,7 +9918,7 @@
 													}
 												},
 												{
-													"id": 453,
+													"id": 478,
 													"name": "targetDocument",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9254,10 +9946,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								454,
-								444,
-								439,
-								449
+								479,
+								469,
+								464,
+								474
 							]
 						}
 					]
@@ -9272,32 +9964,32 @@
 			"kind": 2,
 			"children": [
 				1,
-				182
+				194
 			]
 		},
 		{
 			"title": "Interfaces",
 			"kind": 256,
 			"children": [
-				407,
-				431,
-				415,
-				427
+				432,
+				456,
+				440,
+				452
 			]
 		},
 		{
 			"title": "Type aliases",
 			"kind": 4194304,
 			"children": [
-				413
+				438
 			]
 		},
 		{
 			"title": "Variables",
 			"kind": 32,
 			"children": [
-				459,
-				437
+				484,
+				462
 			]
 		}
 	],

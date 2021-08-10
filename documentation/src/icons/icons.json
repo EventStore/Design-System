@@ -14,10 +14,20 @@
         "component": "Bell",
         "path": "./components/Bell.tsx"
     },
+    "bubbles": {
+        "name": "bubbles",
+        "component": "Bubbles",
+        "path": "./components/Bubbles.tsx"
+    },
     "building": {
         "name": "building",
         "component": "Building",
         "path": "./components/Building.tsx"
+    },
+    "cancelable": {
+        "name": "cancelable",
+        "component": "Cancelable",
+        "path": "./components/Cancelable.tsx"
     },
     "caret": {
         "name": "caret",
@@ -224,6 +234,12 @@
         "name": "required",
         "component": "Required",
         "path": "./components/Required.tsx"
+    },
+    "rocket": {
+        "name": "rocket",
+        "component": "Rocket",
+        "path": "./components/Rocket.tsx",
+        "aliases": ["composed"]
     },
     "router": {
         "name": "router",

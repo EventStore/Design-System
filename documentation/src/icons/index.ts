@@ -12,9 +12,17 @@ iconStore.addIcons({
     get bell() {
         return import('./components/Bell').then((module) => module.Bell);
     },
+    get bubbles() {
+        return import('./components/Bubbles').then((module) => module.Bubbles);
+    },
     get building() {
         return import('./components/Building').then(
             (module) => module.Building,
+        );
+    },
+    get cancelable() {
+        return import('./components/Cancelable').then(
+            (module) => module.Cancelable,
         );
     },
     get caret() {
@@ -188,6 +196,12 @@ iconStore.addIcons({
         return import('./components/Required').then(
             (module) => module.Required,
         );
+    },
+    get rocket() {
+        return import('./components/Rocket').then((module) => module.Rocket);
+    },
+    get composed() {
+        return this['rocket'];
     },
     get router() {
         return import('./components/Router').then((module) => module.Router);

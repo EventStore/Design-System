@@ -16,13 +16,9 @@ import { AccordianSection } from './types';
     shadow: true,
 })
 export class Accordian {
-    /**
-     * An array of sections to display
-     */
+    /** An array of sections to display. */
     @Prop() sections!: AccordianSection[];
-    /**
-     * Display numbered counters beside each title
-     */
+    /** Display numbered counters beside each title. */
     @Prop() steps = false;
 
     @State() collapsed: Set<string> = new Set();

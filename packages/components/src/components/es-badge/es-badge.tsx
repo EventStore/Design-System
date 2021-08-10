@@ -12,25 +12,15 @@ export type BadgeColor = 'error' | 'warning' | 'okay';
     shadow: true,
 })
 export class ESBadge {
-    /**
-     * Select the display variant of the badge
-     */
+    /** Select the display variant of the badge */
     @Prop() variant: BadgeVariant = 'filled';
-    /**
-     *  Choose the color variant of the badge
-     */
+    /** Choose the color variant of the badge */
     @Prop() color: BadgeColor = 'error';
-    /**
-     *  What number to display in the counter (or if the dot should display)
-     */
+    /** What number to display in the counter (or if the dot should display) */
     @Prop() count!: number;
-    /**
-     *  Show the dot and counter even if the count 0 (or negative)
-     */
+    /** Show the dot and counter even if the count 0 (or negative) */
     @Prop() showZero = false;
-    /**
-     *  The base size (in px) of the counter (has no effect on the dot)
-     */
+    /** The base size (in px) of the counter (has no effect on the dot) */
     @Prop() size?: number;
 
     renderBadge = () => {

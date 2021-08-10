@@ -10,6 +10,7 @@ import {
 } from '@stencil/core';
 import { delegateFocus, trapFocus } from '@eventstore/utils';
 
+/** @internal */
 @Component({
     tag: 'es-popper',
     styleUrl: 'es-popper.css',

@@ -1,0 +1,7 @@
+:host {
+    display: block;
+}
+
+.failed {
+    color: var(--color-error);
+}

@@ -1,3 +1,9 @@
+/**
+ * @prop --transition-duration: Duration of the pulse. Defaults to 300ms.
+ * @prop --text-color: Defaults to currentColor. The background color. Named to imherit colors from es-button.
+ * @prop --background-color: Defaults to --color-secondary. The forground color. Named to imherit colors from es-button.
+ */
+
 :host {
     display: flex;
     align-items: center;
