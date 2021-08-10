@@ -53,10 +53,10 @@ export default () => (
 
 ## Properties
 
-| Property                | Attribute | Description                                 | Type                 | Default     |
-| ----------------------- | --------- | ------------------------------------------- | -------------------- | ----------- |
-| `sections` _(required)_ | --        | An array of sections to display             | `AccordianSection[]` | `undefined` |
-| `steps`                 | `steps`   | Display numbered counters beside each title | `boolean`            | `false`     |
+| Property                | Attribute | Description                                  | Type                 | Default     |
+| ----------------------- | --------- | -------------------------------------------- | -------------------- | ----------- |
+| `sections` _(required)_ | --        | An array of sections to display.             | `AccordianSection[]` | `undefined` |
+| `steps`                 | `steps`   | Display numbered counters beside each title. | `boolean`            | `false`     |
 
 
 ## Slots

@@ -23,6 +23,8 @@ export class EsCopy {
     @Listen('click') onClick() {
         this.copyText();
     }
+
+    /** Manually triggers the copy of the inner text. */
     @Method() async copy() {
         await this.copyText();
     }

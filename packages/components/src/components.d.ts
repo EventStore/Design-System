@@ -21,11 +21,11 @@ import { WizardPage } from "./components/es-wizard/types";
 export namespace Components {
     interface EsAccordian {
         /**
-          * An array of sections to display
+          * An array of sections to display.
          */
         "sections": AccordianSection[];
         /**
-          * Display numbered counters beside each title
+          * Display numbered counters beside each title.
          */
         "steps": boolean;
     }
@@ -58,7 +58,7 @@ export namespace Components {
     }
     interface EsButton {
         /**
-          * Which color pair the button should use
+          * Which color pair the button should use.
          */
         "color": ButtonColor;
         /**
@@ -66,7 +66,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * The form element to associate the button with (its form owner).
+          * The form element to associate the button with (it's form owner).
          */
         "form"?: string;
         /**
@@ -74,7 +74,7 @@ export namespace Components {
          */
         "type": string;
         /**
-          * Which styling variant to use
+          * Which styling variant to use.
          */
         "variant": ButtonVariant;
     }
@@ -116,7 +116,7 @@ export namespace Components {
          */
         "ariaSetsize"?: number;
         /**
-          * Which color pair the button should use
+          * Which color pair the button should use.
          */
         "color": ButtonColor;
         /**
@@ -155,38 +155,113 @@ export namespace Components {
         "variant": EsCalloutVariant;
     }
     interface EsCopy {
+        /**
+          * Manually triggers the copy of the inner text.
+         */
         "copy": () => Promise<void>;
     }
     interface EsCounter {
+        /**
+          * The number to display
+         */
         "count": number;
+        /**
+          * The height of the counter that the rest of the dimensions scale from
+         */
         "size": number;
+        /**
+          * The display style of the counter.
+         */
         "variant": CounterVariant;
     }
     interface EsIcon {
+        /**
+          * Rotate the icon to a speciied angle.
+         */
         "angle": number;
+        /**
+          * Which icon to display.
+         */
         "icon": string;
+        /**
+          * The hight and width to scale the icon to.
+         */
         "size": number;
+        /**
+          * Apply a spin animation.
+         */
         "spin"?: boolean;
+        /**
+          * When spinning, should it spin clockwise or anticlockwise.
+         */
         "spinDirection": 'clockwise' | 'antiClockwise';
+        /**
+          * Provides a promise that resolves at the end of a single spin, if the icon is spinning.
+         */
         "spinEnd": () => Promise<void>;
     }
     interface EsModal {
+        /**
+          * If the modal should have a footer.
+         */
         "footer": boolean;
+        /**
+          * If the modal should have a header.
+         */
         "header": boolean;
     }
     interface EsPopover {
+        /**
+          * Pass an element to attach the popover to. (Defaults to the parent element.)
+         */
         "attachTo"?: HTMLElement;
+        /**
+          * The Y axis attachment location.
+         */
         "attachmentX": AttachmentX;
+        /**
+          * The Y axis attachment location.
+         */
         "attachmentY": AttachmentY;
+        /**
+          * If the popover should overlay a backdrop, to prevent external clicks.
+         */
         "backdrop": boolean;
+        /**
+          * Constrain the size of the popover to the size of the attachment node.
+         */
         "constrain": Constrain;
+        /**
+          * The offset the X axis in pixels.
+         */
         "offsetX": number;
+        /**
+          * The offset the Y axis in pixels.
+         */
         "offsetY": number;
+        /**
+          * Toggles if the popover is open or not.
+         */
         "open": boolean;
+        /**
+          * Class name for the popper
+         */
         "popperClass"?: string;
+        /**
+          * The X axis positioning location.
+         */
         "positionX": PositionX;
+        /**
+          * The Y axis positioning location.
+         */
         "positionY": PositionY;
+        /**
+          * A query selecter to select the element to portal the popper to.
+         */
         "target": string;
+        /**
+          * If the popover should trap focus within, and return focus on close.
+         */
         "trapFocus": boolean;
     }
     interface EsPopper {
@@ -198,14 +273,32 @@ export namespace Components {
     }
     interface EsPortal {
         "attachElement": () => Promise<void>;
+        /**
+          * If the portal should overlay a backdrop, to prevent external clicks.
+         */
         "backdrop": boolean;
         "detatchElement": () => Promise<void>;
+        /**
+          * The element to render.
+         */
         "element": VNode;
+        /**
+          * If the element is portaled or not.
+         */
         "open": boolean;
+        /**
+          * A query selector to select the location to portal to.
+         */
         "target": string;
     }
     interface EsProgression {
+        /**
+          * A list of checkpoints to display.
+         */
         "checkpoints": Checkpoint[];
+        /**
+          * The current active location.
+         */
         "location": string;
     }
     interface EsResizeObserver {
@@ -264,6 +357,17 @@ export namespace Components {
         "active"?: string;
         "activeParam": string | false;
         "tabs": Tab[];
+    }
+    interface EsThinkingButton {
+        "action": (e: MouseEvent) => Promise<unknown>;
+        "color"?: HTMLEsButtonElement['color'];
+        "completeIcon": string;
+        "defaultIcon": string;
+        "disabled"?: boolean;
+        "failedIcon": string;
+        "text"?: string;
+        "thinkingIcon": string;
+        "variant": HTMLEsButtonElement['variant'];
     }
     interface EsToast {
         "close": () => Promise<void>;
@@ -413,6 +517,12 @@ declare global {
         prototype: HTMLEsTabsElement;
         new (): HTMLEsTabsElement;
     };
+    interface HTMLEsThinkingButtonElement extends Components.EsThinkingButton, HTMLStencilElement {
+    }
+    var HTMLEsThinkingButtonElement: {
+        prototype: HTMLEsThinkingButtonElement;
+        new (): HTMLEsThinkingButtonElement;
+    };
     interface HTMLEsToastElement extends Components.EsToast, HTMLStencilElement {
     }
     var HTMLEsToastElement: {
@@ -454,6 +564,7 @@ declare global {
         "es-table-detail-header": HTMLEsTableDetailHeaderElement;
         "es-table-nested": HTMLEsTableNestedElement;
         "es-tabs": HTMLEsTabsElement;
+        "es-thinking-button": HTMLEsThinkingButtonElement;
         "es-toast": HTMLEsToastElement;
         "es-toaster": HTMLEsToasterElement;
         "es-wizard": HTMLEsWizardElement;
@@ -462,11 +573,11 @@ declare global {
 declare namespace LocalJSX {
     interface EsAccordian {
         /**
-          * An array of sections to display
+          * An array of sections to display.
          */
         "sections": AccordianSection[];
         /**
-          * Display numbered counters beside each title
+          * Display numbered counters beside each title.
          */
         "steps"?: boolean;
     }
@@ -499,7 +610,7 @@ declare namespace LocalJSX {
     }
     interface EsButton {
         /**
-          * Which color pair the button should use
+          * Which color pair the button should use.
          */
         "color"?: ButtonColor;
         /**
@@ -507,7 +618,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * The form element to associate the button with (its form owner).
+          * The form element to associate the button with (it's form owner).
          */
         "form"?: string;
         /**
@@ -515,7 +626,7 @@ declare namespace LocalJSX {
          */
         "type"?: string;
         /**
-          * Which styling variant to use
+          * Which styling variant to use.
          */
         "variant"?: ButtonVariant;
     }
@@ -557,7 +668,7 @@ declare namespace LocalJSX {
          */
         "ariaSetsize"?: number;
         /**
-          * Which color pair the button should use
+          * Which color pair the button should use.
          */
         "color"?: ButtonColor;
         /**
@@ -598,36 +709,111 @@ declare namespace LocalJSX {
     interface EsCopy {
     }
     interface EsCounter {
+        /**
+          * The number to display
+         */
         "count"?: number;
+        /**
+          * The height of the counter that the rest of the dimensions scale from
+         */
         "size"?: number;
+        /**
+          * The display style of the counter.
+         */
         "variant"?: CounterVariant;
     }
     interface EsIcon {
+        /**
+          * Rotate the icon to a speciied angle.
+         */
         "angle"?: number;
+        /**
+          * Which icon to display.
+         */
         "icon": string;
+        /**
+          * The hight and width to scale the icon to.
+         */
         "size"?: number;
+        /**
+          * Apply a spin animation.
+         */
         "spin"?: boolean;
+        /**
+          * When spinning, should it spin clockwise or anticlockwise.
+         */
         "spinDirection"?: 'clockwise' | 'antiClockwise';
     }
     interface EsModal {
+        /**
+          * If the modal should have a footer.
+         */
         "footer"?: boolean;
+        /**
+          * If the modal should have a header.
+         */
         "header"?: boolean;
-        "onRequestClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * Triggers when the modal requests to be closed.
+         */
+        "onRequestClose"?: (event: CustomEvent<void>) => void;
     }
     interface EsPopover {
+        /**
+          * Pass an element to attach the popover to. (Defaults to the parent element.)
+         */
         "attachTo"?: HTMLElement;
+        /**
+          * The Y axis attachment location.
+         */
         "attachmentX"?: AttachmentX;
+        /**
+          * The Y axis attachment location.
+         */
         "attachmentY"?: AttachmentY;
+        /**
+          * If the popover should overlay a backdrop, to prevent external clicks.
+         */
         "backdrop"?: boolean;
+        /**
+          * Constrain the size of the popover to the size of the attachment node.
+         */
         "constrain"?: Constrain;
+        /**
+          * The offset the X axis in pixels.
+         */
         "offsetX"?: number;
+        /**
+          * The offset the Y axis in pixels.
+         */
         "offsetY"?: number;
+        /**
+          * Triggers when the popover requests to close.
+         */
         "onRequestClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * Toggles if the popover is open or not.
+         */
         "open"?: boolean;
+        /**
+          * Class name for the popper
+         */
         "popperClass"?: string;
+        /**
+          * The X axis positioning location.
+         */
         "positionX"?: PositionX;
+        /**
+          * The Y axis positioning location.
+         */
         "positionY"?: PositionY;
+        /**
+          * A query selecter to select the element to portal the popper to.
+         */
         "target"?: string;
+        /**
+          * If the popover should trap focus within, and return focus on close.
+         */
         "trapFocus"?: boolean;
     }
     interface EsPopper {
@@ -638,16 +824,40 @@ declare namespace LocalJSX {
     interface EsPopperInner {
     }
     interface EsPortal {
+        /**
+          * If the portal should overlay a backdrop, to prevent external clicks.
+         */
         "backdrop"?: boolean;
+        /**
+          * The element to render.
+         */
         "element": VNode;
+        /**
+          * Triggers when the popover requests to close.
+         */
         "onRequestClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * If the element is portaled or not.
+         */
         "open"?: boolean;
+        /**
+          * A query selector to select the location to portal to.
+         */
         "target"?: string;
     }
     interface EsProgression {
+        /**
+          * A list of checkpoints to display.
+         */
         "checkpoints": Checkpoint[];
+        /**
+          * The current active location.
+         */
         "location": string;
-        "onProgressionRequest"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when a checkpoint is clicked.
+         */
+        "onProgressionRequest"?: (event: CustomEvent<string>) => void;
     }
     interface EsResizeObserver {
         "onSizeChanged"?: (event: CustomEvent<DOMRectReadOnly>) => void;
@@ -711,6 +921,17 @@ declare namespace LocalJSX {
         "onTabChange"?: (event: CustomEvent<string>) => void;
         "tabs": Tab[];
     }
+    interface EsThinkingButton {
+        "action": (e: MouseEvent) => Promise<unknown>;
+        "color"?: HTMLEsButtonElement['color'];
+        "completeIcon"?: string;
+        "defaultIcon": string;
+        "disabled"?: boolean;
+        "failedIcon"?: string;
+        "text"?: string;
+        "thinkingIcon"?: string;
+        "variant"?: HTMLEsButtonElement['variant'];
+    }
     interface EsToast {
         "count": Toast['count'];
         "icon": Toast['icon'];
@@ -746,6 +967,7 @@ declare namespace LocalJSX {
         "es-table-detail-header": EsTableDetailHeader;
         "es-table-nested": EsTableNested;
         "es-tabs": EsTabs;
+        "es-thinking-button": EsThinkingButton;
         "es-toast": EsToast;
         "es-toaster": EsToaster;
         "es-wizard": EsWizard;
@@ -777,6 +999,7 @@ declare module "@stencil/core" {
             "es-table-detail-header": LocalJSX.EsTableDetailHeader & JSXBase.HTMLAttributes<HTMLEsTableDetailHeaderElement>;
             "es-table-nested": LocalJSX.EsTableNested & JSXBase.HTMLAttributes<HTMLEsTableNestedElement>;
             "es-tabs": LocalJSX.EsTabs & JSXBase.HTMLAttributes<HTMLEsTabsElement>;
+            "es-thinking-button": LocalJSX.EsThinkingButton & JSXBase.HTMLAttributes<HTMLEsThinkingButtonElement>;
             "es-toast": LocalJSX.EsToast & JSXBase.HTMLAttributes<HTMLEsToastElement>;
             "es-toaster": LocalJSX.EsToaster & JSXBase.HTMLAttributes<HTMLEsToasterElement>;
             "es-wizard": LocalJSX.EsWizard & JSXBase.HTMLAttributes<HTMLEsWizardElement>;

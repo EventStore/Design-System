@@ -39,11 +39,11 @@ export default () =>
 
 | Property   | Attribute  | Description                                                                                                     | Type                                            | Default     |
 | ---------- | ---------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ----------- |
-| `color`    | `color`    | Which color pair the button should use                                                                          | `"primary" \| "secondary" \| "text" \| "white"` | `'primary'` |
+| `color`    | `color`    | Which color pair the button should use.                                                                         | `"primary" \| "secondary" \| "text" \| "white"` | `'primary'` |
 | `disabled` | `disabled` | If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused. | `boolean \| undefined`                          | `undefined` |
-| `form`     | `form`     | The form element to associate the button with (its form owner).                                                 | `string \| undefined`                           | `undefined` |
+| `form`     | `form`     | The form element to associate the button with (it's form owner).                                                | `string \| undefined`                           | `undefined` |
 | `type`     | `type`     | The default behavior of the button.                                                                             | `string`                                        | `'button'`  |
-| `variant`  | `variant`  | Which styling variant to use                                                                                    | `"filled" \| "link" \| "minimal" \| "outline"`  | `'filled'`  |
+| `variant`  | `variant`  | Which styling variant to use.                                                                                   | `"filled" \| "link" \| "minimal" \| "outline"`  | `'filled'`  |
 
 
 ## Slots
@@ -75,11 +75,13 @@ export default () =>
 ### Used by
 
  - [es-table-nested](../../es-table-nested)
+ - [es-thinking-button](../../es-thinking-button)
 
 ### Graph
 ```mermaid
 graph TD;
   es-table-nested --> es-button
+  es-thinking-button --> es-button
   style es-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

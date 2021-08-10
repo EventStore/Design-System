@@ -2,15 +2,20 @@ import { Component, h, Prop, Host, Watch, State } from '@stencil/core';
 
 export type CounterVariant = 'filled' | 'outline' | 'minimal';
 
+/** A pill display of an number, that pulses on change. Caps out at 999. */
 @Component({
     tag: 'es-counter',
     styleUrl: 'es-counter.css',
     shadow: true,
 })
 export class Counter {
+    /** The number to display */
     @Prop() count: number = 0;
+    /** The height of the counter that the rest of the dimensions scale from */
     @Prop() size: number = 24;
+    /** The display style of the counter. */
     @Prop({ reflect: true }) variant: CounterVariant = 'filled';
+
     @State() pulsing: boolean = false;
 
     private timeout!: ReturnType<typeof setTimeout>;
@@ -47,7 +52,12 @@ export class Counter {
                         height={height - 2}
                         rx={this.size / 2}
                     />
-                    <text x={'50%'} dy={'70%'} text-anchor={'middle'}>
+                    <text
+                        x={'50%'}
+                        dy={'70%'}
+                        text-anchor={'middle'}
+                        style={{ fontSize: `${this.size * 0.54}px` }}
+                    >
                         {this.count > 999 ? '999+' : `${this.count}`}
                     </text>
                 </svg>

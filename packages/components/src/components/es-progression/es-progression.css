@@ -54,6 +54,12 @@ button {
         }
     }
 
+    &.completed {
+        & .outline {
+            stroke: var(--color-secondary);
+        }
+    }
+
     &.active {
         cursor: default;
 
@@ -69,10 +75,17 @@ button {
     }
 }
 
-.line {
-    stroke: var(--color-grey-100);
-}
-
 .connection {
     margin: 0 -30px;
+
+    & line {
+        stroke: var(--color-grey-100);
+        transition-property: stroke;
+        transition-duration: 500ms;
+        transition-timing-function: ease;
+    }
+
+    &.completed line {
+        stroke: var(--color-secondary);
+    }
 }

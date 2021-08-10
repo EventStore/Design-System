@@ -15,8 +15,7 @@ export class DocsPackage {
     @Prop() lib!: Lib;
 
     render() {
-        const { tag, encapsulation, docs, usage, props, styles, parts, slots } =
-            this.comp;
+        const { tag, encapsulation } = this.comp;
         const relatedTypes = this.findRelatedTypes();
 
         return (
@@ -42,9 +41,9 @@ export class DocsPackage {
                         }
                     />
                 </header>
-                <p>{docs}</p>
+                <docs-markdown md={this.comp.docs} />
 
-                {Object.entries(usage).map(([name, usage]) => (
+                {Object.entries(this.comp.usage).map(([name, usage]) => (
                     <docs-usage
                         key={name}
                         identifier={`${tag}-${name}`}
@@ -52,7 +51,7 @@ export class DocsPackage {
                     />
                 ))}
 
-                <docs-props-table id={'props'} props={props} />
+                <docs-props-table id={'props'} props={this.comp.props} />
 
                 {relatedTypes.map((relatedType) => (
                     <docs-type-table
@@ -62,10 +61,15 @@ export class DocsPackage {
                     />
                 ))}
 
-                <docs-slots-table id={'slots'} slots={slots} />
+                <docs-slots-table id={'slots'} slots={this.comp.slots} />
+                <docs-events-table id={'events'} events={this.comp.events} />
+                <docs-methods-table
+                    id={'methods'}
+                    methods={this.comp.methods}
+                />
 
-                <docs-styles-table id={'css'} styles={styles} />
-                <docs-parts-table id={'parts'} parts={parts} />
+                <docs-styles-table id={'css'} styles={this.comp.styles} />
+                <docs-parts-table id={'parts'} parts={this.comp.parts} />
             </Host>
         );
     }

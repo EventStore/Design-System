@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { backgroundVariant } from "./components/layout/docs-background/docs-background";
 import { Crumb } from "./components/layout/docs-breadcrumb/docs-breadcrumb";
-import { JsonDocs, JsonDocsPart, JsonDocsProp, JsonDocsSlot, JsonDocsStyle } from "@stencil/core/internal";
+import { JsonDocs, JsonDocsEvent, JsonDocsMethod, JsonDocsPart, JsonDocsProp, JsonDocsSlot, JsonDocsStyle } from "@stencil/core/internal";
 import { Lib } from "sitemap";
 import { PageState } from "./components/layout/docs-page/docs-page";
 import { VNode } from "@stencil/core";
@@ -34,6 +34,9 @@ export namespace Components {
     }
     interface DocsDeclaration {
     }
+    interface DocsEventsTable {
+        "events": JsonDocsEvent[];
+    }
     interface DocsHeader {
         "background": HTMLDocsBackgroundElement['variant'] | 'none';
     }
@@ -42,6 +45,12 @@ export namespace Components {
     interface DocsLogo {
         "height": number;
         "width": number;
+    }
+    interface DocsMarkdown {
+        "md": string;
+    }
+    interface DocsMethodsTable {
+        "methods": JsonDocsMethod[];
     }
     interface DocsPackage {
         "lib": Lib;
@@ -141,6 +150,12 @@ declare global {
         prototype: HTMLDocsDeclarationElement;
         new (): HTMLDocsDeclarationElement;
     };
+    interface HTMLDocsEventsTableElement extends Components.DocsEventsTable, HTMLStencilElement {
+    }
+    var HTMLDocsEventsTableElement: {
+        prototype: HTMLDocsEventsTableElement;
+        new (): HTMLDocsEventsTableElement;
+    };
     interface HTMLDocsHeaderElement extends Components.DocsHeader, HTMLStencilElement {
     }
     var HTMLDocsHeaderElement: {
@@ -158,6 +173,18 @@ declare global {
     var HTMLDocsLogoElement: {
         prototype: HTMLDocsLogoElement;
         new (): HTMLDocsLogoElement;
+    };
+    interface HTMLDocsMarkdownElement extends Components.DocsMarkdown, HTMLStencilElement {
+    }
+    var HTMLDocsMarkdownElement: {
+        prototype: HTMLDocsMarkdownElement;
+        new (): HTMLDocsMarkdownElement;
+    };
+    interface HTMLDocsMethodsTableElement extends Components.DocsMethodsTable, HTMLStencilElement {
+    }
+    var HTMLDocsMethodsTableElement: {
+        prototype: HTMLDocsMethodsTableElement;
+        new (): HTMLDocsMethodsTableElement;
     };
     interface HTMLDocsPackageElement extends Components.DocsPackage, HTMLStencilElement {
     }
@@ -267,9 +294,12 @@ declare global {
         "docs-code": HTMLDocsCodeElement;
         "docs-component-docs": HTMLDocsComponentDocsElement;
         "docs-declaration": HTMLDocsDeclarationElement;
+        "docs-events-table": HTMLDocsEventsTableElement;
         "docs-header": HTMLDocsHeaderElement;
         "docs-home": HTMLDocsHomeElement;
         "docs-logo": HTMLDocsLogoElement;
+        "docs-markdown": HTMLDocsMarkdownElement;
+        "docs-methods-table": HTMLDocsMethodsTableElement;
         "docs-package": HTMLDocsPackageElement;
         "docs-page": HTMLDocsPageElement;
         "docs-page-title": HTMLDocsPageTitleElement;
@@ -310,6 +340,9 @@ declare namespace LocalJSX {
     }
     interface DocsDeclaration {
     }
+    interface DocsEventsTable {
+        "events": JsonDocsEvent[];
+    }
     interface DocsHeader {
         "background"?: HTMLDocsBackgroundElement['variant'] | 'none';
     }
@@ -318,6 +351,12 @@ declare namespace LocalJSX {
     interface DocsLogo {
         "height"?: number;
         "width"?: number;
+    }
+    interface DocsMarkdown {
+        "md": string;
+    }
+    interface DocsMethodsTable {
+        "methods": JsonDocsMethod[];
     }
     interface DocsPackage {
         "lib": Lib;
@@ -391,9 +430,12 @@ declare namespace LocalJSX {
         "docs-code": DocsCode;
         "docs-component-docs": DocsComponentDocs;
         "docs-declaration": DocsDeclaration;
+        "docs-events-table": DocsEventsTable;
         "docs-header": DocsHeader;
         "docs-home": DocsHome;
         "docs-logo": DocsLogo;
+        "docs-markdown": DocsMarkdown;
+        "docs-methods-table": DocsMethodsTable;
         "docs-package": DocsPackage;
         "docs-page": DocsPage;
         "docs-page-title": DocsPageTitle;
@@ -422,9 +464,12 @@ declare module "@stencil/core" {
             "docs-code": LocalJSX.DocsCode & JSXBase.HTMLAttributes<HTMLDocsCodeElement>;
             "docs-component-docs": LocalJSX.DocsComponentDocs & JSXBase.HTMLAttributes<HTMLDocsComponentDocsElement>;
             "docs-declaration": LocalJSX.DocsDeclaration & JSXBase.HTMLAttributes<HTMLDocsDeclarationElement>;
+            "docs-events-table": LocalJSX.DocsEventsTable & JSXBase.HTMLAttributes<HTMLDocsEventsTableElement>;
             "docs-header": LocalJSX.DocsHeader & JSXBase.HTMLAttributes<HTMLDocsHeaderElement>;
             "docs-home": LocalJSX.DocsHome & JSXBase.HTMLAttributes<HTMLDocsHomeElement>;
             "docs-logo": LocalJSX.DocsLogo & JSXBase.HTMLAttributes<HTMLDocsLogoElement>;
+            "docs-markdown": LocalJSX.DocsMarkdown & JSXBase.HTMLAttributes<HTMLDocsMarkdownElement>;
+            "docs-methods-table": LocalJSX.DocsMethodsTable & JSXBase.HTMLAttributes<HTMLDocsMethodsTableElement>;
             "docs-package": LocalJSX.DocsPackage & JSXBase.HTMLAttributes<HTMLDocsPackageElement>;
             "docs-page": LocalJSX.DocsPage & JSXBase.HTMLAttributes<HTMLDocsPageElement>;
             "docs-page-title": LocalJSX.DocsPageTitle & JSXBase.HTMLAttributes<HTMLDocsPageTitleElement>;

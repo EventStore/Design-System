@@ -12,9 +12,7 @@ import {
 
 export type BackdropState = 'mounting' | 'entering' | 'entered' | 'exiting';
 
-/**
- * @internal
- */
+/** @internal */
 @Component({
     tag: 'es-backdrop',
     styleUrl: 'es-backdrop.css',

@@ -1,14 +1,3 @@
-# es-popper-inner
-
-
-
-<!-- Auto Generated Below -->
-
-
-## Usage
-
-### Example
-
 ```tsx
 import { createStore } from '@eventstore/stores';
 import { debounce } from '@eventstore/utils';
@@ -193,50 +182,3 @@ es-checkbox {
     --field-grid-columns: [before] 100px [input] 24px [label] 1fr [after] 0;
 }
 ```
-
-
-
-## Properties
-
-| Property      | Attribute      | Description                                                                 | Type                                      | Default     |
-| ------------- | -------------- | --------------------------------------------------------------------------- | ----------------------------------------- | ----------- |
-| `attachTo`    | --             | Pass an element to attach the popover to. (Defaults to the parent element.) | `HTMLElement \| undefined`                | `undefined` |
-| `attachmentX` | `attachment-x` | The Y axis attachment location.                                             | `"left" \| "middle" \| "right"`           | `'middle'`  |
-| `attachmentY` | `attachment-y` | The Y axis attachment location.                                             | `"bottom" \| "middle" \| "top"`           | `'bottom'`  |
-| `backdrop`    | `backdrop`     | If the popover should overlay a backdrop, to prevent external clicks.       | `boolean`                                 | `false`     |
-| `constrain`   | `constrain`    | Constrain the size of the popover to the size of the attachment node.       | `"both" \| "height" \| "none" \| "width"` | `'none'`    |
-| `offsetX`     | `offset-x`     | The offset the X axis in pixels.                                            | `number`                                  | `0`         |
-| `offsetY`     | `offset-y`     | The offset the Y axis in pixels.                                            | `number`                                  | `0`         |
-| `open`        | `open`         | Toggles if the popover is open or not.                                      | `boolean`                                 | `false`     |
-| `popperClass` | `popper-class` | Class name for the popper                                                   | `string \| undefined`                     | `undefined` |
-| `positionX`   | `position-x`   | The X axis positioning location.                                            | `"left" \| "middle" \| "right"`           | `'middle'`  |
-| `positionY`   | `position-y`   | The Y axis positioning location.                                            | `"bottom" \| "middle" \| "top"`           | `'top'`     |
-| `target`      | `target`       | A query selecter to select the element to portal the popper to.             | `string`                                  | `'body'`    |
-| `trapFocus`   | `trap-focus`   | If the popover should trap focus within, and return focus on close.         | `boolean`                                 | `false`     |
-
-
-## Events
-
-| Event          | Description                                  | Type               |
-| -------------- | -------------------------------------------- | ------------------ |
-| `requestClose` | Triggers when the popover requests to close. | `CustomEvent<any>` |
-
-
-## Dependencies
-
-### Depends on
-
-- es-popper
-- es-popper-inner
-
-### Graph
-```mermaid
-graph TD;
-  es-popover --> es-popper
-  es-popover --> es-popper-inner
-  style es-popover fill:#f9f,stroke:#333,stroke-width:4px
-```
-
-----------------------------------------------
-
-

@@ -15,13 +15,21 @@ export default () => (
 );
 ```
 
+```css
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+```
+
 
 
 ## Methods
 
 ### `copy() => Promise<void>`
 
-
+Manually triggers the copy of the inner text.
 
 #### Returns
 

@@ -1,12 +1,3 @@
-# es-modal
-
-<!-- Auto Generated Below -->
-
-
-## Usage
-
-### Example
-
 ```tsx
 const token = 'abc-123-cde';
 
@@ -69,45 +60,3 @@ export default () => (
     min-width: 100px;
 }
 ```
-
-
-
-## Properties
-
-| Property | Attribute | Description                        | Type      | Default |
-| -------- | --------- | ---------------------------------- | --------- | ------- |
-| `footer` | `footer`  | If the modal should have a footer. | `boolean` | `true`  |
-| `header` | `header`  | If the modal should have a header. | `boolean` | `true`  |
-
-
-## Events
-
-| Event          | Description                                    | Type                |
-| -------------- | ---------------------------------------------- | ------------------- |
-| `requestClose` | Triggers when the modal requests to be closed. | `CustomEvent<void>` |
-
-
-## Shadow Parts
-
-| Part       | Description                                                                |
-| ---------- | -------------------------------------------------------------------------- |
-| `"footer"` | Places components in the footer. Pass es-button and es-button-link.        |
-| `"header"` | Places components in the header. Pass a h2 then a h1 for standard styling. |
-
-
-## Dependencies
-
-### Depends on
-
-- [es-icon](../es-icon)
-
-### Graph
-```mermaid
-graph TD;
-  es-modal --> es-icon
-  style es-modal fill:#f9f,stroke:#333,stroke-width:4px
-```
-
-----------------------------------------------
-
-

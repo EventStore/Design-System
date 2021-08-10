@@ -64,6 +64,8 @@ export class DocsPropsTable {
         },
         extras: {
             title: '',
+            class: 'extras',
+            width: 'fit-content(100%)',
             cell: ({ data: { mutable, reflectToAttr, required, attr } }) => (
                 <>
                     {required && (

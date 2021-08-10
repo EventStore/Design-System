@@ -51,3 +51,11 @@ pre {
         rgba(0, 153, 255, 0.2) 100%
     );
 }
+
+.extras {
+    align-items: flex-end;
+
+    & es-icon {
+        margin-left: 10px;
+    }
+}

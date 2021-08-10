@@ -13,6 +13,10 @@ import { iconStore } from '../../utils/iconStore';
 
 const logger = createLogger('es-icon', 'orange');
 
+/**
+ * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
+ * See [IconStore](/components/variables/iconStore) for details on how to load icons.
+ */
 @Component({
     tag: 'es-icon',
     styleUrl: 'es-icon.css',
@@ -21,16 +25,22 @@ const logger = createLogger('es-icon', 'orange');
 export class Icon {
     @Element() host!: HTMLEsIconElement;
 
+    /** Which icon to display. */
     @Prop() icon!: string;
+    /** The hight and width to scale the icon to. */
     @Prop() size: number = 24;
+    /** Rotate the icon to a speciied angle. */
     @Prop() angle: number = 0;
+    /** Apply a spin animation. */
     @Prop() spin?: boolean;
+    /** When spinning, should it spin clockwise or anticlockwise. */
     @Prop() spinDirection: 'clockwise' | 'antiClockwise' = 'clockwise';
 
     @State() Component: FunctionalComponent<any> = (props) => (
         <svg {...props}></svg>
     );
 
+    /** Provides a promise that resolves at the end of a single spin, if the icon is spinning. */
     @Method() async spinEnd() {
         const spinner = this.host.shadowRoot?.querySelector('.spin');
         if (!spinner) return;

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2021-08-06T15:20:30",
+  "timestamp": "2021-08-10T16:10:31",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.6.0",
@@ -43,7 +43,7 @@
           "type": "AccordianSection[]",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "An array of sections to display",
+          "docs": "An array of sections to display.",
           "docsTags": [],
           "values": [
             {
@@ -59,7 +59,7 @@
           "mutable": false,
           "attr": "steps",
           "reflectToAttr": false,
-          "docs": "Display numbered counters beside each title",
+          "docs": "Display numbered counters beside each title.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -290,7 +290,7 @@
           "mutable": false,
           "attr": "color",
           "reflectToAttr": true,
-          "docs": "Which color pair the button should use",
+          "docs": "Which color pair the button should use.",
           "docsTags": [],
           "default": "'primary'",
           "values": [
@@ -339,7 +339,7 @@
           "mutable": false,
           "attr": "form",
           "reflectToAttr": false,
-          "docs": "The form element to associate the button with (its form owner).",
+          "docs": "The form element to associate the button with (it's form owner).",
           "docsTags": [],
           "values": [
             {
@@ -375,7 +375,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": true,
-          "docs": "Which styling variant to use",
+          "docs": "Which styling variant to use.",
           "docsTags": [],
           "default": "'filled'",
           "values": [
@@ -478,11 +478,15 @@
       ],
       "parts": [],
       "dependents": [
-        "es-table-nested"
+        "es-table-nested",
+        "es-thinking-button"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "es-table-nested": [
+          "es-button"
+        ],
+        "es-thinking-button": [
           "es-button"
         ]
       }
@@ -684,7 +688,7 @@
           "mutable": false,
           "attr": "color",
           "reflectToAttr": true,
-          "docs": "Which color pair the button should use",
+          "docs": "Which color pair the button should use.",
           "docsTags": [],
           "default": "'primary'",
           "values": [
@@ -1008,10 +1012,10 @@
       "encapsulation": "shadow",
       "tag": "es-copy",
       "readme": "# es-copy\n\n\n",
-      "docs": "Copy the text passed to the slot",
+      "docs": "Copies the text passed as a child when clicked.",
       "docsTags": [],
       "usage": {
-        "example": "```tsx\nexport default () => (\n    <es-copy>{'Click to copy this text to your clipboard.'}</es-copy>\n);\n```\n"
+        "example": "```tsx\nexport default () => (\n    <es-copy>{'Click to copy this text to your clipboard.'}</es-copy>\n);\n```\n\n```css\n:host {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n```\n"
       },
       "props": [],
       "methods": [
@@ -1023,7 +1027,7 @@
           },
           "signature": "copy() => Promise<void>",
           "parameters": [],
-          "docs": "",
+          "docs": "Manually triggers the copy of the inner text.",
           "docsTags": []
         }
       ],
@@ -1053,9 +1057,11 @@
       "encapsulation": "shadow",
       "tag": "es-counter",
       "readme": "# es-counter\n\n\n",
-      "docs": "",
+      "docs": "A pill display of an number, that pulses on change. Caps out at 999.",
       "docsTags": [],
-      "usage": {},
+      "usage": {
+        "example": "```tsx\nimport { createStore } from '@eventstore/stores';\nimport { random } from 'helpers';\n\nconst { state } = createStore(Array.from({ length: 144 }, () => random(800)));\n\nsetInterval(() => {\n    const key = random(144);\n    state[key] += 1;\n}, 10);\n\nconst variant = ['filled', 'outline', 'minimal'];\nconst variants = Array.from({ length: 144 }, (_, i) => variant[random(3)]);\n\nexport default () =>\n    variants.map((v, i) => <es-counter key={i} count={state[i]} variant={v} />);\n```\n\n```css\n:host {\n    display: grid;\n    grid-template-columns: repeat(12, minmax(12px, 1fr));\n    gap: 10px;\n    align-items: center;\n    justify-items: center;\n    justify-content: center;\n    align-content: center;\n    --background-color: white;\n}\n```\n"
+      },
       "props": [
         {
           "name": "count",
@@ -1063,7 +1069,7 @@
           "mutable": false,
           "attr": "count",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The number to display",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -1080,7 +1086,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The height of the counter that the rest of the dimensions scale from",
           "docsTags": [],
           "default": "24",
           "values": [
@@ -1097,7 +1103,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "The display style of the counter.",
           "docsTags": [],
           "default": "'filled'",
           "values": [
@@ -1121,7 +1127,23 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--background-color",
+          "annotation": "prop",
+          "docs": "Defaults to --color-secondary. The forground color. Named to imherit colors from es-button."
+        },
+        {
+          "name": "--text-color",
+          "annotation": "prop",
+          "docs": "Defaults to currentColor. The background color. Named to imherit colors from es-button."
+        },
+        {
+          "name": "--transition-duration",
+          "annotation": "prop",
+          "docs": "Duration of the pulse. Defaults to 300ms."
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [
@@ -1147,9 +1169,11 @@
       "encapsulation": "shadow",
       "tag": "es-icon",
       "readme": "# es-icon\n\n\n",
-      "docs": "",
+      "docs": "Displays an icon loaded from the `iconStore`. An icon named \"spinner\" will automatically spin.\nSee [IconStore](/components/variables/iconStore) for details on how to load icons.",
       "docsTags": [],
-      "usage": {},
+      "usage": {
+        "example": "```tsx\nimport { icons } from 'helpers';\n\nexport default () =>\n    icons.map((icon) => <es-icon key={icon} icon={icon} title={icon} />);\n```\n\n```css\n:host {\n    display: grid;\n    grid-template-columns: repeat(12, minmax(12px, 1fr));\n    gap: 10px;\n    align-items: center;\n    justify-items: center;\n    justify-content: center;\n    align-content: center;\n}\n```\n"
+      },
       "props": [
         {
           "name": "angle",
@@ -1157,7 +1181,7 @@
           "mutable": false,
           "attr": "angle",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Rotate the icon to a speciied angle.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -1174,7 +1198,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Which icon to display.",
           "docsTags": [],
           "values": [
             {
@@ -1190,7 +1214,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The hight and width to scale the icon to.",
           "docsTags": [],
           "default": "24",
           "values": [
@@ -1207,7 +1231,7 @@
           "mutable": false,
           "attr": "spin",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Apply a spin animation.",
           "docsTags": [],
           "values": [
             {
@@ -1226,7 +1250,7 @@
           "mutable": false,
           "attr": "spin-direction",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "When spinning, should it spin clockwise or anticlockwise.",
           "docsTags": [],
           "default": "'clockwise'",
           "values": [
@@ -1252,7 +1276,7 @@
           },
           "signature": "spinEnd() => Promise<void>",
           "parameters": [],
-          "docs": "",
+          "docs": "Provides a promise that resolves at the end of a single spin, if the icon is spinning.",
           "docsTags": []
         }
       ],
@@ -1268,6 +1292,7 @@
         "es-modal",
         "es-status",
         "es-table-nested",
+        "es-thinking-button",
         "es-toast"
       ],
       "dependencies": [],
@@ -1290,6 +1315,9 @@
         "es-table-nested": [
           "es-icon"
         ],
+        "es-thinking-button": [
+          "es-icon"
+        ],
         "es-toast": [
           "es-icon"
         ]
@@ -1300,9 +1328,20 @@
       "encapsulation": "shadow",
       "tag": "es-modal",
       "readme": "# es-modal\n",
-      "docs": "",
-      "docsTags": [],
-      "usage": {},
+      "docs": "A pop up modal for overlaying information, warnings and confirmations.\nTraps focus within the modal, and returns focus to previous location when closed.\nPair with an [`es-portal`](/components/es-portal) to open and close.",
+      "docsTags": [
+        {
+          "text": "header - Places components in the header. Pass a h2 then a h1 for standard styling.",
+          "name": "part"
+        },
+        {
+          "text": "footer - Places components in the footer. Pass es-button and es-button-link.",
+          "name": "part"
+        }
+      ],
+      "usage": {
+        "example": "```tsx\nconst token = 'abc-123-cde';\n\nexport default () => (\n    <es-modal role={'alert'}>\n        <h2 slot={'header'}>{'Successfully created a new'}</h2>\n        <h1 slot={'header'}>{'Refresh token'}</h1>\n        <es-input\n            readonly\n            class={'token'}\n            name={'token'}\n            placeholder={''}\n            label={''}\n            value={token}\n            inputProps={{\n                onFocus(e) {\n                    e.target.select();\n                },\n            }}\n        >\n            <es-thinking-button\n                defaultIcon={'copy'}\n                text={'Copy'}\n                action={(e) => {\n                    e.preventDefault();\n                    navigator.clipboard.writeText(token);\n                }}\n                variant={'outline'}\n                color={'secondary'}\n            />\n        </es-input>\n        <b class={'copy_warning'}>\n            <es-icon icon={'critical'} />\n            {\"Be sure to copy your new token. It won't be shown again.\"}\n        </b>\n        <es-button variant={'filled'} color={'secondary'} slot={'footer'}>\n            {'Done'}\n        </es-button>\n    </es-modal>\n);\n```\n\n```css\n.token {\n    width: 100%;\n    --field-grid-columns: [input] 1fr [before] 15px [after] 110px;\n    --field-grid-gap: 0;\n}\n\n.copy_warning {\n    display: flex;\n    align-items: center;\n}\n\n.copy_warning es-icon {\n    margin-right: 15px;\n}\n\n.done_button {\n    min-width: 100px;\n}\n```\n"
+      },
       "props": [
         {
           "name": "footer",
@@ -1310,7 +1349,7 @@
           "mutable": false,
           "attr": "footer",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "If the modal should have a footer.",
           "docsTags": [],
           "default": "true",
           "values": [
@@ -1327,7 +1366,7 @@
           "mutable": false,
           "attr": "header",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "If the modal should have a header.",
           "docsTags": [],
           "default": "true",
           "values": [
@@ -1343,11 +1382,11 @@
       "events": [
         {
           "event": "requestClose",
-          "detail": "any",
+          "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Triggers when the modal requests to be closed.",
           "docsTags": []
         }
       ],
@@ -1360,7 +1399,16 @@
       ],
       "styles": [],
       "slots": [],
-      "parts": [],
+      "parts": [
+        {
+          "name": "footer",
+          "docs": "Places components in the footer. Pass es-button and es-button-link."
+        },
+        {
+          "name": "header",
+          "docs": "Places components in the header. Pass a h2 then a h1 for standard styling."
+        }
+      ],
       "dependents": [],
       "dependencies": [
         "es-icon"
@@ -1376,16 +1424,18 @@
       "encapsulation": "shadow",
       "tag": "es-popover",
       "readme": "# es-popper-inner\n\n\n",
-      "docs": "",
+      "docs": "Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.",
       "docsTags": [],
-      "usage": {},
+      "usage": {
+        "example": "```tsx\nimport { createStore } from '@eventstore/stores';\nimport { debounce } from '@eventstore/utils';\n\ninterface PopoverStore {\n    open: boolean;\n    constrain: HTMLESPopoverElement['constrain'];\n    positionY: HTMLESPopoverElement['positionY'];\n    positionX: HTMLESPopoverElement['positionX'];\n    attachmentY: HTMLESPopoverElement['attachmentY'];\n    attachmentX: HTMLESPopoverElement['attachmentX'];\n    offsetY: number;\n    offsetX: number;\n}\n\nconst { state } = createStore<PopoverStore>({\n    open: true,\n    constrain: 'none',\n    positionY: 'top',\n    positionX: 'right',\n    attachmentY: 'bottom',\n    attachmentX: 'left',\n    offsetY: 0,\n    offsetX: 0,\n});\n\nexport default () => (\n    <>\n        <div class={'options'}>\n            <es-checkbox\n                name={'open'}\n                value={state.open}\n                onFieldchange={fieldChange}\n            >\n                {'Open'}\n            </es-checkbox>\n            <es-select\n                name={'constrain'}\n                label={'constrain'}\n                options={constrainOptions}\n                value={state.constrain}\n                onFieldchange={fieldChange}\n            />\n            <es-select\n                name={'positionY'}\n                label={'positionY'}\n                options={yLocations}\n                value={state.positionY}\n                onFieldchange={fieldChange}\n            />\n            <es-select\n                name={'positionX'}\n                label={'positionX'}\n                options={xLocations}\n                value={state.positionX}\n                onFieldchange={fieldChange}\n            />\n            <es-select\n                name={'attachmentY'}\n                label={'attachmentY'}\n                options={yLocations}\n                value={state.attachmentY}\n                onFieldchange={fieldChange}\n            />\n            <es-select\n                name={'attachmentX'}\n                label={'attachmentX'}\n                options={xLocations}\n                value={state.attachmentX}\n                onFieldchange={fieldChange}\n            />\n            <es-number-input\n                label={'offsetY'}\n                unit={'px'}\n                name={'offsetY'}\n                value={state.offsetY}\n                onFieldchange={fieldChange}\n            />\n            <es-number-input\n                label={'offsetX'}\n                unit={'px'}\n                name={'offsetX'}\n                value={state.offsetX}\n                onFieldchange={fieldChange}\n            />\n        </div>\n        <div class={'wrapper'}>\n            <div class={'attachment'}>\n                {'Attachment element'}\n                <es-popover\n                    open={state.open}\n                    constrain={state.constrain}\n                    positionY={state.positionY}\n                    positionX={state.positionX}\n                    attachmentY={state.attachmentY}\n                    attachmentX={state.attachmentX}\n                    offsetY={state.offsetY}\n                    offsetX={state.offsetX}\n                >\n                    <div class={'popper'}>{'popover'}</div>\n                </es-popover>\n            </div>\n        </div>\n    </>\n);\n\nconst fieldChange = (e) => {\n    const { name, value } = e.detail;\n    state[name] = value;\n};\n\nconst constrainOptions = [\n    { value: 'none', name: 'none' },\n    { value: 'width', name: 'width' },\n    { value: 'height', name: 'height' },\n    { value: 'both', name: 'both' },\n];\n\nconst yLocations = [\n    { value: 'top', name: 'top' },\n    { value: 'middle', name: 'middle' },\n    { value: 'bottom', name: 'bottom' },\n];\n\nconst xLocations = [\n    { value: 'right', name: 'right' },\n    { value: 'middle', name: 'middle' },\n    { value: 'left', name: 'left' },\n];\n```\n\n```css\n:host {\n    display: flex;\n    align-items: flex-start;\n    width: 100%;\n    padding: 0;\n}\n\n.wrapper {\n    flex: 1 1 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 100%;\n}\n\n.attachment {\n    background-color: orange;\n    padding: 20px;\n    display: flex;\n    align-items: center;\n}\n\n.inner {\n    width: 100%;\n    height: 100%;\n}\n\n.popper {\n    background-color: skyblue;\n    width: 100%;\n    height: 100%;\n    padding: 5px;\n}\n\n.options {\n    width: 300px;\n    border: 1px solid var(--color-grey-200);\n    padding: 10px;\n    border-radius: 20px;\n    justify-self: flex-end;\n    height: 100vh;\n}\n\nes-select,\nes-number-input {\n    --field-grid-columns: [before] 100px [input] 150px [after] 0px;\n}\n\nes-checkbox {\n    --field-grid-columns: [before] 100px [input] 24px [label] 1fr [after] 0;\n}\n```\n"
+      },
       "props": [
         {
           "name": "attachTo",
           "type": "HTMLElement | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Pass an element to attach the popover to. (Defaults to the parent element.)",
           "docsTags": [],
           "values": [
             {
@@ -1404,7 +1454,7 @@
           "mutable": false,
           "attr": "attachment-x",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The Y axis attachment location.",
           "docsTags": [],
           "default": "'middle'",
           "values": [
@@ -1430,7 +1480,7 @@
           "mutable": false,
           "attr": "attachment-y",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The Y axis attachment location.",
           "docsTags": [],
           "default": "'bottom'",
           "values": [
@@ -1456,7 +1506,7 @@
           "mutable": false,
           "attr": "backdrop",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "If the popover should overlay a backdrop, to prevent external clicks.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1473,7 +1523,7 @@
           "mutable": false,
           "attr": "constrain",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Constrain the size of the popover to the size of the attachment node.",
           "docsTags": [],
           "default": "'none'",
           "values": [
@@ -1503,7 +1553,7 @@
           "mutable": false,
           "attr": "offset-x",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The offset the X axis in pixels.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -1520,7 +1570,7 @@
           "mutable": false,
           "attr": "offset-y",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The offset the Y axis in pixels.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -1537,7 +1587,7 @@
           "mutable": false,
           "attr": "open",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "Toggles if the popover is open or not.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1554,7 +1604,7 @@
           "mutable": false,
           "attr": "popper-class",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Class name for the popper",
           "docsTags": [],
           "values": [
             {
@@ -1573,7 +1623,7 @@
           "mutable": false,
           "attr": "position-x",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The X axis positioning location.",
           "docsTags": [],
           "default": "'middle'",
           "values": [
@@ -1599,7 +1649,7 @@
           "mutable": false,
           "attr": "position-y",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The Y axis positioning location.",
           "docsTags": [],
           "default": "'top'",
           "values": [
@@ -1625,7 +1675,7 @@
           "mutable": false,
           "attr": "target",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A query selecter to select the element to portal the popper to.",
           "docsTags": [],
           "default": "'body'",
           "values": [
@@ -1642,7 +1692,7 @@
           "mutable": false,
           "attr": "trap-focus",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "If the popover should trap focus within, and return focus on close.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1662,7 +1712,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Triggers when the popover requests to close.",
           "docsTags": []
         }
       ],
@@ -1683,126 +1733,15 @@
       }
     },
     {
-      "filePath": "./src/components/es-popover/components/es-popper/es-popper.tsx",
-      "encapsulation": "shadow",
-      "tag": "es-popper",
-      "readme": "# es-popper\n\n\n",
-      "docs": "",
-      "docsTags": [],
-      "usage": {},
-      "props": [
-        {
-          "name": "backdrop",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "backdrop",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "trapFocus",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "trap-focus",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [
-        {
-          "event": "requestClose",
-          "detail": "any",
-          "bubbles": true,
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": []
-        }
-      ],
-      "listeners": [
-        {
-          "event": "keyup",
-          "capture": false,
-          "passive": false
-        }
-      ],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "dependents": [
-        "es-popover"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "es-popover": [
-          "es-popper"
-        ]
-      }
-    },
-    {
-      "filePath": "./src/components/es-popover/components/es-popper-inner/es-popper-inner.tsx",
-      "encapsulation": "shadow",
-      "tag": "es-popper-inner",
-      "readme": "# es-popper-inner\n\n\n",
-      "docs": "",
-      "docsTags": [],
-      "usage": {},
-      "props": [],
-      "methods": [
-        {
-          "name": "setPosition",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "signature": "setPosition(position: Position) => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": []
-        }
-      ],
-      "events": [],
-      "listeners": [],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "dependents": [
-        "es-popover"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "es-popover": [
-          "es-popper-inner"
-        ]
-      }
-    },
-    {
       "filePath": "./src/components/es-portal/es-portal.tsx",
       "encapsulation": "shadow",
       "tag": "es-portal",
       "readme": "# es-portal\n\n\n",
-      "docs": "",
+      "docs": "Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.",
       "docsTags": [],
-      "usage": {},
+      "usage": {
+        "example": "```tsx\nimport { FunctionalComponent } from '@stencil/core';\nimport { createStore } from '@eventstore/stores';\n\nconst { state } = createStore<{ open: boolean }>({\n    open: true,\n});\n\nexport default () => (\n    <>\n        <es-portal\n            backdrop\n            open={state.open}\n            onRequestClose={requestClose}\n            element={<ExampleModal requestClose={requestClose} />}\n        />\n        <es-button\n            variant={'outline'}\n            onClick={() => {\n                state.open = true;\n            }}\n        >\n            {'Open portal'}\n        </es-button>\n    </>\n);\n\nconst requestClose = () => {\n    state.open = false;\n};\n\nconst ExampleModal: FunctionalComponent = ({ requestClose }) => (\n    <>\n        <style>\n            {`\n                .important {\n                    color: var(--color-error);\n                }\n\n                .cancel {\n                    --current-color: var(--color-grey-200);\n                    --contrast-color: var(--color-white);\n\n                    --text-color: var(--color-text);\n                }\n\n                .delete {\n                    --current-color: var(--color-error);\n                    --contrast-color: var(--color-white);\n                }\n            `}\n        </style>\n        <es-modal role={'alert'}>\n            <h2 slot={'header'}>{'Project name'}</h2>\n            <h1 slot={'header'}>{'Production'}</h1>\n            <p>\n                {\n                    'Deleting this project will delete all associated clusters and networks. This operation cannot be undone.'\n                }\n            </p>\n            <p class={'important'}>\n                {'Are you sure you want to proceed in deleting this project?'}\n            </p>\n            <es-button\n                variant={'outline'}\n                slot={'footer'}\n                class={'cancel'}\n                onClick={requestClose}\n            >\n                {'Cancel'}\n            </es-button>\n            <es-button\n                variant={'outline'}\n                slot={'footer'}\n                class={'delete'}\n                onClick={requestClose}\n            >\n                {'Delete project'}\n            </es-button>\n        </es-modal>\n    </>\n);\n```\n\n```css\n:host {\n    display: flex;\n    align-items: center;\n    justify-contents: center;\n}\n```\n"
+      },
       "props": [
         {
           "name": "backdrop",
@@ -1810,7 +1749,7 @@
           "mutable": false,
           "attr": "backdrop",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "If the portal should overlay a backdrop, to prevent external clicks.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1826,7 +1765,7 @@
           "type": "VNode",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The element to render.",
           "docsTags": [],
           "values": [
             {
@@ -1842,7 +1781,7 @@
           "mutable": false,
           "attr": "open",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "If the element is portaled or not.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1859,7 +1798,7 @@
           "mutable": false,
           "attr": "target",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A query selector to select the location to portal to.",
           "docsTags": [],
           "default": "'body'",
           "values": [
@@ -1871,30 +1810,7 @@
           "required": false
         }
       ],
-      "methods": [
-        {
-          "name": "attachElement",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "signature": "attachElement() => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": []
-        },
-        {
-          "name": "detatchElement",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "signature": "detatchElement() => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": []
-        }
-      ],
+      "methods": [],
       "events": [
         {
           "event": "requestClose",
@@ -1902,7 +1818,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Triggers when the popover requests to close.",
           "docsTags": []
         }
       ],
@@ -1925,16 +1841,18 @@
       "encapsulation": "shadow",
       "tag": "es-progression",
       "readme": "# es-progression\n\n\n",
-      "docs": "",
+      "docs": "A wizard progression bar.",
       "docsTags": [],
-      "usage": {},
+      "usage": {
+        "example": "```tsx\nimport { FunctionalComponent } from '@stencil/core';\nimport { createStore } from '@eventstore/stores';\n\nconst { state } = createStore<{ location: string }>({\n    location: '1-1',\n});\n\nexport default () => (\n    <es-progression\n        checkpoints={[\n            {\n                id: '1-1',\n                title: 'Overworld',\n            },\n            {\n                id: '1-2',\n                title: 'Underground',\n            },\n            {\n                id: '1-3',\n                title: 'Athletic',\n            },\n            {\n                id: '1-4',\n                title: 'Castle',\n            },\n        ]}\n        location={state.location}\n        onProgressionRequest={(e) => {\n            state.location = e.detail;\n        }}\n    />\n);\n```\n"
+      },
       "props": [
         {
           "name": "checkpoints",
           "type": "Checkpoint[]",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A list of checkpoints to display.",
           "docsTags": [],
           "values": [
             {
@@ -1950,7 +1868,7 @@
           "mutable": false,
           "attr": "location",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The current active location.",
           "docsTags": [],
           "values": [
             {
@@ -1965,11 +1883,11 @@
       "events": [
         {
           "event": "progressionRequest",
-          "detail": "any",
+          "detail": "string",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Emitted when a checkpoint is clicked.",
           "docsTags": []
         }
       ],
@@ -2896,6 +2814,216 @@
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/es-thinking-button/es-thinking-button.tsx",
+      "encapsulation": "shadow",
+      "tag": "es-thinking-button",
+      "readme": "# es-thinking-button\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "action",
+          "type": "(e: MouseEvent) => Promise<unknown>",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "(e: MouseEvent) => Promise<unknown>"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "color",
+          "type": "\"primary\" | \"secondary\" | \"text\" | \"white\" | undefined",
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "completeIcon",
+          "type": "string",
+          "mutable": false,
+          "attr": "complete-icon",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'check'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "defaultIcon",
+          "type": "string",
+          "mutable": false,
+          "attr": "default-icon",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "failedIcon",
+          "type": "string",
+          "mutable": false,
+          "attr": "failed-icon",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'error'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string | undefined",
+          "mutable": false,
+          "attr": "text",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "thinkingIcon",
+          "type": "string",
+          "mutable": false,
+          "attr": "thinking-icon",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'spinner'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"link\" | \"minimal\" | \"outline\"",
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'minimal'",
+          "values": [
+            {
+              "value": "filled",
+              "type": "string"
+            },
+            {
+              "value": "link",
+              "type": "string"
+            },
+            {
+              "value": "minimal",
+              "type": "string"
+            },
+            {
+              "value": "outline",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "es-button",
+        "es-icon"
+      ],
+      "dependencyGraph": {
+        "es-thinking-button": [
+          "es-button",
+          "es-icon"
+        ]
+      }
     },
     {
       "filePath": "./src/components/toast/es-toast/es-toast.tsx",
