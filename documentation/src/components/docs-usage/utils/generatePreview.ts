@@ -21,12 +21,22 @@ export const generatePreview = (parts: Parts): Files => {
 
     const helpers = `\
         export const random = (n) => Math.floor(Math.random() * n);
+
+        export interface IconDetail {
+            name: string;
+            component: string;
+            path: string;
+            aliases?: string[];
+        }
+        export const iconDetails: Record<string, IconDetail> = ${JSON.stringify(
+            iconDetails,
+        )};
         export const icons = ${JSON.stringify(Object.keys(iconDetails))};
         export const randomIcon = () => icons[random(icons.length)];
     `;
 
     return {
-        helpers: helpers,
+        'helpers.ts': helpers,
         'usage.tsx': `
         import { h, Fragment } from '@stencil/core';
         ${parts.render}

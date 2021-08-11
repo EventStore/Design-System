@@ -81,7 +81,7 @@ export class DocsUsage {
     };
 
     private reloadPreview = (bundle: string) => {
-        if (!this.iframe) return;
+        if (!this.iframe || !this.iframe.contentWindow) return;
 
         this.iframe.addEventListener(
             'load',
@@ -97,7 +97,7 @@ export class DocsUsage {
             { once: true },
         );
 
-        const { location } = this.iframe.contentWindow!;
+        const { location } = this.iframe.contentWindow;
 
         if (location.pathname !== HTML) {
             location.pathname = HTML;

@@ -14,6 +14,7 @@ import { CounterVariant } from "./components/es-counter/es-counter";
 import { AttachmentX, AttachmentY, Constrain, Position, PositionX, PositionY } from "./utils/calcPosition";
 import { Checkpoint } from "./components/es-progression/es-progression";
 import { Status } from "./components/es-status/es-status";
+import { RawRow, RowData } from "./components/es-table/es-table";
 import { TableCells } from "./components/es-table/types";
 import { Tab } from "./components/es-tabs/types";
 import { Bread, Toast } from "./components/toast/types";
@@ -307,50 +308,155 @@ export namespace Components {
         "status": Status;
     }
     interface EsTable {
-        "cells": TableCells<any>;
+        /**
+          * A record of table cell definitions.
+         */
+        "cells": TableCells<RowData>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
         "columns"?: string[];
-        "getCellData": <T = string>(key: T) => any;
+        /**
+          * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
+         */
+        "getCellData": <T = RawRow>(key: T) => RowData;
+        /**
+          * Do not render header.
+         */
         "headless": boolean;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "identifier": string;
-        "linkRowTo"?: (row: any) => string;
-        "renderExpansion": (key: string) => VNode | null;
+        /**
+          * A function to calculate a href from the cell data.
+         */
+        "linkRowTo"?: (row: RowData) => string;
+        /**
+          * Allows rendering a node after the row.
+         */
+        "renderExpansion": (key: RawRow) => VNode | null;
+        /**
+          * A function to calculate the class or classes of the row from the cellData.
+         */
         "rowClass": (
-        row: any,
+        row: RowData,
     ) => Record<string, boolean> | string | undefined;
+        /**
+          * If rows should be allowed to take focus
+         */
         "rowTakesFocus"?: boolean;
-        "rows": any[];
+        /**
+          * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
+         */
+        "rows": RawRow[];
     }
     interface EsTableDetail {
+        /**
+          * A record of table cell definitions.
+         */
         "cells": TableCells<any>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
         "columns"?: Array<string>;
+        /**
+          * The data to render.
+         */
         "data": any;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "identifier": string;
     }
     interface EsTableDetailHeader {
+        /**
+          * Which cell to place in the top right as a list of actions.
+         */
         "actionsCell": string;
+        /**
+          * A record of table cell definitions.
+         */
         "cells": TableCells<any>;
+        /**
+          * The data to render.
+         */
         "data": any;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "identifier": string;
+        /**
+          * The key of the title in the data
+         */
         "titleKey": string;
     }
     interface EsTableNested {
+        /**
+          * A path to a the currently active row, to auto expand its parent and show it as selected.
+         */
         "activePath"?: string[];
+        /**
+          * Function to decide if a row can take expand, to show a nested table.
+         */
         "canExpand": (key: string, data: any) => boolean;
+        /**
+          * A record of table cell definitions.Some built in cells are cells are available for use: - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell. - `--no-pad`: A blank placeholder cell, for aligning with the parent cell. - `expander`: The expander button.
+         */
         "cells": TableCells<any>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
         "columns"?: string[];
+        /**
+          * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
+         */
         "getCellData"?: <T = string>(key: T) => any;
+        /**
+          * Sync function for extracting the data from the nested row. By default, it assumes you passed an array of data as your columns.
+         */
         "getNestedCellData"?: <T = string>(key: T) => any;
+        /**
+          * Sync function for extracting a list of rows for the nested table
+         */
         "getNestedRows"?: (key: string) => any[] | undefined;
+        /**
+          * A function to calculate a href from the cell data.
+         */
         "linkRowTo"?: (row: any) => string;
+        /**
+          * async function for loading nested data when a row is expanded.
+         */
         "loadNested"?: (key: string, data: any) => Promise<void>;
+        /**
+          * The order and keys of the cells to be rendered in a nested table. If omitted, all cells will be rendered.
+         */
         "nestedColumns"?: string[];
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "nestedIdentifier": string;
+        /**
+          * If the nested rows should be allowed to take focus.
+         */
         "nestedRowTakesFocus"?: boolean;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "outerIdentifier": string;
+        /**
+          * A function to calculate the class or classes of the row from the cellData.
+         */
         "rowClass": (
         row: any,
     ) => Record<string, boolean> | string | undefined;
+        /**
+          * If rows should be allowed to take focus
+         */
         "rowTakesFocus"?: boolean;
+        /**
+          * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
+         */
         "rows": any[];
     }
     interface EsTabs {
@@ -860,59 +966,176 @@ declare namespace LocalJSX {
         "onProgressionRequest"?: (event: CustomEvent<string>) => void;
     }
     interface EsResizeObserver {
+        /**
+          * Triggered when the size of the element changes.
+         */
         "onSizeChanged"?: (event: CustomEvent<DOMRectReadOnly>) => void;
     }
     interface EsStatus {
         "status": Status;
     }
     interface EsTable {
-        "cells": TableCells<any>;
+        /**
+          * A record of table cell definitions.
+         */
+        "cells": TableCells<RowData>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
         "columns"?: string[];
-        "getCellData"?: <T = string>(key: T) => any;
+        /**
+          * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
+         */
+        "getCellData"?: <T = RawRow>(key: T) => RowData;
+        /**
+          * Do not render header.
+         */
         "headless"?: boolean;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "identifier"?: string;
-        "linkRowTo"?: (row: any) => string;
-        "onClickRow"?: (event: CustomEvent<any>) => void;
-        "renderExpansion"?: (key: string) => VNode | null;
+        /**
+          * A function to calculate a href from the cell data.
+         */
+        "linkRowTo"?: (row: RowData) => string;
+        /**
+          * Triggered whenever a row is clicked. The `detail` is the item in the row array.
+         */
+        "onClickRow"?: (event: CustomEvent<RowData>) => void;
+        /**
+          * Allows rendering a node after the row.
+         */
+        "renderExpansion"?: (key: RawRow) => VNode | null;
+        /**
+          * A function to calculate the class or classes of the row from the cellData.
+         */
         "rowClass"?: (
-        row: any,
+        row: RowData,
     ) => Record<string, boolean> | string | undefined;
+        /**
+          * If rows should be allowed to take focus
+         */
         "rowTakesFocus"?: boolean;
-        "rows": any[];
+        /**
+          * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
+         */
+        "rows": RawRow[];
     }
     interface EsTableDetail {
+        /**
+          * A record of table cell definitions.
+         */
         "cells": TableCells<any>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
         "columns"?: Array<string>;
+        /**
+          * The data to render.
+         */
         "data": any;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "identifier"?: string;
     }
     interface EsTableDetailHeader {
+        /**
+          * Which cell to place in the top right as a list of actions.
+         */
         "actionsCell"?: string;
+        /**
+          * A record of table cell definitions.
+         */
         "cells": TableCells<any>;
+        /**
+          * The data to render.
+         */
         "data": any;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "identifier"?: string;
+        /**
+          * The key of the title in the data
+         */
         "titleKey": string;
     }
     interface EsTableNested {
+        /**
+          * A path to a the currently active row, to auto expand its parent and show it as selected.
+         */
         "activePath"?: string[];
+        /**
+          * Function to decide if a row can take expand, to show a nested table.
+         */
         "canExpand"?: (key: string, data: any) => boolean;
+        /**
+          * A record of table cell definitions.Some built in cells are cells are available for use: - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell. - `--no-pad`: A blank placeholder cell, for aligning with the parent cell. - `expander`: The expander button.
+         */
         "cells": TableCells<any>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
         "columns"?: string[];
+        /**
+          * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
+         */
         "getCellData"?: <T = string>(key: T) => any;
+        /**
+          * Sync function for extracting the data from the nested row. By default, it assumes you passed an array of data as your columns.
+         */
         "getNestedCellData"?: <T = string>(key: T) => any;
+        /**
+          * Sync function for extracting a list of rows for the nested table
+         */
         "getNestedRows"?: (key: string) => any[] | undefined;
+        /**
+          * A function to calculate a href from the cell data.
+         */
         "linkRowTo"?: (row: any) => string;
+        /**
+          * async function for loading nested data when a row is expanded.
+         */
         "loadNested"?: (key: string, data: any) => Promise<void>;
+        /**
+          * The order and keys of the cells to be rendered in a nested table. If omitted, all cells will be rendered.
+         */
         "nestedColumns"?: string[];
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "nestedIdentifier"?: string;
+        /**
+          * If the nested rows should be allowed to take focus.
+         */
         "nestedRowTakesFocus"?: boolean;
+        /**
+          * Triggered whenever a row (or nested row) is clicked. The `detail` is the item in the row array.
+         */
         "onClickRow"?: (event: CustomEvent<any>) => void;
+        /**
+          * Triggered whenever a row is expanded.
+         */
         "onExpansion"?: (event: CustomEvent<{ data: any; key: string }>) => void;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "outerIdentifier"?: string;
+        /**
+          * A function to calculate the class or classes of the row from the cellData.
+         */
         "rowClass"?: (
         row: any,
     ) => Record<string, boolean> | string | undefined;
+        /**
+          * If rows should be allowed to take focus
+         */
         "rowTakesFocus"?: boolean;
+        /**
+          * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
+         */
         "rows": any[];
     }
     interface EsTabs {

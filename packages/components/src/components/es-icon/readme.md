@@ -62,7 +62,7 @@ Type: `Promise<void>`
  - [es-callout](../es-callout)
  - [es-copy](../es-copy)
  - [es-modal](../es-modal)
- - [es-status](../es-status)
+ - es-status
  - [es-table-nested](../es-table-nested)
  - [es-thinking-button](../es-thinking-button)
  - [es-toast](../toast/es-toast)

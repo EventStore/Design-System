@@ -26,6 +26,7 @@ export class DocsSlotsTable {
         },
         docs: {
             title: 'Description',
+            cell: ({ data: { docs } }) => <docs-markdown md={docs} />,
         },
     };
 }

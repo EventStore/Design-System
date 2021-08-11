@@ -32,13 +32,15 @@ export class DocsPropsTable {
                 <pre class={{ depreciated: !!deprecation }}>{name}</pre>
             ),
         },
-
         docs: {
             title: 'Description',
             cell: ({ data: { docs, deprecation } }) => (
                 <>
-                    <span class={{ depreciated: !!deprecation }}>{docs}</span>
-                    {deprecation && <span>{deprecation}</span>}
+                    <docs-markdown
+                        class={{ depreciated: !!deprecation }}
+                        md={docs}
+                    />
+                    {deprecation && <docs-markdown md={deprecation} />}
                 </>
             ),
         },

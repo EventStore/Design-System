@@ -1,37 +1,60 @@
 import { Component, h, Prop, Event, EventEmitter, State } from '@stencil/core';
 import { TableCells } from '../es-table/types';
 
+/** Create a nested table from data. */
 @Component({
     tag: 'es-table-nested',
     styleUrl: 'es-table-nested.css',
     shadow: false,
 })
 export class TableNested {
+    /** Passed to cell renderer as `parent`. */
     @Prop() outerIdentifier: string = 'table';
+    /** Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns. */
     @Prop() getCellData?: <T = string>(key: T) => any;
+    /** A record of table cell definitions.Some built in cells are cells are available for use:
+     * - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell.
+     * - `--no-pad`: A blank placeholder cell, for aligning with the parent cell.
+     * - `expander`: The expander button.
+     */
     @Prop() cells!: TableCells<any>;
+    /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: string[];
+    /** An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.  */
     @Prop() rows!: any[];
+    /** A function to calculate a href from the cell data. */
     @Prop() linkRowTo?: (row: any) => string;
+    /** If rows should be allowed to take focus */
     @Prop() rowTakesFocus?: boolean;
+    /** A function to calculate the class or classes of the row from the cellData. */
     @Prop() rowClass: (
         row: any,
     ) => Record<string, boolean> | string | undefined = () => undefined;
 
+    /** Passed to cell renderer as `parent`. */
     @Prop() nestedIdentifier: string = 'nested-table';
+    /** The order and keys of the cells to be rendered in a nested table. If omitted, all cells will be rendered. */
     @Prop() nestedColumns?: string[];
+    /** Sync function for extracting a list of rows for the nested table */
     @Prop() getNestedRows?: (key: string) => any[] | undefined;
+    /** Sync function for extracting the data from the nested row. By default, it assumes you passed an array of data as your columns. */
     @Prop() getNestedCellData?: <T = string>(key: T) => any;
+    /** async function for loading nested data when a row is expanded. */
     @Prop() loadNested?: (key: string, data: any) => Promise<void>;
+    /** If the nested rows should be allowed to take focus. */
     @Prop() nestedRowTakesFocus?: boolean;
+    /** Function to decide if a row can take expand, to show a nested table. */
     @Prop() canExpand: (key: string, data: any) => boolean = () => true;
 
+    /** A path to a the currently active row, to auto expand its parent and show it as selected. */
     @Prop() activePath?: string[];
 
     @State() expanded: Set<string> = new Set();
     @State() loading: Set<string> = new Set();
 
+    /** Triggered whenever a row (or nested row) is clicked. The `detail` is the item in the row array. */
     @Event() clickRow!: EventEmitter<any>;
+    /** Triggered whenever a row is expanded. */
     @Event() expansion!: EventEmitter<{ data: any; key: string }>;
 
     renderExpansion = (depth: number) => (key: string) => {
