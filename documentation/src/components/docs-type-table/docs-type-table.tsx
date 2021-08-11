@@ -52,15 +52,15 @@ export class DocsTypeTable {
 
                 return (
                     <>
-                        <p
+                        <docs-markdown
                             class={{
-                                description: true,
                                 depreciated: !!deprecation,
                             }}
-                        >
-                            {comment?.text ?? comment?.shortText}
-                            {deprecation && <span>{deprecation}</span>}
-                        </p>
+                            md={comment?.text ?? comment?.shortText ?? ''}
+                        />
+                        {deprecation && (
+                            <docs-markdown md={deprecation.text ?? ''} />
+                        )}
                     </>
                 );
             },

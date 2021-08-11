@@ -2,6 +2,7 @@ import { Component, h, Prop, Host } from '@stencil/core';
 
 export type Status = 'critical' | 'degraded' | 'okay';
 
+/** @internal This is soon to be replaced */
 @Component({
     tag: 'es-status',
     styleUrl: 'es-status.css',

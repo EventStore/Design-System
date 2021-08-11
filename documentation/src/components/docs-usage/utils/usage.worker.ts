@@ -120,6 +120,10 @@ export const bundle = async (entry: string, files: Files) => {
                         return `/${importee}`;
                     }
 
+                    if (files[`${importee}.ts`]) {
+                        return `/${importee}.ts`;
+                    }
+
                     if (files[`${importee}.tsx`]) {
                         return `/${importee}.tsx`;
                     }

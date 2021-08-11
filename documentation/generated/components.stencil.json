@@ -1,5 +1,5 @@
 {
-  "timestamp": "2021-08-10T16:10:31",
+  "timestamp": "2021-08-11T14:44:05",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.6.0",
@@ -1844,7 +1844,7 @@
       "docs": "A wizard progression bar.",
       "docsTags": [],
       "usage": {
-        "example": "```tsx\nimport { FunctionalComponent } from '@stencil/core';\nimport { createStore } from '@eventstore/stores';\n\nconst { state } = createStore<{ location: string }>({\n    location: '1-1',\n});\n\nexport default () => (\n    <es-progression\n        checkpoints={[\n            {\n                id: '1-1',\n                title: 'Overworld',\n            },\n            {\n                id: '1-2',\n                title: 'Underground',\n            },\n            {\n                id: '1-3',\n                title: 'Athletic',\n            },\n            {\n                id: '1-4',\n                title: 'Castle',\n            },\n        ]}\n        location={state.location}\n        onProgressionRequest={(e) => {\n            state.location = e.detail;\n        }}\n    />\n);\n```\n"
+        "example": "```tsx\nimport { FunctionalComponent } from '@stencil/core';\nimport { createStore } from '@eventstore/stores';\n\nconst { state } = createStore<{ location: string }>({\n    location: '1-1',\n});\n\nexport default () => (\n    <es-progression\n        checkpoints={[\n            {\n                id: '1-1',\n                title: 'Overworld',\n            },\n            {\n                id: '1-2',\n                title: 'Underground',\n            },\n            {\n                id: '1-3',\n                title: 'Athletic',\n            },\n            {\n                id: '1-4',\n                title: 'Castle',\n            },\n        ]}\n        location={state.location}\n        onProgressionRequest={(e) => {\n            state.location = e.detail;\n        }}\n    />\n);\n```\n\n```css\n:host {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n```\n"
       },
       "props": [
         {
@@ -1904,9 +1904,11 @@
       "encapsulation": "none",
       "tag": "es-resize-observer",
       "readme": "# es-resize-observer\n\n\n",
-      "docs": "",
+      "docs": "Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions",
       "docsTags": [],
-      "usage": {},
+      "usage": {
+        "example": "```tsx\nimport { createStore } from '@eventstore/stores';\n\nconst { state } = createStore<{ height: number; width: number }>({\n    height: 0,\n    width: 0,\n});\n\nexport default () => (\n    <es-resize-observer\n        onSizeChanged={(e) => {\n            const { height, width } = e.detail;\n            state.height = height;\n            state.width = width;\n        }}\n    >\n        <span>{`${state.height} x ${state.width}`}</span>\n    </es-resize-observer>\n);\n```\n\n```css\nes-resize-observer {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 100%;\n    height: 100%;\n    border: 2px solid brown;\n    font-size: 48px;\n    color: brown;\n}\n```\n"
+      },
       "props": [],
       "methods": [],
       "events": [
@@ -1916,7 +1918,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Triggered when the size of the element changes.",
           "docsTags": []
         }
       ],
@@ -1929,71 +1931,22 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/es-status/es-status.tsx",
-      "encapsulation": "shadow",
-      "tag": "es-status",
-      "readme": "# es-status\n\nDisplay the status of something\n\n## Example\n\n```jsx\n<es-status status={'okay'} />\n```\n\n<es-status status={'okay'} />\n",
-      "docs": "Display the status of something",
-      "docsTags": [],
-      "usage": {},
-      "props": [
-        {
-          "name": "status",
-          "type": "\"critical\" | \"degraded\" | \"okay\"",
-          "mutable": false,
-          "attr": "status",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "critical",
-              "type": "string"
-            },
-            {
-              "value": "degraded",
-              "type": "string"
-            },
-            {
-              "value": "okay",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": true
-        }
-      ],
-      "methods": [],
-      "events": [],
-      "listeners": [],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "dependents": [],
-      "dependencies": [
-        "es-icon"
-      ],
-      "dependencyGraph": {
-        "es-status": [
-          "es-icon"
-        ]
-      }
-    },
-    {
       "filePath": "./src/components/es-table/es-table.tsx",
       "encapsulation": "none",
       "tag": "es-table",
       "readme": "# es-table\n\n\n",
-      "docs": "",
+      "docs": "Create a table from data.",
       "docsTags": [],
-      "usage": {},
+      "usage": {
+        "example": "```tsx\nimport { iconDetails, IconDetail } from 'helpers';\nimport { TableCells, toast } from '@eventstore/components';\n\nconst tableCells: TableCells<IconDetail> = {\n    name: {\n        title: 'Name',\n    },\n    usage: {\n        title: 'Usage',\n        cell: ({ data: { name } }) => (\n            <pre style={{ margin: 0 }}>{`<es-icon icon={'${name}'} />`}</pre>\n        ),\n    },\n    icon: {\n        title: '',\n        variant: 'no-pad',\n        cell: ({ data: { name } }) => <es-icon icon={name} />,\n    },\n};\n\nconst onClickRow = (e: CustomEvent<IconDetail>) => {\n    const icon = e.detail;\n    toast.success({\n        title: 'Clicked row',\n        message: `You clicked ${icon.name}.`,\n        icon: icon.name,\n    });\n};\n\nexport default () => (\n    <es-table\n        cells={tableCells}\n        rows={Object.values(iconDetails)}\n        onClickRow={onClickRow}\n    />\n);\n```\n\n```css\n:host {\n    padding: 0;\n}\n\n*[role='row'] {\n    cursor: pointer;\n    transition: color 500ms ease;\n}\n\n*[role='row']:hover {\n    color: var(--color-secondary);\n}\n```\n"
+      },
       "props": [
         {
           "name": "cells",
           "type": "{ [x: string]: TableCell<any>; }",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A record of table cell definitions.",
           "docsTags": [],
           "values": [
             {
@@ -2008,7 +1961,7 @@
           "type": "string[] | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The order and keys of the cells to be rendered. If omitted, all cells will be rendered.",
           "docsTags": [],
           "values": [
             {
@@ -2023,15 +1976,15 @@
         },
         {
           "name": "getCellData",
-          "type": "<T = string>(key: T) => any",
+          "type": "<T = any>(key: T) => any",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.",
           "docsTags": [],
           "default": "(d) => d",
           "values": [
             {
-              "type": "<T = string>(key: T) => any"
+              "type": "<T = any>(key: T) => any"
             }
           ],
           "optional": false,
@@ -2043,7 +1996,7 @@
           "mutable": false,
           "attr": "headless",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Do not render header.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -2060,7 +2013,7 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Passed to cell renderer as `parent`.",
           "docsTags": [],
           "default": "'table'",
           "values": [
@@ -2076,7 +2029,7 @@
           "type": "((row: any) => string) | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A function to calculate a href from the cell data.",
           "docsTags": [],
           "values": [
             {
@@ -2091,15 +2044,15 @@
         },
         {
           "name": "renderExpansion",
-          "type": "(key: string) => VNode | null",
+          "type": "(key: any) => VNode | null",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Allows rendering a node after the row.",
           "docsTags": [],
           "default": "() => null",
           "values": [
             {
-              "type": "(key: string) => VNode"
+              "type": "(key: any) => VNode"
             },
             {
               "type": "null"
@@ -2113,7 +2066,7 @@
           "type": "(row: any) => string | Record<string, boolean> | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A function to calculate the class or classes of the row from the cellData.",
           "docsTags": [],
           "default": "() => undefined",
           "values": [
@@ -2136,7 +2089,7 @@
           "mutable": false,
           "attr": "row-takes-focus",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "If rows should be allowed to take focus",
           "docsTags": [],
           "values": [
             {
@@ -2154,7 +2107,7 @@
           "type": "any[]",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.",
           "docsTags": [],
           "values": [
             {
@@ -2173,7 +2126,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Triggered whenever a row is clicked. The `detail` is the item in the row array.",
           "docsTags": []
         }
       ],
@@ -2196,16 +2149,18 @@
       "encapsulation": "none",
       "tag": "es-table-detail",
       "readme": "# es-table-detail\n\n\n",
-      "docs": "",
+      "docs": "Render a single row data as a grid of information.",
       "docsTags": [],
-      "usage": {},
+      "usage": {
+        "example": "```tsx\nimport { iconDetails, IconDetail } from 'helpers';\nimport { TableCells, toast } from '@eventstore/components';\n\nconst tableCells: TableCells<IconDetail> = {\n    name: {\n        title: 'Name',\n    },\n    icon: {\n        title: 'Icon',\n        cell: ({ data: { name } }) => <es-icon icon={name} />,\n    },\n    component: {\n        title: 'Internal Name',\n    },\n    aliases: {\n        title: 'Aliases',\n        cell: ({ data: { aliases } }) => aliases?.join(', ') ?? '-',\n    },\n    usage: {\n        title: 'Usage',\n        variant: 'full-width',\n        cell: ({ data: { name } }) => (\n            <pre style={{ margin: 0 }}>{`<es-icon icon={'${name}'} />`}</pre>\n        ),\n    },\n};\n\nexport default () => (\n    <es-table-detail cells={tableCells} data={iconDetails['spinner']} />\n);\n```\n\n```css\n:host {\n    padding: 0;\n}\n```\n"
+      },
       "props": [
         {
           "name": "cells",
           "type": "{ [x: string]: TableCell<any>; }",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A record of table cell definitions.",
           "docsTags": [],
           "values": [
             {
@@ -2220,7 +2175,7 @@
           "type": "string[] | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The order and keys of the cells to be rendered. If omitted, all cells will be rendered.",
           "docsTags": [],
           "values": [
             {
@@ -2239,7 +2194,7 @@
           "mutable": false,
           "attr": "data",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The data to render.",
           "docsTags": [],
           "values": [
             {
@@ -2255,7 +2210,7 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Passed to cell renderer as `parent`.",
           "docsTags": [],
           "default": "'detail'",
           "values": [
@@ -2282,9 +2237,11 @@
       "encapsulation": "none",
       "tag": "es-table-detail-header",
       "readme": "# es-table-detail-header\n\n\n",
-      "docs": "",
+      "docs": "A default header for [`es-table-row`](/components/es-table-detail).",
       "docsTags": [],
-      "usage": {},
+      "usage": {
+        "example": "```tsx\nimport { iconDetails, IconDetail } from 'helpers';\nimport { TableCells, toast } from '@eventstore/components';\n\nconst tableCells: TableCells<IconDetail> = {\n    name: {\n        title: 'Name',\n    },\n    icon: {\n        title: 'Icon',\n        cell: ({ data: { name } }) => <es-icon icon={name} />,\n    },\n    component: {\n        title: 'Internal Name',\n    },\n    aliases: {\n        title: 'Aliases',\n        variant: 'full-width',\n        cell: ({ data: { aliases } }) =>\n            aliases?.map((alias) => <pre>{alias}</pre>) ?? <pre>{'-'}</pre>,\n    },\n    usage: {\n        title: 'Usage',\n        variant: 'full-width',\n        cell: ({ data: { name } }) => (\n            <pre style={{ margin: 0 }}>{`<es-icon icon={'${name}'} />`}</pre>\n        ),\n    },\n};\n\nconst data = iconDetails['markdown'];\n\nexport default () => (\n    <>\n        <es-table-detail-header\n            cells={tableCells}\n            data={data}\n            titleKey={'component'}\n            actionsCell={'icon'}\n        />\n        <es-table-detail\n            cells={tableCells}\n            data={data}\n            columns={['name', 'aliases', 'usage']}\n        />\n    </>\n);\n```\n\n```css\npre {\n    margin: 0;\n}\n```\n"
+      },
       "props": [
         {
           "name": "actionsCell",
@@ -2292,7 +2249,7 @@
           "mutable": false,
           "attr": "actions-cell",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Which cell to place in the top right as a list of actions.",
           "docsTags": [],
           "default": "'actions'",
           "values": [
@@ -2308,7 +2265,7 @@
           "type": "{ [x: string]: TableCell<any>; }",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A record of table cell definitions.",
           "docsTags": [],
           "values": [
             {
@@ -2324,7 +2281,7 @@
           "mutable": false,
           "attr": "data",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The data to render.",
           "docsTags": [],
           "values": [
             {
@@ -2340,7 +2297,7 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Passed to cell renderer as `parent`.",
           "docsTags": [],
           "default": "'detail-header'",
           "values": [
@@ -2357,7 +2314,7 @@
           "mutable": false,
           "attr": "title-key",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The key of the title in the data",
           "docsTags": [],
           "values": [
             {
@@ -2383,7 +2340,7 @@
       "encapsulation": "none",
       "tag": "es-table-nested",
       "readme": "# es-table-nested\n\n\n",
-      "docs": "",
+      "docs": "Create a nested table from data.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -2392,7 +2349,7 @@
           "type": "string[] | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A path to a the currently active row, to auto expand its parent and show it as selected.",
           "docsTags": [],
           "values": [
             {
@@ -2410,7 +2367,7 @@
           "type": "(key: string, data: any) => boolean",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Function to decide if a row can take expand, to show a nested table.",
           "docsTags": [],
           "default": "() => true",
           "values": [
@@ -2426,7 +2383,7 @@
           "type": "{ [x: string]: TableCell<any>; }",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A record of table cell definitions.Some built in cells are cells are available for use:\n- `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell.\n- `--no-pad`: A blank placeholder cell, for aligning with the parent cell.\n- `expander`: The expander button.",
           "docsTags": [],
           "values": [
             {
@@ -2441,7 +2398,7 @@
           "type": "string[] | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The order and keys of the cells to be rendered. If omitted, all cells will be rendered.",
           "docsTags": [],
           "values": [
             {
@@ -2459,7 +2416,7 @@
           "type": "(<T = string>(key: T) => any) | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.",
           "docsTags": [],
           "values": [
             {
@@ -2477,7 +2434,7 @@
           "type": "(<T = string>(key: T) => any) | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Sync function for extracting the data from the nested row. By default, it assumes you passed an array of data as your columns.",
           "docsTags": [],
           "values": [
             {
@@ -2495,7 +2452,7 @@
           "type": "((key: string) => any[] | undefined) | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Sync function for extracting a list of rows for the nested table",
           "docsTags": [],
           "values": [
             {
@@ -2516,7 +2473,7 @@
           "type": "((row: any) => string) | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A function to calculate a href from the cell data.",
           "docsTags": [],
           "values": [
             {
@@ -2534,7 +2491,7 @@
           "type": "((key: string, data: any) => Promise<void>) | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "async function for loading nested data when a row is expanded.",
           "docsTags": [],
           "values": [
             {
@@ -2552,7 +2509,7 @@
           "type": "string[] | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The order and keys of the cells to be rendered in a nested table. If omitted, all cells will be rendered.",
           "docsTags": [],
           "values": [
             {
@@ -2571,7 +2528,7 @@
           "mutable": false,
           "attr": "nested-identifier",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Passed to cell renderer as `parent`.",
           "docsTags": [],
           "default": "'nested-table'",
           "values": [
@@ -2588,7 +2545,7 @@
           "mutable": false,
           "attr": "nested-row-takes-focus",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "If the nested rows should be allowed to take focus.",
           "docsTags": [],
           "values": [
             {
@@ -2607,7 +2564,7 @@
           "mutable": false,
           "attr": "outer-identifier",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Passed to cell renderer as `parent`.",
           "docsTags": [],
           "default": "'table'",
           "values": [
@@ -2623,7 +2580,7 @@
           "type": "(row: any) => string | Record<string, boolean> | undefined",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A function to calculate the class or classes of the row from the cellData.",
           "docsTags": [],
           "default": "() => undefined",
           "values": [
@@ -2646,7 +2603,7 @@
           "mutable": false,
           "attr": "row-takes-focus",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "If rows should be allowed to take focus",
           "docsTags": [],
           "values": [
             {
@@ -2664,7 +2621,7 @@
           "type": "any[]",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.",
           "docsTags": [],
           "values": [
             {
@@ -2683,7 +2640,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Triggered whenever a row (or nested row) is clicked. The `detail` is the item in the row array.",
           "docsTags": []
         },
         {
@@ -2692,7 +2649,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Triggered whenever a row is expanded.",
           "docsTags": []
         }
       ],

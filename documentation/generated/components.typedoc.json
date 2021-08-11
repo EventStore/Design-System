@@ -31,7 +31,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 26,
+									"line": 27,
 									"character": 8
 								}
 							],
@@ -56,7 +56,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 30,
+									"line": 31,
 									"character": 8
 								}
 							],
@@ -79,7 +79,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 22,
+							"line": 23,
 							"character": 14
 						}
 					]
@@ -100,7 +100,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 35,
+									"line": 36,
 									"character": 8
 								}
 							],
@@ -118,7 +118,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 33,
+									"line": 34,
 									"character": 8
 								}
 							],
@@ -151,7 +151,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 34,
+									"line": 35,
 									"character": 8
 								}
 							],
@@ -218,7 +218,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 32,
+							"line": 33,
 							"character": 14
 						}
 					]
@@ -242,7 +242,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 41,
+									"line": 42,
 									"character": 8
 								}
 							],
@@ -263,7 +263,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 45,
+									"line": 46,
 									"character": 8
 								}
 							],
@@ -284,7 +284,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 49,
+									"line": 50,
 									"character": 8
 								}
 							],
@@ -307,7 +307,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 53,
+									"line": 54,
 									"character": 8
 								}
 							],
@@ -328,7 +328,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 57,
+									"line": 58,
 									"character": 8
 								}
 							],
@@ -354,7 +354,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 37,
+							"line": 38,
 							"character": 14
 						}
 					]
@@ -378,7 +378,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 63,
+									"line": 64,
 									"character": 8
 								}
 							],
@@ -401,7 +401,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 67,
+									"line": 68,
 									"character": 8
 								}
 							],
@@ -424,7 +424,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 71,
+									"line": 72,
 									"character": 8
 								}
 							],
@@ -445,7 +445,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 75,
+									"line": 76,
 									"character": 8
 								}
 							],
@@ -466,7 +466,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 79,
+									"line": 80,
 									"character": 8
 								}
 							],
@@ -492,7 +492,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 59,
+							"line": 60,
 							"character": 14
 						}
 					]
@@ -518,7 +518,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 85,
+									"line": 86,
 									"character": 8
 								}
 							],
@@ -541,7 +541,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 89,
+									"line": 90,
 									"character": 8
 								}
 							],
@@ -564,7 +564,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 93,
+									"line": 94,
 									"character": 8
 								}
 							],
@@ -587,7 +587,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 97,
+									"line": 98,
 									"character": 8
 								}
 							],
@@ -610,7 +610,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 101,
+									"line": 102,
 									"character": 8
 								}
 							],
@@ -633,7 +633,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 105,
+									"line": 106,
 									"character": 8
 								}
 							],
@@ -656,7 +656,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 109,
+									"line": 110,
 									"character": 8
 								}
 							],
@@ -679,7 +679,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 113,
+									"line": 114,
 									"character": 8
 								}
 							],
@@ -702,7 +702,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 117,
+									"line": 118,
 									"character": 8
 								}
 							],
@@ -723,7 +723,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 121,
+									"line": 122,
 									"character": 8
 								}
 							],
@@ -746,7 +746,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 125,
+									"line": 126,
 									"character": 8
 								}
 							],
@@ -769,7 +769,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 129,
+									"line": 130,
 									"character": 8
 								}
 							],
@@ -792,7 +792,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 133,
+									"line": 134,
 									"character": 8
 								}
 							],
@@ -815,7 +815,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 137,
+									"line": 138,
 									"character": 8
 								}
 							],
@@ -836,7 +836,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 141,
+									"line": 142,
 									"character": 8
 								}
 							],
@@ -872,7 +872,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 81,
+							"line": 82,
 							"character": 14
 						}
 					]
@@ -896,7 +896,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 147,
+									"line": 148,
 									"character": 8
 								}
 							],
@@ -919,7 +919,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 151,
+									"line": 152,
 									"character": 8
 								}
 							],
@@ -940,7 +940,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 155,
+									"line": 156,
 									"character": 8
 								}
 							],
@@ -964,7 +964,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 143,
+							"line": 144,
 							"character": 14
 						}
 					]
@@ -985,7 +985,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 161,
+									"line": 162,
 									"character": 8
 								}
 							],
@@ -1025,7 +1025,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 157,
+							"line": 158,
 							"character": 14
 						}
 					]
@@ -1049,7 +1049,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 167,
+									"line": 168,
 									"character": 8
 								}
 							],
@@ -1070,7 +1070,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 171,
+									"line": 172,
 									"character": 8
 								}
 							],
@@ -1091,7 +1091,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 175,
+									"line": 176,
 									"character": 8
 								}
 							],
@@ -1115,7 +1115,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 163,
+							"line": 164,
 							"character": 14
 						}
 					]
@@ -1139,7 +1139,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 181,
+									"line": 182,
 									"character": 8
 								}
 							],
@@ -1160,7 +1160,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 185,
+									"line": 186,
 									"character": 8
 								}
 							],
@@ -1181,7 +1181,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 189,
+									"line": 190,
 									"character": 8
 								}
 							],
@@ -1204,7 +1204,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 193,
+									"line": 194,
 									"character": 8
 								}
 							],
@@ -1225,7 +1225,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 197,
+									"line": 198,
 									"character": 8
 								}
 							],
@@ -1252,7 +1252,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 201,
+									"line": 202,
 									"character": 8
 								}
 							],
@@ -1303,7 +1303,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 177,
+							"line": 178,
 							"character": 14
 						}
 					]
@@ -1327,7 +1327,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 207,
+									"line": 208,
 									"character": 8
 								}
 							],
@@ -1348,7 +1348,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 211,
+									"line": 212,
 									"character": 8
 								}
 							],
@@ -1371,7 +1371,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 203,
+							"line": 204,
 							"character": 14
 						}
 					]
@@ -1397,7 +1397,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 217,
+									"line": 218,
 									"character": 8
 								}
 							],
@@ -1418,7 +1418,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 221,
+									"line": 222,
 									"character": 8
 								}
 							],
@@ -1439,7 +1439,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 225,
+									"line": 226,
 									"character": 8
 								}
 							],
@@ -1460,7 +1460,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 229,
+									"line": 230,
 									"character": 8
 								}
 							],
@@ -1481,7 +1481,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 233,
+									"line": 234,
 									"character": 8
 								}
 							],
@@ -1502,7 +1502,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 237,
+									"line": 238,
 									"character": 8
 								}
 							],
@@ -1523,7 +1523,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 241,
+									"line": 242,
 									"character": 8
 								}
 							],
@@ -1544,7 +1544,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 245,
+									"line": 246,
 									"character": 8
 								}
 							],
@@ -1567,7 +1567,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 249,
+									"line": 250,
 									"character": 8
 								}
 							],
@@ -1588,7 +1588,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 253,
+									"line": 254,
 									"character": 8
 								}
 							],
@@ -1609,7 +1609,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 257,
+									"line": 258,
 									"character": 8
 								}
 							],
@@ -1630,7 +1630,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 261,
+									"line": 262,
 									"character": 8
 								}
 							],
@@ -1651,7 +1651,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 265,
+									"line": 266,
 									"character": 8
 								}
 							],
@@ -1685,7 +1685,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 213,
+							"line": 214,
 							"character": 14
 						}
 					]
@@ -1706,7 +1706,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 268,
+									"line": 269,
 									"character": 8
 								}
 							],
@@ -1724,7 +1724,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 269,
+									"line": 270,
 									"character": 8
 								}
 							],
@@ -1747,7 +1747,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 267,
+							"line": 268,
 							"character": 14
 						}
 					]
@@ -1768,7 +1768,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 272,
+									"line": 273,
 									"character": 8
 								}
 							],
@@ -1818,7 +1818,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 271,
+							"line": 272,
 							"character": 14
 						}
 					]
@@ -1842,7 +1842,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 279,
+									"line": 280,
 									"character": 8
 								}
 							],
@@ -1863,7 +1863,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 284,
+									"line": 285,
 									"character": 8
 								}
 							],
@@ -1884,7 +1884,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 288,
+									"line": 289,
 									"character": 8
 								}
 							],
@@ -1905,7 +1905,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 292,
+									"line": 293,
 									"character": 8
 								}
 							],
@@ -1923,7 +1923,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 275,
+									"line": 276,
 									"character": 8
 								}
 							],
@@ -1956,7 +1956,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 280,
+									"line": 281,
 									"character": 8
 								}
 							],
@@ -2004,7 +2004,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 274,
+							"line": 275,
 							"character": 14
 						}
 					]
@@ -2028,7 +2028,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 298,
+									"line": 299,
 									"character": 8
 								}
 							],
@@ -2052,7 +2052,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 302,
+									"line": 303,
 									"character": 8
 								}
 							],
@@ -2075,7 +2075,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 294,
+							"line": 295,
 							"character": 14
 						}
 					]
@@ -2089,7 +2089,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 304,
+							"line": 305,
 							"character": 14
 						}
 					]
@@ -2110,7 +2110,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 307,
+									"line": 308,
 									"character": 8
 								}
 							],
@@ -2132,7 +2132,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 306,
+							"line": 307,
 							"character": 14
 						}
 					]
@@ -2150,10 +2150,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A record of table cell definitions."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 310,
+									"line": 314,
 									"character": 8
 								}
 							],
@@ -2177,10 +2180,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The order and keys of the cells to be rendered. If omitted, all cells will be rendered."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 311,
+									"line": 318,
 									"character": 8
 								}
 							],
@@ -2198,10 +2204,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Do not render header."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 313,
+									"line": 326,
 									"character": 8
 								}
 							],
@@ -2216,10 +2225,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Passed to cell renderer as `parent`."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 314,
+									"line": 330,
 									"character": 8
 								}
 							],
@@ -2236,10 +2248,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "If rows should be allowed to take focus"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 320,
+									"line": 348,
 									"character": 8
 								}
 							],
@@ -2254,10 +2269,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 321,
+									"line": 352,
 									"character": 8
 								}
 							],
@@ -2278,7 +2296,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 312,
+									"line": 322,
 									"character": 8
 								}
 							],
@@ -2289,6 +2307,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns."
+									},
 									"typeParameter": [
 										{
 											"id": 103,
@@ -2298,7 +2319,7 @@
 											"flags": {},
 											"default": {
 												"type": "intrinsic",
-												"name": "string"
+												"name": "any"
 											}
 										}
 									],
@@ -2333,7 +2354,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 315,
+									"line": 334,
 									"character": 8
 								}
 							],
@@ -2344,6 +2365,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "A function to calculate a href from the cell data."
+									},
 									"parameters": [
 										{
 											"id": 109,
@@ -2373,7 +2397,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 316,
+									"line": 338,
 									"character": 8
 								}
 							],
@@ -2384,6 +2408,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Allows rendering a node after the row."
+									},
 									"parameters": [
 										{
 											"id": 112,
@@ -2393,7 +2420,7 @@
 											"flags": {},
 											"type": {
 												"type": "intrinsic",
-												"name": "string"
+												"name": "any"
 											}
 										}
 									],
@@ -2422,7 +2449,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 317,
+									"line": 342,
 									"character": 8
 								}
 							],
@@ -2433,6 +2460,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "A function to calculate the class or classes of the row from the cellData."
+									},
 									"parameters": [
 										{
 											"id": 115,
@@ -2504,7 +2534,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 309,
+							"line": 310,
 							"character": 14
 						}
 					]
@@ -2522,10 +2552,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A record of table cell definitions."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 324,
+									"line": 358,
 									"character": 8
 								}
 							],
@@ -2549,10 +2582,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The order and keys of the cells to be rendered. If omitted, all cells will be rendered."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 325,
+									"line": 362,
 									"character": 8
 								}
 							],
@@ -2570,10 +2606,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The data to render."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 326,
+									"line": 366,
 									"character": 8
 								}
 							],
@@ -2588,10 +2627,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Passed to cell renderer as `parent`."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 327,
+									"line": 370,
 									"character": 8
 								}
 							],
@@ -2616,7 +2658,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 323,
+							"line": 354,
 							"character": 14
 						}
 					]
@@ -2634,10 +2676,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Which cell to place in the top right as a list of actions."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 330,
+									"line": 376,
 									"character": 8
 								}
 							],
@@ -2652,10 +2697,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A record of table cell definitions."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 331,
+									"line": 380,
 									"character": 8
 								}
 							],
@@ -2677,10 +2725,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The data to render."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 332,
+									"line": 384,
 									"character": 8
 								}
 							],
@@ -2695,10 +2746,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Passed to cell renderer as `parent`."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 333,
+									"line": 388,
 									"character": 8
 								}
 							],
@@ -2713,10 +2767,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The key of the title in the data"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 334,
+									"line": 392,
 									"character": 8
 								}
 							],
@@ -2742,7 +2799,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 329,
+							"line": 372,
 							"character": 14
 						}
 					]
@@ -2762,10 +2819,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "A path to a the currently active row, to auto expand its parent and show it as selected."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 337,
+									"line": 398,
 									"character": 8
 								}
 							],
@@ -2783,10 +2843,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A record of table cell definitions.Some built in cells are cells are available for use: - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell. - `--no-pad`: A blank placeholder cell, for aligning with the parent cell. - `expander`: The expander button."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 339,
+									"line": 406,
 									"character": 8
 								}
 							],
@@ -2810,10 +2873,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The order and keys of the cells to be rendered. If omitted, all cells will be rendered."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 340,
+									"line": 410,
 									"character": 8
 								}
 							],
@@ -2833,10 +2899,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The order and keys of the cells to be rendered in a nested table. If omitted, all cells will be rendered."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 346,
+									"line": 434,
 									"character": 8
 								}
 							],
@@ -2854,10 +2923,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Passed to cell renderer as `parent`."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 347,
+									"line": 438,
 									"character": 8
 								}
 							],
@@ -2874,10 +2946,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "If the nested rows should be allowed to take focus."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 348,
+									"line": 442,
 									"character": 8
 								}
 							],
@@ -2892,10 +2967,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Passed to cell renderer as `parent`."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 349,
+									"line": 446,
 									"character": 8
 								}
 							],
@@ -2912,10 +2990,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "If rows should be allowed to take focus"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 353,
+									"line": 456,
 									"character": 8
 								}
 							],
@@ -2930,10 +3011,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 354,
+									"line": 460,
 									"character": 8
 								}
 							],
@@ -2954,7 +3038,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 338,
+									"line": 402,
 									"character": 8
 								}
 							],
@@ -2965,6 +3049,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Function to decide if a row can take expand, to show a nested table."
+									},
 									"parameters": [
 										{
 											"id": 133,
@@ -3007,7 +3094,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 341,
+									"line": 414,
 									"character": 8
 								}
 							],
@@ -3018,6 +3105,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns."
+									},
 									"typeParameter": [
 										{
 											"id": 139,
@@ -3062,7 +3152,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 342,
+									"line": 418,
 									"character": 8
 								}
 							],
@@ -3073,6 +3163,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sync function for extracting the data from the nested row. By default, it assumes you passed an array of data as your columns."
+									},
 									"typeParameter": [
 										{
 											"id": 143,
@@ -3117,7 +3210,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 343,
+									"line": 422,
 									"character": 8
 								}
 							],
@@ -3128,6 +3221,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sync function for extracting a list of rows for the nested table"
+									},
 									"parameters": [
 										{
 											"id": 147,
@@ -3171,7 +3267,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 344,
+									"line": 426,
 									"character": 8
 								}
 							],
@@ -3182,6 +3278,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "A function to calculate a href from the cell data."
+									},
 									"parameters": [
 										{
 											"id": 150,
@@ -3213,7 +3312,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 345,
+									"line": 430,
 									"character": 8
 								}
 							],
@@ -3224,6 +3323,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "async function for loading nested data when a row is expanded."
+									},
 									"parameters": [
 										{
 											"id": 153,
@@ -3270,7 +3372,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 350,
+									"line": 450,
 									"character": 8
 								}
 							],
@@ -3281,6 +3383,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "A function to calculate the class or classes of the row from the cellData."
+									},
 									"parameters": [
 										{
 											"id": 161,
@@ -3358,7 +3463,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 336,
+							"line": 394,
 							"character": 14
 						}
 					]
@@ -3381,7 +3486,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 357,
+									"line": 463,
 									"character": 8
 								}
 							],
@@ -3399,7 +3504,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 358,
+									"line": 464,
 									"character": 8
 								}
 							],
@@ -3426,7 +3531,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 359,
+									"line": 465,
 									"character": 8
 								}
 							],
@@ -3454,7 +3559,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 356,
+							"line": 462,
 							"character": 14
 						}
 					]
@@ -3477,7 +3582,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 363,
+									"line": 469,
 									"character": 8
 								}
 							],
@@ -3495,7 +3600,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 364,
+									"line": 470,
 									"character": 8
 								}
 							],
@@ -3513,7 +3618,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 365,
+									"line": 471,
 									"character": 8
 								}
 							],
@@ -3533,7 +3638,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 366,
+									"line": 472,
 									"character": 8
 								}
 							],
@@ -3551,7 +3656,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 367,
+									"line": 473,
 									"character": 8
 								}
 							],
@@ -3571,7 +3676,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 368,
+									"line": 474,
 									"character": 8
 								}
 							],
@@ -3589,7 +3694,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 369,
+									"line": 475,
 									"character": 8
 								}
 							],
@@ -3607,7 +3712,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 370,
+									"line": 476,
 									"character": 8
 								}
 							],
@@ -3625,7 +3730,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 362,
+									"line": 468,
 									"character": 8
 								}
 							],
@@ -3689,7 +3794,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 361,
+							"line": 467,
 							"character": 14
 						}
 					]
@@ -3710,7 +3815,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 374,
+									"line": 480,
 									"character": 8
 								}
 							],
@@ -3728,7 +3833,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 375,
+									"line": 481,
 									"character": 8
 								}
 							],
@@ -3746,7 +3851,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 376,
+									"line": 482,
 									"character": 8
 								}
 							],
@@ -3764,7 +3869,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 373,
+									"line": 479,
 									"character": 8
 								}
 							],
@@ -3810,7 +3915,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 372,
+							"line": 478,
 							"character": 14
 						}
 					]
@@ -3831,7 +3936,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 379,
+									"line": 485,
 									"character": 8
 								}
 							],
@@ -3881,7 +3986,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 378,
+							"line": 484,
 							"character": 14
 						}
 					]
@@ -3902,7 +4007,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 382,
+									"line": 488,
 									"character": 8
 								}
 							],
@@ -3920,7 +4025,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 383,
+									"line": 489,
 									"character": 8
 								}
 							],
@@ -3942,7 +4047,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 384,
+									"line": 490,
 									"character": 8
 								}
 							],
@@ -3966,7 +4071,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 381,
+							"line": 487,
 							"character": 14
 						}
 					]
@@ -4009,7 +4114,7 @@
 			"sources": [
 				{
 					"fileName": "components.d.ts",
-					"line": 21,
+					"line": 22,
 					"character": 17
 				}
 			]
@@ -4040,7 +4145,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 578,
+									"line": 684,
 									"character": 8
 								}
 							],
@@ -4067,7 +4172,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 582,
+									"line": 688,
 									"character": 8
 								}
 							],
@@ -4090,7 +4195,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 574,
+							"line": 680,
 							"character": 14
 						}
 					]
@@ -4113,7 +4218,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 587,
+									"line": 693,
 									"character": 8
 								}
 							],
@@ -4133,7 +4238,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 585,
+									"line": 691,
 									"character": 8
 								}
 							],
@@ -4181,7 +4286,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 586,
+									"line": 692,
 									"character": 8
 								}
 							],
@@ -4239,7 +4344,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 584,
+							"line": 690,
 							"character": 14
 						}
 					]
@@ -4265,7 +4370,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 593,
+									"line": 699,
 									"character": 8
 								}
 							],
@@ -4286,7 +4391,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 597,
+									"line": 703,
 									"character": 8
 								}
 							],
@@ -4309,7 +4414,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 601,
+									"line": 707,
 									"character": 8
 								}
 							],
@@ -4332,7 +4437,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 605,
+									"line": 711,
 									"character": 8
 								}
 							],
@@ -4355,7 +4460,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 609,
+									"line": 715,
 									"character": 8
 								}
 							],
@@ -4381,7 +4486,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 589,
+							"line": 695,
 							"character": 14
 						}
 					]
@@ -4407,7 +4512,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 615,
+									"line": 721,
 									"character": 8
 								}
 							],
@@ -4430,7 +4535,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 619,
+									"line": 725,
 									"character": 8
 								}
 							],
@@ -4453,7 +4558,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 623,
+									"line": 729,
 									"character": 8
 								}
 							],
@@ -4476,7 +4581,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 627,
+									"line": 733,
 									"character": 8
 								}
 							],
@@ -4499,7 +4604,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 631,
+									"line": 737,
 									"character": 8
 								}
 							],
@@ -4525,7 +4630,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 611,
+							"line": 717,
 							"character": 14
 						}
 					]
@@ -4551,7 +4656,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 637,
+									"line": 743,
 									"character": 8
 								}
 							],
@@ -4574,7 +4679,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 641,
+									"line": 747,
 									"character": 8
 								}
 							],
@@ -4597,7 +4702,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 645,
+									"line": 751,
 									"character": 8
 								}
 							],
@@ -4620,7 +4725,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 649,
+									"line": 755,
 									"character": 8
 								}
 							],
@@ -4643,7 +4748,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 653,
+									"line": 759,
 									"character": 8
 								}
 							],
@@ -4666,7 +4771,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 657,
+									"line": 763,
 									"character": 8
 								}
 							],
@@ -4689,7 +4794,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 661,
+									"line": 767,
 									"character": 8
 								}
 							],
@@ -4712,7 +4817,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 665,
+									"line": 771,
 									"character": 8
 								}
 							],
@@ -4735,7 +4840,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 669,
+									"line": 775,
 									"character": 8
 								}
 							],
@@ -4758,7 +4863,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 673,
+									"line": 779,
 									"character": 8
 								}
 							],
@@ -4781,7 +4886,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 677,
+									"line": 783,
 									"character": 8
 								}
 							],
@@ -4804,7 +4909,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 681,
+									"line": 787,
 									"character": 8
 								}
 							],
@@ -4827,7 +4932,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 685,
+									"line": 791,
 									"character": 8
 								}
 							],
@@ -4850,7 +4955,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 689,
+									"line": 795,
 									"character": 8
 								}
 							],
@@ -4873,7 +4978,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 693,
+									"line": 799,
 									"character": 8
 								}
 							],
@@ -4909,7 +5014,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 633,
+							"line": 739,
 							"character": 14
 						}
 					]
@@ -4933,7 +5038,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 699,
+									"line": 805,
 									"character": 8
 								}
 							],
@@ -4956,7 +5061,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 703,
+									"line": 809,
 									"character": 8
 								}
 							],
@@ -4979,7 +5084,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 707,
+									"line": 813,
 									"character": 8
 								}
 							],
@@ -5003,7 +5108,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 695,
+							"line": 801,
 							"character": 14
 						}
 					]
@@ -5017,7 +5122,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 709,
+							"line": 815,
 							"character": 14
 						}
 					]
@@ -5043,7 +5148,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 715,
+									"line": 821,
 									"character": 8
 								}
 							],
@@ -5066,7 +5171,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 719,
+									"line": 825,
 									"character": 8
 								}
 							],
@@ -5089,7 +5194,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 723,
+									"line": 829,
 									"character": 8
 								}
 							],
@@ -5113,7 +5218,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 711,
+							"line": 817,
 							"character": 14
 						}
 					]
@@ -5139,7 +5244,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 729,
+									"line": 835,
 									"character": 8
 								}
 							],
@@ -5160,7 +5265,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 733,
+									"line": 839,
 									"character": 8
 								}
 							],
@@ -5183,7 +5288,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 737,
+									"line": 843,
 									"character": 8
 								}
 							],
@@ -5206,7 +5311,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 741,
+									"line": 847,
 									"character": 8
 								}
 							],
@@ -5229,7 +5334,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 745,
+									"line": 851,
 									"character": 8
 								}
 							],
@@ -5264,7 +5369,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 725,
+							"line": 831,
 							"character": 14
 						}
 					]
@@ -5290,7 +5395,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 751,
+									"line": 857,
 									"character": 8
 								}
 							],
@@ -5313,7 +5418,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 755,
+									"line": 861,
 									"character": 8
 								}
 							],
@@ -5333,7 +5438,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 759,
+									"line": 865,
 									"character": 8
 								}
 							],
@@ -5394,7 +5499,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 747,
+							"line": 853,
 							"character": 14
 						}
 					]
@@ -5420,7 +5525,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 765,
+									"line": 871,
 									"character": 8
 								}
 							],
@@ -5443,7 +5548,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 769,
+									"line": 875,
 									"character": 8
 								}
 							],
@@ -5466,7 +5571,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 773,
+									"line": 879,
 									"character": 8
 								}
 							],
@@ -5489,7 +5594,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 777,
+									"line": 883,
 									"character": 8
 								}
 							],
@@ -5512,7 +5617,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 781,
+									"line": 887,
 									"character": 8
 								}
 							],
@@ -5535,7 +5640,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 785,
+									"line": 891,
 									"character": 8
 								}
 							],
@@ -5558,7 +5663,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 789,
+									"line": 895,
 									"character": 8
 								}
 							],
@@ -5581,7 +5686,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 797,
+									"line": 903,
 									"character": 8
 								}
 							],
@@ -5604,7 +5709,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 801,
+									"line": 907,
 									"character": 8
 								}
 							],
@@ -5627,7 +5732,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 805,
+									"line": 911,
 									"character": 8
 								}
 							],
@@ -5650,7 +5755,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 809,
+									"line": 915,
 									"character": 8
 								}
 							],
@@ -5673,7 +5778,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 813,
+									"line": 919,
 									"character": 8
 								}
 							],
@@ -5696,7 +5801,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 817,
+									"line": 923,
 									"character": 8
 								}
 							],
@@ -5716,7 +5821,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 793,
+									"line": 899,
 									"character": 8
 								}
 							],
@@ -5788,7 +5893,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 761,
+							"line": 867,
 							"character": 14
 						}
 					]
@@ -5811,7 +5916,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 820,
+									"line": 926,
 									"character": 8
 								}
 							],
@@ -5831,7 +5936,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 822,
+									"line": 928,
 									"character": 8
 								}
 							],
@@ -5851,7 +5956,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 821,
+									"line": 927,
 									"character": 8
 								}
 							],
@@ -5909,7 +6014,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 819,
+							"line": 925,
 							"character": 14
 						}
 					]
@@ -5923,7 +6028,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 824,
+							"line": 930,
 							"character": 14
 						}
 					]
@@ -5949,7 +6054,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 830,
+									"line": 936,
 									"character": 8
 								}
 							],
@@ -5970,7 +6075,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 834,
+									"line": 940,
 									"character": 8
 								}
 							],
@@ -5993,7 +6098,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 842,
+									"line": 948,
 									"character": 8
 								}
 							],
@@ -6016,7 +6121,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 846,
+									"line": 952,
 									"character": 8
 								}
 							],
@@ -6036,7 +6141,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 838,
+									"line": 944,
 									"character": 8
 								}
 							],
@@ -6099,7 +6204,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 826,
+							"line": 932,
 							"character": 14
 						}
 					]
@@ -6123,7 +6228,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 852,
+									"line": 958,
 									"character": 8
 								}
 							],
@@ -6147,7 +6252,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 856,
+									"line": 962,
 									"character": 8
 								}
 							],
@@ -6167,7 +6272,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 860,
+									"line": 966,
 									"character": 8
 								}
 							],
@@ -6228,7 +6333,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 848,
+							"line": 954,
 							"character": 14
 						}
 					]
@@ -6251,7 +6356,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 863,
+									"line": 972,
 									"character": 8
 								}
 							],
@@ -6262,6 +6367,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Triggered when the size of the element changes."
+									},
 									"parameters": [
 										{
 											"id": 296,
@@ -6301,7 +6409,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 862,
+							"line": 968,
 							"character": 14
 						}
 					]
@@ -6322,7 +6430,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 866,
+									"line": 975,
 									"character": 8
 								}
 							],
@@ -6344,7 +6452,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 865,
+							"line": 974,
 							"character": 14
 						}
 					]
@@ -6362,10 +6470,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A record of table cell definitions."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 869,
+									"line": 981,
 									"character": 8
 								}
 							],
@@ -6389,10 +6500,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The order and keys of the cells to be rendered. If omitted, all cells will be rendered."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 870,
+									"line": 985,
 									"character": 8
 								}
 							],
@@ -6412,10 +6526,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Do not render header."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 872,
+									"line": 993,
 									"character": 8
 								}
 							],
@@ -6432,10 +6549,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Passed to cell renderer as `parent`."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 873,
+									"line": 997,
 									"character": 8
 								}
 							],
@@ -6452,10 +6572,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "If rows should be allowed to take focus"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 880,
+									"line": 1019,
 									"character": 8
 								}
 							],
@@ -6470,10 +6593,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 881,
+									"line": 1023,
 									"character": 8
 								}
 							],
@@ -6496,7 +6622,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 871,
+									"line": 989,
 									"character": 8
 								}
 							],
@@ -6507,6 +6633,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns."
+									},
 									"typeParameter": [
 										{
 											"id": 304,
@@ -6516,7 +6645,7 @@
 											"flags": {},
 											"default": {
 												"type": "intrinsic",
-												"name": "string"
+												"name": "any"
 											}
 										}
 									],
@@ -6551,7 +6680,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 874,
+									"line": 1001,
 									"character": 8
 								}
 							],
@@ -6562,6 +6691,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "A function to calculate a href from the cell data."
+									},
 									"parameters": [
 										{
 											"id": 310,
@@ -6593,7 +6725,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 875,
+									"line": 1005,
 									"character": 8
 								}
 							],
@@ -6604,6 +6736,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Triggered whenever a row is clicked. The `detail` is the item in the row array."
+									},
 									"parameters": [
 										{
 											"id": 313,
@@ -6641,7 +6776,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 876,
+									"line": 1009,
 									"character": 8
 								}
 							],
@@ -6652,6 +6787,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Allows rendering a node after the row."
+									},
 									"parameters": [
 										{
 											"id": 316,
@@ -6661,7 +6799,7 @@
 											"flags": {},
 											"type": {
 												"type": "intrinsic",
-												"name": "string"
+												"name": "any"
 											}
 										}
 									],
@@ -6692,7 +6830,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 877,
+									"line": 1013,
 									"character": 8
 								}
 							],
@@ -6703,6 +6841,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "A function to calculate the class or classes of the row from the cellData."
+									},
 									"parameters": [
 										{
 											"id": 319,
@@ -6775,7 +6916,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 868,
+							"line": 977,
 							"character": 14
 						}
 					]
@@ -6793,10 +6934,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A record of table cell definitions."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 884,
+									"line": 1029,
 									"character": 8
 								}
 							],
@@ -6820,10 +6964,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The order and keys of the cells to be rendered. If omitted, all cells will be rendered."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 885,
+									"line": 1033,
 									"character": 8
 								}
 							],
@@ -6841,10 +6988,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The data to render."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 886,
+									"line": 1037,
 									"character": 8
 								}
 							],
@@ -6861,10 +7011,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Passed to cell renderer as `parent`."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 887,
+									"line": 1041,
 									"character": 8
 								}
 							],
@@ -6889,7 +7042,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 883,
+							"line": 1025,
 							"character": 14
 						}
 					]
@@ -6909,10 +7062,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Which cell to place in the top right as a list of actions."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 890,
+									"line": 1047,
 									"character": 8
 								}
 							],
@@ -6927,10 +7083,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A record of table cell definitions."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 891,
+									"line": 1051,
 									"character": 8
 								}
 							],
@@ -6952,10 +7111,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The data to render."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 892,
+									"line": 1055,
 									"character": 8
 								}
 							],
@@ -6972,10 +7134,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Passed to cell renderer as `parent`."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 893,
+									"line": 1059,
 									"character": 8
 								}
 							],
@@ -6990,10 +7155,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The key of the title in the data"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 894,
+									"line": 1063,
 									"character": 8
 								}
 							],
@@ -7019,7 +7187,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 889,
+							"line": 1043,
 							"character": 14
 						}
 					]
@@ -7039,10 +7207,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "A path to a the currently active row, to auto expand its parent and show it as selected."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 897,
+									"line": 1069,
 									"character": 8
 								}
 							],
@@ -7060,10 +7231,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A record of table cell definitions.Some built in cells are cells are available for use: - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell. - `--no-pad`: A blank placeholder cell, for aligning with the parent cell. - `expander`: The expander button."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 899,
+									"line": 1077,
 									"character": 8
 								}
 							],
@@ -7087,10 +7261,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The order and keys of the cells to be rendered. If omitted, all cells will be rendered."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 900,
+									"line": 1081,
 									"character": 8
 								}
 							],
@@ -7110,10 +7287,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The order and keys of the cells to be rendered in a nested table. If omitted, all cells will be rendered."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 906,
+									"line": 1105,
 									"character": 8
 								}
 							],
@@ -7133,10 +7313,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Passed to cell renderer as `parent`."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 907,
+									"line": 1109,
 									"character": 8
 								}
 							],
@@ -7153,10 +7336,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "If the nested rows should be allowed to take focus."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 908,
+									"line": 1113,
 									"character": 8
 								}
 							],
@@ -7173,10 +7359,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Passed to cell renderer as `parent`."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 911,
+									"line": 1125,
 									"character": 8
 								}
 							],
@@ -7193,10 +7382,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "If rows should be allowed to take focus"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 915,
+									"line": 1135,
 									"character": 8
 								}
 							],
@@ -7211,10 +7403,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 916,
+									"line": 1139,
 									"character": 8
 								}
 							],
@@ -7237,7 +7432,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 898,
+									"line": 1073,
 									"character": 8
 								}
 							],
@@ -7248,6 +7443,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Function to decide if a row can take expand, to show a nested table."
+									},
 									"parameters": [
 										{
 											"id": 337,
@@ -7290,7 +7488,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 901,
+									"line": 1085,
 									"character": 8
 								}
 							],
@@ -7301,6 +7499,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns."
+									},
 									"typeParameter": [
 										{
 											"id": 343,
@@ -7345,7 +7546,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 902,
+									"line": 1089,
 									"character": 8
 								}
 							],
@@ -7356,6 +7557,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sync function for extracting the data from the nested row. By default, it assumes you passed an array of data as your columns."
+									},
 									"typeParameter": [
 										{
 											"id": 347,
@@ -7400,7 +7604,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 903,
+									"line": 1093,
 									"character": 8
 								}
 							],
@@ -7411,6 +7615,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sync function for extracting a list of rows for the nested table"
+									},
 									"parameters": [
 										{
 											"id": 351,
@@ -7454,7 +7661,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 904,
+									"line": 1097,
 									"character": 8
 								}
 							],
@@ -7465,6 +7672,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "A function to calculate a href from the cell data."
+									},
 									"parameters": [
 										{
 											"id": 354,
@@ -7496,7 +7706,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 905,
+									"line": 1101,
 									"character": 8
 								}
 							],
@@ -7507,6 +7717,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "async function for loading nested data when a row is expanded."
+									},
 									"parameters": [
 										{
 											"id": 357,
@@ -7555,7 +7768,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 909,
+									"line": 1117,
 									"character": 8
 								}
 							],
@@ -7566,6 +7779,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Triggered whenever a row (or nested row) is clicked. The `detail` is the item in the row array."
+									},
 									"parameters": [
 										{
 											"id": 364,
@@ -7603,7 +7819,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 910,
+									"line": 1121,
 									"character": 8
 								}
 							],
@@ -7614,6 +7830,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Triggered whenever a row is expanded."
+									},
 									"parameters": [
 										{
 											"id": 367,
@@ -7642,7 +7861,7 @@
 																	"sources": [
 																		{
 																			"fileName": "components.d.ts",
-																			"line": 910,
+																			"line": 1121,
 																			"character": 46
 																		}
 																	],
@@ -7660,7 +7879,7 @@
 																	"sources": [
 																		{
 																			"fileName": "components.d.ts",
-																			"line": 910,
+																			"line": 1121,
 																			"character": 57
 																		}
 																	],
@@ -7705,7 +7924,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 912,
+									"line": 1129,
 									"character": 8
 								}
 							],
@@ -7716,6 +7935,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "A function to calculate the class or classes of the row from the cellData."
+									},
 									"parameters": [
 										{
 											"id": 374,
@@ -7795,7 +8017,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 896,
+							"line": 1065,
 							"character": 14
 						}
 					]
@@ -7818,7 +8040,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 919,
+									"line": 1142,
 									"character": 8
 								}
 							],
@@ -7838,7 +8060,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 920,
+									"line": 1143,
 									"character": 8
 								}
 							],
@@ -7865,7 +8087,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 922,
+									"line": 1145,
 									"character": 8
 								}
 							],
@@ -7889,7 +8111,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 921,
+									"line": 1144,
 									"character": 8
 								}
 							],
@@ -7948,7 +8170,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 918,
+							"line": 1141,
 							"character": 14
 						}
 					]
@@ -7971,7 +8193,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 926,
+									"line": 1149,
 									"character": 8
 								}
 							],
@@ -7991,7 +8213,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 927,
+									"line": 1150,
 									"character": 8
 								}
 							],
@@ -8009,7 +8231,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 928,
+									"line": 1151,
 									"character": 8
 								}
 							],
@@ -8029,7 +8251,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 929,
+									"line": 1152,
 									"character": 8
 								}
 							],
@@ -8049,7 +8271,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 930,
+									"line": 1153,
 									"character": 8
 								}
 							],
@@ -8069,7 +8291,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 931,
+									"line": 1154,
 									"character": 8
 								}
 							],
@@ -8089,7 +8311,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 932,
+									"line": 1155,
 									"character": 8
 								}
 							],
@@ -8109,7 +8331,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 933,
+									"line": 1156,
 									"character": 8
 								}
 							],
@@ -8127,7 +8349,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 925,
+									"line": 1148,
 									"character": 8
 								}
 							],
@@ -8191,7 +8413,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 924,
+							"line": 1147,
 							"character": 14
 						}
 					]
@@ -8212,7 +8434,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 936,
+									"line": 1159,
 									"character": 8
 								}
 							],
@@ -8230,7 +8452,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 937,
+									"line": 1160,
 									"character": 8
 								}
 							],
@@ -8248,7 +8470,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 938,
+									"line": 1161,
 									"character": 8
 								}
 							],
@@ -8272,7 +8494,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 935,
+							"line": 1158,
 							"character": 14
 						}
 					]
@@ -8286,7 +8508,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 940,
+							"line": 1163,
 							"character": 14
 						}
 					]
@@ -8307,7 +8529,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 943,
+									"line": 1166,
 									"character": 8
 								}
 							],
@@ -8325,7 +8547,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 944,
+									"line": 1167,
 									"character": 8
 								}
 							],
@@ -8349,7 +8571,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 945,
+									"line": 1168,
 									"character": 8
 								}
 							],
@@ -8373,7 +8595,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 942,
+							"line": 1165,
 							"character": 14
 						}
 					]
@@ -8394,7 +8616,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 948,
+									"line": 1171,
 									"character": 8
 								}
 							],
@@ -8413,7 +8635,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 949,
+									"line": 1172,
 									"character": 8
 								}
 							],
@@ -8432,7 +8654,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 950,
+									"line": 1173,
 									"character": 8
 								}
 							],
@@ -8451,7 +8673,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 951,
+									"line": 1174,
 									"character": 8
 								}
 							],
@@ -8470,7 +8692,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 952,
+									"line": 1175,
 									"character": 8
 								}
 							],
@@ -8489,7 +8711,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 953,
+									"line": 1176,
 									"character": 8
 								}
 							],
@@ -8508,7 +8730,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 954,
+									"line": 1177,
 									"character": 8
 								}
 							],
@@ -8527,7 +8749,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 955,
+									"line": 1178,
 									"character": 8
 								}
 							],
@@ -8546,7 +8768,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 956,
+									"line": 1179,
 									"character": 8
 								}
 							],
@@ -8565,7 +8787,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 957,
+									"line": 1180,
 									"character": 8
 								}
 							],
@@ -8584,7 +8806,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 958,
+									"line": 1181,
 									"character": 8
 								}
 							],
@@ -8603,7 +8825,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 959,
+									"line": 1182,
 									"character": 8
 								}
 							],
@@ -8622,7 +8844,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 960,
+									"line": 1183,
 									"character": 8
 								}
 							],
@@ -8641,7 +8863,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 961,
+									"line": 1184,
 									"character": 8
 								}
 							],
@@ -8660,7 +8882,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 962,
+									"line": 1185,
 									"character": 8
 								}
 							],
@@ -8679,7 +8901,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 963,
+									"line": 1186,
 									"character": 8
 								}
 							],
@@ -8698,7 +8920,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 964,
+									"line": 1187,
 									"character": 8
 								}
 							],
@@ -8717,7 +8939,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 965,
+									"line": 1188,
 									"character": 8
 								}
 							],
@@ -8736,7 +8958,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 966,
+									"line": 1189,
 									"character": 8
 								}
 							],
@@ -8755,7 +8977,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 967,
+									"line": 1190,
 									"character": 8
 								}
 							],
@@ -8774,7 +8996,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 968,
+									"line": 1191,
 									"character": 8
 								}
 							],
@@ -8793,7 +9015,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 969,
+									"line": 1192,
 									"character": 8
 								}
 							],
@@ -8812,7 +9034,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 970,
+									"line": 1193,
 									"character": 8
 								}
 							],
@@ -8831,7 +9053,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 971,
+									"line": 1194,
 									"character": 8
 								}
 							],
@@ -8850,7 +9072,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 972,
+									"line": 1195,
 									"character": 8
 								}
 							],
@@ -8869,7 +9091,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 973,
+									"line": 1196,
 									"character": 8
 								}
 							],
@@ -8917,7 +9139,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 947,
+							"line": 1170,
 							"character": 14
 						}
 					]
@@ -8961,7 +9183,7 @@
 			"sources": [
 				{
 					"fileName": "components.d.ts",
-					"line": 573,
+					"line": 679,
 					"character": 18
 				}
 			]
@@ -9234,6 +9456,9 @@
 			"kind": 256,
 			"kindString": "Interface",
 			"flags": {},
+			"comment": {
+				"shortText": "A single table cell definition."
+			},
 			"children": [
 				{
 					"id": 447,
@@ -9243,10 +9468,13 @@
 					"flags": {
 						"isOptional": true
 					},
+					"comment": {
+						"shortText": "Pass a custom class function, string or record to apply to the cell."
+					},
 					"sources": [
 						{
 							"fileName": "components/es-table/types.ts",
-							"line": 22,
+							"line": 40,
 							"character": 4
 						}
 					],
@@ -9335,10 +9563,13 @@
 					"kind": 1024,
 					"kindString": "Property",
 					"flags": {},
+					"comment": {
+						"shortText": "The title to be placed in the header. Pass an empty string to leave blank."
+					},
 					"sources": [
 						{
 							"fileName": "components/es-table/types.ts",
-							"line": 18,
+							"line": 24,
 							"character": 4
 						}
 					],
@@ -9355,10 +9586,13 @@
 					"flags": {
 						"isOptional": true
 					},
+					"comment": {
+						"shortText": "Allows specifiying a predefined variant for the cell.\n- `default`: The default styling.\n- `no-pad`: Removes padding.\n- `borderless`: Removes border.\n- `centered`: Center aligns the content.\n- `full-width`:  Breaks the cell onto its own row, taking the full width. **Only use on last cell of row**\n- `exclude`: Disables the cell."
+					},
 					"sources": [
 						{
 							"fileName": "components/es-table/types.ts",
-							"line": 21,
+							"line": 38,
 							"character": 4
 						}
 					],
@@ -9387,10 +9621,13 @@
 					"flags": {
 						"isOptional": true
 					},
+					"comment": {
+						"shortText": "Allows passing a [track sizing function](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns#values) for use in the grid."
+					},
 					"sources": [
 						{
 							"fileName": "components/es-table/types.ts",
-							"line": 20,
+							"line": 28,
 							"character": 4
 						}
 					],
@@ -9410,7 +9647,7 @@
 					"sources": [
 						{
 							"fileName": "components/es-table/types.ts",
-							"line": 19,
+							"line": 26,
 							"character": 4
 						}
 					],
@@ -9421,6 +9658,9 @@
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
+							"comment": {
+								"shortText": "The cell renderer. By default it will take the it's key in in the record, and extract that key from the row data."
+							},
 							"parameters": [
 								{
 									"id": 444,
@@ -9490,7 +9730,7 @@
 			"sources": [
 				{
 					"fileName": "components/es-table/types.ts",
-					"line": 17,
+					"line": 22,
 					"character": 17
 				}
 			],
@@ -9593,10 +9833,13 @@
 			"kind": 4194304,
 			"kindString": "Type alias",
 			"flags": {},
+			"comment": {
+				"shortText": "A record of table cell definitions."
+			},
 			"sources": [
 				{
 					"fileName": "components/es-table/types.ts",
-					"line": 28,
+					"line": 47,
 					"character": 12
 				}
 			],

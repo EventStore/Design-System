@@ -11,26 +11,41 @@ import { Link, router } from '@eventstore/router';
 import { TableCell, TableCells } from './types';
 import { logger } from '../../utils/logger';
 
+export type RowData = any;
+export type RawRow = any;
+
+/** Create a table from data. */
 @Component({
     tag: 'es-table',
     styleUrl: 'es-table.css',
     shadow: false,
 })
 export class Table {
+    /** Passed to cell renderer as `parent`. */
     @Prop() identifier: string = 'table';
+    /** Do not render header. */
     @Prop() headless: boolean = false;
-    @Prop() getCellData: <T = string>(key: T) => any = (d) => d;
-    @Prop() cells!: TableCells<any>;
+    /** Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns. */
+    @Prop() getCellData: <T = RawRow>(key: T) => RowData = (d) => d;
+    /** A record of table cell definitions. */
+    @Prop() cells!: TableCells<RowData>;
+    /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: string[];
-    @Prop() rows!: any[];
-    @Prop() linkRowTo?: (row: any) => string;
+    /** An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.  */
+    @Prop() rows!: RawRow[];
+    /** A function to calculate a href from the cell data. */
+    @Prop() linkRowTo?: (row: RowData) => string;
+    /** If rows should be allowed to take focus */
     @Prop() rowTakesFocus?: boolean;
+    /** A function to calculate the class or classes of the row from the cellData. */
     @Prop() rowClass: (
-        row: any,
+        row: RowData,
     ) => Record<string, boolean> | string | undefined = () => undefined;
-    @Prop() renderExpansion: (key: string) => VNode | null = () => null;
+    /** Allows rendering a node after the row. */
+    @Prop() renderExpansion: (key: RawRow) => VNode | null = () => null;
 
-    @Event() clickRow!: EventEmitter<any>;
+    /** Triggered whenever a row is clicked. The `detail` is the item in the row array. */
+    @Event() clickRow!: EventEmitter<RowData>;
 
     private renderHeader = () => {
         if (this.headless) return null;

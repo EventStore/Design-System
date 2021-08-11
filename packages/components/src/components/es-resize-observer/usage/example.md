@@ -1,14 +1,3 @@
-# es-resize-observer
-
-
-
-<!-- Auto Generated Below -->
-
-
-## Usage
-
-### Example
-
 ```tsx
 import { createStore } from '@eventstore/stores';
 
@@ -42,16 +31,3 @@ es-resize-observer {
     color: brown;
 }
 ```
-
-
-
-## Events
-
-| Event         | Description                                     | Type                           |
-| ------------- | ----------------------------------------------- | ------------------------------ |
-| `sizeChanged` | Triggered when the size of the element changes. | `CustomEvent<DOMRectReadOnly>` |
-
-
-----------------------------------------------
-
-

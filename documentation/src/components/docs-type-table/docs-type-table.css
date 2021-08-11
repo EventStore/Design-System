@@ -10,10 +10,6 @@
     text-decoration: line-through;
 }
 
-.description {
-    white-space: pre-line;
-}
-
 .types {
     flex-wrap: wrap;
 }
