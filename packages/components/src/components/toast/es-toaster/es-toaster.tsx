@@ -8,6 +8,7 @@ import {
 } from '@stencil/core';
 import { Toast, Level, Bread } from '../types';
 
+/** @internal */
 @Component({
     tag: 'es-toaster',
     styleUrl: 'es-toaster.css',

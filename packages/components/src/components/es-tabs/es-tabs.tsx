@@ -10,16 +10,28 @@ import {
 import { searchParam } from '@eventstore/router';
 import type { Tab } from './types';
 
+/**
+ * A tabbed panel. Each panel can be targeted via a slot.
+ * @slot [tabName] - Slots are created based off of the names of the passed tabs.
+ * @part indicator - The sliding indicatior bar.
+ * @part panel - Tab panels.
+ * @part tab - Tabs.
+ * @part tablist - The tab container.
+ */
 @Component({
     tag: 'es-tabs',
     styleUrl: 'es-tabs.css',
     shadow: true,
 })
 export class EsTabs {
+    /** A list of tabs. */
     @Prop() tabs!: Tab[];
+    /** Reflect the active tab to a search param of name. Set to false to disable. */
     @Prop() activeParam: string | false = 'tab';
+    /** The currently active panel. By default it will take from the passed activeParam, or the first tab.  */
     @Prop({ mutable: true }) active?: string;
 
+    /** Triggered when the active tab is changed. `detail` is the newly active tab. */
     @Event() tabChange!: EventEmitter<string>;
 
     private searchParam = this.activeParam
@@ -57,9 +69,9 @@ export class EsTabs {
             onClick={this.setActive(id)}
             ref={this.captureTab(id)}
         >
-            <y-badge count={badge?.() ? 1 : 0} variant={'dot'}>
+            <es-badge count={badge?.() ? 1 : 0} variant={'dot'}>
                 {title}
-            </y-badge>
+            </es-badge>
         </button>
     );
 

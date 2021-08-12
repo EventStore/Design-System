@@ -3483,10 +3483,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The currently active panel. By default it will take from the passed activeParam, or the first tab."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 463,
+									"line": 466,
 									"character": 8
 								}
 							],
@@ -3501,10 +3504,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Reflect the active tab to a search param of name. Set to false to disable."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 464,
+									"line": 470,
 									"character": 8
 								}
 							],
@@ -3528,10 +3534,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A list of tabs."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 465,
+									"line": 474,
 									"character": 8
 								}
 							],
@@ -3579,10 +3588,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Which color pair the button should use."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 469,
+									"line": 484,
 									"character": 8
 								}
 							],
@@ -3597,10 +3609,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The icon to display when the action completed successfully."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 470,
+									"line": 488,
 									"character": 8
 								}
 							],
@@ -3615,10 +3630,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The default icon to display when nothing is happening."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 471,
+									"line": 492,
 									"character": 8
 								}
 							],
@@ -3635,10 +3653,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 472,
+									"line": 496,
 									"character": 8
 								}
 							],
@@ -3653,10 +3674,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The icon to display when the action errored out."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 473,
+									"line": 500,
 									"character": 8
 								}
 							],
@@ -3673,10 +3697,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Optional text of the button"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 474,
+									"line": 504,
 									"character": 8
 								}
 							],
@@ -3691,10 +3718,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The icon to display when we are awaiting the action."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 475,
+									"line": 508,
 									"character": 8
 								}
 							],
@@ -3709,10 +3739,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Which styling variant to use."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 476,
+									"line": 512,
 									"character": 8
 								}
 							],
@@ -3730,7 +3763,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 468,
+									"line": 480,
 									"character": 8
 								}
 							],
@@ -3741,6 +3774,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "The async action to be called on click."
+									},
 									"parameters": [
 										{
 											"id": 171,
@@ -3794,7 +3830,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 467,
+							"line": 476,
 							"character": 14
 						}
 					]
@@ -3815,7 +3851,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 480,
+									"line": 516,
 									"character": 8
 								}
 							],
@@ -3833,7 +3869,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 481,
+									"line": 517,
 									"character": 8
 								}
 							],
@@ -3851,7 +3887,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 482,
+									"line": 518,
 									"character": 8
 								}
 							],
@@ -3869,7 +3905,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 479,
+									"line": 515,
 									"character": 8
 								}
 							],
@@ -3915,7 +3951,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 478,
+							"line": 514,
 							"character": 14
 						}
 					]
@@ -3936,7 +3972,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 485,
+									"line": 521,
 									"character": 8
 								}
 							],
@@ -3986,7 +4022,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 484,
+							"line": 520,
 							"character": 14
 						}
 					]
@@ -4004,10 +4040,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The currently active page"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 488,
+									"line": 527,
 									"character": 8
 								}
 							],
@@ -4022,10 +4061,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A list of pages describing each step."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 489,
+									"line": 531,
 									"character": 8
 								}
 							],
@@ -4044,10 +4086,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Offset the scroll to top on page change"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 490,
+									"line": 535,
 									"character": 8
 								}
 							],
@@ -4071,7 +4116,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 487,
+							"line": 523,
 							"character": 14
 						}
 					]
@@ -4145,7 +4190,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 684,
+									"line": 729,
 									"character": 8
 								}
 							],
@@ -4172,7 +4217,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 688,
+									"line": 733,
 									"character": 8
 								}
 							],
@@ -4195,7 +4240,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 680,
+							"line": 725,
 							"character": 14
 						}
 					]
@@ -4218,7 +4263,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 693,
+									"line": 738,
 									"character": 8
 								}
 							],
@@ -4238,7 +4283,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 691,
+									"line": 736,
 									"character": 8
 								}
 							],
@@ -4286,7 +4331,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 692,
+									"line": 737,
 									"character": 8
 								}
 							],
@@ -4344,7 +4389,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 690,
+							"line": 735,
 							"character": 14
 						}
 					]
@@ -4370,7 +4415,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 699,
+									"line": 744,
 									"character": 8
 								}
 							],
@@ -4391,7 +4436,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 703,
+									"line": 748,
 									"character": 8
 								}
 							],
@@ -4414,7 +4459,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 707,
+									"line": 752,
 									"character": 8
 								}
 							],
@@ -4437,7 +4482,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 711,
+									"line": 756,
 									"character": 8
 								}
 							],
@@ -4460,7 +4505,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 715,
+									"line": 760,
 									"character": 8
 								}
 							],
@@ -4486,7 +4531,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 695,
+							"line": 740,
 							"character": 14
 						}
 					]
@@ -4512,7 +4557,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 721,
+									"line": 766,
 									"character": 8
 								}
 							],
@@ -4535,7 +4580,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 725,
+									"line": 770,
 									"character": 8
 								}
 							],
@@ -4558,7 +4603,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 729,
+									"line": 774,
 									"character": 8
 								}
 							],
@@ -4581,7 +4626,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 733,
+									"line": 778,
 									"character": 8
 								}
 							],
@@ -4604,7 +4649,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 737,
+									"line": 782,
 									"character": 8
 								}
 							],
@@ -4630,7 +4675,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 717,
+							"line": 762,
 							"character": 14
 						}
 					]
@@ -4656,7 +4701,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 743,
+									"line": 788,
 									"character": 8
 								}
 							],
@@ -4679,7 +4724,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 747,
+									"line": 792,
 									"character": 8
 								}
 							],
@@ -4702,7 +4747,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 751,
+									"line": 796,
 									"character": 8
 								}
 							],
@@ -4725,7 +4770,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 755,
+									"line": 800,
 									"character": 8
 								}
 							],
@@ -4748,7 +4793,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 759,
+									"line": 804,
 									"character": 8
 								}
 							],
@@ -4771,7 +4816,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 763,
+									"line": 808,
 									"character": 8
 								}
 							],
@@ -4794,7 +4839,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 767,
+									"line": 812,
 									"character": 8
 								}
 							],
@@ -4817,7 +4862,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 771,
+									"line": 816,
 									"character": 8
 								}
 							],
@@ -4840,7 +4885,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 775,
+									"line": 820,
 									"character": 8
 								}
 							],
@@ -4863,7 +4908,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 779,
+									"line": 824,
 									"character": 8
 								}
 							],
@@ -4886,7 +4931,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 783,
+									"line": 828,
 									"character": 8
 								}
 							],
@@ -4909,7 +4954,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 787,
+									"line": 832,
 									"character": 8
 								}
 							],
@@ -4932,7 +4977,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 791,
+									"line": 836,
 									"character": 8
 								}
 							],
@@ -4955,7 +5000,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 795,
+									"line": 840,
 									"character": 8
 								}
 							],
@@ -4978,7 +5023,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 799,
+									"line": 844,
 									"character": 8
 								}
 							],
@@ -5014,7 +5059,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 739,
+							"line": 784,
 							"character": 14
 						}
 					]
@@ -5038,7 +5083,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 805,
+									"line": 850,
 									"character": 8
 								}
 							],
@@ -5061,7 +5106,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 809,
+									"line": 854,
 									"character": 8
 								}
 							],
@@ -5084,7 +5129,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 813,
+									"line": 858,
 									"character": 8
 								}
 							],
@@ -5108,7 +5153,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 801,
+							"line": 846,
 							"character": 14
 						}
 					]
@@ -5122,7 +5167,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 815,
+							"line": 860,
 							"character": 14
 						}
 					]
@@ -5148,7 +5193,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 821,
+									"line": 866,
 									"character": 8
 								}
 							],
@@ -5171,7 +5216,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 825,
+									"line": 870,
 									"character": 8
 								}
 							],
@@ -5194,7 +5239,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 829,
+									"line": 874,
 									"character": 8
 								}
 							],
@@ -5218,7 +5263,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 817,
+							"line": 862,
 							"character": 14
 						}
 					]
@@ -5244,7 +5289,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 835,
+									"line": 880,
 									"character": 8
 								}
 							],
@@ -5265,7 +5310,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 839,
+									"line": 884,
 									"character": 8
 								}
 							],
@@ -5288,7 +5333,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 843,
+									"line": 888,
 									"character": 8
 								}
 							],
@@ -5311,7 +5356,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 847,
+									"line": 892,
 									"character": 8
 								}
 							],
@@ -5334,7 +5379,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 851,
+									"line": 896,
 									"character": 8
 								}
 							],
@@ -5369,7 +5414,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 831,
+							"line": 876,
 							"character": 14
 						}
 					]
@@ -5395,7 +5440,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 857,
+									"line": 902,
 									"character": 8
 								}
 							],
@@ -5418,7 +5463,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 861,
+									"line": 906,
 									"character": 8
 								}
 							],
@@ -5438,7 +5483,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 865,
+									"line": 910,
 									"character": 8
 								}
 							],
@@ -5499,7 +5544,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 853,
+							"line": 898,
 							"character": 14
 						}
 					]
@@ -5525,7 +5570,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 871,
+									"line": 916,
 									"character": 8
 								}
 							],
@@ -5548,7 +5593,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 875,
+									"line": 920,
 									"character": 8
 								}
 							],
@@ -5571,7 +5616,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 879,
+									"line": 924,
 									"character": 8
 								}
 							],
@@ -5594,7 +5639,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 883,
+									"line": 928,
 									"character": 8
 								}
 							],
@@ -5617,7 +5662,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 887,
+									"line": 932,
 									"character": 8
 								}
 							],
@@ -5640,7 +5685,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 891,
+									"line": 936,
 									"character": 8
 								}
 							],
@@ -5663,7 +5708,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 895,
+									"line": 940,
 									"character": 8
 								}
 							],
@@ -5686,7 +5731,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 903,
+									"line": 948,
 									"character": 8
 								}
 							],
@@ -5709,7 +5754,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 907,
+									"line": 952,
 									"character": 8
 								}
 							],
@@ -5732,7 +5777,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 911,
+									"line": 956,
 									"character": 8
 								}
 							],
@@ -5755,7 +5800,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 915,
+									"line": 960,
 									"character": 8
 								}
 							],
@@ -5778,7 +5823,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 919,
+									"line": 964,
 									"character": 8
 								}
 							],
@@ -5801,7 +5846,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 923,
+									"line": 968,
 									"character": 8
 								}
 							],
@@ -5821,7 +5866,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 899,
+									"line": 944,
 									"character": 8
 								}
 							],
@@ -5893,7 +5938,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 867,
+							"line": 912,
 							"character": 14
 						}
 					]
@@ -5916,7 +5961,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 926,
+									"line": 971,
 									"character": 8
 								}
 							],
@@ -5936,7 +5981,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 928,
+									"line": 973,
 									"character": 8
 								}
 							],
@@ -5956,7 +6001,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 927,
+									"line": 972,
 									"character": 8
 								}
 							],
@@ -6014,7 +6059,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 925,
+							"line": 970,
 							"character": 14
 						}
 					]
@@ -6028,7 +6073,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 930,
+							"line": 975,
 							"character": 14
 						}
 					]
@@ -6054,7 +6099,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 936,
+									"line": 981,
 									"character": 8
 								}
 							],
@@ -6075,7 +6120,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 940,
+									"line": 985,
 									"character": 8
 								}
 							],
@@ -6098,7 +6143,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 948,
+									"line": 993,
 									"character": 8
 								}
 							],
@@ -6121,7 +6166,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 952,
+									"line": 997,
 									"character": 8
 								}
 							],
@@ -6141,7 +6186,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 944,
+									"line": 989,
 									"character": 8
 								}
 							],
@@ -6204,7 +6249,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 932,
+							"line": 977,
 							"character": 14
 						}
 					]
@@ -6228,7 +6273,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 958,
+									"line": 1003,
 									"character": 8
 								}
 							],
@@ -6252,7 +6297,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 962,
+									"line": 1007,
 									"character": 8
 								}
 							],
@@ -6272,7 +6317,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 966,
+									"line": 1011,
 									"character": 8
 								}
 							],
@@ -6333,7 +6378,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 954,
+							"line": 999,
 							"character": 14
 						}
 					]
@@ -6356,7 +6401,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 972,
+									"line": 1017,
 									"character": 8
 								}
 							],
@@ -6409,7 +6454,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 968,
+							"line": 1013,
 							"character": 14
 						}
 					]
@@ -6430,7 +6475,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 975,
+									"line": 1020,
 									"character": 8
 								}
 							],
@@ -6452,7 +6497,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 974,
+							"line": 1019,
 							"character": 14
 						}
 					]
@@ -6476,7 +6521,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 981,
+									"line": 1026,
 									"character": 8
 								}
 							],
@@ -6506,7 +6551,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 985,
+									"line": 1030,
 									"character": 8
 								}
 							],
@@ -6532,7 +6577,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 993,
+									"line": 1038,
 									"character": 8
 								}
 							],
@@ -6555,7 +6600,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 997,
+									"line": 1042,
 									"character": 8
 								}
 							],
@@ -6578,7 +6623,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1019,
+									"line": 1064,
 									"character": 8
 								}
 							],
@@ -6599,7 +6644,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1023,
+									"line": 1068,
 									"character": 8
 								}
 							],
@@ -6622,7 +6667,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 989,
+									"line": 1034,
 									"character": 8
 								}
 							],
@@ -6680,7 +6725,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1001,
+									"line": 1046,
 									"character": 8
 								}
 							],
@@ -6725,7 +6770,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1005,
+									"line": 1050,
 									"character": 8
 								}
 							],
@@ -6776,7 +6821,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1009,
+									"line": 1054,
 									"character": 8
 								}
 							],
@@ -6830,7 +6875,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1013,
+									"line": 1058,
 									"character": 8
 								}
 							],
@@ -6916,7 +6961,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 977,
+							"line": 1022,
 							"character": 14
 						}
 					]
@@ -6940,7 +6985,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1029,
+									"line": 1074,
 									"character": 8
 								}
 							],
@@ -6970,7 +7015,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1033,
+									"line": 1078,
 									"character": 8
 								}
 							],
@@ -6994,7 +7039,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1037,
+									"line": 1082,
 									"character": 8
 								}
 							],
@@ -7017,7 +7062,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1041,
+									"line": 1086,
 									"character": 8
 								}
 							],
@@ -7042,7 +7087,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 1025,
+							"line": 1070,
 							"character": 14
 						}
 					]
@@ -7068,7 +7113,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1047,
+									"line": 1092,
 									"character": 8
 								}
 							],
@@ -7089,7 +7134,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1051,
+									"line": 1096,
 									"character": 8
 								}
 							],
@@ -7117,7 +7162,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1055,
+									"line": 1100,
 									"character": 8
 								}
 							],
@@ -7140,7 +7185,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1059,
+									"line": 1104,
 									"character": 8
 								}
 							],
@@ -7161,7 +7206,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1063,
+									"line": 1108,
 									"character": 8
 								}
 							],
@@ -7187,7 +7232,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 1043,
+							"line": 1088,
 							"character": 14
 						}
 					]
@@ -7213,7 +7258,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1069,
+									"line": 1114,
 									"character": 8
 								}
 							],
@@ -7237,7 +7282,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1077,
+									"line": 1122,
 									"character": 8
 								}
 							],
@@ -7267,7 +7312,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1081,
+									"line": 1126,
 									"character": 8
 								}
 							],
@@ -7293,7 +7338,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1105,
+									"line": 1150,
 									"character": 8
 								}
 							],
@@ -7319,7 +7364,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1109,
+									"line": 1154,
 									"character": 8
 								}
 							],
@@ -7342,7 +7387,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1113,
+									"line": 1158,
 									"character": 8
 								}
 							],
@@ -7365,7 +7410,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1125,
+									"line": 1170,
 									"character": 8
 								}
 							],
@@ -7388,7 +7433,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1135,
+									"line": 1180,
 									"character": 8
 								}
 							],
@@ -7409,7 +7454,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1139,
+									"line": 1184,
 									"character": 8
 								}
 							],
@@ -7432,7 +7477,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1073,
+									"line": 1118,
 									"character": 8
 								}
 							],
@@ -7488,7 +7533,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1085,
+									"line": 1130,
 									"character": 8
 								}
 							],
@@ -7546,7 +7591,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1089,
+									"line": 1134,
 									"character": 8
 								}
 							],
@@ -7604,7 +7649,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1093,
+									"line": 1138,
 									"character": 8
 								}
 							],
@@ -7661,7 +7706,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1097,
+									"line": 1142,
 									"character": 8
 								}
 							],
@@ -7706,7 +7751,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1101,
+									"line": 1146,
 									"character": 8
 								}
 							],
@@ -7768,7 +7813,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1117,
+									"line": 1162,
 									"character": 8
 								}
 							],
@@ -7819,7 +7864,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1121,
+									"line": 1166,
 									"character": 8
 								}
 							],
@@ -7861,7 +7906,7 @@
 																	"sources": [
 																		{
 																			"fileName": "components.d.ts",
-																			"line": 1121,
+																			"line": 1166,
 																			"character": 46
 																		}
 																	],
@@ -7879,7 +7924,7 @@
 																	"sources": [
 																		{
 																			"fileName": "components.d.ts",
-																			"line": 1121,
+																			"line": 1166,
 																			"character": 57
 																		}
 																	],
@@ -7924,7 +7969,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1129,
+									"line": 1174,
 									"character": 8
 								}
 							],
@@ -8017,7 +8062,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 1065,
+							"line": 1110,
 							"character": 14
 						}
 					]
@@ -8037,10 +8082,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The currently active panel. By default it will take from the passed activeParam, or the first tab."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1142,
+									"line": 1190,
 									"character": 8
 								}
 							],
@@ -8057,10 +8105,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Reflect the active tab to a search param of name. Set to false to disable."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1143,
+									"line": 1194,
 									"character": 8
 								}
 							],
@@ -8084,10 +8135,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A list of tabs."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1145,
+									"line": 1202,
 									"character": 8
 								}
 							],
@@ -8111,7 +8165,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1144,
+									"line": 1198,
 									"character": 8
 								}
 							],
@@ -8122,6 +8176,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Triggered when the active tab is changed. `detail` is the newly active tab."
+									},
 									"parameters": [
 										{
 											"id": 382,
@@ -8170,7 +8227,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 1141,
+							"line": 1186,
 							"character": 14
 						}
 					]
@@ -8190,10 +8247,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Which color pair the button should use."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1149,
+									"line": 1212,
 									"character": 8
 								}
 							],
@@ -8210,10 +8270,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The icon to display when the action completed successfully."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1150,
+									"line": 1216,
 									"character": 8
 								}
 							],
@@ -8228,10 +8291,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The default icon to display when nothing is happening."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1151,
+									"line": 1220,
 									"character": 8
 								}
 							],
@@ -8248,10 +8314,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1152,
+									"line": 1224,
 									"character": 8
 								}
 							],
@@ -8268,10 +8337,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The icon to display when the action errored out."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1153,
+									"line": 1228,
 									"character": 8
 								}
 							],
@@ -8288,10 +8360,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Optional text of the button"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1154,
+									"line": 1232,
 									"character": 8
 								}
 							],
@@ -8308,10 +8383,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "The icon to display when we are awaiting the action."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1155,
+									"line": 1236,
 									"character": 8
 								}
 							],
@@ -8328,10 +8406,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Which styling variant to use."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1156,
+									"line": 1240,
 									"character": 8
 								}
 							],
@@ -8349,7 +8430,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1148,
+									"line": 1208,
 									"character": 8
 								}
 							],
@@ -8360,6 +8441,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "The async action to be called on click."
+									},
 									"parameters": [
 										{
 											"id": 387,
@@ -8413,7 +8497,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 1147,
+							"line": 1204,
 							"character": 14
 						}
 					]
@@ -8434,7 +8518,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1159,
+									"line": 1243,
 									"character": 8
 								}
 							],
@@ -8452,7 +8536,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1160,
+									"line": 1244,
 									"character": 8
 								}
 							],
@@ -8470,7 +8554,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1161,
+									"line": 1245,
 									"character": 8
 								}
 							],
@@ -8494,7 +8578,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 1158,
+							"line": 1242,
 							"character": 14
 						}
 					]
@@ -8508,7 +8592,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 1163,
+							"line": 1247,
 							"character": 14
 						}
 					]
@@ -8526,10 +8610,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "The currently active page"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1166,
+									"line": 1253,
 									"character": 8
 								}
 							],
@@ -8544,10 +8631,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "A list of pages describing each step."
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1167,
+									"line": 1257,
 									"character": 8
 								}
 							],
@@ -8568,10 +8658,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Offset the scroll to top on page change"
+							},
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1168,
+									"line": 1261,
 									"character": 8
 								}
 							],
@@ -8595,7 +8688,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 1165,
+							"line": 1249,
 							"character": 14
 						}
 					]
@@ -8616,7 +8709,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1171,
+									"line": 1264,
 									"character": 8
 								}
 							],
@@ -8635,7 +8728,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1172,
+									"line": 1265,
 									"character": 8
 								}
 							],
@@ -8654,7 +8747,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1173,
+									"line": 1266,
 									"character": 8
 								}
 							],
@@ -8673,7 +8766,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1174,
+									"line": 1267,
 									"character": 8
 								}
 							],
@@ -8692,7 +8785,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1175,
+									"line": 1268,
 									"character": 8
 								}
 							],
@@ -8711,7 +8804,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1176,
+									"line": 1269,
 									"character": 8
 								}
 							],
@@ -8730,7 +8823,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1177,
+									"line": 1270,
 									"character": 8
 								}
 							],
@@ -8749,7 +8842,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1178,
+									"line": 1271,
 									"character": 8
 								}
 							],
@@ -8768,7 +8861,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1179,
+									"line": 1272,
 									"character": 8
 								}
 							],
@@ -8787,7 +8880,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1180,
+									"line": 1273,
 									"character": 8
 								}
 							],
@@ -8806,7 +8899,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1181,
+									"line": 1274,
 									"character": 8
 								}
 							],
@@ -8825,7 +8918,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1182,
+									"line": 1275,
 									"character": 8
 								}
 							],
@@ -8844,7 +8937,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1183,
+									"line": 1276,
 									"character": 8
 								}
 							],
@@ -8863,7 +8956,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1184,
+									"line": 1277,
 									"character": 8
 								}
 							],
@@ -8882,7 +8975,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1185,
+									"line": 1278,
 									"character": 8
 								}
 							],
@@ -8901,7 +8994,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1186,
+									"line": 1279,
 									"character": 8
 								}
 							],
@@ -8920,7 +9013,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1187,
+									"line": 1280,
 									"character": 8
 								}
 							],
@@ -8939,7 +9032,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1188,
+									"line": 1281,
 									"character": 8
 								}
 							],
@@ -8958,7 +9051,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1189,
+									"line": 1282,
 									"character": 8
 								}
 							],
@@ -8977,7 +9070,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1190,
+									"line": 1283,
 									"character": 8
 								}
 							],
@@ -8996,7 +9089,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1191,
+									"line": 1284,
 									"character": 8
 								}
 							],
@@ -9015,7 +9108,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1192,
+									"line": 1285,
 									"character": 8
 								}
 							],
@@ -9034,7 +9127,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1193,
+									"line": 1286,
 									"character": 8
 								}
 							],
@@ -9053,7 +9146,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1194,
+									"line": 1287,
 									"character": 8
 								}
 							],
@@ -9072,7 +9165,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1195,
+									"line": 1288,
 									"character": 8
 								}
 							],
@@ -9091,7 +9184,7 @@
 							"sources": [
 								{
 									"fileName": "components.d.ts",
-									"line": 1196,
+									"line": 1289,
 									"character": 8
 								}
 							],
@@ -9139,7 +9232,7 @@
 					"sources": [
 						{
 							"fileName": "components.d.ts",
-							"line": 1170,
+							"line": 1263,
 							"character": 14
 						}
 					]
@@ -9183,7 +9276,7 @@
 			"sources": [
 				{
 					"fileName": "components.d.ts",
-					"line": 679,
+					"line": 724,
 					"character": 18
 				}
 			]
@@ -9209,7 +9302,7 @@
 					"sources": [
 						{
 							"fileName": "components/es-accordian/types.ts",
-							"line": 25,
+							"line": 18,
 							"character": 4
 						}
 					],
@@ -9232,7 +9325,7 @@
 					"sources": [
 						{
 							"fileName": "components/es-accordian/types.ts",
-							"line": 29,
+							"line": 20,
 							"character": 4
 						}
 					],
@@ -9253,7 +9346,7 @@
 					"sources": [
 						{
 							"fileName": "components/es-accordian/types.ts",
-							"line": 7,
+							"line": 5,
 							"character": 4
 						}
 					],
@@ -9276,7 +9369,7 @@
 					"sources": [
 						{
 							"fileName": "components/es-accordian/types.ts",
-							"line": 21,
+							"line": 16,
 							"character": 4
 						}
 					],
@@ -9294,13 +9387,12 @@
 						"isOptional": true
 					},
 					"comment": {
-						"shortText": "Apply styling to a section",
-						"text": "'default': Default styling.\n'mega': For containing es-mega-input.\n'field': For containing inputs and other fields.\n'text': For containing text blocks.\n'footer': Applies specific styles to inserted buttons.\n"
+						"shortText": "Apply styling to a section:\n- 'default': Default styling.\n- 'mega': For containing es-mega-input.\n- 'field': For containing inputs and other fields.\n- 'text': For containing text blocks.\n- 'footer': Applies specific styles to inserted buttons."
 					},
 					"sources": [
 						{
 							"fileName": "components/es-accordian/types.ts",
-							"line": 17,
+							"line": 14,
 							"character": 4
 						}
 					],
@@ -9344,10 +9436,13 @@
 					"kind": 1024,
 					"kindString": "Property",
 					"flags": {},
+					"comment": {
+						"shortText": "The id of the tab. Used as the slot identifier and query parameter."
+					},
 					"sources": [
 						{
 							"fileName": "components/es-tabs/types.ts",
-							"line": 4,
+							"line": 5,
 							"character": 4
 						}
 					],
@@ -9364,10 +9459,13 @@
 					"flags": {
 						"isOptional": true
 					},
+					"comment": {
+						"shortText": "Apply styling to a panel:\n- 'default': Default styling.\n- 'no_pad': No padding."
+					},
 					"sources": [
 						{
 							"fileName": "components/es-tabs/types.ts",
-							"line": 7,
+							"line": 15,
 							"character": 4
 						}
 					],
@@ -9382,10 +9480,13 @@
 					"kind": 1024,
 					"kindString": "Property",
 					"flags": {},
+					"comment": {
+						"shortText": "The title to be displayed in the tab."
+					},
 					"sources": [
 						{
 							"fileName": "components/es-tabs/types.ts",
-							"line": 5,
+							"line": 7,
 							"character": 4
 						}
 					],
@@ -9405,7 +9506,7 @@
 					"sources": [
 						{
 							"fileName": "components/es-tabs/types.ts",
-							"line": 6,
+							"line": 9,
 							"character": 4
 						}
 					],
@@ -9416,6 +9517,9 @@
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
+							"comment": {
+								"shortText": "Function to determine if a dot badge should be displayed."
+							},
 							"type": {
 								"type": "intrinsic",
 								"name": "boolean"
@@ -9759,10 +9863,13 @@
 					"flags": {
 						"isOptional": true
 					},
+					"comment": {
+						"shortText": "If the step is disabled."
+					},
 					"sources": [
 						{
 							"fileName": "components/es-wizard/types.ts",
-							"line": 4,
+							"line": 7,
 							"character": 4
 						}
 					],
@@ -9777,10 +9884,13 @@
 					"kind": 1024,
 					"kindString": "Property",
 					"flags": {},
+					"comment": {
+						"shortText": "The id of the page. Used as the slot identifier and location prop."
+					},
 					"sources": [
 						{
 							"fileName": "components/es-wizard/types.ts",
-							"line": 2,
+							"line": 3,
 							"character": 4
 						}
 					],
@@ -9795,10 +9905,13 @@
 					"kind": 1024,
 					"kindString": "Property",
 					"flags": {},
+					"comment": {
+						"shortText": "The title to be displayed in the steps."
+					},
 					"sources": [
 						{
 							"fileName": "components/es-wizard/types.ts",
-							"line": 3,
+							"line": 5,
 							"character": 4
 						}
 					],

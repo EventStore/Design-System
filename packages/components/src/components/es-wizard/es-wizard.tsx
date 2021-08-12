@@ -4,6 +4,10 @@ import type { WizardPage } from './types';
 
 const PAGES_REF = '__PAGES_REF__';
 
+/**
+ * A multi step wizard. Each step can be targeted via a slot.
+ * @slot [tabName] - Slots are created based off of the names of the passed pages.
+ */
 @Component({
     tag: 'es-wizard',
     styleUrl: 'es-wizard.css',
@@ -12,8 +16,11 @@ const PAGES_REF = '__PAGES_REF__';
 export class Wizard {
     @Element() host!: HTMLEsWizardElement;
 
+    /** A list of pages describing each step. */
     @Prop() pages!: WizardPage[];
+    /** The currently active page */
     @Prop() location!: string;
+    /** Offset the scroll to top on page change */
     @Prop() scrollOffset: number = 0;
 
     private index: number = 0;

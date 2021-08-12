@@ -1,18 +1,7 @@
-# es-wizard
-
-
-
-<!-- Auto Generated Below -->
-
-
-## Usage
-
-### Example
-
 ```tsx wizard-example.tsx
 import { h, Component, State, Fragment } from '@stencil/core';
 import { createWorkingData } from '@eventstore/fields';
-import { WizardPage } from '@eventstore/components';
+import { WizardPage, toast } from '@eventstore/components';
 import { nextFrame } from 'helpers';
 
 @Component({
@@ -199,25 +188,3 @@ export default () => <wizard-example />;
 ```css hidden
 
 ```
-
-
-
-## Properties
-
-| Property                | Attribute       | Description                             | Type           | Default     |
-| ----------------------- | --------------- | --------------------------------------- | -------------- | ----------- |
-| `location` _(required)_ | `location`      | The currently active page               | `string`       | `undefined` |
-| `pages` _(required)_    | --              | A list of pages describing each step.   | `WizardPage[]` | `undefined` |
-| `scrollOffset`          | `scroll-offset` | Offset the scroll to top on page change | `number`       | `0`         |
-
-
-## Slots
-
-| Slot          | Description                                                   |
-| ------------- | ------------------------------------------------------------- |
-| `"[tabName]"` | Slots are created based off of the names of the passed pages. |
-
-
-----------------------------------------------
-
-

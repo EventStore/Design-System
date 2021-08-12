@@ -1,5 +1,5 @@
 {
-  "timestamp": "2021-08-11T14:44:05",
+  "timestamp": "2021-08-12T14:18:35",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.6.0",
@@ -254,13 +254,18 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "es-tabs"
+      ],
       "dependencies": [
         "es-counter"
       ],
       "dependencyGraph": {
         "es-badge": [
           "es-counter"
+        ],
+        "es-tabs": [
+          "es-badge"
         ]
       }
     },
@@ -1740,7 +1745,7 @@
       "docs": "Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.",
       "docsTags": [],
       "usage": {
-        "example": "```tsx\nimport { FunctionalComponent } from '@stencil/core';\nimport { createStore } from '@eventstore/stores';\n\nconst { state } = createStore<{ open: boolean }>({\n    open: true,\n});\n\nexport default () => (\n    <>\n        <es-portal\n            backdrop\n            open={state.open}\n            onRequestClose={requestClose}\n            element={<ExampleModal requestClose={requestClose} />}\n        />\n        <es-button\n            variant={'outline'}\n            onClick={() => {\n                state.open = true;\n            }}\n        >\n            {'Open portal'}\n        </es-button>\n    </>\n);\n\nconst requestClose = () => {\n    state.open = false;\n};\n\nconst ExampleModal: FunctionalComponent = ({ requestClose }) => (\n    <>\n        <style>\n            {`\n                .important {\n                    color: var(--color-error);\n                }\n\n                .cancel {\n                    --current-color: var(--color-grey-200);\n                    --contrast-color: var(--color-white);\n\n                    --text-color: var(--color-text);\n                }\n\n                .delete {\n                    --current-color: var(--color-error);\n                    --contrast-color: var(--color-white);\n                }\n            `}\n        </style>\n        <es-modal role={'alert'}>\n            <h2 slot={'header'}>{'Project name'}</h2>\n            <h1 slot={'header'}>{'Production'}</h1>\n            <p>\n                {\n                    'Deleting this project will delete all associated clusters and networks. This operation cannot be undone.'\n                }\n            </p>\n            <p class={'important'}>\n                {'Are you sure you want to proceed in deleting this project?'}\n            </p>\n            <es-button\n                variant={'outline'}\n                slot={'footer'}\n                class={'cancel'}\n                onClick={requestClose}\n            >\n                {'Cancel'}\n            </es-button>\n            <es-button\n                variant={'outline'}\n                slot={'footer'}\n                class={'delete'}\n                onClick={requestClose}\n            >\n                {'Delete project'}\n            </es-button>\n        </es-modal>\n    </>\n);\n```\n\n```css\n:host {\n    display: flex;\n    align-items: center;\n    justify-contents: center;\n}\n```\n"
+        "example": "```tsx\nimport { FunctionalComponent } from '@stencil/core';\nimport { createStore } from '@eventstore/stores';\n\nconst { state } = createStore<{ open: boolean }>({\n    open: true,\n});\n\nexport default () => (\n    <>\n        <es-portal\n            backdrop\n            open={state.open}\n            onRequestClose={requestClose}\n            element={<ExampleModal requestClose={requestClose} />}\n        />\n        <es-button\n            variant={'outline'}\n            onClick={() => {\n                state.open = true;\n            }}\n        >\n            {'Open portal'}\n        </es-button>\n    </>\n);\n\nconst requestClose = () => {\n    state.open = false;\n};\n\nconst ExampleModal: FunctionalComponent = ({ requestClose }) => (\n    <>\n        <style>\n            {`\n                .important {\n                    color: var(--color-error);\n                }\n\n                .cancel {\n                    --current-color: var(--color-grey-200);\n                    --contrast-color: var(--color-white);\n\n                    --text-color: var(--color-text);\n                }\n\n                .delete {\n                    --current-color: var(--color-error);\n                    --contrast-color: var(--color-white);\n                }\n            `}\n        </style>\n        <es-modal role={'alert'}>\n            <h2 slot={'header'}>{'Project name'}</h2>\n            <h1 slot={'header'}>{'Production'}</h1>\n            <p>\n                {\n                    'Deleting this project will delete all associated clusters and networks. This operation cannot be undone.'\n                }\n            </p>\n            <p class={'important'}>\n                {'Are you sure you want to proceed in deleting this project?'}\n            </p>\n            <es-button\n                variant={'outline'}\n                slot={'footer'}\n                class={'cancel'}\n                onClick={requestClose}\n            >\n                {'Cancel'}\n            </es-button>\n            <es-button\n                variant={'outline'}\n                slot={'footer'}\n                class={'delete'}\n                onClick={requestClose}\n            >\n                {'Delete project'}\n            </es-button>\n        </es-modal>\n    </>\n);\n```\n\n```css\n:host {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n```\n"
       },
       "props": [
         {
@@ -2676,9 +2681,32 @@
       "encapsulation": "shadow",
       "tag": "es-tabs",
       "readme": "# es-tabs\n\n\n",
-      "docs": "",
-      "docsTags": [],
-      "usage": {},
+      "docs": "A tabbed panel. Each panel can be targeted via a slot.",
+      "docsTags": [
+        {
+          "text": "[tabName] - Slots are created based off of the names of the passed tabs.",
+          "name": "slot"
+        },
+        {
+          "text": "indicator - The sliding indicatior bar.",
+          "name": "part"
+        },
+        {
+          "text": "panel - Tab panels.",
+          "name": "part"
+        },
+        {
+          "text": "tab - Tabs.",
+          "name": "part"
+        },
+        {
+          "text": "tablist - The tab container.",
+          "name": "part"
+        }
+      ],
+      "usage": {
+        "example": "```tsx\nimport { Tab } from '@eventstore/components';\n\nconst tabs: Tab[] = [\n    {\n        id: 'tab-1',\n        title: 'One',\n    },\n    {\n        id: 'tab-2',\n        title: 'Two',\n        badge: () => true,\n    },\n    {\n        id: 'tab-3',\n        title: 'Three',\n    },\n    {\n        id: 'tab-4',\n        title: 'Four',\n    },\n];\n\nexport default () => (\n    <es-tabs tabs={tabs} activeParam={false}>\n        <p slot={'tab-1'}>{'I am in tab 1'}</p>\n        <p slot={'tab-2'}>{'Welcome to tab 2!'}</p>\n        <p slot={'tab-3'}>{'Hello 👋. You have reached tab 3.'}</p>\n        <es-input slot={'tab-4'} value={'Hello'} label={'My Field'} />\n        <es-input\n            slot={'tab-4'}\n            value={'Welcome to tab four'}\n            label={'Our Field'}\n        />\n    </es-tabs>\n);\n```\n"
+      },
       "props": [
         {
           "name": "active",
@@ -2686,7 +2714,7 @@
           "mutable": true,
           "attr": "active",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The currently active panel. By default it will take from the passed activeParam, or the first tab.",
           "docsTags": [],
           "values": [
             {
@@ -2705,7 +2733,7 @@
           "mutable": false,
           "attr": "active-param",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Reflect the active tab to a search param of name. Set to false to disable.",
           "docsTags": [],
           "default": "'tab'",
           "values": [
@@ -2724,7 +2752,7 @@
           "type": "Tab[]",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A list of tabs.",
           "docsTags": [],
           "values": [
             {
@@ -2743,50 +2771,66 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Triggered when the active tab is changed. `detail` is the newly active tab.",
           "docsTags": []
         }
       ],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "[tabName]",
+          "docs": "Slots are created based off of the names of the passed tabs."
+        }
+      ],
       "parts": [
         {
           "name": "indicator",
-          "docs": ""
+          "docs": "The sliding indicatior bar."
         },
         {
           "name": "panel",
-          "docs": ""
+          "docs": "Tab panels."
         },
         {
           "name": "tab",
-          "docs": ""
+          "docs": "Tabs."
         },
         {
           "name": "tablist",
-          "docs": ""
+          "docs": "The tab container."
         }
       ],
       "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {}
+      "dependencies": [
+        "es-badge"
+      ],
+      "dependencyGraph": {
+        "es-tabs": [
+          "es-badge"
+        ],
+        "es-badge": [
+          "es-counter"
+        ]
+      }
     },
     {
       "filePath": "./src/components/es-thinking-button/es-thinking-button.tsx",
       "encapsulation": "shadow",
       "tag": "es-thinking-button",
       "readme": "# es-thinking-button\n\n\n",
-      "docs": "",
+      "docs": "A button with an icon that displays the state of a async action on click.",
       "docsTags": [],
-      "usage": {},
+      "usage": {
+        "example": "```tsx\nimport { random, delay } from 'helpers';\nimport { toast } from '@eventstore/components';\n\ntype CoinToss = 'heads' | 'tails';\n\nconst play = (user: Hand) => async () => {\n    toast.info({\n        title: 'The coin is tossed!',\n        message: `User calls ${user}.`,\n        icon: user,\n        duration: 2000,\n    });\n\n    // flip the coin\n    await delay(2000);\n\n    const result: CoinToss = random(1) ? 'heads' : 'tails';\n\n    if (user === result) {\n        toast.success({\n            title: `The coin lands ${result} side up!`,\n            message: 'The user wins',\n            icon: result,\n            duration: 2000,\n        });\n        return true;\n    }\n\n    toast.error({\n        title: `The coin lands ${result} side up!`,\n        message: 'The user loses',\n        icon: result,\n        duration: 2000,\n    });\n\n    throw new Error('You lose.');\n};\n\nexport default () => (\n    <>\n        <es-thinking-button\n            text={'Heads'}\n            defaultIcon={'heads'}\n            action={play('heads')}\n        />\n        <es-thinking-button\n            text={'Tails'}\n            defaultIcon={'tails'}\n            action={play('tails')}\n        />\n    </>\n);\n```\n\n```css\n:host {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n```\n"
+      },
       "props": [
         {
           "name": "action",
           "type": "(e: MouseEvent) => Promise<unknown>",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The async action to be called on click.",
           "docsTags": [],
           "values": [
             {
@@ -2802,7 +2846,7 @@
           "mutable": false,
           "attr": "color",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Which color pair the button should use.",
           "docsTags": [],
           "values": [
             {
@@ -2834,7 +2878,7 @@
           "mutable": false,
           "attr": "complete-icon",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The icon to display when the action completed successfully.",
           "docsTags": [],
           "default": "'check'",
           "values": [
@@ -2851,7 +2895,7 @@
           "mutable": false,
           "attr": "default-icon",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The default icon to display when nothing is happening.",
           "docsTags": [],
           "values": [
             {
@@ -2867,7 +2911,7 @@
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.",
           "docsTags": [],
           "values": [
             {
@@ -2886,7 +2930,7 @@
           "mutable": false,
           "attr": "failed-icon",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The icon to display when the action errored out.",
           "docsTags": [],
           "default": "'error'",
           "values": [
@@ -2903,7 +2947,7 @@
           "mutable": false,
           "attr": "text",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Optional text of the button",
           "docsTags": [],
           "values": [
             {
@@ -2922,7 +2966,7 @@
           "mutable": false,
           "attr": "thinking-icon",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The icon to display when we are awaiting the action.",
           "docsTags": [],
           "default": "'spinner'",
           "values": [
@@ -2939,7 +2983,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Which styling variant to use.",
           "docsTags": [],
           "default": "'minimal'",
           "values": [
@@ -2983,160 +3027,20 @@
       }
     },
     {
-      "filePath": "./src/components/toast/es-toast/es-toast.tsx",
-      "encapsulation": "shadow",
-      "tag": "es-toast",
-      "readme": "# es-toast\n\n\n",
-      "docs": "",
-      "docsTags": [],
-      "usage": {},
-      "props": [
-        {
-          "name": "count",
-          "type": "number",
-          "mutable": false,
-          "attr": "count",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": false,
-          "required": true
-        },
-        {
-          "name": "icon",
-          "type": "string",
-          "mutable": false,
-          "attr": "icon",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": true
-        },
-        {
-          "name": "level",
-          "type": "\"error\" | \"info\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "level",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "info",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": true
-        }
-      ],
-      "methods": [
-        {
-          "name": "close",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "signature": "close() => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": []
-        }
-      ],
-      "events": [],
-      "listeners": [],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "dependents": [
-        "es-toaster"
-      ],
-      "dependencies": [
-        "es-counter",
-        "es-icon"
-      ],
-      "dependencyGraph": {
-        "es-toast": [
-          "es-counter",
-          "es-icon"
-        ],
-        "es-toaster": [
-          "es-toast"
-        ]
-      }
-    },
-    {
-      "filePath": "./src/components/toast/es-toaster/es-toaster.tsx",
-      "encapsulation": "shadow",
-      "tag": "es-toaster",
-      "readme": "# es-toaster\n\n\n",
-      "docs": "",
-      "docsTags": [],
-      "usage": {},
-      "props": [],
-      "methods": [
-        {
-          "name": "popToast",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "signature": "popToast({ message, title, level, duration, icon, onClick, }: Bread) => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": []
-        }
-      ],
-      "events": [],
-      "listeners": [],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "dependents": [],
-      "dependencies": [
-        "es-toast"
-      ],
-      "dependencyGraph": {
-        "es-toaster": [
-          "es-toast"
-        ],
-        "es-toast": [
-          "es-counter",
-          "es-icon"
-        ]
-      }
-    },
-    {
       "filePath": "./src/components/es-wizard/es-wizard.tsx",
       "encapsulation": "shadow",
       "tag": "es-wizard",
       "readme": "# es-wizard\n\n\n",
-      "docs": "",
-      "docsTags": [],
-      "usage": {},
+      "docs": "A multi step wizard. Each step can be targeted via a slot.",
+      "docsTags": [
+        {
+          "text": "[tabName] - Slots are created based off of the names of the passed pages.",
+          "name": "slot"
+        }
+      ],
+      "usage": {
+        "example": "```tsx wizard-example.tsx\nimport { h, Component, State, Fragment } from '@stencil/core';\nimport { createWorkingData } from '@eventstore/fields';\nimport { WizardPage } from '@eventstore/components';\nimport { nextFrame } from 'helpers';\n\n@Component({\n    tag: 'wizard-example',\n    styleUrl: 'wizard-example.css',\n    shadow: true,\n})\nexport class WizardExample {\n    @State() location = 'user_details';\n\n    private userDetails = createWorkingData<UserDetails>({\n        fullName: '',\n        email: '',\n        message: {\n            initialValue: '',\n            optional: true,\n        },\n    });\n\n    private billingDetails = createWorkingData<BillingDetails>({\n        billingAddress: '',\n        billingCompanyName: '',\n        billingEmail: '',\n    });\n\n    private workingData = createWorkingData<ProvisioningRequest>({\n        user: this.userDetails,\n        billing: this.billingDetails,\n    });\n\n    componentWillLoad() {\n        this.userDetails.onBeforeFocus(async () => {\n            this.location = 'user_details';\n            await nextFrame();\n        });\n        this.billingDetails.onBeforeFocus(async () => {\n            this.location = 'billing_details';\n            await nextFrame();\n        });\n    }\n\n    render() {\n        return (\n            <>\n                <es-wizard location={this.location} pages={this.pages}>\n                    {/* user_details */}\n                    <es-input\n                        label={'Name'}\n                        placeholder={'Your name'}\n                        slot={'user_details'}\n                        {...this.workingData.connect('user', 'fullName')}\n                    />\n                    <es-input\n                        label={'Email'}\n                        placeholder={'Your contact email'}\n                        slot={'user_details'}\n                        {...this.workingData.connect('user', 'email')}\n                    />\n                    <es-textarea\n                        label={'Message'}\n                        placeholder={'Tell us about your project'}\n                        slot={'user_details'}\n                        {...this.workingData.connect('user', 'message')}\n                    />\n                    {/* billing_details */}\n                    <es-input\n                        label={'Company name'}\n                        placeholder={'The name of your company for invoices'}\n                        slot={'billing_details'}\n                        {...this.workingData.connect(\n                            'billing',\n                            'billingCompanyName',\n                        )}\n                    />\n                    <es-input\n                        label={'Billing address'}\n                        placeholder={'The address of your company for invoices'}\n                        slot={'billing_details'}\n                        {...this.workingData.connect(\n                            'billing',\n                            'billingAddress',\n                        )}\n                    />\n                    <es-input\n                        label={'Billing Email'}\n                        placeholder={'The email address to send invoices to'}\n                        slot={'billing_details'}\n                        {...this.workingData.connect('billing', 'billingEmail')}\n                    />\n                </es-wizard>\n                <footer>\n                    {this.location === 'user_details' && (\n                        <es-button\n                            variant={'outline'}\n                            color={'secondary'}\n                            slot={'footer'}\n                            onClick={() => {\n                                this.location = 'billing_details';\n                            }}\n                            disabled={this.workingData.frozen}\n                        >\n                            {'Next'}\n                            <es-icon\n                                icon={'chevron'}\n                                angle={270}\n                                size={18}\n                                slot={'after'}\n                            />\n                        </es-button>\n                    )}\n                    {this.location === 'billing_details' && (\n                        <>\n                            <es-button\n                                variant={'outline'}\n                                color={'primary'}\n                                slot={'footer'}\n                                onClick={() => {\n                                    this.location = 'user_details';\n                                }}\n                            >\n                                <es-icon\n                                    icon={'chevron'}\n                                    angle={90}\n                                    size={18}\n                                    class={'create'}\n                                    slot={'before'}\n                                />\n                                {'Back'}\n                            </es-button>\n                            <es-button\n                                variant={'outline'}\n                                color={'secondary'}\n                                slot={'footer'}\n                                onClick={() => {\n                                    this.workingData.submit(async (data) => {\n                                        toast.success({\n                                            icon: 'head',\n                                            title: `Thank you ${data.user.fullName}`,\n                                            message: 'This form goes nowhere.',\n                                        });\n                                    });\n                                }}\n                                disabled={this.workingData.frozen}\n                            >\n                                {'Submit form'}\n                            </es-button>\n                        </>\n                    )}\n                </footer>\n            </>\n        );\n    }\n\n    private pages: WizardPage[] = [\n        {\n            id: 'user_details',\n            title: 'User Details',\n        },\n        {\n            id: 'billing_details',\n            title: 'Billing Details',\n        },\n    ];\n}\n```\n\n```css wizard-example.css\nfooter {\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n    padding: 20px 0;\n}\n\nfooter es-button {\n    margin-left: 20px;\n}\n```\n\n```tsx hidden\nexport default () => <wizard-example />;\n```\n\n```css hidden\n\n```\n"
+      },
       "props": [
         {
           "name": "location",
@@ -3144,7 +3048,7 @@
           "mutable": false,
           "attr": "location",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The currently active page",
           "docsTags": [],
           "values": [
             {
@@ -3159,7 +3063,7 @@
           "type": "WizardPage[]",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A list of pages describing each step.",
           "docsTags": [],
           "values": [
             {
@@ -3175,7 +3079,7 @@
           "mutable": false,
           "attr": "scroll-offset",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Offset the scroll to top on page change",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -3191,7 +3095,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "[tabName]",
+          "docs": "Slots are created based off of the names of the passed pages."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [],

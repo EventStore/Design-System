@@ -65,7 +65,7 @@ Type: `Promise<void>`
  - es-status
  - [es-table-nested](../es-table-nested)
  - [es-thinking-button](../es-thinking-button)
- - [es-toast](../toast/es-toast)
+ - es-toast
 
 ### Graph
 ```mermaid

@@ -15,14 +15,15 @@ export const createModels = (
         noSemanticValidation: true,
     });
 
-    const models = {
-        render: editor.createModel(
-            parts.render,
+    const models: Models = {};
+
+    for (const { fileName, content } of Object.values(parts)) {
+        models[fileName] = editor.createModel(
+            content,
             undefined,
-            Uri.parse('render.tsx'),
-        ),
-        css: editor.createModel(parts.css, undefined, Uri.parse('render.css')),
-    };
+            Uri.parse(fileName),
+        );
+    }
 
     for (const [key, model] of Object.entries(models)) {
         model.onDidChangeContent(
