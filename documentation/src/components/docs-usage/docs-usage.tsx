@@ -18,22 +18,33 @@ export class DocsUsage {
 
     @Prop() identifier!: string;
     @Prop() usage!: string;
+    @State() building!: boolean;
     @State() parts!: Parts;
     @State() error?: string;
-    @State() active: keyof Models = 'render';
+    @State() active!: string;
 
     @State() models!: Models;
+    @State() tabs!: HTMLEsTabsElement['tabs'];
 
     @Watch('usage')
     componentWillLoad() {
+        this.building = true;
         this.parts = extractPartsFromMarkdown(this.usage);
         this.models = createModels(this.parts, this.onEditorChange);
+        this.tabs = Object.values(this.parts)
+            .filter(({ hidden }) => !hidden)
+            .map(({ fileName, title }) => ({
+                id: fileName,
+                title,
+            }));
+
+        this.active = this.tabs[0].id;
     }
 
     @Watch('parts')
     async generatePreview() {
         const files = generatePreview(this.parts);
-        const result = await bundle('/preview-component.tsx', files);
+        const result = await bundle(files);
 
         this.error = result.error;
 
@@ -45,7 +56,15 @@ export class DocsUsage {
     render() {
         return (
             <Host>
-                <iframe ref={this.captureiFrame} src={HTML} />
+                {this.building && (
+                    <div class={'building'}>{'loading preview...'}</div>
+                )}
+
+                <iframe
+                    ref={this.captureiFrame}
+                    src={HTML}
+                    class={{ hidden: this.building }}
+                />
                 <es-tabs
                     tabs={this.tabs}
                     active={this.active}
@@ -64,19 +83,17 @@ export class DocsUsage {
         );
     }
 
-    private tabs: HTMLEsTabsElement['tabs'] = [
-        { title: 'Render', id: 'render' },
-        { title: 'Style', id: 'css' },
-    ];
-
     private tabChange = (e: CustomEvent<string>) => {
-        this.active = e.detail as keyof Models;
+        this.active = e.detail;
     };
 
     private onEditorChange = (key: string, value: string) => {
         this.parts = {
             ...this.parts,
-            [key]: value,
+            [key]: {
+                ...this.parts[key],
+                content: value,
+            },
         };
     };
 
@@ -93,6 +110,7 @@ export class DocsUsage {
                 doc.head.appendChild(script);
 
                 doc.body.innerHTML = '<preview-component></preview-component>';
+                this.building = false;
             },
             { once: true },
         );

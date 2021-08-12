@@ -1,5 +1,6 @@
 import type StencilTypes from '@stencil/core/compiler';
 import type RollupTypes from 'rollup';
+import { replace } from './replace';
 
 import { createLogger } from '@eventstore/utils';
 import type { Files } from './types';
@@ -27,9 +28,12 @@ const resolveLookup = new Map<string, string>([
         '@stencil/core/internal/app-data',
         '/modules/@stencil/core/internal/app-data/index.js',
     ],
-    ['@eventstore/components', '/modules/@eventstore/components/index.js'],
-    ['@eventstore/fields', '/modules/@eventstore/fields/index.js'],
-    ['@eventstore/editor', '/modules/@eventstore/editor/index.js'],
+    [
+        '@eventstore/components',
+        '/modules/@eventstore/components/collection/index.js',
+    ],
+    ['@eventstore/fields', '/modules/@eventstore/fields/collection/index.js'],
+    ['@eventstore/editor', '/modules/@eventstore/editor/collection/index.js'],
     ['@eventstore/router', '/modules/@eventstore/router/index.js'],
     ['@eventstore/utils', '/modules/@eventstore/utils/index.mjs'],
     ['@eventstore/stores', '/modules/@eventstore/stores/index.mjs'],
@@ -64,7 +68,7 @@ const loadDeps = async () => {
     ]);
 };
 
-export const bundle = async (entry: string, files: Files) => {
+export const bundle = async (files: Files) => {
     if (!ready) {
         ready = loadDeps();
     }
@@ -99,9 +103,20 @@ export const bundle = async (entry: string, files: Files) => {
         fs.set(`/${name}`, results.code);
     }
 
+    fs.set(
+        '/index.ts',
+        Object.keys(files)
+            .filter((p) => p.match(/.(t|j)sx?$/))
+            .map((p) => `import '${p}';`)
+            .join('\n'),
+    );
+
+    // prevent this from getting replaced in the build
+    const envString = ['process', 'env', 'NODE_ENV'].join('.');
+
     const inputOptions: RollupTypes.InputOptions = {
-        input: entry,
-        treeshake: true,
+        input: '/index.ts',
+        treeshake: false,
         plugins: [
             {
                 name: 'browserPlugin',
@@ -113,7 +128,11 @@ export const bundle = async (entry: string, files: Files) => {
                             importee,
                             'http://url.resolve' + (importer || ''),
                         );
-                        return u.pathname + u.search;
+
+                        const extension =
+                            u.pathname.split('.').length > 1 ? '' : '.js';
+
+                        return u.pathname + extension + u.search;
                     }
 
                     if (files[importee]) {
@@ -144,6 +163,9 @@ export const bundle = async (entry: string, files: Files) => {
                     return fs.get(path);
                 },
             },
+            replace({
+                [envString]: JSON.stringify('production'),
+            }),
         ],
         onwarn(warning: any) {
             logger.groupCollapsed(warning.loc ? warning.loc.file : '');

@@ -1,13 +1,18 @@
 import type { editor } from '@eventstore/editor/monaco';
 
+export interface FileDetails {
+    fileName: string;
+    title: string;
+    hidden: boolean;
+    content: string;
+}
+
 export interface Parts {
-    render: string;
-    css: string;
+    [fileName: string]: FileDetails;
 }
 
 export interface Models {
-    render: editor.IModel;
-    css: editor.IModel;
+    [fileName: string]: editor.IModel;
 }
 
 export interface Files {

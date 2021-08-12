@@ -86,6 +86,6 @@ const ExampleModal: FunctionalComponent = ({ requestClose }) => (
 :host {
     display: flex;
     align-items: center;
-    justify-contents: center;
+    justify-content: center;
 }
 ```

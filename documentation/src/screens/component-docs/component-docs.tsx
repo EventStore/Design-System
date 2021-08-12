@@ -41,7 +41,7 @@ export class DocsPackage {
                         }
                     />
                 </header>
-                <docs-markdown md={this.comp.docs} />
+                <docs-markdown class={'intro'} md={this.comp.docs} />
 
                 {Object.entries(this.comp.usage).map(([name, usage]) => (
                     <docs-usage

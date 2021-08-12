@@ -460,19 +460,55 @@ export namespace Components {
         "rows": any[];
     }
     interface EsTabs {
+        /**
+          * The currently active panel. By default it will take from the passed activeParam, or the first tab.
+         */
         "active"?: string;
+        /**
+          * Reflect the active tab to a search param of name. Set to false to disable.
+         */
         "activeParam": string | false;
+        /**
+          * A list of tabs.
+         */
         "tabs": Tab[];
     }
     interface EsThinkingButton {
+        /**
+          * The async action to be called on click.
+         */
         "action": (e: MouseEvent) => Promise<unknown>;
+        /**
+          * Which color pair the button should use.
+         */
         "color"?: HTMLEsButtonElement['color'];
+        /**
+          * The icon to display when the action completed successfully.
+         */
         "completeIcon": string;
+        /**
+          * The default icon to display when nothing is happening.
+         */
         "defaultIcon": string;
+        /**
+          * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
+         */
         "disabled"?: boolean;
+        /**
+          * The icon to display when the action errored out.
+         */
         "failedIcon": string;
+        /**
+          * Optional text of the button
+         */
         "text"?: string;
+        /**
+          * The icon to display when we are awaiting the action.
+         */
         "thinkingIcon": string;
+        /**
+          * Which styling variant to use.
+         */
         "variant": HTMLEsButtonElement['variant'];
     }
     interface EsToast {
@@ -485,8 +521,17 @@ export namespace Components {
         "popToast": ({ message, title, level, duration, icon, onClick, }: Bread) => Promise<void>;
     }
     interface EsWizard {
+        /**
+          * The currently active page
+         */
         "location": string;
+        /**
+          * A list of pages describing each step.
+         */
         "pages": WizardPage[];
+        /**
+          * Offset the scroll to top on page change
+         */
         "scrollOffset": number;
     }
 }
@@ -1139,20 +1184,59 @@ declare namespace LocalJSX {
         "rows": any[];
     }
     interface EsTabs {
+        /**
+          * The currently active panel. By default it will take from the passed activeParam, or the first tab.
+         */
         "active"?: string;
+        /**
+          * Reflect the active tab to a search param of name. Set to false to disable.
+         */
         "activeParam"?: string | false;
+        /**
+          * Triggered when the active tab is changed. `detail` is the newly active tab.
+         */
         "onTabChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * A list of tabs.
+         */
         "tabs": Tab[];
     }
     interface EsThinkingButton {
+        /**
+          * The async action to be called on click.
+         */
         "action": (e: MouseEvent) => Promise<unknown>;
+        /**
+          * Which color pair the button should use.
+         */
         "color"?: HTMLEsButtonElement['color'];
+        /**
+          * The icon to display when the action completed successfully.
+         */
         "completeIcon"?: string;
+        /**
+          * The default icon to display when nothing is happening.
+         */
         "defaultIcon": string;
+        /**
+          * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
+         */
         "disabled"?: boolean;
+        /**
+          * The icon to display when the action errored out.
+         */
         "failedIcon"?: string;
+        /**
+          * Optional text of the button
+         */
         "text"?: string;
+        /**
+          * The icon to display when we are awaiting the action.
+         */
         "thinkingIcon"?: string;
+        /**
+          * Which styling variant to use.
+         */
         "variant"?: HTMLEsButtonElement['variant'];
     }
     interface EsToast {
@@ -1163,8 +1247,17 @@ declare namespace LocalJSX {
     interface EsToaster {
     }
     interface EsWizard {
+        /**
+          * The currently active page
+         */
         "location": string;
+        /**
+          * A list of pages describing each step.
+         */
         "pages": WizardPage[];
+        /**
+          * Offset the scroll to top on page change
+         */
         "scrollOffset"?: number;
     }
     interface IntrinsicElements {

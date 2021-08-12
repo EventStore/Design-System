@@ -138,6 +138,12 @@
         "component": "GoBack",
         "path": "./components/GoBack.tsx"
     },
+    "head": {
+        "name": "head",
+        "component": "Head",
+        "path": "./components/Head.tsx",
+        "aliases": ["heads"]
+    },
     "icon-manager": {
         "name": "icon-manager",
         "component": "IconManager",
@@ -297,6 +303,12 @@
         "name": "trash",
         "component": "Trash",
         "path": "./components/Trash.tsx"
+    },
+    "unicorn": {
+        "name": "unicorn",
+        "component": "Unicorn",
+        "path": "./components/Unicorn.tsx",
+        "aliases": ["tails"]
     },
     "unknown": {
         "name": "unknown",

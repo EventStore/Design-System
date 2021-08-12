@@ -112,6 +112,10 @@ export default () => (
 
 ## Dependencies
 
+### Used by
+
+ - [es-tabs](../es-tabs)
+
 ### Depends on
 
 - [es-counter](../es-counter)
@@ -120,6 +124,7 @@ export default () => (
 ```mermaid
 graph TD;
   es-badge --> es-counter
+  es-tabs --> es-badge
   style es-badge fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

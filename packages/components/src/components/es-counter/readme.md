@@ -66,7 +66,7 @@ export default () =>
 
  - [es-accordian](../es-accordian)
  - [es-badge](../es-badge)
- - [es-toast](../toast/es-toast)
+ - es-toast
 
 ### Graph
 ```mermaid

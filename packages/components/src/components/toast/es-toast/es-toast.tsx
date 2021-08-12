@@ -9,6 +9,7 @@ import {
 } from '@stencil/core';
 import { Toast } from '../types';
 
+/** @internal */
 @Component({
     tag: 'es-toast',
     styleUrl: 'es-toast.css',

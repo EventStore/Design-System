@@ -112,6 +112,12 @@ iconStore.addIcons({
     get 'go-back'() {
         return import('./components/GoBack').then((module) => module.GoBack);
     },
+    get head() {
+        return import('./components/Head').then((module) => module.Head);
+    },
+    get heads() {
+        return this['head'];
+    },
     get 'icon-manager'() {
         return import('./components/IconManager').then(
             (module) => module.IconManager,
@@ -243,6 +249,12 @@ iconStore.addIcons({
     },
     get trash() {
         return import('./components/Trash').then((module) => module.Trash);
+    },
+    get unicorn() {
+        return import('./components/Unicorn').then((module) => module.Unicorn);
+    },
+    get tails() {
+        return this['unicorn'];
     },
     get unknown() {
         return import('./components/Unknown').then((module) => module.Unknown);
