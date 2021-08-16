@@ -21,8 +21,3 @@
 .reference {
     color: var(--code-blue);
 }
-
-.param:not(:last-child)::after {
-    display: inline-block;
-    content: ',\00a0';
-}

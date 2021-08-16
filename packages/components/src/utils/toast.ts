@@ -19,12 +19,20 @@ const popToast = (level: ToastLevel) => (
  * @usage ./toast.example.md
  */
 export const toast = {
-    /** Called on a successful action. */
+    /**
+     * Called on a successful action.
+     */
     success: popToast('success'),
-    /** Called to give neutral information. */
+    /**
+     * Called to give neutral information.
+     */
     info: popToast('info'),
-    /** Called to give a warning about something. */
+    /**
+     * Called to give a warning about something.
+     */
     warning: popToast('warning'),
-    /** Called when an error occured, to inform the user. */
+    /**
+     * Called when an error occured, to inform the user.
+     */
     error: popToast('error'),
 };

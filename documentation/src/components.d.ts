@@ -104,9 +104,13 @@ export namespace Components {
         "styles": JsonDocsStyle[];
     }
     interface DocsType {
+        "declaration"?: JSONOutput.DeclarationReflection;
         "depreciated": boolean;
         "someType"?: JSONOutput.SomeType;
         "string"?: string;
+    }
+    interface DocsTypeDocumentation {
+        "declaration": JSONOutput.DeclarationReflection;
     }
     interface DocsTypeTable {
         "declaration": JSONOutput.DeclarationReflection;
@@ -274,6 +278,12 @@ declare global {
         prototype: HTMLDocsTypeElement;
         new (): HTMLDocsTypeElement;
     };
+    interface HTMLDocsTypeDocumentationElement extends Components.DocsTypeDocumentation, HTMLStencilElement {
+    }
+    var HTMLDocsTypeDocumentationElement: {
+        prototype: HTMLDocsTypeDocumentationElement;
+        new (): HTMLDocsTypeDocumentationElement;
+    };
     interface HTMLDocsTypeTableElement extends Components.DocsTypeTable, HTMLStencilElement {
     }
     var HTMLDocsTypeTableElement: {
@@ -324,6 +334,7 @@ declare global {
         "docs-slots-table": HTMLDocsSlotsTableElement;
         "docs-styles-table": HTMLDocsStylesTableElement;
         "docs-type": HTMLDocsTypeElement;
+        "docs-type-documentation": HTMLDocsTypeDocumentationElement;
         "docs-type-table": HTMLDocsTypeTableElement;
         "docs-usage": HTMLDocsUsageElement;
         "docs-util-docs": HTMLDocsUtilDocsElement;
@@ -421,9 +432,13 @@ declare namespace LocalJSX {
         "styles": JsonDocsStyle[];
     }
     interface DocsType {
+        "declaration"?: JSONOutput.DeclarationReflection;
         "depreciated"?: boolean;
         "someType"?: JSONOutput.SomeType;
         "string"?: string;
+    }
+    interface DocsTypeDocumentation {
+        "declaration": JSONOutput.DeclarationReflection;
     }
     interface DocsTypeTable {
         "declaration": JSONOutput.DeclarationReflection;
@@ -465,6 +480,7 @@ declare namespace LocalJSX {
         "docs-slots-table": DocsSlotsTable;
         "docs-styles-table": DocsStylesTable;
         "docs-type": DocsType;
+        "docs-type-documentation": DocsTypeDocumentation;
         "docs-type-table": DocsTypeTable;
         "docs-usage": DocsUsage;
         "docs-util-docs": DocsUtilDocs;
@@ -500,6 +516,7 @@ declare module "@stencil/core" {
             "docs-slots-table": LocalJSX.DocsSlotsTable & JSXBase.HTMLAttributes<HTMLDocsSlotsTableElement>;
             "docs-styles-table": LocalJSX.DocsStylesTable & JSXBase.HTMLAttributes<HTMLDocsStylesTableElement>;
             "docs-type": LocalJSX.DocsType & JSXBase.HTMLAttributes<HTMLDocsTypeElement>;
+            "docs-type-documentation": LocalJSX.DocsTypeDocumentation & JSXBase.HTMLAttributes<HTMLDocsTypeDocumentationElement>;
             "docs-type-table": LocalJSX.DocsTypeTable & JSXBase.HTMLAttributes<HTMLDocsTypeTableElement>;
             "docs-usage": LocalJSX.DocsUsage & JSXBase.HTMLAttributes<HTMLDocsUsageElement>;
             "docs-util-docs": LocalJSX.DocsUtilDocs & JSXBase.HTMLAttributes<HTMLDocsUtilDocsElement>;
