@@ -12,7 +12,7 @@
 ```tsx wizard-example.tsx
 import { h, Component, State, Fragment } from '@stencil/core';
 import { createWorkingData } from '@eventstore/fields';
-import { WizardPage } from '@eventstore/components';
+import { WizardPage, toast } from '@eventstore/components';
 import { nextFrame } from 'helpers';
 
 @Component({

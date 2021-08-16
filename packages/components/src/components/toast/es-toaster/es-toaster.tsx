@@ -6,7 +6,7 @@ import {
     Element,
     forceUpdate,
 } from '@stencil/core';
-import { Toast, Level, Bread } from '../types';
+import { Toast, ToastLevel, ToastOptions } from '../types';
 
 /** @internal */
 @Component({
@@ -19,21 +19,23 @@ export class EsToast {
     @State() slices = new Map<string, Toast>();
     @State() loaf = new Map<string, HTMLEsToastElement>();
 
-    private defaultIcons: Record<Level, string> = {
+    private defaultIcons: Record<ToastLevel, string> = {
         success: 'check',
         info: 'info',
         warning: 'warning',
         error: 'error',
     };
 
-    @Method() async popToast({
-        message,
-        title,
-        level = 'error',
-        duration = 5000,
-        icon = this.defaultIcons[level],
-        onClick,
-    }: Bread) {
+    @Method() async popToast(
+        level: ToastLevel = 'error',
+        {
+            message,
+            title,
+            duration = 5000,
+            icon = this.defaultIcons[level],
+            onClick,
+        }: ToastOptions,
+    ) {
         const id = `${level}-${title}-${message}`;
 
         if (this.slices.has(id)) {
@@ -56,10 +58,17 @@ export class EsToast {
                 timeout: setTimeout(this.eatToast(id), duration),
             };
 
-            this.slices.set(id, toast)!;
+            this.slices.set(id, toast);
         }
 
         forceUpdate(this);
+
+        return () => {
+            const toast = this.slices.get(id);
+            if (!toast) return;
+            clearTimeout(toast.timeout);
+            this.eatToast(id)();
+        };
     }
 
     render() {

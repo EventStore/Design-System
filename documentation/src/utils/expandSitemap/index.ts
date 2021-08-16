@@ -53,6 +53,10 @@ export interface Lib extends LibDefinition {
      */
     slug: string;
     /*
+     * Breadcrumb root.
+     */
+    crumb: { name: string; path: string };
+    /*
      * resolved package.json
      */
     packageJson: PackageJson;
@@ -78,16 +82,19 @@ const expandSection = (section: SectionDefinition) => ({
 
 const expandLib = ({ title, filePath }: LibDefinition): Lib => {
     const project = optionallyRequireTypeDocs(slugize(title));
+    const packageJson = requirePackageJson(`${filePath}/package.json`);
+    const slug = slugize(title);
 
     return {
         title,
-        slug: slugize(title),
+        slug,
+        crumb: { name: title, path: `/${slug}` },
         filePath,
-        packageJson: requirePackageJson(`${filePath}/package.json`),
+        packageJson,
         typeDocs: project
             ? { project, lookup: createTypedocLookup(project) }
             : undefined,
-        stencilDocs: optionallyRequireStencilDocs(slugize(title)),
+        stencilDocs: optionallyRequireStencilDocs(slug),
         readme: requireReadme(`${filePath}/readme.md`),
     };
 };
