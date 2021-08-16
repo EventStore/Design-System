@@ -16,16 +16,14 @@ type Dec = JSONOutput.DeclarationReflection;
 export class DocsPackage {
     @Prop() lib!: Lib;
 
-    private variables?: Dec[];
+    private utils?: Dec[];
     private types?: Dec[];
-    private functions?: Dec[];
     private functionalComponents?: Dec[];
 
     @Watch('lib')
     componentWillLoad() {
-        this.variables = this.extractVariables();
+        this.utils = this.extractUtils();
         this.types = this.extractTypes();
-        this.functions = this.extractFunctions();
         this.functionalComponents = this.extractFunctionalComponents();
     }
 
@@ -41,7 +39,7 @@ export class DocsPackage {
                             {this.lib.stencilDocs.components.map(({ tag }) => (
                                 <docs-sidebar-link
                                     key={tag}
-                                    url={`/${this.lib.slug}/${tag}`}
+                                    url={`/${this.lib.slug}/components/${tag}`}
                                 >
                                     {tag}
                                 </docs-sidebar-link>
@@ -62,24 +60,12 @@ export class DocsPackage {
                             ))}
                         </docs-sidebar-section>
                     )}
-                    {this.functions && (
-                        <docs-sidebar-section sectionTitle={'Functions'}>
-                            {this.functions.map(({ name }) => (
+                    {this.utils && (
+                        <docs-sidebar-section sectionTitle={'Utils'}>
+                            {this.utils.map(({ name }) => (
                                 <docs-sidebar-link
                                     key={name}
-                                    url={`/${this.lib.slug}/functions/${name}`}
-                                >
-                                    {name}
-                                </docs-sidebar-link>
-                            ))}
-                        </docs-sidebar-section>
-                    )}
-                    {this.variables && (
-                        <docs-sidebar-section sectionTitle={'Variables'}>
-                            {this.variables.map(({ name }) => (
-                                <docs-sidebar-link
-                                    key={name}
-                                    url={`/${this.lib.slug}/variables/${name}`}
+                                    url={`/${this.lib.slug}/utils/${name}`}
                                 >
                                     {name}
                                 </docs-sidebar-link>
@@ -110,11 +96,22 @@ export class DocsPackage {
                             }}
                         />
                         {this.lib.stencilDocs?.components.map((doc) => (
-                            <Route exact url={`/${this.lib.slug}/${doc.tag}`}>
+                            <Route
+                                exact
+                                url={`/${this.lib.slug}/components/${doc.tag}`}
+                            >
                                 <docs-component-docs
                                     lib={this.lib}
                                     comp={doc}
                                 />
+                            </Route>
+                        ))}
+                        {this.utils?.map((doc) => (
+                            <Route
+                                exact
+                                url={`/${this.lib.slug}/utils/${doc.name}`}
+                            >
+                                <docs-util-docs lib={this.lib} doc={doc} />
                             </Route>
                         ))}
                     </Switch>
@@ -139,9 +136,8 @@ export class DocsPackage {
             return names;
         };
 
-    private extractVariables = this.extractKinds([ReflectionKind.Variable]);
-    private extractFunctions = this.extractKinds(
-        [ReflectionKind.Function],
+    private extractUtils = this.extractKinds(
+        [ReflectionKind.Variable, ReflectionKind.Function],
         (d) => !isFunctionalComponentDeclaration(d),
     );
     private extractFunctionalComponents = this.extractKinds(

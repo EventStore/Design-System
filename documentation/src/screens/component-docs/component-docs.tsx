@@ -22,7 +22,8 @@ export class DocsPackage {
             <Host>
                 <docs-breadcrumb
                     crumbs={[
-                        { name: 'Components', path: '/components' },
+                        this.lib.crumb,
+                        { name: 'Components', path: './components' },
                         {
                             name: tag,
                             path: `./${tag}`,

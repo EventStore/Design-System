@@ -17,7 +17,7 @@ import { Status } from "./components/es-status/es-status";
 import { RawRow, RowData } from "./components/es-table/es-table";
 import { TableCells } from "./components/es-table/types";
 import { Tab } from "./components/es-tabs/types";
-import { Bread, Toast } from "./components/toast/types";
+import { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
 import { WizardPage } from "./components/es-wizard/types";
 export namespace Components {
     interface EsAccordian {
@@ -515,10 +515,10 @@ export namespace Components {
         "close": () => Promise<void>;
         "count": Toast['count'];
         "icon": Toast['icon'];
-        "level": Toast['level'];
+        "level": ToastLevel;
     }
     interface EsToaster {
-        "popToast": ({ message, title, level, duration, icon, onClick, }: Bread) => Promise<void>;
+        "popToast": (level: ToastLevel | undefined, { message, title, duration, icon, onClick, }: ToastOptions) => Promise<() => void>;
     }
     interface EsWizard {
         /**
@@ -1242,7 +1242,7 @@ declare namespace LocalJSX {
     interface EsToast {
         "count": Toast['count'];
         "icon": Toast['icon'];
-        "level": Toast['level'];
+        "level": ToastLevel;
     }
     interface EsToaster {
     }
