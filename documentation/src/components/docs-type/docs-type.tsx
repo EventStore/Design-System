@@ -1,5 +1,6 @@
 import { Component, h, Fragment, VNode, Prop } from '@stencil/core';
 import { JSONOutput } from 'typedoc';
+import { isTypeLiteral } from 'utils/typedoc/reflectionKind';
 import {
     isIntrinsicType,
     isTypeParameterType,
@@ -30,10 +31,12 @@ export class DocsSomeType {
     @Prop({ reflect: true }) depreciated: boolean = false;
     @Prop() string?: string;
     @Prop() someType?: JSONOutput.SomeType;
+    @Prop() declaration?: JSONOutput.DeclarationReflection;
 
     render() {
         if (this.string) return this.string;
         if (this.someType) return this.renderSomeType(this.someType);
+        if (this.declaration) return this.renderDeclaration(this.declaration);
         return null;
     }
 
@@ -191,7 +194,9 @@ export class DocsSomeType {
         if (isReflectionType(someType)) {
             return (
                 <span class={'reflection'}>
-                    {someType.declaration?.signatures ? 'function' : 'object'}
+                    {someType.declaration
+                        ? this.renderDeclaration(someType.declaration)
+                        : someType.type}
                 </span>
             );
         }
@@ -226,6 +231,42 @@ export class DocsSomeType {
                     {this.renderSomeType(someType.target)}
                 </span>
             );
+        }
+
+        return <span class={'unknown'}>{'unknown'}</span>;
+    };
+
+    private renderDeclaration = (
+        declaration: JSONOutput.DeclarationReflection,
+    ) => {
+        if (isTypeLiteral(declaration) && declaration.signatures) {
+            return declaration.signatures.map((signature) => (
+                <span class={'signature'}>
+                    {'('}
+                    {signature.parameters && signature.parameters.length > 0 && (
+                        <span class={'params'}>
+                            {signature.parameters?.map((param) => (
+                                <span class={'param'} key={param.name}>
+                                    {param.name}
+                                    {param.defaultValue ? '?' : ''}
+                                    {': '}
+                                    {param.type
+                                        ? this.renderSomeType(param.type)
+                                        : 'any'}
+                                    {param.defaultValue &&
+                                    param.defaultValue !== '...'
+                                        ? ` = ${param.defaultValue}`
+                                        : ''}
+                                </span>
+                            ))}
+                        </span>
+                    )}
+                    {') => '}
+                    {signature.type
+                        ? this.renderSomeType(signature.type)
+                        : 'void'}
+                </span>
+            ));
         }
 
         return <span class={'unknown'}>{'unknown'}</span>;

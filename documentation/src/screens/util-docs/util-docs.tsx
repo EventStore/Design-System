@@ -34,7 +34,6 @@ export class DocsPackage {
                     class={'intro'}
                     md={comment?.text ?? comment?.shortText ?? ''}
                 />
-
                 {Object.entries(this.usage()).map(([uname, usage]) => (
                     <docs-usage
                         key={uname}
@@ -42,6 +41,7 @@ export class DocsPackage {
                         usage={usage}
                     />
                 ))}
+                <docs-type-documentation declaration={this.doc} />
             </Host>
         );
     }
