@@ -114,6 +114,15 @@ export class DocsPackage {
                                 <docs-util-docs lib={this.lib} doc={doc} />
                             </Route>
                         ))}
+
+                        {this.types?.map((doc) => (
+                            <Route
+                                exact
+                                url={`/${this.lib.slug}/types/${doc.name}`}
+                            >
+                                <docs-type-docs lib={this.lib} doc={doc} />
+                            </Route>
+                        ))}
                     </Switch>
                 </main>
             </Host>

@@ -1,10 +1,12 @@
-import { h, FunctionalComponent, Fragment } from '@stencil/core';
-import { JSONOutput } from 'typedoc';
+import { h, FunctionalComponent } from '@stencil/core';
+import type { JSONOutput } from 'typedoc';
 import {
     isTypeLiteral,
     isVariable,
     isProperty,
+    isInterface,
 } from 'utils/typedoc/reflectionKind';
+import { InterfaceTable } from './InterfaceTable';
 import { ObjectTable } from './ObjectTable';
 import { SomeType } from './SomeType';
 
@@ -19,15 +21,13 @@ export const DeclarationReflection: FunctionalComponent<{
 
     if (isTypeLiteral(declaration)) {
         if (declaration.children && declaration.children.every(isProperty)) {
-            // its an object!
             return <ObjectTable declaration={declaration} />;
         }
     }
 
-    return (
-        <>
-            {'TODO: '}
-            {declaration.kindString}
-        </>
-    );
+    if (isInterface(declaration)) {
+        return <InterfaceTable declaration={declaration} />;
+    }
+
+    return <docs-type declaration={declaration} />;
 };

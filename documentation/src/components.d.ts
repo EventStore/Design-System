@@ -32,8 +32,6 @@ export namespace Components {
         "comp": JsonDocs['components'][0];
         "lib": Lib;
     }
-    interface DocsDeclaration {
-    }
     interface DocsEventsTable {
         "events": JsonDocsEvent[];
     }
@@ -109,6 +107,10 @@ export namespace Components {
         "someType"?: JSONOutput.SomeType;
         "string"?: string;
     }
+    interface DocsTypeDocs {
+        "doc": JSONOutput.DeclarationReflection;
+        "lib": Lib;
+    }
     interface DocsTypeDocumentation {
         "declaration": JSONOutput.DeclarationReflection;
     }
@@ -151,12 +153,6 @@ declare global {
     var HTMLDocsComponentDocsElement: {
         prototype: HTMLDocsComponentDocsElement;
         new (): HTMLDocsComponentDocsElement;
-    };
-    interface HTMLDocsDeclarationElement extends Components.DocsDeclaration, HTMLStencilElement {
-    }
-    var HTMLDocsDeclarationElement: {
-        prototype: HTMLDocsDeclarationElement;
-        new (): HTMLDocsDeclarationElement;
     };
     interface HTMLDocsEventsTableElement extends Components.DocsEventsTable, HTMLStencilElement {
     }
@@ -278,6 +274,12 @@ declare global {
         prototype: HTMLDocsTypeElement;
         new (): HTMLDocsTypeElement;
     };
+    interface HTMLDocsTypeDocsElement extends Components.DocsTypeDocs, HTMLStencilElement {
+    }
+    var HTMLDocsTypeDocsElement: {
+        prototype: HTMLDocsTypeDocsElement;
+        new (): HTMLDocsTypeDocsElement;
+    };
     interface HTMLDocsTypeDocumentationElement extends Components.DocsTypeDocumentation, HTMLStencilElement {
     }
     var HTMLDocsTypeDocumentationElement: {
@@ -313,7 +315,6 @@ declare global {
         "docs-breadcrumb": HTMLDocsBreadcrumbElement;
         "docs-code": HTMLDocsCodeElement;
         "docs-component-docs": HTMLDocsComponentDocsElement;
-        "docs-declaration": HTMLDocsDeclarationElement;
         "docs-events-table": HTMLDocsEventsTableElement;
         "docs-header": HTMLDocsHeaderElement;
         "docs-home": HTMLDocsHomeElement;
@@ -334,6 +335,7 @@ declare global {
         "docs-slots-table": HTMLDocsSlotsTableElement;
         "docs-styles-table": HTMLDocsStylesTableElement;
         "docs-type": HTMLDocsTypeElement;
+        "docs-type-docs": HTMLDocsTypeDocsElement;
         "docs-type-documentation": HTMLDocsTypeDocumentationElement;
         "docs-type-table": HTMLDocsTypeTableElement;
         "docs-usage": HTMLDocsUsageElement;
@@ -359,8 +361,6 @@ declare namespace LocalJSX {
     interface DocsComponentDocs {
         "comp": JsonDocs['components'][0];
         "lib": Lib;
-    }
-    interface DocsDeclaration {
     }
     interface DocsEventsTable {
         "events": JsonDocsEvent[];
@@ -437,6 +437,10 @@ declare namespace LocalJSX {
         "someType"?: JSONOutput.SomeType;
         "string"?: string;
     }
+    interface DocsTypeDocs {
+        "doc": JSONOutput.DeclarationReflection;
+        "lib": Lib;
+    }
     interface DocsTypeDocumentation {
         "declaration": JSONOutput.DeclarationReflection;
     }
@@ -459,7 +463,6 @@ declare namespace LocalJSX {
         "docs-breadcrumb": DocsBreadcrumb;
         "docs-code": DocsCode;
         "docs-component-docs": DocsComponentDocs;
-        "docs-declaration": DocsDeclaration;
         "docs-events-table": DocsEventsTable;
         "docs-header": DocsHeader;
         "docs-home": DocsHome;
@@ -480,6 +483,7 @@ declare namespace LocalJSX {
         "docs-slots-table": DocsSlotsTable;
         "docs-styles-table": DocsStylesTable;
         "docs-type": DocsType;
+        "docs-type-docs": DocsTypeDocs;
         "docs-type-documentation": DocsTypeDocumentation;
         "docs-type-table": DocsTypeTable;
         "docs-usage": DocsUsage;
@@ -495,7 +499,6 @@ declare module "@stencil/core" {
             "docs-breadcrumb": LocalJSX.DocsBreadcrumb & JSXBase.HTMLAttributes<HTMLDocsBreadcrumbElement>;
             "docs-code": LocalJSX.DocsCode & JSXBase.HTMLAttributes<HTMLDocsCodeElement>;
             "docs-component-docs": LocalJSX.DocsComponentDocs & JSXBase.HTMLAttributes<HTMLDocsComponentDocsElement>;
-            "docs-declaration": LocalJSX.DocsDeclaration & JSXBase.HTMLAttributes<HTMLDocsDeclarationElement>;
             "docs-events-table": LocalJSX.DocsEventsTable & JSXBase.HTMLAttributes<HTMLDocsEventsTableElement>;
             "docs-header": LocalJSX.DocsHeader & JSXBase.HTMLAttributes<HTMLDocsHeaderElement>;
             "docs-home": LocalJSX.DocsHome & JSXBase.HTMLAttributes<HTMLDocsHomeElement>;
@@ -516,6 +519,7 @@ declare module "@stencil/core" {
             "docs-slots-table": LocalJSX.DocsSlotsTable & JSXBase.HTMLAttributes<HTMLDocsSlotsTableElement>;
             "docs-styles-table": LocalJSX.DocsStylesTable & JSXBase.HTMLAttributes<HTMLDocsStylesTableElement>;
             "docs-type": LocalJSX.DocsType & JSXBase.HTMLAttributes<HTMLDocsTypeElement>;
+            "docs-type-docs": LocalJSX.DocsTypeDocs & JSXBase.HTMLAttributes<HTMLDocsTypeDocsElement>;
             "docs-type-documentation": LocalJSX.DocsTypeDocumentation & JSXBase.HTMLAttributes<HTMLDocsTypeDocumentationElement>;
             "docs-type-table": LocalJSX.DocsTypeTable & JSXBase.HTMLAttributes<HTMLDocsTypeTableElement>;
             "docs-usage": LocalJSX.DocsUsage & JSXBase.HTMLAttributes<HTMLDocsUsageElement>;

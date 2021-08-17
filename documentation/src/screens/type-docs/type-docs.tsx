@@ -3,12 +3,10 @@ import type { JSONOutput } from 'typedoc';
 
 import type { Lib } from 'sitemap';
 import { findAllReferences } from 'utils/typedoc/findAllReferences';
-import { isVariable } from 'utils/typedoc/reflectionKind';
-import { isReferenceType } from 'utils/typedoc/someType';
 
 @Component({
-    tag: 'docs-util-docs',
-    styleUrl: 'util-docs.css',
+    tag: 'docs-type-docs',
+    styleUrl: 'type-docs.css',
     shadow: true,
 })
 export class DocsPackage {
@@ -33,7 +31,7 @@ export class DocsPackage {
                 <docs-breadcrumb
                     crumbs={[
                         this.lib.crumb,
-                        { name: 'Utils', path: './utils' },
+                        { name: 'Types', path: './types' },
                         {
                             name: name,
                             path: `./${name}`,
@@ -47,17 +45,8 @@ export class DocsPackage {
                     class={'intro'}
                     md={comment?.text ?? comment?.shortText ?? ''}
                 />
-                {Object.entries(this.usage()).map(([uname, usage]) => (
-                    <docs-usage
-                        key={uname}
-                        identifier={`${name}-${uname}`}
-                        usage={usage}
-                    />
-                ))}
 
-                {!(isVariable(this.doc) && isReferenceType(this.doc.type!)) && (
-                    <docs-type-documentation declaration={this.doc} />
-                )}
+                <docs-type-documentation declaration={this.doc} />
 
                 {this.references.map((doc) => (
                     <div key={doc.name} id={doc.name}>
@@ -76,16 +65,4 @@ export class DocsPackage {
             </Host>
         );
     }
-
-    private usage = (): Record<string, string> =>
-        this.doc.comment?.tags?.reduce<Record<string, string>>(
-            (acc, { tag, text, param }) => {
-                if (tag !== 'usage') return acc;
-                return {
-                    ...acc,
-                    [param ?? this.doc.name]: text,
-                };
-            },
-            {},
-        ) ?? {};
 }

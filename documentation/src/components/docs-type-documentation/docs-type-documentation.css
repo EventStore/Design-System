@@ -1,10 +1,5 @@
 :host {
-    background-color: var(--code-bg);
-    color: var(--code-fg);
-    padding: 5px 6px;
-    border-radius: 4px;
-    margin: 5px;
-    font: var(--font-monospace);
+    display: block;
 }
 
 :host([depreciated]) {
@@ -20,4 +15,20 @@
 
 .reference {
     color: var(--code-blue);
+}
+
+.depreciated {
+    text-decoration: line-through;
+}
+
+.types {
+    flex-wrap: wrap;
+}
+
+.required [role='cell'] {
+    background-image: radial-gradient(
+        circle,
+        rgba(255, 248, 0, 0.2) 0%,
+        rgba(255, 248, 0, 0.2) 100%
+    );
 }

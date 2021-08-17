@@ -1,4 +1,4 @@
-import { h, FunctionalComponent, Fragment } from '@stencil/core';
+import { h, FunctionalComponent } from '@stencil/core';
 import { JSONOutput } from 'typedoc';
 import { isReflectionType } from 'utils/typedoc/someType';
 import { DeclarationReflection } from './DeclarationReflection';
@@ -12,10 +12,5 @@ export const SomeType: FunctionalComponent<{
         }
     }
 
-    return (
-        <>
-            {'TODO: '}
-            {type.type}
-        </>
-    );
+    return <docs-type someType={type} />;
 };

@@ -1,6 +1,6 @@
 import { Component, h, Fragment, VNode, Prop } from '@stencil/core';
 import { JSONOutput } from 'typedoc';
-import { isTypeLiteral } from 'utils/typedoc/reflectionKind';
+import { isCallSignature, isTypeAlias } from 'utils/typedoc/reflectionKind';
 import {
     isIntrinsicType,
     isTypeParameterType,
@@ -238,9 +238,14 @@ export class DocsSomeType {
 
     private renderDeclaration = (
         declaration: JSONOutput.DeclarationReflection,
-    ) => {
-        if (isTypeLiteral(declaration) && declaration.signatures) {
-            return declaration.signatures.map((signature) => (
+    ): VNode | VNode[] => {
+        if (declaration.signatures) {
+            return <>{declaration.signatures.map(this.renderDeclaration)}</>;
+        }
+
+        if (isCallSignature(declaration)) {
+            const signature = declaration as JSONOutput.SignatureReflection;
+            return (
                 <span class={'signature'}>
                     {'('}
                     {signature.parameters && signature.parameters.length > 0 && (
@@ -262,11 +267,46 @@ export class DocsSomeType {
                         </span>
                     )}
                     {') => '}
-                    {signature.type
-                        ? this.renderSomeType(signature.type)
+                    {declaration.type
+                        ? this.renderSomeType(declaration.type)
                         : 'void'}
                 </span>
-            ));
+            );
+        }
+
+        if (isTypeAlias(declaration)) {
+            return (
+                <span class={'alias'}>
+                    {declaration.name}
+                    {declaration.typeParameter && (
+                        <>
+                            {'<'}
+                            <span class={'params'}>
+                                {declaration.typeParameter?.map((param) => (
+                                    <span class={'param'} key={param.name}>
+                                        {param.name}
+                                        {' extends '}
+                                        {param.type
+                                            ? this.renderSomeType(param.type)
+                                            : 'any'}
+                                    </span>
+                                ))}
+                            </span>
+                            {'>'}
+                        </>
+                    )}
+                    {declaration.type && (
+                        <>
+                            {' = '}
+                            {this.renderSomeType(declaration.type)}
+                        </>
+                    )}
+                </span>
+            );
+        }
+
+        if (declaration.type) {
+            return this.renderSomeType(declaration.type);
         }
 
         return <span class={'unknown'}>{'unknown'}</span>;

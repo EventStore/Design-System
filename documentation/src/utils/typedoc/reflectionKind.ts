@@ -47,7 +47,7 @@ export const isConstructor = (d: D) =>
     (d.kind as any) === ReflectionKind.Constructor;
 export const isProperty = (d: D) => (d.kind as any) === ReflectionKind.Property;
 export const isMethod = (d: D) => (d.kind as any) === ReflectionKind.Method;
-export const isCallSignature = (d: D) =>
+export const isCallSignature = (d: D): d is JSONOutput.SignatureReflection =>
     (d.kind as any) === ReflectionKind.CallSignature;
 export const isIndexSignature = (d: D) =>
     (d.kind as any) === ReflectionKind.IndexSignature;
