@@ -22,4 +22,8 @@ class IconStore {
     public get = (name: string) => this.icons[name];
 }
 
+/**
+ * Register icons for `es-icon` to reference by name.
+ * It is recommended to use [`@eventstore/icon-manager`](/icon-manager) to manage your icons.
+ */
 export const iconStore = new IconStore();

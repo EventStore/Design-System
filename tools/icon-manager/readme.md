@@ -1,11 +1,11 @@
-# @eventstore/include-icon
+# @eventstore/icon-manager
 
 Automated icon inclusion for Event Store design system.
 
 ## Install
 
 ```shell
-yarn add --dev @eventstore/include-icon
+yarn add --dev @eventstore/icon-manager
 ```
 
 ## Usage

@@ -4012,6 +4012,7 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
+												"id": 465,
 												"name": "ToastOptions"
 											}
 										}
@@ -9888,6 +9889,174 @@
 			]
 		},
 		{
+			"id": 465,
+			"name": "ToastOptions",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {},
+			"children": [
+				{
+					"id": 472,
+					"name": "duration",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "How long to display the notification for before removing it."
+					},
+					"sources": [
+						{
+							"fileName": "components/toast/types.ts",
+							"line": 12,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 466,
+					"name": "icon",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"shortText": "Icon to display on left of the toast. Will default to default of level."
+					},
+					"sources": [
+						{
+							"fileName": "components/toast/types.ts",
+							"line": 4,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 468,
+					"name": "message",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"comment": {
+						"shortText": "Message to be displayed under the title."
+					},
+					"sources": [
+						{
+							"fileName": "components/toast/types.ts",
+							"line": 8,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 467,
+					"name": "title",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"comment": {
+						"shortText": "Title to be displayed on the toast."
+					},
+					"sources": [
+						{
+							"fileName": "components/toast/types.ts",
+							"line": 6,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 469,
+					"name": "onClick",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "components/toast/types.ts",
+							"line": 10,
+							"character": 4
+						}
+					],
+					"signatures": [
+						{
+							"id": 470,
+							"name": "onClick",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Callback when toast is clicked."
+							},
+							"parameters": [
+								{
+									"id": 471,
+									"name": "e",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "MouseEvent"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						472,
+						466,
+						468,
+						467
+					]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						469
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "components/toast/types.ts",
+					"line": 2,
+					"character": 17
+				}
+			]
+		},
+		{
 			"id": 455,
 			"name": "WizardPage",
 			"kind": 256,
@@ -10027,17 +10196,20 @@
 			}
 		},
 		{
-			"id": 495,
+			"id": 503,
 			"name": "iconStore",
 			"kind": 32,
 			"kindString": "Variable",
 			"flags": {
 				"isConst": true
 			},
+			"comment": {
+				"shortText": "Register icons for `es-icon` to reference by name.\nIt is recommended to use [`@eventstore/icon-manager`](/icon-manager) to manage your icons."
+			},
 			"sources": [
 				{
 					"fileName": "utils/iconStore.ts",
-					"line": 25,
+					"line": 29,
 					"character": 13
 				}
 			],
@@ -10048,7 +10220,7 @@
 			"defaultValue": "..."
 		},
 		{
-			"id": 465,
+			"id": 473,
 			"name": "toast",
 			"kind": 32,
 			"kindString": "Variable",
@@ -10075,14 +10247,14 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 466,
+					"id": 474,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"children": [
 						{
-							"id": 488,
+							"id": 496,
 							"name": "error",
 							"kind": 1024,
 							"kindString": "Property",
@@ -10090,32 +10262,33 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 489,
+									"id": 497,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 490,
+											"id": 498,
 											"name": "__type",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 491,
+													"id": 499,
 													"name": "options",
 													"kind": 32768,
 													"kindString": "Parameter",
 													"flags": {},
 													"type": {
 														"type": "reference",
+														"id": 465,
 														"name": "ToastOptions"
 													}
 												},
 												{
-													"id": 492,
+													"id": 500,
 													"name": "targetDocument",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -10133,14 +10306,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 493,
+															"id": 501,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
 															"flags": {},
 															"signatures": [
 																{
-																	"id": 494,
+																	"id": 502,
 																	"name": "__type",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -10163,7 +10336,7 @@
 							"defaultValue": "..."
 						},
 						{
-							"id": 474,
+							"id": 482,
 							"name": "info",
 							"kind": 1024,
 							"kindString": "Property",
@@ -10171,32 +10344,33 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 475,
+									"id": 483,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 476,
+											"id": 484,
 											"name": "__type",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 477,
+													"id": 485,
 													"name": "options",
 													"kind": 32768,
 													"kindString": "Parameter",
 													"flags": {},
 													"type": {
 														"type": "reference",
+														"id": 465,
 														"name": "ToastOptions"
 													}
 												},
 												{
-													"id": 478,
+													"id": 486,
 													"name": "targetDocument",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -10214,14 +10388,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 479,
+															"id": 487,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
 															"flags": {},
 															"signatures": [
 																{
-																	"id": 480,
+																	"id": 488,
 																	"name": "__type",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -10244,7 +10418,7 @@
 							"defaultValue": "..."
 						},
 						{
-							"id": 467,
+							"id": 475,
 							"name": "success",
 							"kind": 1024,
 							"kindString": "Property",
@@ -10252,32 +10426,33 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 468,
+									"id": 476,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 469,
+											"id": 477,
 											"name": "__type",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 470,
+													"id": 478,
 													"name": "options",
 													"kind": 32768,
 													"kindString": "Parameter",
 													"flags": {},
 													"type": {
 														"type": "reference",
+														"id": 465,
 														"name": "ToastOptions"
 													}
 												},
 												{
-													"id": 471,
+													"id": 479,
 													"name": "targetDocument",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -10295,14 +10470,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 472,
+															"id": 480,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
 															"flags": {},
 															"signatures": [
 																{
-																	"id": 473,
+																	"id": 481,
 																	"name": "__type",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -10325,7 +10500,7 @@
 							"defaultValue": "..."
 						},
 						{
-							"id": 481,
+							"id": 489,
 							"name": "warning",
 							"kind": 1024,
 							"kindString": "Property",
@@ -10333,32 +10508,33 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 482,
+									"id": 490,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 483,
+											"id": 491,
 											"name": "__type",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 484,
+													"id": 492,
 													"name": "options",
 													"kind": 32768,
 													"kindString": "Parameter",
 													"flags": {},
 													"type": {
 														"type": "reference",
+														"id": 465,
 														"name": "ToastOptions"
 													}
 												},
 												{
-													"id": 485,
+													"id": 493,
 													"name": "targetDocument",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -10376,14 +10552,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 486,
+															"id": 494,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
 															"flags": {},
 															"signatures": [
 																{
-																	"id": 487,
+																	"id": 495,
 																	"name": "__type",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -10411,10 +10587,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								488,
-								474,
-								467,
-								481
+								496,
+								482,
+								475,
+								489
 							]
 						}
 					]
@@ -10439,6 +10615,7 @@
 				435,
 				459,
 				443,
+				465,
 				455
 			]
 		},
@@ -10453,8 +10630,8 @@
 			"title": "Variables",
 			"kind": 32,
 			"children": [
-				495,
-				465
+				503,
+				473
 			]
 		}
 	],

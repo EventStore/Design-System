@@ -54,12 +54,19 @@ export class DocsPackage {
 
                 <docs-props-table id={'props'} props={this.comp.props} />
 
-                {relatedTypes.map((relatedType) => (
-                    <docs-type-table
-                        id={relatedType.name}
-                        key={relatedType.name}
-                        declaration={relatedType}
-                    />
+                {relatedTypes.map((doc) => (
+                    <div key={doc.name} id={doc.name}>
+                        <h2>{doc.name}</h2>
+                        <docs-markdown
+                            class={'intro'}
+                            md={
+                                doc.comment?.text ??
+                                doc.comment?.shortText ??
+                                ''
+                            }
+                        />
+                        <docs-type-documentation declaration={doc} />
+                    </div>
                 ))}
 
                 <docs-slots-table id={'slots'} slots={this.comp.slots} />

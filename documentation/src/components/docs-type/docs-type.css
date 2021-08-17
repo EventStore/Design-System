@@ -18,6 +18,7 @@
     }
 }
 
+.alias,
 .reference {
     color: var(--code-blue);
 }
