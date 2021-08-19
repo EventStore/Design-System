@@ -8,6 +8,13 @@
     position: relative;
 }
 
+:host(.no-preview) {
+    & es-tabs {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
 .building {
     width: 50%;
     position: absolute;

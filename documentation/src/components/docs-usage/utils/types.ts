@@ -7,6 +7,11 @@ export interface FileDetails {
     content: string;
 }
 
+export interface Settings {
+    preview: boolean;
+    parts: Parts;
+}
+
 export interface Parts {
     [fileName: string]: FileDetails;
 }

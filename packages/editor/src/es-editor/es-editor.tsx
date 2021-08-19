@@ -1,6 +1,9 @@
 import { Component, h, Element, Prop } from '@stencil/core';
 import { editor } from 'monaco-editor';
 
+/**
+ * Monaco editor wrapped in a web component. Handles re-layout on container resize
+ */
 @Component({
     tag: 'es-editor',
     styleUrl: 'es-editor.css',
@@ -8,7 +11,10 @@ import { editor } from 'monaco-editor';
 })
 export class YEditor {
     @Element() host!: HTMLEsEditorElement;
+
+    /** Editor options. see [monaco docs](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandaloneeditorconstructionoptions.html) for details. */
     @Prop() options: editor.IStandaloneEditorConstructionOptions = {};
+    /** An optional callback for getting a reference to the editor, for external control.  */
     @Prop() editorRef?: (editor: editor.IStandaloneCodeEditor) => void;
     private editor?: editor.IStandaloneCodeEditor;
 

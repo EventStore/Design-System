@@ -18,7 +18,9 @@
         "/initialize.d.ts",
         "/initialize.js",
         "/monaco.d.ts",
-        "/monaco.js"
+        "/monaco.js",
+        "/configure.d.ts",
+        "/configure.js"
     ],
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/",
@@ -35,6 +37,7 @@
         "build:stencil": "stencil build --docs",
         "build:initialize": "tsc ./utils/initialize.ts --declaration --outDir . ",
         "build:monaco": "tsc ./utils/monaco.ts --declaration --outDir . ",
+        "build:configure": "tsc ./utils/configure.ts --declaration --outDir . ",
         "build:workers": "run-p workers:*",
         "workers:main": "rollup ../../node_modules/monaco-editor/esm/vs/editor/editor.worker.js --file ./workers/editor.worker.js --format iife",
         "workers:json": "rollup ../../node_modules/monaco-editor/esm/vs/language/json/json.worker.js --file ./workers/json.worker.js --format iife",
@@ -43,7 +46,7 @@
         "workers:html": "rollup ../../node_modules/monaco-editor/esm/vs/language/html/html.worker.js --file ./workers/html.worker.js --format iife",
         "docs": "run-s docs:*",
         "docs:stencil": "stencil build --docs-json ../../documentation/generated/editor.stencil.json",
-        "docs:typedoc": "typedoc --json ../../documentation/generated/editor.typedoc.json",
+        "docs:typedoc": "typedoc --tsconfig ./utils/tsconfig.json --json ../../documentation/generated/editor.typedoc.json",
         "test": "stencil test --spec --e2e --passWithNoTests",
         "test.watch": "stencil test --spec --e2e --watchAll",
         "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""

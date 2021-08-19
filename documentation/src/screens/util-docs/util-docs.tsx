@@ -26,7 +26,15 @@ export class DocsPackage {
     }
 
     render() {
-        const { name, comment } = this.doc;
+        const { name, comment, signatures } = this.doc;
+        let commentText = comment?.text ?? comment?.shortText;
+
+        if (signatures?.length === 1) {
+            commentText =
+                commentText ??
+                signatures[0].comment?.text ??
+                signatures[0].comment?.shortText;
+        }
 
         return (
             <Host>
@@ -43,10 +51,8 @@ export class DocsPackage {
                 <header>
                     <h1>{name}</h1>
                 </header>
-                <docs-markdown
-                    class={'intro'}
-                    md={comment?.text ?? comment?.shortText ?? ''}
-                />
+                <docs-markdown class={'intro'} md={commentText ?? ''} />
+
                 {Object.entries(this.usage()).map(([uname, usage]) => (
                     <docs-usage
                         key={uname}

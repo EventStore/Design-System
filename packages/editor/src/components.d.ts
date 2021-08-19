@@ -8,7 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { editor } from "monaco-editor";
 export namespace Components {
     interface EsEditor {
+        /**
+          * An optional callback for getting a reference to the editor, for external control.
+         */
         "editorRef"?: (editor: editor.IStandaloneCodeEditor) => void;
+        /**
+          * Editor options. see [monaco docs](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandaloneeditorconstructionoptions.html) for details.
+         */
         "options": editor.IStandaloneEditorConstructionOptions;
     }
 }
@@ -25,7 +31,13 @@ declare global {
 }
 declare namespace LocalJSX {
     interface EsEditor {
+        /**
+          * An optional callback for getting a reference to the editor, for external control.
+         */
         "editorRef"?: (editor: editor.IStandaloneCodeEditor) => void;
+        /**
+          * Editor options. see [monaco docs](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandaloneeditorconstructionoptions.html) for details.
+         */
         "options"?: editor.IStandaloneEditorConstructionOptions;
     }
     interface IntrinsicElements {
