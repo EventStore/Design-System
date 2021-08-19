@@ -1,37 +1,56 @@
 import md from 'markdown-it';
-import { Parts } from './types';
+import { Settings } from './types';
 
-export const extractPartsFromMarkdown = (markdown: string) => {
-    const parts: Parts = {
-        'usage.tsx': {
-            fileName: 'usage.tsx',
-            title: 'Render',
-            hidden: false,
-            content: '/* no content */',
-        },
-        'style.css': {
-            fileName: 'style.css',
-            title: 'Style',
-            hidden: false,
-            content: '/* no content */',
+export const extractPartsFromMarkdown = (markdown: string): Settings => {
+    const settings: Settings = {
+        preview: true,
+        parts: {
+            'usage.tsx': {
+                fileName: 'usage.tsx',
+                title: 'Render',
+                hidden: false,
+                content: '/* no content */',
+            },
+            'style.css': {
+                fileName: 'style.css',
+                title: 'Style',
+                hidden: false,
+                content: '/* no content */',
+            },
         },
     };
 
-    for (const { tag, info, content } of md().parse(markdown, {})) {
+    const parsed = md().parse(markdown, {});
+
+    for (const { tag, content } of parsed) {
+        if (tag) continue;
+
+        const comment = content.trim().match(/^<!-- ([A-Za-z_-]*) -->$/);
+        switch (comment?.[1]) {
+            case 'no-preview': {
+                settings.preview = false;
+                settings.parts['usage.tsx'].hidden = true;
+                settings.parts['style.css'].hidden = true;
+                break;
+            }
+        }
+    }
+
+    for (const { tag, info, content } of parsed) {
         if (tag !== 'code') continue;
 
         const [lang, fileName, ...modifiers] = info.split(' ');
 
         if (!fileName || fileName === 'hidden') {
             if (/(t|j)sx?/.test(lang)) {
-                parts['usage.tsx'].content = content;
-                parts['usage.tsx'].hidden = fileName === 'hidden';
+                settings.parts['usage.tsx'].content = content;
+                settings.parts['usage.tsx'].hidden = fileName === 'hidden';
             } else if (/css/.test(lang)) {
-                parts['style.css'].content = content;
-                parts['style.css'].hidden = fileName === 'hidden';
+                settings.parts['style.css'].content = content;
+                settings.parts['style.css'].hidden = fileName === 'hidden';
             }
         } else {
-            parts[fileName] = {
+            settings.parts[fileName] = {
                 fileName,
                 title: fileName,
                 hidden: modifiers.includes('hidden'),
@@ -40,5 +59,5 @@ export const extractPartsFromMarkdown = (markdown: string) => {
         }
     }
 
-    return parts;
+    return settings;
 };

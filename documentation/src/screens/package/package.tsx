@@ -28,6 +28,7 @@ export class DocsPackage {
     }
 
     render() {
+        console.log(this.lib);
         return (
             <Host>
                 <docs-sidebar>
@@ -135,12 +136,22 @@ export class DocsPackage {
             if (!this.lib.typeDocs) return;
             const { lookup, project } = this.lib.typeDocs;
             if (!project.groups) return;
-            const names = project.groups
+
+            const modules = project.groups
+                .filter(
+                    (group) => group.kind === (ReflectionKind.Module as number),
+                )
+                .flatMap((group) => group.children ?? [])
+                .flatMap((id) => lookup.get(id)!.groups!);
+
+            const names = [...project.groups, ...modules]
                 .filter((group) => kinds.includes(group.kind))
                 .flatMap((group) => group.children ?? [])
                 .map((id) => lookup.get(id)!)
+                .filter((item) => !item.flags.isExternal)
                 .filter(check)
                 .sort(({ name: a }, { name: b }) => a.localeCompare(b));
+
             if (!names.length) return;
             return names;
         };

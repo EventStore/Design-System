@@ -1,5 +1,10 @@
 @import './monaco.css';
 
+/**
+ * @prop --editor-width: Sets the width of the editor. (default: 100%)
+ * @prop --editor-height: Sets the height of the editor. (default: 300px)
+ */
+
 :host {
     display: contents;
     outline: none;

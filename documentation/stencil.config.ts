@@ -5,8 +5,9 @@ import nodePolyfills from 'rollup-plugin-node-polyfills';
 import requireContext from 'rollup-plugin-require-context';
 
 import { mdx } from '@eventstore/stencil-markdown-plugin/plugin';
+import { workerPath } from '@eventstore/editor/configure';
 
-import { dirname, join } from 'path';
+import { dirname } from 'path';
 import injectPalettePlugin from '@eventstore/postcss-palette-plugin';
 
 import { palette } from './src/global/palette';
@@ -43,12 +44,7 @@ export const config: Config = {
                     dest: 'preview.html',
                 },
                 {
-                    src: join(
-                        dirname(
-                            require.resolve('@eventstore/editor/package.json'),
-                        ),
-                        'workers',
-                    ),
+                    src: workerPath,
                     dest: 'workers',
                 },
             ],

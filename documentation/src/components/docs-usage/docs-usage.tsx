@@ -1,4 +1,12 @@
-import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
+import {
+    Component,
+    h,
+    Host,
+    Prop,
+    State,
+    Watch,
+    Fragment,
+} from '@stencil/core';
 
 import { createModels } from './utils/createModels';
 import { extractPartsFromMarkdown } from './utils/extractPartsFromMarkdown';
@@ -22,6 +30,7 @@ export class DocsUsage {
     @State() parts!: Parts;
     @State() error?: string;
     @State() active!: string;
+    @State() preview!: boolean;
 
     @State() models!: Models;
     @State() tabs!: HTMLEsTabsElement['tabs'];
@@ -29,7 +38,11 @@ export class DocsUsage {
     @Watch('usage')
     componentWillLoad() {
         this.building = true;
-        this.parts = extractPartsFromMarkdown(this.usage);
+
+        const { parts, preview } = extractPartsFromMarkdown(this.usage);
+
+        this.preview = preview;
+        this.parts = parts;
         this.models = createModels(this.parts, this.onEditorChange);
         this.tabs = Object.values(this.parts)
             .filter(({ hidden }) => !hidden)
@@ -43,6 +56,8 @@ export class DocsUsage {
 
     @Watch('parts')
     async generatePreview() {
+        if (!this.preview) return;
+
         const files = generatePreview(this.parts);
         const result = await bundle(files);
 
@@ -55,16 +70,20 @@ export class DocsUsage {
 
     render() {
         return (
-            <Host>
-                {this.building && (
-                    <div class={'building'}>{'loading preview...'}</div>
-                )}
+            <Host class={{ 'no-preview': !this.preview }}>
+                {this.preview && (
+                    <>
+                        {this.building && (
+                            <div class={'building'}>{'loading preview...'}</div>
+                        )}
 
-                <iframe
-                    ref={this.captureiFrame}
-                    src={HTML}
-                    class={{ hidden: this.building }}
-                />
+                        <iframe
+                            ref={this.captureiFrame}
+                            src={HTML}
+                            class={{ hidden: this.building }}
+                        />
+                    </>
+                )}
                 <es-tabs
                     tabs={this.tabs}
                     active={this.active}

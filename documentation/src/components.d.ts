@@ -114,9 +114,6 @@ export namespace Components {
     interface DocsTypeDocumentation {
         "declaration": JSONOutput.DeclarationReflection;
     }
-    interface DocsTypeTable {
-        "declaration": JSONOutput.DeclarationReflection;
-    }
     interface DocsUsage {
         "identifier": string;
         "usage": string;
@@ -286,12 +283,6 @@ declare global {
         prototype: HTMLDocsTypeDocumentationElement;
         new (): HTMLDocsTypeDocumentationElement;
     };
-    interface HTMLDocsTypeTableElement extends Components.DocsTypeTable, HTMLStencilElement {
-    }
-    var HTMLDocsTypeTableElement: {
-        prototype: HTMLDocsTypeTableElement;
-        new (): HTMLDocsTypeTableElement;
-    };
     interface HTMLDocsUsageElement extends Components.DocsUsage, HTMLStencilElement {
     }
     var HTMLDocsUsageElement: {
@@ -337,7 +328,6 @@ declare global {
         "docs-type": HTMLDocsTypeElement;
         "docs-type-docs": HTMLDocsTypeDocsElement;
         "docs-type-documentation": HTMLDocsTypeDocumentationElement;
-        "docs-type-table": HTMLDocsTypeTableElement;
         "docs-usage": HTMLDocsUsageElement;
         "docs-util-docs": HTMLDocsUtilDocsElement;
         "es-footer": HTMLEsFooterElement;
@@ -444,9 +434,6 @@ declare namespace LocalJSX {
     interface DocsTypeDocumentation {
         "declaration": JSONOutput.DeclarationReflection;
     }
-    interface DocsTypeTable {
-        "declaration": JSONOutput.DeclarationReflection;
-    }
     interface DocsUsage {
         "identifier": string;
         "usage": string;
@@ -485,7 +472,6 @@ declare namespace LocalJSX {
         "docs-type": DocsType;
         "docs-type-docs": DocsTypeDocs;
         "docs-type-documentation": DocsTypeDocumentation;
-        "docs-type-table": DocsTypeTable;
         "docs-usage": DocsUsage;
         "docs-util-docs": DocsUtilDocs;
         "es-footer": EsFooter;
@@ -521,7 +507,6 @@ declare module "@stencil/core" {
             "docs-type": LocalJSX.DocsType & JSXBase.HTMLAttributes<HTMLDocsTypeElement>;
             "docs-type-docs": LocalJSX.DocsTypeDocs & JSXBase.HTMLAttributes<HTMLDocsTypeDocsElement>;
             "docs-type-documentation": LocalJSX.DocsTypeDocumentation & JSXBase.HTMLAttributes<HTMLDocsTypeDocumentationElement>;
-            "docs-type-table": LocalJSX.DocsTypeTable & JSXBase.HTMLAttributes<HTMLDocsTypeTableElement>;
             "docs-usage": LocalJSX.DocsUsage & JSXBase.HTMLAttributes<HTMLDocsUsageElement>;
             "docs-util-docs": LocalJSX.DocsUtilDocs & JSXBase.HTMLAttributes<HTMLDocsUtilDocsElement>;
             "es-footer": LocalJSX.EsFooter & JSXBase.HTMLAttributes<HTMLEsFooterElement>;
