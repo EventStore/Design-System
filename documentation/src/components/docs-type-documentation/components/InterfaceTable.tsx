@@ -6,16 +6,20 @@ export const InterfaceTable: FunctionalComponent<{
     declaration: JSONOutput.DeclarationReflection;
 }> = ({ declaration }) => (
     <es-table
-        rows={expandSignatures(declaration.children!)}
+        rows={expandAndFilterSignatures(declaration.children!)}
         cells={cells}
         rowClass={rowClass}
     />
 );
 
-const expandSignatures = (declarations: JSONOutput.DeclarationReflection[]) =>
-    declarations.flatMap(
-        (d) => d.signatures?.map((s) => ({ ...s, flags: d.flags })) ?? d,
-    );
+const expandAndFilterSignatures = (
+    declarations: JSONOutput.DeclarationReflection[],
+) =>
+    declarations
+        .flatMap(
+            (d) => d.signatures?.map((s) => ({ ...s, flags: d.flags })) ?? d,
+        )
+        .filter((d) => !d.comment?.tags?.find(({ tag }) => tag === 'internal'));
 
 const cells: TableCells<JSONOutput.DeclarationReflection> = {
     name: {

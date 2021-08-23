@@ -98,3 +98,7 @@ body {
     color: #435261;
     overflow-x: hidden;
 }
+
+.monaco-aria-container {
+    display: none;
+}

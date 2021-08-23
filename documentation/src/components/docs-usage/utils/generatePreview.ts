@@ -2,8 +2,8 @@ import type { Parts, Files } from './types';
 import iconDetails from 'icons/icons.json';
 
 export const generatePreview = (parts: Parts): Files => {
-    const previewComponent = `\
-    import { Component, h, Fragment } from '@stencil/core';
+    const previewComponent = `  
+    import { Component, h, Fragment, Prop, State } from '@stencil/core';
     import Usage from 'usage';
     
     @Component({
@@ -12,6 +12,9 @@ export const generatePreview = (parts: Parts): Files => {
         styleUrl: 'preview-component.css',
     })
     export class PreviewComponent {
+        @Prop() prop?: string;
+        @State() state: string = '';
+
         render() {
             return (
                 <Usage />
@@ -19,7 +22,7 @@ export const generatePreview = (parts: Parts): Files => {
         }
     }`;
 
-    const helpers = `\
+    const helpers = `
         export const random = (max: number, min: number = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
         export const delay = (time: number) => new Promise<void>((resolve) => setTimeout(resolve, time)); 
         export const nextFrame = () => new Promise<number>(requestAnimationFrame);
@@ -37,12 +40,19 @@ export const generatePreview = (parts: Parts): Files => {
         export const randomIcon = () => icons[random(icons.length)];
     `;
 
+    const main = `
+        import '@eventstore/components';
+        import '@eventstore/fields';
+        import '@eventstore/editor';
+    `;
+
     const { 'usage.tsx': render, 'style.css': css, ...rest } = parts;
 
     return Object.values(rest).reduce(
         (acc, { fileName, content }) => ({ ...acc, [fileName]: content }),
         {
             'helpers.ts': helpers,
+            'main.ts': main,
             'usage.tsx': `
                 import { h, Fragment } from '@stencil/core';
                 ${render.content}

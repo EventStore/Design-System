@@ -8,23 +8,30 @@ import {
     State,
 } from '@stencil/core';
 
+/** A switchable switch. */
 @Component({
     tag: 'es-switch',
     styleUrl: 'es-switch.css',
     shadow: true,
 })
 export class EsSwitch {
+    /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter;
-    @Event() enter!: EventEmitter;
 
+    /** The name of the field. */
     @Prop() name!: string;
+    /** The current value of the field. */
     @Prop() value!: boolean;
+    /** If the field is disabled. */
     @Prop() disabled?: boolean;
+    /** If the field is editable. */
     @Prop() readonly?: boolean;
+    /** If the field is currently in an error state. */
     @Prop() invalid?: boolean;
 
     @State() pending: boolean = false;
 
+    /** Allows you to pause interaction with the input while an operation completes. */
     @Method() async setPending(pending: boolean) {
         this.pending = pending;
     }

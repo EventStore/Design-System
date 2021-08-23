@@ -21,6 +21,9 @@ type AWT<T> = {
     [key: number]: T;
 };
 
+/**
+ * Create a "Working Data Array" store to back an array within a "Working Data" store.
+ */
 export const createWorkingDataArray = <T>(
     options: ArrayOptions<T>,
 ): WorkingDataArray<T> => {
@@ -34,7 +37,7 @@ export const createWorkingDataArray = <T>(
         expandOptions({ ':root': fullOptions.initialValue } as any),
     );
 
-    const { state: state, reset, onChange } = createStore<{
+    const { state, reset, onChange } = createStore<{
         value: T[];
         messages: Record<number, ValidationMessages>;
         rootMessages: ValidationMessages;
