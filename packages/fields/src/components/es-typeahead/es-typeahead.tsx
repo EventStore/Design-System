@@ -15,6 +15,7 @@ import {
     RenderTypeaheadOption,
 } from './types';
 
+/** @internal */
 @Component({
     tag: 'es-typeahead',
     styleUrl: 'es-typeahead.css',

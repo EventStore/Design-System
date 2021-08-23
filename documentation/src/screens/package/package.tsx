@@ -28,7 +28,6 @@ export class DocsPackage {
     }
 
     render() {
-        console.log(this.lib);
         return (
             <Host>
                 <docs-sidebar>
@@ -157,7 +156,11 @@ export class DocsPackage {
         };
 
     private extractUtils = this.extractKinds(
-        [ReflectionKind.Variable, ReflectionKind.Function],
+        [
+            ReflectionKind.Variable,
+            ReflectionKind.Function,
+            ReflectionKind.Class,
+        ],
         (d) => !isFunctionalComponentDeclaration(d),
     );
     private extractFunctionalComponents = this.extractKinds(

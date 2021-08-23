@@ -1,5 +1,9 @@
 @import '../Field/field.css';
 
+/**
+ * @prop --field-grid-columns: The field layout.
+ **/
+
 :host {
     display: block;
 }

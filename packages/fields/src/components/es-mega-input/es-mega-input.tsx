@@ -2,22 +2,33 @@ import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 import { ValidationMessages } from '../../types';
 import { Field } from '../Field/Field';
 
+/** An extra large input. */
 @Component({
     tag: 'es-mega-input',
     styleUrl: 'es-mega-input.css',
     shadow: true,
 })
 export class EsMegaInput {
+    /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter;
 
+    /** The label of the field. */
     @Prop() label!: string;
+    /** The name of the field. */
     @Prop() name!: string;
+    /** The current value of the field. */
     @Prop() value!: string;
+    /** The placeholder for the input. */
     @Prop() placeholder!: string;
+    /** If the field is disabled. */
     @Prop() disabled?: boolean;
+    /** If the field is editable. */
     @Prop() readonly?: boolean;
+    /** If the field is currently in an error state. */
     @Prop() invalid?: boolean;
+    /** The validation messages of the field */
     @Prop() messages?: ValidationMessages;
+    /** Pass props directly to the input. */
     @Prop() inputProps?: Record<string, any>;
 
     render() {
