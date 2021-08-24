@@ -3,15 +3,13 @@ import type { JSONOutput } from 'typedoc';
 
 import type { Lib } from 'sitemap';
 import { findAllReferences } from 'utils/typedoc/findAllReferences';
-import { isVariable } from 'utils/typedoc/reflectionKind';
-import { isReferenceType } from 'utils/typedoc/someType';
 
 @Component({
-    tag: 'docs-util-docs',
-    styleUrl: 'util-docs.css',
+    tag: 'docs-functional-component-docs',
+    styleUrl: 'functional-component-docs.css',
     shadow: true,
 })
-export class UtilDocs {
+export class FunctionalComponentDocs {
     @Prop() doc!: JSONOutput.DeclarationReflection;
     @Prop() lib!: Lib;
 
@@ -41,7 +39,10 @@ export class UtilDocs {
                 <docs-breadcrumb
                     crumbs={[
                         this.lib.crumb,
-                        { name: 'Utils', path: './utils' },
+                        {
+                            name: 'Functional Components',
+                            path: './functional-components',
+                        },
                         {
                             name: name,
                             path: `./${name}`,
@@ -60,10 +61,6 @@ export class UtilDocs {
                         usage={usage}
                     />
                 ))}
-
-                {!(isVariable(this.doc) && isReferenceType(this.doc.type!)) && (
-                    <docs-type-documentation declaration={this.doc} />
-                )}
 
                 {this.references.map((doc) => (
                     <div key={doc.name} id={doc.name}>
@@ -84,14 +81,13 @@ export class UtilDocs {
     }
 
     private usage = (): Record<string, string> =>
-        this.doc.comment?.tags?.reduce<Record<string, string>>(
-            (acc, { tag, text, param }) => {
-                if (tag !== 'usage') return acc;
+        [this.doc, ...this.doc.signatures!]
+            .flatMap((signatures) => signatures.comment?.tags)
+            .reduce<Record<string, string>>((acc, tag) => {
+                if (!tag || tag.tag !== 'usage') return acc;
                 return {
                     ...acc,
-                    [param ?? this.doc.name]: text,
+                    [tag.param ?? this.doc.name]: tag.text,
                 };
-            },
-            {},
-        ) ?? {};
+            }, {}) ?? {};
 }

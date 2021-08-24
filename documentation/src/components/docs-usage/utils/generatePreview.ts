@@ -1,9 +1,10 @@
-import type { Parts, Files } from './types';
+import type { Files, Settings } from './types';
 import iconDetails from 'icons/icons.json';
 
-export const generatePreview = (parts: Parts): Files => {
+export const generatePreview = ({ parts, showLocation }: Settings): Files => {
     const previewComponent = `  
-    import { Component, h, Fragment, Prop, State } from '@stencil/core';
+    import { Component, h, Fragment, Prop, State, Host } from '@stencil/core';
+    ${showLocation ? "import { router, Route } from '@eventstore/router';" : ''}
     import Usage from 'usage';
     
     @Component({
@@ -15,9 +16,26 @@ export const generatePreview = (parts: Parts): Files => {
         @Prop() prop?: string;
         @State() state: string = '';
 
+        ${
+            showLocation
+                ? `
+        componentWillLoad() {
+            router.init();
+        }`
+                : ''
+        }
+ 
         render() {
             return (
-                <Usage />
+                <Host class={${showLocation ? '"nav"' : ''}}>
+                ${
+                    showLocation
+                        ? '<docs-usage-location router={router} location={router.location} />'
+                        : ''
+                }
+                    <Usage />
+              
+                </Host>
             );
         }
     }`;
@@ -40,19 +58,12 @@ export const generatePreview = (parts: Parts): Files => {
         export const randomIcon = () => icons[random(icons.length)];
     `;
 
-    const main = `
-        import '@eventstore/components';
-        import '@eventstore/fields';
-        import '@eventstore/editor';
-    `;
-
     const { 'usage.tsx': render, 'style.css': css, ...rest } = parts;
 
     return Object.values(rest).reduce(
         (acc, { fileName, content }) => ({ ...acc, [fileName]: content }),
         {
             'helpers.ts': helpers,
-            'main.ts': main,
             'usage.tsx': `
                 import { h, Fragment } from '@stencil/core';
                 ${render.content}
@@ -69,7 +80,6 @@ export const generatePreview = (parts: Parts): Files => {
                     height: 100vh;
                     padding: 20px;
                 }
-                
                 ${css.content}
             `,
         },

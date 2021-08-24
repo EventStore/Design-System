@@ -8,6 +8,7 @@ export interface FileDetails {
 }
 
 export interface Settings {
+    showLocation: boolean;
     preview: boolean;
     parts: Parts;
 }

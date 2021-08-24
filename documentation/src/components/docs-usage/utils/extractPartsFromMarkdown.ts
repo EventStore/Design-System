@@ -4,6 +4,7 @@ import { Settings } from './types';
 export const extractPartsFromMarkdown = (markdown: string): Settings => {
     const settings: Settings = {
         preview: true,
+        showLocation: false,
         parts: {
             'usage.tsx': {
                 fileName: 'usage.tsx',
@@ -32,6 +33,9 @@ export const extractPartsFromMarkdown = (markdown: string): Settings => {
                 settings.parts['usage.tsx'].hidden = true;
                 settings.parts['style.css'].hidden = true;
                 break;
+            }
+            case 'show-location': {
+                settings.showLocation = true;
             }
         }
     }

@@ -14,4 +14,4 @@ export type { MaskOptions } from './components/es-input/types';
 
 export { createWorkingData } from './utils/workingData/createWorkingData';
 export { createWorkingDataArray } from './utils/workingData/createWorkingDataArray';
-export { Field } from './components/Field/Field';
+export { Field, FieldProps } from './components/Field/Field';

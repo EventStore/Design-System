@@ -10,7 +10,7 @@ import { extractTypes } from 'utils/typedoc/isIntrinsic';
     styleUrl: 'component-docs.css',
     shadow: true,
 })
-export class DocsPackage {
+export class ComponentDocs {
     @Prop() comp!: JsonDocs['components'][0];
     @Prop() lib!: Lib;
 

@@ -9,7 +9,7 @@ import { findAllReferences } from 'utils/typedoc/findAllReferences';
     styleUrl: 'type-docs.css',
     shadow: true,
 })
-export class DocsPackage {
+export class TypeDocs {
     @Prop() doc!: JSONOutput.DeclarationReflection;
     @Prop() lib!: Lib;
 
