@@ -11,7 +11,7 @@ import {
 import { createModels } from './utils/createModels';
 import { extractPartsFromMarkdown } from './utils/extractPartsFromMarkdown';
 import { generatePreview } from './utils/generatePreview';
-import type { Models, Parts } from './utils/types';
+import type { Models, Parts, Settings } from './utils/types';
 import { bundle } from './utils/usage.worker';
 
 const HTML = '/preview.html';
@@ -30,7 +30,7 @@ export class DocsUsage {
     @State() parts!: Parts;
     @State() error?: string;
     @State() active!: string;
-    @State() preview!: boolean;
+    @State() options!: Omit<Settings, 'parts'>;
 
     @State() models!: Models;
     @State() tabs!: HTMLEsTabsElement['tabs'];
@@ -39,9 +39,9 @@ export class DocsUsage {
     componentWillLoad() {
         this.building = true;
 
-        const { parts, preview } = extractPartsFromMarkdown(this.usage);
+        const { parts, ...options } = extractPartsFromMarkdown(this.usage);
 
-        this.preview = preview;
+        this.options = options;
         this.parts = parts;
         this.models = createModels(this.parts, this.onEditorChange);
         this.tabs = Object.values(this.parts)
@@ -56,9 +56,9 @@ export class DocsUsage {
 
     @Watch('parts')
     async generatePreview() {
-        if (!this.preview) return;
+        if (!this.options.preview) return;
 
-        const files = generatePreview(this.parts);
+        const files = generatePreview({ parts: this.parts, ...this.options });
         const result = await bundle(files);
 
         this.error = result.error;
@@ -70,8 +70,8 @@ export class DocsUsage {
 
     render() {
         return (
-            <Host class={{ 'no-preview': !this.preview }}>
-                {this.preview && (
+            <Host class={{ 'no-preview': !this.options.preview }}>
+                {this.options.preview && (
                     <>
                         {this.building && (
                             <div class={'building'}>{'loading preview...'}</div>

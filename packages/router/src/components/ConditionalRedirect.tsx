@@ -5,11 +5,18 @@ import { Redirect } from './Redirect';
 import { Route } from './Route';
 
 export interface ConditionalRedirectProps {
+    /** The route or routes to redirect from. */
     from: string | string[];
+    /** The route to redirect to. */
     to: string;
+    /** If the route matching should be exact, or include child routes. */
     exact?: boolean;
 }
 
+/**
+ * Redirect only if route matches.
+ * @usage ./ConditionalRedirect.usage.md
+ */
 export const ConditionalRedirect: FunctionalComponent<ConditionalRedirectProps> = ({
     from,
     to,

@@ -6,6 +6,9 @@ iconStore.addIcons({
             (module) => module.AngleDown,
         );
     },
+    get arrow() {
+        return import('./components/Arrow').then((module) => module.Arrow);
+    },
     get backups() {
         return import('./components/Backups').then((module) => module.Backups);
     },
@@ -197,6 +200,9 @@ iconStore.addIcons({
     },
     get refresh() {
         return import('./components/Refresh').then((module) => module.Refresh);
+    },
+    get reload() {
+        return import('./components/Reload').then((module) => module.Reload);
     },
     get required() {
         return import('./components/Required').then(

@@ -171,7 +171,9 @@ class InternalRouter {
     }
 
     private queueActionOnRef = async (ref: any) => {
-        const element = await getElement(ref).componentOnReady();
+        const element = getElement(ref);
+        await element?.componentOnReady?.();
+
         if (element?.ownerDocument?.contains(element)) {
             this.pendingActions.get(ref)?.forEach((cb) => cb());
         }

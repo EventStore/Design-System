@@ -28,6 +28,7 @@ export class DocsPackage {
     }
 
     render() {
+        console.log(this.lib);
         return (
             <Host>
                 <docs-sidebar>
@@ -106,6 +107,17 @@ export class DocsPackage {
                                 />
                             </Route>
                         ))}
+                        {this.functionalComponents?.map((doc) => (
+                            <Route
+                                exact
+                                url={`/${this.lib.slug}/functional-components/${doc.name}`}
+                            >
+                                <docs-functional-component-docs
+                                    lib={this.lib}
+                                    doc={doc}
+                                />
+                            </Route>
+                        ))}
                         {this.utils?.map((doc) => (
                             <Route
                                 exact
@@ -114,7 +126,6 @@ export class DocsPackage {
                                 <docs-util-docs lib={this.lib} doc={doc} />
                             </Route>
                         ))}
-
                         {this.types?.map((doc) => (
                             <Route
                                 exact

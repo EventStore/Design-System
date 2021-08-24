@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+:host {
+    display: contents;
+}
+
+header {
+    display: flex;
+    align-items: center;
+
+    & es-icon {
+        margin-left: auto;
+    }
+}
+
+h1 {
+    font: var(--font-monospace);
+    color: var(--color-heading);
+    font-size: 36px;
+    font-weight: 100;
+    margin: 0px;
+
+    &::before,
+    &::after {
+        color: var(--color-grey-500);
+    }
+
+    &::before {
+        content: '<';
+    }
+
+    &::after {
+        content: ' />';
+    }
+}
+
+.intro {
+    margin: 20px 0;
+}

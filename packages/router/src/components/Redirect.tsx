@@ -3,9 +3,14 @@ import router from '../utils/internalRouter';
 import { createCullableNode } from '../utils/createCullableNode';
 
 export interface RedirectProps {
+    /** The url to redirect to. */
     url: string;
 }
 
+/**
+ * Redirect to the passed url.
+ * @usage ./Redirect.usage.md
+ */
 export const Redirect: FunctionalComponent<RedirectProps> = (
     props,
     _children,

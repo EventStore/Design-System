@@ -9,10 +9,12 @@ import { backgroundVariant } from "./components/layout/docs-background/docs-back
 import { Crumb } from "./components/layout/docs-breadcrumb/docs-breadcrumb";
 import { JsonDocs, JsonDocsEvent, JsonDocsMethod, JsonDocsPart, JsonDocsProp, JsonDocsSlot, JsonDocsStyle } from "@stencil/core/internal";
 import { Lib } from "sitemap";
+import { JSONOutput } from "typedoc";
 import { PageState } from "./components/layout/docs-page/docs-page";
 import { VNode } from "@stencil/core";
 import { SidebarLinkVariant } from "./components/layout/docs-sidebar/components/docs-sidebar-link/docs-sidebar-link";
-import { JSONOutput } from "typedoc";
+import { Router } from "./components/docs-usage/components/docs-usage-location/docs-usage-location";
+import { LocationSegments } from "@eventstore/router";
 export namespace Components {
     interface DocsBackground {
         /**
@@ -34,6 +36,10 @@ export namespace Components {
     }
     interface DocsEventsTable {
         "events": JsonDocsEvent[];
+    }
+    interface DocsFunctionalComponentDocs {
+        "doc": JSONOutput.DeclarationReflection;
+        "lib": Lib;
     }
     interface DocsHeader {
         "background": HTMLDocsBackgroundElement['variant'] | 'none';
@@ -118,6 +124,10 @@ export namespace Components {
         "identifier": string;
         "usage": string;
     }
+    interface DocsUsageLocation {
+        "location"?: LocationSegments;
+        "router": Router;
+    }
     interface DocsUtilDocs {
         "doc": JSONOutput.DeclarationReflection;
         "lib": Lib;
@@ -156,6 +166,12 @@ declare global {
     var HTMLDocsEventsTableElement: {
         prototype: HTMLDocsEventsTableElement;
         new (): HTMLDocsEventsTableElement;
+    };
+    interface HTMLDocsFunctionalComponentDocsElement extends Components.DocsFunctionalComponentDocs, HTMLStencilElement {
+    }
+    var HTMLDocsFunctionalComponentDocsElement: {
+        prototype: HTMLDocsFunctionalComponentDocsElement;
+        new (): HTMLDocsFunctionalComponentDocsElement;
     };
     interface HTMLDocsHeaderElement extends Components.DocsHeader, HTMLStencilElement {
     }
@@ -289,6 +305,12 @@ declare global {
         prototype: HTMLDocsUsageElement;
         new (): HTMLDocsUsageElement;
     };
+    interface HTMLDocsUsageLocationElement extends Components.DocsUsageLocation, HTMLStencilElement {
+    }
+    var HTMLDocsUsageLocationElement: {
+        prototype: HTMLDocsUsageLocationElement;
+        new (): HTMLDocsUsageLocationElement;
+    };
     interface HTMLDocsUtilDocsElement extends Components.DocsUtilDocs, HTMLStencilElement {
     }
     var HTMLDocsUtilDocsElement: {
@@ -307,6 +329,7 @@ declare global {
         "docs-code": HTMLDocsCodeElement;
         "docs-component-docs": HTMLDocsComponentDocsElement;
         "docs-events-table": HTMLDocsEventsTableElement;
+        "docs-functional-component-docs": HTMLDocsFunctionalComponentDocsElement;
         "docs-header": HTMLDocsHeaderElement;
         "docs-home": HTMLDocsHomeElement;
         "docs-logo": HTMLDocsLogoElement;
@@ -329,6 +352,7 @@ declare global {
         "docs-type-docs": HTMLDocsTypeDocsElement;
         "docs-type-documentation": HTMLDocsTypeDocumentationElement;
         "docs-usage": HTMLDocsUsageElement;
+        "docs-usage-location": HTMLDocsUsageLocationElement;
         "docs-util-docs": HTMLDocsUtilDocsElement;
         "es-footer": HTMLEsFooterElement;
     }
@@ -354,6 +378,10 @@ declare namespace LocalJSX {
     }
     interface DocsEventsTable {
         "events": JsonDocsEvent[];
+    }
+    interface DocsFunctionalComponentDocs {
+        "doc": JSONOutput.DeclarationReflection;
+        "lib": Lib;
     }
     interface DocsHeader {
         "background"?: HTMLDocsBackgroundElement['variant'] | 'none';
@@ -438,6 +466,10 @@ declare namespace LocalJSX {
         "identifier": string;
         "usage": string;
     }
+    interface DocsUsageLocation {
+        "location"?: LocationSegments;
+        "router": Router;
+    }
     interface DocsUtilDocs {
         "doc": JSONOutput.DeclarationReflection;
         "lib": Lib;
@@ -451,6 +483,7 @@ declare namespace LocalJSX {
         "docs-code": DocsCode;
         "docs-component-docs": DocsComponentDocs;
         "docs-events-table": DocsEventsTable;
+        "docs-functional-component-docs": DocsFunctionalComponentDocs;
         "docs-header": DocsHeader;
         "docs-home": DocsHome;
         "docs-logo": DocsLogo;
@@ -473,6 +506,7 @@ declare namespace LocalJSX {
         "docs-type-docs": DocsTypeDocs;
         "docs-type-documentation": DocsTypeDocumentation;
         "docs-usage": DocsUsage;
+        "docs-usage-location": DocsUsageLocation;
         "docs-util-docs": DocsUtilDocs;
         "es-footer": EsFooter;
     }
@@ -486,6 +520,7 @@ declare module "@stencil/core" {
             "docs-code": LocalJSX.DocsCode & JSXBase.HTMLAttributes<HTMLDocsCodeElement>;
             "docs-component-docs": LocalJSX.DocsComponentDocs & JSXBase.HTMLAttributes<HTMLDocsComponentDocsElement>;
             "docs-events-table": LocalJSX.DocsEventsTable & JSXBase.HTMLAttributes<HTMLDocsEventsTableElement>;
+            "docs-functional-component-docs": LocalJSX.DocsFunctionalComponentDocs & JSXBase.HTMLAttributes<HTMLDocsFunctionalComponentDocsElement>;
             "docs-header": LocalJSX.DocsHeader & JSXBase.HTMLAttributes<HTMLDocsHeaderElement>;
             "docs-home": LocalJSX.DocsHome & JSXBase.HTMLAttributes<HTMLDocsHomeElement>;
             "docs-logo": LocalJSX.DocsLogo & JSXBase.HTMLAttributes<HTMLDocsLogoElement>;
@@ -508,6 +543,7 @@ declare module "@stencil/core" {
             "docs-type-docs": LocalJSX.DocsTypeDocs & JSXBase.HTMLAttributes<HTMLDocsTypeDocsElement>;
             "docs-type-documentation": LocalJSX.DocsTypeDocumentation & JSXBase.HTMLAttributes<HTMLDocsTypeDocumentationElement>;
             "docs-usage": LocalJSX.DocsUsage & JSXBase.HTMLAttributes<HTMLDocsUsageElement>;
+            "docs-usage-location": LocalJSX.DocsUsageLocation & JSXBase.HTMLAttributes<HTMLDocsUsageLocationElement>;
             "docs-util-docs": LocalJSX.DocsUtilDocs & JSXBase.HTMLAttributes<HTMLDocsUtilDocsElement>;
             "es-footer": LocalJSX.EsFooter & JSXBase.HTMLAttributes<HTMLEsFooterElement>;
         }
