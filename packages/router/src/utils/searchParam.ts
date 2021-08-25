@@ -1,10 +1,11 @@
 import { createLogger } from '@eventstore/utils';
 
-import { router } from './publicRouter';
+import { SearchParamTracker } from '../types';
+import { router } from './router';
 
 export const logger = createLogger('searchParam', '#333');
 
-class SearchParam {
+class SearchParam implements SearchParamTracker {
     key: string;
     constructor(key: string) {
         this.key = key;
@@ -67,4 +68,9 @@ class SearchParam {
     }
 }
 
-export const searchParam = (key: string) => new SearchParam(key);
+/**
+ * Create a search param tracker, to set and update a search param in the current location.
+ * @usage ./searchParam.usage.md
+ */
+export const searchParam = (key: string): SearchParamTracker =>
+    new SearchParam(key);

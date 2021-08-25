@@ -3,6 +3,7 @@ import type { JSONOutput } from 'typedoc';
 
 import type { Lib } from 'sitemap';
 import { findAllReferences } from 'utils/typedoc/findAllReferences';
+import { extractUsage } from 'utils/extractUsage';
 
 @Component({
     tag: 'docs-functional-component-docs',
@@ -54,13 +55,15 @@ export class FunctionalComponentDocs {
                 </header>
                 <docs-markdown class={'intro'} md={commentText ?? ''} />
 
-                {Object.entries(this.usage()).map(([uname, usage]) => (
-                    <docs-usage
-                        key={uname}
-                        identifier={`${name}-${uname}`}
-                        usage={usage}
-                    />
-                ))}
+                {Object.entries(extractUsage(this.doc)).map(
+                    ([uname, usage]) => (
+                        <docs-usage
+                            key={uname}
+                            identifier={`${name}-${uname}`}
+                            usage={usage}
+                        />
+                    ),
+                )}
 
                 {this.references.map((doc) => (
                     <div key={doc.name} id={doc.name}>
@@ -79,15 +82,4 @@ export class FunctionalComponentDocs {
             </Host>
         );
     }
-
-    private usage = (): Record<string, string> =>
-        [this.doc, ...this.doc.signatures!]
-            .flatMap((signatures) => signatures.comment?.tags)
-            .reduce<Record<string, string>>((acc, tag) => {
-                if (!tag || tag.tag !== 'usage') return acc;
-                return {
-                    ...acc,
-                    [tag.param ?? this.doc.name]: tag.text,
-                };
-            }, {}) ?? {};
 }

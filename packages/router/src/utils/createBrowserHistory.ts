@@ -114,7 +114,7 @@ const createBrowserHistory = (
         // Set scroll position based on its previous storage value
         history.location.scrollPosition = scrollHistory.get(
             history.location.key,
-        );
+        ) ?? [0, 0];
         history.length = globalHistory.length;
 
         transitionManager.notifyListeners(history.location, history.action);

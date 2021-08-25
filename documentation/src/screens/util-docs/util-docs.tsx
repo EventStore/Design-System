@@ -5,6 +5,7 @@ import type { Lib } from 'sitemap';
 import { findAllReferences } from 'utils/typedoc/findAllReferences';
 import { isVariable } from 'utils/typedoc/reflectionKind';
 import { isReferenceType } from 'utils/typedoc/someType';
+import { extractUsage } from 'utils/extractUsage';
 
 @Component({
     tag: 'docs-util-docs',
@@ -16,11 +17,19 @@ export class UtilDocs {
     @Prop() lib!: Lib;
 
     private references!: JSONOutput.DeclarationReflection[];
+    private instanceOf?: JSONOutput.DeclarationReflection;
 
     @Watch('doc')
     componentWillLoad() {
+        const isInstance =
+            isVariable(this.doc) && isReferenceType(this.doc.type!);
+
+        this.instanceOf = isInstance
+            ? this.lib.typeDocs!.lookup.get((this.doc.type as any).name)
+            : undefined;
+
         this.references = findAllReferences(
-            this.doc,
+            this.instanceOf ?? this.doc,
             this.lib.typeDocs!.lookup,
         );
     }
@@ -53,17 +62,19 @@ export class UtilDocs {
                 </header>
                 <docs-markdown class={'intro'} md={commentText ?? ''} />
 
-                {Object.entries(this.usage()).map(([uname, usage]) => (
-                    <docs-usage
-                        key={uname}
-                        identifier={`${name}-${uname}`}
-                        usage={usage}
-                    />
-                ))}
-
-                {!(isVariable(this.doc) && isReferenceType(this.doc.type!)) && (
-                    <docs-type-documentation declaration={this.doc} />
+                {Object.entries(extractUsage(this.doc)).map(
+                    ([uname, usage]) => (
+                        <docs-usage
+                            key={uname}
+                            identifier={`${name}-${uname}`}
+                            usage={usage}
+                        />
+                    ),
                 )}
+
+                <docs-type-documentation
+                    declaration={this.instanceOf ?? this.doc}
+                />
 
                 {this.references.map((doc) => (
                     <div key={doc.name} id={doc.name}>
@@ -82,16 +93,4 @@ export class UtilDocs {
             </Host>
         );
     }
-
-    private usage = (): Record<string, string> =>
-        this.doc.comment?.tags?.reduce<Record<string, string>>(
-            (acc, { tag, text, param }) => {
-                if (tag !== 'usage') return acc;
-                return {
-                    ...acc,
-                    [param ?? this.doc.name]: text,
-                };
-            },
-            {},
-        ) ?? {};
 }

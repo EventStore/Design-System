@@ -3,15 +3,14 @@ import { RouteRenderProps, MatchResults } from '../types';
 import router from '../utils/internalRouter';
 import { cullDecendants } from '../utils/createCullableNode';
 
-export type RouteRender = (props: RouteRenderProps) => VNode | VNode[];
-
+/** @props */
 export interface RouteProps {
-    /** The url or urls to match against. */
+    /** The url or urls to match against. You can use express style paths, with the resulting matches being passed to `routeRender`. */
     url?: string | string[];
     /** If the url should match exactly, or allow decendant matching. */
     exact?: boolean;
     /** Callback to render the route. */
-    routeRender?: RouteRender;
+    routeRender?: (props: RouteRenderProps) => VNode | VNode[];
 }
 
 export const ROUTE_DELIMITER = '\n'.repeat(3);
