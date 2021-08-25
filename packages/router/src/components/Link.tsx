@@ -3,6 +3,7 @@ import { Path } from '../types';
 import router from '../utils/internalRouter';
 import { isModifiedEvent } from '../utils/dom-utils';
 
+/** @props */
 export interface LinkProps {
     /** The url to link to. */
     url?: string;
@@ -80,7 +81,7 @@ export const Link: FunctionalComponent<LinkProps> = (
                 e.preventDefault();
 
                 const href = router.getUrl(url);
-                router.history.push(href);
+                router.history.push(href, { scrollX: 0, scrollY: 0 });
             }}
             {...props}
         >

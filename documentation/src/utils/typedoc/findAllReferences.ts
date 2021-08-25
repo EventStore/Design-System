@@ -1,6 +1,6 @@
 import type { JSONOutput } from 'typedoc';
 import { TypedocLookup } from 'utils/expandSitemap/createTypedocLookup';
-import { isReferenceType } from './someType';
+import { isReferenceType, isUnionType } from './someType';
 
 export const findAllReferences = (
     declaration: JSONOutput.DeclarationReflection,
@@ -8,10 +8,13 @@ export const findAllReferences = (
 ): JSONOutput.DeclarationReflection[] => {
     const referenceNames = new Set<string>();
 
+    const insertIfReference = (type?: JSONOutput.SomeType) => {
+        if (!type || !isReferenceType(type)) return;
+        referenceNames.add(type.name);
+    };
+
     const findReferences = (dec: JSONOutput.DeclarationReflection) => {
-        if (dec.type && isReferenceType(dec.type)) {
-            referenceNames.add(dec.type.name);
-        }
+        insertIfReference(dec.type);
 
         dec.children?.forEach(findReferences);
         dec.signatures?.forEach(findReferences);
@@ -23,6 +26,10 @@ export const findAllReferences = (
             findReferences(
                 (dec.type as JSONOutput.ReflectionType).declaration!,
             );
+        }
+
+        if (dec.type && isUnionType(dec.type)) {
+            dec.type.types.forEach(insertIfReference);
         }
     };
 

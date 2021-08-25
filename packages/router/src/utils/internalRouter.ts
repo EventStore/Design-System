@@ -1,24 +1,17 @@
 import { forceUpdate, getElement, getRenderingRef } from '@stencil/core';
 
 import {
-    HistoryType,
     LocationSegments,
     MatchOptions,
     MatchResults,
     RouterHistory,
+    RouterOptions,
 } from '../types';
 
 import createBrowserHistory from './createBrowserHistory';
 import createHashHistory from './createHashHistory';
 import { warning } from './log';
 import { matchPath } from './match-path';
-
-export interface RouterOptions {
-    root?: string;
-    historyType?: HistoryType;
-    titleSuffix?: string;
-    document?: Document;
-}
 
 class InternalRouter {
     public initialized = false;
@@ -57,6 +50,7 @@ class InternalRouter {
 
         this.history.listen(this.updateLocation);
         this.history.listen(this.informInterestedParties);
+        this.history.listen(this.updateScroll);
         this.updateLocation(this.history.location);
         this.initialized = true;
     };
@@ -75,6 +69,11 @@ class InternalRouter {
 
         this.location = location;
         this.matchCache.clear();
+    };
+
+    private updateScroll = ({ scrollPosition }: LocationSegments) => {
+        if (!scrollPosition) return;
+        window.scrollTo(...scrollPosition);
     };
 
     private interestedParties = new Set<any>();

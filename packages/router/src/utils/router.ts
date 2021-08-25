@@ -1,9 +1,14 @@
-import { RouterHistory, LocationSegments } from '../types';
-import internalRouter, { RouterOptions } from './internalRouter';
+import {
+    RouterHistory,
+    LocationSegments,
+    RouterOptions,
+    Router,
+} from '../types';
+import internalRouter from './internalRouter';
 import { compile } from './path-to-regex';
 
-class PublicRouter {
-    public init = (options: RouterOptions) => {
+class PublicRouter implements Router {
+    public init = (options?: RouterOptions) => {
         internalRouter.init(options);
     };
 
@@ -36,4 +41,5 @@ class PublicRouter {
     };
 }
 
-export const router = new PublicRouter();
+/** Global router instance. */
+export const router: Router = new PublicRouter();

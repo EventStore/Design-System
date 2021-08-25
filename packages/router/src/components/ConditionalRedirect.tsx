@@ -1,9 +1,10 @@
 import { h, FunctionalComponent } from '@stencil/core';
-import { router } from '../utils/publicRouter';
+import { router } from '../utils/router';
 import { Redirect } from './Redirect';
 
 import { Route } from './Route';
 
+/** @props */
 export interface ConditionalRedirectProps {
     /** The route or routes to redirect from. */
     from: string | string[];

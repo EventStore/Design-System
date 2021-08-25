@@ -4,13 +4,21 @@ import { JSONOutput } from 'typedoc';
 
 export const InterfaceTable: FunctionalComponent<{
     declaration: JSONOutput.DeclarationReflection;
-}> = ({ declaration }) => (
-    <es-table
-        rows={expandAndFilterSignatures(declaration.children!)}
-        cells={cells}
-        rowClass={rowClass}
-    />
-);
+}> = ({ declaration }) => {
+    const props = !!declaration.comment?.tags?.find(
+        (tag) => tag.tag === 'props' || tag.tag === 'options',
+    );
+
+    return (
+        <es-table
+            rows={expandAndFilterSignatures(declaration.children!)}
+            columns={props ? undefined : ['name', 'docs', 'type']}
+            cells={cells}
+            rowClass={rowClass}
+            class={{ props }}
+        />
+    );
+};
 
 const expandAndFilterSignatures = (
     declarations: JSONOutput.DeclarationReflection[],

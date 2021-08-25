@@ -28,7 +28,6 @@ export class DocsPackage {
     }
 
     render() {
-        console.log(this.lib);
         return (
             <Host>
                 <docs-sidebar>
@@ -178,10 +177,13 @@ export class DocsPackage {
         [ReflectionKind.Function],
         (d) => isFunctionalComponentDeclaration(d),
     );
-    private extractTypes = this.extractKinds([
-        ReflectionKind.Interface,
-        ReflectionKind.TypeLiteral,
-        ReflectionKind.TypeParameter,
-        ReflectionKind.TypeAlias,
-    ]);
+    private extractTypes = this.extractKinds(
+        [
+            ReflectionKind.Interface,
+            ReflectionKind.TypeLiteral,
+            ReflectionKind.TypeParameter,
+            ReflectionKind.TypeAlias,
+        ],
+        (item) => !item.comment?.tags?.some(({ tag }) => tag === 'props'),
+    );
 }

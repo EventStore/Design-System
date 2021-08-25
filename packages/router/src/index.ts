@@ -9,5 +9,5 @@ export { Route, RouteProps } from './components/Route';
 export { Switch } from './components/Switch';
 
 export * from './types';
-export { router } from './utils/publicRouter';
+export { router } from './utils/router';
 export { searchParam } from './utils/searchParam';

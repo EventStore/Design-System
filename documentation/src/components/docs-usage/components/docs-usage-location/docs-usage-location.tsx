@@ -21,7 +21,7 @@ export class DocsLocation {
                 </span>
                 <span class={'pathname'}>
                     {'Path: '}
-                    {this.location?.pathname}
+                    {this.router.history?.createHref(this.location!)}
                 </span>
             </Host>
         );

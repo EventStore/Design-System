@@ -2,6 +2,7 @@ import { FunctionalComponent } from '@stencil/core';
 import router from '../utils/internalRouter';
 import { createCullableNode } from '../utils/createCullableNode';
 
+/** @props */
 export interface PageTitleProps {
     /** Set title without suffix */
     noSuffix?: boolean;

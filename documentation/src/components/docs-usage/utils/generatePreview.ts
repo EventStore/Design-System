@@ -27,7 +27,7 @@ export const generatePreview = ({ parts, showLocation }: Settings): Files => {
  
         render() {
             return (
-                <Host class={${showLocation ? '"nav"' : ''}}>
+                <Host class={${showLocation ? '"nav"' : 'undefined'}}>
                 ${
                     showLocation
                         ? '<docs-usage-location router={router} location={router.location} />'

@@ -25,7 +25,7 @@
     flex-wrap: wrap;
 }
 
-.required [role='cell'] {
+es-table.props .required [role='cell'] {
     background-image: radial-gradient(
         circle,
         rgba(255, 248, 0, 0.2) 0%,
