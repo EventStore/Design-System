@@ -6,6 +6,7 @@ import { findAllReferences } from 'utils/typedoc/findAllReferences';
 import { isVariable } from 'utils/typedoc/reflectionKind';
 import { isReferenceType } from 'utils/typedoc/someType';
 import { extractUsage } from 'utils/extractUsage';
+import { extractAbstract, extractBodyText } from 'utils/extractText';
 
 @Component({
     tag: 'docs-util-docs',
@@ -35,16 +36,6 @@ export class UtilDocs {
     }
 
     render() {
-        const { name, comment, signatures } = this.doc;
-        let commentText = comment?.text ?? comment?.shortText;
-
-        if (signatures?.length === 1) {
-            commentText =
-                commentText ??
-                signatures[0].comment?.text ??
-                signatures[0].comment?.shortText;
-        }
-
         return (
             <Host>
                 <docs-breadcrumb
@@ -52,15 +43,16 @@ export class UtilDocs {
                         this.lib.crumb,
                         { name: 'Utils', path: './utils' },
                         {
-                            name: name,
-                            path: `./${name}`,
+                            name: this.doc.name,
+                            path: `./${this.doc.name}`,
                         },
                     ]}
                 />
                 <header>
-                    <h1>{name}</h1>
+                    <h1>{this.doc.name}</h1>
                 </header>
-                <docs-markdown class={'intro'} md={commentText ?? ''} />
+
+                <docs-markdown class={'intro'} md={extractAbstract(this.doc)} />
 
                 {Object.entries(extractUsage(this.doc)).map(
                     ([uname, usage]) => (
@@ -75,6 +67,8 @@ export class UtilDocs {
                 <docs-type-documentation
                     declaration={this.instanceOf ?? this.doc}
                 />
+
+                <docs-markdown class={'body'} md={extractBodyText(this.doc)} />
 
                 {this.references.map((doc) => (
                     <div key={doc.name} id={doc.name}>

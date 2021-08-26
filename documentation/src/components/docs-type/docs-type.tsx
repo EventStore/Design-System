@@ -1,6 +1,10 @@
 import { Component, h, Fragment, VNode, Prop } from '@stencil/core';
 import { JSONOutput } from 'typedoc';
-import { isCallSignature, isTypeAlias } from 'utils/typedoc/reflectionKind';
+import {
+    isCallSignature,
+    isConstructorSignature,
+    isTypeAlias,
+} from 'utils/typedoc/reflectionKind';
 import {
     isIntrinsicType,
     isTypeParameterType,
@@ -241,6 +245,36 @@ export class DocsSomeType {
     ): VNode | VNode[] => {
         if (declaration.signatures) {
             return <>{declaration.signatures.map(this.renderDeclaration)}</>;
+        }
+
+        if (isConstructorSignature(declaration)) {
+            const signature = declaration as JSONOutput.SignatureReflection;
+            return (
+                <span class={'constructor'}>
+                    <span class={'new'}>{'new '}</span>
+                    {declaration.type && this.renderSomeType(declaration.type)}
+                    {'('}
+                    {signature.parameters && signature.parameters.length > 0 && (
+                        <span class={'params'}>
+                            {signature.parameters?.map((param) => (
+                                <span class={'param'} key={param.name}>
+                                    {param.name}
+                                    {param.defaultValue ? '?' : ''}
+                                    {': '}
+                                    {param.type
+                                        ? this.renderSomeType(param.type)
+                                        : 'any'}
+                                    {param.defaultValue &&
+                                    param.defaultValue !== '...'
+                                        ? ` = ${param.defaultValue}`
+                                        : ''}
+                                </span>
+                            ))}
+                        </span>
+                    )}
+                    {')'}
+                </span>
+            );
         }
 
         if (isCallSignature(declaration)) {

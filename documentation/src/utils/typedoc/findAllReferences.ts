@@ -9,7 +9,10 @@ export const findAllReferences = (
     const referenceNames = new Set<string>();
 
     const insertIfReference = (type?: JSONOutput.SomeType) => {
-        if (!type || !isReferenceType(type)) return;
+        if (!type || !isReferenceType(type) || type.name === declaration.name) {
+            return;
+        }
+
         referenceNames.add(type.name);
     };
 
@@ -18,6 +21,7 @@ export const findAllReferences = (
 
         dec.children?.forEach(findReferences);
         dec.signatures?.forEach(findReferences);
+
         (dec as JSONOutput.SignatureReflection).parameters?.forEach(
             findReferences,
         );
@@ -26,6 +30,9 @@ export const findAllReferences = (
             findReferences(
                 (dec.type as JSONOutput.ReflectionType).declaration!,
             );
+        }
+        if (dec.type && isReferenceType(dec.type) && dec.type.typeArguments) {
+            dec.type.typeArguments?.forEach(insertIfReference);
         }
 
         if (dec.type && isUnionType(dec.type)) {

@@ -22,6 +22,7 @@
     --code-green: hsl(119, 34%, 47%);
     --code-red: hsl(344, 84%, 43%);
     --code-orange: hsl(35, 99%, 40%);
+    --code-comment: hsl(210, 13%, 50%);
     --code-fg: hsl(230, 8%, 24%);
     --code-bg: hsl(230, 1%, 98%);
 }

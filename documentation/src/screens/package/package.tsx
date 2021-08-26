@@ -159,11 +159,19 @@ export class DocsPackage {
                 .map((id) => lookup.get(id)!)
                 .filter((item) => !item.flags.isExternal)
                 .filter(check)
-                .sort(({ name: a }, { name: b }) => a.localeCompare(b));
+                .sort((a, b) =>
+                    this.fileName(a).localeCompare(this.fileName(b)),
+                );
 
             if (!names.length) return;
             return names;
         };
+
+    private fileName = ({
+        name,
+        sources,
+    }: JSONOutput.DeclarationReflection): string =>
+        `${sources?.[0].fileName ?? ''}${name}`;
 
     private extractUtils = this.extractKinds(
         [

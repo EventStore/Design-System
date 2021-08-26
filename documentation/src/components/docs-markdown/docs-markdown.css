@@ -14,3 +14,153 @@ p {
         margin-bottom: 0;
     }
 }
+
+table {
+    border: 0;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-white);
+}
+
+td,
+th {
+    padding: 16px 12px;
+    min-height: 50px;
+}
+
+thead th {
+    align-items: center;
+    text-align: left;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color-primary);
+    border-color: var(--color-grey-100);
+    border-style: solid;
+    border-width: 0;
+    border-bottom-width: 4px;
+}
+
+tbody tr:nth-child(2n + 1) {
+    background-color: var(--color-grey-50);
+}
+
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*='language-'],
+pre[class*='language-'] {
+    color: var(--code-fg);
+    background: none;
+    text-shadow: 0 1px var(--color-white);
+    font-family: var(--font-monospace);
+    font-size: 1em;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    border-radius: 20px;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+    padding: 20px;
+    margin: 8px 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+    background: var(--code-bg);
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-'] {
+    padding: 0.1em;
+    border-radius: 0.3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: var(--code-comment);
+}
+
+.token.punctuation {
+    color: var(--code-fg);
+}
+
+.token.namespace {
+    opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: var(--code-cyan);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: var(--code-green);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: var(--code-orange);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: var(--code-purple);
+}
+
+.token.function,
+.token.class-name {
+    color: var(--code-cyan);
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: var(--code-orange);
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
