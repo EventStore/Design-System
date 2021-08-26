@@ -10,7 +10,7 @@ yarn add --dev @eventstore/icon-manager
 
 ## Usage
 
-#### Global options
+**Global options**
 
 | Option    | Description                   |
 | --------- | ----------------------------- |
@@ -25,13 +25,13 @@ icon add [name]
 
 Adds an icon with the specified name to the specified directory, updating the index file
 
-#### Positionals
+**Positionals**
 
 | Option | Description                                              | Required | Type   |
 | ------ | -------------------------------------------------------- | -------- | ------ |
 | name   | The name of your icon (Will be converted to pascal case) | yes      | string |
 
-#### Options
+**Options**
 
 | Option      | Alias | Description                                                                            | Required | Type    |
 | ----------- | ----- | -------------------------------------------------------------------------------------- | -------- | ------- |
@@ -40,7 +40,7 @@ Adds an icon with the specified name to the specified directory, updating the in
 | --clipboard | -c    | Take the SVG from the clipboard. Can have a file in your clipboard, or the svg data.   |          | boolean |
 | --force     |       | Overwrite existing icons or aliases                                                    |          | boolean |
 
-#### Examples
+**Examples**
 
 Add `MyIcon.tsx` to `./icons` from `./svg-icon.svg`
 
@@ -68,19 +68,19 @@ icon remove [name]
 
 Removes the icon or alias with the specified name from specified directory, updating the index file
 
-#### Positionals
+**Positionals**
 
 | Option | Description                 | Required | Type   |
 | ------ | --------------------------- | -------- | ------ |
 | name   | The name the icon to remove | yes      | string |
 
-#### Options
+**Options**
 
 | Option | Alias | Description                 | Required | Type |
 | ------ | ----- | --------------------------- | -------- | ---- |
 | --dir  | -d    | Where your icons are stored | yes      | path |
 
-#### Examples
+**Examples**
 
 Remove `MyIcon` from `./icons`
 
@@ -102,20 +102,20 @@ icon alias [name] [alias]
 
 Aliases the icon with the specified name from specified directory, updating the index file
 
-#### Positionals
+**Positionals**
 
 | Option | Description                | Required | Type   |
 | ------ | -------------------------- | -------- | ------ |
 | name   | The name the icon to alias | yes      | string |
 | alias  | The name you want to alias | yes      | string |
 
-#### Options
+**Options**
 
 | Option | Alias | Description                 | Required | Type |
 | ------ | ----- | --------------------------- | -------- | ---- |
 | --dir  | -d    | Where your icons are stored | yes      | path |
 
-#### Examples
+**Examples**
 
 Remove `MyIcon` from `./icons`
 

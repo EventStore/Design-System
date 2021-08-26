@@ -24,6 +24,7 @@ import {
     isRestType,
     isTupleType,
     isTypeOperatorType,
+    isNamedTupleMember,
 } from 'utils/typedoc/someType';
 
 @Component({
@@ -45,7 +46,7 @@ export class DocsSomeType {
     }
 
     private renderSomeType = (
-        someType: JSONOutput.SomeType,
+        someType: JSONOutput.SomeType | any,
     ): VNode | VNode[] => {
         if (isIntrinsicType(someType)) {
             return (
@@ -217,13 +218,24 @@ export class DocsSomeType {
         if (isTupleType(someType)) {
             return (
                 <span class={'tuple'}>
-                    {'...'}
+                    {'['}
                     {someType.elements?.map((option, i, { length }) => (
                         <>
                             {this.renderSomeType(option)}
-                            {i !== length - 1 && ' | '}
+                            {i !== length - 1 && ', '}
                         </>
                     ))}
+                    {']'}
+                </span>
+            );
+        }
+
+        if (isNamedTupleMember(someType)) {
+            return (
+                <span class={'member'}>
+                    {someType.name}
+                    {': '}
+                    {this.renderSomeType(someType.element)}
                 </span>
             );
         }

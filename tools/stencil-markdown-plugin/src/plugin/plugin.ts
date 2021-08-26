@@ -1,6 +1,7 @@
 import { resolve } from 'path';
 
 import { transpile } from '@stencil/core/compiler';
+import type { Plugin } from 'rollup';
 import { createFilter } from '@rollup/pluginutils';
 import { createCompiler } from '@mdx-js/mdx';
 import * as visit from 'unist-util-visit';
@@ -28,6 +29,10 @@ interface JSXNode extends Node {
     value: string;
 }
 
+/**
+ * Select nodes from the tree with `test`  (for example: 'comment' or 'jsx').
+ * Directly modify a node in the visitor, or return `skip` to skip the node.
+ */
 export type Visitor = [
     test: string,
     visitor: (node: JSXNode, index: number, parent?: Node) => void | 'skip',
@@ -54,9 +59,27 @@ const fixStyleTags = () => (tree: Node) => {
 };
 
 export interface MDXOptions {
+    /** Apply custom visitors to map or skip nodes from the tree. */
     visitors?: Visitor[];
 }
-export const mdx = ({ visitors = [] }: MDXOptions = {}) => {
+
+/**
+ * Stencil plugin to import markdown and mdx files as components.
+ *
+ * Usage:
+ * `stencil.config.ts`
+ * ``` ts
+ *  import { mdx } from '@eventstore/stencil-markdown-plugin/plugin';
+ *
+ *  export const config: Config = {
+ *    plugins: [
+ *      mdx(),
+ *   ],
+ *  };
+ * ```
+ */
+export const mdx = (options: MDXOptions = {}): Plugin => {
+    const visitors = options.visitors ?? [];
     const filter = createFilter(/mdx?$/);
     const mdxCompiler = createCompiler({
         remarkPlugins: [...visitors.map(pluginFromVisitor), fixStyleTags],

@@ -1,10 +1,15 @@
+import { router } from '@eventstore/router';
 import { Component, h, Host, Prop, Element, Watch } from '@stencil/core';
 import markdown from 'markdown-it';
+import anchor from 'markdown-it-anchor';
 import Prism from 'prismjs';
 
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-jsx';
 import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-tsx';
 
-const parser = markdown();
+const parser = markdown().use(anchor);
 
 const isExternal = (href: string) => {
     try {
@@ -31,6 +36,8 @@ export class DocsMarkdown {
     @Element() host!: HTMLDocsMarkdownElement;
     @Prop() md!: string;
 
+    private unsubscribe?: () => void;
+
     @Watch('md')
     componentWillLoad() {
         this.host.innerHTML = parser.render(this.md);
@@ -39,7 +46,45 @@ export class DocsMarkdown {
         });
     }
 
+    componentDidLoad() {
+        if (router.location?.hash) {
+            this.scrollTo(router.location.hash);
+        }
+
+        this.unsubscribe = router.history?.listen((location) => {
+            this.scrollTo(location.hash);
+        });
+    }
+
+    disconnectedCallback() {
+        this.unsubscribe?.();
+    }
+
     render() {
         return <Host />;
     }
+
+    private scrollTo = (id?: string) => {
+        if (!id) return;
+
+        const target = this.host.querySelector(id);
+
+        if (!target) return;
+
+        const measure = document.createElement('div');
+        measure.style.height = 'var(--layout-body-top)';
+
+        document.body.appendChild(measure);
+
+        const headerOffset = measure.getBoundingClientRect().height;
+        const elementPosition = target.getBoundingClientRect().top;
+
+        document.body.removeChild(measure);
+
+        const offsetPosition = elementPosition - headerOffset - 20;
+
+        window.scrollTo({
+            top: offsetPosition,
+        });
+    };
 }

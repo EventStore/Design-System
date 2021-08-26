@@ -8,6 +8,18 @@
     --blob-size: 18px;
 }
 
+:host([level='3']) a {
+    padding-left: calc(var(--blob-size) * 1.5);
+}
+
+:host([level='4']) a {
+    padding-left: calc(var(--blob-size) * 2);
+}
+
+:host([level='5']) a {
+    padding-left: calc(var(--blob-size) * 2.5);
+}
+
 a {
     padding: 10px;
     padding-left: var(--blob-size);
@@ -37,6 +49,7 @@ a {
         opacity: 0;
     }
 
+    &:active,
     &.link-active {
         color: var(--color-secondary);
 

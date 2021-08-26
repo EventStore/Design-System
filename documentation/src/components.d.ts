@@ -87,12 +87,12 @@ export namespace Components {
     interface DocsSidebarLink {
         "disabled": boolean;
         "icon"?: string;
+        "level"?: number;
         "url"?: string;
         "urlMatch"?: string;
         "variant": SidebarLinkVariant;
     }
     interface DocsSidebarSection {
-        "displayTitle": boolean;
         "sectionTitle": string;
     }
     interface DocsSidebarTree {
@@ -430,12 +430,12 @@ declare namespace LocalJSX {
     interface DocsSidebarLink {
         "disabled"?: boolean;
         "icon"?: string;
+        "level"?: number;
         "url"?: string;
         "urlMatch"?: string;
         "variant"?: SidebarLinkVariant;
     }
     interface DocsSidebarSection {
-        "displayTitle"?: boolean;
         "sectionTitle": string;
     }
     interface DocsSidebarTree {

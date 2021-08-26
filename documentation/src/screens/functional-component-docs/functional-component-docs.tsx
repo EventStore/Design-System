@@ -4,6 +4,12 @@ import type { JSONOutput } from 'typedoc';
 import type { Lib } from 'sitemap';
 import { findAllReferences } from 'utils/typedoc/findAllReferences';
 import { extractUsage } from 'utils/extractUsage';
+import {
+    extractAbstract,
+    extractBodyText,
+    extractFullText,
+} from 'utils/extractText';
+import { hasTag } from 'utils/typedoc/hasTag';
 
 @Component({
     tag: 'docs-functional-component-docs',
@@ -25,16 +31,6 @@ export class FunctionalComponentDocs {
     }
 
     render() {
-        const { name, comment, signatures } = this.doc;
-        let commentText = comment?.text ?? comment?.shortText;
-
-        if (signatures?.length === 1) {
-            commentText =
-                commentText ??
-                signatures[0].comment?.text ??
-                signatures[0].comment?.shortText;
-        }
-
         return (
             <Host>
                 <docs-breadcrumb
@@ -45,21 +41,23 @@ export class FunctionalComponentDocs {
                             path: './functional-components',
                         },
                         {
-                            name: name,
-                            path: `./${name}`,
+                            name: this.doc.name,
+                            path: `./${this.doc.name}`,
                         },
                     ]}
                 />
                 <header>
-                    <h1>{name}</h1>
+                    <h1>{this.doc.name}</h1>
                 </header>
-                <docs-markdown class={'intro'} md={commentText ?? ''} />
+
+                <docs-markdown class={'intro'} md={extractAbstract(this.doc)} />
+                <docs-markdown class={'body'} md={extractBodyText(this.doc)} />
 
                 {Object.entries(extractUsage(this.doc)).map(
                     ([uname, usage]) => (
                         <docs-usage
                             key={uname}
-                            identifier={`${name}-${uname}`}
+                            identifier={`${this.doc.name}-${uname}`}
                             usage={usage}
                         />
                     ),
@@ -67,14 +65,10 @@ export class FunctionalComponentDocs {
 
                 {this.references.map((doc) => (
                     <div key={doc.name} id={doc.name}>
-                        <h2>{doc.name}</h2>
+                        <h2>{hasTag(doc, 'props') ? 'Props' : doc.name}</h2>
                         <docs-markdown
                             class={'intro'}
-                            md={
-                                doc.comment?.text ??
-                                doc.comment?.shortText ??
-                                ''
-                            }
+                            md={extractFullText(doc)}
                         />
                         <docs-type-documentation declaration={doc} />
                     </div>

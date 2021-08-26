@@ -96,7 +96,21 @@ class InternalRouter {
     get match() {
         if (!this.initialized) this.init();
         this.updateInterestedParties();
-        return (options: MatchOptions) => {
+        return (options: MatchOptions): MatchResults | null => {
+            if (
+                typeof options.path === 'string' &&
+                options.path.startsWith('#')
+            ) {
+                return options.path === this.location.hash
+                    ? {
+                          path: options.path,
+                          url: this.location.pathname,
+                          isExact: !!options.exact,
+                          params: {},
+                      }
+                    : null;
+            }
+
             const key = JSON.stringify(options);
 
             if (this.matchCache.has(key)) {
