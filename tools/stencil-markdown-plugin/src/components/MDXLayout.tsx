@@ -6,6 +6,7 @@ import {
     ChildNode,
 } from '@stencil/core';
 
+/** Map html element tags to a different tag or to FunctionalComponents */
 export type MDXComponentMap = Record<string, string | FunctionalComponent>;
 
 // https://github.com/ionic-team/stencil/pull/2548
@@ -55,12 +56,23 @@ const mapChildren = (
     return mapper;
 };
 
+/** @props */
 export interface MDXLayoutProps {
+    /** Map html element tags to a different tag or to FunctionalComponents  */
     components?: MDXComponentMap;
+    /** The surrounding tag (default `'article'`) */
     tag?: string;
     [key: string]: any;
 }
 
+/**
+ * The resulting component that the markdown import will be rendered as.
+ * Example:
+ * ```tsx
+ *  import Readme from './readme.md';
+ *  <Readme components={{ a: es-button-link }} />
+ * ```
+ */
 export const MDXLayout: FunctionalComponent<MDXLayoutProps> = (
     { components = {}, tag: Tag = 'article', ...props },
     children,

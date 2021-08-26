@@ -1,5 +1,4 @@
-import { MDXLayoutProps } from '@eventstore/stencil-markdown-plugin';
-import type { FunctionalComponent, JsonDocs } from '@stencil/core/internal';
+import type { JsonDocs } from '@stencil/core/internal';
 import type { JSONOutput } from 'typedoc';
 import { createTypedocLookup, TypedocLookup } from './createTypedocLookup';
 
@@ -47,7 +46,7 @@ export interface Lib extends LibDefinition {
     /*
      * readmes
      */
-    readme: FunctionalComponent<MDXLayoutProps>;
+    readme: string;
     /*
      * base url path
      */
@@ -99,4 +98,4 @@ const expandLib = ({ title, filePath }: LibDefinition): Lib => {
     };
 };
 
-const slugize = (str: string) => str.toLowerCase().replace(' ', '-');
+const slugize = (str: string) => str.toLowerCase().replace(/\s/g, '-');

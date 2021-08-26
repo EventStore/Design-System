@@ -163,3 +163,8 @@ export const isUnionType = (
 export const isUnknownType = (
     someType: JSONOutput.SomeType,
 ): someType is JSONOutput.UnknownType => someType.type === 'unknown';
+
+export const isNamedTupleMember = (
+    someType: JSONOutput.SomeType,
+): someType is JSONOutput.NamedTupleMemberType =>
+    someType.type === 'named-tuple-member';

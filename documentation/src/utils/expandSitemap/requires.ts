@@ -1,5 +1,4 @@
-import { MDXLayoutProps } from '@eventstore/stencil-markdown-plugin';
-import { FunctionalComponent, JsonDocs } from '@stencil/core/internal';
+import { JsonDocs } from '@stencil/core/internal';
 import type { JSONOutput } from 'typedoc';
 import { PackageJson } from '.';
 
@@ -18,9 +17,11 @@ declare global {
     }
 }
 
-export const requireReadme = require.context<
-    FunctionalComponent<MDXLayoutProps>
->('../../../../', true, /^((?!node_modules).)*\/readme\.md$/);
+export const requireReadme = require.context<string>(
+    '../../../../',
+    true,
+    /^((?!node_modules).)*\/readme\.md$/,
+);
 
 export const requirePackageJson = require.context<PackageJson>(
     '../../../../',

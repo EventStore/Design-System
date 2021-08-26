@@ -13,6 +13,7 @@ export class SidebarLink {
     @Prop() urlMatch?: string;
     @Prop() icon?: string;
     @Prop() disabled: boolean = false;
+    @Prop({ reflect: true }) level?: number;
     @Prop({ reflect: true }) variant: SidebarLinkVariant = 'default';
 
     render() {

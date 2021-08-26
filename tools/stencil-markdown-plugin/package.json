@@ -22,6 +22,7 @@
         "build": "run-s build:*",
         "build:plugin": "tsc --project ./src/plugin/tsconfig.json --outDir ./ --declaration",
         "build:component": "tsc --project ./src/components/tsconfig.json --outDir ./dist --declaration",
+        "docs": "typedoc --tsconfig ./src/tsconfig.json --json ../../documentation/generated/stencil-markdown-plugin.typedoc.json",
         "dev": "run-p \"build:* -- --watch\"",
         "test": "jest --passWithNoTests",
         "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""

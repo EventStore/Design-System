@@ -1,12 +1,13 @@
 import type { JSONOutput } from 'typedoc';
 import { TypedocLookup } from 'utils/expandSitemap/createTypedocLookup';
-import { isReferenceType, isUnionType } from './someType';
+import { isArrayType, isReferenceType, isUnionType } from './someType';
 
 export const findAllReferences = (
     declaration: JSONOutput.DeclarationReflection,
     lookup: TypedocLookup,
 ): JSONOutput.DeclarationReflection[] => {
     const referenceNames = new Set<string>();
+    const visited = new Set<number>();
 
     const insertIfReference = (type?: JSONOutput.SomeType) => {
         if (!type || !isReferenceType(type) || type.name === declaration.name) {
@@ -17,6 +18,9 @@ export const findAllReferences = (
     };
 
     const findReferences = (dec: JSONOutput.DeclarationReflection) => {
+        if (visited.has(dec.id)) return;
+        visited.add(dec.id);
+
         insertIfReference(dec.type);
 
         dec.children?.forEach(findReferences);
@@ -26,17 +30,28 @@ export const findAllReferences = (
             findReferences,
         );
 
-        if (dec.type && (dec.type as JSONOutput.ReflectionType).declaration) {
-            findReferences(
-                (dec.type as JSONOutput.ReflectionType).declaration!,
-            );
-        }
-        if (dec.type && isReferenceType(dec.type) && dec.type.typeArguments) {
-            dec.type.typeArguments?.forEach(insertIfReference);
+        if (!dec.type) return;
+
+        const type = dec.type;
+
+        if ((type as JSONOutput.ReflectionType).declaration) {
+            findReferences((type as JSONOutput.ReflectionType).declaration!);
         }
 
-        if (dec.type && isUnionType(dec.type)) {
-            dec.type.types.forEach(insertIfReference);
+        if (isReferenceType(type) && type.typeArguments) {
+            type.typeArguments?.forEach(insertIfReference);
+        }
+
+        if (isUnionType(type)) {
+            type.types.forEach(insertIfReference);
+        }
+
+        if (isArrayType(type)) {
+            insertIfReference(type.elementType);
+        }
+
+        if (isReferenceType(type) && type.id != null && lookup.has(type.id)) {
+            findReferences(lookup.get(type.id)!);
         }
     };
 

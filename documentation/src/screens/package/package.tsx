@@ -5,6 +5,7 @@ import { Lib } from 'sitemap';
 import { JSONOutput } from 'typedoc';
 import { ReflectionKind } from 'utils/typedoc/reflectionKind';
 import { isFunctionalComponentDeclaration } from 'utils/typedoc/declaration';
+import { Anchor, extractAnchors } from 'utils/extractAnchors';
 
 type Dec = JSONOutput.DeclarationReflection;
 
@@ -19,12 +20,24 @@ export class DocsPackage {
     private utils?: Dec[];
     private types?: Dec[];
     private functionalComponents?: Dec[];
+    private anchors?: Anchor[];
 
     @Watch('lib')
     componentWillLoad() {
         this.utils = this.extractUtils();
         this.types = this.extractTypes();
         this.functionalComponents = this.extractFunctionalComponents();
+
+        if (
+            !this.lib.stencilDocs &&
+            !this.utils &&
+            !this.types &&
+            !this.functionalComponents
+        ) {
+            this.anchors = extractAnchors(this.lib.readme);
+        } else {
+            this.anchors = undefined;
+        }
     }
 
     render() {
@@ -84,16 +97,25 @@ export class DocsPackage {
                             ))}
                         </docs-sidebar-section>
                     )}
+
+                    {this.anchors?.map(({ id, name, level }) => (
+                        <docs-sidebar-link
+                            level={level}
+                            key={id}
+                            url={`#${id}`}
+                        >
+                            {name}
+                        </docs-sidebar-link>
+                    ))}
                 </docs-sidebar>
                 <main>
                     <Switch>
                         <Route
                             exact
                             url={`/${this.lib.slug}`}
-                            routeRender={() => {
-                                const Readme = this.lib.readme;
-                                return <Readme />;
-                            }}
+                            routeRender={() => (
+                                <docs-markdown md={this.lib.readme} />
+                            )}
                         />
                         {this.lib.stencilDocs?.components.map((doc) => (
                             <Route

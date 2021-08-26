@@ -18,8 +18,7 @@
     },
     "typedocOptions": {
         "name": "@eventstore/utils",
-        "entryPoints": ["./src/index.ts"],
-        "includes": "src"
+        "entryPoints": ["./src/index.ts"]
     },
     "include": ["src"],
     "exclude": ["node_modules", "**/*.test.ts"]
