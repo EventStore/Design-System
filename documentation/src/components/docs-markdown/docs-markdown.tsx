@@ -1,5 +1,8 @@
 import { Component, h, Host, Prop, Element, Watch } from '@stencil/core';
 import markdown from 'markdown-it';
+import Prism from 'prismjs';
+
+import 'prismjs/components/prism-typescript';
 
 const parser = markdown();
 
@@ -31,6 +34,9 @@ export class DocsMarkdown {
     @Watch('md')
     componentWillLoad() {
         this.host.innerHTML = parser.render(this.md);
+        this.host.querySelectorAll('code').forEach((code) => {
+            Prism.highlightElement(code);
+        });
     }
 
     render() {

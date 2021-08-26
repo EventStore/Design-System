@@ -1,6 +1,6 @@
 export { createLogger } from './createLogger/createLogger';
-export * from './debounce';
+export { debounce } from './debounce/debounce';
 export { extractOnly } from './extractOnly';
 export { findAssignedSlot } from './findAssignedSlot';
-export { HTTPError } from './HTTPError';
+export { HTTPError, HTTPProblemDetails } from './HTTPError';
 export * from './focus';

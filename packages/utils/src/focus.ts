@@ -138,7 +138,7 @@ const stopPropagation = (event: FocusEvent) => {
 };
 
 /**
- * allows within passed HTMLElement.
+ * Allow focus within passed HTMLElement, even if outside of the focus trap.
  */
 export const allowFocus = (element: HTMLElement) => {
     element.addEventListener('focusin', stopPropagation);
@@ -149,8 +149,7 @@ export const allowFocus = (element: HTMLElement) => {
 };
 
 /**
- * traps focus within passed HTMLElement.
- * returns a function to release focus trap.
+ * traps focus within passed HTMLElement. Returns a function to release focus trap.
  */
 export const trapFocus = (trap: HTMLElement, focusOptions?: FocusOptions) => {
     const previousFocus = activeElement();

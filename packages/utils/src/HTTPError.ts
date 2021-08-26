@@ -1,6 +1,9 @@
 export interface HTTPProblemDetails {
+    /** A human readable short title for the problem. */
     title: string;
+    /** A longer form explanation of the problem. */
     detail: string;
+    /** If the problem was with a form request, messages are mapped to the data sent. [Working Data](/fields/utils/createWorkingData) will automatically assign these to the originating fields. */
     fields?: Record<string, string>;
 }
 
@@ -21,13 +24,18 @@ const defaultExtractDetails: ExtractDetails = async (response) => {
     }
 };
 
+/** A standardised HTTP request error. Works together with [Working Data](/fields/utils/createWorkingData) to assign HTTPProblemDetails fields to errors on form fields. */
 export class HTTPError extends Error {
+    /** The status code of the HTTP response. */
     public status: number;
+    /** The status name of the HTTP response. */
     public statusText: string;
+    /** @internal */
     public extractDetails: ExtractDetails;
     private response: Response;
     private detailsPromise?: Promise<HTTPProblemDetails>;
 
+    /** Construct a HTTPError from a Fetch Response and an an optional details extractor. */
     constructor(
         response: Response,
         extractDetails: ExtractDetails = defaultExtractDetails,
@@ -41,6 +49,7 @@ export class HTTPError extends Error {
         this.extractDetails = extractDetails;
     }
 
+    /** Extract the HTTPProblemDetails from the Response. */
     public details = (): Promise<HTTPProblemDetails> => {
         if (!this.detailsPromise) {
             this.detailsPromise = this.extractDetails(this.response);

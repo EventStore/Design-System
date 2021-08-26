@@ -92,6 +92,7 @@ export namespace Components {
         "variant": SidebarLinkVariant;
     }
     interface DocsSidebarSection {
+        "displayTitle": boolean;
         "sectionTitle": string;
     }
     interface DocsSidebarTree {
@@ -434,6 +435,7 @@ declare namespace LocalJSX {
         "variant"?: SidebarLinkVariant;
     }
     interface DocsSidebarSection {
+        "displayTitle"?: boolean;
         "sectionTitle": string;
     }
     interface DocsSidebarTree {
