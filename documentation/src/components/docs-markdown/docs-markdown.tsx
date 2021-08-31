@@ -37,9 +37,11 @@ export class DocsMarkdown {
     @Watch('md')
     componentWillLoad() {
         this.host.innerHTML = parser.render(this.md);
-        this.host.querySelectorAll('code').forEach((code) => {
-            hljs.highlightElement(code);
-        });
+        this.host
+            .querySelectorAll<HTMLElement>('pre > code')
+            .forEach((code) => {
+                hljs.highlightElement(code);
+            });
     }
 
     componentDidLoad() {
