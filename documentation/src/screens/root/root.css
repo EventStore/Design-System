@@ -1,0 +1,20 @@
+docs-root {
+    height: 100vh;
+    width: 100%;
+    max-width: var(--layout-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns:
+        var(--layout-sidebar-width)
+        auto;
+    grid-template-rows:
+        var(--layout-header-height)
+        var(--layout-banner-height)
+        auto
+        var(--layout-footer-height);
+    grid-template-areas:
+        'header header'
+        'banner banner'
+        'sidebar body'
+        'sidebar footer';
+}

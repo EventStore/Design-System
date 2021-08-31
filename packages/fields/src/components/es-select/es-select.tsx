@@ -21,6 +21,7 @@ export type RenderSelectValue = (
     rawValue: string,
 ) => VNode | string;
 
+/** A searchable select dropdown. */
 @Component({
     tag: 'es-select',
     styleUrl: 'es-select.css',
@@ -28,21 +29,32 @@ export type RenderSelectValue = (
 })
 export class EsSelect {
     @Element() host!: HTMLEsListCreatorElement;
-
+    /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter;
 
+    /** The label of the field. */
     @Prop() label!: string;
+    /** The name of the field. */
     @Prop() name!: string;
+    /** The current value of the field. */
     @Prop() value!: string | null;
-
+    /** A list of options to choose from. */
     @Prop() options!: TypeaheadOption[];
+    /** Overwrite the default option renderer. */
     @Prop() renderOption?: RenderTypeaheadOption;
+    /** Overwrite the default value renderer. */
     @Prop() renderValue: RenderSelectValue = (o, v) => o?.name ?? v;
+    /** Pass a custom search filter function */
     @Prop() optionFilter?: OptionFilter;
+    /** The placeholder for the input. */
     @Prop() placeholder?: string;
+    /** If the field is disabled. */
     @Prop() disabled?: boolean;
+    /** If the field is editable. */
     @Prop() readonly?: boolean;
+    /** If the field is currently in an error state. */
     @Prop() invalid?: boolean;
+    /** The validation messages of the field */
     @Prop() messages?: ValidationMessages;
 
     renderPlaceholder = () => (

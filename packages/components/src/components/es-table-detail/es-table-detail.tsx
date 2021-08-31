@@ -1,15 +1,20 @@
 import { Component, h, Prop, Host } from '@stencil/core';
 import { TableCells, TableCell } from '../es-table/types';
 
+/** Render a single row data as a grid of information. */
 @Component({
     tag: 'es-table-detail',
     styleUrl: 'es-table-detail.css',
     shadow: false,
 })
 export class TableDetail {
+    /** Passed to cell renderer as `parent`. */
     @Prop() identifier: string = 'detail';
+    /** The data to render. */
     @Prop() data!: any;
+    /** A record of table cell definitions. */
     @Prop() cells!: TableCells<any>;
+    /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: Array<string>;
 
     private renderHeader = (title: string) => <dt>{title}</dt>;

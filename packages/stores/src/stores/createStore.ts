@@ -7,63 +7,29 @@ import type {
 import { stencilSubscription } from '../subscriptions/stencil';
 import { $data } from '../symbols';
 
+/** A basic key value store. */
 export interface Store<T> {
-    /**
-     * Proxied object that will detect dependencies and call
-     * the subscriptions and computed properties.
-     */
+    /** Proxied object that will detect dependencies and call the subscriptions and computed properties. */
     readonly state: T;
-
-    /**
-     * check if store has key
-     */
+    /** Check if store has key */
     has<K extends keyof T>(key: K): boolean;
-
-    /**
-     * get value for key in store
-     */
+    /** Get value for key in store. */
     get<K extends keyof T>(key: K): T[K];
-
-    /**
-     * set value for key in store
-     */
+    /** set value for key in store */
     set<K extends keyof T>(key: K, value: T[K]): void;
-
-    /**
-     * remove value for key in store
-     */
+    /** remove value for key in store */
     delete<K extends keyof T>(key: K): boolean;
-
-    /**
-     * subscribe to events within the store
-     */
+    /** subscribe to events within the store */
     on: OnHandler<T>;
-
-    /**
-     * Listen for value changes on a specified key.
-     */
+    /** Listen for value changes on a specified key. */
     onChange: OnChangeHandler<T>;
-
-    /**
-     * Resets the state to its original state and
-     * signals a dispose event to all the plugins.
-     */
+    /** Resets the state to its original state and signals a dispose event to all the plugins. */
     dispose(): void;
-
-    /**
-     * Resets the state to its original state.
-     */
+    /** Resets the state to its original state. */
     reset(): void;
-
-    /**
-     * Registers a subscription that will be called whenever the user gets, sets, or
-     * resets a value.
-     */
+    /** Registers a subscription that will be called whenever the user gets, sets, or resets a value. */
     use(...plugins: Subscription<T>[]): () => void;
-
-    /**
-     * the number of key / value pairs in the store
-     */
+    /** the number of key / value pairs in the store */
     readonly size: number;
 
     /**
@@ -72,6 +38,7 @@ export interface Store<T> {
     readonly [$data]: Readonly<Map<keyof T, T>>;
 }
 
+/** Create a new basic store with the given initial state. */
 export const createStore = <T extends { [key: string]: any }>(
     defaultState: T,
     shouldUpdate: (newV: any, oldValue: any, prop: keyof T) => boolean = (

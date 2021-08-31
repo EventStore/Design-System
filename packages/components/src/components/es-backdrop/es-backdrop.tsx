@@ -12,6 +12,7 @@ import {
 
 export type BackdropState = 'mounting' | 'entering' | 'entered' | 'exiting';
 
+/** @internal */
 @Component({
     tag: 'es-backdrop',
     styleUrl: 'es-backdrop.css',
@@ -31,7 +32,7 @@ export class Backdrop {
 
     private closingPromise?: () => void;
     @Method() close() {
-        return new Promise((resolve) => {
+        return new Promise<void>((resolve) => {
             this.closingPromise = resolve;
             this.state = 'exiting';
         });

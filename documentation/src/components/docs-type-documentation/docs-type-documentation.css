@@ -1,0 +1,34 @@
+:host {
+    display: block;
+}
+
+:host([depreciated]) {
+    text-decoration: line-through;
+}
+
+.intrinsic {
+    color: var(--code-orange);
+    &.string {
+        color: var(--code-green);
+    }
+}
+
+.reference {
+    color: var(--code-blue);
+}
+
+.depreciated {
+    text-decoration: line-through;
+}
+
+.types {
+    flex-wrap: wrap;
+}
+
+es-table.props .required [role='cell'] {
+    background-image: radial-gradient(
+        circle,
+        rgba(255, 248, 0, 0.2) 0%,
+        rgba(255, 248, 0, 0.2) 100%
+    );
+}

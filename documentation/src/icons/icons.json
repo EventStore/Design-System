@@ -1,0 +1,369 @@
+{
+    "angle-down": {
+        "name": "angle-down",
+        "component": "AngleDown",
+        "path": "./components/AngleDown.tsx"
+    },
+    "arrow": {
+        "name": "arrow",
+        "component": "Arrow",
+        "path": "./components/Arrow.tsx"
+    },
+    "backups": {
+        "name": "backups",
+        "component": "Backups",
+        "path": "./components/Backups.tsx"
+    },
+    "bell": {
+        "name": "bell",
+        "component": "Bell",
+        "path": "./components/Bell.tsx"
+    },
+    "bubbles": {
+        "name": "bubbles",
+        "component": "Bubbles",
+        "path": "./components/Bubbles.tsx"
+    },
+    "building": {
+        "name": "building",
+        "component": "Building",
+        "path": "./components/Building.tsx"
+    },
+    "cancelable": {
+        "name": "cancelable",
+        "component": "Cancelable",
+        "path": "./components/Cancelable.tsx"
+    },
+    "caret": {
+        "name": "caret",
+        "component": "Caret",
+        "path": "./components/Caret.tsx"
+    },
+    "check": {
+        "name": "check",
+        "component": "Check",
+        "path": "./components/Check.tsx"
+    },
+    "chevron": {
+        "name": "chevron",
+        "component": "Chevron",
+        "path": "./components/Chevron.tsx"
+    },
+    "circle": {
+        "name": "circle",
+        "component": "Circle",
+        "path": "./components/Circle.tsx"
+    },
+    "close": {
+        "name": "close",
+        "component": "Close",
+        "path": "./components/Close.tsx"
+    },
+    "clusters": {
+        "name": "clusters",
+        "component": "Clusters",
+        "path": "./components/Clusters.tsx"
+    },
+    "cog": {
+        "name": "cog",
+        "component": "Cog",
+        "path": "./components/Cog.tsx"
+    },
+    "components": {
+        "name": "components",
+        "component": "Components",
+        "path": "./components/Components.tsx",
+        "aliases": ["@eventstore/components"]
+    },
+    "configs": {
+        "name": "configs",
+        "component": "Configs",
+        "path": "./components/Configs.tsx",
+        "aliases": ["@eventstore/configs"]
+    },
+    "copy": {
+        "name": "copy",
+        "component": "Copy",
+        "path": "./components/Copy.tsx"
+    },
+    "credit-card": {
+        "name": "credit-card",
+        "component": "CreditCard",
+        "path": "./components/CreditCard.tsx"
+    },
+    "critical": {
+        "name": "critical",
+        "component": "Critical",
+        "path": "./components/Critical.tsx"
+    },
+    "degraded": {
+        "name": "degraded",
+        "component": "Degraded",
+        "path": "./components/Degraded.tsx"
+    },
+    "editor": {
+        "name": "editor",
+        "component": "Editor",
+        "path": "./components/Editor.tsx",
+        "aliases": ["@eventstore/editor"]
+    },
+    "ellipsis": {
+        "name": "ellipsis",
+        "component": "Ellipsis",
+        "path": "./components/Ellipsis.tsx"
+    },
+    "error": {
+        "name": "error",
+        "component": "Error",
+        "path": "./components/Error.tsx"
+    },
+    "eye": {
+        "name": "eye",
+        "component": "Eye",
+        "path": "./components/Eye.tsx"
+    },
+    "fields": {
+        "name": "fields",
+        "component": "Fields",
+        "path": "./components/Fields.tsx",
+        "aliases": ["@eventstore/fields"]
+    },
+    "folder": {
+        "name": "folder",
+        "component": "Folder",
+        "path": "./components/Folder.tsx"
+    },
+    "gift": {
+        "name": "gift",
+        "component": "Gift",
+        "path": "./components/Gift.tsx"
+    },
+    "go-back": {
+        "name": "go-back",
+        "component": "GoBack",
+        "path": "./components/GoBack.tsx"
+    },
+    "head": {
+        "name": "head",
+        "component": "Head",
+        "path": "./components/Head.tsx",
+        "aliases": ["heads"]
+    },
+    "icon-manager": {
+        "name": "icon-manager",
+        "component": "IconManager",
+        "path": "./components/IconManager.tsx",
+        "aliases": ["@eventstore/icon-manager"]
+    },
+    "id-card": {
+        "name": "id-card",
+        "component": "IdCard",
+        "path": "./components/IdCard.tsx"
+    },
+    "info": {
+        "name": "info",
+        "component": "Info",
+        "path": "./components/Info.tsx"
+    },
+    "invite": {
+        "name": "invite",
+        "component": "Invite",
+        "path": "./components/Invite.tsx"
+    },
+    "light": {
+        "name": "light",
+        "component": "Light",
+        "path": "./components/Light.tsx"
+    },
+    "lightbulb": {
+        "name": "lightbulb",
+        "component": "Lightbulb",
+        "path": "./components/Lightbulb.tsx"
+    },
+    "markdown": {
+        "name": "markdown",
+        "component": "Markdown",
+        "path": "./components/Markdown.tsx",
+        "aliases": [
+            "@eventstore/stencil-markdown-plugin",
+            "stencil-markdown-plugin"
+        ]
+    },
+    "mutable": {
+        "name": "mutable",
+        "component": "Mutable",
+        "path": "./components/Mutable.tsx"
+    },
+    "networks": {
+        "name": "networks",
+        "component": "Networks",
+        "path": "./components/Networks.tsx"
+    },
+    "okay": {
+        "name": "okay",
+        "component": "Okay",
+        "path": "./components/Okay.tsx"
+    },
+    "peering": {
+        "name": "peering",
+        "component": "Peering",
+        "path": "./components/Peering.tsx"
+    },
+    "pen": {
+        "name": "pen",
+        "component": "Pen",
+        "path": "./components/Pen.tsx"
+    },
+    "plus": {
+        "name": "plus",
+        "component": "Plus",
+        "path": "./components/Plus.tsx"
+    },
+    "postcss-palette-plugin": {
+        "name": "postcss-palette-plugin",
+        "component": "PostcssPalettePlugin",
+        "path": "./components/PostcssPalettePlugin.tsx",
+        "aliases": ["@eventstore/postcss-palette-plugin"]
+    },
+    "question": {
+        "name": "question",
+        "component": "Question",
+        "path": "./components/Question.tsx",
+        "aliases": ["optional"]
+    },
+    "reflect-to-attr": {
+        "name": "reflect-to-attr",
+        "component": "ReflectToAttr",
+        "path": "./components/ReflectToAttr.tsx"
+    },
+    "refresh": {
+        "name": "refresh",
+        "component": "Refresh",
+        "path": "./components/Refresh.tsx"
+    },
+    "reload": {
+        "name": "reload",
+        "component": "Reload",
+        "path": "./components/Reload.tsx"
+    },
+    "required": {
+        "name": "required",
+        "component": "Required",
+        "path": "./components/Required.tsx"
+    },
+    "rocket": {
+        "name": "rocket",
+        "component": "Rocket",
+        "path": "./components/Rocket.tsx",
+        "aliases": ["composed"]
+    },
+    "router": {
+        "name": "router",
+        "component": "Router",
+        "path": "./components/Router.tsx",
+        "aliases": ["@eventstore/router"]
+    },
+    "scroll": {
+        "name": "scroll",
+        "component": "Scroll",
+        "path": "./components/Scroll.tsx"
+    },
+    "shadow": {
+        "name": "shadow",
+        "component": "Shadow",
+        "path": "./components/Shadow.tsx"
+    },
+    "shield": {
+        "name": "shield",
+        "component": "Shield",
+        "path": "./components/Shield.tsx"
+    },
+    "sign-in": {
+        "name": "sign-in",
+        "component": "SignIn",
+        "path": "./components/SignIn.tsx"
+    },
+    "sign-out": {
+        "name": "sign-out",
+        "component": "SignOut",
+        "path": "./components/SignOut.tsx"
+    },
+    "signs": {
+        "name": "signs",
+        "component": "Signs",
+        "path": "./components/Signs.tsx"
+    },
+    "spinner": {
+        "name": "spinner",
+        "component": "Spinner",
+        "path": "./components/Spinner.tsx"
+    },
+    "stores": {
+        "name": "stores",
+        "component": "Stores",
+        "path": "./components/Stores.tsx",
+        "aliases": ["@eventstore/stores"]
+    },
+    "testing-icon": {
+        "name": "testing-icon",
+        "component": "TestingIcon",
+        "path": "./components/TestingIcon.tsx"
+    },
+    "trash": {
+        "name": "trash",
+        "component": "Trash",
+        "path": "./components/Trash.tsx"
+    },
+    "unicorn": {
+        "name": "unicorn",
+        "component": "Unicorn",
+        "path": "./components/Unicorn.tsx",
+        "aliases": ["tails"]
+    },
+    "unknown": {
+        "name": "unknown",
+        "component": "Unknown",
+        "path": "./components/Unknown.tsx"
+    },
+    "user": {
+        "name": "user",
+        "component": "User",
+        "path": "./components/User.tsx"
+    },
+    "user-circle": {
+        "name": "user-circle",
+        "component": "UserCircle",
+        "path": "./components/UserCircle.tsx"
+    },
+    "user-cog": {
+        "name": "user-cog",
+        "component": "UserCog",
+        "path": "./components/UserCog.tsx"
+    },
+    "user-edit": {
+        "name": "user-edit",
+        "component": "UserEdit",
+        "path": "./components/UserEdit.tsx"
+    },
+    "user-shield": {
+        "name": "user-shield",
+        "component": "UserShield",
+        "path": "./components/UserShield.tsx"
+    },
+    "users": {
+        "name": "users",
+        "component": "Users",
+        "path": "./components/Users.tsx"
+    },
+    "utils": {
+        "name": "utils",
+        "component": "Utils",
+        "path": "./components/Utils.tsx",
+        "aliases": ["@eventstore/utils"]
+    },
+    "warning": {
+        "name": "warning",
+        "component": "Warning",
+        "path": "./components/Warning.tsx"
+    }
+}

@@ -1,31 +1,72 @@
-import { Component, h, Prop, Host, State, Watch } from '@stencil/core';
+import {
+    Component,
+    h,
+    Prop,
+    Host,
+    Event,
+    Watch,
+    EventEmitter,
+    Element,
+} from '@stencil/core';
 import { searchParam } from '@eventstore/router';
 import type { Tab } from './types';
 
+/**
+ * A tabbed panel. Each panel can be targeted via a slot.
+ * @slot [tabName] - Slots are created based off of the names of the passed tabs.
+ * @part indicator - The sliding indicatior bar.
+ * @part panel - Tab panels.
+ * @part tab - Tabs.
+ * @part tablist - The tab container.
+ */
 @Component({
     tag: 'es-tabs',
     styleUrl: 'es-tabs.css',
     shadow: true,
 })
 export class EsTabs {
-    @Prop() tabs!: Tab[];
-    @Prop() activeParam: string = 'tab';
-    @State() active!: string;
+    @Element() host!: HTMLEsTabsElement;
 
-    private searchParam = searchParam(this.activeParam);
+    /** A list of tabs. */
+    @Prop() tabs!: Tab[];
+    /** Reflect the active tab to a search param of name. Set to false to disable. */
+    @Prop() activeParam: string | false = 'tab';
+    /** The currently active panel. By default it will take from the passed activeParam, or the first tab.  */
+    @Prop({ mutable: true }) active?: string;
+
+    /** Triggered when the active tab is changed. `detail` is the newly active tab. */
+    @Event() tabChange!: EventEmitter<string>;
+
+    private searchParam = this.activeParam
+        ? searchParam(this.activeParam)
+        : undefined;
 
     componentWillLoad() {
-        this.active = this.searchParam.value ?? this.tabs[0].id;
+        if (this.active && this.searchParam && !this.searchParam.value) {
+            this.searchParam.set(this.active);
+        }
+
+        this.active = this.searchParam?.value ?? this.active ?? this.tabs[0].id;
     }
 
     disconnectedCallback() {
-        this.searchParam.delete();
+        this.searchParam?.delete();
         cancelAnimationFrame(this.frame1);
         cancelAnimationFrame(this.frame2);
     }
 
-    @Watch('active') updateUrl(active?: string) {
-        this.searchParam.set(active);
+    @Watch('active') updateActive(active?: string) {
+        // workaround for https://github.com/ionic-team/stencil/issues/2982
+        if (active) {
+            const slot = this.host.shadowRoot?.querySelector('slot');
+
+            if (slot) {
+                slot.name = active;
+            }
+        }
+
+        this.searchParam?.set(active);
+        this.tabChange.emit(active);
     }
 
     renderTab = ({ title, id, badge }: Tab) => (
@@ -36,19 +77,20 @@ export class EsTabs {
             aria-selected={this.active === id}
             id={`tab-${id}`}
             class={{ tab: true, active: this.active === id }}
+            part={'tab'}
             onClick={this.setActive(id)}
             ref={this.captureTab(id)}
         >
-            <y-badge count={badge?.() ? 1 : 0} variant={'dot'}>
+            <es-badge count={badge?.() ? 1 : 0} variant={'dot'}>
                 {title}
-            </y-badge>
+            </es-badge>
         </button>
     );
 
     render() {
         return (
             <Host>
-                <header role={'tablist'}>
+                <header role={'tablist'} part={'tablist'}>
                     {this.tabs.map(this.renderTab)}
                 </header>
                 <div
@@ -58,11 +100,13 @@ export class EsTabs {
                         [this.getActive()?.panelVariant ?? '']: true,
                     }}
                     role={'tabpanel'}
+                    part={'panel'}
                 >
                     <div
                         role={'presentation'}
                         class={'indicator'}
                         ref={this.captureIndicatior}
+                        part={'indicator'}
                     />
                     <slot name={this.active} />
                 </div>
@@ -99,8 +143,8 @@ export class EsTabs {
     private frame1!: ReturnType<typeof requestAnimationFrame>;
     private frame2!: ReturnType<typeof requestAnimationFrame>;
 
-    @Watch('active') positionIndicator(active: string) {
-        const tab = this.tabRefs.get(active);
+    @Watch('active') positionIndicator(active?: string) {
+        const tab = this.tabRefs.get(active!);
         const indicator = this.indicator;
         if (!indicator || !tab) return;
 

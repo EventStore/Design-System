@@ -16,6 +16,10 @@
         "jsx": "react",
         "jsxFactory": "h"
     },
+    "typedocOptions": {
+        "name": "@eventstore/utils",
+        "entryPoints": ["./src/index.ts"]
+    },
     "include": ["src"],
     "exclude": ["node_modules", "**/*.test.ts"]
 }

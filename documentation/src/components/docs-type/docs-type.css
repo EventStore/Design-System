@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+}
+
+:host {
+    background-color: var(--code-bg);
+    color: var(--code-fg);
+    padding: 5px 6px;
+    border-radius: 4px;
+    font: var(--font-monospace);
+    display: inline;
+    line-height: 2;
+}
+
+:host([depreciated]) {
+    text-decoration: line-through;
+}
+
+.intrinsic {
+    color: var(--code-orange);
+    &.string {
+        color: var(--code-green);
+    }
+}
+
+.alias,
+.reference {
+    color: var(--code-blue);
+}
+
+.param:not(:last-child)::after {
+    display: inline-block;
+    content: ',\00a0';
+}

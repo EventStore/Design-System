@@ -1,12 +1,14 @@
 import { Component, h, Prop } from '@stencil/core';
 import { ValidationMessages } from '../../types';
 
+/** Display messages under fields. */
 @Component({
     tag: 'es-validation-messages',
     styleUrl: 'es-validation-messages.css',
     shadow: true,
 })
 export class EsValidationMessages {
+    /** The messages to display. */
     @Prop() messages?: Partial<ValidationMessages>;
 
     render() {

@@ -1,15 +1,23 @@
 import { h, FunctionalComponent } from '@stencil/core';
-import { router } from '../utils/publicRouter';
+import { router } from '../utils/router';
 import { Redirect } from './Redirect';
 
 import { Route } from './Route';
 
+/** @props */
 export interface ConditionalRedirectProps {
+    /** The route or routes to redirect from. */
     from: string | string[];
+    /** The route to redirect to. */
     to: string;
+    /** If the route matching should be exact, or include child routes. */
     exact?: boolean;
 }
 
+/**
+ * Redirect only if route matches.
+ * @usage ./ConditionalRedirect.usage.md
+ */
 export const ConditionalRedirect: FunctionalComponent<ConditionalRedirectProps> = ({
     from,
     to,

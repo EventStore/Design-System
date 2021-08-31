@@ -5,11 +5,29 @@
 <!-- Auto Generated Below -->
 
 
+## Usage
+
+### Example
+
+```tsx
+export default () => (
+    <es-validation-messages
+        messages={{
+            error: ['Oh no!'],
+            warning: ['Watch out!', "It's hot!"],
+            info: ['It will cool down soon.'],
+        }}
+    />
+);
+```
+
+
+
 ## Properties
 
-| Property   | Attribute | Description | Type                                                                                                             | Default     |
-| ---------- | --------- | ----------- | ---------------------------------------------------------------------------------------------------------------- | ----------- |
-| `messages` | --        |             | `undefined \| { error?: string[] \| undefined; warning?: string[] \| undefined; info?: string[] \| undefined; }` | `undefined` |
+| Property   | Attribute | Description              | Type                                                                                                             | Default     |
+| ---------- | --------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------- | ----------- |
+| `messages` | --        | The messages to display. | `undefined \| { error?: string[] \| undefined; warning?: string[] \| undefined; info?: string[] \| undefined; }` | `undefined` |
 
 
 ## Dependencies
@@ -41,4 +59,4 @@ graph TD;
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+

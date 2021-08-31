@@ -1,6 +1,7 @@
 import { Component, h, State, Method, Host } from '@stencil/core';
 import { Position } from '../../../../utils/calcPosition';
 
+/** @internal */
 @Component({
     tag: 'es-popper-inner',
     styleUrl: 'es-popper-inner.css',

@@ -20,6 +20,14 @@ import {
     isWorkingDataArray,
 } from './isWorkingData';
 
+/**
+ * Create a "Working Data" store to back a form or set of fields.
+ * Pass an object describing your data "`T`" with each value being one of:
+ * - An inital value (required by default, uses default validation messages)
+ * - a FieldOptions object, describing the field.
+ * - Another WorkingData store
+ * - A WorkingDataArray store, to back an array.
+ */
 export const createWorkingData = <T extends object>(
     options: WorkingDataOptions<T>,
 ): WorkingData<T> => {
@@ -279,9 +287,9 @@ export const createWorkingData = <T extends object>(
             return state.frozen;
         },
         get messages() {
-            return Object.values<ValidationMessages>(
-                messages,
-            ).reduce<ValidationMessages>(
+            return Object.values<ValidationMessages>(messages).reduce<
+                ValidationMessages
+            >(
                 (acc, field) => {
                     acc.error.push(...field.error);
                     acc.warning.push(...field.warning);

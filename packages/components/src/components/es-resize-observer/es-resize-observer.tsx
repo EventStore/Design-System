@@ -1,6 +1,6 @@
 import { Component, Element, Event, EventEmitter } from '@stencil/core';
-import ResizeObserver from 'resize-observer-polyfill';
 
+/** Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions */
 @Component({
     tag: 'es-resize-observer',
     styleUrl: 'es-resize-observer.css',
@@ -8,10 +8,11 @@ import ResizeObserver from 'resize-observer-polyfill';
 })
 export class EsResizeObserver {
     @Element() host!: HTMLElement;
+    /** Triggered when the size of the element changes. */
     @Event() sizeChanged!: EventEmitter<DOMRectReadOnly>;
 
     private observer = new ResizeObserver(([entry]) => {
-        this.sizeChanged.emit(entry.contentRect as DOMRectReadOnly);
+        this.sizeChanged.emit(entry.contentRect);
     });
 
     componentDidLoad() {

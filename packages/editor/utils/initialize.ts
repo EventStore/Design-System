@@ -6,6 +6,12 @@ declare global {
     }
 }
 
+export type { Environment } from 'monaco-editor';
+
+/**
+ * initialize the monaco editor.
+ * By default it will set getWorkerUrl to return `/workers/<name>.worker.js`
+ */
 export const initialize = (
     environment: Environment = {
         getWorkerUrl(_moduleId: any, label: string) {

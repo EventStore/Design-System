@@ -40,12 +40,20 @@ export interface OnChangeHandler<StoreType> {
     ): () => void;
 }
 
+/** An interface for createing subscriptions on the store. */
 export interface Subscription<StoreType> {
+    /** Triggered when an item is deleted from the store. */
     delete?: DeleteEventHandler<StoreType>;
+    /** Triggered when the `dispose` method is called on the store. */
     dispose?: DisposeEventHandler;
+    /** Triggered when an item is read from the store. */
     get?: GetEventHandler<StoreType>;
+    /** Triggered when an item not previously in the store was set. */
     insert?: InsertEventHandler<StoreType>;
+    /** Triggered when the keys of the store where read. For example, the store is iterated over. */
     keys?: KeysEventHandler;
+    /** Triggered when the store is reset. */
     reset?: ResetEventHandler;
+    /** Triggered when an item is set in the store (regardless of if it was previously present or not). */
     set?: SetEventHandler<StoreType>;
 }

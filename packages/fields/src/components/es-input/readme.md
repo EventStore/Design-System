@@ -5,28 +5,100 @@
 <!-- Auto Generated Below -->
 
 
+## Usage
+
+### Example
+
+```tsx
+import { createWorkingData } from '@eventstore/fields';
+
+interface Example {
+    text: string;
+    id: string;
+}
+
+const workingData = createWorkingData<Example>({
+    text: '',
+    id: {
+        initialValue: '',
+        validations: [
+            {
+                validator: (v) => v.length === 12,
+                message: 'Please provide a complete Id',
+            },
+        ],
+    },
+});
+
+const onEnter = () => {
+    workingData.submit((data) => {
+        console.log(data);
+    });
+};
+
+export default () => (
+    <>
+        <es-input
+            label={'Text'}
+            placeholder={'Write some text'}
+            onEnter={onEnter}
+            {...workingData.connect('text')}
+        />
+        <es-input
+            label={'Account Id'}
+            onEnter={onEnter}
+            mask={{
+                mask: '0000-0000-0000',
+                unmask: true,
+                lazy: false,
+                placeholderChar: '_',
+            }}
+            {...workingData.connect('id')}
+        />
+    </>
+);
+```
+
+```css
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+```
+
+
+
 ## Properties
 
-| Property                   | Attribute     | Description | Type                                                                   | Default     |
-| -------------------------- | ------------- | ----------- | ---------------------------------------------------------------------- | ----------- |
-| `disabled`                 | `disabled`    |             | `boolean \| undefined`                                                 | `undefined` |
-| `inputProps`               | --            |             | `undefined \| { [x: string]: any; }`                                   | `undefined` |
-| `invalid`                  | `invalid`     |             | `boolean \| undefined`                                                 | `undefined` |
-| `label` _(required)_       | `label`       |             | `string`                                                               | `undefined` |
-| `mask`                     | --            |             | `MaskOptions \| undefined`                                             | `undefined` |
-| `messages`                 | --            |             | `undefined \| { error: string[]; warning: string[]; info: string[]; }` | `undefined` |
-| `name` _(required)_        | `name`        |             | `string`                                                               | `undefined` |
-| `placeholder` _(required)_ | `placeholder` |             | `string`                                                               | `undefined` |
-| `readonly`                 | `readonly`    |             | `boolean \| undefined`                                                 | `undefined` |
-| `value` _(required)_       | `value`       |             | `string`                                                               | `undefined` |
+| Property                   | Attribute     | Description                                  | Type                                                                   | Default     |
+| -------------------------- | ------------- | -------------------------------------------- | ---------------------------------------------------------------------- | ----------- |
+| `disabled`                 | `disabled`    | If the field is disabled.                    | `boolean \| undefined`                                                 | `undefined` |
+| `inputProps`               | --            | Pass props directly to the input.            | `undefined \| { [x: string]: any; }`                                   | `undefined` |
+| `invalid`                  | `invalid`     | If the field is currently in an error state. | `boolean \| undefined`                                                 | `undefined` |
+| `label` _(required)_       | `label`       | The label of the field.                      | `string`                                                               | `undefined` |
+| `mask`                     | --            | Apply an input mask                          | `MaskOptions \| undefined`                                             | `undefined` |
+| `messages`                 | --            | The validation messages of the field         | `undefined \| { error: string[]; warning: string[]; info: string[]; }` | `undefined` |
+| `name` _(required)_        | `name`        | The name of the field.                       | `string`                                                               | `undefined` |
+| `placeholder` _(required)_ | `placeholder` | The placeholder for the input.               | `string`                                                               | `undefined` |
+| `readonly`                 | `readonly`    | If the field is editable.                    | `boolean \| undefined`                                                 | `undefined` |
+| `value` _(required)_       | `value`       | The current value of the field.              | `string`                                                               | `undefined` |
 
 
 ## Events
 
-| Event         | Description | Type               |
-| ------------- | ----------- | ------------------ |
-| `enter`       |             | `CustomEvent<any>` |
-| `fieldchange` |             | `CustomEvent<any>` |
+| Event         | Description                                              | Type               |
+| ------------- | -------------------------------------------------------- | ------------------ |
+| `enter`       | Emitted on keyup of enter, if no modifier keys are held. | `CustomEvent<any>` |
+| `fieldchange` | Emitted when the value of the field is changed.          | `CustomEvent<any>` |
+
+
+## CSS Custom Properties
+
+| Name                   | Description       |
+| ---------------------- | ----------------- |
+| `--field-grid-columns` | The field layout. |
 
 
 ## Dependencies
@@ -49,4 +121,4 @@ graph TD;
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+
