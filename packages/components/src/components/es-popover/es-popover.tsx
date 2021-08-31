@@ -69,7 +69,7 @@ export class Popover {
     private mutationObserver!: MutationObserver;
     private detachAllowFocus?: ReturnType<typeof allowFocus>;
 
-    connectedCallback() {
+    componentDidLoad() {
         this.assigedNodes = Array.from(this.host.childNodes);
         this.mutationObserver = shadowMutationObserver(
             this.host,

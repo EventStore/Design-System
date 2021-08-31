@@ -11,7 +11,7 @@ export const ObjectTable: FunctionalComponent<{
 const cells: TableCells<JSONOutput.DeclarationReflection> = {
     name: { title: 'Property' },
     value: {
-        title: 'value',
+        title: 'Value',
         cell: ({ data }) => <docs-type someType={data.type!} />,
     },
 };

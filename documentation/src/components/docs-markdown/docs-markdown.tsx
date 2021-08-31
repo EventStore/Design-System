@@ -2,12 +2,8 @@ import { router } from '@eventstore/router';
 import { Component, h, Host, Prop, Element, Watch } from '@stencil/core';
 import markdown from 'markdown-it';
 import anchor from 'markdown-it-anchor';
-import Prism from 'prismjs';
 
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-jsx';
-import 'prismjs/components/prism-typescript';
-import 'prismjs/components/prism-tsx';
+import { hljs } from './highlight';
 
 const parser = markdown().use(anchor);
 
@@ -42,7 +38,7 @@ export class DocsMarkdown {
     componentWillLoad() {
         this.host.innerHTML = parser.render(this.md);
         this.host.querySelectorAll('code').forEach((code) => {
-            Prism.highlightElement(code);
+            hljs.highlightElement(code);
         });
     }
 

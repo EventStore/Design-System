@@ -44,16 +44,12 @@ tbody tr:nth-child(2n + 1) {
     background-color: var(--color-grey-50);
 }
 
-/**
- * prism.js default theme for JavaScript, CSS and HTML
- * Based on dabblet (http://dabblet.com)
- * @author Lea Verou
- */
-
-code[class*='language-'],
-pre[class*='language-'] {
+pre code.hljs {
+    display: block;
     color: var(--code-fg);
-    background: none;
+    background: var(--code-bg);
+    padding: 20px;
+
     text-shadow: 0 1px var(--color-white);
     font-family: var(--font-monospace);
     font-size: 1em;
@@ -75,92 +71,66 @@ pre[class*='language-'] {
     hyphens: none;
 }
 
-/* Code blocks */
-pre[class*='language-'] {
-    padding: 20px;
-    margin: 8px 0;
-    overflow: auto;
-}
-
-:not(pre) > code[class*='language-'],
-pre[class*='language-'] {
+.hljs {
+    color: var(--code-fg);
     background: var(--code-bg);
 }
-
-/* Inline code */
-:not(pre) > code[class*='language-'] {
-    padding: 0.1em;
-    border-radius: 0.3em;
-    white-space: normal;
-}
-
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
+.hljs-comment,
+.hljs-quote {
     color: var(--code-comment);
-}
-
-.token.punctuation {
-    color: var(--code-fg);
-}
-
-.token.namespace {
-    opacity: 0.7;
-}
-
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-    color: var(--code-cyan);
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-    color: var(--code-green);
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-    color: var(--code-orange);
-}
-
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-    color: var(--code-purple);
-}
-
-.token.function,
-.token.class-name {
-    color: var(--code-cyan);
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-    color: var(--code-orange);
-}
-
-.token.important,
-.token.bold {
-    font-weight: bold;
-}
-.token.italic {
     font-style: italic;
 }
-
-.token.entity {
-    cursor: help;
+.hljs-doctag,
+.hljs-formula,
+.hljs-keyword {
+    color: var(--code-purple);
+}
+.hljs-deletion,
+.hljs-name,
+.hljs-section,
+.hljs-selector-tag,
+.hljs-subst {
+    color: var(--code-red);
+}
+.hljs-literal {
+    color: var(--code-cyan);
+}
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string,
+.hljs-regexp,
+.hljs-string {
+    color: var(--code-green);
+}
+.hljs-attr,
+.hljs-number,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-pseudo,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable {
+    color: var(--code-brown);
+}
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-symbol,
+.hljs-title {
+    color: var(--code-blue);
+}
+.hljs-built_in,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+    color: var(--code-orange);
+}
+.hljs-emphasis {
+    font-style: italic;
+}
+.hljs-strong {
+    font-weight: 700;
+}
+.hljs-link {
+    text-decoration: underline;
 }

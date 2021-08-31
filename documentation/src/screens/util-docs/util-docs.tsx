@@ -58,7 +58,7 @@ export class UtilDocs {
                     ([uname, usage]) => (
                         <docs-usage
                             key={uname}
-                            identifier={`${name}-${uname}`}
+                            identifier={`${this.doc.name}-${uname}`}
                             usage={usage}
                         />
                     ),
