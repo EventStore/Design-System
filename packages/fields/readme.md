@@ -1,3 +1,43 @@
 # @eventstore/fields
 
-Field components for the Event Store design system
+Form field web components for the Event Store design system.
+
+The components are designed to be used in conjuction with a `Working Data` backing store, to provide validation and data orchestration, but can be used independantly by directly listening to the `fieldchange` events, and passing validation messages via the `message` prop.
+
+## Install
+
+### Log in to github packages
+
+```sh
+$ npm login --registry=https://npm.pkg.github.com
+> Username: USERNAME
+> Password: TOKEN
+> Email: PUBLIC-EMAIL-ADDRESS
+```
+
+`TOKEN` can be obtained from https://github.com/settings/tokens and requires `repo` and `read:packages` permissions
+
+### Add to your project
+
+```sh
+yarn add @eventstore/fields
+```
+
+Also, include the peer dependencies:
+
+```sh
+yarn add @eventstore/components @eventstore/stores @eventstore/utils
+```
+
+## Usage within a stencil project
+
+In your `globalScript` file, add the imports:
+
+```ts
+// Add the core web components to the global pool
+import '@eventstore/components';
+// Add the field web components to the global pool
+import '@eventstore/fields';
+```
+
+Then you can use the element anywhere in your JSX, html, templates etc.
