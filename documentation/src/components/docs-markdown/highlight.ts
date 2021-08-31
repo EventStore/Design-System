@@ -9,6 +9,7 @@ hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('css', css);
 hljs.registerLanguage('shell', shell);
+hljs.registerLanguage('sh', shell);
 hljs.registerLanguage('json', json);
 
 export { hljs };

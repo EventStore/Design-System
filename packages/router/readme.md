@@ -1,3 +1,36 @@
 # @eventstore/router
 
-Stencil router using only Functional Components
+Stencil router using only Functional Components.
+
+## Install
+
+### Log in to github packages
+
+```sh
+$ npm login --registry=https://npm.pkg.github.com
+> Username: USERNAME
+> Password: TOKEN
+> Email: PUBLIC-EMAIL-ADDRESS
+```
+
+`TOKEN` can be obtained from https://github.com/settings/tokens and requires `repo` and `read:packages` permissions
+
+### Add to your project
+
+```sh
+yarn add @eventstore/router
+```
+
+Also, include the peer dependencies:
+
+```sh
+yarn add @eventstore/utils
+```
+
+## Usage within a stencil project
+
+Import the functional components directly, and use them within your components:
+
+```ts
+import { Link } from '@eventstore/router';
+```
