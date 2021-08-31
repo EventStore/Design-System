@@ -6,6 +6,7 @@ import {
     Event,
     Watch,
     EventEmitter,
+    Element,
 } from '@stencil/core';
 import { searchParam } from '@eventstore/router';
 import type { Tab } from './types';
@@ -24,6 +25,8 @@ import type { Tab } from './types';
     shadow: true,
 })
 export class EsTabs {
+    @Element() host!: HTMLEsTabsElement;
+
     /** A list of tabs. */
     @Prop() tabs!: Tab[];
     /** Reflect the active tab to a search param of name. Set to false to disable. */
@@ -53,6 +56,15 @@ export class EsTabs {
     }
 
     @Watch('active') updateActive(active?: string) {
+        // workaround for https://github.com/ionic-team/stencil/issues/2982
+        if (active) {
+            const slot = this.host.shadowRoot?.querySelector('slot');
+
+            if (slot) {
+                slot.name = active;
+            }
+        }
+
         this.searchParam?.set(active);
         this.tabChange.emit(active);
     }
