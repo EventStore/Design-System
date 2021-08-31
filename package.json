@@ -17,7 +17,7 @@
         "docs:generate": "lerna run docs",
         "docs:build": "yarn workspace @eventstore/docs run build",
         "docs:dev": "yarn workspace @eventstore/docs run dev",
-        "test": "lerna run test",
+        "test": "lerna run test --ignore @eventstore/docs",
         "lint": "lerna run lint",
         "bump": "lerna version --no-push",
         "release": "run-s release:*",

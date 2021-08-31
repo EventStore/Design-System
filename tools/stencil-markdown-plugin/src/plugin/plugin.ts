@@ -33,12 +33,14 @@ interface JSXNode extends Node {
  * Select nodes from the tree with `test`  (for example: 'comment' or 'jsx').
  * Directly modify a node in the visitor, or return `skip` to skip the node.
  */
-export type Visitor = [
-    test: string,
-    visitor: (node: JSXNode, index: number, parent?: Node) => void | 'skip',
-];
+export interface Visitor {
+    test: string;
+    visitor: (node: JSXNode, index: number, parent?: Node) => void | 'skip';
+}
 
-const pluginFromVisitor = ([test, visitor]: Visitor) => () => (tree: Node) => {
+const pluginFromVisitor = ({ test, visitor }: Visitor) => () => (
+    tree: Node,
+) => {
     visit<JSXNode>(tree, test, (node, index, parent) => {
         const reply = visitor(node, index, parent);
         if (parent && reply === 'skip') {
