@@ -12,8 +12,10 @@
     ],
     "prettier": "@eventstore/configs/prettier",
     "scripts": {
-        "build": "lerna run build",
+        "build": "lerna run build --ignore @eventstore/docs --ignore *-demo",
+        "docs": "run-s docs:generate docs:build",
         "docs:generate": "lerna run docs",
+        "docs:build": "yarn workspace @eventstore/docs run build",
         "docs:dev": "yarn workspace @eventstore/docs run dev",
         "test": "lerna run test",
         "lint": "lerna run lint",
