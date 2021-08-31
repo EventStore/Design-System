@@ -1,6 +1,6 @@
 import { createStore } from './createStore';
 
-describe.each<[label: string, method: 'reset' | 'dispose']>([
+describe.each<[string, 'reset' | 'dispose']>([
     ['reset', 'reset'],
     ['dispose calls reset', 'dispose'],
 ])('%s', (_, methodName) => {

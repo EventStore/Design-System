@@ -287,9 +287,9 @@ export const createWorkingData = <T extends object>(
             return state.frozen;
         },
         get messages() {
-            return Object.values<ValidationMessages>(
-                messages,
-            ).reduce<ValidationMessages>(
+            return Object.values<ValidationMessages>(messages).reduce<
+                ValidationMessages
+            >(
                 (acc, field) => {
                     acc.error.push(...field.error);
                     acc.warning.push(...field.warning);
