@@ -10,6 +10,7 @@ import {
 
 export type Status = 'default' | 'thinking' | 'copied' | 'failed';
 
+/** Copies the text passed as a child when clicked. */
 @Component({
     tag: 'es-copy',
     styleUrl: 'es-copy.css',
@@ -22,6 +23,8 @@ export class EsCopy {
     @Listen('click') onClick() {
         this.copyText();
     }
+
+    /** Manually triggers the copy of the inner text. */
     @Method() async copy() {
         await this.copyText();
     }

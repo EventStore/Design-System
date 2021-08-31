@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+:host {
+    display: flex;
+    min-height: 500px;
+    position: relative;
+}
+
+:host(.no-preview) {
+    & es-tabs {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.building {
+    width: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-grey-600);
+}
+
+iframe {
+    width: 50%;
+    border: 0;
+
+    &.hidden {
+        visibility: hidden;
+    }
+}
+
+es-tabs {
+    width: 50%;
+    margin-left: 10px;
+}
+
+es-tabs::part(panel) {
+    padding: 10px;
+}
+
+es-editor {
+    --editor-height: 100%;
+}

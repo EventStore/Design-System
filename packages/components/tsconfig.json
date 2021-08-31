@@ -14,6 +14,11 @@
         "jsx": "react",
         "jsxFactory": "h"
     },
+    "typedocOptions": {
+        "name": "@eventstore/components",
+        "entryPoints": ["./src/index.ts"],
+        "exclude": ["./src/components.d.ts"]
+    },
     "include": ["src", "types/jsx.d.ts"],
     "exclude": ["node_modules"]
 }

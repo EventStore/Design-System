@@ -1,3 +1,8 @@
+/**
+ * @prop --badge-background-color: Background color of the badge. Can be set to a default via the color prop.
+ * @prop --badge-foreground-color: Foreground (text) color of the badge. Can be set to a default via the color prop.
+ */
+
 :host {
     display: block;
     position: relative;

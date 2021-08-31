@@ -7,7 +7,7 @@ Imports a palette into your css by convert a js palette into css vars.
 ### Create a palette
 
 ```ts
-import { Palette } from '@eventstore/postcss-palette-plugin/types`;
+import { Palette } from '@eventstore/postcss-palette-plugin/types';
 
 export const palette: Palette = {
     primary: {
@@ -39,14 +39,14 @@ A simple key value pair:
 
 ```js
 {
-    orangered: 'hsl(16, 100%, 50%);';
+    orangered: 'hsl(16, 100%, 50%)';
 }
 ```
 
 becomes:
 
 ```css
---orangered: 'hsl(16, 100%, 50%);';
+--orangered: hsl(16, 100%, 50%);
 ```
 
 **Color Set**
@@ -68,12 +68,12 @@ A color set provides basic shades of colors, and a contrast color. All keys are 
 becomes:
 
 ```css
---color-primary-extraLight: '#feedd1',
---color-primary-light: '#ea7b04',
---color-primary: '#f49608',
---color-primary-dark: '#f7b54e',
---color-primary-extraDark: '#711e00',
---color-primary-contrast: 'white',
+--color-primary-extraLight: #feedd1;
+--color-primary-light: #ea7b04;
+--color-primary: #f49608;
+--color-primary-dark: #f7b54e;
+--color-primary-extraDark: #711e00;
+--color-primary-contrast: white;
 ```
 
 **Color Range**
@@ -99,16 +99,16 @@ A color range provides numbered shades of colors.
 becomes:
 
 ```css
-    --color-grey-50: '#fafafa',
-    --color-grey-100: '#f6f6f6',
-    --color-grey-200: '#eeeeee',
-    --color-grey-300: '#e0e0e0',
-    --color-grey-400: '#cccccc',
-    --color-grey-500: '#9e9e9e',
-    --color-grey-600: '#757575',
-    --color-grey-700: '#616161',
-    --color-grey-800: '#424242',
-    --color-grey-900: '#212121',
+--color-grey-50: #fafafa;
+--color-grey-100: #f6f6f6;
+--color-grey-200: #eeeeee;
+--color-grey-300: #e0e0e0;
+--color-grey-400: #cccccc;
+--color-grey-500: #9e9e9e;
+--color-grey-600: #757575;
+--color-grey-700: #616161;
+--color-grey-800: #424242;
+--color-grey-900: #212121;
 ```
 
 ### Use the plugin in your postcss config

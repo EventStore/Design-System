@@ -3,15 +3,23 @@ import { RouteRenderProps, MatchResults } from '../types';
 import router from '../utils/internalRouter';
 import { cullDecendants } from '../utils/createCullableNode';
 
-export type RouteRender = (props: RouteRenderProps) => VNode | VNode[];
-
+/** @props */
 export interface RouteProps {
+    /** The url or urls to match against. You can use express style paths, with the resulting matches being passed to `routeRender`. */
     url?: string | string[];
+    /** If the url should match exactly, or allow decendant matching. */
     exact?: boolean;
-    routeRender?: RouteRender;
+    /** Callback to render the route. */
+    routeRender?: (props: RouteRenderProps) => VNode | VNode[];
 }
 
 export const ROUTE_DELIMITER = '\n'.repeat(3);
+
+/**
+ * Conditionaly render if passed URL matches current location.
+ * It is possible to pass the components to render as children, or via `routeRender`, but it is preferable to use `routeRender` for faster computation.
+ * @usage ./Route.usage.md
+ */
 
 export const Route: FunctionalComponent<RouteProps> = (
     { url, exact, routeRender },

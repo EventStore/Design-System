@@ -86,6 +86,9 @@ const lastFocusable = (els: HTMLElement[], skip: string) => {
     return firstFocusable(els.reverse(), skip);
 };
 
+/**
+ * Focuses first focusable decendant of passed HTMLElement if focus is not already within element
+ */
 export const delegateFocus = (el: HTMLElement, focusOptions?: FocusOptions) => {
     const els = orderedFocusableElements(el);
     const active = activeElement();
@@ -93,11 +96,17 @@ export const delegateFocus = (el: HTMLElement, focusOptions?: FocusOptions) => {
     firstFocusable(els, delegationSkips)?.focus(focusOptions);
 };
 
+/**
+ * Focuses first focusable decendant of passed HTMLElement
+ */
 export const focusFirst = (el: HTMLElement, focusOptions?: FocusOptions) => {
     const els = orderedFocusableElements(el);
     firstFocusable(els, keyboardSkips)?.focus(focusOptions);
 };
 
+/**
+ * Focuses last focusable decendant of passed HTMLElement
+ */
 export const focusLast = (el: HTMLElement, focusOptions?: FocusOptions) => {
     const els = orderedFocusableElements(el);
     lastFocusable(els, keyboardSkips)?.focus(focusOptions);
@@ -128,6 +137,9 @@ const stopPropagation = (event: FocusEvent) => {
     event.stopPropagation();
 };
 
+/**
+ * Allow focus within passed HTMLElement, even if outside of the focus trap.
+ */
 export const allowFocus = (element: HTMLElement) => {
     element.addEventListener('focusin', stopPropagation);
 
@@ -136,6 +148,9 @@ export const allowFocus = (element: HTMLElement) => {
     };
 };
 
+/**
+ * traps focus within passed HTMLElement. Returns a function to release focus trap.
+ */
 export const trapFocus = (trap: HTMLElement, focusOptions?: FocusOptions) => {
     const previousFocus = activeElement();
     delegateFocus(trap, focusOptions);

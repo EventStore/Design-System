@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+:host {
+    display: contents;
+}
+
+pre {
+    background-color: var(--color-grey-200);
+    padding: 5px;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.depreciated {
+    text-decoration: line-through;
+}
+
+.extras {
+    align-items: flex-end;
+
+    & es-icon {
+        margin-left: 10px;
+    }
+}

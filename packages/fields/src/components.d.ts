@@ -6,113 +6,363 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ValidationMessages, WorkingDataArray } from "./types";
-import { MaskOptions } from "./components/es-input/es-input";
+import { MaskOptions } from "./components/es-input/types";
 import { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
 import { VNode } from "@stencil/core";
-import { RadioCardGroupOption, RenderCard } from "./components/es-radio-card-group/es-radio-card-group";
+import { RadioCardGroupOption } from "./components/es-radio-card-group/types";
+import { RenderCard } from "./components/es-radio-card-group/es-radio-card-group";
 import { RenderSelectValue } from "./components/es-select/es-select";
 export namespace Components {
     interface EsCheckbox {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
         "value": boolean;
     }
     interface EsInput {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
         "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * Apply an input mask
+         */
         "mask"?: MaskOptions;
+        /**
+          * The validation messages of the field
+         */
         "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * The placeholder for the input.
+         */
         "placeholder": string;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
         "value": string;
     }
     interface EsInputList {
+        /**
+          * Text for the add icon button.
+         */
         "additionText": string;
+        /**
+          * The backing WorkingDataArray
+         */
         "data": WorkingDataArray<string>;
+        /**
+          * If the input is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * Display a placeholder in the input.
+         */
         "placeholder": string;
     }
     interface EsListCreator {
+        /**
+          * The backing WorkingDataArray
+         */
         "data": WorkingDataArray<string>;
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * The current value of the field.
+         */
         "icon": string;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * A list of options to choose from.
+         */
         "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
         "placeholder": string;
+        /**
+          * Render the list item.
+         */
         "renderItem": ({ name }: TypeaheadOption) => VNode;
     }
     interface EsMegaInput {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
         "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * The validation messages of the field
+         */
         "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * The placeholder for the input.
+         */
         "placeholder": string;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
         "value": string;
     }
     interface EsNumberInput {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
         "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * The validation messages of the field
+         */
         "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * The placeholder for the input.
+         */
         "placeholder"?: string;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * Display a unit beside the input.
+         */
         "unit"?: string;
+        /**
+          * The current value of the field.
+         */
         "value": string;
     }
     interface EsRadioCardGroup {
+        /**
+          * Group the cards by a key.
+         */
         "groupBy"?: string;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid": boolean;
+        /**
+          * The id of the component that labels this input. This input doesn't bring its own label, so must be labeled externally and referenced here.
+         */
         "labelledby": string;
+        /**
+          * The validation messages of the field
+         */
         "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * The options to be displayed and chosen from.
+         */
         "options": RadioCardGroupOption[];
+        /**
+          * Overwrite the default card renderer
+         */
         "renderCard": RenderCard<any>;
+        /**
+          * The current value of the field.
+         */
         "value": string | null;
     }
     interface EsSelect {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * The validation messages of the field
+         */
         "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * Pass a custom search filter function
+         */
         "optionFilter"?: OptionFilter;
+        /**
+          * A list of options to choose from.
+         */
         "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
         "placeholder"?: string;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * Overwrite the default option renderer.
+         */
         "renderOption"?: RenderTypeaheadOption;
+        /**
+          * Overwrite the default value renderer.
+         */
         "renderValue": RenderSelectValue;
+        /**
+          * The current value of the field.
+         */
         "value": string | null;
     }
     interface EsSwitch {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * Allows you to pause interaction with the input while an operation completes.
+         */
         "setPending": (pending: boolean) => Promise<void>;
+        /**
+          * The current value of the field.
+         */
         "value": boolean;
     }
     interface EsTextarea {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
         "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * The validation messages of the field
+         */
         "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * The placeholder for the input.
+         */
         "placeholder": string;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
         "value": string;
     }
     interface EsTypeahead {
@@ -128,6 +378,9 @@ export namespace Components {
         "value": string[];
     }
     interface EsValidationMessages {
+        /**
+          * The messages to display.
+         */
         "messages"?: Partial<ValidationMessages>;
     }
 }
@@ -221,118 +474,395 @@ declare global {
 }
 declare namespace LocalJSX {
     interface EsCheckbox {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The name of the field.
+         */
         "name": string;
-        "onEnter"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the value of the field is changed.
+         */
         "onFieldchange"?: (event: CustomEvent<any>) => void;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
         "value": boolean;
     }
     interface EsInput {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
         "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * Apply an input mask
+         */
         "mask"?: MaskOptions;
+        /**
+          * The validation messages of the field
+         */
         "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * Emitted on keyup of enter, if no modifier keys are held.
+         */
         "onEnter"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the value of the field is changed.
+         */
         "onFieldchange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The placeholder for the input.
+         */
         "placeholder": string;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
         "value": string;
     }
     interface EsInputList {
+        /**
+          * Text for the add icon button.
+         */
         "additionText"?: string;
+        /**
+          * The backing WorkingDataArray
+         */
         "data": WorkingDataArray<string>;
+        /**
+          * If the input is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * Display a placeholder in the input.
+         */
         "placeholder": string;
     }
     interface EsListCreator {
+        /**
+          * The backing WorkingDataArray
+         */
         "data": WorkingDataArray<string>;
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * The current value of the field.
+         */
         "icon": string;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
         "onFieldchange"?: (event: CustomEvent<any>) => void;
+        /**
+          * A list of options to choose from.
+         */
         "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
         "placeholder": string;
+        /**
+          * Render the list item.
+         */
         "renderItem"?: ({ name }: TypeaheadOption) => VNode;
     }
     interface EsMegaInput {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
         "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * The validation messages of the field
+         */
         "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
         "onFieldchange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The placeholder for the input.
+         */
         "placeholder": string;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
         "value": string;
     }
     interface EsNumberInput {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
         "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * The validation messages of the field
+         */
         "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * Emitted on keyup of enter, if no modifier keys are held.
+         */
         "onEnter"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the value of the field is changed.
+         */
         "onFieldchange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The placeholder for the input.
+         */
         "placeholder"?: string;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * Display a unit beside the input.
+         */
         "unit"?: string;
+        /**
+          * The current value of the field.
+         */
         "value": string;
     }
     interface EsRadioCardGroup {
+        /**
+          * Group the cards by a key.
+         */
         "groupBy"?: string;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The id of the component that labels this input. This input doesn't bring its own label, so must be labeled externally and referenced here.
+         */
         "labelledby": string;
+        /**
+          * The validation messages of the field
+         */
         "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
         "onFieldchange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The options to be displayed and chosen from.
+         */
         "options": RadioCardGroupOption[];
+        /**
+          * Overwrite the default card renderer
+         */
         "renderCard"?: RenderCard<any>;
+        /**
+          * The current value of the field.
+         */
         "value": string | null;
     }
     interface EsSelect {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * The validation messages of the field
+         */
         "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
         "onFieldchange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Pass a custom search filter function
+         */
         "optionFilter"?: OptionFilter;
+        /**
+          * A list of options to choose from.
+         */
         "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
         "placeholder"?: string;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * Overwrite the default option renderer.
+         */
         "renderOption"?: RenderTypeaheadOption;
+        /**
+          * Overwrite the default value renderer.
+         */
         "renderValue"?: RenderSelectValue;
+        /**
+          * The current value of the field.
+         */
         "value": string | null;
     }
     interface EsSwitch {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The name of the field.
+         */
         "name": string;
-        "onEnter"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the value of the field is changed.
+         */
         "onFieldchange"?: (event: CustomEvent<any>) => void;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
         "value": boolean;
     }
     interface EsTextarea {
+        /**
+          * If the field is disabled.
+         */
         "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
         "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently in an error state.
+         */
         "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
         "label": string;
+        /**
+          * The validation messages of the field
+         */
         "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
         "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
         "onFieldchange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The placeholder for the input.
+         */
         "placeholder": string;
+        /**
+          * If the field is editable.
+         */
         "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
         "value": string;
     }
     interface EsTypeahead {
@@ -350,6 +880,9 @@ declare namespace LocalJSX {
         "value": string[];
     }
     interface EsValidationMessages {
+        /**
+          * The messages to display.
+         */
         "messages"?: Partial<ValidationMessages>;
     }
     interface IntrinsicElements {

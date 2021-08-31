@@ -1,7 +1,8 @@
 import { Component, h, Prop, Element, Host } from '@stencil/core';
 
-import { WorkingDataArray } from '../../types';
+import type { WorkingDataArray } from '../../types';
 
+/** A list creator input. */
 @Component({
     tag: 'es-input-list',
     styleUrl: 'es-input-list.css',
@@ -9,17 +10,23 @@ import { WorkingDataArray } from '../../types';
 })
 export class InputList {
     @Element() host!: HTMLEsListCreatorElement;
-
+    /** The label of the field. */
     @Prop() label!: string;
+    /** Display a placeholder in the input. */
     @Prop() placeholder!: string;
+    /** If the input is disabled. */
     @Prop() disabled?: boolean;
+    /** Text for the add icon button. */
     @Prop() additionText: string = 'Add item';
 
+    /** The name of the field. */
     @Prop() name!: string;
+    /** The backing WorkingDataArray */
     @Prop() data!: WorkingDataArray<string>;
 
     renderInput = (v: string, i: number) => (
         <es-input
+            key={i}
             label={this.label}
             placeholder={this.placeholder}
             disabled={this.disabled}

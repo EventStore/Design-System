@@ -1,8 +1,12 @@
 import { VNode, FunctionalComponent } from '@stencil/core';
 
+/** An option to be selected. */
 export interface TypeaheadOption {
+    /** The display name of the option. */
     name: string;
+    /** The string to be used as a value. */
     value: string;
+    /** Extra data on the option. */
     [key: string]: any;
 }
 

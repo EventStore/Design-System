@@ -22,13 +22,13 @@
 
 ## Methods
 
-### `close() => Promise<unknown>`
+### `close() => Promise<void>`
 
 
 
 #### Returns
 
-Type: `Promise<unknown>`
+Type: `Promise<void>`
 
 
 
@@ -58,4 +58,4 @@ graph TD;
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+

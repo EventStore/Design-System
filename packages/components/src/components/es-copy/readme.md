@@ -5,11 +5,31 @@
 <!-- Auto Generated Below -->
 
 
+## Usage
+
+### Example
+
+```tsx
+export default () => (
+    <es-copy>{'Click to copy this text to your clipboard.'}</es-copy>
+);
+```
+
+```css
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+```
+
+
+
 ## Methods
 
 ### `copy() => Promise<void>`
 
-
+Manually triggers the copy of the inner text.
 
 #### Returns
 
@@ -33,4 +53,4 @@ graph TD;
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+

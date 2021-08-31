@@ -15,6 +15,11 @@ import { FieldChangeEvent, WorkingDataArray } from '../../types';
 import { RenderTypeaheadField, TypeaheadOption } from '../es-typeahead/types';
 import { Field } from '../Field/Field';
 
+/**
+ * A list creator input.
+ * @part value-list - Target the ul containing the list items.
+ * @part value-list-item - Target the li containing the option,
+ **/
 @Component({
     tag: 'es-list-creator',
     styleUrl: 'es-list-creator.css',
@@ -22,17 +27,25 @@ import { Field } from '../Field/Field';
 })
 export class ListCreator {
     @Element() host!: HTMLEsListCreatorElement;
+
+    /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter;
 
+    /** The label of the field. */
     @Prop() label!: string;
+    /** The placeholder for the input. */
     @Prop() placeholder!: string;
+    /** If the field is disabled. */
     @Prop() disabled?: boolean;
+    /** The current value of the field. */
     @Prop() icon!: string;
+    /** A list of options to choose from. */
     @Prop() options!: TypeaheadOption[];
-
+    /** The name of the field. */
     @Prop() name!: string;
+    /** The backing WorkingDataArray */
     @Prop() data!: WorkingDataArray<string>;
-
+    /** Render the list item. */
     @Prop() renderItem = ({ name }: TypeaheadOption): VNode => (
         <input readonly class={'input'} value={name} tabindex={-1} />
     );

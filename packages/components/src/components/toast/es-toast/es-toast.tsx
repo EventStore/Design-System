@@ -7,8 +7,9 @@ import {
     State,
     Method,
 } from '@stencil/core';
-import { Toast } from '../types';
+import { ToastLevel, Toast } from '../types';
 
+/** @internal */
 @Component({
     tag: 'es-toast',
     styleUrl: 'es-toast.css',
@@ -17,14 +18,14 @@ import { Toast } from '../types';
 export class EsToast {
     @Element() host!: HTMLEsToastElement;
 
-    @Prop() level!: Toast['level'];
+    @Prop() level!: ToastLevel;
     @Prop() count!: Toast['count'];
     @Prop() icon!: Toast['icon'];
 
     @State() transitionState: string = 'mounting';
 
     @Method() async close() {
-        return new Promise((resolve) => {
+        return new Promise<void>((resolve) => {
             const hasLeft = () => {
                 this.host.removeEventListener('transitionend', hasLeft);
                 resolve();

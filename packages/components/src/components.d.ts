@@ -8,106 +8,261 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordianSection } from "./components/es-accordian/types";
 import { VNode } from "@stencil/core";
 import { BadgeColor, BadgeVariant } from "./components/es-badge/es-badge";
-import { Crumb } from "./components/es-breadcrumb/es-breadcrumb";
 import { ButtonColor, ButtonVariant } from "./components/buttons/types";
 import { EsCalloutVariant } from "./components/es-callout/es-callout";
 import { CounterVariant } from "./components/es-counter/es-counter";
 import { AttachmentX, AttachmentY, Constrain, Position, PositionX, PositionY } from "./utils/calcPosition";
 import { Checkpoint } from "./components/es-progression/es-progression";
 import { Status } from "./components/es-status/es-status";
+import { RawRow, RowData } from "./components/es-table/es-table";
 import { TableCells } from "./components/es-table/types";
 import { Tab } from "./components/es-tabs/types";
-import { Bread, Toast } from "./components/toast/types";
+import { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
 import { WizardPage } from "./components/es-wizard/types";
 export namespace Components {
     interface EsAccordian {
+        /**
+          * An array of sections to display.
+         */
         "sections": AccordianSection[];
+        /**
+          * Display numbered counters beside each title.
+         */
         "steps": boolean;
     }
     interface EsBackdrop {
-        "close": () => Promise<unknown>;
+        "close": () => Promise<void>;
         "renderNode": (node: VNode | null) => Promise<void>;
         "showBackdrop": boolean;
     }
     interface EsBadge {
+        /**
+          * Choose the color variant of the badge
+         */
         "color": BadgeColor;
+        /**
+          * What number to display in the counter (or if the dot should display)
+         */
         "count": number;
+        /**
+          * Show the dot and counter even if the count 0 (or negative)
+         */
         "showZero": boolean;
+        /**
+          * The base size (in px) of the counter (has no effect on the dot)
+         */
         "size"?: number;
+        /**
+          * Select the display variant of the badge
+         */
         "variant": BadgeVariant;
     }
-    interface EsBreadcrumb {
-        "crumbs": Crumb[];
-        "noValidate": boolean;
-    }
     interface EsButton {
+        /**
+          * Which color pair the button should use.
+         */
         "color": ButtonColor;
+        /**
+          * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
+         */
         "disabled"?: boolean;
+        /**
+          * The form element to associate the button with (it's form owner).
+         */
         "form"?: string;
+        /**
+          * The default behavior of the button.
+         */
         "type": string;
+        /**
+          * Which styling variant to use.
+         */
         "variant": ButtonVariant;
     }
     interface EsButtonLink {
-        "anchorClass": string;
+        /**
+          * Class for the contained anchor element
+         */
+        "anchorClass"?: string;
+        /**
+          * Id for the contained anchor element
+         */
         "anchorId"?: string;
+        /**
+          * Role for the contained anchor element
+         */
         "anchorRole"?: string;
+        /**
+          * Tab Index for the contained anchor element
+         */
         "anchorTabIndex"?: string;
+        /**
+          * Title for the contained anchor element
+         */
         "anchorTitle"?: string;
+        /**
+          * Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element.
+         */
         "ariaHaspopup"?: string;
+        /**
+          * Fefines a string value that labels the current element.
+         */
         "ariaLabel"?: string;
+        /**
+          * Defines an element's number or position in the current set of listitems or treeitems.
+         */
         "ariaPosinset"?: string;
+        /**
+          * Defines the number of items in the current set of listitems or treeitems.
+         */
         "ariaSetsize"?: number;
+        /**
+          * Which color pair the button should use.
+         */
         "color": ButtonColor;
+        /**
+          * If the link is disabled. Prevents the user from interacting with the link: it cannot be pressed or focused.
+         */
         "disabled"?: boolean;
+        /**
+          * If the button should navigate within the router context, or force a refresh.
+         */
         "forceRefresh"?: boolean;
+        /**
+          * Target for link (eg: target="_blank")
+         */
         "target"?: string;
+        /**
+          * Where the button should link to.
+         */
         "url"?: string;
+        /**
+          * Which styling variant to use
+         */
         "variant": ButtonVariant;
     }
     interface EsCallout {
+        /**
+          * Heading text.
+         */
         "heading": string;
+        /**
+          * Override the variant icon.
+         */
         "icon"?: string;
+        /**
+          * Which color set to use.
+         */
         "variant": EsCalloutVariant;
     }
     interface EsCopy {
+        /**
+          * Manually triggers the copy of the inner text.
+         */
         "copy": () => Promise<void>;
     }
     interface EsCounter {
+        /**
+          * The number to display
+         */
         "count": number;
+        /**
+          * The height of the counter that the rest of the dimensions scale from
+         */
         "size": number;
+        /**
+          * The display style of the counter.
+         */
         "variant": CounterVariant;
     }
     interface EsIcon {
+        /**
+          * Rotate the icon to a speciied angle.
+         */
         "angle": number;
+        /**
+          * Which icon to display.
+         */
         "icon": string;
+        /**
+          * The hight and width to scale the icon to.
+         */
         "size": number;
+        /**
+          * Apply a spin animation.
+         */
         "spin"?: boolean;
+        /**
+          * When spinning, should it spin clockwise or anticlockwise.
+         */
         "spinDirection": 'clockwise' | 'antiClockwise';
+        /**
+          * Provides a promise that resolves at the end of a single spin, if the icon is spinning.
+         */
         "spinEnd": () => Promise<void>;
     }
-    interface EsLogo {
-        "height": number;
-        "width": number;
-    }
     interface EsModal {
+        /**
+          * If the modal should have a footer.
+         */
         "footer": boolean;
+        /**
+          * If the modal should have a header.
+         */
         "header": boolean;
     }
-    interface EsPageTitle {
-    }
     interface EsPopover {
+        /**
+          * Pass an element to attach the popover to. (Defaults to the parent element.)
+         */
         "attachTo"?: HTMLElement;
+        /**
+          * The Y axis attachment location.
+         */
         "attachmentX": AttachmentX;
+        /**
+          * The Y axis attachment location.
+         */
         "attachmentY": AttachmentY;
+        /**
+          * If the popover should overlay a backdrop, to prevent external clicks.
+         */
         "backdrop": boolean;
+        /**
+          * Constrain the size of the popover to the size of the attachment node.
+         */
         "constrain": Constrain;
+        /**
+          * The offset the X axis in pixels.
+         */
         "offsetX": number;
+        /**
+          * The offset the Y axis in pixels.
+         */
         "offsetY": number;
+        /**
+          * Toggles if the popover is open or not.
+         */
         "open": boolean;
+        /**
+          * Class name for the popper
+         */
         "popperClass"?: string;
+        /**
+          * The X axis positioning location.
+         */
         "positionX": PositionX;
+        /**
+          * The Y axis positioning location.
+         */
         "positionY": PositionY;
+        /**
+          * A query selecter to select the element to portal the popper to.
+         */
         "target": string;
+        /**
+          * If the popover should trap focus within, and return focus on close.
+         */
         "trapFocus": boolean;
     }
     interface EsPopper {
@@ -119,14 +274,32 @@ export namespace Components {
     }
     interface EsPortal {
         "attachElement": () => Promise<void>;
+        /**
+          * If the portal should overlay a backdrop, to prevent external clicks.
+         */
         "backdrop": boolean;
         "detatchElement": () => Promise<void>;
+        /**
+          * The element to render.
+         */
         "element": VNode;
+        /**
+          * If the element is portaled or not.
+         */
         "open": boolean;
+        /**
+          * A query selector to select the location to portal to.
+         */
         "target": string;
     }
     interface EsProgression {
+        /**
+          * A list of checkpoints to display.
+         */
         "checkpoints": Checkpoint[];
+        /**
+          * The current active location.
+         */
         "location": string;
     }
     interface EsResizeObserver {
@@ -135,68 +308,230 @@ export namespace Components {
         "status": Status;
     }
     interface EsTable {
-        "cells": TableCells<any>;
+        /**
+          * A record of table cell definitions.
+         */
+        "cells": TableCells<RowData>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
         "columns"?: string[];
-        "getCellData"?: (key: string) => any;
+        /**
+          * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
+         */
+        "getCellData": <T = RawRow>(key: T) => RowData;
+        /**
+          * Do not render header.
+         */
         "headless": boolean;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "identifier": string;
-        "linkRowTo"?: (row: any) => string;
-        "renderExpansion": (key: string) => VNode | null;
+        /**
+          * A function to calculate a href from the cell data.
+         */
+        "linkRowTo"?: (row: RowData) => string;
+        /**
+          * Allows rendering a node after the row.
+         */
+        "renderExpansion": (key: RawRow) => VNode | null;
+        /**
+          * A function to calculate the class or classes of the row from the cellData.
+         */
         "rowClass": (
-        row: any,
+        row: RowData,
     ) => Record<string, boolean> | string | undefined;
+        /**
+          * If rows should be allowed to take focus
+         */
         "rowTakesFocus"?: boolean;
-        "rows": string[];
+        /**
+          * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
+         */
+        "rows": RawRow[];
     }
     interface EsTableDetail {
+        /**
+          * A record of table cell definitions.
+         */
         "cells": TableCells<any>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
         "columns"?: Array<string>;
+        /**
+          * The data to render.
+         */
         "data": any;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "identifier": string;
     }
     interface EsTableDetailHeader {
+        /**
+          * Which cell to place in the top right as a list of actions.
+         */
         "actionsCell": string;
+        /**
+          * A record of table cell definitions.
+         */
         "cells": TableCells<any>;
+        /**
+          * The data to render.
+         */
         "data": any;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "identifier": string;
+        /**
+          * The key of the title in the data
+         */
         "titleKey": string;
     }
     interface EsTableNested {
+        /**
+          * A path to a the currently active row, to auto expand its parent and show it as selected.
+         */
         "activePath"?: string[];
+        /**
+          * Function to decide if a row can take expand, to show a nested table.
+         */
         "canExpand": (key: string, data: any) => boolean;
+        /**
+          * A record of table cell definitions.Some built in cells are cells are available for use: - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell. - `--no-pad`: A blank placeholder cell, for aligning with the parent cell. - `expander`: The expander button.
+         */
         "cells": TableCells<any>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
         "columns"?: string[];
-        "getCellData"?: (key: string) => any;
-        "getNestedCellData"?: (key: string) => any;
-        "getNestedRows"?: (key: string) => string[] | undefined;
+        /**
+          * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
+         */
+        "getCellData"?: <T = string>(key: T) => any;
+        /**
+          * Sync function for extracting the data from the nested row. By default, it assumes you passed an array of data as your columns.
+         */
+        "getNestedCellData"?: <T = string>(key: T) => any;
+        /**
+          * Sync function for extracting a list of rows for the nested table
+         */
+        "getNestedRows"?: (key: string) => any[] | undefined;
+        /**
+          * A function to calculate a href from the cell data.
+         */
         "linkRowTo"?: (row: any) => string;
+        /**
+          * async function for loading nested data when a row is expanded.
+         */
         "loadNested"?: (key: string, data: any) => Promise<void>;
+        /**
+          * The order and keys of the cells to be rendered in a nested table. If omitted, all cells will be rendered.
+         */
         "nestedColumns"?: string[];
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "nestedIdentifier": string;
+        /**
+          * If the nested rows should be allowed to take focus.
+         */
         "nestedRowTakesFocus"?: boolean;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "outerIdentifier": string;
+        /**
+          * A function to calculate the class or classes of the row from the cellData.
+         */
         "rowClass": (
         row: any,
     ) => Record<string, boolean> | string | undefined;
+        /**
+          * If rows should be allowed to take focus
+         */
         "rowTakesFocus"?: boolean;
-        "rows": string[];
+        /**
+          * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
+         */
+        "rows": any[];
     }
     interface EsTabs {
-        "activeParam": string;
+        /**
+          * The currently active panel. By default it will take from the passed activeParam, or the first tab.
+         */
+        "active"?: string;
+        /**
+          * Reflect the active tab to a search param of name. Set to false to disable.
+         */
+        "activeParam": string | false;
+        /**
+          * A list of tabs.
+         */
         "tabs": Tab[];
     }
+    interface EsThinkingButton {
+        /**
+          * The async action to be called on click.
+         */
+        "action": (e: MouseEvent) => Promise<unknown>;
+        /**
+          * Which color pair the button should use.
+         */
+        "color"?: HTMLEsButtonElement['color'];
+        /**
+          * The icon to display when the action completed successfully.
+         */
+        "completeIcon": string;
+        /**
+          * The default icon to display when nothing is happening.
+         */
+        "defaultIcon": string;
+        /**
+          * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
+         */
+        "disabled"?: boolean;
+        /**
+          * The icon to display when the action errored out.
+         */
+        "failedIcon": string;
+        /**
+          * Optional text of the button
+         */
+        "text"?: string;
+        /**
+          * The icon to display when we are awaiting the action.
+         */
+        "thinkingIcon": string;
+        /**
+          * Which styling variant to use.
+         */
+        "variant": HTMLEsButtonElement['variant'];
+    }
     interface EsToast {
-        "close": () => Promise<unknown>;
+        "close": () => Promise<void>;
         "count": Toast['count'];
         "icon": Toast['icon'];
-        "level": Toast['level'];
+        "level": ToastLevel;
     }
     interface EsToaster {
-        "popToast": ({ message, title, level, duration, icon, onClick, }: Bread) => Promise<void>;
+        "popToast": (level: ToastLevel | undefined, { message, title, duration, icon, onClick, }: ToastOptions) => Promise<() => void>;
     }
     interface EsWizard {
+        /**
+          * The currently active page
+         */
         "location": string;
+        /**
+          * A list of pages describing each step.
+         */
         "pages": WizardPage[];
+        /**
+          * Offset the scroll to top on page change
+         */
         "scrollOffset": number;
     }
 }
@@ -218,12 +553,6 @@ declare global {
     var HTMLEsBadgeElement: {
         prototype: HTMLEsBadgeElement;
         new (): HTMLEsBadgeElement;
-    };
-    interface HTMLEsBreadcrumbElement extends Components.EsBreadcrumb, HTMLStencilElement {
-    }
-    var HTMLEsBreadcrumbElement: {
-        prototype: HTMLEsBreadcrumbElement;
-        new (): HTMLEsBreadcrumbElement;
     };
     interface HTMLEsButtonElement extends Components.EsButton, HTMLStencilElement {
     }
@@ -261,23 +590,11 @@ declare global {
         prototype: HTMLEsIconElement;
         new (): HTMLEsIconElement;
     };
-    interface HTMLEsLogoElement extends Components.EsLogo, HTMLStencilElement {
-    }
-    var HTMLEsLogoElement: {
-        prototype: HTMLEsLogoElement;
-        new (): HTMLEsLogoElement;
-    };
     interface HTMLEsModalElement extends Components.EsModal, HTMLStencilElement {
     }
     var HTMLEsModalElement: {
         prototype: HTMLEsModalElement;
         new (): HTMLEsModalElement;
-    };
-    interface HTMLEsPageTitleElement extends Components.EsPageTitle, HTMLStencilElement {
-    }
-    var HTMLEsPageTitleElement: {
-        prototype: HTMLEsPageTitleElement;
-        new (): HTMLEsPageTitleElement;
     };
     interface HTMLEsPopoverElement extends Components.EsPopover, HTMLStencilElement {
     }
@@ -351,6 +668,12 @@ declare global {
         prototype: HTMLEsTabsElement;
         new (): HTMLEsTabsElement;
     };
+    interface HTMLEsThinkingButtonElement extends Components.EsThinkingButton, HTMLStencilElement {
+    }
+    var HTMLEsThinkingButtonElement: {
+        prototype: HTMLEsThinkingButtonElement;
+        new (): HTMLEsThinkingButtonElement;
+    };
     interface HTMLEsToastElement extends Components.EsToast, HTMLStencilElement {
     }
     var HTMLEsToastElement: {
@@ -373,16 +696,13 @@ declare global {
         "es-accordian": HTMLEsAccordianElement;
         "es-backdrop": HTMLEsBackdropElement;
         "es-badge": HTMLEsBadgeElement;
-        "es-breadcrumb": HTMLEsBreadcrumbElement;
         "es-button": HTMLEsButtonElement;
         "es-button-link": HTMLEsButtonLinkElement;
         "es-callout": HTMLEsCalloutElement;
         "es-copy": HTMLEsCopyElement;
         "es-counter": HTMLEsCounterElement;
         "es-icon": HTMLEsIconElement;
-        "es-logo": HTMLEsLogoElement;
         "es-modal": HTMLEsModalElement;
-        "es-page-title": HTMLEsPageTitleElement;
         "es-popover": HTMLEsPopoverElement;
         "es-popper": HTMLEsPopperElement;
         "es-popper-inner": HTMLEsPopperInnerElement;
@@ -395,6 +715,7 @@ declare global {
         "es-table-detail-header": HTMLEsTableDetailHeaderElement;
         "es-table-nested": HTMLEsTableNestedElement;
         "es-tabs": HTMLEsTabsElement;
+        "es-thinking-button": HTMLEsThinkingButtonElement;
         "es-toast": HTMLEsToastElement;
         "es-toaster": HTMLEsToasterElement;
         "es-wizard": HTMLEsWizardElement;
@@ -402,7 +723,13 @@ declare global {
 }
 declare namespace LocalJSX {
     interface EsAccordian {
+        /**
+          * An array of sections to display.
+         */
         "sections": AccordianSection[];
+        /**
+          * Display numbered counters beside each title.
+         */
         "steps"?: boolean;
     }
     interface EsBackdrop {
@@ -411,84 +738,233 @@ declare namespace LocalJSX {
         "showBackdrop"?: boolean;
     }
     interface EsBadge {
+        /**
+          * Choose the color variant of the badge
+         */
         "color"?: BadgeColor;
+        /**
+          * What number to display in the counter (or if the dot should display)
+         */
         "count": number;
+        /**
+          * Show the dot and counter even if the count 0 (or negative)
+         */
         "showZero"?: boolean;
+        /**
+          * The base size (in px) of the counter (has no effect on the dot)
+         */
         "size"?: number;
+        /**
+          * Select the display variant of the badge
+         */
         "variant"?: BadgeVariant;
     }
-    interface EsBreadcrumb {
-        "crumbs"?: Crumb[];
-        "noValidate"?: boolean;
-    }
     interface EsButton {
+        /**
+          * Which color pair the button should use.
+         */
         "color"?: ButtonColor;
+        /**
+          * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
+         */
         "disabled"?: boolean;
+        /**
+          * The form element to associate the button with (it's form owner).
+         */
         "form"?: string;
+        /**
+          * The default behavior of the button.
+         */
         "type"?: string;
+        /**
+          * Which styling variant to use.
+         */
         "variant"?: ButtonVariant;
     }
     interface EsButtonLink {
+        /**
+          * Class for the contained anchor element
+         */
         "anchorClass"?: string;
+        /**
+          * Id for the contained anchor element
+         */
         "anchorId"?: string;
+        /**
+          * Role for the contained anchor element
+         */
         "anchorRole"?: string;
+        /**
+          * Tab Index for the contained anchor element
+         */
         "anchorTabIndex"?: string;
+        /**
+          * Title for the contained anchor element
+         */
         "anchorTitle"?: string;
+        /**
+          * Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element.
+         */
         "ariaHaspopup"?: string;
+        /**
+          * Fefines a string value that labels the current element.
+         */
         "ariaLabel"?: string;
+        /**
+          * Defines an element's number or position in the current set of listitems or treeitems.
+         */
         "ariaPosinset"?: string;
+        /**
+          * Defines the number of items in the current set of listitems or treeitems.
+         */
         "ariaSetsize"?: number;
+        /**
+          * Which color pair the button should use.
+         */
         "color"?: ButtonColor;
+        /**
+          * If the link is disabled. Prevents the user from interacting with the link: it cannot be pressed or focused.
+         */
         "disabled"?: boolean;
+        /**
+          * If the button should navigate within the router context, or force a refresh.
+         */
         "forceRefresh"?: boolean;
+        /**
+          * Target for link (eg: target="_blank")
+         */
         "target"?: string;
+        /**
+          * Where the button should link to.
+         */
         "url"?: string;
+        /**
+          * Which styling variant to use
+         */
         "variant"?: ButtonVariant;
     }
     interface EsCallout {
+        /**
+          * Heading text.
+         */
         "heading": string;
+        /**
+          * Override the variant icon.
+         */
         "icon"?: string;
+        /**
+          * Which color set to use.
+         */
         "variant"?: EsCalloutVariant;
     }
     interface EsCopy {
     }
     interface EsCounter {
+        /**
+          * The number to display
+         */
         "count"?: number;
+        /**
+          * The height of the counter that the rest of the dimensions scale from
+         */
         "size"?: number;
+        /**
+          * The display style of the counter.
+         */
         "variant"?: CounterVariant;
     }
     interface EsIcon {
+        /**
+          * Rotate the icon to a speciied angle.
+         */
         "angle"?: number;
+        /**
+          * Which icon to display.
+         */
         "icon": string;
+        /**
+          * The hight and width to scale the icon to.
+         */
         "size"?: number;
+        /**
+          * Apply a spin animation.
+         */
         "spin"?: boolean;
+        /**
+          * When spinning, should it spin clockwise or anticlockwise.
+         */
         "spinDirection"?: 'clockwise' | 'antiClockwise';
     }
-    interface EsLogo {
-        "height"?: number;
-        "width"?: number;
-    }
     interface EsModal {
+        /**
+          * If the modal should have a footer.
+         */
         "footer"?: boolean;
+        /**
+          * If the modal should have a header.
+         */
         "header"?: boolean;
-        "onRequestClose"?: (event: CustomEvent<any>) => void;
-    }
-    interface EsPageTitle {
+        /**
+          * Triggers when the modal requests to be closed.
+         */
+        "onRequestClose"?: (event: CustomEvent<void>) => void;
     }
     interface EsPopover {
+        /**
+          * Pass an element to attach the popover to. (Defaults to the parent element.)
+         */
         "attachTo"?: HTMLElement;
+        /**
+          * The Y axis attachment location.
+         */
         "attachmentX"?: AttachmentX;
+        /**
+          * The Y axis attachment location.
+         */
         "attachmentY"?: AttachmentY;
+        /**
+          * If the popover should overlay a backdrop, to prevent external clicks.
+         */
         "backdrop"?: boolean;
+        /**
+          * Constrain the size of the popover to the size of the attachment node.
+         */
         "constrain"?: Constrain;
+        /**
+          * The offset the X axis in pixels.
+         */
         "offsetX"?: number;
+        /**
+          * The offset the Y axis in pixels.
+         */
         "offsetY"?: number;
+        /**
+          * Triggers when the popover requests to close.
+         */
         "onRequestClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * Toggles if the popover is open or not.
+         */
         "open"?: boolean;
+        /**
+          * Class name for the popper
+         */
         "popperClass"?: string;
+        /**
+          * The X axis positioning location.
+         */
         "positionX"?: PositionX;
+        /**
+          * The Y axis positioning location.
+         */
         "positionY"?: PositionY;
+        /**
+          * A query selecter to select the element to portal the popper to.
+         */
         "target"?: string;
+        /**
+          * If the popover should trap focus within, and return focus on close.
+         */
         "trapFocus"?: boolean;
     }
     interface EsPopper {
@@ -499,103 +975,302 @@ declare namespace LocalJSX {
     interface EsPopperInner {
     }
     interface EsPortal {
+        /**
+          * If the portal should overlay a backdrop, to prevent external clicks.
+         */
         "backdrop"?: boolean;
+        /**
+          * The element to render.
+         */
         "element": VNode;
+        /**
+          * Triggers when the popover requests to close.
+         */
         "onRequestClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * If the element is portaled or not.
+         */
         "open"?: boolean;
+        /**
+          * A query selector to select the location to portal to.
+         */
         "target"?: string;
     }
     interface EsProgression {
+        /**
+          * A list of checkpoints to display.
+         */
         "checkpoints": Checkpoint[];
+        /**
+          * The current active location.
+         */
         "location": string;
-        "onProgressionRequest"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when a checkpoint is clicked.
+         */
+        "onProgressionRequest"?: (event: CustomEvent<string>) => void;
     }
     interface EsResizeObserver {
+        /**
+          * Triggered when the size of the element changes.
+         */
         "onSizeChanged"?: (event: CustomEvent<DOMRectReadOnly>) => void;
     }
     interface EsStatus {
         "status": Status;
     }
     interface EsTable {
-        "cells": TableCells<any>;
+        /**
+          * A record of table cell definitions.
+         */
+        "cells": TableCells<RowData>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
         "columns"?: string[];
-        "getCellData"?: (key: string) => any;
+        /**
+          * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
+         */
+        "getCellData"?: <T = RawRow>(key: T) => RowData;
+        /**
+          * Do not render header.
+         */
         "headless"?: boolean;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "identifier"?: string;
-        "linkRowTo"?: (row: any) => string;
-        "onClickRow"?: (event: CustomEvent<any>) => void;
-        "renderExpansion"?: (key: string) => VNode | null;
+        /**
+          * A function to calculate a href from the cell data.
+         */
+        "linkRowTo"?: (row: RowData) => string;
+        /**
+          * Triggered whenever a row is clicked. The `detail` is the item in the row array.
+         */
+        "onClickRow"?: (event: CustomEvent<RowData>) => void;
+        /**
+          * Allows rendering a node after the row.
+         */
+        "renderExpansion"?: (key: RawRow) => VNode | null;
+        /**
+          * A function to calculate the class or classes of the row from the cellData.
+         */
         "rowClass"?: (
-        row: any,
+        row: RowData,
     ) => Record<string, boolean> | string | undefined;
+        /**
+          * If rows should be allowed to take focus
+         */
         "rowTakesFocus"?: boolean;
-        "rows": string[];
+        /**
+          * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
+         */
+        "rows": RawRow[];
     }
     interface EsTableDetail {
+        /**
+          * A record of table cell definitions.
+         */
         "cells": TableCells<any>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
         "columns"?: Array<string>;
+        /**
+          * The data to render.
+         */
         "data": any;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "identifier"?: string;
     }
     interface EsTableDetailHeader {
+        /**
+          * Which cell to place in the top right as a list of actions.
+         */
         "actionsCell"?: string;
+        /**
+          * A record of table cell definitions.
+         */
         "cells": TableCells<any>;
+        /**
+          * The data to render.
+         */
         "data": any;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "identifier"?: string;
+        /**
+          * The key of the title in the data
+         */
         "titleKey": string;
     }
     interface EsTableNested {
+        /**
+          * A path to a the currently active row, to auto expand its parent and show it as selected.
+         */
         "activePath"?: string[];
+        /**
+          * Function to decide if a row can take expand, to show a nested table.
+         */
         "canExpand"?: (key: string, data: any) => boolean;
+        /**
+          * A record of table cell definitions.Some built in cells are cells are available for use: - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell. - `--no-pad`: A blank placeholder cell, for aligning with the parent cell. - `expander`: The expander button.
+         */
         "cells": TableCells<any>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
         "columns"?: string[];
-        "getCellData"?: (key: string) => any;
-        "getNestedCellData"?: (key: string) => any;
-        "getNestedRows"?: (key: string) => string[] | undefined;
+        /**
+          * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
+         */
+        "getCellData"?: <T = string>(key: T) => any;
+        /**
+          * Sync function for extracting the data from the nested row. By default, it assumes you passed an array of data as your columns.
+         */
+        "getNestedCellData"?: <T = string>(key: T) => any;
+        /**
+          * Sync function for extracting a list of rows for the nested table
+         */
+        "getNestedRows"?: (key: string) => any[] | undefined;
+        /**
+          * A function to calculate a href from the cell data.
+         */
         "linkRowTo"?: (row: any) => string;
+        /**
+          * async function for loading nested data when a row is expanded.
+         */
         "loadNested"?: (key: string, data: any) => Promise<void>;
+        /**
+          * The order and keys of the cells to be rendered in a nested table. If omitted, all cells will be rendered.
+         */
         "nestedColumns"?: string[];
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "nestedIdentifier"?: string;
+        /**
+          * If the nested rows should be allowed to take focus.
+         */
         "nestedRowTakesFocus"?: boolean;
+        /**
+          * Triggered whenever a row (or nested row) is clicked. The `detail` is the item in the row array.
+         */
         "onClickRow"?: (event: CustomEvent<any>) => void;
+        /**
+          * Triggered whenever a row is expanded.
+         */
         "onExpansion"?: (event: CustomEvent<{ data: any; key: string }>) => void;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
         "outerIdentifier"?: string;
+        /**
+          * A function to calculate the class or classes of the row from the cellData.
+         */
         "rowClass"?: (
         row: any,
     ) => Record<string, boolean> | string | undefined;
+        /**
+          * If rows should be allowed to take focus
+         */
         "rowTakesFocus"?: boolean;
-        "rows": string[];
+        /**
+          * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
+         */
+        "rows": any[];
     }
     interface EsTabs {
-        "activeParam"?: string;
+        /**
+          * The currently active panel. By default it will take from the passed activeParam, or the first tab.
+         */
+        "active"?: string;
+        /**
+          * Reflect the active tab to a search param of name. Set to false to disable.
+         */
+        "activeParam"?: string | false;
+        /**
+          * Triggered when the active tab is changed. `detail` is the newly active tab.
+         */
+        "onTabChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * A list of tabs.
+         */
         "tabs": Tab[];
+    }
+    interface EsThinkingButton {
+        /**
+          * The async action to be called on click.
+         */
+        "action": (e: MouseEvent) => Promise<unknown>;
+        /**
+          * Which color pair the button should use.
+         */
+        "color"?: HTMLEsButtonElement['color'];
+        /**
+          * The icon to display when the action completed successfully.
+         */
+        "completeIcon"?: string;
+        /**
+          * The default icon to display when nothing is happening.
+         */
+        "defaultIcon": string;
+        /**
+          * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
+         */
+        "disabled"?: boolean;
+        /**
+          * The icon to display when the action errored out.
+         */
+        "failedIcon"?: string;
+        /**
+          * Optional text of the button
+         */
+        "text"?: string;
+        /**
+          * The icon to display when we are awaiting the action.
+         */
+        "thinkingIcon"?: string;
+        /**
+          * Which styling variant to use.
+         */
+        "variant"?: HTMLEsButtonElement['variant'];
     }
     interface EsToast {
         "count": Toast['count'];
         "icon": Toast['icon'];
-        "level": Toast['level'];
+        "level": ToastLevel;
     }
     interface EsToaster {
     }
     interface EsWizard {
+        /**
+          * The currently active page
+         */
         "location": string;
+        /**
+          * A list of pages describing each step.
+         */
         "pages": WizardPage[];
+        /**
+          * Offset the scroll to top on page change
+         */
         "scrollOffset"?: number;
     }
     interface IntrinsicElements {
         "es-accordian": EsAccordian;
         "es-backdrop": EsBackdrop;
         "es-badge": EsBadge;
-        "es-breadcrumb": EsBreadcrumb;
         "es-button": EsButton;
         "es-button-link": EsButtonLink;
         "es-callout": EsCallout;
         "es-copy": EsCopy;
         "es-counter": EsCounter;
         "es-icon": EsIcon;
-        "es-logo": EsLogo;
         "es-modal": EsModal;
-        "es-page-title": EsPageTitle;
         "es-popover": EsPopover;
         "es-popper": EsPopper;
         "es-popper-inner": EsPopperInner;
@@ -608,6 +1283,7 @@ declare namespace LocalJSX {
         "es-table-detail-header": EsTableDetailHeader;
         "es-table-nested": EsTableNested;
         "es-tabs": EsTabs;
+        "es-thinking-button": EsThinkingButton;
         "es-toast": EsToast;
         "es-toaster": EsToaster;
         "es-wizard": EsWizard;
@@ -620,16 +1296,13 @@ declare module "@stencil/core" {
             "es-accordian": LocalJSX.EsAccordian & JSXBase.HTMLAttributes<HTMLEsAccordianElement>;
             "es-backdrop": LocalJSX.EsBackdrop & JSXBase.HTMLAttributes<HTMLEsBackdropElement>;
             "es-badge": LocalJSX.EsBadge & JSXBase.HTMLAttributes<HTMLEsBadgeElement>;
-            "es-breadcrumb": LocalJSX.EsBreadcrumb & JSXBase.HTMLAttributes<HTMLEsBreadcrumbElement>;
             "es-button": LocalJSX.EsButton & JSXBase.HTMLAttributes<HTMLEsButtonElement>;
             "es-button-link": LocalJSX.EsButtonLink & JSXBase.HTMLAttributes<HTMLEsButtonLinkElement>;
             "es-callout": LocalJSX.EsCallout & JSXBase.HTMLAttributes<HTMLEsCalloutElement>;
             "es-copy": LocalJSX.EsCopy & JSXBase.HTMLAttributes<HTMLEsCopyElement>;
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
             "es-icon": LocalJSX.EsIcon & JSXBase.HTMLAttributes<HTMLEsIconElement>;
-            "es-logo": LocalJSX.EsLogo & JSXBase.HTMLAttributes<HTMLEsLogoElement>;
             "es-modal": LocalJSX.EsModal & JSXBase.HTMLAttributes<HTMLEsModalElement>;
-            "es-page-title": LocalJSX.EsPageTitle & JSXBase.HTMLAttributes<HTMLEsPageTitleElement>;
             "es-popover": LocalJSX.EsPopover & JSXBase.HTMLAttributes<HTMLEsPopoverElement>;
             "es-popper": LocalJSX.EsPopper & JSXBase.HTMLAttributes<HTMLEsPopperElement>;
             "es-popper-inner": LocalJSX.EsPopperInner & JSXBase.HTMLAttributes<HTMLEsPopperInnerElement>;
@@ -642,6 +1315,7 @@ declare module "@stencil/core" {
             "es-table-detail-header": LocalJSX.EsTableDetailHeader & JSXBase.HTMLAttributes<HTMLEsTableDetailHeaderElement>;
             "es-table-nested": LocalJSX.EsTableNested & JSXBase.HTMLAttributes<HTMLEsTableNestedElement>;
             "es-tabs": LocalJSX.EsTabs & JSXBase.HTMLAttributes<HTMLEsTabsElement>;
+            "es-thinking-button": LocalJSX.EsThinkingButton & JSXBase.HTMLAttributes<HTMLEsThinkingButtonElement>;
             "es-toast": LocalJSX.EsToast & JSXBase.HTMLAttributes<HTMLEsToastElement>;
             "es-toaster": LocalJSX.EsToaster & JSXBase.HTMLAttributes<HTMLEsToasterElement>;
             "es-wizard": LocalJSX.EsWizard & JSXBase.HTMLAttributes<HTMLEsWizardElement>;

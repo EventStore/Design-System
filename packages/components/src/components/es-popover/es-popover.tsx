@@ -19,6 +19,9 @@ import {
 } from '../../utils/calcPosition';
 import { shadowMutationObserver } from '../../utils/shadowMutationObserver';
 
+/**
+ * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
+ */
 @Component({
     tag: 'es-popover',
     styleUrl: 'es-popover.css',
@@ -27,21 +30,35 @@ import { shadowMutationObserver } from '../../utils/shadowMutationObserver';
 export class Popover {
     @Element() host!: HTMLElement;
 
+    /** Class name for the popper */
     @Prop() popperClass?: string;
+    /** A query selecter to select the element to portal the popper to. */
     @Prop() target = 'body';
+    /** Toggles if the popover is open or not. */
     @Prop({ reflect: true }) open: boolean = false;
+    /** If the popover should overlay a backdrop, to prevent external clicks. */
     @Prop() backdrop: boolean = false;
+    /** If the popover should trap focus within, and return focus on close. */
     @Prop({ attribute: 'trap-focus' }) trapFocus: boolean = false;
 
+    /** Pass an element to attach the popover to. (Defaults to the parent element.) */
     @Prop() attachTo?: HTMLElement;
+    /** Constrain the size of the popover to the size of the attachment node. */
     @Prop() constrain: Constrain = 'none';
+    /** The Y axis positioning location. */
     @Prop() positionY: PositionY = 'top';
+    /** The X axis positioning location. */
     @Prop() positionX: PositionX = 'middle';
+    /** The Y axis attachment location. */
     @Prop() attachmentY: AttachmentY = 'bottom';
+    /** The Y axis attachment location. */
     @Prop() attachmentX: AttachmentX = 'middle';
+    /** The offset the Y axis in pixels. */
     @Prop() offsetY: number = 0;
+    /** The offset the X axis in pixels. */
     @Prop() offsetX: number = 0;
 
+    /** Triggers when the popover requests to close. */
     @Event() requestClose!: EventEmitter;
 
     private assigedNodes: Node[] = [];
@@ -52,7 +69,7 @@ export class Popover {
     private mutationObserver!: MutationObserver;
     private detachAllowFocus?: ReturnType<typeof allowFocus>;
 
-    connectedCallback() {
+    componentDidLoad() {
         this.assigedNodes = Array.from(this.host.childNodes);
         this.mutationObserver = shadowMutationObserver(
             this.host,

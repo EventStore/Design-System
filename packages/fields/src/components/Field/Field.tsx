@@ -1,12 +1,16 @@
 import { h, FunctionalComponent } from '@stencil/core';
 import { ValidationMessages } from '../../types';
 
-interface FieldProps {
+export interface FieldProps {
+    /** The label of the field. */
     label: string;
+    /** The messages to display under the field. */
     messages?: ValidationMessages;
+    /** If the field is currently invalid. */
     invalid?: boolean;
 }
 
+/** Default layout for a Field. */
 export const Field: FunctionalComponent<FieldProps> = (
     { label, messages, invalid = false },
     children,

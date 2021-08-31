@@ -4,39 +4,45 @@ import {
     Prop,
     Event,
     EventEmitter,
-    VNode,
     Host,
     Fragment,
+    VNode,
 } from '@stencil/core';
 import { ValidationMessages } from '../../types';
+import { RadioCardGroupOption } from './types';
 
-export interface RadioCardGroupOption {
-    id: string;
-    name: string;
-    description?: string;
-    disabled?: boolean;
-    [key: string]: any;
-}
 export type RenderCard<T extends RadioCardGroupOption> = (
+    /** The option to be rendered */
     option: T,
+    /** Render a card */
     active: boolean,
 ) => VNode | VNode[];
 
+/** A card based single select input. */
 @Component({
     tag: 'es-radio-card-group',
     styleUrl: 'es-radio-card-group.css',
     shadow: true,
 })
 export class RadioCardGroup {
+    /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter;
 
+    /** The id of the component that labels this input. This input doesn't bring its own label, so must be labeled externally and referenced here. */
     @Prop({ reflect: true, attribute: 'aria-labelledby' }) labelledby!: string;
+    /** The options to be displayed and chosen from. */
     @Prop() options!: RadioCardGroupOption[];
+    /** The current value of the field. */
     @Prop() value!: string | null;
+    /** The name of the field. */
     @Prop() name!: string;
+    /** Group the cards by a key.*/
     @Prop() groupBy?: string;
+    /** Overwrite the default card renderer */
     @Prop() renderCard: RenderCard<any> = RadioCardGroup.defaultRenderCard;
+    /** If the field is currently in an error state. */
     @Prop() invalid: boolean = false;
+    /** The validation messages of the field */
     @Prop() messages?: ValidationMessages;
 
     static defaultRenderCard: RenderCard<RadioCardGroupOption> = (option) => [

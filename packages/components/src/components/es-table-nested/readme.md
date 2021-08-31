@@ -7,32 +7,32 @@
 
 ## Properties
 
-| Property              | Attribute                | Description | Type                                                           | Default           |
-| --------------------- | ------------------------ | ----------- | -------------------------------------------------------------- | ----------------- |
-| `activePath`          | --                       |             | `string[] \| undefined`                                        | `undefined`       |
-| `canExpand`           | --                       |             | `(key: string, data: any) => boolean`                          | `() => true`      |
-| `cells` _(required)_  | --                       |             | `{ [x: string]: TableCell<any>; }`                             | `undefined`       |
-| `columns`             | --                       |             | `string[] \| undefined`                                        | `undefined`       |
-| `getCellData`         | --                       |             | `((key: string) => any) \| undefined`                          | `undefined`       |
-| `getNestedCellData`   | --                       |             | `((key: string) => any) \| undefined`                          | `undefined`       |
-| `getNestedRows`       | --                       |             | `((key: string) => string[] \| undefined) \| undefined`        | `undefined`       |
-| `linkRowTo`           | --                       |             | `((row: any) => string) \| undefined`                          | `undefined`       |
-| `loadNested`          | --                       |             | `((key: string, data: any) => Promise<void>) \| undefined`     | `undefined`       |
-| `nestedColumns`       | --                       |             | `string[] \| undefined`                                        | `undefined`       |
-| `nestedIdentifier`    | `nested-identifier`      |             | `string`                                                       | `'nested-table'`  |
-| `nestedRowTakesFocus` | `nested-row-takes-focus` |             | `boolean \| undefined`                                         | `undefined`       |
-| `outerIdentifier`     | `outer-identifier`       |             | `string`                                                       | `'table'`         |
-| `rowClass`            | --                       |             | `(row: any) => string \| Record<string, boolean> \| undefined` | `() => undefined` |
-| `rowTakesFocus`       | `row-takes-focus`        |             | `boolean \| undefined`                                         | `undefined`       |
-| `rows` _(required)_   | --                       |             | `string[]`                                                     | `undefined`       |
+| Property              | Attribute                | Description                                                                                                                                                                                                                                                                                         | Type                                                           | Default           |
+| --------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ----------------- |
+| `activePath`          | --                       | A path to a the currently active row, to auto expand its parent and show it as selected.                                                                                                                                                                                                            | `string[] \| undefined`                                        | `undefined`       |
+| `canExpand`           | --                       | Function to decide if a row can take expand, to show a nested table.                                                                                                                                                                                                                                | `(key: string, data: any) => boolean`                          | `() => true`      |
+| `cells` _(required)_  | --                       | A record of table cell definitions.Some built in cells are cells are available for use: - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell. - `--no-pad`: A blank placeholder cell, for aligning with the parent cell. - `expander`: The expander button. | `{ [x: string]: TableCell<any>; }`                             | `undefined`       |
+| `columns`             | --                       | The order and keys of the cells to be rendered. If omitted, all cells will be rendered.                                                                                                                                                                                                             | `string[] \| undefined`                                        | `undefined`       |
+| `getCellData`         | --                       | Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.                                                                                                                                                                             | `(<T = string>(key: T) => any) \| undefined`                   | `undefined`       |
+| `getNestedCellData`   | --                       | Sync function for extracting the data from the nested row. By default, it assumes you passed an array of data as your columns.                                                                                                                                                                      | `(<T = string>(key: T) => any) \| undefined`                   | `undefined`       |
+| `getNestedRows`       | --                       | Sync function for extracting a list of rows for the nested table                                                                                                                                                                                                                                    | `((key: string) => any[] \| undefined) \| undefined`           | `undefined`       |
+| `linkRowTo`           | --                       | A function to calculate a href from the cell data.                                                                                                                                                                                                                                                  | `((row: any) => string) \| undefined`                          | `undefined`       |
+| `loadNested`          | --                       | async function for loading nested data when a row is expanded.                                                                                                                                                                                                                                      | `((key: string, data: any) => Promise<void>) \| undefined`     | `undefined`       |
+| `nestedColumns`       | --                       | The order and keys of the cells to be rendered in a nested table. If omitted, all cells will be rendered.                                                                                                                                                                                           | `string[] \| undefined`                                        | `undefined`       |
+| `nestedIdentifier`    | `nested-identifier`      | Passed to cell renderer as `parent`.                                                                                                                                                                                                                                                                | `string`                                                       | `'nested-table'`  |
+| `nestedRowTakesFocus` | `nested-row-takes-focus` | If the nested rows should be allowed to take focus.                                                                                                                                                                                                                                                 | `boolean \| undefined`                                         | `undefined`       |
+| `outerIdentifier`     | `outer-identifier`       | Passed to cell renderer as `parent`.                                                                                                                                                                                                                                                                | `string`                                                       | `'table'`         |
+| `rowClass`            | --                       | A function to calculate the class or classes of the row from the cellData.                                                                                                                                                                                                                          | `(row: any) => string \| Record<string, boolean> \| undefined` | `() => undefined` |
+| `rowTakesFocus`       | `row-takes-focus`        | If rows should be allowed to take focus                                                                                                                                                                                                                                                             | `boolean \| undefined`                                         | `undefined`       |
+| `rows` _(required)_   | --                       | An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.                                                                                                                                                                            | `any[]`                                                        | `undefined`       |
 
 
 ## Events
 
-| Event       | Description | Type                                       |
-| ----------- | ----------- | ------------------------------------------ |
-| `clickRow`  |             | `CustomEvent<any>`                         |
-| `expansion` |             | `CustomEvent<{ data: any; key: string; }>` |
+| Event       | Description                                                                                     | Type                                       |
+| ----------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `clickRow`  | Triggered whenever a row (or nested row) is clicked. The `detail` is the item in the row array. | `CustomEvent<any>`                         |
+| `expansion` | Triggered whenever a row is expanded.                                                           | `CustomEvent<{ data: any; key: string; }>` |
 
 
 ## Dependencies
@@ -54,4 +54,4 @@ graph TD;
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+

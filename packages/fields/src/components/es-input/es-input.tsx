@@ -2,36 +2,40 @@ import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 import iMask, { InputMask } from 'imask';
 import { ValidationMessages } from '../../types';
 import { Field } from '../Field/Field';
+import { MaskOptions } from './types';
 
-export interface MaskOptions {
-    mask: any;
-    unmask?: boolean;
-    overwrite?: boolean;
-    placeholderChar?: string;
-    lazy?: boolean;
-    definitions?: Record<string, any>;
-    blocks?: Record<string, any>;
-}
-
+/** An optionally masked text input. */
 @Component({
     tag: 'es-input',
     styleUrl: 'es-input.css',
     shadow: true,
 })
 export class EsInput {
+    /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter;
+    /** Emitted on keyup of enter, if no modifier keys are held. */
     @Event() enter!: EventEmitter;
 
+    /** The label of the field. */
     @Prop() label!: string;
+    /** The name of the field. */
     @Prop() name!: string;
+    /** The current value of the field. */
     @Prop() value!: string;
+    /** The placeholder for the input. */
     @Prop() placeholder!: string;
+    /** If the field is disabled. */
     @Prop() disabled?: boolean;
+    /** If the field is editable. */
     @Prop() readonly?: boolean;
+    /** If the field is currently in an error state. */
     @Prop() invalid?: boolean;
+    /** The validation messages of the field */
     @Prop() messages?: ValidationMessages;
+    /** Pass props directly to the input. */
     @Prop() inputProps?: Record<string, any>;
 
+    /** Apply an input mask */
     @Prop() mask?: MaskOptions;
 
     private input?: HTMLInputElement;

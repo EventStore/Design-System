@@ -10,14 +10,25 @@ import {
     Listen,
 } from '@stencil/core';
 
+/**
+ * A pop up modal for overlaying information, warnings and confirmations.
+ * Traps focus within the modal, and returns focus to previous location when closed.
+ * Pair with an [`es-portal`](/components/components/es-portal) to open and close.
+ * @part header - Places components in the header. Pass a h2 then a h1 for standard styling.
+ * @part footer - Places components in the footer. Pass es-button and es-button-link.
+ */
 @Component({
     tag: 'es-modal',
     styleUrl: 'es-modal.css',
     shadow: true,
 })
 export class Modal {
-    @Event() requestClose!: EventEmitter;
+    /** Triggers when the modal requests to be closed. */
+    @Event() requestClose!: EventEmitter<void>;
+
+    /** If the modal should have a header. */
     @Prop() header: boolean = true;
+    /** If the modal should have a footer. */
     @Prop() footer: boolean = true;
 
     private releaseFocus?: () => void;
@@ -45,7 +56,7 @@ export class Modal {
                 <button
                     class={'close'}
                     role={'button'}
-                    onClick={this.requestClose.emit}
+                    onClick={() => this.requestClose.emit()}
                     data-skip-focus-delegation
                 >
                     <es-icon icon={'close'} size={22} />

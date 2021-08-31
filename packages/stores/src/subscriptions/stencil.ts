@@ -64,6 +64,7 @@ export const stencilSubscription = <T>(): Subscription<T> => {
         },
         get: (propName) => {
             const el = getRenderingRef();
+
             if (el) {
                 addToMapSet(elementsToUpdate, propName, el);
             }
