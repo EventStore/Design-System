@@ -44,6 +44,21 @@ tbody tr:nth-child(2n + 1) {
     background-color: var(--color-grey-50);
 }
 
+li {
+    margin-bottom: 16px;
+}
+
+li > *:first-child {
+    margin-top: 0;
+}
+li > *:last-child {
+    margin-bottom: 0;
+}
+
+pre {
+    margin: 16px 0;
+}
+
 pre code.hljs {
     display: block;
     color: var(--code-fg);
