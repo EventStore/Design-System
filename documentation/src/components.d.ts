@@ -26,10 +26,6 @@ export namespace Components {
         "crumbs": Crumb[];
         "noValidate": boolean;
     }
-    interface DocsCode {
-        "code": string;
-        "language": string;
-    }
     interface DocsComponentDocs {
         "comp": JsonDocs['components'][0];
         "lib": Lib;
@@ -95,13 +91,6 @@ export namespace Components {
     interface DocsSidebarSection {
         "sectionTitle": string;
     }
-    interface DocsSidebarTree {
-        "icon"?: string;
-        "name": string;
-        "root": boolean;
-        "url"?: string;
-        "urlMatch"?: string;
-    }
     interface DocsSlotsTable {
         "slots": JsonDocsSlot[];
     }
@@ -149,12 +138,6 @@ declare global {
     var HTMLDocsBreadcrumbElement: {
         prototype: HTMLDocsBreadcrumbElement;
         new (): HTMLDocsBreadcrumbElement;
-    };
-    interface HTMLDocsCodeElement extends Components.DocsCode, HTMLStencilElement {
-    }
-    var HTMLDocsCodeElement: {
-        prototype: HTMLDocsCodeElement;
-        new (): HTMLDocsCodeElement;
     };
     interface HTMLDocsComponentDocsElement extends Components.DocsComponentDocs, HTMLStencilElement {
     }
@@ -264,12 +247,6 @@ declare global {
         prototype: HTMLDocsSidebarSectionElement;
         new (): HTMLDocsSidebarSectionElement;
     };
-    interface HTMLDocsSidebarTreeElement extends Components.DocsSidebarTree, HTMLStencilElement {
-    }
-    var HTMLDocsSidebarTreeElement: {
-        prototype: HTMLDocsSidebarTreeElement;
-        new (): HTMLDocsSidebarTreeElement;
-    };
     interface HTMLDocsSlotsTableElement extends Components.DocsSlotsTable, HTMLStencilElement {
     }
     var HTMLDocsSlotsTableElement: {
@@ -327,7 +304,6 @@ declare global {
     interface HTMLElementTagNameMap {
         "docs-background": HTMLDocsBackgroundElement;
         "docs-breadcrumb": HTMLDocsBreadcrumbElement;
-        "docs-code": HTMLDocsCodeElement;
         "docs-component-docs": HTMLDocsComponentDocsElement;
         "docs-events-table": HTMLDocsEventsTableElement;
         "docs-functional-component-docs": HTMLDocsFunctionalComponentDocsElement;
@@ -346,7 +322,6 @@ declare global {
         "docs-sidebar-dropdown": HTMLDocsSidebarDropdownElement;
         "docs-sidebar-link": HTMLDocsSidebarLinkElement;
         "docs-sidebar-section": HTMLDocsSidebarSectionElement;
-        "docs-sidebar-tree": HTMLDocsSidebarTreeElement;
         "docs-slots-table": HTMLDocsSlotsTableElement;
         "docs-styles-table": HTMLDocsStylesTableElement;
         "docs-type": HTMLDocsTypeElement;
@@ -368,10 +343,6 @@ declare namespace LocalJSX {
     interface DocsBreadcrumb {
         "crumbs"?: Crumb[];
         "noValidate"?: boolean;
-    }
-    interface DocsCode {
-        "code": string;
-        "language": string;
     }
     interface DocsComponentDocs {
         "comp": JsonDocs['components'][0];
@@ -438,13 +409,6 @@ declare namespace LocalJSX {
     interface DocsSidebarSection {
         "sectionTitle": string;
     }
-    interface DocsSidebarTree {
-        "icon"?: string;
-        "name": string;
-        "root"?: boolean;
-        "url"?: string;
-        "urlMatch"?: string;
-    }
     interface DocsSlotsTable {
         "slots": JsonDocsSlot[];
     }
@@ -482,7 +446,6 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "docs-background": DocsBackground;
         "docs-breadcrumb": DocsBreadcrumb;
-        "docs-code": DocsCode;
         "docs-component-docs": DocsComponentDocs;
         "docs-events-table": DocsEventsTable;
         "docs-functional-component-docs": DocsFunctionalComponentDocs;
@@ -501,7 +464,6 @@ declare namespace LocalJSX {
         "docs-sidebar-dropdown": DocsSidebarDropdown;
         "docs-sidebar-link": DocsSidebarLink;
         "docs-sidebar-section": DocsSidebarSection;
-        "docs-sidebar-tree": DocsSidebarTree;
         "docs-slots-table": DocsSlotsTable;
         "docs-styles-table": DocsStylesTable;
         "docs-type": DocsType;
@@ -519,7 +481,6 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "docs-background": LocalJSX.DocsBackground & JSXBase.HTMLAttributes<HTMLDocsBackgroundElement>;
             "docs-breadcrumb": LocalJSX.DocsBreadcrumb & JSXBase.HTMLAttributes<HTMLDocsBreadcrumbElement>;
-            "docs-code": LocalJSX.DocsCode & JSXBase.HTMLAttributes<HTMLDocsCodeElement>;
             "docs-component-docs": LocalJSX.DocsComponentDocs & JSXBase.HTMLAttributes<HTMLDocsComponentDocsElement>;
             "docs-events-table": LocalJSX.DocsEventsTable & JSXBase.HTMLAttributes<HTMLDocsEventsTableElement>;
             "docs-functional-component-docs": LocalJSX.DocsFunctionalComponentDocs & JSXBase.HTMLAttributes<HTMLDocsFunctionalComponentDocsElement>;
@@ -538,7 +499,6 @@ declare module "@stencil/core" {
             "docs-sidebar-dropdown": LocalJSX.DocsSidebarDropdown & JSXBase.HTMLAttributes<HTMLDocsSidebarDropdownElement>;
             "docs-sidebar-link": LocalJSX.DocsSidebarLink & JSXBase.HTMLAttributes<HTMLDocsSidebarLinkElement>;
             "docs-sidebar-section": LocalJSX.DocsSidebarSection & JSXBase.HTMLAttributes<HTMLDocsSidebarSectionElement>;
-            "docs-sidebar-tree": LocalJSX.DocsSidebarTree & JSXBase.HTMLAttributes<HTMLDocsSidebarTreeElement>;
             "docs-slots-table": LocalJSX.DocsSlotsTable & JSXBase.HTMLAttributes<HTMLDocsSlotsTableElement>;
             "docs-styles-table": LocalJSX.DocsStylesTable & JSXBase.HTMLAttributes<HTMLDocsStylesTableElement>;
             "docs-type": LocalJSX.DocsType & JSXBase.HTMLAttributes<HTMLDocsTypeElement>;

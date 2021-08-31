@@ -6,6 +6,7 @@ import {
     State,
     Watch,
     Fragment,
+    Build,
 } from '@stencil/core';
 
 import { createModels } from './utils/createModels';
@@ -32,18 +33,20 @@ export class DocsUsage {
     @State() active!: string;
     @State() options!: Omit<Settings, 'parts'>;
 
-    @State() models!: Models;
-    @State() tabs!: HTMLEsTabsElement['tabs'];
+    @State() models: Models = {};
+    @State() tabs: HTMLEsTabsElement['tabs'] = [];
 
     @Watch('usage')
     componentWillLoad() {
         this.building = true;
 
-        const { parts, ...options } = extractPartsFromMarkdown(this.usage);
+        const { parts, ...options } = extractPartsFromMarkdown(
+            this.usage ?? '',
+        );
 
         this.options = options;
         this.parts = parts;
-        this.models = createModels(this.parts, this.onEditorChange);
+
         this.tabs = Object.values(this.parts)
             .filter(({ hidden }) => !hidden)
             .map(({ fileName, title }) => ({
@@ -52,11 +55,15 @@ export class DocsUsage {
             }));
 
         this.active = this.tabs[0].id;
+
+        if (Build.isServer) return;
+
+        this.models = createModels(this.parts, this.onEditorChange);
     }
 
     @Watch('parts')
     async generatePreview() {
-        if (!this.options.preview) return;
+        if (!this.options.preview || Build.isServer) return;
 
         const files = generatePreview({ parts: this.parts, ...this.options });
         const result = await bundle(files);
@@ -90,13 +97,15 @@ export class DocsUsage {
                     activeParam={false}
                     onTabChange={this.tabChange}
                 >
-                    <es-editor
-                        key={`${this.identifier}-${this.active}`}
-                        slot={this.active}
-                        options={{
-                            model: this.models[this.active],
-                        }}
-                    />
+                    {!Build.isServer && (
+                        <es-editor
+                            key={`${this.identifier}-${this.active}`}
+                            slot={this.active}
+                            options={{
+                                model: this.models[this.active],
+                            }}
+                        />
+                    )}
                 </es-tabs>
             </Host>
         );

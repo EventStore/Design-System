@@ -13,7 +13,7 @@ import {
 /**
  * A pop up modal for overlaying information, warnings and confirmations.
  * Traps focus within the modal, and returns focus to previous location when closed.
- * Pair with an [`es-portal`](/components/es-portal) to open and close.
+ * Pair with an [`es-portal`](/components/components/es-portal) to open and close.
  * @part header - Places components in the header. Pass a h2 then a h1 for standard styling.
  * @part footer - Places components in the footer. Pass es-button and es-button-link.
  */

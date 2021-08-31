@@ -4,13 +4,16 @@ import { replace } from './replace';
 
 import { createLogger } from '@eventstore/utils';
 import type { Files } from './types';
+import { Build } from '@stencil/core';
 
 declare const stencil: typeof StencilTypes;
 declare const rollup: typeof RollupTypes;
 declare const importScripts: (script: string) => void;
 
-importScripts('/modules/@stencil/core/compiler/stencil.js');
-importScripts('/modules/rollup/rollup.browser.js');
+if (!Build.isServer) {
+    importScripts('/modules/@stencil/core/compiler/stencil.js');
+    importScripts('/modules/rollup/rollup.browser.js');
+}
 
 export const logger = createLogger(
     'useage worker',
@@ -28,12 +31,9 @@ const resolveLookup = new Map<string, string>([
         '@stencil/core/internal/app-data',
         '/modules/@stencil/core/internal/app-data/index.js',
     ],
-    [
-        '@eventstore/components',
-        '/modules/@eventstore/components/collection/index.js',
-    ],
-    ['@eventstore/fields', '/modules/@eventstore/fields/collection/index.js'],
-    ['@eventstore/editor', '/modules/@eventstore/editor/collection/index.js'],
+    ['@eventstore/components', '/modules/@eventstore/components/index.js'],
+    ['@eventstore/fields', '/modules/@eventstore/fields/index.js'],
+    ['@eventstore/editor', '/modules/@eventstore/editor/index.js'],
     ['@eventstore/router', '/modules/@eventstore/router/index.js'],
     ['@eventstore/utils', '/modules/@eventstore/utils/index.mjs'],
     ['@eventstore/stores', '/modules/@eventstore/stores/index.mjs'],

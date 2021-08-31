@@ -58,11 +58,22 @@ export const generatePreview = ({ parts, showLocation }: Settings): Files => {
         export const randomIcon = () => icons[random(icons.length)];
     `;
 
+    // const main = `
+    //     import * as components from '@eventstore/components/loader';
+    //     import * as editor from '@eventstore/editor/loader';
+    //     import * as fields from '@eventstore/fields/loader';
+
+    //     components.defineCustomElements(window, { resourcesUrl: '/modules/@eventstore/components/esm/' });
+    //     editor.defineCustomElements(window, { resourcesUrl: '/modules/@eventstore/editor/esm/' });
+    //     fields.defineCustomElements(window, { resourcesUrl: '/modules/@eventstore/fields/esm/' });
+    // `;
+
     const { 'usage.tsx': render, 'style.css': css, ...rest } = parts;
 
     return Object.values(rest).reduce(
         (acc, { fileName, content }) => ({ ...acc, [fileName]: content }),
         {
+            // 'main.ts': main,
             'helpers.ts': helpers,
             'usage.tsx': `
                 import { h, Fragment } from '@stencil/core';

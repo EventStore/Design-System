@@ -7,23 +7,23 @@ import requireContext from 'rollup-plugin-require-context';
 import { string } from 'rollup-plugin-string';
 import { workerPath } from '@eventstore/editor/configure';
 
-import { dirname } from 'path';
+import { dirname, join } from 'path';
 import injectPalettePlugin from '@eventstore/postcss-palette-plugin';
 
 import { palette } from './src/global/palette';
 
 const imports = [
-    'rollup',
-    '@stencil/core/compiler',
-    '@stencil/core/internal',
-    '@eventstore/components',
-    '@eventstore/fields',
-    '@eventstore/router',
-    '@eventstore/editor',
-    '@eventstore/utils',
-    '@eventstore/stores',
-].map((name) => ({
-    src: dirname(require.resolve(name)),
+    ['rollup'],
+    ['@stencil/core/compiler'],
+    ['@stencil/core/internal'],
+    ['@eventstore/components', 'collection'],
+    ['@eventstore/fields', 'collection'],
+    ['@eventstore/editor', 'collection'],
+    ['@eventstore/router'],
+    ['@eventstore/utils'],
+    ['@eventstore/stores'],
+].map(([name, sub = '.']) => ({
+    src: join(dirname(require.resolve(name)), sub),
     dest: `modules/${name}/`,
     warn: true,
 }));
@@ -40,8 +40,12 @@ export const config: Config = {
             copy: [
                 ...imports,
                 {
-                    src: './components/docs-usage/preview.html',
+                    src: '../preview/preview.html',
                     dest: 'preview.html',
+                },
+                {
+                    src: '../preview/www/build',
+                    dest: 'preview',
                 },
                 {
                     src: workerPath,

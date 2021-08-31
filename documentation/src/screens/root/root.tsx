@@ -1,8 +1,5 @@
-import { Component, h, Host, Fragment, VNode } from '@stencil/core';
-import { Switch, Route, router, Link } from '@eventstore/router';
-import { MDXComponentMap } from '@eventstore/stencil-markdown-plugin';
-
-import { DocsPage } from 'utils/pages';
+import { Component, h, Host } from '@stencil/core';
+import { Switch, Route, router } from '@eventstore/router';
 import { sitemap } from 'sitemap';
 
 @Component({
@@ -35,36 +32,4 @@ export class Root {
             </Host>
         );
     }
-
-    renderPages = ({ title, url, children, Page }: DocsPage): VNode => (
-        <>
-            {Page && (
-                <Route exact url={url}>
-                    <docs-page pageTitle={title}>
-                        <Page components={this.components} />
-                    </docs-page>
-                </Route>
-            )}
-            {children && children.map(this.renderPages)}
-        </>
-    );
-
-    components: MDXComponentMap = {
-        h1: 'docs-page-title',
-        a: Link,
-        code: ({ class: className }: any, children, utils) => {
-            let code = '';
-
-            utils.forEach(children, (node) => {
-                code += node.vtext;
-            });
-
-            return (
-                <docs-code
-                    language={className.replace('language-', '')}
-                    code={code}
-                />
-            );
-        },
-    };
 }

@@ -1,7 +1,7 @@
 import { Component, h, Prop, Host } from '@stencil/core';
 import { TableCells } from '../es-table/types';
 
-/** A default header for [`es-table-row`](/components/es-table-detail). */
+/** A default header for [`es-table-detail`](/components/components/es-table-detail). */
 @Component({
     tag: 'es-table-detail-header',
     styleUrl: 'es-table-detail-header.css',
