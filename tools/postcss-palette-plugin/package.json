@@ -24,7 +24,7 @@
     },
     "prettier": "@eventstore/configs/prettier",
     "dependencies": {
-        "postcss": "^5.0.4"
+        "postcss": "^8.3.6"
     },
     "devDependencies": {
         "@babel/core": "^7.10.4",
