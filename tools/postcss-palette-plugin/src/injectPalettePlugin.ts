@@ -1,4 +1,4 @@
-import * as postcss from 'postcss';
+import { PluginCreator, decl } from 'postcss';
 import { flattenPalette } from './flattenPalette';
 import { Palette } from './types';
 import { palette } from './defaultPalette';
@@ -8,27 +8,26 @@ interface Options {
     prefix?: string;
 }
 
-// eslint-disable-next-line no-restricted-syntax
-export default postcss.plugin<Options>('postcss-inject-palette', (options) => {
+const injectPalettePlugin: PluginCreator<Options> = (options = {}) => {
     if (!options?.palette) {
         // eslint-disable-next-line no-console
         console.warn('Using default palette');
     }
 
-    const vars = flattenPalette(
-        options?.palette ?? palette,
-        options?.prefix ?? 'color',
+    const declarations = Array.from(
+        flattenPalette(options?.palette ?? palette, options?.prefix ?? 'color'),
+        ([prop, value]) => decl({ prop, value }),
     );
 
-    return (css) => {
-        css.walkAtRules((node) => {
-            if (node.name === 'inject-palette') {
-                node.replaceWith(
-                    Array.from(vars.entries(), ([prop, value]) =>
-                        postcss.decl({ prop, value }),
-                    ),
-                );
-            }
-        });
+    return {
+        postcssPlugin: 'inject-palette',
+        AtRule(node) {
+            if (node.name !== 'inject-palette') return;
+            node.replaceWith(declarations);
+        },
     };
-});
+};
+injectPalettePlugin.postcss = true;
+
+// eslint-disable-next-line no-restricted-syntax
+export default injectPalettePlugin;
