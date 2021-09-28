@@ -33,7 +33,7 @@ export class FunctionalComponentDocs {
     render() {
         return (
             <Host>
-                <docs-breadcrumb
+                <es-breadcrumb
                     crumbs={[
                         this.lib.crumb,
                         {
