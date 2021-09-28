@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/utils",
-    "version": "0.0.61",
+    "version": "0.0.62",
     "description": "Utilities for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.js",
@@ -32,7 +32,7 @@
         "@babel/core": "^7.12.10",
         "@babel/preset-env": "^7.12.11",
         "@babel/preset-typescript": "^7.12.7",
-        "@eventstore/configs": "^0.0.61",
+        "@eventstore/configs": "^0.0.62",
         "babel-jest": "^26.1.0",
         "jest": "^26.6.3",
         "typedoc": "^0.21.4",

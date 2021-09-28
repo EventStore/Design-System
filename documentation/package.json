@@ -1,7 +1,7 @@
 {
     "name": "@eventstore/docs",
     "private": true,
-    "version": "0.0.61",
+    "version": "0.0.62",
     "description": "Documentation for Event Store Design System",
     "license": "Apache-2.0",
     "publishConfig": {
@@ -25,13 +25,13 @@
         "icon": "icon --dir ./src/icons"
     },
     "dependencies": {
-        "@eventstore/components": "^0.0.61",
-        "@eventstore/editor": "^0.0.61",
-        "@eventstore/fields": "^0.0.61",
-        "@eventstore/layout": "^0.0.61",
-        "@eventstore/router": "^0.0.61",
-        "@eventstore/stores": "^0.0.61",
-        "@eventstore/utils": "^0.0.61",
+        "@eventstore/components": "^0.0.62",
+        "@eventstore/editor": "^0.0.62",
+        "@eventstore/fields": "^0.0.62",
+        "@eventstore/layout": "^0.0.62",
+        "@eventstore/router": "^0.0.62",
+        "@eventstore/stores": "^0.0.62",
+        "@eventstore/utils": "^0.0.62",
         "highlight.js": "11.2.0",
         "magic-string": "0.25.7",
         "markdown-it": "12.2.0",
@@ -40,9 +40,9 @@
         "rollup": "2.33.1"
     },
     "devDependencies": {
-        "@eventstore/configs": "^0.0.61",
-        "@eventstore/icon-manager": "^0.0.61",
-        "@eventstore/postcss-palette-plugin": "^0.0.61",
+        "@eventstore/configs": "^0.0.62",
+        "@eventstore/icon-manager": "^0.0.62",
+        "@eventstore/postcss-palette-plugin": "^0.0.62",
         "@stencil/core": "^2.7.1",
         "@stencil/postcss": "2.0.0",
         "@types/jest": "25.2.1",
