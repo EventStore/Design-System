@@ -38,7 +38,7 @@ export class UtilDocs {
     render() {
         return (
             <Host>
-                <docs-breadcrumb
+                <es-breadcrumb
                     crumbs={[
                         this.lib.crumb,
                         { name: 'Utils', path: './utils' },

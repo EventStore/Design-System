@@ -170,6 +170,12 @@
         "component": "Invite",
         "path": "./components/Invite.tsx"
     },
+    "layout": {
+        "name": "layout",
+        "component": "Layout",
+        "path": "./components/Layout.tsx",
+        "aliases": ["@eventstore/layout"]
+    },
     "light": {
         "name": "light",
         "component": "Light",

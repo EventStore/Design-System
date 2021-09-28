@@ -28,7 +28,7 @@ export class TypeDocs {
 
         return (
             <Host>
-                <docs-breadcrumb
+                <es-breadcrumb
                     crumbs={[
                         this.lib.crumb,
                         { name: 'Types', path: './types' },

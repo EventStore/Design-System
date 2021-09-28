@@ -1,8 +1,11 @@
 import { Component, h } from '@stencil/core';
 
+/**
+ * Standard page title
+ */
 @Component({
-    tag: 'docs-page-title',
-    styleUrl: 'docs-page-title.css',
+    tag: 'es-page-title',
+    styleUrl: 'es-page-title.css',
     shadow: true,
 })
 export class PageTitle {
