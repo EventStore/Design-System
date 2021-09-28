@@ -11,7 +11,7 @@ export class TableNested {
     /** Passed to cell renderer as `parent`. */
     @Prop() outerIdentifier: string = 'table';
     /** Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns. */
-    @Prop() getCellData?: <T = string>(key: T) => any;
+    @Prop() getCellData?: (key: string) => any;
     /** A record of table cell definitions.Some built in cells are cells are available for use:
      * - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell.
      * - `--no-pad`: A blank placeholder cell, for aligning with the parent cell.
@@ -38,7 +38,7 @@ export class TableNested {
     /** Sync function for extracting a list of rows for the nested table */
     @Prop() getNestedRows?: (key: string) => any[] | undefined;
     /** Sync function for extracting the data from the nested row. By default, it assumes you passed an array of data as your columns. */
-    @Prop() getNestedCellData?: <T = string>(key: T) => any;
+    @Prop() getNestedCellData?: (key: string) => any;
     /** async function for loading nested data when a row is expanded. */
     @Prop() loadNested?: (key: string, data: any) => Promise<void>;
     /** If the nested rows should be allowed to take focus. */
