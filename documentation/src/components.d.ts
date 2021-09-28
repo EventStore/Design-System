@@ -6,12 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { backgroundVariant } from "./components/layout/docs-background/docs-background";
-import { Crumb } from "./components/layout/docs-breadcrumb/docs-breadcrumb";
 import { JsonDocs, JsonDocsEvent, JsonDocsMethod, JsonDocsPart, JsonDocsProp, JsonDocsSlot, JsonDocsStyle } from "@stencil/core/internal";
 import { Lib } from "sitemap";
 import { JSONOutput } from "typedoc";
-import { PageState } from "./components/layout/docs-page/docs-page";
-import { VNode } from "@stencil/core";
 import { SidebarLinkVariant } from "./components/layout/docs-sidebar/components/docs-sidebar-link/docs-sidebar-link";
 import { Router } from "./components/docs-usage/components/docs-usage-location/docs-usage-location";
 import { LocationSegments } from "@eventstore/router";
@@ -21,10 +18,6 @@ export namespace Components {
           * Sets the background variant.
          */
         "variant": backgroundVariant;
-    }
-    interface DocsBreadcrumb {
-        "crumbs": Crumb[];
-        "noValidate": boolean;
     }
     interface DocsComponentDocs {
         "comp": JsonDocs['components'][0];
@@ -42,10 +35,6 @@ export namespace Components {
     }
     interface DocsHome {
     }
-    interface DocsLogo {
-        "height": number;
-        "width": number;
-    }
     interface DocsMarkdown {
         "md": string;
     }
@@ -54,18 +43,6 @@ export namespace Components {
     }
     interface DocsPackage {
         "lib": Lib;
-    }
-    interface DocsPage {
-        "crumbs"?: HTMLDocsBreadcrumbElement['crumbs'];
-        "empty": boolean;
-        "headerRight"?: () => VNode | VNode[];
-        "headerTitle"?: string | false;
-        "noSidebar"?: boolean;
-        "pageTitle": string;
-        "renderEmptyState"?: () => VNode | VNode[];
-        "state": PageState;
-    }
-    interface DocsPageTitle {
     }
     interface DocsPartsTable {
         "parts": JsonDocsPart[];
@@ -122,9 +99,6 @@ export namespace Components {
         "doc": JSONOutput.DeclarationReflection;
         "lib": Lib;
     }
-    interface EsFooter {
-        "noSidebar"?: boolean;
-    }
 }
 declare global {
     interface HTMLDocsBackgroundElement extends Components.DocsBackground, HTMLStencilElement {
@@ -132,12 +106,6 @@ declare global {
     var HTMLDocsBackgroundElement: {
         prototype: HTMLDocsBackgroundElement;
         new (): HTMLDocsBackgroundElement;
-    };
-    interface HTMLDocsBreadcrumbElement extends Components.DocsBreadcrumb, HTMLStencilElement {
-    }
-    var HTMLDocsBreadcrumbElement: {
-        prototype: HTMLDocsBreadcrumbElement;
-        new (): HTMLDocsBreadcrumbElement;
     };
     interface HTMLDocsComponentDocsElement extends Components.DocsComponentDocs, HTMLStencilElement {
     }
@@ -169,12 +137,6 @@ declare global {
         prototype: HTMLDocsHomeElement;
         new (): HTMLDocsHomeElement;
     };
-    interface HTMLDocsLogoElement extends Components.DocsLogo, HTMLStencilElement {
-    }
-    var HTMLDocsLogoElement: {
-        prototype: HTMLDocsLogoElement;
-        new (): HTMLDocsLogoElement;
-    };
     interface HTMLDocsMarkdownElement extends Components.DocsMarkdown, HTMLStencilElement {
     }
     var HTMLDocsMarkdownElement: {
@@ -192,18 +154,6 @@ declare global {
     var HTMLDocsPackageElement: {
         prototype: HTMLDocsPackageElement;
         new (): HTMLDocsPackageElement;
-    };
-    interface HTMLDocsPageElement extends Components.DocsPage, HTMLStencilElement {
-    }
-    var HTMLDocsPageElement: {
-        prototype: HTMLDocsPageElement;
-        new (): HTMLDocsPageElement;
-    };
-    interface HTMLDocsPageTitleElement extends Components.DocsPageTitle, HTMLStencilElement {
-    }
-    var HTMLDocsPageTitleElement: {
-        prototype: HTMLDocsPageTitleElement;
-        new (): HTMLDocsPageTitleElement;
     };
     interface HTMLDocsPartsTableElement extends Components.DocsPartsTable, HTMLStencilElement {
     }
@@ -295,26 +245,16 @@ declare global {
         prototype: HTMLDocsUtilDocsElement;
         new (): HTMLDocsUtilDocsElement;
     };
-    interface HTMLEsFooterElement extends Components.EsFooter, HTMLStencilElement {
-    }
-    var HTMLEsFooterElement: {
-        prototype: HTMLEsFooterElement;
-        new (): HTMLEsFooterElement;
-    };
     interface HTMLElementTagNameMap {
         "docs-background": HTMLDocsBackgroundElement;
-        "docs-breadcrumb": HTMLDocsBreadcrumbElement;
         "docs-component-docs": HTMLDocsComponentDocsElement;
         "docs-events-table": HTMLDocsEventsTableElement;
         "docs-functional-component-docs": HTMLDocsFunctionalComponentDocsElement;
         "docs-header": HTMLDocsHeaderElement;
         "docs-home": HTMLDocsHomeElement;
-        "docs-logo": HTMLDocsLogoElement;
         "docs-markdown": HTMLDocsMarkdownElement;
         "docs-methods-table": HTMLDocsMethodsTableElement;
         "docs-package": HTMLDocsPackageElement;
-        "docs-page": HTMLDocsPageElement;
-        "docs-page-title": HTMLDocsPageTitleElement;
         "docs-parts-table": HTMLDocsPartsTableElement;
         "docs-props-table": HTMLDocsPropsTableElement;
         "docs-root": HTMLDocsRootElement;
@@ -330,7 +270,6 @@ declare global {
         "docs-usage": HTMLDocsUsageElement;
         "docs-usage-location": HTMLDocsUsageLocationElement;
         "docs-util-docs": HTMLDocsUtilDocsElement;
-        "es-footer": HTMLEsFooterElement;
     }
 }
 declare namespace LocalJSX {
@@ -339,10 +278,6 @@ declare namespace LocalJSX {
           * Sets the background variant.
          */
         "variant"?: backgroundVariant;
-    }
-    interface DocsBreadcrumb {
-        "crumbs"?: Crumb[];
-        "noValidate"?: boolean;
     }
     interface DocsComponentDocs {
         "comp": JsonDocs['components'][0];
@@ -360,10 +295,6 @@ declare namespace LocalJSX {
     }
     interface DocsHome {
     }
-    interface DocsLogo {
-        "height"?: number;
-        "width"?: number;
-    }
     interface DocsMarkdown {
         "md": string;
     }
@@ -372,18 +303,6 @@ declare namespace LocalJSX {
     }
     interface DocsPackage {
         "lib": Lib;
-    }
-    interface DocsPage {
-        "crumbs"?: HTMLDocsBreadcrumbElement['crumbs'];
-        "empty"?: boolean;
-        "headerRight"?: () => VNode | VNode[];
-        "headerTitle"?: string | false;
-        "noSidebar"?: boolean;
-        "pageTitle": string;
-        "renderEmptyState"?: () => VNode | VNode[];
-        "state"?: PageState;
-    }
-    interface DocsPageTitle {
     }
     interface DocsPartsTable {
         "parts": JsonDocsPart[];
@@ -440,23 +359,16 @@ declare namespace LocalJSX {
         "doc": JSONOutput.DeclarationReflection;
         "lib": Lib;
     }
-    interface EsFooter {
-        "noSidebar"?: boolean;
-    }
     interface IntrinsicElements {
         "docs-background": DocsBackground;
-        "docs-breadcrumb": DocsBreadcrumb;
         "docs-component-docs": DocsComponentDocs;
         "docs-events-table": DocsEventsTable;
         "docs-functional-component-docs": DocsFunctionalComponentDocs;
         "docs-header": DocsHeader;
         "docs-home": DocsHome;
-        "docs-logo": DocsLogo;
         "docs-markdown": DocsMarkdown;
         "docs-methods-table": DocsMethodsTable;
         "docs-package": DocsPackage;
-        "docs-page": DocsPage;
-        "docs-page-title": DocsPageTitle;
         "docs-parts-table": DocsPartsTable;
         "docs-props-table": DocsPropsTable;
         "docs-root": DocsRoot;
@@ -472,7 +384,6 @@ declare namespace LocalJSX {
         "docs-usage": DocsUsage;
         "docs-usage-location": DocsUsageLocation;
         "docs-util-docs": DocsUtilDocs;
-        "es-footer": EsFooter;
     }
 }
 export { LocalJSX as JSX };
@@ -480,18 +391,14 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "docs-background": LocalJSX.DocsBackground & JSXBase.HTMLAttributes<HTMLDocsBackgroundElement>;
-            "docs-breadcrumb": LocalJSX.DocsBreadcrumb & JSXBase.HTMLAttributes<HTMLDocsBreadcrumbElement>;
             "docs-component-docs": LocalJSX.DocsComponentDocs & JSXBase.HTMLAttributes<HTMLDocsComponentDocsElement>;
             "docs-events-table": LocalJSX.DocsEventsTable & JSXBase.HTMLAttributes<HTMLDocsEventsTableElement>;
             "docs-functional-component-docs": LocalJSX.DocsFunctionalComponentDocs & JSXBase.HTMLAttributes<HTMLDocsFunctionalComponentDocsElement>;
             "docs-header": LocalJSX.DocsHeader & JSXBase.HTMLAttributes<HTMLDocsHeaderElement>;
             "docs-home": LocalJSX.DocsHome & JSXBase.HTMLAttributes<HTMLDocsHomeElement>;
-            "docs-logo": LocalJSX.DocsLogo & JSXBase.HTMLAttributes<HTMLDocsLogoElement>;
             "docs-markdown": LocalJSX.DocsMarkdown & JSXBase.HTMLAttributes<HTMLDocsMarkdownElement>;
             "docs-methods-table": LocalJSX.DocsMethodsTable & JSXBase.HTMLAttributes<HTMLDocsMethodsTableElement>;
             "docs-package": LocalJSX.DocsPackage & JSXBase.HTMLAttributes<HTMLDocsPackageElement>;
-            "docs-page": LocalJSX.DocsPage & JSXBase.HTMLAttributes<HTMLDocsPageElement>;
-            "docs-page-title": LocalJSX.DocsPageTitle & JSXBase.HTMLAttributes<HTMLDocsPageTitleElement>;
             "docs-parts-table": LocalJSX.DocsPartsTable & JSXBase.HTMLAttributes<HTMLDocsPartsTableElement>;
             "docs-props-table": LocalJSX.DocsPropsTable & JSXBase.HTMLAttributes<HTMLDocsPropsTableElement>;
             "docs-root": LocalJSX.DocsRoot & JSXBase.HTMLAttributes<HTMLDocsRootElement>;
@@ -507,7 +414,6 @@ declare module "@stencil/core" {
             "docs-usage": LocalJSX.DocsUsage & JSXBase.HTMLAttributes<HTMLDocsUsageElement>;
             "docs-usage-location": LocalJSX.DocsUsageLocation & JSXBase.HTMLAttributes<HTMLDocsUsageLocationElement>;
             "docs-util-docs": LocalJSX.DocsUtilDocs & JSXBase.HTMLAttributes<HTMLDocsUtilDocsElement>;
-            "es-footer": LocalJSX.EsFooter & JSXBase.HTMLAttributes<HTMLEsFooterElement>;
         }
     }
 }

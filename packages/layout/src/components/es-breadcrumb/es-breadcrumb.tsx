@@ -1,20 +1,21 @@
 import { Component, h, Host, Prop, Build } from '@stencil/core';
 import { Link, router } from '@eventstore/router';
+import { logger } from '../../utils/logger';
 
-import { logger } from 'utils/logger';
+import { Crumb } from './types';
 
-export interface Crumb {
-    path: string;
-    name: string;
-}
-
+/**
+ * A list of breadcrumbs to the current page
+ */
 @Component({
-    tag: 'docs-breadcrumb',
-    styleUrl: 'docs-breadcrumb.css',
+    tag: 'es-breadcrumb',
+    styleUrl: 'es-breadcrumb.css',
     shadow: true,
 })
 export class BreadCrumb {
+    /** The breadcrumbs to the current page. */
     @Prop() crumbs: Crumb[] = [];
+    /** Do not warn if the crumbs do not match the current router location. (Only warns in dev mode) */
     @Prop() noValidate: boolean = false;
 
     componentDidLoad() {
@@ -53,7 +54,7 @@ export class BreadCrumb {
 
         if (breadcrumb !== router.location.pathname) {
             logger.warn.once(
-                `<docs-breadcrumb /> doesn't match active route.
+                `<es-breadcrumb /> doesn't match active route.
 route:       ${router.location.pathname}
 breadcrumb:  ${breadcrumb}`,
             );

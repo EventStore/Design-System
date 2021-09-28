@@ -10,6 +10,10 @@ export const sitemap = expandSitemap([
                 filePath: './packages/components',
             },
             {
+                title: 'Layout',
+                filePath: './packages/layout',
+            },
+            {
                 title: 'Fields',
                 filePath: './packages/fields',
             },

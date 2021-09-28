@@ -28,6 +28,7 @@
         "@eventstore/components": "^0.0.61",
         "@eventstore/editor": "^0.0.61",
         "@eventstore/fields": "^0.0.61",
+        "@eventstore/layout": "^0.0.61",
         "@eventstore/router": "^0.0.61",
         "@eventstore/stores": "^0.0.61",
         "@eventstore/utils": "^0.0.61",
