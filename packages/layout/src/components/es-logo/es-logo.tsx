@@ -1,12 +1,17 @@
 import { Component, h, Prop } from '@stencil/core';
 
+/**
+ * The Event Store logo.
+ */
 @Component({
-    tag: 'docs-logo',
-    styleUrl: 'docs-logo.css',
+    tag: 'es-logo',
+    styleUrl: 'es-logo.css',
     shadow: true,
 })
 export class Logo {
+    /** Height to constrain by. */
     @Prop() height: number = 40;
+    /** Width to constrain by. */
     @Prop() width: number = 164;
 
     render() {

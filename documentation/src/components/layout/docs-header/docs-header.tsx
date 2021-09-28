@@ -15,7 +15,7 @@ export class Header {
             <header>
                 <slot name={'logo'}>
                     <Link url={'/'} title={'Home'}>
-                        <docs-logo />
+                        <es-logo />
                     </Link>
                 </slot>
 

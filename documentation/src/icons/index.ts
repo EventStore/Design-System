@@ -138,6 +138,12 @@ iconStore.addIcons({
     get invite() {
         return import('./components/Invite').then((module) => module.Invite);
     },
+    get layout() {
+        return import('./components/Layout').then((module) => module.Layout);
+    },
+    get '@eventstore/layout'() {
+        return this['layout'];
+    },
     get light() {
         return import('./components/Light').then((module) => module.Light);
     },

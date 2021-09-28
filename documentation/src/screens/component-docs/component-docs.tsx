@@ -20,7 +20,7 @@ export class ComponentDocs {
 
         return (
             <Host>
-                <docs-breadcrumb
+                <es-breadcrumb
                     crumbs={[
                         this.lib.crumb,
                         { name: 'Components', path: './components' },
