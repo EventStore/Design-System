@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/stores",
-    "version": "0.0.61",
+    "version": "0.0.62",
     "description": "Data stores for Stencil",
     "license": "Apache-2.0",
     "main": "dist/index.js",
@@ -33,7 +33,7 @@
         "@eventstore/utils": "0.0.x"
     },
     "devDependencies": {
-        "@eventstore/utils": "^0.0.61",
+        "@eventstore/utils": "^0.0.62",
         "@stencil/core": "^2.7.1",
         "@types/jest": "26.0.3",
         "jest": "^26.6.3",
