@@ -11,9 +11,6 @@ import { Link, router } from '@eventstore/router';
 import { TableCell, TableCells } from './types';
 import { logger } from '../../utils/logger';
 
-export type RowData = any;
-export type RawRow = any;
-
 /** Create a table from data. */
 @Component({
     tag: 'es-table',
@@ -26,26 +23,26 @@ export class Table {
     /** Do not render header. */
     @Prop() headless: boolean = false;
     /** Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns. */
-    @Prop() getCellData: <T = RawRow>(key: T) => RowData = (d) => d;
+    @Prop() getCellData: (key: string) => any = (d) => d;
     /** A record of table cell definitions. */
-    @Prop() cells!: TableCells<RowData>;
+    @Prop() cells!: TableCells<any>;
     /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: string[];
     /** An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.  */
-    @Prop() rows!: RawRow[];
+    @Prop() rows!: string[];
     /** A function to calculate a href from the cell data. */
-    @Prop() linkRowTo?: (row: RowData) => string;
+    @Prop() linkRowTo?: (row: any) => string;
     /** If rows should be allowed to take focus */
     @Prop() rowTakesFocus?: boolean;
     /** A function to calculate the class or classes of the row from the cellData. */
     @Prop() rowClass: (
-        row: RowData,
+        row: any,
     ) => Record<string, boolean> | string | undefined = () => undefined;
     /** Allows rendering a node after the row. */
-    @Prop() renderExpansion: (key: RawRow) => VNode | null = () => null;
+    @Prop() renderExpansion: (key: string) => VNode | null = () => null;
 
     /** Triggered whenever a row is clicked. The `detail` is the item in the row array. */
-    @Event() clickRow!: EventEmitter<RowData>;
+    @Event() clickRow!: EventEmitter<any>;
 
     private renderHeader = () => {
         if (this.headless) return null;
