@@ -4,6 +4,7 @@
     "description": "Typedoc plugin that resolves @usage paths to content.",
     "license": "Apache-2.0",
     "main": "dist/index.js",
+    "private": true,
     "files": [
         "dist"
     ],
