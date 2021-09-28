@@ -14,7 +14,6 @@ import { CounterVariant } from "./components/es-counter/es-counter";
 import { AttachmentX, AttachmentY, Constrain, Position, PositionX, PositionY } from "./utils/calcPosition";
 import { Checkpoint } from "./components/es-progression/es-progression";
 import { Status } from "./components/es-status/es-status";
-import { RawRow, RowData } from "./components/es-table/es-table";
 import { TableCells } from "./components/es-table/types";
 import { Tab } from "./components/es-tabs/types";
 import { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
@@ -311,7 +310,7 @@ export namespace Components {
         /**
           * A record of table cell definitions.
          */
-        "cells": TableCells<RowData>;
+        "cells": TableCells<any>;
         /**
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
@@ -319,7 +318,7 @@ export namespace Components {
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
-        "getCellData": <T = RawRow>(key: T) => RowData;
+        "getCellData": (key: string) => any;
         /**
           * Do not render header.
          */
@@ -331,16 +330,16 @@ export namespace Components {
         /**
           * A function to calculate a href from the cell data.
          */
-        "linkRowTo"?: (row: RowData) => string;
+        "linkRowTo"?: (row: any) => string;
         /**
           * Allows rendering a node after the row.
          */
-        "renderExpansion": (key: RawRow) => VNode | null;
+        "renderExpansion": (key: string) => VNode | null;
         /**
           * A function to calculate the class or classes of the row from the cellData.
          */
         "rowClass": (
-        row: RowData,
+        row: any,
     ) => Record<string, boolean> | string | undefined;
         /**
           * If rows should be allowed to take focus
@@ -349,7 +348,7 @@ export namespace Components {
         /**
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
-        "rows": RawRow[];
+        "rows": string[];
     }
     interface EsTableDetail {
         /**
@@ -411,11 +410,11 @@ export namespace Components {
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
-        "getCellData"?: <T = string>(key: T) => any;
+        "getCellData"?: (key: string) => any;
         /**
           * Sync function for extracting the data from the nested row. By default, it assumes you passed an array of data as your columns.
          */
-        "getNestedCellData"?: <T = string>(key: T) => any;
+        "getNestedCellData"?: (key: string) => any;
         /**
           * Sync function for extracting a list of rows for the nested table
          */
@@ -1023,7 +1022,7 @@ declare namespace LocalJSX {
         /**
           * A record of table cell definitions.
          */
-        "cells": TableCells<RowData>;
+        "cells": TableCells<any>;
         /**
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
@@ -1031,7 +1030,7 @@ declare namespace LocalJSX {
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
-        "getCellData"?: <T = RawRow>(key: T) => RowData;
+        "getCellData"?: (key: string) => any;
         /**
           * Do not render header.
          */
@@ -1043,20 +1042,20 @@ declare namespace LocalJSX {
         /**
           * A function to calculate a href from the cell data.
          */
-        "linkRowTo"?: (row: RowData) => string;
+        "linkRowTo"?: (row: any) => string;
         /**
           * Triggered whenever a row is clicked. The `detail` is the item in the row array.
          */
-        "onClickRow"?: (event: CustomEvent<RowData>) => void;
+        "onClickRow"?: (event: CustomEvent<any>) => void;
         /**
           * Allows rendering a node after the row.
          */
-        "renderExpansion"?: (key: RawRow) => VNode | null;
+        "renderExpansion"?: (key: string) => VNode | null;
         /**
           * A function to calculate the class or classes of the row from the cellData.
          */
         "rowClass"?: (
-        row: RowData,
+        row: any,
     ) => Record<string, boolean> | string | undefined;
         /**
           * If rows should be allowed to take focus
@@ -1065,7 +1064,7 @@ declare namespace LocalJSX {
         /**
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
-        "rows": RawRow[];
+        "rows": string[];
     }
     interface EsTableDetail {
         /**
@@ -1127,11 +1126,11 @@ declare namespace LocalJSX {
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
-        "getCellData"?: <T = string>(key: T) => any;
+        "getCellData"?: (key: string) => any;
         /**
           * Sync function for extracting the data from the nested row. By default, it assumes you passed an array of data as your columns.
          */
-        "getNestedCellData"?: <T = string>(key: T) => any;
+        "getNestedCellData"?: (key: string) => any;
         /**
           * Sync function for extracting a list of rows for the nested table
          */
