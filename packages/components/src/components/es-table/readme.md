@@ -78,7 +78,7 @@ export default () => (
 | `renderExpansion`    | --                | Allows rendering a node after the row.                                                                                   | `(key: string) => VNode \| null`                               | `() => null`      |
 | `rowClass`           | --                | A function to calculate the class or classes of the row from the cellData.                                               | `(row: any) => string \| Record<string, boolean> \| undefined` | `() => undefined` |
 | `rowTakesFocus`      | `row-takes-focus` | If rows should be allowed to take focus                                                                                  | `boolean \| undefined`                                         | `undefined`       |
-| `rows` _(required)_  | --                | An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers. | `string[]`                                                     | `undefined`       |
+| `rows` _(required)_  | --                | An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers. | `any[]`                                                        | `undefined`       |
 
 
 ## Events
