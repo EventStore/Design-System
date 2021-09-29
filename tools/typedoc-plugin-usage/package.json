@@ -1,6 +1,6 @@
 {
     "name": "typedoc-plugin-usage",
-    "version": "0.0.64",
+    "version": "0.0.65",
     "description": "Typedoc plugin that resolves @usage paths to content.",
     "license": "Apache-2.0",
     "main": "dist/index.js",
