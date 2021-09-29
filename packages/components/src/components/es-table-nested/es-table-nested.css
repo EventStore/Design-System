@@ -13,10 +13,14 @@ es-table-nested {
                     border-top: 1px solid var(--border-top-color);
                 }
             }
+        }
 
-            &:last-child {
-                & .borderless {
-                    border-bottom: 1px solid var(--border-bottom-color);
+        &:not(.can_expand_more) {
+            & *[role='rowgroup'] {
+                &:last-child {
+                    & .borderless {
+                        border-bottom: 1px solid var(--border-bottom-color);
+                    }
                 }
             }
         }
@@ -25,6 +29,15 @@ es-table-nested {
     & .expander {
         height: 100%;
         width: 100%;
+
+        --current-color: var(--color-primary-dark);
+    }
+
+    & .expand_more {
+        width: 100%;
+        grid-column: 1 / -1;
+        background-color: var(--row-color);
+        border-bottom: 1px solid var(--color-primary-extra-light);
 
         --current-color: var(--color-primary-dark);
     }

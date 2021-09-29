@@ -21,7 +21,9 @@ export interface CorrelationStore<T extends CorrelatableItem> {
     /** Get the first id that was correlated by the passed id. */
     getHead: (id: string) => string | undefined;
     /** Get all but the first ids that were correlated by the passed id. */
-    getTail: (id: string) => string[] | undefined;
+    getTail: (id: string, truncate?: number) => string[] | undefined;
+    /** Get the number of items correlated by the passed id.. */
+    getSize: (id: string) => number | undefined;
     /** Check if an item is available in the list. */
     has: (id: string) => boolean;
     /** Insert an item into the list. */
@@ -84,7 +86,9 @@ export const createCorrelationStore = <T extends CorrelatableItem>(
         },
         get: ids.get,
         getHead: (id) => ids.get(id)?.[0],
-        getTail: (id) => ids.get(id)?.slice(1),
+        getTail: (id, truncate) =>
+            ids.get(id)?.slice(1, truncate ? truncate + 1 : undefined),
+        getSize: (id) => ids.get(id)?.length,
         has: ids.has,
         insert: (item) => {
             invalidateMemos();
