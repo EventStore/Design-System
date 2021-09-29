@@ -38,10 +38,14 @@ class SearchParam implements SearchParamTracker {
 
         search.set(this.key, value);
 
-        router.history.replace({
-            ...router.history.location,
-            search: search.toString(),
-        });
+        router.history.replace(
+            {
+                ...router.history.location,
+                search: search.toString(),
+            },
+            undefined,
+            false,
+        );
     };
 
     public delete = () => {

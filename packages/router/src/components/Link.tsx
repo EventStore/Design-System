@@ -15,6 +15,8 @@ export interface LinkProps {
     strict?: boolean;
     /** If the Link should break out of the router, and force a page load.  */
     forceRefresh?: boolean;
+    /** If the windows scroll position should be set to 0,0 */
+    updateScroll?: boolean;
 
     /** Element to use as a link. Default: `a`  */
     element?: string;
@@ -43,6 +45,7 @@ export const Link: FunctionalComponent<LinkProps> = (
         exact,
         strict,
         forceRefresh = false,
+        updateScroll = true,
         activeClass = 'link-active',
         class: classes = {},
         disabled,
@@ -81,7 +84,7 @@ export const Link: FunctionalComponent<LinkProps> = (
                 e.preventDefault();
 
                 const href = router.getUrl(url);
-                router.history.push(href, { scrollX: 0, scrollY: 0 });
+                router.history.push(href, undefined, updateScroll);
             }}
             {...props}
         >
