@@ -348,7 +348,7 @@ export namespace Components {
         /**
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
-        "rows": string[];
+        "rows": any[];
     }
     interface EsTableDetail {
         /**
@@ -1072,7 +1072,7 @@ declare namespace LocalJSX {
         /**
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
-        "rows": string[];
+        "rows": any[];
     }
     interface EsTableDetail {
         /**
