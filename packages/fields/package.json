@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/fields",
-    "version": "0.0.64",
+    "version": "0.0.65",
     "description": "Forms and fields for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
@@ -43,9 +43,9 @@
         "imask": "6.0.5"
     },
     "devDependencies": {
-        "@eventstore/components": "^0.0.64",
-        "@eventstore/stores": "^0.0.64",
-        "@eventstore/utils": "^0.0.64",
+        "@eventstore/components": "^0.0.65",
+        "@eventstore/stores": "^0.0.65",
+        "@eventstore/utils": "^0.0.65",
         "@stencil/core": "^2.7.1",
         "jest": "^26.6.3",
         "puppeteer": "^10.2.0",
