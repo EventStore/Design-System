@@ -37,9 +37,17 @@ export interface RouterHistory {
     /** Create a href from a location. */
     createHref: (location: LocationSegments) => string;
     /** Push a location (navigate) to a path or location.  */
-    push: (path: string | LocationSegments, state?: any) => void;
+    push: (
+        path: string | LocationSegments,
+        state?: any,
+        updateScroll?: boolean,
+    ) => void;
     /** Replace the current location with a path or location.  */
-    replace: (path: string | LocationSegments, state?: any) => void;
+    replace: (
+        path: string | LocationSegments,
+        state?: any,
+        updateScroll?: boolean,
+    ) => void;
     /** Load a specific page from the session history. You can use it to move forwards and backwards through the history depending on the value of a parameter. */
     go: (delta: number) => void;
     /** Move back one page in the session history. It has the same effect as calling go(-1). If there is no previous page, this method call does nothing. */

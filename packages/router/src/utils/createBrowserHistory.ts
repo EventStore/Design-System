@@ -105,16 +105,20 @@ const createBrowserHistory = (
 
     const transitionManager = createTransitionManager();
 
-    const setState = (nextState?: NextState) => {
+    const setState = (
+        nextState: NextState | undefined,
+        updateScroll: boolean = true,
+    ) => {
         // Capture location for the view before changing history.
         scrollHistory.capture(history.location.key);
 
         Object.assign(history, nextState);
 
         // Set scroll position based on its previous storage value
-        history.location.scrollPosition = scrollHistory.get(
-            history.location.key,
-        ) ?? [0, 0];
+        history.location.scrollPosition = updateScroll
+            ? scrollHistory.get(history.location.key) ?? [0, 0]
+            : undefined;
+
         history.length = globalHistory.length;
 
         transitionManager.notifyListeners(history.location, history.action);
@@ -134,7 +138,7 @@ const createBrowserHistory = (
     const handlePop = (location: LocationSegments) => {
         if (forceNextPop) {
             forceNextPop = false;
-            setState();
+            setState(undefined);
         } else {
             const action = 'POP';
 
@@ -144,7 +148,7 @@ const createBrowserHistory = (
                 getUserConfirmation,
                 (ok: boolean) => {
                     if (ok) {
-                        setState({ action, location });
+                        setState({ action, location }, true);
                     } else {
                         revertPop(location);
                     }
@@ -190,7 +194,11 @@ const createBrowserHistory = (
         return basename + createPath(location);
     };
 
-    const push = (path: string | LocationSegments, state: any) => {
+    const push = (
+        path: string | LocationSegments,
+        state: any,
+        updateScroll?: boolean,
+    ) => {
         warning(
             !(
                 typeof path === 'object' &&
@@ -236,7 +244,7 @@ const createBrowserHistory = (
                         nextKeys.push(location.key);
                         allKeys = nextKeys;
 
-                        setState({ action, location });
+                        setState({ action, location }, updateScroll);
                     }
                 } else {
                     warning(
@@ -250,7 +258,11 @@ const createBrowserHistory = (
         );
     };
 
-    const replace = (path: string | LocationSegments, state: any) => {
+    const replace = (
+        path: string | LocationSegments,
+        state: any,
+        updateScroll?: boolean,
+    ) => {
         warning(
             !(
                 typeof path === 'object' &&
@@ -293,7 +305,7 @@ const createBrowserHistory = (
                             allKeys[prevIndex] = location.key;
                         }
 
-                        setState({ action, location });
+                        setState({ action, location }, updateScroll);
                     }
                 } else {
                     warning(
