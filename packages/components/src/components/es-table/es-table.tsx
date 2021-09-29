@@ -29,7 +29,7 @@ export class Table {
     /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: string[];
     /** An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.  */
-    @Prop() rows!: string[];
+    @Prop() rows!: any[];
     /** A function to calculate a href from the cell data. */
     @Prop() linkRowTo?: (row: any) => string;
     /** If rows should be allowed to take focus */
