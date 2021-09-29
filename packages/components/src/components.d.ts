@@ -400,6 +400,10 @@ export namespace Components {
          */
         "canExpand": (key: string, data: any) => boolean;
         /**
+          * Function to decide if a row can expand more, to show more rows in the nested table.
+         */
+        "canExpandMore": (key: string, count: number) => boolean;
+        /**
           * A record of table cell definitions.Some built in cells are cells are available for use: - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell. - `--no-pad`: A blank placeholder cell, for aligning with the parent cell. - `expander`: The expander button.
          */
         "cells": TableCells<any>;
@@ -407,6 +411,10 @@ export namespace Components {
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
         "columns"?: string[];
+        /**
+          * Number number of rows to display in expansion
+         */
+        "expandBy": number;
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
@@ -418,7 +426,7 @@ export namespace Components {
         /**
           * Sync function for extracting a list of rows for the nested table
          */
-        "getNestedRows"?: (key: string) => any[] | undefined;
+        "getNestedRows"?: (key: string, count: number) => any[] | undefined;
         /**
           * A function to calculate a href from the cell data.
          */
@@ -1116,6 +1124,10 @@ declare namespace LocalJSX {
          */
         "canExpand"?: (key: string, data: any) => boolean;
         /**
+          * Function to decide if a row can expand more, to show more rows in the nested table.
+         */
+        "canExpandMore"?: (key: string, count: number) => boolean;
+        /**
           * A record of table cell definitions.Some built in cells are cells are available for use: - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell. - `--no-pad`: A blank placeholder cell, for aligning with the parent cell. - `expander`: The expander button.
          */
         "cells": TableCells<any>;
@@ -1123,6 +1135,10 @@ declare namespace LocalJSX {
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
         "columns"?: string[];
+        /**
+          * Number number of rows to display in expansion
+         */
+        "expandBy"?: number;
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
@@ -1134,7 +1150,7 @@ declare namespace LocalJSX {
         /**
           * Sync function for extracting a list of rows for the nested table
          */
-        "getNestedRows"?: (key: string) => any[] | undefined;
+        "getNestedRows"?: (key: string, count: number) => any[] | undefined;
         /**
           * A function to calculate a href from the cell data.
          */
