@@ -35,7 +35,7 @@ export class RadioCardGroup {
     /** The current value of the field. */
     @Prop() value!: string | null;
     /** The name of the field. */
-    @Prop() name!: string;
+    @Prop({ reflect: true }) name!: string;
     /** Group the cards by a key.*/
     @Prop() groupBy?: string;
     /** Overwrite the default card renderer */
@@ -69,9 +69,11 @@ export class RadioCardGroup {
                                             active,
                                             disabled: !!option.disabled,
                                         }}
+                                        htmlFor={`${this.name}-${option.id}`}
                                     >
                                         <input
                                             type={'radio'}
+                                            id={`${this.name}-${option.id}`}
                                             name={this.name}
                                             value={option.id}
                                             checked={active}

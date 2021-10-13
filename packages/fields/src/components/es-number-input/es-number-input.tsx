@@ -49,6 +49,7 @@ export class EsNumberInput {
                         part={'input'}
                         type={'text'}
                         inputmode={'numeric'}
+                        name={this.name}
                         onInput={this.onChange}
                         onKeyDown={this.onKeyDown}
                         onKeyUp={this.onKeyUp}

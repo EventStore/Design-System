@@ -42,6 +42,7 @@ export class EsTextArea {
                     {...(this.inputProps ?? {})}
                     class={'input'}
                     part={'input'}
+                    name={this.name}
                     value={this.value}
                     onInput={this.onChange}
                     placeholder={this.placeholder}

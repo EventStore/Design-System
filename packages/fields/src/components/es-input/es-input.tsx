@@ -64,6 +64,7 @@ export class EsInput {
                     {...(this.inputProps ?? {})}
                     class={'input'}
                     part={'input'}
+                    name={this.name}
                     onInput={this.onInput}
                     onKeyUp={this.onKeyUp}
                     placeholder={this.placeholder}

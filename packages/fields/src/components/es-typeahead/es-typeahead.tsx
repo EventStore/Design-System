@@ -83,6 +83,7 @@ export class EsTypeahead {
             spellcheck={'false'}
             aria-autocomplete={'list'}
             {...props}
+            name={this.name}
             ref={this.captureInput}
             onInput={this.onChangeInput}
             onKeyDown={this.onKeyDown}
