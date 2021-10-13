@@ -86,7 +86,7 @@ export class ListCreator {
                 >
                     <es-typeahead
                         clearOnSelect
-                        name={`${this.name}-typeahead`}
+                        name={this.name}
                         value={this.data.data}
                         options={this.remainingOptions}
                         renderField={this.renderField}
