@@ -19,7 +19,7 @@ export class EsSwitch {
     @Event({ bubbles: true }) fieldchange!: EventEmitter;
 
     /** The name of the field. */
-    @Prop() name!: string;
+    @Prop({ reflect: true }) name!: string;
     /** The current value of the field. */
     @Prop() value!: boolean;
     /** If the field is disabled. */

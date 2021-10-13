@@ -27,6 +27,7 @@ export class EsCheckbox {
                 <input
                     class={'input'}
                     type={'checkbox'}
+                    name={this.name}
                     onChange={this.onChange}
                     disabled={this.disabled}
                     readonly={this.readonly}
