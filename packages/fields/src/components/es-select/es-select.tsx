@@ -85,7 +85,7 @@ export class EsSelect {
                 messages={this.messages}
             >
                 <es-typeahead
-                    name={`${this.name}-typeahead`}
+                    name={this.name}
                     value={this.value ? [this.value] : []}
                     closeOnSelect
                     renderField={this.renderField}
