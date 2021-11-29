@@ -1,7 +1,7 @@
 import { h, FunctionalComponent } from '@stencil/core';
-import { Path } from '../types';
-import router from '../utils/internalRouter';
+import type { Path } from '../types';
 import { isModifiedEvent } from '../utils/dom-utils';
+import { INTERNAL_ROUTER } from '../utils/globals';
 
 /** @props */
 export interface LinkProps {
@@ -54,7 +54,11 @@ export const Link: FunctionalComponent<LinkProps> = (
     },
     children,
 ) => {
-    const match = router.match({ path: urlMatch, strict, exact });
+    const match = window[INTERNAL_ROUTER].match({
+        path: urlMatch,
+        strict,
+        exact,
+    });
 
     return (
         <Element
@@ -83,8 +87,12 @@ export const Link: FunctionalComponent<LinkProps> = (
 
                 e.preventDefault();
 
-                const href = router.getUrl(url);
-                router.history.push(href, undefined, updateScroll);
+                const href = window[INTERNAL_ROUTER].getUrl(url);
+                window[INTERNAL_ROUTER].history.push(
+                    href,
+                    undefined,
+                    updateScroll,
+                );
             }}
             {...props}
         >

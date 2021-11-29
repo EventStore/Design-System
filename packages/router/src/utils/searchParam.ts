@@ -1,7 +1,7 @@
 import { createLogger } from '@eventstore/utils';
 
-import { SearchParamTracker } from '../types';
-import { router } from './router';
+import type { SearchParamTracker } from '../types';
+import { INTERNAL_ROUTER } from './globals';
 
 export const logger = createLogger('searchParam', '#333');
 
@@ -12,7 +12,7 @@ class SearchParam implements SearchParamTracker {
     }
 
     public get value(): string | undefined {
-        if (!router.history) {
+        if (!window[INTERNAL_ROUTER]) {
             logger.error(
                 `Attemped to get "${this.key}"in search params before router was initialized`,
                 this.key,
@@ -25,7 +25,7 @@ class SearchParam implements SearchParamTracker {
     public set = (value?: string) => {
         if (value == null) return this.delete();
 
-        if (!router.history) {
+        if (!window[INTERNAL_ROUTER]) {
             logger.error(
                 `Attemped to set "${this.key}" to "${value}" in search params before router was initialized`,
                 this.key,
@@ -37,10 +37,9 @@ class SearchParam implements SearchParamTracker {
         const search = this.params;
 
         search.set(this.key, value);
-
-        router.history.replace(
+        window[INTERNAL_ROUTER].history.replace(
             {
-                ...router.history.location,
+                ...window[INTERNAL_ROUTER].history.location,
                 search: search.toString(),
             },
             undefined,
@@ -49,7 +48,7 @@ class SearchParam implements SearchParamTracker {
     };
 
     public delete = () => {
-        if (!router.history) {
+        if (!window[INTERNAL_ROUTER]) {
             logger.error(
                 `Attemped to remove "${this.key}" in search params before router was initialized`,
                 this.key,
@@ -61,14 +60,16 @@ class SearchParam implements SearchParamTracker {
 
         search.delete(this.key);
 
-        router.history.replace({
-            ...router.history.location,
+        window[INTERNAL_ROUTER].history.replace({
+            ...window[INTERNAL_ROUTER].history.location,
             search: search.toString(),
         });
     };
 
     private get params(): URLSearchParams {
-        return new URLSearchParams(router.history!.location.search);
+        return new URLSearchParams(
+            window[INTERNAL_ROUTER]?.history.location.search,
+        );
     }
 }
 
