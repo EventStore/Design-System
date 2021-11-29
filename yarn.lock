@@ -2355,7 +2355,7 @@ __metadata:
   dependencies:
     "@eventstore/router": "workspace:*"
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.7.1
+    "@stencil/core": ^2.11.0
     jest: ^26.6.3
     npm-run-all: ^4.1.5
     puppeteer: ^10.2.0
@@ -2387,14 +2387,14 @@ __metadata:
     "@eventstore/configs": "workspace:*"
     "@eventstore/editor": "workspace:*"
     "@eventstore/fields": "workspace:*"
-    "@eventstore/icon-manager": ^0.0.66
+    "@eventstore/icon-manager": "workspace:*"
     "@eventstore/layout": "workspace:*"
-    "@eventstore/postcss-palette-plugin": ^0.0.66
+    "@eventstore/postcss-palette-plugin": "workspace:*"
     "@eventstore/router": "workspace:*"
     "@eventstore/stores": "workspace:*"
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.7.1
-    "@stencil/postcss": 2.0.0
+    "@stencil/core": ^2.11.0
+    "@stencil/postcss": ^2.1.0
     "@types/jest": 25.2.1
     "@types/markdown-it": 12.0.3
     eslint: 7.3.1
@@ -2424,7 +2424,7 @@ __metadata:
   dependencies:
     "@eventstore/components": "workspace:*"
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.7.1
+    "@stencil/core": ^2.11.0
     jest: ^26.6.3
     monaco-editor: ^0.22.3
     npm-run-all: ^4.1.5
@@ -2445,7 +2445,7 @@ __metadata:
     "@eventstore/components": "workspace:*"
     "@eventstore/stores": "workspace:*"
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.7.1
+    "@stencil/core": ^2.11.0
     imask: 6.0.5
     jest: ^26.6.3
     puppeteer: ^10.2.0
@@ -2458,7 +2458,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eventstore/icon-manager@^0.0.66, @eventstore/icon-manager@workspace:tools/icon-manager":
+"@eventstore/icon-manager@workspace:*, @eventstore/icon-manager@workspace:tools/icon-manager":
   version: 0.0.0-use.local
   resolution: "@eventstore/icon-manager@workspace:tools/icon-manager"
   dependencies:
@@ -2481,7 +2481,7 @@ __metadata:
   dependencies:
     "@eventstore/router": "workspace:*"
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.7.1
+    "@stencil/core": ^2.11.0
     jest: ^26.6.3
     npm-run-all: ^4.1.5
     puppeteer: ^10.2.0
@@ -2493,7 +2493,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eventstore/postcss-palette-plugin@^0.0.66, @eventstore/postcss-palette-plugin@workspace:tools/postcss-palette-plugin":
+"@eventstore/postcss-palette-plugin@workspace:*, @eventstore/postcss-palette-plugin@workspace:tools/postcss-palette-plugin":
   version: 0.0.0-use.local
   resolution: "@eventstore/postcss-palette-plugin@workspace:tools/postcss-palette-plugin"
   dependencies:
@@ -2512,7 +2512,7 @@ __metadata:
   resolution: "@eventstore/router@workspace:packages/router"
   dependencies:
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.7.1
+    "@stencil/core": ^2.11.0
     "@types/jest": 26.0.3
     jest: ^26.6.3
     typedoc: ^0.21.4
@@ -2528,7 +2528,7 @@ __metadata:
   dependencies:
     "@mdx-js/mdx": ^1.6.22
     "@rollup/pluginutils": ^3.1.0
-    "@stencil/core": ^2.7.1
+    "@stencil/core": ^2.11.0
     "@types/node": ^12.0.7
     jest: ^26.6.3
     npm-run-all: ^4.1.5
@@ -2546,7 +2546,7 @@ __metadata:
   resolution: "@eventstore/stores@workspace:packages/stores"
   dependencies:
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.7.1
+    "@stencil/core": ^2.11.0
     "@types/jest": 26.0.3
     jest: ^26.6.3
     npm-run-all: ^4.1.5
@@ -3210,23 +3210,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:^2.7.1":
-  version: 2.7.1
-  resolution: "@stencil/core@npm:2.7.1"
+"@stencil/core@npm:^2.11.0":
+  version: 2.11.0
+  resolution: "@stencil/core@npm:2.11.0"
   bin:
     stencil: bin/stencil
-  checksum: 6f7a8adec197bb290e7883c9b780e30e50fa1c37051aa5f82ed2aafe91c6de96e64104b4c68ef938e093675bf44c5aeb872129f1574b0df18d095785d99bbab0
+  checksum: 90bbf7d8866507b1758b44d5f1a5d197853c135e32a9b665643c4b034d41dedbe17af282c9328cfe0d0e3f57fa0b07c660ec834e4f7656de82cb5ac69cf9a8b5
   languageName: node
   linkType: hard
 
-"@stencil/postcss@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@stencil/postcss@npm:2.0.0"
+"@stencil/postcss@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@stencil/postcss@npm:2.1.0"
   dependencies:
-    postcss: ~8.2.1
+    autoprefixer: ^10.3.6
+    postcss: ~8.3.8
   peerDependencies:
-    "@stencil/core": ">=2.3.0"
-  checksum: 7837427e686d13b3a440d2ae60440774c69e9c09312bd0fb095e7662bd66f9d3e79587a90e15a4bc265e6358f041a8745f12b27d0ddf530d01735fba6b541a55
+    "@stencil/core": ">=2.0.0"
+  checksum: 05391c7096bae68b28ffca4b6359644aacea6069c91aad15ea064ad26b4ce600b033827e2d145bf96908edde936a9b0215254425f3a7627b2760e9b71e97153d
   languageName: node
   linkType: hard
 
@@ -4098,6 +4099,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"autoprefixer@npm:^10.3.6":
+  version: 10.4.0
+  resolution: "autoprefixer@npm:10.4.0"
+  dependencies:
+    browserslist: ^4.17.5
+    caniuse-lite: ^1.0.30001272
+    fraction.js: ^4.1.1
+    normalize-range: ^0.1.2
+    picocolors: ^1.0.0
+    postcss-value-parser: ^4.1.0
+  peerDependencies:
+    postcss: ^8.1.0
+  bin:
+    autoprefixer: bin/autoprefixer
+  checksum: 7d511c64daeaa13c7888b40b0394cd891fab1852a1f60165330c9e49ab70ac29ad1e3386665d86361661cf2bbe90cea42b78ea73cb77b373ffe30a8f4973a955
+  languageName: node
+  linkType: hard
+
 "autoprefixer@npm:^9.6.1":
   version: 9.8.5
   resolution: "autoprefixer@npm:9.8.5"
@@ -4563,6 +4582,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"browserslist@npm:^4.17.5":
+  version: 4.18.1
+  resolution: "browserslist@npm:4.18.1"
+  dependencies:
+    caniuse-lite: ^1.0.30001280
+    electron-to-chromium: ^1.3.896
+    escalade: ^3.1.1
+    node-releases: ^2.0.1
+    picocolors: ^1.0.0
+  bin:
+    browserslist: cli.js
+  checksum: ae58322deef15960fc2e601d71bc081b571cfab6705999a3d24db5325b9cfadf5f676615f4460207a93e600549c33d60d37b4502007fe9e737b3cc19e20575d5
+  languageName: node
+  linkType: hard
+
 "bser@npm:2.1.1":
   version: 2.1.1
   resolution: "bser@npm:2.1.1"
@@ -4688,7 +4722,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30000981, caniuse-lite@npm:^1.0.30001093, caniuse-lite@npm:^1.0.30001097, caniuse-lite@npm:^1.0.30001173":
+"caniuse-lite@npm:^1.0.30000981, caniuse-lite@npm:^1.0.30001093, caniuse-lite@npm:^1.0.30001097, caniuse-lite@npm:^1.0.30001173, caniuse-lite@npm:^1.0.30001272, caniuse-lite@npm:^1.0.30001280":
   version: 1.0.30001283
   resolution: "caniuse-lite@npm:1.0.30001283"
   checksum: a13916f1b5ea0d75fe34d1ac8b8b841f88da69f98b1fd5178fd350291fdc1794daebcaaf57c3d3bc60f33aa27ecdf8e0909dc1a013475754c5416515f9bc32c2
@@ -5617,6 +5651,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"electron-to-chromium@npm:^1.3.896":
+  version: 1.4.4
+  resolution: "electron-to-chromium@npm:1.4.4"
+  checksum: df54c523cf40cb3d790ffa5c6c8f7c166ce11a85e8d1207f1bcec3d917b49c3a43acb7927d07c075e8372c72261eb18ea0b381ebf2cb0854b861445a1ce8b653
+  languageName: node
+  linkType: hard
+
 "emittery@npm:^0.7.1":
   version: 0.7.2
   resolution: "emittery@npm:0.7.2"
@@ -6423,6 +6464,13 @@ __metadata:
     combined-stream: ^1.0.6
     mime-types: ^2.1.12
   checksum: 10c1780fa13dbe1ff3100114c2ce1f9307f8be10b14bf16e103815356ff567b6be39d70fc4a40f8990b9660012dc24b0f5e1dde1b6426166eb23a445ba068ca3
+  languageName: node
+  linkType: hard
+
+"fraction.js@npm:^4.1.1":
+  version: 4.1.2
+  resolution: "fraction.js@npm:4.1.2"
+  checksum: a67eff2b599cb6546b77ce9c913bd0cccd646e1a525c793ba4e0bf5a399fc403f379227fca83423a6ea79d01e35c2f2b0f141ffa1d09e41377041268a53fb150
   languageName: node
   linkType: hard
 
@@ -9491,6 +9539,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nanoid@npm:^3.1.30":
+  version: 3.1.30
+  resolution: "nanoid@npm:3.1.30"
+  bin:
+    nanoid: bin/nanoid.cjs
+  checksum: 276d0d4b0c41c46aeefec5f09f093e4085a2352d06881c845db22b84f8ef72cc8defae6d76bfb1d8a2a128eb2dec42ab148d16582be4e7754c97905806ef57b6
+  languageName: node
+  linkType: hard
+
 "nanomatch@npm:^1.2.9":
   version: 1.2.13
   resolution: "nanomatch@npm:1.2.13"
@@ -9617,6 +9674,13 @@ __metadata:
   version: 1.1.70
   resolution: "node-releases@npm:1.1.70"
   checksum: 44253a82e0bc672cd1f35993b83b216b88fb558903c3a738b287186a160528c129b73cfb9447318c246a6c928cc6cc90f842e966e327ba7655682852074e6e32
+  languageName: node
+  linkType: hard
+
+"node-releases@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "node-releases@npm:2.0.1"
+  checksum: b20dd8d4bced11f75060f0387e05e76b9dc4a0451f7bb3516eade6f50499ea7768ba95d8a60d520c193402df1e58cb3fe301510cc1c1ad68949c3d57b5149866
   languageName: node
   linkType: hard
 
@@ -10111,6 +10175,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"picocolors@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "picocolors@npm:1.0.0"
+  checksum: a2e8092dd86c8396bdba9f2b5481032848525b3dc295ce9b57896f931e63fc16f79805144321f72976383fc249584672a75cc18d6777c6b757603f372f745981
+  languageName: node
+  linkType: hard
+
 "picomatch@npm:^2.0.4, picomatch@npm:^2.0.5, picomatch@npm:^2.2.1, picomatch@npm:^2.2.2":
   version: 2.2.2
   resolution: "picomatch@npm:2.2.2"
@@ -10571,14 +10642,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:~8.2.1":
-  version: 8.2.15
-  resolution: "postcss@npm:8.2.15"
+"postcss@npm:~8.3.8":
+  version: 8.3.11
+  resolution: "postcss@npm:8.3.11"
   dependencies:
-    colorette: ^1.2.2
-    nanoid: ^3.1.23
-    source-map: ^0.6.1
-  checksum: 07c309e5318843cdbb240b19101c8c679e19cb88544811de921dd9125118d6c0603afe925da7f2ac928dd7d4c0c6380ccdedf032400af5013210a3f145baca5d
+    nanoid: ^3.1.30
+    picocolors: ^1.0.0
+    source-map-js: ^0.6.2
+  checksum: 1a230553d74c66aa9585c90781ed8ea75f19cefea405d2117b67fbeb24b5b5e0e17be2e0c5a07db31dd085643a13394127ab2222e940771b70498331bf20f35e
   languageName: node
   linkType: hard
 
@@ -11459,7 +11530,7 @@ __metadata:
   resolution: "router-demo@workspace:tools/router-demo"
   dependencies:
     "@eventstore/router": "workspace:*"
-    "@stencil/core": ^2.7.1
+    "@stencil/core": ^2.11.0
   languageName: unknown
   linkType: soft
 
@@ -12026,7 +12097,7 @@ __metadata:
   dependencies:
     "@eventstore/stores": "workspace:*"
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.7.1
+    "@stencil/core": ^2.11.0
   languageName: unknown
   linkType: soft
 
