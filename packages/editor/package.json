@@ -49,7 +49,7 @@
         "docs:typedoc": "typedoc --tsconfig ./utils/tsconfig.json --json ../../documentation/generated/editor.typedoc.json",
         "test": "stencil test --spec --e2e --passWithNoTests",
         "test.watch": "stencil test --spec --e2e --watchAll",
-        "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
+        "lint": "yarn g:lint"
     },
     "dependencies": {
         "monaco-editor": "^0.22.3"

@@ -20,7 +20,7 @@
         "build": "tsc --outDir ./dist --declaration",
         "dev": "tsc --outDir ./dist --declaration --watch",
         "test": "jest",
-        "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
+        "lint": "yarn g:lint"
     },
     "prettier": "@eventstore/configs/prettier",
     "dependencies": {

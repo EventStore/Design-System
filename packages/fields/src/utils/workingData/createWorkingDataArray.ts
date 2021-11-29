@@ -379,9 +379,10 @@ export const createWorkingDataArray = <T>(
                 }
             },
         }),
-        onChange: (onChange.bind(null, 'value') as any) as WorkingDataArray<
-            T
-        >['onChange'],
+        onChange: (onChange.bind(
+            null,
+            'value',
+        ) as any) as WorkingDataArray<T>['onChange'],
         onValidationFailed: (key, callback) => {
             if (!validationFailedCallbacks.has(key)) {
                 validationFailedCallbacks.set(key, new Set());

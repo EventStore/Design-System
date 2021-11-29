@@ -26,7 +26,7 @@
         "build:cleanup": "rm -rf ./build",
         "docs": "typedoc --json ../../documentation/generated/utils.typedoc.json",
         "test": "jest --passWithNoTests",
-        "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
+        "lint": "yarn g:lint"
     },
     "devDependencies": {
         "@babel/core": "^7.12.10",
