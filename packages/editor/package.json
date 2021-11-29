@@ -32,24 +32,24 @@
         "directory": "packages/components"
     },
     "scripts": {
-        "build": "run-p build:*",
+        "build": "run-p \"build:*\"",
         "start": "stencil build --dev --watch --serve --openBrowser=false",
         "build:stencil": "stencil build --docs",
         "build:initialize": "tsc ./utils/initialize.ts --declaration --outDir . ",
         "build:monaco": "tsc ./utils/monaco.ts --declaration --outDir . ",
         "build:configure": "tsc ./utils/configure.ts --declaration --outDir . ",
-        "build:workers": "run-p workers:*",
-        "workers:main": "rollup ../../node_modules/monaco-editor/esm/vs/editor/editor.worker.js --file ./workers/editor.worker.js --format iife",
-        "workers:json": "rollup ../../node_modules/monaco-editor/esm/vs/language/json/json.worker.js --file ./workers/json.worker.js --format iife",
-        "workers:typescript": "rollup ../../node_modules/monaco-editor/esm/vs/language/typescript/ts.worker.js --file ./workers/ts.worker.js --format iife",
-        "workers:css": "rollup ../../node_modules/monaco-editor/esm/vs/language/css/css.worker.js --file ./workers/css.worker.js --format iife",
-        "workers:html": "rollup ../../node_modules/monaco-editor/esm/vs/language/html/html.worker.js --file ./workers/html.worker.js --format iife",
-        "docs": "run-s docs:*",
+        "build:workers": "run-p \"workers:*\"",
+        "workers:main": "rollup ../../node_modules/monaco-editor/esm/vs/editor/editor.worker.js --file ./workers/editor.worker.js --format iife --output.name editorWorker",
+        "workers:json": "rollup ../../node_modules/monaco-editor/esm/vs/language/json/json.worker.js --file ./workers/json.worker.js --format iife --output.name jsonWorker",
+        "workers:typescript": "rollup ../../node_modules/monaco-editor/esm/vs/language/typescript/ts.worker.js --file ./workers/ts.worker.js --format iife --output.name tsWorker",
+        "workers:css": "rollup ../../node_modules/monaco-editor/esm/vs/language/css/css.worker.js --file ./workers/css.worker.js --format iife --output.name cssWorker",
+        "workers:html": "rollup ../../node_modules/monaco-editor/esm/vs/language/html/html.worker.js --file ./workers/html.worker.js --format iife --output.name htmlWorker",
+        "docs": "run-s \"docs:*\"",
         "docs:stencil": "stencil build --docs-json ../../documentation/generated/editor.stencil.json",
         "docs:typedoc": "typedoc --tsconfig ./utils/tsconfig.json --json ../../documentation/generated/editor.typedoc.json",
         "test": "stencil test --spec --e2e --passWithNoTests",
         "test.watch": "stencil test --spec --e2e --watchAll",
-        "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
+        "lint": "yarn g:lint"
     },
     "dependencies": {
         "monaco-editor": "^0.22.3"
@@ -59,12 +59,13 @@
         "@eventstore/utils": "0.0.x"
     },
     "devDependencies": {
-        "@eventstore/components": "^0.0.66",
-        "@eventstore/utils": "^0.0.66",
-        "@stencil/core": "^2.7.1",
+        "@eventstore/components": "workspace:*",
+        "@eventstore/utils": "workspace:*",
+        "@stencil/core": "^2.11.0",
         "jest": "^26.6.3",
         "npm-run-all": "^4.1.5",
         "puppeteer": "^10.2.0",
+        "rollup": "2.33.1",
         "typedoc": "^0.21.4",
         "typescript": "4.2.3"
     }

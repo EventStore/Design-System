@@ -1,7 +1,5 @@
 name: CI
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
     push:
         branches: [master]
@@ -12,16 +10,22 @@ jobs:
     build:
         runs-on: ubuntu-18.04
 
-        # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
-            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
             - uses: actions/checkout@v2
+
+            - name: Cache git lfs
+              uses: actions/cache@v2
+              with:
+                  path: .yarn/cache
+                  key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+
+            - run: git lfs pull
 
             # Install node
             - name: Setup Node
               uses: actions/setup-node@v1
               with:
-                  node-version: '14.x'
+                  node-version: '16.x'
 
             # install ds
             - run: yarn install

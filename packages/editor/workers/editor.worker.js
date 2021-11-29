@@ -1,4 +1,4 @@
-(function (exports) {
+var editorWorker = (function (exports) {
     'use strict';
 
     /*---------------------------------------------------------------------------------------------

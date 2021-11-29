@@ -24,7 +24,7 @@
     "scripts": {
         "build": "tsc --outDir ./dist --declaration",
         "dev": "tsc --outDir ./dist --declaration --watch",
-        "lint": "eslint \"index.ts\" && prettier --check \"index.ts\""
+        "lint": "yarn g:lint"
     },
     "prettier": "@eventstore/configs/prettier",
     "peerDependencies": {
