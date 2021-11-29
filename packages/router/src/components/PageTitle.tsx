@@ -1,5 +1,6 @@
-import { FunctionalComponent } from '@stencil/core';
-import router from '../utils/internalRouter';
+import type { FunctionalComponent } from '@stencil/core';
+
+import { INTERNAL_ROUTER } from '../utils/globals';
 import { createCullableNode } from '../utils/createCullableNode';
 
 /** @props */
@@ -24,8 +25,8 @@ export const PageTitle: FunctionalComponent<PageTitleProps> = (
     });
 
     return createCullableNode(
-        router.action(() => {
-            router.setDocumentTitle(title, !!noSuffix);
+        window[INTERNAL_ROUTER].action(() => {
+            window[INTERNAL_ROUTER].setDocumentTitle(title, !!noSuffix);
         }),
         utils,
     );

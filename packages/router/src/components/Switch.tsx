@@ -1,4 +1,5 @@
-import { FunctionalComponent } from '@stencil/core';
+import type { FunctionalComponent } from '@stencil/core';
+
 import { ROUTE_DELIMITER } from './Route';
 import { cullDecendants } from '../utils/createCullableNode';
 

@@ -21,7 +21,7 @@
         "docs": "typedoc --json ../../documentation/generated/router.typedoc.json",
         "test": "stencil test --spec",
         "test.watch": "stencil test --spec --watchAll",
-        "lint": "yarn g:prettier"
+        "lint": "yarn g:lint"
     },
     "peerDependencies": {
         "@eventstore/utils": "0.0.x"

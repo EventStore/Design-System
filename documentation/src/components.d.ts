@@ -10,8 +10,6 @@ import { JsonDocs, JsonDocsEvent, JsonDocsMethod, JsonDocsPart, JsonDocsProp, Js
 import { Lib } from "sitemap";
 import { JSONOutput } from "typedoc";
 import { SidebarLinkVariant } from "./components/layout/docs-sidebar/components/docs-sidebar-link/docs-sidebar-link";
-import { Router } from "./components/docs-usage/components/docs-usage-location/docs-usage-location";
-import { LocationSegments } from "@eventstore/router";
 export namespace Components {
     interface DocsBackground {
         /**
@@ -90,10 +88,6 @@ export namespace Components {
     interface DocsUsage {
         "identifier": string;
         "usage": string;
-    }
-    interface DocsUsageLocation {
-        "location"?: LocationSegments;
-        "router": Router;
     }
     interface DocsUtilDocs {
         "doc": JSONOutput.DeclarationReflection;
@@ -233,12 +227,6 @@ declare global {
         prototype: HTMLDocsUsageElement;
         new (): HTMLDocsUsageElement;
     };
-    interface HTMLDocsUsageLocationElement extends Components.DocsUsageLocation, HTMLStencilElement {
-    }
-    var HTMLDocsUsageLocationElement: {
-        prototype: HTMLDocsUsageLocationElement;
-        new (): HTMLDocsUsageLocationElement;
-    };
     interface HTMLDocsUtilDocsElement extends Components.DocsUtilDocs, HTMLStencilElement {
     }
     var HTMLDocsUtilDocsElement: {
@@ -268,7 +256,6 @@ declare global {
         "docs-type-docs": HTMLDocsTypeDocsElement;
         "docs-type-documentation": HTMLDocsTypeDocumentationElement;
         "docs-usage": HTMLDocsUsageElement;
-        "docs-usage-location": HTMLDocsUsageLocationElement;
         "docs-util-docs": HTMLDocsUtilDocsElement;
     }
 }
@@ -351,10 +338,6 @@ declare namespace LocalJSX {
         "identifier": string;
         "usage": string;
     }
-    interface DocsUsageLocation {
-        "location"?: LocationSegments;
-        "router": Router;
-    }
     interface DocsUtilDocs {
         "doc": JSONOutput.DeclarationReflection;
         "lib": Lib;
@@ -382,7 +365,6 @@ declare namespace LocalJSX {
         "docs-type-docs": DocsTypeDocs;
         "docs-type-documentation": DocsTypeDocumentation;
         "docs-usage": DocsUsage;
-        "docs-usage-location": DocsUsageLocation;
         "docs-util-docs": DocsUtilDocs;
     }
 }
@@ -412,7 +394,6 @@ declare module "@stencil/core" {
             "docs-type-docs": LocalJSX.DocsTypeDocs & JSXBase.HTMLAttributes<HTMLDocsTypeDocsElement>;
             "docs-type-documentation": LocalJSX.DocsTypeDocumentation & JSXBase.HTMLAttributes<HTMLDocsTypeDocumentationElement>;
             "docs-usage": LocalJSX.DocsUsage & JSXBase.HTMLAttributes<HTMLDocsUsageElement>;
-            "docs-usage-location": LocalJSX.DocsUsageLocation & JSXBase.HTMLAttributes<HTMLDocsUsageLocationElement>;
             "docs-util-docs": LocalJSX.DocsUtilDocs & JSXBase.HTMLAttributes<HTMLDocsUtilDocsElement>;
         }
     }

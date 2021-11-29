@@ -1,12 +1,13 @@
 import { h, Component } from '@stencil/core';
 import { router } from '@eventstore/router';
+import { logger } from '../logger';
 
 @Component({
     tag: 'test-deep-component',
 })
 export class TestDeepComponent {
     componentDidUpdate() {
-        console.log('deepchild DidUpdate');
+        logger.log('deepchild DidUpdate');
     }
 
     render() {

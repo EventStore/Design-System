@@ -1,45 +1,48 @@
-import {
+import type {
     RouterHistory,
     LocationSegments,
-    RouterOptions,
     Router,
+    RouterOptions,
 } from '../types';
-import internalRouter from './internalRouter';
-import { compile } from './path-to-regex';
+import { INTERNAL_ROUTER } from './globals';
+import { InternalRouter } from './internalRouter';
+import { logger } from './logger';
 
-class PublicRouter implements Router {
-    public init = (options?: RouterOptions) => {
-        internalRouter.init(options);
-    };
+export class PublicRouter implements Router {
+    private get internal() {
+        if (!window[INTERNAL_ROUTER]) {
+            this.init();
+        }
 
-    public get history(): RouterHistory | null {
-        internalRouter.updateInterestedParties();
-        return internalRouter.history;
+        return window[INTERNAL_ROUTER];
     }
 
-    public get location(): LocationSegments | null {
-        internalRouter.updateInterestedParties();
-        return internalRouter.location;
+    public init = (options?: RouterOptions) => {
+        if (window[INTERNAL_ROUTER] != null) {
+            logger.warn('Router has already been initialized');
+            return;
+        }
+
+        window[INTERNAL_ROUTER] = new InternalRouter(options);
+    };
+
+    public get history(): RouterHistory {
+        this.internal.updateInterestedParties();
+        return this.internal.history;
+    }
+
+    public get location(): LocationSegments {
+        this.internal.updateInterestedParties();
+        return this.internal.location;
     }
 
     public fillPath = (
         path: string,
         parameters?: Record<string, string>,
     ): string => {
-        internalRouter.updateInterestedParties();
-
-        const params =
-            parameters ??
-            internalRouter.match({
-                path,
-                exact: false,
-                strict: true,
-            })?.params ??
-            {};
-
-        return compile(path)(params);
+        this.internal.updateInterestedParties();
+        return this.internal.fillPath(path, parameters);
     };
 }
 
-/** Global router instance. */
-export const router: Router = new PublicRouter();
+export const router = new PublicRouter();
