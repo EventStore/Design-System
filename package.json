@@ -12,23 +12,18 @@
     ],
     "prettier": "@eventstore/configs/prettier",
     "scripts": {
-        "build": "lerna run build --ignore @eventstore/docs --ignore *-demo",
+        "build": "yarn workspaces foreach -vpi --topological-dev --no-private run build",
         "docs": "run-s docs:generate docs:build",
-        "docs:generate": "lerna run docs",
+        "docs:generate": "yarn workspaces foreach -vpi --topological-dev --no-private run docs",
         "docs:build": "yarn workspace @eventstore/docs run build",
         "docs:dev": "yarn workspace @eventstore/docs run dev",
-        "serve-docs": "serve ./documentation/www",
-        "test": "lerna run test --ignore @eventstore/docs",
-        "lint": "lerna run lint",
-        "bump": "lerna version --no-push",
-        "release": "run-s release:*",
-        "release:pre": "run-s lint build test",
-        "release:publish": "lerna publish from-package"
+        "serve-docs": "yarn workspace @eventstore/docs serve",
+        "test": "yarn workspaces foreach -v --exclude @eventstore/docs run test",
+        "lint": "yarn workspaces foreach -v run lint"
     },
     "devDependencies": {
-        "@eventstore/configs": "*",
-        "lerna": "^3.22.1",
+        "@eventstore/configs": "workspace:*",
         "npm-run-all": "^4.1.5"
     },
-    "dependencies": {}
+    "packageManager": "yarn@3.1.0"
 }

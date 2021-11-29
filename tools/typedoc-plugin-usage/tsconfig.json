@@ -13,6 +13,6 @@
         "jsxFactory": "h",
         "module": "CommonJS"
     },
-    "include": ["index.ts"],
+    "include": ["src/index.ts"],
     "exclude": ["node_modules"]
 }
