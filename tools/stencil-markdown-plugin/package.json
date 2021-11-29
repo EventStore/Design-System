@@ -25,7 +25,7 @@
         "docs": "typedoc --tsconfig ./src/tsconfig.json --json ../../documentation/generated/stencil-markdown-plugin.typedoc.json",
         "dev": "run-p \"build:* -- --watch\"",
         "test": "jest --passWithNoTests",
-        "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
+        "lint": "yarn g:lint"
     },
     "peerDependencies": {
         "@stencil/core": "2.x"

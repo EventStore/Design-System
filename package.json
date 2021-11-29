@@ -19,7 +19,7 @@
         "docs:dev": "yarn workspace @eventstore/docs run dev",
         "serve-docs": "yarn workspace @eventstore/docs serve",
         "test": "yarn workspaces foreach -v --exclude @eventstore/docs run test",
-        "lint": "yarn workspaces foreach -vpi lint"
+        "lint": "yarn workspaces foreach -v run lint"
     },
     "devDependencies": {
         "@eventstore/configs": "workspace:*",

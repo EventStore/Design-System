@@ -32,7 +32,7 @@
         "docs:typedoc": "typedoc --json ../../documentation/generated/fields.typedoc.json",
         "test": "stencil test --spec --e2e",
         "test.watch": "stencil test --spec --e2e --watchAll",
-        "lint": "eslint \"src/**/*.{ts,tsx}\" && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
+        "lint": "yarn g:lint"
     },
     "peerDependencies": {
         "@eventstore/components": "0.0.x",

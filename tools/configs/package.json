@@ -7,7 +7,10 @@
     "scripts": {
         "build": "echo \"Nothing to do\"",
         "test": "echo \"Nothing to test\"",
-        "lint": "echo \"Nothing to lint\""
+        "lint": "echo \"Nothing to lint\"",
+        "g:lint": "cd $INIT_CWD && yarn g:eslint && yarn g:prettier",
+        "g:eslint": "cd $INIT_CWD && eslint \"src/**/*.{ts,tsx}\"",
+        "g:prettier": "cd $INIT_CWD && prettier --check \"src/**/**/!(*.d).{ts,tsx,css,json,html}\""
     },
     "files": [
         "eslint.js",
