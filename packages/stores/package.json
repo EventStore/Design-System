@@ -19,7 +19,7 @@
         "directory": "packages/stores"
     },
     "scripts": {
-        "build": "run-s build:*",
+        "build": "run-s \"build:*\"",
         "build:clean": "rm -rf ./dist",
         "build:ts": "tsc -p .",
         "build:rollup": "rollup -c rollup.config.js",
@@ -33,7 +33,7 @@
         "@eventstore/utils": "0.0.x"
     },
     "devDependencies": {
-        "@eventstore/utils": "^0.0.66",
+        "@eventstore/utils": "workspace:*",
         "@stencil/core": "^2.7.1",
         "@types/jest": "26.0.3",
         "jest": "^26.6.3",
