@@ -14,24 +14,25 @@
         "directory": "documentation"
     },
     "scripts": {
-        "build": "run-s build:*",
+        "build": "run-s \"build:*\"",
         "build:clean": "rm -rf ./www",
         "build:preview": "stencil build --dev --config ./preview/stencil.config.ts",
         "build:docs": "stencil build --prerender",
         "dev": "stencil build --dev --watch --serve",
         "prod": "stencil build --watch --serve",
+        "serve": "serve ./www",
         "test": "stencil test --spec --e2e",
         "test.watch": "stencil test --spec --e2e --watchAll",
         "icon": "icon --dir ./src/icons"
     },
     "dependencies": {
-        "@eventstore/components": "^0.0.66",
-        "@eventstore/editor": "^0.0.66",
-        "@eventstore/fields": "^0.0.66",
-        "@eventstore/layout": "^0.0.66",
-        "@eventstore/router": "^0.0.66",
-        "@eventstore/stores": "^0.0.66",
-        "@eventstore/utils": "^0.0.66",
+        "@eventstore/components": "workspace:*",
+        "@eventstore/editor": "workspace:*",
+        "@eventstore/fields": "workspace:*",
+        "@eventstore/layout": "workspace:*",
+        "@eventstore/router": "workspace:*",
+        "@eventstore/stores": "workspace:*",
+        "@eventstore/utils": "workspace:*",
         "highlight.js": "11.2.0",
         "magic-string": "0.25.7",
         "markdown-it": "12.2.0",
@@ -40,7 +41,7 @@
         "rollup": "2.33.1"
     },
     "devDependencies": {
-        "@eventstore/configs": "^0.0.66",
+        "@eventstore/configs": "workspace:*",
         "@eventstore/icon-manager": "^0.0.66",
         "@eventstore/postcss-palette-plugin": "^0.0.66",
         "@stencil/core": "^2.7.1",
