@@ -1,6 +1,6 @@
 import { storageAvailable } from './dom-utils';
 
-const createScrollHistory = (
+export const createScrollHistory = (
     win: Window,
     applicationScrollKey: string = 'scrollPositions',
 ) => {
@@ -51,5 +51,3 @@ const createScrollHistory = (
         capture,
     };
 };
-
-export default createScrollHistory;

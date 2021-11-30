@@ -29,6 +29,24 @@ yarn add @eventstore/utils
 
 ## Usage within a stencil project
 
+Initialize the router with your options, in the `componentWillLoad` of the root component.
+
+```ts
+import { router } from '@eventstore/router';
+
+@Component({
+    tag: 'ui-root',
+    styleUrl: 'root.css',
+})
+export class Root {
+    componentWillLoad() {
+        router.init({
+            titleSuffix: ' - Event Store',
+        });
+    }
+}
+```
+
 Import the functional components directly, and use them within your components:
 
 ```ts

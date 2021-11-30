@@ -1,5 +1,6 @@
 import { h, Component, Prop } from '@stencil/core';
 import { RouterHistory, MatchResults } from '@eventstore/router';
+import { logger } from '../logger';
 
 @Component({
     tag: 'test-demo-four',
@@ -16,7 +17,7 @@ export class TestDemoFour {
     }
 
     componentDidLoad() {
-        console.log('demoFour DidLoad');
+        logger.log('demoFour DidLoad');
     }
 
     render() {

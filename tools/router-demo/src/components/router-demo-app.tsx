@@ -1,20 +1,21 @@
-import { h, Component, FunctionalComponent, Host } from '@stencil/core';
+import { h, Component, FunctionalComponent, Host, VNode } from '@stencil/core';
 import {
     Route,
     Redirect,
     Link,
     Switch,
     PageTitle,
+    RouteRenderProps,
     router,
 } from '@eventstore/router';
 
 const PrivateRoute: FunctionalComponent<{
     url: string;
-    routeRender: Function;
+    routeRender: (props: RouteRenderProps) => VNode | VNode[];
 }> = ({ url, routeRender }) => (
     <Route
         url={url}
-        routeRender={({ history, match }: any) => {
+        routeRender={({ history, match }) => {
             if ((window as any).userAuthenticated) {
                 return routeRender({ history, match });
             }
@@ -28,9 +29,7 @@ const PrivateRoute: FunctionalComponent<{
 })
 export class RouterDemoApp {
     componentWillLoad() {
-        router.init({
-            titleSuffix: ' - Stencil Fn Router',
-        });
+        router.init({ titleSuffix: ' - @eventstore/router' });
     }
 
     render() {

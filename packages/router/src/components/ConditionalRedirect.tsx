@@ -1,7 +1,6 @@
 import { h, FunctionalComponent } from '@stencil/core';
-import { router } from '../utils/router';
+import { INTERNAL_ROUTER } from '../utils/globals';
 import { Redirect } from './Redirect';
-
 import { Route } from './Route';
 
 /** @props */
@@ -30,7 +29,7 @@ export const ConditionalRedirect: FunctionalComponent<ConditionalRedirectProps> 
             url={from}
             exact={exact}
             routeRender={({ match: { params } }) => (
-                <Redirect url={router.fillPath(to, params)} />
+                <Redirect url={window[INTERNAL_ROUTER].fillPath(to, params)} />
             )}
         />
     );

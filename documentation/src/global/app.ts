@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Build } from '@stencil/core';
-
 import '@eventstore/components';
 import '@eventstore/layout';
 import '@eventstore/editor';

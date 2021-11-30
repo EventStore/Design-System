@@ -1,8 +1,13 @@
 // Adapted from the https://github.com/ReactTraining/history and converted to TypeScript
 
 import { createLocation, createKey } from './location-utils';
-import { RouterHistory, LocationSegments, Prompt } from '../types';
-import { warning } from './log';
+import type {
+    RouterHistory,
+    LocationSegments,
+    Prompt,
+    Listener,
+} from '../types';
+import { logger } from './logger';
 import {
     addLeadingSlash,
     stripTrailingSlash,
@@ -10,8 +15,8 @@ import {
     stripBasename,
     createPath,
 } from './path-utils';
-import createTransitionManager from './createTransitionManager';
-import createScrollHistory from './createScrollHistory';
+import { createTransitionManager } from './createTransitionManager';
+import { createScrollHistory } from './createScrollHistory';
 import {
     getConfirmation,
     supportsHistory,
@@ -22,8 +27,8 @@ import {
 export interface CreateBrowserHistoryOptions {
     getUserConfirmation?: (
         message: string,
-        callback: (confirmed: boolean) => {},
-    ) => {};
+        callback: (confirmed: boolean) => void,
+    ) => void;
     forceRefresh?: boolean;
     keyLength?: number;
     basename?: string;
@@ -41,7 +46,7 @@ const HashChangeEvent = 'hashchange';
  * Creates a history object that uses the HTML5 history API including
  * pushState, replaceState, and the popstate event.
  */
-const createBrowserHistory = (
+export const createBrowserHistory = (
     win: Window,
     props: CreateBrowserHistoryOptions = {},
 ) => {
@@ -82,15 +87,11 @@ const createBrowserHistory = (
 
         let path = pathname + search + hash;
 
-        warning(
-            !basename || hasBasename(path, basename),
-            'You are attempting to use a basename on a page whose URL path does not begin ' +
-                'with the basename. Expected path "' +
-                path +
-                '" to begin with "' +
-                basename +
-                '".',
-        );
+        if (basename && hasBasename(path, basename)) {
+            logger.warn(
+                `You are attempting to use a basename on a page whose URL path does not begin with the basename. Expected path "${path}" to begin with "${basename}".`,
+            );
+        }
 
         if (basename) {
             path = stripBasename(path, basename);
@@ -199,15 +200,15 @@ const createBrowserHistory = (
         state: any,
         updateScroll?: boolean,
     ) => {
-        warning(
-            !(
-                typeof path === 'object' &&
-                path.state !== undefined &&
-                state !== undefined
-            ),
-            'You should avoid providing a 2nd state argument to push when the 1st ' +
-                'argument is a location-like object that already has state; it is ignored',
-        );
+        if (
+            typeof path === 'object' &&
+            path.state !== undefined &&
+            state !== undefined
+        ) {
+            logger.warn(
+                'You should avoid providing a 2nd state argument to push when the 1st argument is a location-like object that already has state; it is ignored',
+            );
+        }
 
         const action = 'PUSH';
         const location = createLocation(
@@ -247,10 +248,11 @@ const createBrowserHistory = (
                         setState({ action, location }, updateScroll);
                     }
                 } else {
-                    warning(
-                        state === undefined,
-                        'Browser history cannot push state in browsers that do not support HTML5 history',
-                    );
+                    if (state != null) {
+                        logger.warn(
+                            'Browser history cannot push state in browsers that do not support HTML5 history',
+                        );
+                    }
 
                     globalLocation.href = href;
                 }
@@ -263,15 +265,15 @@ const createBrowserHistory = (
         state: any,
         updateScroll?: boolean,
     ) => {
-        warning(
-            !(
-                typeof path === 'object' &&
-                path.state !== undefined &&
-                state !== undefined
-            ),
-            'You should avoid providing a 2nd state argument to replace when the 1st ' +
-                'argument is a location-like object that already has state; it is ignored',
-        );
+        if (
+            typeof path === 'object' &&
+            path.state !== undefined &&
+            state !== undefined
+        ) {
+            logger.warn(
+                'You should avoid providing a 2nd state argument to replace when the 1st argument is a location-like object that already has state; it is ignored',
+            );
+        }
 
         const action = 'REPLACE';
         const location = createLocation(
@@ -308,10 +310,11 @@ const createBrowserHistory = (
                         setState({ action, location }, updateScroll);
                     }
                 } else {
-                    warning(
-                        state === undefined,
-                        'Browser history cannot replace state in browsers that do not support HTML5 history',
-                    );
+                    if (state != null) {
+                        logger.warn(
+                            'Browser history cannot replace state in browsers that do not support HTML5 history',
+                        );
+                    }
 
                     globalLocation.replace(href);
                 }
@@ -362,7 +365,7 @@ const createBrowserHistory = (
         };
     };
 
-    const listen = (listener: Function) => {
+    const listen = (listener: Listener) => {
         const unlisten = transitionManager.appendListener(listener);
         checkDOMListeners(1);
 
@@ -389,5 +392,3 @@ const createBrowserHistory = (
 
     return history;
 };
-
-export default createBrowserHistory;

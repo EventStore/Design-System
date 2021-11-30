@@ -30,7 +30,7 @@ export const generatePreview = ({ parts, showLocation }: Settings): Files => {
                 <Host class={${showLocation ? '"nav"' : 'undefined'}}>
                 ${
                     showLocation
-                        ? '<docs-usage-location router={router} location={router.location} />'
+                        ? '<preview-usage-location router={router} location={router.location} />'
                         : ''
                 }
                     <Usage />

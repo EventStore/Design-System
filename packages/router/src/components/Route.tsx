@@ -1,6 +1,7 @@
-import { VNode, FunctionalComponent } from '@stencil/core';
-import { RouteRenderProps, MatchResults } from '../types';
-import router from '../utils/internalRouter';
+import type { VNode, FunctionalComponent } from '@stencil/core';
+import type { RouteRenderProps, MatchResults } from '../types';
+
+import { INTERNAL_ROUTER } from '../utils/globals';
 import { cullDecendants } from '../utils/createCullableNode';
 
 /** @props */
@@ -26,7 +27,7 @@ export const Route: FunctionalComponent<RouteProps> = (
     children,
     utils,
 ) => {
-    const match = router.match({
+    const match = window[INTERNAL_ROUTER].match({
         exact: exact,
         path: url,
         strict: true,
@@ -40,7 +41,7 @@ export const Route: FunctionalComponent<RouteProps> = (
     if (routeRender) {
         return [
             routeRender({
-                history: router.history,
+                history: window[INTERNAL_ROUTER].history,
                 match: match as MatchResults,
             }),
             ROUTE_DELIMITER,
@@ -53,7 +54,7 @@ export const Route: FunctionalComponent<RouteProps> = (
             vattrs: {
                 ...child.vattrs,
                 match,
-                history: router.history,
+                history: window[INTERNAL_ROUTER].history,
             },
         })),
         ROUTE_DELIMITER,
