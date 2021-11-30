@@ -1,14 +1,16 @@
 // Adapted from the https://github.com/ReactTraining/history and converted to TypeScript
 
-import { warning } from './log';
-import { LocationSegments, Prompt } from '../types';
+import type { Listener, LocationSegments, Prompt } from '../types';
+import { logger } from './logger';
 
-const createTransitionManager = () => {
+export const createTransitionManager = () => {
     let prompt: Prompt | string | null;
-    let listeners: Function[] = [];
+    let listeners: Array<Listener> = [];
 
     const setPrompt = (nextPrompt: Prompt | string | null) => {
-        warning(prompt == null, 'A history supports only one prompt at a time');
+        if (prompt != null) {
+            logger.warn('A history supports only one prompt at a time');
+        }
 
         prompt = nextPrompt;
 
@@ -22,8 +24,11 @@ const createTransitionManager = () => {
     const confirmTransitionTo = (
         location: LocationSegments,
         action: string,
-        getUserConfirmation: Function,
-        callback: Function,
+        getUserConfirmation: (
+            result: string,
+            cb: (success: boolean) => void,
+        ) => void,
+        callback: (success: boolean) => void,
     ) => {
         // TODO: If another transition starts while we're still confirming
         // the previous one, we may end up in a weird state. Figure out the
@@ -38,8 +43,7 @@ const createTransitionManager = () => {
                 if (typeof getUserConfirmation === 'function') {
                     getUserConfirmation(result, callback);
                 } else {
-                    warning(
-                        false,
+                    logger.warn(
                         'A history needs a getUserConfirmation function in order to use a prompt message',
                     );
 
@@ -54,12 +58,12 @@ const createTransitionManager = () => {
         }
     };
 
-    const appendListener = (fn: Function) => {
+    const appendListener = (fn: Listener) => {
         let isActive = true;
 
-        const listener = (...args: any[]) => {
+        const listener: Listener = (location, action) => {
             if (isActive) {
-                fn(...args);
+                fn(location, action);
             }
         };
 
@@ -71,8 +75,8 @@ const createTransitionManager = () => {
         };
     };
 
-    const notifyListeners = (...args: any[]) => {
-        listeners.forEach((listener) => listener(...args));
+    const notifyListeners: Listener = (location, action) => {
+        listeners.forEach((listener) => listener(location, action));
     };
 
     return {
@@ -82,5 +86,3 @@ const createTransitionManager = () => {
         notifyListeners,
     };
 };
-
-export default createTransitionManager;

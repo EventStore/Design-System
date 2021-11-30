@@ -1,14 +1,12 @@
 import { Component, h, Prop, Host } from '@stencil/core';
-import type { LocationSegments, router } from '@eventstore/router';
-
-export type Router = typeof router;
+import type { LocationSegments, Router } from '@eventstore/router';
 
 @Component({
-    tag: 'docs-usage-location',
-    styleUrl: 'docs-usage-location.css',
+    tag: 'preview-usage-location',
+    styleUrl: 'preview-usage-location.css',
     shadow: true,
 })
-export class DocsLocation {
+export class PreviewLocation {
     @Prop() router!: Router;
     @Prop() location?: LocationSegments;
 

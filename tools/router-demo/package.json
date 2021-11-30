@@ -8,7 +8,7 @@
         "start": "stencil build --dev --watch --serve --no-open",
         "test": "stencil test --spec --passWithNoTests",
         "test.watch": "stencil test --spec --watchAll",
-        "lint": "yarn g:prettier"
+        "lint": "yarn g:lint"
     },
     "dependencies": {
         "@eventstore/router": "workspace:*"

@@ -57,12 +57,12 @@ export interface RouterHistory {
     /** Block navigation. */
     block: (prompt?: string | Prompt) => () => void;
     /** Listen to all navigation events. */
-    listen: (
-        listener: (location: LocationSegments, acrion: string) => void,
-    ) => () => void;
+    listen: (listener: Listener) => () => void;
     /** The window that this history is attached to. */
     win: Window;
 }
+
+export type Listener = (location: LocationSegments, action: string) => void;
 
 export interface MatchOptions {
     path?: Path;
@@ -85,8 +85,6 @@ export interface MatchResults {
 export interface RouterOptions {
     /** The base path, that all routes stem from. */
     root?: string;
-    /** How your routing should work. (default: browser) */
-    historyType?: 'browser' | 'hash';
     /** Add a suffix to all titles. */
     titleSuffix?: string;
     /** Which document to route on. */
@@ -94,14 +92,11 @@ export interface RouterOptions {
 }
 
 export interface Router {
-    /** Initialize the router with options. Must be called before any route based rendering happens, or the router will auto-initialize with default options. */
-    init(options?: RouterOptions): void;
-
     /** Access the router history. */
-    readonly history: RouterHistory | null;
+    readonly history: RouterHistory;
 
     /** The current location. */
-    readonly location: LocationSegments | null;
+    readonly location: LocationSegments;
 
     /** Fill a path string with passed parameters. */
     fillPath(path: string, parameters?: Record<string, string>): string;

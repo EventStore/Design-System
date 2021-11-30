@@ -1,6 +1,6 @@
 import { forceUpdate, getElement, getRenderingRef } from '@stencil/core';
 
-import {
+import type {
     LocationSegments,
     MatchOptions,
     MatchResults,
@@ -8,28 +8,22 @@ import {
     RouterOptions,
 } from '../types';
 
-import createBrowserHistory from './createBrowserHistory';
-import createHashHistory from './createHashHistory';
-import { warning } from './log';
+import { createBrowserHistory } from './createBrowserHistory';
+import { logger } from './logger';
 import { matchPath } from './match-path';
+import { compile } from './path-to-regex';
 
-class InternalRouter {
-    public initialized = false;
+export class InternalRouter {
     public root: string = '/';
     public titleSuffix!: string;
     public location!: LocationSegments;
     public history!: RouterHistory;
 
-    public init = ({
-        historyType = 'browser',
+    constructor({
         root = '/',
         titleSuffix = '',
         document: passedDoc,
-    }: RouterOptions = {}) => {
-        if (this.initialized) {
-            warning(false, 'Router has already been initialized');
-            return;
-        }
+    }: RouterOptions = {}) {
         const doc =
             passedDoc ||
             (getRenderingRef() &&
@@ -39,21 +33,13 @@ class InternalRouter {
         this.root = root;
         this.titleSuffix = titleSuffix;
 
-        switch (historyType) {
-            case 'browser':
-                this.history = createBrowserHistory(doc.defaultView!);
-                break;
-            case 'hash':
-                this.history = createHashHistory(doc.defaultView!);
-                break;
-        }
+        this.history = createBrowserHistory(doc.defaultView!);
 
         this.history.listen(this.updateLocation);
         this.history.listen(this.informInterestedParties);
         this.history.listen(this.updateScroll);
         this.updateLocation(this.history.location);
-        this.initialized = true;
-    };
+    }
 
     private updateLocation = (location: LocationSegments) => {
         // Remove the root URL if found at beginning of string
@@ -94,7 +80,6 @@ class InternalRouter {
 
     private matchCache = new Map<string, MatchResults | null>();
     get match() {
-        if (!this.initialized) this.init();
         this.updateInterestedParties();
         return (options: MatchOptions): MatchResults | null => {
             if (
@@ -152,7 +137,7 @@ class InternalRouter {
         this.history.replace(this.getUrl(url));
     };
 
-    private pendingActions = new Map<any, Set<Function>>();
+    private pendingActions = new Map<any, Set<() => void>>();
 
     public get action() {
         this.updateInterestedParties();
@@ -163,8 +148,7 @@ class InternalRouter {
             if (!ref) {
                 callback();
                 return () => {
-                    warning(
-                        true,
+                    logger.warn(
                         'Attempted to cancel an action that was already called',
                     );
                 };
@@ -183,6 +167,22 @@ class InternalRouter {
         };
     }
 
+    public fillPath = (
+        path: string,
+        parameters?: Record<string, string>,
+    ): string => {
+        const params =
+            parameters ??
+            this.match({
+                path,
+                exact: false,
+                strict: true,
+            })?.params ??
+            {};
+
+        return compile(path)(params);
+    };
+
     private queueActionOnRef = async (ref: any) => {
         const element = getElement(ref);
         await element?.componentOnReady?.();
@@ -193,5 +193,3 @@ class InternalRouter {
         this.pendingActions.delete(ref);
     };
 }
-
-export default new InternalRouter();

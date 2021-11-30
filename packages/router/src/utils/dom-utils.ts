@@ -1,8 +1,7 @@
 export const getConfirmation = (
-    win: Window,
     message: string,
-    callback: (confirmed: boolean) => {},
-) => callback(win.confirm(message));
+    callback: (confirmed: boolean) => void,
+) => callback(window.confirm(message));
 
 export const isModifiedEvent = (ev: MouseEvent) =>
     ev.metaKey || ev.altKey || ev.ctrlKey || ev.shiftKey;
@@ -35,12 +34,6 @@ export const supportsHistory = (win: Window) => {
  */
 export const supportsPopStateOnHashChange = (nav: Navigator) =>
     nav.userAgent.indexOf('Trident') === -1;
-
-/**
- * Returns false if using go(n) with hash history causes a full page reload.
- */
-export const supportsGoWithoutReloadUsingHash = (nav: Navigator) =>
-    nav.userAgent.indexOf('Firefox') === -1;
 
 export const isExtraneousPopstateEvent = (nav: Navigator, event: any) =>
     event.state === undefined && nav.userAgent.indexOf('CriOS') === -1;

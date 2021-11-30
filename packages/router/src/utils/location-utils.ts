@@ -1,5 +1,5 @@
 import { parsePath, parseQueryString } from './path-utils';
-import { LocationSegments } from '../types';
+import type { LocationSegments } from '../types';
 
 const isAbsolute = (pathname: string) => {
     return pathname.charAt(0) === '/';

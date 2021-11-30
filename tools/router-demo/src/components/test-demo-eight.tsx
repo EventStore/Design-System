@@ -1,11 +1,12 @@
 import { h, Component } from '@stencil/core';
+import { logger } from '../logger';
 
 @Component({
     tag: 'test-demo-eight',
 })
 export class TestDemoEight {
     componentWillLoad() {
-        console.log('Component is about to be rendered');
+        logger.log('Component is about to be rendered');
     }
 
     render() {

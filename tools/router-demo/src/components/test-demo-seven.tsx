@@ -1,5 +1,6 @@
 import { h, Component, Prop } from '@stencil/core';
 import { RouterHistory, MatchResults } from '@eventstore/router';
+import { logger } from '../logger';
 
 @Component({
     tag: 'test-demo-seven',
@@ -10,16 +11,16 @@ export class TestDemoSeven {
     @Prop() history?: RouterHistory;
 
     componentWillLoad() {
-        console.log('%c test-demo-seven - componentWillLoad', 'color: red');
+        logger.log('%c test-demo-seven - componentWillLoad', 'color: red');
     }
     componentDidLoad() {
-        console.log('%c test-demo-seven - componentDidLoad', 'color: orange');
+        logger.log('%c test-demo-seven - componentDidLoad', 'color: orange');
     }
     componentWillUpdate() {
-        console.log('%c test-demo-seven - componentWillUpdate', 'color: green');
+        logger.log('%c test-demo-seven - componentWillUpdate', 'color: green');
     }
     componentDidUpdate() {
-        console.log('%c test-demo-seven - componentDidUpdate', 'color: blue');
+        logger.log('%c test-demo-seven - componentDidUpdate', 'color: blue');
     }
 
     render() {
