@@ -1,6 +1,6 @@
-import { IndexMap } from '../utils/indexFile';
+import type { IndexMap } from '../utils/indexFile';
 
-export const convertToLoader = (indexMap: IndexMap) => `
+export const convertToLoader = (indexMap: IndexMap) => `\
 import { iconStore } from '@eventstore/components';
 
 iconStore.addIcons({
@@ -11,7 +11,7 @@ iconStore.addIcons({
                 `get '${name}'(){return import('${path.replace(
                     '.tsx',
                     '',
-                )}').then((module) => module.${component})}`,
+                )}').then(({ ${component} }) => ${component})}`,
             );
 
             aliases?.forEach((alias) => {

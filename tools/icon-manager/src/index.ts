@@ -4,8 +4,11 @@ import * as yargs from 'yargs';
 import { addIcon } from './commands/addIcon';
 import { aliasIcon } from './commands/aliasIcon';
 import { removeIcon } from './commands/removeIcon';
+import { upgrade } from './commands/upgrade';
+import { version } from './utils/version';
 
 yargs
+    .version(version)
     .command(
         'add [name]',
         'add an icon',
@@ -73,6 +76,14 @@ yargs
                 });
         },
         aliasIcon,
+    )
+    .command(
+        'upgrade',
+        'Upgrade from a previous version of icon manager',
+        () => {
+            // no additional args
+        },
+        upgrade,
     )
     .option('dir', {
         alias: 'd',
