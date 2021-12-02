@@ -1,4 +1,4 @@
-import * as process from 'process';
+import { cwd } from 'process';
 import { resolve, isAbsolute } from 'path';
 
 import { addAliasToIndex } from '../utils/indexFile';
@@ -11,7 +11,7 @@ interface AliasIconOptions {
 }
 
 export const aliasIcon = async ({ name, alias, dir }: AliasIconOptions) => {
-    const directory = isAbsolute(dir) ? dir : resolve(process.cwd(), dir);
+    const directory = isAbsolute(dir) ? dir : resolve(cwd(), dir);
 
     try {
         await addAliasToIndex(directory, name, alias);

@@ -3,159 +3,147 @@ import { iconStore } from '@eventstore/components';
 iconStore.addIcons({
     get 'angle-down'() {
         return import('./components/AngleDown').then(
-            (module) => module.AngleDown,
+            ({ AngleDown }) => AngleDown,
         );
     },
     get arrow() {
-        return import('./components/Arrow').then((module) => module.Arrow);
+        return import('./components/Arrow').then(({ Arrow }) => Arrow);
     },
     get backups() {
-        return import('./components/Backups').then((module) => module.Backups);
+        return import('./components/Backups').then(({ Backups }) => Backups);
     },
     get bell() {
-        return import('./components/Bell').then((module) => module.Bell);
+        return import('./components/Bell').then(({ Bell }) => Bell);
     },
     get bubbles() {
-        return import('./components/Bubbles').then((module) => module.Bubbles);
+        return import('./components/Bubbles').then(({ Bubbles }) => Bubbles);
     },
     get building() {
-        return import('./components/Building').then(
-            (module) => module.Building,
-        );
+        return import('./components/Building').then(({ Building }) => Building);
     },
     get cancelable() {
         return import('./components/Cancelable').then(
-            (module) => module.Cancelable,
+            ({ Cancelable }) => Cancelable,
         );
     },
     get caret() {
-        return import('./components/Caret').then((module) => module.Caret);
+        return import('./components/Caret').then(({ Caret }) => Caret);
     },
     get check() {
-        return import('./components/Check').then((module) => module.Check);
+        return import('./components/Check').then(({ Check }) => Check);
     },
     get chevron() {
-        return import('./components/Chevron').then((module) => module.Chevron);
+        return import('./components/Chevron').then(({ Chevron }) => Chevron);
     },
     get circle() {
-        return import('./components/Circle').then((module) => module.Circle);
+        return import('./components/Circle').then(({ Circle }) => Circle);
     },
     get close() {
-        return import('./components/Close').then((module) => module.Close);
+        return import('./components/Close').then(({ Close }) => Close);
     },
     get clusters() {
-        return import('./components/Clusters').then(
-            (module) => module.Clusters,
-        );
+        return import('./components/Clusters').then(({ Clusters }) => Clusters);
     },
     get cog() {
-        return import('./components/Cog').then((module) => module.Cog);
+        return import('./components/Cog').then(({ Cog }) => Cog);
     },
     get components() {
         return import('./components/Components').then(
-            (module) => module.Components,
+            ({ Components }) => Components,
         );
     },
     get '@eventstore/components'() {
         return this['components'];
     },
     get configs() {
-        return import('./components/Configs').then((module) => module.Configs);
+        return import('./components/Configs').then(({ Configs }) => Configs);
     },
     get '@eventstore/configs'() {
         return this['configs'];
     },
     get copy() {
-        return import('./components/Copy').then((module) => module.Copy);
+        return import('./components/Copy').then(({ Copy }) => Copy);
     },
     get 'credit-card'() {
         return import('./components/CreditCard').then(
-            (module) => module.CreditCard,
+            ({ CreditCard }) => CreditCard,
         );
     },
     get critical() {
-        return import('./components/Critical').then(
-            (module) => module.Critical,
-        );
+        return import('./components/Critical').then(({ Critical }) => Critical);
     },
     get degraded() {
-        return import('./components/Degraded').then(
-            (module) => module.Degraded,
-        );
+        return import('./components/Degraded').then(({ Degraded }) => Degraded);
     },
     get editor() {
-        return import('./components/Editor').then((module) => module.Editor);
+        return import('./components/Editor').then(({ Editor }) => Editor);
     },
     get '@eventstore/editor'() {
         return this['editor'];
     },
     get ellipsis() {
-        return import('./components/Ellipsis').then(
-            (module) => module.Ellipsis,
-        );
+        return import('./components/Ellipsis').then(({ Ellipsis }) => Ellipsis);
     },
     get error() {
-        return import('./components/Error').then((module) => module.Error);
+        return import('./components/Error').then(({ Error }) => Error);
     },
     get eye() {
-        return import('./components/Eye').then((module) => module.Eye);
+        return import('./components/Eye').then(({ Eye }) => Eye);
     },
     get fields() {
-        return import('./components/Fields').then((module) => module.Fields);
+        return import('./components/Fields').then(({ Fields }) => Fields);
     },
     get '@eventstore/fields'() {
         return this['fields'];
     },
     get folder() {
-        return import('./components/Folder').then((module) => module.Folder);
+        return import('./components/Folder').then(({ Folder }) => Folder);
     },
     get gift() {
-        return import('./components/Gift').then((module) => module.Gift);
+        return import('./components/Gift').then(({ Gift }) => Gift);
     },
     get 'go-back'() {
-        return import('./components/GoBack').then((module) => module.GoBack);
+        return import('./components/GoBack').then(({ GoBack }) => GoBack);
     },
     get head() {
-        return import('./components/Head').then((module) => module.Head);
+        return import('./components/Head').then(({ Head }) => Head);
     },
     get heads() {
         return this['head'];
     },
     get 'icon-manager'() {
         return import('./components/IconManager').then(
-            (module) => module.IconManager,
+            ({ IconManager }) => IconManager,
         );
     },
     get '@eventstore/icon-manager'() {
         return this['icon-manager'];
     },
     get 'id-card'() {
-        return import('./components/IdCard').then((module) => module.IdCard);
+        return import('./components/IdCard').then(({ IdCard }) => IdCard);
     },
     get info() {
-        return import('./components/Info').then((module) => module.Info);
+        return import('./components/Info').then(({ Info }) => Info);
     },
     get invite() {
-        return import('./components/Invite').then((module) => module.Invite);
+        return import('./components/Invite').then(({ Invite }) => Invite);
     },
     get layout() {
-        return import('./components/Layout').then((module) => module.Layout);
+        return import('./components/Layout').then(({ Layout }) => Layout);
     },
     get '@eventstore/layout'() {
         return this['layout'];
     },
     get light() {
-        return import('./components/Light').then((module) => module.Light);
+        return import('./components/Light').then(({ Light }) => Light);
     },
     get lightbulb() {
         return import('./components/Lightbulb').then(
-            (module) => module.Lightbulb,
+            ({ Lightbulb }) => Lightbulb,
         );
     },
     get markdown() {
-        return import('./components/Markdown').then(
-            (module) => module.Markdown,
-        );
+        return import('./components/Markdown').then(({ Markdown }) => Markdown);
     },
     get '@eventstore/stencil-markdown-plugin'() {
         return this['markdown'];
@@ -164,144 +152,136 @@ iconStore.addIcons({
         return this['markdown'];
     },
     get mutable() {
-        return import('./components/Mutable').then((module) => module.Mutable);
+        return import('./components/Mutable').then(({ Mutable }) => Mutable);
     },
     get networks() {
-        return import('./components/Networks').then(
-            (module) => module.Networks,
-        );
+        return import('./components/Networks').then(({ Networks }) => Networks);
     },
     get okay() {
-        return import('./components/Okay').then((module) => module.Okay);
+        return import('./components/Okay').then(({ Okay }) => Okay);
     },
     get peering() {
-        return import('./components/Peering').then((module) => module.Peering);
+        return import('./components/Peering').then(({ Peering }) => Peering);
     },
     get pen() {
-        return import('./components/Pen').then((module) => module.Pen);
+        return import('./components/Pen').then(({ Pen }) => Pen);
     },
     get plus() {
-        return import('./components/Plus').then((module) => module.Plus);
+        return import('./components/Plus').then(({ Plus }) => Plus);
     },
     get 'postcss-palette-plugin'() {
         return import('./components/PostcssPalettePlugin').then(
-            (module) => module.PostcssPalettePlugin,
+            ({ PostcssPalettePlugin }) => PostcssPalettePlugin,
         );
     },
     get '@eventstore/postcss-palette-plugin'() {
         return this['postcss-palette-plugin'];
     },
     get question() {
-        return import('./components/Question').then(
-            (module) => module.Question,
-        );
+        return import('./components/Question').then(({ Question }) => Question);
     },
     get optional() {
         return this['question'];
     },
     get 'reflect-to-attr'() {
         return import('./components/ReflectToAttr').then(
-            (module) => module.ReflectToAttr,
+            ({ ReflectToAttr }) => ReflectToAttr,
         );
     },
     get refresh() {
-        return import('./components/Refresh').then((module) => module.Refresh);
+        return import('./components/Refresh').then(({ Refresh }) => Refresh);
     },
     get reload() {
-        return import('./components/Reload').then((module) => module.Reload);
+        return import('./components/Reload').then(({ Reload }) => Reload);
     },
     get required() {
-        return import('./components/Required').then(
-            (module) => module.Required,
-        );
+        return import('./components/Required').then(({ Required }) => Required);
     },
     get rocket() {
-        return import('./components/Rocket').then((module) => module.Rocket);
+        return import('./components/Rocket').then(({ Rocket }) => Rocket);
     },
     get composed() {
         return this['rocket'];
     },
     get router() {
-        return import('./components/Router').then((module) => module.Router);
+        return import('./components/Router').then(({ Router }) => Router);
     },
     get '@eventstore/router'() {
         return this['router'];
     },
     get scroll() {
-        return import('./components/Scroll').then((module) => module.Scroll);
+        return import('./components/Scroll').then(({ Scroll }) => Scroll);
     },
     get shadow() {
-        return import('./components/Shadow').then((module) => module.Shadow);
+        return import('./components/Shadow').then(({ Shadow }) => Shadow);
     },
     get shield() {
-        return import('./components/Shield').then((module) => module.Shield);
+        return import('./components/Shield').then(({ Shield }) => Shield);
     },
     get 'sign-in'() {
-        return import('./components/SignIn').then((module) => module.SignIn);
+        return import('./components/SignIn').then(({ SignIn }) => SignIn);
     },
     get 'sign-out'() {
-        return import('./components/SignOut').then((module) => module.SignOut);
+        return import('./components/SignOut').then(({ SignOut }) => SignOut);
     },
     get signs() {
-        return import('./components/Signs').then((module) => module.Signs);
+        return import('./components/Signs').then(({ Signs }) => Signs);
     },
     get spinner() {
-        return import('./components/Spinner').then((module) => module.Spinner);
+        return import('./components/Spinner').then(({ Spinner }) => Spinner);
     },
     get stores() {
-        return import('./components/Stores').then((module) => module.Stores);
+        return import('./components/Stores').then(({ Stores }) => Stores);
     },
     get '@eventstore/stores'() {
         return this['stores'];
     },
     get 'testing-icon'() {
         return import('./components/TestingIcon').then(
-            (module) => module.TestingIcon,
+            ({ TestingIcon }) => TestingIcon,
         );
     },
     get trash() {
-        return import('./components/Trash').then((module) => module.Trash);
+        return import('./components/Trash').then(({ Trash }) => Trash);
     },
     get unicorn() {
-        return import('./components/Unicorn').then((module) => module.Unicorn);
+        return import('./components/Unicorn').then(({ Unicorn }) => Unicorn);
     },
     get tails() {
         return this['unicorn'];
     },
     get unknown() {
-        return import('./components/Unknown').then((module) => module.Unknown);
+        return import('./components/Unknown').then(({ Unknown }) => Unknown);
     },
     get user() {
-        return import('./components/User').then((module) => module.User);
+        return import('./components/User').then(({ User }) => User);
     },
     get 'user-circle'() {
         return import('./components/UserCircle').then(
-            (module) => module.UserCircle,
+            ({ UserCircle }) => UserCircle,
         );
     },
     get 'user-cog'() {
-        return import('./components/UserCog').then((module) => module.UserCog);
+        return import('./components/UserCog').then(({ UserCog }) => UserCog);
     },
     get 'user-edit'() {
-        return import('./components/UserEdit').then(
-            (module) => module.UserEdit,
-        );
+        return import('./components/UserEdit').then(({ UserEdit }) => UserEdit);
     },
     get 'user-shield'() {
         return import('./components/UserShield').then(
-            (module) => module.UserShield,
+            ({ UserShield }) => UserShield,
         );
     },
     get users() {
-        return import('./components/Users').then((module) => module.Users);
+        return import('./components/Users').then(({ Users }) => Users);
     },
     get utils() {
-        return import('./components/Utils').then((module) => module.Utils);
+        return import('./components/Utils').then(({ Utils }) => Utils);
     },
     get '@eventstore/utils'() {
         return this['utils'];
     },
     get warning() {
-        return import('./components/Warning').then((module) => module.Warning);
+        return import('./components/Warning').then(({ Warning }) => Warning);
     },
 });

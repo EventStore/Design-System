@@ -1,32 +1,107 @@
-import * as fs from 'fs';
+import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
-import { promisify } from 'util';
 
+import { gt, SemVer } from 'semver';
+
+import { version } from './version';
 import { prettify } from './prettify';
 import { convertToLoader } from '../components/loader';
-import { ComponentMetadata } from './componentMetadata';
-
-const readFile = promisify(fs.readFile);
-const writeFile = promisify(fs.writeFile);
-const pathExists = promisify(fs.exists);
+import type { ComponentMetadata } from './componentMetadata';
+import { fileExists } from './exists';
 
 export type IndexMap = Map<string, ComponentMetadata>;
 
-const readIndex = async (destination: string): Promise<IndexMap> => {
+interface IconJSONV00 {
+    [name: string]: ComponentMetadata;
+}
+
+interface IconJSONV01 {
+    version: string;
+    icons: {
+        [name: string]: ComponentMetadata;
+    };
+}
+
+type UnknownIndexFile = IconJSONV00 | IconJSONV01;
+type CurrentIndexFile = IconJSONV01;
+
+type UpdateNeeded = false | 'full' | 'number';
+
+const needsUpdate = (index: UnknownIndexFile): UpdateNeeded => {
+    if (typeof index.version !== 'string') return 'full';
+    const indexVersion = index.version;
+
+    const oSV = new SemVer(version);
+    const iSV = new SemVer(indexVersion);
+
+    if (
+        oSV.major !== iSV.major ||
+        (oSV.major === 0 && oSV.minor !== iSV.minor)
+    ) {
+        if (gt(oSV, iSV)) return 'full';
+        throw `Icons generated with a newer version of icon-manager. Please update your version of icon-manager to at least ${indexVersion}`;
+    }
+
+    return false;
+};
+
+const indexToMap = (index: UnknownIndexFile, force: boolean): IndexMap => {
+    const indexVersion =
+        typeof index.version === 'string' ? index.version : '0.0.x';
+
+    if (indexVersion === '0.0.x') {
+        if (force)
+            return new Map<string, ComponentMetadata>(
+                Object.entries(index as IconJSONV00),
+            );
+        throw 'Icons generated with v0.0.x of icon-manager. Please run icon upgrade to regenerate icons.';
+    }
+
+    if (!force && needsUpdate(index) === 'full') {
+        throw 'Icons generated with older version of icon-manager. Please run icon upgrade to regenerate icons.';
+    }
+
+    return new Map<string, ComponentMetadata>(
+        Object.entries((index as IconJSONV01).icons),
+    );
+};
+
+export const checkIfIndexNeedsUpdate = async (
+    destination: string,
+): Promise<UpdateNeeded> => {
     const indexPath = join(destination, 'icons.json');
-    const exists = await pathExists(indexPath);
-    const indexFile = exists ? (await readFile(indexPath)).toString() : '{}';
-    const index = JSON.parse(indexFile);
-    return new Map<string, ComponentMetadata>(Object.entries(index));
+    const exists = await fileExists(indexPath);
+    if (!exists) throw `No index file found in ${destination}`;
+    const file = await readFile(indexPath, 'utf-8');
+    const content = JSON.parse(file);
+    return needsUpdate(content);
+};
+
+export const readIndex = async (
+    destination: string,
+    force: boolean = false,
+): Promise<IndexMap> => {
+    const indexPath = join(destination, 'icons.json');
+    const exists = await fileExists(indexPath);
+
+    if (exists) {
+        const file = await readFile(indexPath, 'utf-8');
+        const content = JSON.parse(file);
+        return indexToMap(content, force);
+    }
+
+    return new Map();
 };
 
 const writeIndex = async (destination: string, indexMap: IndexMap) => {
-    const indexPath = join(destination, 'icons.json');
-    const index = JSON.stringify(
-        Array.from(indexMap)
+    const indexFile: CurrentIndexFile = {
+        version,
+        icons: Array.from(indexMap)
             .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
             .reduce((acc, [name, info]) => ({ ...acc, [name]: info }), {}),
-    );
+    };
+    const indexPath = join(destination, 'icons.json');
+    const index = JSON.stringify(indexFile);
     const prettyIndex = await prettify(index, indexPath);
     return writeFile(indexPath, prettyIndex);
 };
@@ -136,5 +211,10 @@ export const removeFromIndex = async (
 ) => {
     const indexFile = await readIndex(destination);
     indexFile.delete(component.name);
+    return updateIndex(destination, indexFile);
+};
+
+export const regenerateIndex = async (destination: string) => {
+    const indexFile = await readIndex(destination, true);
     return updateIndex(destination, indexFile);
 };

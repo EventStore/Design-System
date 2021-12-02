@@ -1,24 +1,46 @@
-import * as fs from 'fs';
-import * as process from 'process';
-import { resolve, isAbsolute } from 'path';
-import { promisify } from 'util';
+import { readFile } from 'fs/promises';
+import { cwd } from 'process';
+import { resolve, isAbsolute, parse } from 'path';
 
 import * as clipboardy from 'clipboardy';
+import { optimiseSVG } from './optimiseSVG';
+import { fileExists } from './exists';
 
-const readFile = promisify(fs.readFile);
+export interface Loaded {
+    kind: 'jsx' | 'svg';
+    content: string;
+}
 
-const pathExists = promisify(fs.exists);
-
-const loadFromPath = async (path: string) => {
-    const filePath = isAbsolute(path) ? path : resolve(process.cwd(), path);
-    const exists = await pathExists(filePath);
+const loadFromPath = async (path: string): Promise<Loaded> => {
+    const filePath = isAbsolute(path) ? path : resolve(cwd(), path);
+    const exists = await fileExists(filePath);
 
     if (!exists) {
         throw new Error(`Cannot find icon at path ${filePath}`);
     }
 
-    const file = await readFile(filePath);
-    return file.toString();
+    const ext = parse(filePath).ext;
+    const fileContent = await readFile(filePath, 'utf-8');
+
+    if (/(j|t)sx?$/.test(ext)) {
+        const content = fileContent.match(/<svg[\s\S]+svg>/);
+
+        if (!content) {
+            throw 'Unable to extract icon from jsx';
+        }
+
+        return {
+            kind: 'jsx',
+            content: content[0],
+        };
+    }
+
+    const content = await optimiseSVG(fileContent);
+
+    return {
+        kind: 'svg',
+        content,
+    };
 };
 
 interface LoadIconOptions {
@@ -26,13 +48,19 @@ interface LoadIconOptions {
     file?: string;
 }
 
-export const loadIcon = async ({ clipboard, file }: LoadIconOptions) => {
+export const loadIcon = async ({
+    clipboard,
+    file,
+}: LoadIconOptions): Promise<Loaded> => {
     if (clipboard) {
-        const contents = await clipboardy.read();
+        const clipboardContent = await clipboardy.read();
 
-        if (contents.includes('<svg')) return contents;
+        if (clipboardContent.includes('<svg')) {
+            const content = await optimiseSVG(clipboardContent);
+            return { kind: 'svg', content };
+        }
 
-        return loadFromPath(contents);
+        return loadFromPath(clipboardContent);
     }
 
     return loadFromPath(file!);

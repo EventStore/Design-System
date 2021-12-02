@@ -1,9 +1,7 @@
-import * as fs from 'fs';
-import * as process from 'process';
+import { writeFile } from 'fs/promises';
+import { cwd } from 'process';
 import { resolve, join, isAbsolute } from 'path';
-import { promisify } from 'util';
 
-import { optimiseSVG } from '../utils/optimiseSVG';
 import {
     addToIndex,
     isInIndex,
@@ -11,13 +9,14 @@ import {
 } from '../utils/indexFile';
 import { prettify } from '../utils/prettify';
 import { loadIcon } from '../utils/loadIcon';
-import { createDirIfMissing } from '../utils/createDirIfMissing';
+import {
+    createDeclarationIfMissing,
+    createDirIfMissing,
+} from '../utils/scaffold';
 import { componentMetadata } from '../utils/componentMetadata';
 
 import { convertToComponent } from '../components/icon';
 import { failure, info, success } from '../utils/finish';
-
-const writeFile = promisify(fs.writeFile);
 
 interface AddIconOptions {
     name: string;
@@ -35,7 +34,7 @@ export const addIcon = async ({
     force,
 }: AddIconOptions) => {
     try {
-        const directory = isAbsolute(dir) ? dir : resolve(process.cwd(), dir);
+        const directory = isAbsolute(dir) ? dir : resolve(cwd(), dir);
         const metadata = componentMetadata(name);
         const filePath = join(directory, metadata.path);
 
@@ -63,13 +62,12 @@ export const addIcon = async ({
             info(`Overwriting icon ${name} in ${filePath}`);
         }
 
-        await createDirIfMissing(filePath);
-
         const icon = await loadIcon({ clipboard, file });
-        const optimised = await optimiseSVG(icon);
-        const component = convertToComponent(optimised, metadata);
+        const component = convertToComponent(icon, metadata);
         const cleanedUp = await prettify(component, filePath);
 
+        await createDirIfMissing(filePath);
+        await createDeclarationIfMissing(directory);
         await addToIndex(directory, metadata);
         await writeFile(filePath, cleanedUp);
 
