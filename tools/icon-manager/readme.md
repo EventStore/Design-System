@@ -129,6 +129,34 @@ Display help
 icon alias --help
 ```
 
+### Upgrade
+
+```shell
+icon upgrade
+```
+
+Upgrades from an earlier version on `icon-manager` & `@eventstore/components`
+
+**Options**
+
+| Option | Alias | Description                 | Required | Type |
+| ------ | ----- | --------------------------- | -------- | ---- |
+| --dir  | -d    | Where your icons are stored | yes      | path |
+
+**Examples**
+
+Update icon set in `./icons`
+
+```shell
+icon upgrade --dir=./icons
+```
+
+Display help
+
+```shell
+icon upgrade --help
+```
+
 ## Pro tip
 
 Add `icon` as a script in your package.json, set the directory for your project

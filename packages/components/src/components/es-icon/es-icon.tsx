@@ -9,7 +9,7 @@ import {
     Watch,
 } from '@stencil/core';
 import { createLogger } from '@eventstore/utils';
-import { iconStore } from '../../utils/iconStore';
+import { iconStore, SVGProps } from '../../utils/iconStore';
 
 const logger = createLogger('es-icon', 'orange');
 
@@ -36,7 +36,7 @@ export class Icon {
     /** When spinning, should it spin clockwise or anticlockwise. */
     @Prop() spinDirection: 'clockwise' | 'antiClockwise' = 'clockwise';
 
-    @State() Component: FunctionalComponent<any> = (props) => (
+    @State() Component: FunctionalComponent<SVGProps> = (props) => (
         <svg {...props}></svg>
     );
 
@@ -97,7 +97,6 @@ export class Icon {
         }
 
         const component = await iconStore.get(name);
-
-        this.Component = component;
+        this.Component = component(h);
     };
 }

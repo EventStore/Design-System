@@ -52,9 +52,9 @@ export const generatePreview = ({ parts, showLocation }: Settings): Files => {
             aliases?: string[];
         }
         export const iconDetails: Record<string, IconDetail> = ${JSON.stringify(
-            iconDetails,
+            iconDetails.icons,
         )};
-        export const icons = ${JSON.stringify(Object.keys(iconDetails))};
+        export const icons = ${JSON.stringify(Object.keys(iconDetails.icons))};
         export const randomIcon = () => icons[random(icons.length - 1)];
     `;
 
