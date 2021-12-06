@@ -15,7 +15,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "url": "git@github.com:EventStore/Design-System.git",
         "directory": "tools/icon-manager"
     },
     "scripts": {

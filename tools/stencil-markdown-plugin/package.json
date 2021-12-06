@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/stencil-markdown-plugin",
-    "version": "0.0.66",
+    "version": "0.1.0-alpha",
     "description": "Import md and mdx files into stencil projects",
     "license": "Apache-2.0",
     "main": "./dist/index.js",
@@ -15,7 +15,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "url": "git@github.com:EventStore/Design-System.git",
         "directory": "tools/stencil-markdown-plugin"
     },
     "scripts": {

@@ -1,6 +1,6 @@
 {
     "name": "typedoc-plugin-usage",
-    "version": "0.0.66",
+    "version": "0.1.0-alpha",
     "description": "Typedoc plugin that resolves @usage paths to content.",
     "license": "Apache-2.0",
     "main": "dist/index.js",
@@ -18,7 +18,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "url": "git@github.com:EventStore/Design-System.git",
         "directory": "tools/typedoc-plugin-usage"
     },
     "scripts": {

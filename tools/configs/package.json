@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/configs",
-    "version": "0.0.66",
+    "version": "0.1.0-alpha",
     "description": "Configs for the Event Store Design System",
     "license": "Apache-2.0",
     "prettier": "./prettier",
@@ -22,10 +22,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "url": "git@github.com:EventStore/Design-System.git",
         "directory": "tools/configs"
     },
-    "devDependencies": {
+    "peerDependencies": {
+        "eslint": "^7.x.x",
+        "prettier": "^2.x.x"
+    },
+    "dependencies": {
         "@typescript-eslint/eslint-plugin": "^4.30.0",
         "@typescript-eslint/parser": "^4.30.0",
         "eslint": "^7.32.0",

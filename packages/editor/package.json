@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/editor",
-    "version": "0.0.66",
+    "version": "0.1.0-alpha",
     "description": "Monaco Editor for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
@@ -28,7 +28,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "ssh://git@github.com:EventStore/Design-System.git",
+        "url": "git@github.com:EventStore/Design-System.git",
         "directory": "packages/components"
     },
     "scripts": {
@@ -55,8 +55,8 @@
         "monaco-editor": "^0.22.3"
     },
     "peerDependencies": {
-        "@eventstore/components": "0.0.x",
-        "@eventstore/utils": "0.0.x"
+        "@eventstore/components": "0.1.x",
+        "@eventstore/utils": "0.1.x"
     },
     "devDependencies": {
         "@eventstore/components": "workspace:*",
