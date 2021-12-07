@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/configs",
-    "version": "0.1.0-alpha.1",
+    "version": "0.1.0-alpha.2",
     "description": "Configs for the Event Store Design System",
     "license": "Apache-2.0",
     "prettier": "./prettier",
@@ -28,7 +28,7 @@
     "peerDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.x.x",
         "@typescript-eslint/parser": "^5.x.x",
-        "eslint": "^7.x.x",
+        "eslint": "^8.x.x",
         "prettier": "^2.x.x"
     },
     "devDependencies": {
