@@ -48,7 +48,7 @@
         "@stencil/postcss": "^2.1.0",
         "@types/jest": "25.2.1",
         "@types/markdown-it": "12.0.3",
-        "eslint": "7.32.0",
+        "eslint": "^8.4.0",
         "jest": "26.6.3",
         "jest-cli": "24.9.0",
         "npm-run-all": "^4.1.5",
