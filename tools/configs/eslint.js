@@ -6,6 +6,7 @@ module.exports = {
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
     ],
+    ignorePatterns: ['node_modules', 'dist', 'www', '**/*.d.ts'],
     rules: {
         'no-undef': 0,
         quotes: [
