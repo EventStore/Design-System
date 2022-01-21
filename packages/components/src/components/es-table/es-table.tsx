@@ -8,6 +8,7 @@ import {
     VNode,
 } from '@stencil/core';
 import { Link, router } from '@eventstore/router';
+import { theme } from '@eventstore/theme';
 import { TableCell, TableCells } from './types';
 import { logger } from '../../utils/logger';
 
@@ -163,6 +164,8 @@ export class Table {
             <Host
                 role={'table'}
                 style={{ gridTemplateColumns: this.gridTemplateColumns() }}
+                high-contrast={theme.isHighContrast()}
+                dark={theme.isDark()}
             >
                 {this.renderHeader()}
                 {this.rows.map(this.renderRowGroup)}

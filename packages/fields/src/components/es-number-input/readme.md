@@ -120,6 +120,7 @@ es-button {
 ```mermaid
 graph TD;
   es-number-input --> es-validation-messages
+  es-validation-messages --> es-icon
   style es-number-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

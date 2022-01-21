@@ -17,15 +17,15 @@
 }
 
 .intrinsic {
-    color: var(--code-orange);
+    color: var(--code-class);
     &.string {
-        color: var(--code-green);
+        color: var(--code-string);
     }
 }
 
 .alias,
 .reference {
-    color: var(--code-blue);
+    color: var(--code-symbol);
 }
 
 .param:not(:last-child)::after {

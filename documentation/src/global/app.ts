@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-import { Build } from '@stencil/core';
+import './polyfills';
 import '@eventstore/components';
 import '@eventstore/layout';
 import '@eventstore/editor';
 import '@eventstore/fields';
+import '@eventstore/theme';
 import '../icons';
 
 import { initialize } from '@eventstore/editor/initialize';
@@ -25,19 +25,3 @@ initialize({
         return '/workers/editor.worker.js';
     },
 });
-
-if (Build.isServer) {
-    document.queryCommandSupported = () => false;
-    global.MutationObserver = class {
-        disconnect() {}
-        observe() {}
-        takeRecords() {
-            return [];
-        }
-    };
-    global.ResizeObserver = class {
-        disconnect() {}
-        observe() {}
-        unobserve() {}
-    };
-}

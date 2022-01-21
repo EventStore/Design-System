@@ -1,6 +1,5 @@
-import { Component, h, Prop } from '@stencil/core';
-
-export type backgroundVariant = 'default' | 'dark';
+import { Component, h } from '@stencil/core';
+import { theme } from '@eventstore/theme';
 
 @Component({
     tag: 'docs-background',
@@ -8,10 +7,9 @@ export type backgroundVariant = 'default' | 'dark';
     shadow: true,
 })
 export class background {
-    /** Sets the background variant. */
-    @Prop({ reflect: true }) variant: backgroundVariant = 'default';
-
     render() {
+        if (theme.isHighContrast()) return null;
+
         return (
             <svg
                 id={'docs-background'}

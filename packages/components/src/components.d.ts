@@ -8,8 +8,9 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordianSection } from "./components/es-accordian/types";
 import { VNode } from "@stencil/core";
 import { BadgeColor, BadgeVariant } from "./components/es-badge/es-badge";
-import { ButtonColor, ButtonVariant } from "./components/buttons/types";
+import { ButtonVariant } from "./components/buttons/types";
 import { EsCalloutVariant } from "./components/es-callout/es-callout";
+import { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
 import { CounterVariant } from "./components/es-counter/es-counter";
 import { AttachmentX, AttachmentY, Constrain, Position, PositionX, PositionY } from "./utils/calcPosition";
 import { Checkpoint } from "./components/es-progression/es-progression";
@@ -57,10 +58,6 @@ export namespace Components {
         "variant": BadgeVariant;
     }
     interface EsButton {
-        /**
-          * Which color pair the button should use.
-         */
-        "color": ButtonColor;
         /**
           * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
          */
@@ -116,13 +113,13 @@ export namespace Components {
          */
         "ariaSetsize"?: number;
         /**
-          * Which color pair the button should use.
-         */
-        "color": ButtonColor;
-        /**
           * If the link is disabled. Prevents the user from interacting with the link: it cannot be pressed or focused.
          */
         "disabled"?: boolean;
+        /**
+          * Link is for an external site
+         */
+        "external"?: boolean;
         /**
           * If the button should navigate within the router context, or force a refresh.
          */
@@ -159,6 +156,20 @@ export namespace Components {
           * Manually triggers the copy of the inner text.
          */
         "copy": () => Promise<void>;
+    }
+    interface EsCornerBanner {
+        /**
+          * Which styling variant to use.
+         */
+        "variant": CornerBannerVariant;
+        /**
+          * X location of the banner.
+         */
+        "x": 'left' | 'right';
+        /**
+          * Y location of the banner
+         */
+        "y": 'top' | 'bottom';
     }
     interface EsCounter {
         /**
@@ -486,10 +497,6 @@ export namespace Components {
          */
         "action": (e: MouseEvent) => Promise<unknown>;
         /**
-          * Which color pair the button should use.
-         */
-        "color"?: HTMLEsButtonElement['color'];
-        /**
           * The icon to display when the action completed successfully.
          */
         "completeIcon": string;
@@ -584,6 +591,12 @@ declare global {
     var HTMLEsCopyElement: {
         prototype: HTMLEsCopyElement;
         new (): HTMLEsCopyElement;
+    };
+    interface HTMLEsCornerBannerElement extends Components.EsCornerBanner, HTMLStencilElement {
+    }
+    var HTMLEsCornerBannerElement: {
+        prototype: HTMLEsCornerBannerElement;
+        new (): HTMLEsCornerBannerElement;
     };
     interface HTMLEsCounterElement extends Components.EsCounter, HTMLStencilElement {
     }
@@ -707,6 +720,7 @@ declare global {
         "es-button-link": HTMLEsButtonLinkElement;
         "es-callout": HTMLEsCalloutElement;
         "es-copy": HTMLEsCopyElement;
+        "es-corner-banner": HTMLEsCornerBannerElement;
         "es-counter": HTMLEsCounterElement;
         "es-icon": HTMLEsIconElement;
         "es-modal": HTMLEsModalElement;
@@ -768,10 +782,6 @@ declare namespace LocalJSX {
     }
     interface EsButton {
         /**
-          * Which color pair the button should use.
-         */
-        "color"?: ButtonColor;
-        /**
           * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
          */
         "disabled"?: boolean;
@@ -826,13 +836,13 @@ declare namespace LocalJSX {
          */
         "ariaSetsize"?: number;
         /**
-          * Which color pair the button should use.
-         */
-        "color"?: ButtonColor;
-        /**
           * If the link is disabled. Prevents the user from interacting with the link: it cannot be pressed or focused.
          */
         "disabled"?: boolean;
+        /**
+          * Link is for an external site
+         */
+        "external"?: boolean;
         /**
           * If the button should navigate within the router context, or force a refresh.
          */
@@ -865,6 +875,20 @@ declare namespace LocalJSX {
         "variant"?: EsCalloutVariant;
     }
     interface EsCopy {
+    }
+    interface EsCornerBanner {
+        /**
+          * Which styling variant to use.
+         */
+        "variant"?: CornerBannerVariant;
+        /**
+          * X location of the banner.
+         */
+        "x"?: 'left' | 'right';
+        /**
+          * Y location of the banner
+         */
+        "y"?: 'top' | 'bottom';
     }
     interface EsCounter {
         /**
@@ -1222,10 +1246,6 @@ declare namespace LocalJSX {
          */
         "action": (e: MouseEvent) => Promise<unknown>;
         /**
-          * Which color pair the button should use.
-         */
-        "color"?: HTMLEsButtonElement['color'];
-        /**
           * The icon to display when the action completed successfully.
          */
         "completeIcon"?: string;
@@ -1283,6 +1303,7 @@ declare namespace LocalJSX {
         "es-button-link": EsButtonLink;
         "es-callout": EsCallout;
         "es-copy": EsCopy;
+        "es-corner-banner": EsCornerBanner;
         "es-counter": EsCounter;
         "es-icon": EsIcon;
         "es-modal": EsModal;
@@ -1315,6 +1336,7 @@ declare module "@stencil/core" {
             "es-button-link": LocalJSX.EsButtonLink & JSXBase.HTMLAttributes<HTMLEsButtonLinkElement>;
             "es-callout": LocalJSX.EsCallout & JSXBase.HTMLAttributes<HTMLEsCalloutElement>;
             "es-copy": LocalJSX.EsCopy & JSXBase.HTMLAttributes<HTMLEsCopyElement>;
+            "es-corner-banner": LocalJSX.EsCornerBanner & JSXBase.HTMLAttributes<HTMLEsCornerBannerElement>;
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
             "es-icon": LocalJSX.EsIcon & JSXBase.HTMLAttributes<HTMLEsIconElement>;
             "es-modal": LocalJSX.EsModal & JSXBase.HTMLAttributes<HTMLEsModalElement>;

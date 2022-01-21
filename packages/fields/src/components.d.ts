@@ -323,6 +323,10 @@ export namespace Components {
          */
         "setPending": (pending: boolean) => Promise<void>;
         /**
+          * Text to display in high contrast mode.
+         */
+        "text": { on: string; off: string };
+        /**
           * The current value of the field.
          */
         "value": boolean;
@@ -382,6 +386,10 @@ export namespace Components {
           * The messages to display.
          */
         "messages"?: Partial<ValidationMessages>;
+        /**
+          * Display icons alongside messages.
+         */
+        "showIcons": boolean;
     }
 }
 declare global {
@@ -819,6 +827,10 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         /**
+          * Text to display in high contrast mode.
+         */
+        "text"?: { on: string; off: string };
+        /**
           * The current value of the field.
          */
         "value": boolean;
@@ -884,6 +896,10 @@ declare namespace LocalJSX {
           * The messages to display.
          */
         "messages"?: Partial<ValidationMessages>;
+        /**
+          * Display icons alongside messages.
+         */
+        "showIcons"?: boolean;
     }
     interface IntrinsicElements {
         "es-checkbox": EsCheckbox;

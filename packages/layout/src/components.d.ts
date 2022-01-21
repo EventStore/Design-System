@@ -29,6 +29,10 @@ export namespace Components {
     }
     interface EsPageTitle {
     }
+    interface EsThemeDropdown {
+    }
+    interface EsThemePicker {
+    }
 }
 declare global {
     interface HTMLEsBreadcrumbElement extends Components.EsBreadcrumb, HTMLStencilElement {
@@ -49,10 +53,24 @@ declare global {
         prototype: HTMLEsPageTitleElement;
         new (): HTMLEsPageTitleElement;
     };
+    interface HTMLEsThemeDropdownElement extends Components.EsThemeDropdown, HTMLStencilElement {
+    }
+    var HTMLEsThemeDropdownElement: {
+        prototype: HTMLEsThemeDropdownElement;
+        new (): HTMLEsThemeDropdownElement;
+    };
+    interface HTMLEsThemePickerElement extends Components.EsThemePicker, HTMLStencilElement {
+    }
+    var HTMLEsThemePickerElement: {
+        prototype: HTMLEsThemePickerElement;
+        new (): HTMLEsThemePickerElement;
+    };
     interface HTMLElementTagNameMap {
         "es-breadcrumb": HTMLEsBreadcrumbElement;
         "es-logo": HTMLEsLogoElement;
         "es-page-title": HTMLEsPageTitleElement;
+        "es-theme-dropdown": HTMLEsThemeDropdownElement;
+        "es-theme-picker": HTMLEsThemePickerElement;
     }
 }
 declare namespace LocalJSX {
@@ -78,10 +96,16 @@ declare namespace LocalJSX {
     }
     interface EsPageTitle {
     }
+    interface EsThemeDropdown {
+    }
+    interface EsThemePicker {
+    }
     interface IntrinsicElements {
         "es-breadcrumb": EsBreadcrumb;
         "es-logo": EsLogo;
         "es-page-title": EsPageTitle;
+        "es-theme-dropdown": EsThemeDropdown;
+        "es-theme-picker": EsThemePicker;
     }
 }
 export { LocalJSX as JSX };
@@ -91,6 +115,8 @@ declare module "@stencil/core" {
             "es-breadcrumb": LocalJSX.EsBreadcrumb & JSXBase.HTMLAttributes<HTMLEsBreadcrumbElement>;
             "es-logo": LocalJSX.EsLogo & JSXBase.HTMLAttributes<HTMLEsLogoElement>;
             "es-page-title": LocalJSX.EsPageTitle & JSXBase.HTMLAttributes<HTMLEsPageTitleElement>;
+            "es-theme-dropdown": LocalJSX.EsThemeDropdown & JSXBase.HTMLAttributes<HTMLEsThemeDropdownElement>;
+            "es-theme-picker": LocalJSX.EsThemePicker & JSXBase.HTMLAttributes<HTMLEsThemePickerElement>;
         }
     }
 }

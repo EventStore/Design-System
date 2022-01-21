@@ -32,6 +32,14 @@ export default () => <es-logo />;
 | `width`  | `width`   | Width to constrain by.  | `number` | `164`   |
 
 
+## Shadow Parts
+
+| Part          | Description |
+| ------------- | ----------- |
+| `"ouroboros"` |             |
+| `"text"`      |             |
+
+
 ----------------------------------------------
 
 

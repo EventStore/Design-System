@@ -92,12 +92,7 @@ export class ListCreator {
                         renderField={this.renderField}
                         onFieldchange={this.onTypeaheadChange}
                     />
-                    <es-button
-                        class={'create'}
-                        variant={'outline'}
-                        color={'secondary'}
-                        tabIndex={-1}
-                    >
+                    <es-button tabIndex={-1}>
                         <es-icon icon={'plus'} size={20} />
                     </es-button>
                 </Field>
@@ -116,8 +111,7 @@ export class ListCreator {
                                 {this.renderItem(value)}
                                 <es-button
                                     class={'value_list_item_delete'}
-                                    variant={'outline'}
-                                    color={'secondary'}
+                                    variant={'minimal'}
                                     onClick={this.onDelete(i)}
                                 >
                                     <es-icon icon={'trash'} size={20} />

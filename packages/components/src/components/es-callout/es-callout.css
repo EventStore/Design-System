@@ -1,6 +1,7 @@
 /**
  * @prop --strong-color: Header, icon and border color. Can be set to a default via the variant prop.
  * @prop --weak-color: Background color. Can be set to a default via the variant prop.
+ * @prop --text-color: Color of the body text.
  */
 
 :host,
@@ -10,29 +11,50 @@
 
 :host {
     display: block;
-    border-left-width: 8px;
-    border-left-style: solid;
+    border-width: 1px 1px 1px 8px;
+    border-style: solid;
+    border-color: var(--weak-color);
     border-left-color: var(--strong-color);
     background-color: var(--weak-color);
     position: relative;
-    padding: 20px 30px;
-    color: var(--color-text);
+    padding: 18px 30px;
+    color: var(--text-color);
     margin: 0 16px 20px 16px;
+
+    /* Button theme inheritance */
+    --primary-color: var(--weak-color);
+    --secondary-color: var(--strong-color);
+    --tertiary-color: var(--strong-color);
 }
 
 :host([variant='tip']) {
     --strong-color: var(--color-success);
-    --weak-color: var(--color-success-extra-light);
+    --weak-color: var(--color-success-alt);
+    --text-color: var(--color-success-alt-contrast);
+}
+
+:host([variant='info']) {
+    --strong-color: var(--color-info);
+    --weak-color: var(--color-info-alt);
+    --text-color: var(--color-info-alt-contrast);
 }
 
 :host([variant='warning']) {
     --strong-color: var(--color-warning);
-    --weak-color: var(--color-warning-extra-light);
+    --weak-color: var(--color-warning-alt);
+    --text-color: var(--color-warning-alt-contrast);
 }
 
 :host([variant='error']) {
     --strong-color: var(--color-error);
-    --weak-color: var(--color-error-extra-light);
+    --weak-color: var(--color-error-alt);
+    --text-color: var(--color-error-alt-contrast);
+}
+
+:host([high-contrast]) {
+    --weak-color: var(--color-background);
+    --text-color: var(--color-text);
+    border-color: var(--strong-color);
 }
 
 es-icon {

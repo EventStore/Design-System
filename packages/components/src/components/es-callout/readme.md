@@ -17,6 +17,9 @@ export default () => (
         <es-callout variant={'tip'} heading={'Just the tip.'}>
             {'And only for a minute mind.'}
         </es-callout>
+        <es-callout variant={'info'} heading={'For your information.'}>
+            {'A cow-bison hybrid is called a beefalo.'}
+        </es-callout>
         <es-callout variant={'warning'} heading={'Beware.'}>
             {'There is danger ahead.'}
         </es-callout>
@@ -56,11 +59,11 @@ export default () => (
 
 ## Properties
 
-| Property               | Attribute | Description                | Type                            | Default     |
-| ---------------------- | --------- | -------------------------- | ------------------------------- | ----------- |
-| `heading` _(required)_ | `heading` | Heading text.              | `string`                        | `undefined` |
-| `icon`                 | `icon`    | Override the variant icon. | `string \| undefined`           | `undefined` |
-| `variant`              | `variant` | Which color set to use.    | `"error" \| "tip" \| "warning"` | `'tip'`     |
+| Property               | Attribute | Description                | Type                                      | Default     |
+| ---------------------- | --------- | -------------------------- | ----------------------------------------- | ----------- |
+| `heading` _(required)_ | `heading` | Heading text.              | `string`                                  | `undefined` |
+| `icon`                 | `icon`    | Override the variant icon. | `string \| undefined`                     | `undefined` |
+| `variant`              | `variant` | Which color set to use.    | `"error" \| "info" \| "tip" \| "warning"` | `'tip'`     |
 
 
 ## Shadow Parts
@@ -76,6 +79,7 @@ export default () => (
 | Name             | Description                                                                  |
 | ---------------- | ---------------------------------------------------------------------------- |
 | `--strong-color` | Header, icon and border color. Can be set to a default via the variant prop. |
+| `--text-color`   | Color of the body text.                                                      |
 | `--weak-color`   | Background color. Can be set to a default via the variant prop.              |
 
 

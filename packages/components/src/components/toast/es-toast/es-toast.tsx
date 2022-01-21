@@ -7,6 +7,7 @@ import {
     State,
     Method,
 } from '@stencil/core';
+import { theme } from '@eventstore/theme';
 import { ToastLevel, Toast } from '../types';
 
 /** @internal */
@@ -41,7 +42,11 @@ export class EsToast {
 
     render() {
         return (
-            <Host class={`${this.level} ${this.transitionState}`}>
+            <Host
+                class={`${this.level} ${this.transitionState}`}
+                high-contrast={theme.isHighContrast()}
+                dark={theme.isDark()}
+            >
                 <div class={'inner'}>
                     <div class={'icon_holder'}>
                         {this.count > 1 ? (

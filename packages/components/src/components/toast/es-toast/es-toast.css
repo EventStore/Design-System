@@ -9,26 +9,42 @@
     max-width: 400px;
     opacity: 0;
     transform: translateX(100%);
+    --background-color: var(--color-background);
+    --text-color: var(--color-text);
+}
+
+:host([dark]:not([high-contrast])) {
+    --background-color: var(--color-contrast);
+    --text-color: var(--color-background);
 }
 
 :host(.error) {
-    --background-color: var(--color-error-extra-light);
-    --contrast-color: var(--color-error);
+    --weak-color: var(--color-error-alt);
+    --strong-color: var(--color-error);
 }
 
 :host(.warning) {
-    --background-color: var(--color-warning-extra-light);
-    --contrast-color: var(--color-warning);
+    --weak-color: var(--color-warning-alt);
+    --strong-color: var(--color-warning);
 }
 
 :host(.info) {
-    --background-color: var(--color-info-extra-light);
-    --contrast-color: var(--color-info);
+    --weak-color: var(--color-info-alt);
+    --strong-color: var(--color-info);
 }
 
 :host(.success) {
-    --background-color: var(--color-success-extra-light);
-    --contrast-color: var(--color-success);
+    --weak-color: var(--color-success-alt);
+    --strong-color: var(--color-success);
+}
+
+:host([high-contrast]) {
+    --weak-color: var(--background-color);
+
+    & .inner {
+        border: 2px solid var(--strong-color);
+        border-right: 0;
+    }
 }
 
 :host(.clickable) {
@@ -57,7 +73,8 @@
 .inner {
     display: flex;
     flex-direction: row;
-    background-color: var(--color-white);
+    background-color: var(--background-color);
+    color: var(--text-color);
     box-shadow: rgba(0, 0, 0, 0.05) 1px 1px 5px 5px;
     margin-bottom: 12px;
     padding-left: 10px;
@@ -76,8 +93,8 @@
         margin: auto;
         height: 40px;
         width: 40px;
-        background-color: var(--background-color);
-        border: 2px solid var(--contrast-color);
+        background-color: var(--weak-color);
+        border: 2px solid var(--strong-color);
         border-radius: 20px;
         z-index: -1;
     }
@@ -96,5 +113,13 @@
     flex: 0 0 40px;
     align-items: center;
     justify-content: center;
-    color: var(--contrast-color);
+    color: var(--strong-color);
+}
+
+::slotted(strong) {
+    color: var(--strong-color);
+}
+
+es-counter {
+    --text-color: var(--strong-color);
 }

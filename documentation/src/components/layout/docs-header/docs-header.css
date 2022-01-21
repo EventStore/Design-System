@@ -4,12 +4,17 @@
     grid-area: header;
     padding: 0 40px;
     height: var(--layout-header-height);
+    box-sizing: border-box;
     overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
+}
+
+:host([dark]) {
+    border-bottom: 4px solid var(--color-shade-20);
 }
 
 header {

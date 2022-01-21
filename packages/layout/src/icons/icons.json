@@ -1,0 +1,25 @@
+{
+    "version": "0.1.0-alpha",
+    "icons": {
+        "dark-high-theme": {
+            "name": "dark-high-theme",
+            "component": "DarkHighTheme",
+            "path": "./components/DarkHighTheme.tsx"
+        },
+        "dark-low-theme": {
+            "name": "dark-low-theme",
+            "component": "DarkLowTheme",
+            "path": "./components/DarkLowTheme.tsx"
+        },
+        "light-high-theme": {
+            "name": "light-high-theme",
+            "component": "LightHighTheme",
+            "path": "./components/LightHighTheme.tsx"
+        },
+        "light-low-theme": {
+            "name": "light-low-theme",
+            "component": "LightLowTheme",
+            "path": "./components/LightLowTheme.tsx"
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import { Component, h, Host, Prop } from '@stencil/core';
+import { theme } from '@eventstore/theme';
 
-export type EsCalloutVariant = 'tip' | 'warning' | 'error';
+export type EsCalloutVariant = 'tip' | 'info' | 'warning' | 'error';
 
 /**
  * Calls out a piece of information.
@@ -22,7 +23,7 @@ export class EsCallout {
 
     render() {
         return (
-            <Host>
+            <Host high-contrast={theme.isHighContrast()}>
                 <es-icon part={'icon'} icon={this.getIcon()} />
                 <h1 part={'heading'}>{this.heading}</h1>
                 <slot />
@@ -37,6 +38,8 @@ export class EsCallout {
             case 'error':
             case 'warning':
                 return 'warning';
+            case 'info':
+                return 'info';
             case 'tip':
             default:
                 return 'lightbulb';

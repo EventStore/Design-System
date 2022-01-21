@@ -17,14 +17,14 @@ header {
 
 h1 {
     font: var(--font-monospace);
-    color: var(--color-heading);
+    color: var(--color-title-1);
     font-size: 36px;
     font-weight: 100;
     margin: 0px;
 
     &::before,
     &::after {
-        color: var(--color-grey-500);
+        color: var(--color-shade-50);
     }
 
     &::before {

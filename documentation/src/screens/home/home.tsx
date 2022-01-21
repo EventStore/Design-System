@@ -18,6 +18,11 @@ export class DocsHome {
                             {children.map(({ title, slug, packageJson }) => (
                                 <acticle key={title} class={'nav_grid_item'}>
                                     <Link url={`/${slug}`}>
+                                        {packageJson.deprecated && (
+                                            <es-corner-banner x={'right'}>
+                                                {'deprecated'}
+                                            </es-corner-banner>
+                                        )}
                                         <es-icon
                                             icon={packageJson.name}
                                             size={24}

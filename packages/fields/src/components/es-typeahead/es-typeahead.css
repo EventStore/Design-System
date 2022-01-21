@@ -7,9 +7,10 @@ es-typeahead {
     width: 100%;
     border-radius: 20px;
     border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
     border-width: 1px;
     border-style: solid;
-    border-color: var(--color-grey-400);
+    border-color: var(--color-shade-50);
     outline: none;
     box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.01);
     background-color: transparent;
@@ -31,7 +32,7 @@ es-typeahead {
 }
 
 .list_sizer {
-    background-color: var(--color-white);
+    background-color: var(--color-background);
     overflow: hidden;
     width: 100%;
 }
@@ -52,8 +53,8 @@ es-typeahead {
 
 .empty_message,
 .option {
-    --background: transparent;
-    --foreground: var(--color-text);
+    --background-color: transparent;
+    --foreground-color: var(--color-text);
 
     display: flex;
     align-items: center;
@@ -67,28 +68,48 @@ es-typeahead {
     font-size: 16px;
     cursor: pointer;
     outline: none;
-    background-color: var(--background);
-    color: var(--foreground);
+    background-color: var(--background-color);
+    color: var(--foreground-color);
     transition-property: background-color, color;
     transition-duration: 200ms;
     transition-timing-function: ease;
+    border-radius: 2px;
 
     &:hover {
-        --background: var(--color-grey-100);
+        --background-color: var(--color-shade-20);
     }
 
     &:focus {
-        --background: var(--color-grey-200);
+        --background-color: var(--color-shade-30);
     }
 
     &.active {
-        --background: var(--color-secondary);
-        --foreground: var(--color-secondary-contrast);
+        --background-color: var(--color-secondary);
+        --foreground-color: var(--color-secondary-contrast);
+    }
+}
+
+.list[high-contrast] .option {
+    &:hover {
+        --background-color: transparent;
+        --foreground-color: var(--color-secondary);
+    }
+
+    &:focus {
+        --background-color: transparent;
+        outline: dashed;
+        outline-offset: -3px;
+        outline-color: var(--color-text);
+    }
+
+    &.active {
+        --background-color: var(--color-secondary);
+        --foreground-color: var(--color-secondary-contrast);
     }
 }
 
 .empty_message {
-    color: var(--color-grey-400);
+    color: var(--color-shade-50);
 
     &:hover {
         background-color: transparent;

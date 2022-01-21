@@ -2,18 +2,18 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+}
 
-    &(.okay) {
-        color: var(--color-success);
-    }
+:host(.okay) {
+    color: var(--color-success);
+}
 
-    &(.degraded) {
-        color: var(--color-warning);
-    }
+:host(.degraded) {
+    color: var(--color-warning);
+}
 
-    &(.critical) {
-        color: var(--color-error);
-    }
+:host(.critical) {
+    color: var(--color-error);
 }
 
 es-icon {

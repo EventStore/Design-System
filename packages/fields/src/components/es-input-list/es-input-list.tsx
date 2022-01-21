@@ -33,12 +33,7 @@ export class InputList {
             {...this.data.connect(i)}
             value={v}
         >
-            <es-button
-                class={'delete_item'}
-                variant={'outline'}
-                color={'secondary'}
-                onClick={() => this.data.delete(i)}
-            >
+            <es-button variant={'minimal'} onClick={() => this.data.delete(i)}>
                 <es-icon icon={'trash'} size={20} />
             </es-button>
         </es-input>

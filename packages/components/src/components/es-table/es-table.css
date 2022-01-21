@@ -85,7 +85,7 @@ es-table {
         font-size: 16px;
         color: var(--color-primary);
 
-        border-color: var(--color-grey-100);
+        border-color: var(--color-shade-20);
         border-style: solid;
         border-width: 0;
         border-bottom-width: 4px;
@@ -102,13 +102,13 @@ es-table {
     & *[role='rowgroup'] {
         display: contents;
 
-        --row-color: var(--color-white);
+        --row-color: var(--color-background);
         --border-top-color: transparent;
         --border-bottom-color: transparent;
+    }
 
-        &:nth-child(2n + 1) {
-            --row-color: var(--color-grey-50);
-        }
+    &:not([high-contrast]) [role='rowgroup']:nth-child(2n + 1) {
+        --row-color: var(--color-shade-10);
     }
 
     & a {
@@ -156,6 +156,6 @@ es-table {
         grid-column: 1/-1;
         padding: 14px 24px 14px 50px;
         min-height: 50px;
-        border-bottom: 1px solid var(--color-grey-100);
+        border-bottom: 1px solid var(--color-shade-20);
     }
 }

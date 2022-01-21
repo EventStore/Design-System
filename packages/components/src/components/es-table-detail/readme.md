@@ -44,7 +44,7 @@ export default () => (
 
 ```css
 :host {
-    padding: 0;
+    display: contents;
 }
 ```
 

@@ -166,7 +166,7 @@ const xLocations = [
 
 .options {
     width: 300px;
-    border: 1px solid var(--color-grey-200);
+    border: 1px solid var(--color-shade-30);
     padding: 10px;
     border-radius: 20px;
     justify-self: flex-end;

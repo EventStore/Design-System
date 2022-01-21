@@ -29,7 +29,7 @@
     outline: none;
     padding: 0;
     padding-bottom: 23px;
-    transition-property: border-color, background-color;
+    transition-property: border-color;
     transition-duration: 500ms;
     transition-timing-function: ease;
 
@@ -37,11 +37,13 @@
     font-weight: 100;
     font-size: 36px;
 
-    border-bottom: 4px solid var(--color-grey-100);
+    color: var(--color-text);
+    border-bottom: 4px solid var(--color-shade-20);
+    background-color: var(--color-background);
 
     &:disabled {
-        border-color: var(--color-grey-100);
-        background-color: var(--color-grey-100);
+        border-bottom-color: var(--color-disabled-border);
+        border-bottom-style: dashed;
     }
 
     &:focus:not(:read-only) {
@@ -49,7 +51,7 @@
     }
 
     &::placeholder {
-        color: var(--color-grey-400);
+        color: var(--color-shade-60);
     }
 }
 

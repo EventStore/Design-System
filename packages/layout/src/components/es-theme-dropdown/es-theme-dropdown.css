@@ -1,0 +1,11 @@
+:host {
+    /* Component styles go here */
+}
+
+.popper {
+    display: block;
+    background-color: var(--color-background);
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 30px;
+}

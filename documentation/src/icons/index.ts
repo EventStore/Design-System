@@ -241,6 +241,12 @@ iconStore.addIcons({
             ({ TestingIcon }) => TestingIcon,
         );
     },
+    get theme() {
+        return import('./components/Theme').then(({ Theme }) => Theme);
+    },
+    get '@eventstore/theme'() {
+        return this['theme'];
+    },
     get trash() {
         return import('./components/Trash').then(({ Trash }) => Trash);
     },

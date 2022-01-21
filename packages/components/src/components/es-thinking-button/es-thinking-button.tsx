@@ -15,8 +15,6 @@ export class YThinkingButton {
     @Prop() text?: string;
     /** Which styling variant to use. */
     @Prop() variant: HTMLEsButtonElement['variant'] = 'minimal';
-    /** Which color pair the button should use. */
-    @Prop() color?: HTMLEsButtonElement['color'];
     /** If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused. */
     @Prop() disabled?: boolean;
 
@@ -38,7 +36,6 @@ export class YThinkingButton {
     render() {
         return (
             <es-button
-                color={this.color}
                 variant={this.variant}
                 onClick={this.execute}
                 disabled={this.disabled}

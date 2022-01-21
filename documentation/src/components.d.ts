@@ -5,17 +5,12 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { backgroundVariant } from "./components/layout/docs-background/docs-background";
 import { JsonDocs, JsonDocsEvent, JsonDocsMethod, JsonDocsPart, JsonDocsProp, JsonDocsSlot, JsonDocsStyle } from "@stencil/core/internal";
 import { Lib } from "sitemap";
 import { JSONOutput } from "typedoc";
 import { SidebarLinkVariant } from "./components/layout/docs-sidebar/components/docs-sidebar-link/docs-sidebar-link";
 export namespace Components {
     interface DocsBackground {
-        /**
-          * Sets the background variant.
-         */
-        "variant": backgroundVariant;
     }
     interface DocsComponentDocs {
         "comp": JsonDocs['components'][0];
@@ -29,7 +24,6 @@ export namespace Components {
         "lib": Lib;
     }
     interface DocsHeader {
-        "background": HTMLDocsBackgroundElement['variant'] | 'none';
     }
     interface DocsHome {
     }
@@ -261,10 +255,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface DocsBackground {
-        /**
-          * Sets the background variant.
-         */
-        "variant"?: backgroundVariant;
     }
     interface DocsComponentDocs {
         "comp": JsonDocs['components'][0];
@@ -278,7 +268,6 @@ declare namespace LocalJSX {
         "lib": Lib;
     }
     interface DocsHeader {
-        "background"?: HTMLDocsBackgroundElement['variant'] | 'none';
     }
     interface DocsHome {
     }

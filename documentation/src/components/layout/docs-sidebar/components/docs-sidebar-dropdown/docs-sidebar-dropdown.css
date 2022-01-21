@@ -22,7 +22,7 @@
     &:focus-within {
         text-decoration: none;
         --text-color: var(--color-primary);
-        --border-color: var(--color-grey-400);
+        --border-color: var(--color-shade-50);
     }
 }
 
@@ -82,12 +82,16 @@ menu {
     }
 
     & .all_link {
-        --border-color: var(--color-grey-200);
+        --border-color: var(--color-shade-30);
     }
+}
+
+es-accordian {
+    border-radius: 30px;
 }
 
 es-accordian::part(section_header_title) {
     font-size: 22px;
     font-weight: 300;
-    color: var(--color-primary-dark);
+    color: var(--color-primary-alt);
 }

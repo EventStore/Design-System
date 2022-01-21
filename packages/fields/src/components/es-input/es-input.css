@@ -16,10 +16,10 @@
 
     border-width: 1px;
     border-style: solid;
-    border-color: var(--color-grey-400);
+    border-color: var(--color-shade-60);
     outline: none;
     padding: 0 20px;
-    transition-property: border-color, background-color;
+    transition-property: border-color;
     transition-duration: 500ms;
     transition-timing-function: ease;
 
@@ -27,10 +27,13 @@
     font-weight: 500;
     font-size: 16px;
     color: var(--color-text);
+    background-color: var(--color-background);
 
     &:disabled {
-        border-color: var(--color-grey-100);
-        background-color: var(--color-grey-100);
+        color: var(--color-disabled-contrast);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled);
+        border-style: dashed;
     }
 
     &:focus {
@@ -38,7 +41,7 @@
     }
 
     &::placeholder {
-        color: var(--color-grey-400);
+        color: var(--color-shade-60);
     }
 }
 

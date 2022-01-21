@@ -1,0 +1,35 @@
+:host {
+    display: block;
+    background-color: var(--color-background);
+}
+
+h1 {
+    font-size: 16px;
+    color: var(--color-text);
+    margin-top: 0;
+}
+
+.cards {
+    display: grid;
+    padding: 0px;
+    margin: 0px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    width: 400px;
+}
+
+.auto + label {
+    grid-column: 1;
+}
+
+label {
+    border: 1px solid var(--color-shade-30);
+    border-radius: 12px;
+    overflow: hidden;
+    padding-bottom: 5px;
+    cursor: pointer;
+
+    &.selected {
+        border-color: var(--color-highlight);
+    }
+}

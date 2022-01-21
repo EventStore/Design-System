@@ -1,4 +1,10 @@
-import type { Environment } from 'monaco-editor';
+import { editor, Environment } from 'monaco-editor';
+import { theme } from '@eventstore/theme';
+import {
+    ES_DARK,
+    ES_HIGH_CONTRAST_DARK,
+    ES_HIGH_CONTRAST_LIGHT,
+} from './themes';
 
 declare global {
     interface Window {
@@ -36,4 +42,16 @@ export const initialize = (
     },
 ) => {
     self.MonacoEnvironment = environment;
+
+    theme.onThemeChange(({ meta: { contrast, shade } }) => {
+        if (contrast === 'high' && shade === 'dark') {
+            editor.setTheme(ES_HIGH_CONTRAST_DARK);
+        } else if (contrast === 'high' && shade === 'light') {
+            editor.setTheme(ES_HIGH_CONTRAST_LIGHT);
+        } else if (shade === 'dark') {
+            editor.setTheme(ES_DARK);
+        } else {
+            editor.setTheme('vs');
+        }
+    }, true);
 };

@@ -81,6 +81,7 @@ export class RadioCardGroup {
                                             disabled={option.disabled}
                                         />
                                         {this.renderCard(option, active)}
+                                        <es-icon icon={'check'} />
                                     </label>
                                 );
                             })}

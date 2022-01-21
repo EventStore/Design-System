@@ -25,9 +25,10 @@ export default () => (
 
 ## Properties
 
-| Property   | Attribute | Description              | Type                                                                                                             | Default     |
-| ---------- | --------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------- | ----------- |
-| `messages` | --        | The messages to display. | `undefined \| { error?: string[] \| undefined; warning?: string[] \| undefined; info?: string[] \| undefined; }` | `undefined` |
+| Property    | Attribute    | Description                       | Type                                                                                                             | Default     |
+| ----------- | ------------ | --------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------- |
+| `messages`  | --           | The messages to display.          | `undefined \| { error?: string[] \| undefined; warning?: string[] \| undefined; info?: string[] \| undefined; }` | `undefined` |
+| `showIcons` | `show-icons` | Display icons alongside messages. | `boolean`                                                                                                        | `false`     |
 
 
 ## Dependencies
@@ -43,9 +44,14 @@ export default () => (
  - [es-select](../es-select)
  - [es-textarea](../es-textarea)
 
+### Depends on
+
+- es-icon
+
 ### Graph
 ```mermaid
 graph TD;
+  es-validation-messages --> es-icon
   es-input --> es-validation-messages
   es-input-list --> es-validation-messages
   es-list-creator --> es-validation-messages

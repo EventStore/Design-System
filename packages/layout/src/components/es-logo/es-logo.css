@@ -1,3 +1,17 @@
 :host {
     overflow: hidden;
 }
+
+[part='ouroboros'] {
+    fill: var(--color-header-alt);
+}
+
+[part='text'] {
+    fill: var(--color-header-contrast);
+}
+
+:host([high-contrast]) {
+    & [part='ouroboros'] {
+        fill: var(--color-header-contrast);
+    }
+}

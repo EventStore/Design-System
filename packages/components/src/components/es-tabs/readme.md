@@ -82,6 +82,17 @@ export default () => (
 | `"tablist"`   | The tab container.          |
 
 
+## CSS Custom Properties
+
+| Name                      | Description                                                          |
+| ------------------------- | -------------------------------------------------------------------- |
+| `--active-color`          | The active text color of the tab, and color of the active indicator; |
+| `--border-color`          | The color of border surrounding the tab content;                     |
+| `--focus-color`           | The focused text color of the tab;                                   |
+| `--focus-indicator-color` | The color of the focus indicator;                                    |
+| `--inactive-color`        | The inactive text color of the tab;                                  |
+
+
 ## Dependencies
 
 ### Depends on

@@ -56,7 +56,7 @@ export default () =>
 | Name                    | Description                                                                                 |
 | ----------------------- | ------------------------------------------------------------------------------------------- |
 | `--background-color`    | Defaults to --color-secondary. The forground color. Named to imherit colors from es-button. |
-| `--text-color`          | Defaults to currentColor. The background color. Named to imherit colors from es-button.     |
+| `--text-color`          | Defaults to --color-text. The background color. Named to imherit colors from es-button.     |
 | `--transition-duration` | Duration of the pulse. Defaults to 300ms.                                                   |
 
 

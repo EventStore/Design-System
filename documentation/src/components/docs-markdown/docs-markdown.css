@@ -19,7 +19,7 @@ table {
     border: 0;
     width: 100%;
     border-collapse: collapse;
-    background-color: var(--color-white);
+    background-color: var(--color-background);
 }
 
 td,
@@ -34,14 +34,14 @@ thead th {
     font-weight: 700;
     font-size: 16px;
     color: var(--color-primary);
-    border-color: var(--color-grey-100);
+    border-color: var(--color-shade-20);
     border-style: solid;
     border-width: 0;
     border-bottom-width: 4px;
 }
 
 tbody tr:nth-child(2n + 1) {
-    background-color: var(--color-grey-50);
+    background-color: var(--color-shade-10);
 }
 
 li {
@@ -65,7 +65,7 @@ pre code.hljs {
     background: var(--code-bg);
     padding: 20px;
 
-    text-shadow: 0 1px var(--color-white);
+    text-shadow: 0 1px var(--code-shadow);
     font-family: var(--font-monospace);
     font-size: 1em;
     text-align: left;
@@ -98,24 +98,24 @@ pre code.hljs {
 .hljs-doctag,
 .hljs-formula,
 .hljs-keyword {
-    color: var(--code-purple);
+    color: var(--code-keyword);
 }
 .hljs-deletion,
 .hljs-name,
 .hljs-section,
 .hljs-selector-tag,
 .hljs-subst {
-    color: var(--code-red);
+    color: var(--code-error);
 }
 .hljs-literal {
-    color: var(--code-cyan);
+    color: var(--code-literal);
 }
 .hljs-addition,
 .hljs-attribute,
 .hljs-meta .hljs-string,
 .hljs-regexp,
 .hljs-string {
-    color: var(--code-green);
+    color: var(--code-string);
 }
 .hljs-attr,
 .hljs-number,
@@ -125,7 +125,7 @@ pre code.hljs {
 .hljs-template-variable,
 .hljs-type,
 .hljs-variable {
-    color: var(--code-brown);
+    color: var(--code-variable);
 }
 .hljs-bullet,
 .hljs-link,
@@ -133,12 +133,12 @@ pre code.hljs {
 .hljs-selector-id,
 .hljs-symbol,
 .hljs-title {
-    color: var(--code-blue);
+    color: var(--code-symbol);
 }
 .hljs-built_in,
 .hljs-class .hljs-title,
 .hljs-title.class_ {
-    color: var(--code-orange);
+    color: var(--code-class);
 }
 .hljs-emphasis {
     font-style: italic;

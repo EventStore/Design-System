@@ -55,6 +55,12 @@ export default () => (
             }}
             {...workingData.connect('id')}
         />
+        <es-input
+            disabled
+            label={'Disabled'}
+            placeholder={'This is disabled'}
+            {...workingData.connect('text')}
+        />
     </>
 );
 ```
@@ -115,6 +121,7 @@ export default () => (
 ```mermaid
 graph TD;
   es-input --> es-validation-messages
+  es-validation-messages --> es-icon
   es-input-list --> es-input
   style es-input fill:#f9f,stroke:#333,stroke-width:4px
 ```

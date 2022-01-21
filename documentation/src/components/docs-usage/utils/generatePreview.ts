@@ -4,7 +4,7 @@ import iconDetails from 'icons/icons.json';
 export const generatePreview = ({ parts, showLocation }: Settings): Files => {
     const previewComponent = `  
     import { Component, h, Fragment, Prop, State, Host } from '@stencil/core';
-    ${showLocation ? "import { router, Route } from '@eventstore/router';" : ''}
+    import { router } from '@eventstore/router';
     import Usage from 'usage';
     
     @Component({
@@ -16,13 +16,8 @@ export const generatePreview = ({ parts, showLocation }: Settings): Files => {
         @Prop() prop?: string;
         @State() state: string = '';
 
-        ${
-            showLocation
-                ? `
         componentWillLoad() {
             router.init();
-        }`
-                : ''
         }
  
         render() {
@@ -34,7 +29,6 @@ export const generatePreview = ({ parts, showLocation }: Settings): Files => {
                         : ''
                 }
                     <Usage />
-              
                 </Host>
             );
         }
@@ -73,7 +67,7 @@ export const generatePreview = ({ parts, showLocation }: Settings): Files => {
                 * {
                     box-sizing: border-box;
                 }
-
+                
                 :host {
                     box-sizing: border-box;
                     display: block;

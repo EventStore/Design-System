@@ -27,12 +27,21 @@ const options = [
 ];
 
 export default () => (
-    <es-select
-        label={'Name'}
-        placeholder={'Choose a name from the list'}
-        options={options}
-        {...workingData.connect('name')}
-    />
+    <>
+        <es-select
+            label={'Name'}
+            placeholder={'Choose a name from the list'}
+            options={options}
+            {...workingData.connect('name')}
+        />
+        <es-select
+            disabled
+            label={'Disabled'}
+            placeholder={'Choose a name from the list'}
+            options={options}
+            {...workingData.connect('name')}
+        />
+    </>
 );
 ```
 
@@ -97,6 +106,7 @@ graph TD;
   es-typeahead --> es-popover
   es-popover --> es-popper
   es-popover --> es-popper-inner
+  es-validation-messages --> es-icon
   style es-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

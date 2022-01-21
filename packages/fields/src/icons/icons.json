@@ -1,0 +1,20 @@
+{
+    "version": "0.1.0-alpha",
+    "icons": {
+        "es-fields-error": {
+            "name": "es-fields-error",
+            "component": "EsFieldsError",
+            "path": "./components/EsFieldsError.tsx"
+        },
+        "es-fields-info": {
+            "name": "es-fields-info",
+            "component": "EsFieldsInfo",
+            "path": "./components/EsFieldsInfo.tsx"
+        },
+        "es-fields-warning": {
+            "name": "es-fields-warning",
+            "component": "EsFieldsWarning",
+            "path": "./components/EsFieldsWarning.tsx"
+        }
+    }
+}

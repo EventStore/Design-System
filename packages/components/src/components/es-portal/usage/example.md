@@ -38,7 +38,7 @@ const ExampleModal: FunctionalComponent = ({ requestClose }) => (
                 }
 
                 .cancel {
-                    --current-color: var(--color-grey-200);
+                    --current-color: var(--color-shade-30);
                     --contrast-color: var(--color-white);
 
                     --text-color: var(--color-text);

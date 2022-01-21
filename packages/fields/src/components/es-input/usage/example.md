@@ -44,6 +44,12 @@ export default () => (
             }}
             {...workingData.connect('id')}
         />
+        <es-input
+            disabled
+            label={'Disabled'}
+            placeholder={'This is disabled'}
+            {...workingData.connect('text')}
+        />
     </>
 );
 ```

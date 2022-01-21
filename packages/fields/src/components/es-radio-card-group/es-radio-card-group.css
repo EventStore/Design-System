@@ -17,7 +17,7 @@
 label {
     display: block;
     position: relative;
-    border: 1px solid var(--color-grey-400);
+    border: 1px solid var(--color-shade-50);
     border-radius: 8px;
     padding: 20px;
     cursor: pointer;
@@ -27,10 +27,10 @@ label {
     transition-timing-function: ease;
     outline: none;
 
-    &::after {
-        content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z" /></svg>');
+    & es-icon {
         box-sizing: border-box;
-        background-color: var(--color-grey-400);
+        background-color: var(--color-shade-50);
+        color: var(--color-background);
         position: absolute;
         bottom: -11px;
         right: -10px;
@@ -41,7 +41,9 @@ label {
         padding-left: 8px;
         padding-right: 15px;
         padding-bottom: 15px;
-        transition: all 500ms ease;
+        transition-property: transform, background-color, opacity;
+        transition-duration: 500ms;
+        transition-timing-function: ease;
         transform: translateX(50%) translateY(50%);
         opacity: 0;
     }
@@ -51,11 +53,11 @@ label {
         &:focus,
         &:focus-within {
             padding: 19px;
-            border: 2px solid var(--color-success-light);
+            border: 2px solid var(--color-success-alt);
 
-            &::after {
+            & es-icon {
                 transform: translateX(20%) translateY(20%);
-                background-color: var(--color-success-light);
+                background-color: var(--color-success-alt);
                 opacity: 1;
             }
         }
@@ -64,7 +66,7 @@ label {
             padding: 19px;
             border: 2px solid var(--color-success);
 
-            &::after {
+            & es-icon {
                 transform: translateX(0%) translateY(0%);
                 opacity: 1;
                 background-color: var(--color-success);
@@ -74,10 +76,12 @@ label {
 
     &.disabled {
         cursor: not-allowed;
-        border-color: var(--color-grey-100);
-        background-color: var(--color-grey-100);
+        color: var(--color-disabled-contrast);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled);
+        border-style: dashed;
 
-        & > *:not(input, .no-fade) {
+        & > *:not(input, .no-fade, es-icon) {
             filter: grayscale(1);
             opacity: 0.8;
         }

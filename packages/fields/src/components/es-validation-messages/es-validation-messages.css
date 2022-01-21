@@ -9,6 +9,8 @@
 .info {
     padding: 10px 0;
     margin: 0;
+    display: flex;
+    align-items: center;
 }
 
 .error {
@@ -19,4 +21,8 @@
 }
 .info {
     color: var(--color-info);
+}
+
+es-icon {
+    margin-right: 6px;
 }

@@ -1,3 +1,4 @@
+import { theme } from '@eventstore/theme';
 import {
     Component,
     h,
@@ -150,6 +151,7 @@ export class EsTypeahead {
                                 class={'list'}
                                 part={'list'}
                                 ref={this.captureList}
+                                high-contrast={theme.isHighContrast()}
                             >
                                 {!this.filteredOptions.length && (
                                     <li class={'list_item'}>

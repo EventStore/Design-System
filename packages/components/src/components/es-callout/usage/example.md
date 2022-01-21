@@ -6,6 +6,9 @@ export default () => (
         <es-callout variant={'tip'} heading={'Just the tip.'}>
             {'And only for a minute mind.'}
         </es-callout>
+        <es-callout variant={'info'} heading={'For your information.'}>
+            {'A cow-bison hybrid is called a beefalo.'}
+        </es-callout>
         <es-callout variant={'warning'} heading={'Beware.'}>
             {'There is danger ahead.'}
         </es-callout>

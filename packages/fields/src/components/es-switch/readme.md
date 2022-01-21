@@ -40,13 +40,14 @@ export default () => (
 
 ## Properties
 
-| Property             | Attribute  | Description                                  | Type                   | Default     |
-| -------------------- | ---------- | -------------------------------------------- | ---------------------- | ----------- |
-| `disabled`           | `disabled` | If the field is disabled.                    | `boolean \| undefined` | `undefined` |
-| `invalid`            | `invalid`  | If the field is currently in an error state. | `boolean \| undefined` | `undefined` |
-| `name` _(required)_  | `name`     | The name of the field.                       | `string`               | `undefined` |
-| `readonly`           | `readonly` | If the field is editable.                    | `boolean \| undefined` | `undefined` |
-| `value` _(required)_ | `value`    | The current value of the field.              | `boolean`              | `undefined` |
+| Property             | Attribute  | Description                                  | Type                           | Default                    |
+| -------------------- | ---------- | -------------------------------------------- | ------------------------------ | -------------------------- |
+| `disabled`           | `disabled` | If the field is disabled.                    | `boolean \| undefined`         | `undefined`                |
+| `invalid`            | `invalid`  | If the field is currently in an error state. | `boolean \| undefined`         | `undefined`                |
+| `name` _(required)_  | `name`     | The name of the field.                       | `string`                       | `undefined`                |
+| `readonly`           | `readonly` | If the field is editable.                    | `boolean \| undefined`         | `undefined`                |
+| `text`               | --         | Text to display in high contrast mode.       | `{ on: string; off: string; }` | `{ on: 'On', off: 'Off' }` |
+| `value` _(required)_ | `value`    | The current value of the field.              | `boolean`                      | `undefined`                |
 
 
 ## Events
@@ -68,6 +69,19 @@ Type: `Promise<void>`
 
 
 
+
+## Dependencies
+
+### Depends on
+
+- es-icon
+
+### Graph
+```mermaid
+graph TD;
+  es-switch --> es-icon
+  style es-switch fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

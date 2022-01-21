@@ -9,7 +9,7 @@
 }
 
 .inner {
-    background-color: var(--color-white);
+    background-color: var(--color-background);
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.11);
     overflow: hidden;
     pointer-events: all;

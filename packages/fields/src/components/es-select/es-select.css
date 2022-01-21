@@ -15,18 +15,21 @@
 
     border-width: 1px;
     border-style: solid;
-    border-color: var(--color-grey-400);
+    border-color: var(--color-shade-50);
     outline: none;
     padding: 0 20px;
     transition-property: border-color;
     transition-duration: 200ms;
 
-    &.disabled {
-        border-color: var(--color-grey-100);
-        background-color: var(--color-grey-100);
+    &.disabled,
+    &:disabled {
+        color: var(--color-disabled-contrast);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled);
+        border-style: dashed;
 
         & es-icon {
-            color: var(--color-grey-400);
+            color: var(--color-shade-50);
         }
     }
 
@@ -39,7 +42,7 @@
 }
 
 .placeholder {
-    color: var(--color-grey-400);
+    color: var(--color-shade-50);
 }
 
 .true_input {

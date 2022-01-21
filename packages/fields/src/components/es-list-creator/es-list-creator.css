@@ -16,7 +16,7 @@
 
     border-width: 1px;
     border-style: solid;
-    border-color: var(--color-grey-400);
+    border-color: var(--color-shade-50);
     outline: none;
     padding: 0 20px;
     transition-property: border-color;
@@ -28,8 +28,10 @@
     color: var(--color-text);
 
     &:disabled {
-        border-color: var(--color-grey-100);
-        background-color: var(--color-grey-100);
+        color: var(--color-disabled-contrast);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled);
+        border-style: dashed;
     }
 
     &.open {
@@ -37,20 +39,7 @@
     }
 
     &::placeholder {
-        color: var(--color-grey-400);
-    }
-}
-
-.create {
-    height: 40px;
-    width: 40px;
-
-    --spacing: 0;
-    --border-color: var(--color-grey-200);
-    border-width: 2px;
-
-    & es-icon {
-        margin: auto;
+        color: var(--color-shade-50);
     }
 }
 
@@ -76,24 +65,4 @@
 
 .value_list_item_icon {
     margin-left: auto;
-}
-
-.value_list_item_delete {
-    height: 40px;
-    width: 40px;
-
-    --spacing: 0;
-    --border-color: transparent;
-    --text-color: var(--color-text);
-
-    &:hover,
-    &:focus,
-    &:focus-within {
-        --background-color: var(--color-white);
-        --text-color: var(--color-error);
-    }
-
-    & es-icon {
-        margin: auto;
-    }
 }

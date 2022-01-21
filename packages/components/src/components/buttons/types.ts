@@ -1,2 +1,8 @@
-export type ButtonVariant = 'filled' | 'outline' | 'minimal' | 'link';
-export type ButtonColor = 'primary' | 'secondary' | 'white' | 'text';
+export type ButtonVariant =
+    | 'default'
+    | 'filled'
+    | 'outline'
+    | 'delete'
+    | 'cancel'
+    | 'minimal'
+    | 'link';

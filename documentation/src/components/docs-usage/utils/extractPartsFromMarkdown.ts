@@ -4,6 +4,8 @@ import { Settings } from './types';
 export const extractPartsFromMarkdown = (markdown: string): Settings => {
     const settings: Settings = {
         preview: true,
+        code: true,
+        grow: false,
         showLocation: false,
         parts: {
             'usage.tsx': {
@@ -26,16 +28,33 @@ export const extractPartsFromMarkdown = (markdown: string): Settings => {
     for (const { tag, content } of parsed) {
         if (tag) continue;
 
-        const comment = content.trim().match(/^<!-- ([A-Za-z_-]*) -->$/);
-        switch (comment?.[1]) {
-            case 'no-preview': {
-                settings.preview = false;
-                settings.parts['usage.tsx'].hidden = true;
-                settings.parts['style.css'].hidden = true;
-                break;
-            }
-            case 'show-location': {
-                settings.showLocation = true;
+        const comment = content.match(/<!-- ([A-Za-z0-9 _-]*) -->/g);
+        if (!comment) continue;
+
+        for (const match of comment) {
+            const inner = match.match(
+                /<!-- ([A-Za-z0-9_-]*)\s?([A-Za-z0-9_-]*) -->/,
+            );
+
+            switch (inner?.[1]) {
+                case 'no-preview': {
+                    settings.preview = false;
+                    settings.parts['usage.tsx'].hidden = true;
+                    settings.parts['style.css'].hidden = true;
+                    break;
+                }
+                case 'no-code': {
+                    settings.code = false;
+                    break;
+                }
+                case 'grow': {
+                    settings.grow = inner[2] ? Number.parseInt(inner[2]) : 500;
+                    break;
+                }
+                case 'show-location': {
+                    settings.showLocation = true;
+                    break;
+                }
             }
         }
     }

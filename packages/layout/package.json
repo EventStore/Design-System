@@ -36,10 +36,12 @@
     },
     "peerDependencies": {
         "@eventstore/router": "0.1.x",
+        "@eventstore/theme": "0.1.x",
         "@eventstore/utils": "0.1.x"
     },
     "devDependencies": {
         "@eventstore/router": "workspace:*",
+        "@eventstore/theme": "workspace:*",
         "@eventstore/utils": "workspace:*",
         "@stencil/core": "^2.11.0",
         "jest": "^26.6.3",

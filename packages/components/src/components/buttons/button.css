@@ -3,100 +3,215 @@
 }
 
 /**
- * @prop --current-color: The foreground color of the button. (text, border, icon).
- * @prop --contrast-color: The background color of the button. (text, border, icon).
+ * @prop --primary-color: Sets the primary theming color 
+ * @prop --secondary-color: Sets the secondary theming color 
+ * @prop --tertiary-color: Sets the tertiary theming color 
+ * @prop --foreground-color: Directly set the foreground color of the button. 
+ * @prop --background-color: Directly set the background color of the button. 
+ * @prop --border-color:  Directly set the border color of the button. 
  * @prop --border-radius: The border radius of the button.
  * @prop --border-width: The border width of the button.
  * @prop --text-decoration: The text decoration of the button.
  * @prop --transition-duration: The transition duration of the button.
  * @prop --spacing: Internal spacing of the button (padding and between slots).
  * @prop --align-inner: The flex align of the button content.
- * @prop --text-color: Directly control the text color of the button.
- * @prop --background-color: Directly control the background color of the button.
  */
 
 :host {
-    font-size: 16px;
-    display: inline-block;
-    height: 40px;
+    --height: 40px;
 
-    --current-color: var(--color-primary-dark);
-    --contrast-color: var(--color-secondary);
-    --border-radius: 0;
-    --border-width: 0;
+    --border-style: solid;
+    --border-radius: 20px;
+    --border-width: 2px;
     --text-decoration: none;
     --transition-duration: 500ms;
     --spacing: 14px;
     --align-inner: center;
+
+    font-size: 16px;
+    display: inline-block;
+    height: var(--height);
+    border-radius: var(--border-radius);
 }
 
-/* colors */
-:host([color='primary']) {
-    --current-color: var(--color-primary);
-    --contrast-color: var(--color-primary-contrast);
-}
-
-:host([color='secondary']) {
-    --current-color: var(--color-secondary);
-    --contrast-color: var(--color-secondary-contrast);
-}
-
-:host([color='white']) {
-    --current-color: var(--color-white);
-    --contrast-color: var(--color-secondary);
+:host(:focus),
+:host(:focus-within) {
+    --border-color: var(--color-focus);
 }
 
 /* variants */
-:host([variant='minimal']) {
-    --text-color: var(--current-color);
-    --background-color: transparent;
-}
-:host([variant='minimal']:not([disabled]):hover),
-:host([variant='minimal']:not([disabled]):focus),
-:host([variant='minimal']:not([disabled]):focus-within) {
-    --text-color: var(--color-secondary);
-}
+:host([variant='default']) {
+    ---primary: var(--primary-color, var(--color-background));
+    ---secondary: var(--secondary-color, var(--color-secondary));
+    ---tertiary: var(--tertiary-color, var(--color-shade-30));
 
-:host([variant='outline']) {
-    --border-color: var(--current-color);
-    --text-color: var(--current-color);
-    --background-color: var(--contrast-color);
-    --border-width: 1px;
+    --background-color: var(---primary);
+    --foreground-color: var(---secondary);
+    --border-color: var(---tertiary);
 }
-:host([variant='outline']:not([disabled]):hover),
-:host([variant='outline']:not([disabled]):focus),
-:host([variant='outline']:not([disabled]):focus-within) {
-    --background-color: var(--current-color);
-    --text-color: var(--contrast-color);
+:host([variant='default']:not([disabled]):hover) {
+    --background-color: var(---secondary);
+    --foreground-color: var(---primary);
+    --border-color: var(---primary);
+}
+:host([variant='default']:not([disabled]):focus),
+:host([variant='default']:not([disabled]):focus-within) {
+    --border-color: var(--color-focus);
+}
+:host([variant='default'][disabled]) {
+    --background-color: var(--color-shade-40);
+    --foreground-color: var(--color-background);
+    --border-color: var(--color-shade-40);
 }
 
 :host([variant='filled']) {
-    --background-color: var(--current-color);
-    --text-color: var(--contrast-color);
+    ---primary: var(--primary-color, var(--color-secondary));
+    ---secondary: var(--secondary-color, var(--color-background));
+    ---tertiary: var(--tertiary-color, var(--color-secondary));
+
+    --background-color: var(---primary);
+    --foreground-color: var(---secondary);
+    --border-color: var(---tertiary);
 }
-:host([variant='filled']:not([disabled]):hover),
+:host([variant='filled']:not([disabled]):hover) {
+    --background-color: var(---secondary);
+    --foreground-color: var(---primary);
+    --border-color: var(---tertiary);
+}
 :host([variant='filled']:not([disabled]):focus),
 :host([variant='filled']:not([disabled]):focus-within) {
-    --background-color: var(--contrast-color);
-    --text-color: var(--current-color);
+    --border-color: var(--color-focus);
+}
+:host([variant='filled'][disabled]) {
+    --background-color: var(--color-shade-40);
+    --foreground-color: var(--color-background);
+    --border-color: var(--color-shade-40);
+}
+
+:host([variant='outline']) {
+    ---primary: var(--primary-color, var(--color-background));
+    ---secondary: var(--secondary-color, var(--color-secondary));
+    ---tertiary: var(--tertiary-color, var(--color-secondary));
+
+    --background-color: var(---primary);
+    --foreground-color: var(---secondary);
+    --border-color: var(---tertiary);
+}
+:host([variant='outline']:not([disabled]):hover) {
+    --background-color: var(---secondary);
+    --foreground-color: var(---primary);
+    --border-color: var(---tertiary);
+}
+:host([variant='outline']:not([disabled]):focus),
+:host([variant='outline']:not([disabled]):focus-within) {
+    --border-color: var(--color-focus);
+}
+:host([variant='outline'][disabled]) {
+    --background-color: var(--color-shade-40);
+    --foreground-color: var(--color-background);
+    --border-color: var(--color-shade-40);
+}
+
+:host([variant='delete']) {
+    --background-color: var(--color-background);
+    --foreground-color: var(--color-error);
+    --border-color: var(--color-error);
+}
+:host([variant='delete'][dark]) {
+    ---secondary: var(--color-text);
+}
+:host([variant='delete']:not([disabled]):hover) {
+    --background-color: var(--color-error);
+    --foreground-color: var(--color-error-contrast);
+    --border-color: var(--color-error);
+}
+:host([variant='delete']:not([disabled]):focus),
+:host([variant='delete']:not([disabled]):focus-within) {
+    --border-color: var(--color-focus);
+}
+:host([variant='delete'][disabled]) {
+    --background-color: var(--color-shade-40);
+    --foreground-color: var(--color-background);
+    --border-color: var(--color-shade-40);
+}
+
+:host([variant='cancel']) {
+    --background-color: var(--color-shade-40);
+    --foreground-color: var(--color-text);
+    --border-color: var(--color-shade-40);
+}
+:host([variant='cancel'][high-contrast]) {
+    --background-color: var(--color-background);
+}
+:host([variant='cancel']:not([disabled]):hover) {
+    --background-color: var(--color-background);
+    --foreground-color: var(--color-text);
+    --border-color: var(--color-shade-40);
+}
+:host([variant='cancel'][high-contrast]:not([disabled]):hover) {
+    --background-color: var(--color-text);
+    --foreground-color: var(--color-background);
+}
+:host([variant='cancel']:not([disabled]):focus),
+:host([variant='cancel']:not([disabled]):focus-within) {
+    --border-color: var(--color-focus);
+}
+:host([variant='cancel'][disabled]) {
+    --background-color: var(--color-shade-40);
+    --foreground-color: var(--color-background);
+    --border-color: var(--color-shade-40);
+}
+
+:host([variant='minimal']) {
+    ---primary: var(--primary-color, var(--color-text));
+    ---secondary: var(--secondary-color, var(--color-secondary));
+
+    --background-color: transparent;
+    --foreground-color: var(---primary);
+    --border-color: transparent;
+    --border-width: 0;
+    --border-radius: 0;
+}
+:host([variant='minimal']:not([disabled]):hover) {
+    --foreground-color: var(---secondary);
+}
+:host([variant='minimal']:not([disabled]):focus),
+:host([variant='minimal']:not([disabled]):focus-within) {
+    --foreground-color: var(--color-focus);
+}
+:host([variant='minimal'][disabled]) {
+    --foreground-color: var(--color-shade-40);
 }
 
 :host([variant='link']) {
-    --text-color: var(--color-primary-dark);
-    font-size: inherit;
-    padding: 0;
-    height: auto;
-
-    & a,
-    & button {
-        padding: 0;
-    }
+    --background-color: transparent;
+    --foreground-color: var(--color-secondary);
+    --border-color: transparent;
+    --border-width: 0;
+    --border-radius: 0;
 }
-:host([variant='link']:not([disabled]):hover),
+:host([variant='link']:not([disabled]):hover) {
+    --text-decoration: underline;
+}
 :host([variant='link']:not([disabled]):focus),
 :host([variant='link']:not([disabled]):focus-within) {
-    --text-color: var(--color-secondary);
     --text-decoration: underline;
+    --foreground-color: var(--color-focus);
+}
+:host([variant='link'][disabled]) {
+    --foreground-color: var(--color-shade-40);
+}
+
+:host([variant][high-contrast]:focus),
+:host([variant][high-contrast]:focus-within) {
+    outline: solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+:host([variant][high-contrast][disabled]) {
+    --background-color: var(--color-background);
+    --foreground-color: var(--color-text);
+    --border-style: dashed;
 }
 
 button,
@@ -114,16 +229,19 @@ a {
     align-items: center;
     justify-content: space-between;
     font: inherit;
+    overflow: hidden;
 
     padding-top: 0;
     padding-bottom: 0;
     padding-left: var(--spacing);
     padding-right: var(--spacing);
-    color: var(--text-color);
     border-width: var(--border-width);
-    border-color: var(--border-color);
-    background-color: var(--background-color);
+    border-style: var(--border-style);
     text-decoration: var(--text-decoration);
+
+    color: var(--foreground-color);
+    background-color: var(--background-color);
+    border-color: var(--border-color);
 
     &:disabled,
     &[disabled] {
@@ -152,5 +270,10 @@ span {
     display: flex;
     justify-content: var(--align-inner);
     flex: 1 1 100%;
-    overflow: hidden;
+}
+
+::slotted(es-icon:not([slot]):only-child) {
+    margin-left: calc(0px - var(--spacing));
+    margin-right: calc(0px - var(--spacing));
+    width: calc(var(--height) - var(--border-width));
 }

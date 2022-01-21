@@ -12,7 +12,8 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "jsx": "react",
-        "jsxFactory": "h"
+        "jsxFactory": "h",
+        "jsxFragmentFactory": "Fragment"
     },
     "typedocOptions": {
         "name": "@eventstore/fields",

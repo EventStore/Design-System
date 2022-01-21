@@ -3,6 +3,8 @@ import type { JSONOutput } from 'typedoc';
 
 import type { Lib } from 'sitemap';
 import { findAllReferences } from 'utils/typedoc/findAllReferences';
+import { extractAbstract } from 'utils/extractText';
+import { extractUsage } from 'utils/extractUsage';
 
 @Component({
     tag: 'docs-type-docs',
@@ -24,8 +26,6 @@ export class TypeDocs {
     }
 
     render() {
-        const { name, comment } = this.doc;
-
         return (
             <Host>
                 <es-breadcrumb
@@ -33,18 +33,26 @@ export class TypeDocs {
                         this.lib.crumb,
                         { name: 'Types', path: './types' },
                         {
-                            name: name,
-                            path: `./${name}`,
+                            name: this.doc.name,
+                            path: `./${this.doc.name}`,
                         },
                     ]}
                 />
                 <header>
-                    <h1>{name}</h1>
+                    <h1>{this.doc.name}</h1>
                 </header>
-                <docs-markdown
-                    class={'intro'}
-                    md={comment?.text ?? comment?.shortText ?? ''}
-                />
+
+                <docs-markdown class={'intro'} md={extractAbstract(this.doc)} />
+
+                {Object.entries(extractUsage(this.doc)).map(
+                    ([uname, usage]) => (
+                        <docs-usage
+                            key={uname}
+                            identifier={`${this.doc.name}-${uname}`}
+                            usage={usage}
+                        />
+                    ),
+                )}
 
                 <docs-type-documentation declaration={this.doc} />
 

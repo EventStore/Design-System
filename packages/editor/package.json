@@ -35,8 +35,8 @@
         "build": "run-p \"build:*\"",
         "start": "stencil build --dev --watch --serve --openBrowser=false",
         "build:stencil": "stencil build --docs",
-        "build:initialize": "tsc ./utils/initialize.ts --declaration --outDir . ",
-        "build:monaco": "tsc ./utils/monaco.ts --declaration --outDir . ",
+        "build:initialize": "tsc ./utils/initialize.ts --target esnext --moduleResolution node --declaration --outDir . ",
+        "build:monaco": "tsc ./utils/monaco.ts --target esnext --moduleResolution node --declaration --outDir . ",
         "build:configure": "tsc ./utils/configure.ts --declaration --outDir . ",
         "build:workers": "run-p \"workers:*\"",
         "workers:main": "rollup ../../node_modules/monaco-editor/esm/vs/editor/editor.worker.js --file ./workers/editor.worker.js --format iife --output.name editorWorker",
@@ -56,10 +56,12 @@
     },
     "peerDependencies": {
         "@eventstore/components": "0.1.x",
+        "@eventstore/theme": "0.1.x",
         "@eventstore/utils": "0.1.x"
     },
     "devDependencies": {
         "@eventstore/components": "workspace:*",
+        "@eventstore/theme": "workspace:*",
         "@eventstore/utils": "workspace:*",
         "@stencil/core": "^2.11.0",
         "jest": "^26.6.3",

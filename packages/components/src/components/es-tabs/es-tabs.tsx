@@ -8,7 +8,9 @@ import {
     EventEmitter,
     Element,
 } from '@stencil/core';
-import { searchParam } from '@eventstore/router';
+import { searchParam, SearchParamTracker } from '@eventstore/router';
+import { theme } from '@eventstore/theme';
+
 import type { Tab } from './types';
 
 /**
@@ -37,11 +39,13 @@ export class EsTabs {
     /** Triggered when the active tab is changed. `detail` is the newly active tab. */
     @Event() tabChange!: EventEmitter<string>;
 
-    private searchParam = this.activeParam
-        ? searchParam(this.activeParam)
-        : undefined;
+    private searchParam?: SearchParamTracker;
 
     componentWillLoad() {
+        this.searchParam = this.activeParam
+            ? searchParam(this.activeParam)
+            : undefined;
+
         if (this.active && this.searchParam && !this.searchParam.value) {
             this.searchParam.set(this.active);
         }
@@ -89,7 +93,7 @@ export class EsTabs {
 
     render() {
         return (
-            <Host>
+            <Host high-contrast={theme.isHighContrast()} dark={theme.isDark()}>
                 <header role={'tablist'} part={'tablist'}>
                     {this.tabs.map(this.renderTab)}
                 </header>
@@ -151,20 +155,34 @@ export class EsTabs {
         const initial = !this.initialized;
         this.initialized = true;
 
-        cancelAnimationFrame(this.frame1);
-        this.frame1 = requestAnimationFrame(() => {
-            const { width, paddingLeft, paddingRight } = getComputedStyle(tab);
-            const left = tab.offsetLeft;
-            const newWidth = `calc(${width} - ${paddingLeft} - ${paddingRight})`;
-            const transform = `translateX(calc(${left}px + ${paddingLeft}))`;
-            indicator.style.width = newWidth;
-            indicator.style.transform = transform;
+        const drawFame = (retry: number) => {
+            cancelAnimationFrame(this.frame1);
+            this.frame1 = requestAnimationFrame(() => {
+                const { width, paddingLeft, paddingRight } = getComputedStyle(
+                    tab,
+                );
+                const left = tab.offsetLeft;
+                const newWidth = `calc(${width} - ${paddingLeft} - ${paddingRight})`;
+                const transform = `translateX(calc(${left}px + ${paddingLeft}))`;
+                indicator.style.width = newWidth;
+                indicator.style.transform = transform;
 
-            if (initial) {
-                this.frame2 = requestAnimationFrame(() => {
-                    indicator.style.transitionProperty = 'width, transform';
-                });
-            }
-        });
+                if (initial) {
+                    this.frame2 = requestAnimationFrame(() => {
+                        // It's possible the text hasn't fully rendered yet, so we should try again next frame
+                        if (
+                            retry >= 0 &&
+                            indicator.getBoundingClientRect().width === 0
+                        ) {
+                            return drawFame(retry - 1);
+                        }
+
+                        indicator.style.transitionProperty = 'width, transform';
+                    });
+                }
+            });
+        };
+
+        drawFame(3);
     }
 }

@@ -8,9 +8,6 @@ import { string } from 'rollup-plugin-string';
 import { workerPath } from '@eventstore/editor/configure';
 
 import { dirname, join } from 'path';
-import injectPalettePlugin from '@eventstore/postcss-palette-plugin';
-
-import { palette } from './src/global/palette';
 
 const imports = [
     ['rollup'],
@@ -67,7 +64,6 @@ export const config: Config = {
         }),
         postcss({
             plugins: [
-                injectPalettePlugin({ palette }),
                 postcssPresetEnv({
                     stage: 2,
                     features: {

@@ -1,7 +1,44 @@
+/**
+ * @prop --inactive-color: The inactive text color of the tab;
+ * @prop --active-color: The active text color of the tab, and color of the active indicator;
+ * @prop --focus-color: The focused text color of the tab;
+ * @prop --focus-indicator-color: The color of the focus indicator;
+ * @prop --border-color: The color of border surrounding the tab content;
+ */
+
 :host {
     display: flex;
     position: relative;
     flex-direction: column;
+
+    --tab-color: var(--color-title-2);
+    --active-color: var(--color-secondary);
+    --focus-color: var(--color-primary-alt);
+    --focus-indicator-color: var(--color-shade-40);
+    --border-color: var(--color-shade-30);
+}
+
+:host([high-contrast]) {
+    & .indicator {
+        display: none;
+    }
+
+    & .tab {
+        &:hover::after {
+            height: 2px;
+            background-color: var(--active-color);
+        }
+
+        &.active::after {
+            height: 6px;
+            background-color: var(--active-color);
+        }
+
+        &:focus {
+            outline: solid var(--color-focus);
+            outline-offset: -10px;
+        }
+    }
 }
 
 .tab {
@@ -9,7 +46,7 @@
     position: relative;
     appearance: none;
     background-color: transparent;
-    color: var(--color-primary);
+    color: var(--tab-color);
     font-weight: 700;
     font-size: 16px;
     border: 0;
@@ -37,10 +74,10 @@
     }
 
     &:focus-visible {
-        color: var(--color-secondary-dark);
+        color: var(--focus-color);
 
         &::after {
-            background-color: var(--color-grey-300);
+            background-color: var(--focus-indicator-color);
             height: 4px;
         }
     }
@@ -51,7 +88,7 @@
 }
 
 .panel {
-    border: 1px solid var(--color-grey-200);
+    border: 1px solid var(--border-color);
     border-radius: 20px;
     padding: 10px 30px;
     flex: 1 1 100%;
@@ -72,7 +109,7 @@
 .indicator {
     display: block;
     height: 4px;
-    background-color: var(--color-secondary);
+    background-color: var(--active-color);
     transition-property: none;
     transition-duration: 500ms;
     transition-timing-function: ease;

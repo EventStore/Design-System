@@ -25,7 +25,7 @@
     transition-duration: 500ms;
     transition-timing-function: ease;
     transform: translateX(0%);
-    background-color: var(--color-white);
+    background-color: var(--color-background);
     display: none;
 
     &.passed {

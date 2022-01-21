@@ -62,6 +62,7 @@ const options = [
         name: 'The letter B',
         description: 'The second letter of the alphabet',
         group: 'Consonants',
+        disabled: true,
     },
     {
         id: 'c',
@@ -142,12 +143,15 @@ const sections = [
 
 ### Depends on
 
+- es-icon
 - [es-validation-messages](../es-validation-messages)
 
 ### Graph
 ```mermaid
 graph TD;
+  es-radio-card-group --> es-icon
   es-radio-card-group --> es-validation-messages
+  es-validation-messages --> es-icon
   style es-radio-card-group fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

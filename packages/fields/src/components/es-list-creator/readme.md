@@ -104,6 +104,7 @@ graph TD;
   es-typeahead --> es-popover
   es-popover --> es-popper
   es-popover --> es-popper-inner
+  es-validation-messages --> es-icon
   style es-list-creator fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

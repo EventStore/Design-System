@@ -38,6 +38,10 @@ export const sitemap = expandSitemap([
                 title: 'Stores',
                 filePath: './packages/stores',
             },
+            {
+                title: 'Theme',
+                filePath: './packages/theme',
+            },
         ],
     },
     {

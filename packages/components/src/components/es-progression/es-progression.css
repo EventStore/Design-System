@@ -31,7 +31,7 @@ button {
         transform-origin: 15px 15px;
         opacity: 0;
         transform: scale(0);
-        fill: var(--color-grey-200);
+        fill: var(--color-shade-30);
         transition-property: all;
         transition-duration: 500ms;
         transition-timing-function: ease;
@@ -39,7 +39,7 @@ button {
 
     & .outline {
         fill: transparent;
-        stroke: var(--color-grey-200);
+        stroke: var(--color-shade-30);
         transition-property: all;
         transition-duration: 500ms;
         transition-timing-function: ease;
@@ -50,7 +50,7 @@ button {
         & .center {
             opacity: 1;
             transform: scale(0.5);
-            fill: var(--color-secondary-light);
+            fill: var(--color-secondary-alt);
         }
     }
 
@@ -79,7 +79,7 @@ button {
     margin: 0 -30px;
 
     & line {
-        stroke: var(--color-grey-100);
+        stroke: var(--color-shade-20);
         transition-property: stroke;
         transition-duration: 500ms;
         transition-timing-function: ease;

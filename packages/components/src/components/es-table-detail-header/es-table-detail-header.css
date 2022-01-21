@@ -8,7 +8,7 @@ es-table-detail-header {
     display: flex;
     flex-direction: row;
     padding-bottom: 20px;
-    border-bottom: 1px solid var(--color-grey-200);
+    border-bottom: 1px solid var(--color-shade-30);
     min-height: 61px;
     align-items: center;
     justify-content: center;
@@ -17,7 +17,7 @@ es-table-detail-header {
 .header_title {
     font-size: 22px;
     font-weight: 300;
-    color: var(--color-primary-dark);
+    color: var(--color-title-2);
     margin: 0;
 }
 

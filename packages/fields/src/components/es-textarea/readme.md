@@ -81,6 +81,7 @@ export default () => (
 ```mermaid
 graph TD;
   es-textarea --> es-validation-messages
+  es-validation-messages --> es-icon
   style es-textarea fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -17,8 +17,8 @@
     }
 
     &:disabled ~ .checkbox {
-        border-color: var(--color-grey-100);
-        background-color: var(--color-grey-100);
+        border-color: var(--color-shade-20);
+        background-color: var(--color-shade-20);
     }
 
     &:focus ~ .checkbox {
@@ -29,11 +29,11 @@
 .checkbox {
     grid-column-start: input;
     grid-column-end: input;
-    color: var(--color-grey-200);
+    color: var(--color-shade-30);
 
     border-width: 1px;
     border-style: solid;
-    border-color: var(--color-grey-400);
+    border-color: var(--color-shade-50);
     border-radius: 50%;
     height: 24px;
     width: 24px;

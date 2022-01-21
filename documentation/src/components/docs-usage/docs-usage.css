@@ -15,6 +15,17 @@
     }
 }
 
+:host(.no-code) {
+    & iframe,
+    & .building {
+        width: 100%;
+    }
+}
+
+:host(.grow) {
+    min-height: 0;
+}
+
 .building {
     width: 50%;
     position: absolute;
@@ -24,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-grey-600);
+    color: var(--color-text);
 }
 
 iframe {
@@ -43,6 +54,8 @@ es-tabs {
 
 es-tabs::part(panel) {
     padding: 10px;
+    padding-left: 2px;
+    background-color: var(--code-bg);
 }
 
 es-editor {

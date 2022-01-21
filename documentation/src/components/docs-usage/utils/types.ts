@@ -10,6 +10,8 @@ export interface FileDetails {
 export interface Settings {
     showLocation: boolean;
     preview: boolean;
+    code: boolean;
+    grow: number | false;
     parts: Parts;
 }
 

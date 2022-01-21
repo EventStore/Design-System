@@ -2,16 +2,16 @@
     display: flex;
     flex-direction: row;
     font-size: var(--breadcrumb-size, 14px);
-    color: var(--color-grey-600);
+    color: var(--color-text);
     margin-bottom: 46px;
 }
 
 a {
     text-decoration: none;
-    color: var(--color-grey-600);
+    color: var(--color-text);
 
     &:last-child {
-        color: var(--color-heading);
+        color: var(--color-title-1);
 
         &::after {
             display: none;
@@ -24,7 +24,7 @@ a {
     }
 
     &.link-active {
-        color: var(--color-heading);
+        color: var(--color-title-1);
     }
 }
 

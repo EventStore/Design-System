@@ -76,17 +76,16 @@ export default () => (
 
 ## Properties
 
-| Property                   | Attribute       | Description                                                                                                     | Type                                                         | Default     |
-| -------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ----------- |
-| `action` _(required)_      | --              | The async action to be called on click.                                                                         | `(e: MouseEvent) => Promise<unknown>`                        | `undefined` |
-| `color`                    | `color`         | Which color pair the button should use.                                                                         | `"primary" \| "secondary" \| "text" \| "white" \| undefined` | `undefined` |
-| `completeIcon`             | `complete-icon` | The icon to display when the action completed successfully.                                                     | `string`                                                     | `'check'`   |
-| `defaultIcon` _(required)_ | `default-icon`  | The default icon to display when nothing is happening.                                                          | `string`                                                     | `undefined` |
-| `disabled`                 | `disabled`      | If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused. | `boolean \| undefined`                                       | `undefined` |
-| `failedIcon`               | `failed-icon`   | The icon to display when the action errored out.                                                                | `string`                                                     | `'error'`   |
-| `text`                     | `text`          | Optional text of the button                                                                                     | `string \| undefined`                                        | `undefined` |
-| `thinkingIcon`             | `thinking-icon` | The icon to display when we are awaiting the action.                                                            | `string`                                                     | `'spinner'` |
-| `variant`                  | `variant`       | Which styling variant to use.                                                                                   | `"filled" \| "link" \| "minimal" \| "outline"`               | `'minimal'` |
+| Property                   | Attribute       | Description                                                                                                     | Type                                                                                | Default     |
+| -------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------- |
+| `action` _(required)_      | --              | The async action to be called on click.                                                                         | `(e: MouseEvent) => Promise<unknown>`                                               | `undefined` |
+| `completeIcon`             | `complete-icon` | The icon to display when the action completed successfully.                                                     | `string`                                                                            | `'check'`   |
+| `defaultIcon` _(required)_ | `default-icon`  | The default icon to display when nothing is happening.                                                          | `string`                                                                            | `undefined` |
+| `disabled`                 | `disabled`      | If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused. | `boolean \| undefined`                                                              | `undefined` |
+| `failedIcon`               | `failed-icon`   | The icon to display when the action errored out.                                                                | `string`                                                                            | `'error'`   |
+| `text`                     | `text`          | Optional text of the button                                                                                     | `string \| undefined`                                                               | `undefined` |
+| `thinkingIcon`             | `thinking-icon` | The icon to display when we are awaiting the action.                                                            | `string`                                                                            | `'spinner'` |
+| `variant`                  | `variant`       | Which styling variant to use.                                                                                   | `"cancel" \| "default" \| "delete" \| "filled" \| "link" \| "minimal" \| "outline"` | `'minimal'` |
 
 
 ## Dependencies

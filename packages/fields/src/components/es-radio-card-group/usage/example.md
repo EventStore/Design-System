@@ -51,6 +51,7 @@ const options = [
         name: 'The letter B',
         description: 'The second letter of the alphabet',
         group: 'Consonants',
+        disabled: true,
     },
     {
         id: 'c',

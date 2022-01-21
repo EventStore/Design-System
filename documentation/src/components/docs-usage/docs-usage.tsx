@@ -24,6 +24,14 @@ const HTML = '/preview.html';
 })
 export class DocsUsage {
     private iframe?: HTMLIFrameElement;
+    private growObserver = new ResizeObserver(([entry]) => {
+        const targetSize =
+            entry.target.ownerDocument.scrollingElement?.scrollHeight;
+        this.contentHeight = Math.max(
+            targetSize ?? 50,
+            this.options.grow || 500,
+        );
+    });
 
     @Prop() identifier!: string;
     @Prop() usage!: string;
@@ -32,6 +40,7 @@ export class DocsUsage {
     @State() error?: string;
     @State() active!: string;
     @State() options!: Omit<Settings, 'parts'>;
+    @State() contentHeight = 500;
 
     @State() models: Models = {};
     @State() tabs: HTMLEsTabsElement['tabs'] = [];
@@ -58,6 +67,8 @@ export class DocsUsage {
 
         if (Build.isServer) return;
 
+        this.growObserver.disconnect();
+        this.contentHeight = this.options.grow ? this.options.grow : 500;
         this.models = createModels(this.parts, this.onEditorChange);
     }
 
@@ -77,7 +88,13 @@ export class DocsUsage {
 
     render() {
         return (
-            <Host class={{ 'no-preview': !this.options.preview }}>
+            <Host
+                class={{
+                    'no-preview': !this.options.preview,
+                    'no-code': !this.options.code,
+                    grow: !!this.options.grow,
+                }}
+            >
                 {this.options.preview && (
                     <>
                         {this.building && (
@@ -88,25 +105,32 @@ export class DocsUsage {
                             ref={this.captureiFrame}
                             src={HTML}
                             class={{ hidden: this.building }}
+                            height={
+                                this.options.grow
+                                    ? this.contentHeight
+                                    : undefined
+                            }
                         />
                     </>
                 )}
-                <es-tabs
-                    tabs={this.tabs}
-                    active={this.active}
-                    activeParam={false}
-                    onTabChange={this.tabChange}
-                >
-                    {!Build.isServer && (
-                        <es-editor
-                            key={`${this.identifier}-${this.active}`}
-                            slot={this.active}
-                            options={{
-                                model: this.models[this.active],
-                            }}
-                        />
-                    )}
-                </es-tabs>
+                {this.options.code && (
+                    <es-tabs
+                        tabs={this.tabs}
+                        active={this.active}
+                        activeParam={false}
+                        onTabChange={this.tabChange}
+                    >
+                        {!Build.isServer && (
+                            <es-editor
+                                key={`${this.identifier}-${this.active}`}
+                                slot={this.active}
+                                options={{
+                                    model: this.models[this.active],
+                                }}
+                            />
+                        )}
+                    </es-tabs>
+                )}
             </Host>
         );
     }
@@ -139,6 +163,9 @@ export class DocsUsage {
 
                 doc.body.innerHTML = '<preview-component></preview-component>';
                 this.building = false;
+
+                this.growObserver.disconnect();
+                this.growObserver.observe(doc.body);
             },
             { once: true },
         );

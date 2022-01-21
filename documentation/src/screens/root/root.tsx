@@ -16,14 +16,18 @@ export class Root {
     render() {
         return (
             <Host>
-                <docs-header />
+                <docs-header>
+                    <es-theme-dropdown slot={'right'} />
+                </docs-header>
                 <Switch>
                     <Route exact url={'/'} routeRender={() => <docs-home />} />
                     {sitemap.map((section) =>
                         section.children.map((lib) => (
                             <Route
                                 url={`/${lib.slug}`}
-                                routeRender={() => <docs-package lib={lib} />}
+                                routeRender={() => (
+                                    <docs-package lib={lib} key={lib.title} />
+                                )}
                             />
                         )),
                     )}

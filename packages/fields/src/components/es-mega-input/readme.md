@@ -27,6 +27,11 @@ const sections = [
         variant: 'mega',
     },
     {
+        name: 'mega_disabled',
+        title: '', // mega inputs are self labeled
+        variant: 'mega',
+    },
+    {
         name: 'footer',
         title: '',
         variant: 'footer',
@@ -39,6 +44,13 @@ export default () => (
             slot={'mega_example'}
             label={'Text'}
             placeholder={'Write some text'}
+            {...workingData.connect('text')}
+        />
+        <es-mega-input
+            disabled
+            slot={'mega_disabled'}
+            label={'Disabled'}
+            placeholder={'This is disabled'}
             {...workingData.connect('text')}
         />
         <es-button
@@ -89,6 +101,7 @@ export default () => (
 ```mermaid
 graph TD;
   es-mega-input --> es-validation-messages
+  es-validation-messages --> es-icon
   style es-mega-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -16,12 +16,21 @@ const options = [
 ];
 
 export default () => (
-    <es-select
-        label={'Name'}
-        placeholder={'Choose a name from the list'}
-        options={options}
-        {...workingData.connect('name')}
-    />
+    <>
+        <es-select
+            label={'Name'}
+            placeholder={'Choose a name from the list'}
+            options={options}
+            {...workingData.connect('name')}
+        />
+        <es-select
+            disabled
+            label={'Disabled'}
+            placeholder={'Choose a name from the list'}
+            options={options}
+            {...workingData.connect('name')}
+        />
+    </>
 );
 ```
 

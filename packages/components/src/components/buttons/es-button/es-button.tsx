@@ -1,10 +1,11 @@
-import { Component, h, Prop, Element, Listen } from '@stencil/core';
-import { ButtonVariant, ButtonColor } from '../types';
+import { Component, h, Prop, Element, Listen, Host } from '@stencil/core';
+import { theme } from '@eventstore/theme';
+import { ButtonVariant } from '../types';
 
 /**
  * A button.
  * @slot before - Placed before the main content with correct padding.
- * @slot after -  Placed after the main content with correct padding.
+ * @slot after - Placed after the main content with correct padding.
  */
 @Component({
     tag: 'es-button',
@@ -15,9 +16,7 @@ export class Button {
     @Element() host!: HTMLElement;
 
     /** Which styling variant to use. */
-    @Prop({ reflect: true }) variant: ButtonVariant = 'filled';
-    /** Which color pair the button should use. */
-    @Prop({ reflect: true }) color: ButtonColor = 'primary';
+    @Prop({ reflect: true }) variant: ButtonVariant = 'default';
     /** If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused. */
     @Prop({ reflect: true }) disabled?: boolean;
     /** The default behavior of the button. */
@@ -49,18 +48,21 @@ export class Button {
 
     render() {
         return (
-            <button
-                tabindex={this.tabindex}
-                type={this.type}
-                form={this.form}
-                disabled={this.disabled}
-            >
-                <slot name={'before'} />
-                <span>
-                    <slot />
-                </span>
-                <slot name={'after'} />
-            </button>
+            <Host high-contrast={theme.isHighContrast()} dark={theme.isDark()}>
+                <button
+                    tabindex={this.tabindex}
+                    type={this.type}
+                    form={this.form}
+                    disabled={this.disabled}
+                    part={'button'}
+                >
+                    <slot name={'before'} />
+                    <span part={'inner'}>
+                        <slot />
+                    </span>
+                    <slot name={'after'} />
+                </button>
+            </Host>
         );
     }
 }

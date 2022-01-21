@@ -79,6 +79,7 @@ graph TD;
   es-input-list --> es-icon
   es-input-list --> es-validation-messages
   es-input --> es-validation-messages
+  es-validation-messages --> es-icon
   style es-input-list fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
