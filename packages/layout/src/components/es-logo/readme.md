@@ -40,6 +40,19 @@ export default () => <es-logo />;
 | `"text"`      | the g element wrapping the Event Store text.    |
 
 
+## Dependencies
+
+### Used by
+
+ - [es-header](../es-header)
+
+### Graph
+```mermaid
+graph TD;
+  es-header --> es-logo
+  style es-logo fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 

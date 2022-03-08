@@ -36,6 +36,10 @@ export class PublicRouter implements Router {
         return this.internal.location;
     }
 
+    public get match() {
+        return this.internal.match;
+    }
+
     public fillPath = (
         path: string,
         parameters?: Record<string, string>,

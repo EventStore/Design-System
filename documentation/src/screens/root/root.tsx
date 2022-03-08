@@ -16,9 +16,9 @@ export class Root {
     render() {
         return (
             <Host>
-                <docs-header>
+                <es-header>
                     <es-theme-dropdown slot={'right'} />
-                </docs-header>
+                </es-header>
                 <Switch>
                     <Route exact url={'/'} routeRender={() => <docs-home />} />
                     {sitemap.map((section) =>

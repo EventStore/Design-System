@@ -2,6 +2,11 @@
     "version": "0.1.0-alpha",
     "namespace": "es-layout",
     "icons": {
+        "caret": {
+            "name": "caret",
+            "component": "Caret",
+            "path": "./components/Caret.tsx"
+        },
         "dark-high-theme": {
             "name": "dark-high-theme",
             "component": "DarkHighTheme",

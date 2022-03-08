@@ -23,8 +23,6 @@ export namespace Components {
         "doc": JSONOutput.DeclarationReflection;
         "lib": Lib;
     }
-    interface DocsHeader {
-    }
     interface DocsHome {
     }
     interface DocsMarkdown {
@@ -112,12 +110,6 @@ declare global {
     var HTMLDocsFunctionalComponentDocsElement: {
         prototype: HTMLDocsFunctionalComponentDocsElement;
         new (): HTMLDocsFunctionalComponentDocsElement;
-    };
-    interface HTMLDocsHeaderElement extends Components.DocsHeader, HTMLStencilElement {
-    }
-    var HTMLDocsHeaderElement: {
-        prototype: HTMLDocsHeaderElement;
-        new (): HTMLDocsHeaderElement;
     };
     interface HTMLDocsHomeElement extends Components.DocsHome, HTMLStencilElement {
     }
@@ -232,7 +224,6 @@ declare global {
         "docs-component-docs": HTMLDocsComponentDocsElement;
         "docs-events-table": HTMLDocsEventsTableElement;
         "docs-functional-component-docs": HTMLDocsFunctionalComponentDocsElement;
-        "docs-header": HTMLDocsHeaderElement;
         "docs-home": HTMLDocsHomeElement;
         "docs-markdown": HTMLDocsMarkdownElement;
         "docs-methods-table": HTMLDocsMethodsTableElement;
@@ -266,8 +257,6 @@ declare namespace LocalJSX {
     interface DocsFunctionalComponentDocs {
         "doc": JSONOutput.DeclarationReflection;
         "lib": Lib;
-    }
-    interface DocsHeader {
     }
     interface DocsHome {
     }
@@ -336,7 +325,6 @@ declare namespace LocalJSX {
         "docs-component-docs": DocsComponentDocs;
         "docs-events-table": DocsEventsTable;
         "docs-functional-component-docs": DocsFunctionalComponentDocs;
-        "docs-header": DocsHeader;
         "docs-home": DocsHome;
         "docs-markdown": DocsMarkdown;
         "docs-methods-table": DocsMethodsTable;
@@ -365,7 +353,6 @@ declare module "@stencil/core" {
             "docs-component-docs": LocalJSX.DocsComponentDocs & JSXBase.HTMLAttributes<HTMLDocsComponentDocsElement>;
             "docs-events-table": LocalJSX.DocsEventsTable & JSXBase.HTMLAttributes<HTMLDocsEventsTableElement>;
             "docs-functional-component-docs": LocalJSX.DocsFunctionalComponentDocs & JSXBase.HTMLAttributes<HTMLDocsFunctionalComponentDocsElement>;
-            "docs-header": LocalJSX.DocsHeader & JSXBase.HTMLAttributes<HTMLDocsHeaderElement>;
             "docs-home": LocalJSX.DocsHome & JSXBase.HTMLAttributes<HTMLDocsHomeElement>;
             "docs-markdown": LocalJSX.DocsMarkdown & JSXBase.HTMLAttributes<HTMLDocsMarkdownElement>;
             "docs-methods-table": LocalJSX.DocsMethodsTable & JSXBase.HTMLAttributes<HTMLDocsMethodsTableElement>;

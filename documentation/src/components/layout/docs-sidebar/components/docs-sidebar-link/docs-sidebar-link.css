@@ -90,6 +90,8 @@ a {
 
 .inner {
     flex: 1 1 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 es-icon {

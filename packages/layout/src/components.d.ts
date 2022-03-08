@@ -6,7 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Crumb } from "./components/es-breadcrumb/types";
+import { NavNode, NavTree } from "./components/es-nav/types";
 export namespace Components {
+    interface DevRoot {
+    }
     interface EsBreadcrumb {
         /**
           * The breadcrumbs to the current page.
@@ -16,6 +19,8 @@ export namespace Components {
           * Do not warn if the crumbs do not match the current router location. (Only warns in dev mode)
          */
         "noValidate": boolean;
+    }
+    interface EsHeader {
     }
     interface EsLogo {
         /**
@@ -27,6 +32,25 @@ export namespace Components {
          */
         "width": number;
     }
+    interface EsNav {
+        /**
+          * The `NavTree` data structure that the navigation menu will be built from..
+         */
+        "navTree": NavTree;
+    }
+    interface EsNavNode0 {
+        "active": boolean;
+        "node": NavNode;
+        "toggleRequest": () => void;
+    }
+    interface EsNavNode1 {
+        "active": boolean;
+        "node": NavNode;
+        "toggleRequest": () => void;
+    }
+    interface EsNavNode2 {
+        "node": NavNode;
+    }
     interface EsPageTitle {
     }
     interface EsThemeDropdown {
@@ -35,17 +59,53 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDevRootElement extends Components.DevRoot, HTMLStencilElement {
+    }
+    var HTMLDevRootElement: {
+        prototype: HTMLDevRootElement;
+        new (): HTMLDevRootElement;
+    };
     interface HTMLEsBreadcrumbElement extends Components.EsBreadcrumb, HTMLStencilElement {
     }
     var HTMLEsBreadcrumbElement: {
         prototype: HTMLEsBreadcrumbElement;
         new (): HTMLEsBreadcrumbElement;
     };
+    interface HTMLEsHeaderElement extends Components.EsHeader, HTMLStencilElement {
+    }
+    var HTMLEsHeaderElement: {
+        prototype: HTMLEsHeaderElement;
+        new (): HTMLEsHeaderElement;
+    };
     interface HTMLEsLogoElement extends Components.EsLogo, HTMLStencilElement {
     }
     var HTMLEsLogoElement: {
         prototype: HTMLEsLogoElement;
         new (): HTMLEsLogoElement;
+    };
+    interface HTMLEsNavElement extends Components.EsNav, HTMLStencilElement {
+    }
+    var HTMLEsNavElement: {
+        prototype: HTMLEsNavElement;
+        new (): HTMLEsNavElement;
+    };
+    interface HTMLEsNavNode0Element extends Components.EsNavNode0, HTMLStencilElement {
+    }
+    var HTMLEsNavNode0Element: {
+        prototype: HTMLEsNavNode0Element;
+        new (): HTMLEsNavNode0Element;
+    };
+    interface HTMLEsNavNode1Element extends Components.EsNavNode1, HTMLStencilElement {
+    }
+    var HTMLEsNavNode1Element: {
+        prototype: HTMLEsNavNode1Element;
+        new (): HTMLEsNavNode1Element;
+    };
+    interface HTMLEsNavNode2Element extends Components.EsNavNode2, HTMLStencilElement {
+    }
+    var HTMLEsNavNode2Element: {
+        prototype: HTMLEsNavNode2Element;
+        new (): HTMLEsNavNode2Element;
     };
     interface HTMLEsPageTitleElement extends Components.EsPageTitle, HTMLStencilElement {
     }
@@ -66,14 +126,22 @@ declare global {
         new (): HTMLEsThemePickerElement;
     };
     interface HTMLElementTagNameMap {
+        "dev-root": HTMLDevRootElement;
         "es-breadcrumb": HTMLEsBreadcrumbElement;
+        "es-header": HTMLEsHeaderElement;
         "es-logo": HTMLEsLogoElement;
+        "es-nav": HTMLEsNavElement;
+        "es-nav-node-0": HTMLEsNavNode0Element;
+        "es-nav-node-1": HTMLEsNavNode1Element;
+        "es-nav-node-2": HTMLEsNavNode2Element;
         "es-page-title": HTMLEsPageTitleElement;
         "es-theme-dropdown": HTMLEsThemeDropdownElement;
         "es-theme-picker": HTMLEsThemePickerElement;
     }
 }
 declare namespace LocalJSX {
+    interface DevRoot {
+    }
     interface EsBreadcrumb {
         /**
           * The breadcrumbs to the current page.
@@ -83,6 +151,8 @@ declare namespace LocalJSX {
           * Do not warn if the crumbs do not match the current router location. (Only warns in dev mode)
          */
         "noValidate"?: boolean;
+    }
+    interface EsHeader {
     }
     interface EsLogo {
         /**
@@ -94,6 +164,25 @@ declare namespace LocalJSX {
          */
         "width"?: number;
     }
+    interface EsNav {
+        /**
+          * The `NavTree` data structure that the navigation menu will be built from..
+         */
+        "navTree": NavTree;
+    }
+    interface EsNavNode0 {
+        "active": boolean;
+        "node": NavNode;
+        "toggleRequest": () => void;
+    }
+    interface EsNavNode1 {
+        "active": boolean;
+        "node": NavNode;
+        "toggleRequest": () => void;
+    }
+    interface EsNavNode2 {
+        "node": NavNode;
+    }
     interface EsPageTitle {
     }
     interface EsThemeDropdown {
@@ -101,8 +190,14 @@ declare namespace LocalJSX {
     interface EsThemePicker {
     }
     interface IntrinsicElements {
+        "dev-root": DevRoot;
         "es-breadcrumb": EsBreadcrumb;
+        "es-header": EsHeader;
         "es-logo": EsLogo;
+        "es-nav": EsNav;
+        "es-nav-node-0": EsNavNode0;
+        "es-nav-node-1": EsNavNode1;
+        "es-nav-node-2": EsNavNode2;
         "es-page-title": EsPageTitle;
         "es-theme-dropdown": EsThemeDropdown;
         "es-theme-picker": EsThemePicker;
@@ -112,8 +207,14 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "dev-root": LocalJSX.DevRoot & JSXBase.HTMLAttributes<HTMLDevRootElement>;
             "es-breadcrumb": LocalJSX.EsBreadcrumb & JSXBase.HTMLAttributes<HTMLEsBreadcrumbElement>;
+            "es-header": LocalJSX.EsHeader & JSXBase.HTMLAttributes<HTMLEsHeaderElement>;
             "es-logo": LocalJSX.EsLogo & JSXBase.HTMLAttributes<HTMLEsLogoElement>;
+            "es-nav": LocalJSX.EsNav & JSXBase.HTMLAttributes<HTMLEsNavElement>;
+            "es-nav-node-0": LocalJSX.EsNavNode0 & JSXBase.HTMLAttributes<HTMLEsNavNode0Element>;
+            "es-nav-node-1": LocalJSX.EsNavNode1 & JSXBase.HTMLAttributes<HTMLEsNavNode1Element>;
+            "es-nav-node-2": LocalJSX.EsNavNode2 & JSXBase.HTMLAttributes<HTMLEsNavNode2Element>;
             "es-page-title": LocalJSX.EsPageTitle & JSXBase.HTMLAttributes<HTMLEsPageTitleElement>;
             "es-theme-dropdown": LocalJSX.EsThemeDropdown & JSXBase.HTMLAttributes<HTMLEsThemeDropdownElement>;
             "es-theme-picker": LocalJSX.EsThemePicker & JSXBase.HTMLAttributes<HTMLEsThemePickerElement>;

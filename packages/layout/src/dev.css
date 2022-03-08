@@ -1,6 +1,6 @@
 :root {
     --layout-max-width: 1680px;
-    --layout-content-max-width: 980px;
+    --layout-content-max-width: 1430px;
     --layout-header-base-height: 70px;
     --layout-header-under-height: 0px;
     --layout-header-height: calc(
@@ -10,8 +10,8 @@
     --layout-body-top: calc(
         var(--layout-header-height) + var(--layout-banner-height)
     );
-    --layout-sidebar-width: 290px;
-    --layout-footer-height: 90px;
+    --layout-sidebar-width: 250px;
+    --layout-panel-height: 0;
 
     --font-sans: 500 16px 'MuseoSans', Arial, sans-serif;
     --font-monospace: 400 16px 'Source Code Pro', monospace;
@@ -19,47 +19,42 @@
 
 @font-face {
     font-family: 'MuseoSans';
-    src: url('../assets/fonts/MuseoSans_100-webfont.woff2') format('woff2'),
-        url('../assets/fonts//MuseoSans_100-webfont.woff') format('woff');
+    src: url('/assets/fonts/MuseoSans_100-webfont.woff2') format('woff2'),
+        url('/assets/fonts//MuseoSans_100-webfont.woff') format('woff');
     font-weight: 100;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
     font-family: 'MuseoSans';
-    src: url('../assets/fonts/MuseoSans_300-webfont.woff2') format('woff2'),
-        url('../assets/fonts/MuseoSans_300-webfont.woff') format('woff');
+    src: url('/assets/fonts/MuseoSans_300-webfont.woff2') format('woff2'),
+        url('/assets/fonts/MuseoSans_300-webfont.woff') format('woff');
     font-weight: 300;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
     font-family: 'MuseoSans';
-    src: url('../assets/fonts/MuseoSans_500-webfont.woff2') format('woff2'),
-        url('../assets/fonts/MuseoSans_500-webfont.woff') format('woff');
+    src: url('/assets/fonts/MuseoSans_500-webfont.woff2') format('woff2'),
+        url('/assets/fonts/MuseoSans_500-webfont.woff') format('woff');
     font-weight: 500;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
     font-family: 'MuseoSans';
-    src: url('../assets/fonts/MuseoSans_700-webfont.woff2') format('woff2'),
-        url('../assets/fonts/MuseoSans_700-webfont.woff') format('woff');
+    src: url('/assets/fonts/MuseoSans_700-webfont.woff2') format('woff2'),
+        url('/assets/fonts/MuseoSans_700-webfont.woff') format('woff');
     font-weight: 700;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
     font-family: 'MuseoSans';
-    src: url('../assets/fonts/MuseoSans_900-webfont.woff2') format('woff2'),
-        url('../assets/fonts/MuseoSans_900-webfont.woff') format('woff');
+    src: url('/assets/fonts/MuseoSans_900-webfont.woff2') format('woff2'),
+        url('/assets/fonts/MuseoSans_900-webfont.woff') format('woff');
     font-weight: 900;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
@@ -86,9 +81,5 @@ body {
     font-weight: 500;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden;
-}
-
-.monaco-aria-container {
-    display: none;
+    overflow: hidden;
 }
