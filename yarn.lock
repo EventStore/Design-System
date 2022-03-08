@@ -2353,6 +2353,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eventstore/components@workspace:packages/components"
   dependencies:
+    "@eventstore/configs": "workspace:*"
     "@eventstore/router": "workspace:*"
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"
@@ -2373,12 +2374,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eventstore/configs@workspace:tools/configs"
   dependencies:
+    "@stencil/postcss": ^2.1.0
     "@typescript-eslint/eslint-plugin": ^5.6.0
     "@typescript-eslint/parser": ^5.6.0
     eslint: ^8.4.0
+    postcss-preset-env: 6.7.0
     prettier: ^2.2.1
     typescript: 4.2.3
   peerDependencies:
+    "@stencil/core": ^2.x.x
     "@typescript-eslint/eslint-plugin": ^5.x.x
     "@typescript-eslint/parser": ^5.x.x
     eslint: ^8.x.x
@@ -2431,6 +2435,7 @@ __metadata:
   resolution: "@eventstore/editor@workspace:packages/editor"
   dependencies:
     "@eventstore/components": "workspace:*"
+    "@eventstore/configs": "workspace:*"
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"
     "@stencil/core": ^2.11.0
@@ -2453,6 +2458,7 @@ __metadata:
   resolution: "@eventstore/fields@workspace:packages/fields"
   dependencies:
     "@eventstore/components": "workspace:*"
+    "@eventstore/configs": "workspace:*"
     "@eventstore/icon-manager": "workspace:*"
     "@eventstore/stores": "workspace:*"
     "@eventstore/theme": "workspace:*"
@@ -2496,6 +2502,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eventstore/layout@workspace:packages/layout"
   dependencies:
+    "@eventstore/configs": "workspace:*"
     "@eventstore/router": "workspace:*"
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"

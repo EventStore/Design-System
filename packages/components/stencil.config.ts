@@ -1,16 +1,5 @@
-import { Config } from '@stencil/core';
+import { packageConfig } from '@eventstore/configs/stencil';
 
-export const config: Config = {
+export const config = packageConfig({
     namespace: 'es-components',
-    taskQueue: 'async',
-    outputTargets: [
-        {
-            type: 'dist',
-            esmLoaderPath: './loader',
-        },
-        {
-            type: 'docs-readme',
-            footer: '',
-        },
-    ],
-};
+});

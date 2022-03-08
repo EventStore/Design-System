@@ -46,6 +46,7 @@
     },
     "devDependencies": {
         "@eventstore/components": "workspace:*",
+        "@eventstore/configs": "workspace:*",
         "@eventstore/icon-manager": "workspace:*",
         "@eventstore/stores": "workspace:*",
         "@eventstore/theme": "workspace:*",

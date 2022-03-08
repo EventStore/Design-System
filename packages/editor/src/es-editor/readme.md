@@ -79,4 +79,4 @@ export const config: Config = {
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+

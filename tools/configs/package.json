@@ -25,7 +25,12 @@
         "url": "git@github.com:EventStore/Design-System.git",
         "directory": "tools/configs"
     },
+    "dependencies": {
+        "@stencil/postcss": "^2.1.0",
+        "postcss-preset-env": "6.7.0"
+    },
     "peerDependencies": {
+        "@stencil/core": "^2.x.x",
         "@typescript-eslint/eslint-plugin": "^5.x.x",
         "@typescript-eslint/parser": "^5.x.x",
         "eslint": "^8.x.x",
