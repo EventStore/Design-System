@@ -45,14 +45,16 @@ export default () => (
 
 ## Properties
 
-| Property                   | Attribute       | Description                         | Type                       | Default      |
-| -------------------------- | --------------- | ----------------------------------- | -------------------------- | ------------ |
-| `additionText`             | `addition-text` | Text for the add icon button.       | `string`                   | `'Add item'` |
-| `data` _(required)_        | --              | The backing WorkingDataArray        | `WorkingDataArray<string>` | `undefined`  |
-| `disabled`                 | `disabled`      | If the input is disabled.           | `boolean \| undefined`     | `undefined`  |
-| `label` _(required)_       | `label`         | The label of the field.             | `string`                   | `undefined`  |
-| `name` _(required)_        | `name`          | The name of the field.              | `string`                   | `undefined`  |
-| `placeholder` _(required)_ | `placeholder`   | Display a placeholder in the input. | `string`                   | `undefined`  |
+| Property                   | Attribute       | Description                         | Type                                                    | Default               |
+| -------------------------- | --------------- | ----------------------------------- | ------------------------------------------------------- | --------------------- |
+| `additionIcon`             | `addition-icon` | Icon for the add item button.       | `[namespace: string \| symbol, name: string] \| string` | `[ES_FIELDS, 'plus']` |
+| `additionText`             | `addition-text` | Text for the add item button.       | `string`                                                | `'Add item'`          |
+| `data` _(required)_        | --              | The backing WorkingDataArray        | `WorkingDataArray<string>`                              | `undefined`           |
+| `deleteIcon`               | `delete-icon`   | Icon for the delete button.         | `[namespace: string \| symbol, name: string] \| string` | `[ES_FIELDS, 'plus']` |
+| `disabled`                 | `disabled`      | If the input is disabled.           | `boolean \| undefined`                                  | `undefined`           |
+| `label` _(required)_       | `label`         | The label of the field.             | `string`                                                | `undefined`           |
+| `name` _(required)_        | `name`          | The name of the field.              | `string`                                                | `undefined`           |
+| `placeholder` _(required)_ | `placeholder`   | Display a placeholder in the input. | `string`                                                | `undefined`           |
 
 
 ## CSS Custom Properties

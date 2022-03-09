@@ -10,6 +10,10 @@ import {
     Host,
 } from '@stencil/core';
 import { theme } from '@eventstore/theme';
+import type { IconDescription } from '@eventstore/components';
+import { ES_FIELDS } from '../../icons/namespace';
+
+export type OnOff<T> = { on: T; off: T };
 
 /** A switchable switch. */
 @Component({
@@ -31,8 +35,14 @@ export class EsSwitch {
     @Prop() readonly?: boolean;
     /** If the field is currently in an error state. */
     @Prop() invalid?: boolean;
-    /** Text to display in high contrast mode. */
-    @Prop() text: { on: string; off: string } = { on: 'On', off: 'Off' };
+    /** Text to display when switch is on in high contrast mode. */
+    @Prop() activeText: string = 'On';
+    /** Text to display when switch is off in high contrast mode. */
+    @Prop() inactiveText: string = 'Off';
+    /** Icon to display when switch is on in high contrast mode. */
+    @Prop() activeIcon: IconDescription = [ES_FIELDS, 'check'];
+    /** Icon to display when switch is off in high contrast mode. */
+    @Prop() inactiveIcon: IconDescription = [ES_FIELDS, 'check'];
 
     @State() pending: boolean = false;
 
@@ -58,12 +68,18 @@ export class EsSwitch {
                     {theme.isHighContrast() ? (
                         <>
                             <es-icon
-                                icon={'check'}
+                                icon={
+                                    this.value
+                                        ? this.activeIcon
+                                        : this.inactiveIcon
+                                }
                                 class={'checkbox'}
                                 size={12}
                             />
                             <span>
-                                {this.value ? this.text.on : this.text.off}
+                                {this.value
+                                    ? this.activeText
+                                    : this.inactiveText}
                             </span>
                         </>
                     ) : (

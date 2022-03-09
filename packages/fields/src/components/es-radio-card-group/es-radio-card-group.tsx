@@ -8,6 +8,9 @@ import {
     Fragment,
     VNode,
 } from '@stencil/core';
+import { IconDescription } from '@eventstore/components';
+
+import { ES_FIELDS } from '../../icons/namespace';
 import { ValidationMessages } from '../../types';
 import { RadioCardGroupOption } from './types';
 
@@ -44,6 +47,8 @@ export class RadioCardGroup {
     @Prop() invalid: boolean = false;
     /** The validation messages of the field */
     @Prop() messages?: ValidationMessages;
+    /** Icon to display when checked. */
+    @Prop() icon: IconDescription = [ES_FIELDS, 'check'];
 
     static defaultRenderCard: RenderCard<RadioCardGroupOption> = (option) => [
         <span class={'label'}>{option.name}</span>,
@@ -81,7 +86,7 @@ export class RadioCardGroup {
                                             disabled={option.disabled}
                                         />
                                         {this.renderCard(option, active)}
-                                        <es-icon icon={'check'} />
+                                        <es-icon icon={this.icon} />
                                     </label>
                                 );
                             })}

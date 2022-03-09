@@ -40,14 +40,17 @@ export default () => (
 
 ## Properties
 
-| Property             | Attribute  | Description                                  | Type                           | Default                    |
-| -------------------- | ---------- | -------------------------------------------- | ------------------------------ | -------------------------- |
-| `disabled`           | `disabled` | If the field is disabled.                    | `boolean \| undefined`         | `undefined`                |
-| `invalid`            | `invalid`  | If the field is currently in an error state. | `boolean \| undefined`         | `undefined`                |
-| `name` _(required)_  | `name`     | The name of the field.                       | `string`                       | `undefined`                |
-| `readonly`           | `readonly` | If the field is editable.                    | `boolean \| undefined`         | `undefined`                |
-| `text`               | --         | Text to display in high contrast mode.       | `{ on: string; off: string; }` | `{ on: 'On', off: 'Off' }` |
-| `value` _(required)_ | `value`    | The current value of the field.              | `boolean`                      | `undefined`                |
+| Property             | Attribute       | Description                                               | Type                                                    | Default                |
+| -------------------- | --------------- | --------------------------------------------------------- | ------------------------------------------------------- | ---------------------- |
+| `activeIcon`         | `active-icon`   | Icon to display when switch is on in high contrast mode.  | `[namespace: string \| symbol, name: string] \| string` | `[ES_FIELDS, 'check']` |
+| `activeText`         | `active-text`   | Text to display when switch is on in high contrast mode.  | `string`                                                | `'On'`                 |
+| `disabled`           | `disabled`      | If the field is disabled.                                 | `boolean \| undefined`                                  | `undefined`            |
+| `inactiveIcon`       | `inactive-icon` | Icon to display when switch is off in high contrast mode. | `[namespace: string \| symbol, name: string] \| string` | `[ES_FIELDS, 'check']` |
+| `inactiveText`       | `inactive-text` | Text to display when switch is off in high contrast mode. | `string`                                                | `'Off'`                |
+| `invalid`            | `invalid`       | If the field is currently in an error state.              | `boolean \| undefined`                                  | `undefined`            |
+| `name` _(required)_  | `name`          | The name of the field.                                    | `string`                                                | `undefined`            |
+| `readonly`           | `readonly`      | If the field is editable.                                 | `boolean \| undefined`                                  | `undefined`            |
+| `value` _(required)_ | `value`         | The current value of the field.                           | `boolean`                                               | `undefined`            |
 
 
 ## Events

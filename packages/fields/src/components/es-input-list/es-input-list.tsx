@@ -1,6 +1,8 @@
 import { Component, h, Prop, Element, Host } from '@stencil/core';
+import type { IconDescription } from '@eventstore/components';
 
 import type { WorkingDataArray } from '../../types';
+import { ES_FIELDS } from '../../icons/namespace';
 
 /** A list creator input. */
 @Component({
@@ -16,8 +18,12 @@ export class InputList {
     @Prop() placeholder!: string;
     /** If the input is disabled. */
     @Prop() disabled?: boolean;
-    /** Text for the add icon button. */
+    /** Text for the add item button. */
     @Prop() additionText: string = 'Add item';
+    /** Icon for the add item button. */
+    @Prop() additionIcon: IconDescription = [ES_FIELDS, 'plus'];
+    /** Icon for the delete button. */
+    @Prop() deleteIcon: IconDescription = [ES_FIELDS, 'trash'];
 
     /** The name of the field. */
     @Prop() name!: string;
@@ -34,7 +40,7 @@ export class InputList {
             value={v}
         >
             <es-button variant={'minimal'} onClick={() => this.data.delete(i)}>
-                <es-icon icon={'trash'} size={20} />
+                <es-icon icon={this.deleteIcon} size={20} />
             </es-button>
         </es-input>
     );
@@ -56,7 +62,11 @@ export class InputList {
                             class={'add_item'}
                         >
                             {this.additionText}
-                            <es-icon icon={'plus'} slot={'after'} size={20} />
+                            <es-icon
+                                icon={this.additionIcon}
+                                slot={'after'}
+                                size={20}
+                            />
                         </es-button>
                     </div>
                 )}

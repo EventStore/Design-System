@@ -7,6 +7,8 @@ import {
     Element,
     VNode,
 } from '@stencil/core';
+import { IconDescription } from '@eventstore/components';
+
 import { ValidationMessages, FieldChangeEvent } from '../../types';
 import { Field } from '../Field/Field';
 import {
@@ -15,13 +17,17 @@ import {
     OptionFilter,
     RenderTypeaheadOption,
 } from '../es-typeahead/types';
+import { ES_FIELDS } from '../../icons/namespace';
 
 export type RenderSelectValue = (
     value: TypeaheadOption | undefined,
     rawValue: string,
 ) => VNode | string;
 
-/** A searchable select dropdown. */
+/**
+ * A searchable select dropdown.
+ * @usage <es-select />
+ */
 @Component({
     tag: 'es-select',
     styleUrl: 'es-select.css',
@@ -56,6 +62,8 @@ export class EsSelect {
     @Prop() invalid?: boolean;
     /** The validation messages of the field */
     @Prop() messages?: ValidationMessages;
+    /** Icon to use as a chevron. */
+    @Prop() chevronIcon: IconDescription = [ES_FIELDS, 'chevron'];
 
     renderPlaceholder = () => (
         <span class={'placeholder'}>{this.placeholder}</span>
@@ -73,7 +81,7 @@ export class EsSelect {
                     ? this.renderValue(this.findOption(this.value), this.value)
                     : this.renderPlaceholder()
                 : null}
-            <es-icon icon={'chevron'} size={14} />
+            <es-icon icon={this.chevronIcon} size={14} />
         </div>
     );
 

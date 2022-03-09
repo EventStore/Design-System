@@ -1,20 +1,41 @@
 {
     "version": "0.1.0-alpha",
+    "namespace": "es-fields",
     "icons": {
-        "es-fields-error": {
-            "name": "es-fields-error",
-            "component": "EsFieldsError",
-            "path": "./components/EsFieldsError.tsx"
+        "check": {
+            "name": "check",
+            "component": "Check",
+            "path": "./components/Check.tsx"
         },
-        "es-fields-info": {
-            "name": "es-fields-info",
-            "component": "EsFieldsInfo",
-            "path": "./components/EsFieldsInfo.tsx"
+        "chevron": {
+            "name": "chevron",
+            "component": "Chevron",
+            "path": "./components/Chevron.tsx"
         },
-        "es-fields-warning": {
-            "name": "es-fields-warning",
-            "component": "EsFieldsWarning",
-            "path": "./components/EsFieldsWarning.tsx"
+        "error": {
+            "name": "error",
+            "component": "Error",
+            "path": "./components/Error.tsx"
+        },
+        "info": {
+            "name": "info",
+            "component": "Info",
+            "path": "./components/Info.tsx"
+        },
+        "plus": {
+            "name": "plus",
+            "component": "Plus",
+            "path": "./components/Plus.tsx"
+        },
+        "trash": {
+            "name": "trash",
+            "component": "Trash",
+            "path": "./components/Trash.tsx"
+        },
+        "warning": {
+            "name": "warning",
+            "component": "Warning",
+            "path": "./components/Warning.tsx"
         }
     }
 }

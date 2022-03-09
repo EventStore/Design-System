@@ -1,3 +1,4 @@
+import { IconDescription } from '@eventstore/components';
 import {
     Component,
     h,
@@ -13,6 +14,7 @@ import {
 
 import { FieldChangeEvent, WorkingDataArray } from '../../types';
 import { RenderTypeaheadField, TypeaheadOption } from '../es-typeahead/types';
+import { ES_FIELDS } from '../../icons/namespace';
 import { Field } from '../Field/Field';
 
 /**
@@ -37,8 +39,12 @@ export class ListCreator {
     @Prop() placeholder!: string;
     /** If the field is disabled. */
     @Prop() disabled?: boolean;
-    /** The current value of the field. */
-    @Prop() icon!: string;
+    /** The icon to display next to the field */
+    @Prop() icon!: IconDescription;
+    /** The icon to display next to the field */
+    @Prop() addIcon: IconDescription = [ES_FIELDS, 'plus'];
+    /** Icon for the delete button. */
+    @Prop() deleteIcon: IconDescription = [ES_FIELDS, 'trash'];
     /** A list of options to choose from. */
     @Prop() options!: TypeaheadOption[];
     /** The name of the field. */
@@ -93,7 +99,7 @@ export class ListCreator {
                         onFieldchange={this.onTypeaheadChange}
                     />
                     <es-button tabIndex={-1}>
-                        <es-icon icon={'plus'} size={20} />
+                        <es-icon icon={this.addIcon} size={20} />
                     </es-button>
                 </Field>
                 {!!this.data.data.length && (
@@ -114,7 +120,7 @@ export class ListCreator {
                                     variant={'minimal'}
                                     onClick={this.onDelete(i)}
                                 >
-                                    <es-icon icon={'trash'} size={20} />
+                                    <es-icon icon={this.deleteIcon} size={20} />
                                 </es-button>
                             </li>
                         ))}

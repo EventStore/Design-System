@@ -1,19 +1,26 @@
 import { iconStore } from '@eventstore/components';
+import { ES_FIELDS } from './namespace';
 
-iconStore.addIcons({
-    get 'es-fields-error'() {
-        return import('./components/EsFieldsError').then(
-            ({ EsFieldsError }) => EsFieldsError,
-        );
+iconStore.addIcons(ES_FIELDS, {
+    get check() {
+        return import('./components/Check').then(({ Check }) => Check);
     },
-    get 'es-fields-info'() {
-        return import('./components/EsFieldsInfo').then(
-            ({ EsFieldsInfo }) => EsFieldsInfo,
-        );
+    get chevron() {
+        return import('./components/Chevron').then(({ Chevron }) => Chevron);
     },
-    get 'es-fields-warning'() {
-        return import('./components/EsFieldsWarning').then(
-            ({ EsFieldsWarning }) => EsFieldsWarning,
-        );
+    get error() {
+        return import('./components/Error').then(({ Error }) => Error);
+    },
+    get info() {
+        return import('./components/Info').then(({ Info }) => Info);
+    },
+    get plus() {
+        return import('./components/Plus').then(({ Plus }) => Plus);
+    },
+    get trash() {
+        return import('./components/Trash').then(({ Trash }) => Trash);
+    },
+    get warning() {
+        return import('./components/Warning').then(({ Warning }) => Warning);
     },
 });

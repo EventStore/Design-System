@@ -40,13 +40,14 @@ export default () => (
 
 ## Properties
 
-| Property             | Attribute  | Description                                  | Type                   | Default     |
-| -------------------- | ---------- | -------------------------------------------- | ---------------------- | ----------- |
-| `disabled`           | `disabled` | If the field is disabled.                    | `boolean \| undefined` | `undefined` |
-| `invalid`            | `invalid`  | If the field is currently in an error state. | `boolean \| undefined` | `undefined` |
-| `name` _(required)_  | `name`     | The name of the field.                       | `string`               | `undefined` |
-| `readonly`           | `readonly` | If the field is editable.                    | `boolean \| undefined` | `undefined` |
-| `value` _(required)_ | `value`    | The current value of the field.              | `boolean`              | `undefined` |
+| Property             | Attribute  | Description                                  | Type                                                    | Default                |
+| -------------------- | ---------- | -------------------------------------------- | ------------------------------------------------------- | ---------------------- |
+| `disabled`           | `disabled` | If the field is disabled.                    | `boolean \| undefined`                                  | `undefined`            |
+| `icon`               | `icon`     | The icon to use.                             | `[namespace: string \| symbol, name: string] \| string` | `[ES_FIELDS, 'check']` |
+| `invalid`            | `invalid`  | If the field is currently in an error state. | `boolean \| undefined`                                  | `undefined`            |
+| `name` _(required)_  | `name`     | The name of the field.                       | `string`                                                | `undefined`            |
+| `readonly`           | `readonly` | If the field is editable.                    | `boolean \| undefined`                                  | `undefined`            |
+| `value` _(required)_ | `value`    | The current value of the field.              | `boolean`                                               | `undefined`            |
 
 
 ## Events

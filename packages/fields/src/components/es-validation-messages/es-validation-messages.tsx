@@ -1,6 +1,9 @@
 import { Component, h, Prop } from '@stencil/core';
 import { theme } from '@eventstore/theme';
+
 import { ValidationMessages } from '../../types';
+import { ES_FIELDS } from '../../icons/namespace';
+import { IconDescription } from '@eventstore/components';
 
 /** Display messages under fields. */
 @Component({
@@ -15,6 +18,13 @@ export class EsValidationMessages {
     /** Display icons alongside messages. */
     @Prop() showIcons: boolean = false;
 
+    /** Icon to diplay next to errors. (if `showIcons` or high contrast) */
+    @Prop() errorIcon: IconDescription = [ES_FIELDS, 'error'];
+    /** Icon to diplay next to warnings. (if `showIcons` or high contrast) */
+    @Prop() warningIcon: IconDescription = [ES_FIELDS, 'warning'];
+    /** Icon to diplay next to infos. (if `showIcons` or high contrast) */
+    @Prop() infoIcon: IconDescription = [ES_FIELDS, 'info'];
+
     render() {
         const { error = [], info = [], warning = [] } = this.messages ?? {};
         if (!error.length && !info.length && !warning.length) return null;
@@ -26,7 +36,7 @@ export class EsValidationMessages {
                 {error.map((message) => (
                     <li class={'error'}>
                         {showIcons && (
-                            <es-icon icon={'es-fields-error'} size={16} />
+                            <es-icon icon={this.errorIcon} size={16} />
                         )}
                         {message}
                     </li>
@@ -34,7 +44,7 @@ export class EsValidationMessages {
                 {warning.map((message) => (
                     <li class={'warning'}>
                         {showIcons && (
-                            <es-icon icon={'es-fields-warning'} size={16} />
+                            <es-icon icon={this.warningIcon} size={16} />
                         )}
                         {message}
                     </li>
@@ -42,7 +52,7 @@ export class EsValidationMessages {
                 {info.map((message) => (
                     <li class={'info'}>
                         {showIcons && (
-                            <es-icon icon={'es-fields-info'} size={16} />
+                            <es-icon icon={this.infoIcon} size={16} />
                         )}
                         {message}
                     </li>

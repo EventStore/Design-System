@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { IconDescription } from "@eventstore/components";
 import { ValidationMessages, WorkingDataArray } from "./types";
 import { MaskOptions } from "./components/es-input/types";
 import { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
@@ -18,6 +19,10 @@ export namespace Components {
           * If the field is disabled.
          */
         "disabled"?: boolean;
+        /**
+          * The icon to use.
+         */
+        "icon": IconDescription;
         /**
           * If the field is currently in an error state.
          */
@@ -79,13 +84,21 @@ export namespace Components {
     }
     interface EsInputList {
         /**
-          * Text for the add icon button.
+          * Icon for the add item button.
+         */
+        "additionIcon": IconDescription;
+        /**
+          * Text for the add item button.
          */
         "additionText": string;
         /**
           * The backing WorkingDataArray
          */
         "data": WorkingDataArray<string>;
+        /**
+          * Icon for the delete button.
+         */
+        "deleteIcon": IconDescription;
         /**
           * If the input is disabled.
          */
@@ -105,17 +118,25 @@ export namespace Components {
     }
     interface EsListCreator {
         /**
+          * The icon to display next to the field
+         */
+        "addIcon": IconDescription;
+        /**
           * The backing WorkingDataArray
          */
         "data": WorkingDataArray<string>;
+        /**
+          * Icon for the delete button.
+         */
+        "deleteIcon": IconDescription;
         /**
           * If the field is disabled.
          */
         "disabled"?: boolean;
         /**
-          * The current value of the field.
+          * The icon to display next to the field
          */
-        "icon": string;
+        "icon": IconDescription;
         /**
           * The label of the field.
          */
@@ -223,6 +244,10 @@ export namespace Components {
          */
         "groupBy"?: string;
         /**
+          * Icon to display when checked.
+         */
+        "icon": IconDescription;
+        /**
           * If the field is currently in an error state.
          */
         "invalid": boolean;
@@ -252,6 +277,10 @@ export namespace Components {
         "value": string | null;
     }
     interface EsSelect {
+        /**
+          * Icon to use as a chevron.
+         */
+        "chevronIcon": IconDescription;
         /**
           * If the field is disabled.
          */
@@ -303,9 +332,25 @@ export namespace Components {
     }
     interface EsSwitch {
         /**
+          * Icon to display when switch is on in high contrast mode.
+         */
+        "activeIcon": IconDescription;
+        /**
+          * Text to display when switch is on in high contrast mode.
+         */
+        "activeText": string;
+        /**
           * If the field is disabled.
          */
         "disabled"?: boolean;
+        /**
+          * Icon to display when switch is off in high contrast mode.
+         */
+        "inactiveIcon": IconDescription;
+        /**
+          * Text to display when switch is off in high contrast mode.
+         */
+        "inactiveText": string;
         /**
           * If the field is currently in an error state.
          */
@@ -322,10 +367,6 @@ export namespace Components {
           * Allows you to pause interaction with the input while an operation completes.
          */
         "setPending": (pending: boolean) => Promise<void>;
-        /**
-          * Text to display in high contrast mode.
-         */
-        "text": { on: string; off: string };
         /**
           * The current value of the field.
          */
@@ -383,6 +424,14 @@ export namespace Components {
     }
     interface EsValidationMessages {
         /**
+          * Icon to diplay next to errors. (if `showIcons` or high contrast)
+         */
+        "errorIcon": IconDescription;
+        /**
+          * Icon to diplay next to infos. (if `showIcons` or high contrast)
+         */
+        "infoIcon": IconDescription;
+        /**
           * The messages to display.
          */
         "messages"?: Partial<ValidationMessages>;
@@ -390,6 +439,10 @@ export namespace Components {
           * Display icons alongside messages.
          */
         "showIcons": boolean;
+        /**
+          * Icon to diplay next to warnings. (if `showIcons` or high contrast)
+         */
+        "warningIcon": IconDescription;
     }
 }
 declare global {
@@ -487,6 +540,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * The icon to use.
+         */
+        "icon"?: IconDescription;
+        /**
           * If the field is currently in an error state.
          */
         "invalid"?: boolean;
@@ -559,13 +616,21 @@ declare namespace LocalJSX {
     }
     interface EsInputList {
         /**
-          * Text for the add icon button.
+          * Icon for the add item button.
+         */
+        "additionIcon"?: IconDescription;
+        /**
+          * Text for the add item button.
          */
         "additionText"?: string;
         /**
           * The backing WorkingDataArray
          */
         "data": WorkingDataArray<string>;
+        /**
+          * Icon for the delete button.
+         */
+        "deleteIcon"?: IconDescription;
         /**
           * If the input is disabled.
          */
@@ -585,17 +650,25 @@ declare namespace LocalJSX {
     }
     interface EsListCreator {
         /**
+          * The icon to display next to the field
+         */
+        "addIcon"?: IconDescription;
+        /**
           * The backing WorkingDataArray
          */
         "data": WorkingDataArray<string>;
+        /**
+          * Icon for the delete button.
+         */
+        "deleteIcon"?: IconDescription;
         /**
           * If the field is disabled.
          */
         "disabled"?: boolean;
         /**
-          * The current value of the field.
+          * The icon to display next to the field
          */
-        "icon": string;
+        "icon": IconDescription;
         /**
           * The label of the field.
          */
@@ -719,6 +792,10 @@ declare namespace LocalJSX {
          */
         "groupBy"?: string;
         /**
+          * Icon to display when checked.
+         */
+        "icon"?: IconDescription;
+        /**
           * If the field is currently in an error state.
          */
         "invalid"?: boolean;
@@ -752,6 +829,10 @@ declare namespace LocalJSX {
         "value": string | null;
     }
     interface EsSelect {
+        /**
+          * Icon to use as a chevron.
+         */
+        "chevronIcon"?: IconDescription;
         /**
           * If the field is disabled.
          */
@@ -807,9 +888,25 @@ declare namespace LocalJSX {
     }
     interface EsSwitch {
         /**
+          * Icon to display when switch is on in high contrast mode.
+         */
+        "activeIcon"?: IconDescription;
+        /**
+          * Text to display when switch is on in high contrast mode.
+         */
+        "activeText"?: string;
+        /**
           * If the field is disabled.
          */
         "disabled"?: boolean;
+        /**
+          * Icon to display when switch is off in high contrast mode.
+         */
+        "inactiveIcon"?: IconDescription;
+        /**
+          * Text to display when switch is off in high contrast mode.
+         */
+        "inactiveText"?: string;
         /**
           * If the field is currently in an error state.
          */
@@ -826,10 +923,6 @@ declare namespace LocalJSX {
           * If the field is editable.
          */
         "readonly"?: boolean;
-        /**
-          * Text to display in high contrast mode.
-         */
-        "text"?: { on: string; off: string };
         /**
           * The current value of the field.
          */
@@ -893,6 +986,14 @@ declare namespace LocalJSX {
     }
     interface EsValidationMessages {
         /**
+          * Icon to diplay next to errors. (if `showIcons` or high contrast)
+         */
+        "errorIcon"?: IconDescription;
+        /**
+          * Icon to diplay next to infos. (if `showIcons` or high contrast)
+         */
+        "infoIcon"?: IconDescription;
+        /**
           * The messages to display.
          */
         "messages"?: Partial<ValidationMessages>;
@@ -900,6 +1001,10 @@ declare namespace LocalJSX {
           * Display icons alongside messages.
          */
         "showIcons"?: boolean;
+        /**
+          * Icon to diplay next to warnings. (if `showIcons` or high contrast)
+         */
+        "warningIcon"?: IconDescription;
     }
     interface IntrinsicElements {
         "es-checkbox": EsCheckbox;

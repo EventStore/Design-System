@@ -1,4 +1,6 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
+import type { IconDescription } from '@eventstore/components';
+import { ES_FIELDS } from '../../icons/namespace';
 
 /** A checkbox component */
 @Component({
@@ -20,6 +22,8 @@ export class EsCheckbox {
     @Prop() readonly?: boolean;
     /** If the field is currently in an error state. */
     @Prop() invalid?: boolean;
+    /** The icon to use. */
+    @Prop() icon: IconDescription = [ES_FIELDS, 'check'];
 
     render() {
         return (
@@ -33,7 +37,7 @@ export class EsCheckbox {
                     readonly={this.readonly}
                     checked={this.value}
                 />
-                <es-icon icon={'check'} class={'checkbox'} size={12} />
+                <es-icon icon={this.icon} class={'checkbox'} size={12} />
                 <span class={'label'}>
                     <slot />
                 </span>
