@@ -6,7 +6,7 @@ import {
     Element,
     forceUpdate,
 } from '@stencil/core';
-import { Toast, ToastLevel, ToastOptions } from '../types';
+import type { Toast, ToastLevel, ToastOptions } from '../types';
 
 /** @internal */
 @Component({

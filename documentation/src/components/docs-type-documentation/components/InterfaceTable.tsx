@@ -1,6 +1,6 @@
 import { h, FunctionalComponent, Fragment } from '@stencil/core';
-import { TableCells } from '@eventstore/components';
-import { JSONOutput } from 'typedoc';
+import type { TableCells } from '@eventstore/components';
+import type { JSONOutput } from 'typedoc';
 
 export const InterfaceTable: FunctionalComponent<{
     declaration: JSONOutput.DeclarationReflection;

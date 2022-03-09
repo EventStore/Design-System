@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
-import { AccordianSection } from '@eventstore/components';
+import type { AccordianSection } from '@eventstore/components';
 
 import { Lib, sitemap } from 'sitemap';
 

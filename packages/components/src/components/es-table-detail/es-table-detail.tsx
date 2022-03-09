@@ -1,5 +1,5 @@
 import { Component, h, Prop, Host } from '@stencil/core';
-import { TableCells, TableCell } from '../es-table/types';
+import type { TableCells, TableCell } from '../es-table/types';
 
 /** Render a single row data as a grid of information. */
 @Component({

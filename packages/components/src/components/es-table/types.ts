@@ -1,4 +1,4 @@
-import { VNode } from '@stencil/core';
+import type { VNode } from '@stencil/core';
 
 /** Props passed to the cell renderer. */
 export interface CellProps<T> {

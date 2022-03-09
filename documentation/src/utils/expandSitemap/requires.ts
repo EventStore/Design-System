@@ -1,6 +1,6 @@
-import { JsonDocs } from '@stencil/core/internal';
+import type { JsonDocs } from '@stencil/core/internal';
 import type { JSONOutput } from 'typedoc';
-import { PackageJson } from '.';
+import type { PackageJson } from '.';
 
 interface RequireContext<T> {
     (path: string): T;

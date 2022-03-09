@@ -8,7 +8,7 @@ import {
     Method,
 } from '@stencil/core';
 import { theme } from '@eventstore/theme';
-import { ToastLevel, Toast } from '../types';
+import type { ToastLevel, Toast } from '../types';
 
 /** @internal */
 @Component({

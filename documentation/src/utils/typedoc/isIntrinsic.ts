@@ -1,4 +1,4 @@
-import { JSONOutput } from 'typedoc';
+import type { JSONOutput } from 'typedoc';
 
 const nameMatch = /([A-Z][A-Za-z]+)/g;
 

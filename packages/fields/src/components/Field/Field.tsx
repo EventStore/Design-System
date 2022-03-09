@@ -1,5 +1,5 @@
 import { h, FunctionalComponent } from '@stencil/core';
-import { ValidationMessages } from '../../types';
+import type { ValidationMessages } from '../../types';
 
 export interface FieldProps {
     /** The label of the field. */

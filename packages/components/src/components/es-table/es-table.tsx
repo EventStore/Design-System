@@ -9,7 +9,7 @@ import {
 } from '@stencil/core';
 import { Link, router } from '@eventstore/router';
 import { theme } from '@eventstore/theme';
-import { TableCell, TableCells } from './types';
+import type { TableCell, TableCells } from './types';
 import { logger } from '../../utils/logger';
 
 /** Create a table from data. */

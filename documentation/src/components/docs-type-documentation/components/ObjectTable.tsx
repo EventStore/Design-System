@@ -1,6 +1,6 @@
-import { TableCells } from '@eventstore/components';
+import type { TableCells } from '@eventstore/components';
 import { h, FunctionalComponent } from '@stencil/core';
-import { JSONOutput } from 'typedoc';
+import type { JSONOutput } from 'typedoc';
 
 export const ObjectTable: FunctionalComponent<{
     declaration: JSONOutput.DeclarationReflection;

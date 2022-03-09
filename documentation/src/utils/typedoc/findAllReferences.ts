@@ -1,5 +1,5 @@
 import type { JSONOutput } from 'typedoc';
-import { TypedocLookup } from 'utils/expandSitemap/createTypedocLookup';
+import type { TypedocLookup } from 'utils/expandSitemap/createTypedocLookup';
 import { isArrayType, isReferenceType, isUnionType } from './someType';
 
 export const findAllReferences = (

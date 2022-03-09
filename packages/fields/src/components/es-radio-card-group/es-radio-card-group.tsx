@@ -8,11 +8,11 @@ import {
     Fragment,
     VNode,
 } from '@stencil/core';
-import { IconDescription } from '@eventstore/components';
+import type { IconDescription } from '@eventstore/components';
 
 import { ES_FIELDS } from '../../icons/namespace';
-import { ValidationMessages } from '../../types';
-import { RadioCardGroupOption } from './types';
+import type { ValidationMessages } from '../../types';
+import type { RadioCardGroupOption } from './types';
 
 export type RenderCard<T extends RadioCardGroupOption> = (
     /** The option to be rendered */

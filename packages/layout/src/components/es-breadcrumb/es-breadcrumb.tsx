@@ -2,7 +2,7 @@ import { Component, h, Host, Prop, Build } from '@stencil/core';
 import { Link, router } from '@eventstore/router';
 import { logger } from '../../utils/logger';
 
-import { Crumb } from './types';
+import type { Crumb } from './types';
 
 /**
  * A list of breadcrumbs to the current page

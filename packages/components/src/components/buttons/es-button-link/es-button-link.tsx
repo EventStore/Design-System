@@ -2,7 +2,7 @@ import { Component, h, Prop, Host } from '@stencil/core';
 import { theme } from '@eventstore/theme';
 import { Link } from '@eventstore/router';
 
-import { ButtonVariant } from '../types';
+import type { ButtonVariant } from '../types';
 
 /**
  * Anchor link version of es-button, wraps a `Link` from `@eventstore/router`.

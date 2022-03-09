@@ -3,7 +3,7 @@ import { delegateFocus, HTTPError } from '@eventstore/utils';
 import { toast } from '@eventstore/components';
 
 import { logger } from '../logger';
-import {
+import type {
     Severity,
     FieldChangeEvent,
     ArrayOptions,

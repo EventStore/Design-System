@@ -1,4 +1,4 @@
-import { JSONOutput } from 'typedoc';
+import type { JSONOutput } from 'typedoc';
 
 export const extractFullText = ({
     comment,

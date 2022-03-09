@@ -1,8 +1,8 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 import iMask, { InputMask } from 'imask';
-import { ValidationMessages } from '../../types';
+import type { ValidationMessages } from '../../types';
 import { Field } from '../Field/Field';
-import { MaskOptions } from './types';
+import type { MaskOptions } from './types';
 
 /** An optionally masked text input. */
 @Component({

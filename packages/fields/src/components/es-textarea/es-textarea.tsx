@@ -1,5 +1,5 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
-import { ValidationMessages } from '../../types';
+import type { ValidationMessages } from '../../types';
 import { Field } from '../Field/Field';
 
 /** A textarea field. */

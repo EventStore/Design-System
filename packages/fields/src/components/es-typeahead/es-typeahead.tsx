@@ -9,7 +9,7 @@ import {
     Watch,
     Host,
 } from '@stencil/core';
-import {
+import type {
     TypeaheadOption,
     OptionFilter,
     RenderTypeaheadField,

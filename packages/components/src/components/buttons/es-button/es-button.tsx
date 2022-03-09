@@ -1,6 +1,6 @@
 import { Component, h, Prop, Element, Listen, Host } from '@stencil/core';
 import { theme } from '@eventstore/theme';
-import { ButtonVariant } from '../types';
+import type { ButtonVariant } from '../types';
 
 /**
  * A button.

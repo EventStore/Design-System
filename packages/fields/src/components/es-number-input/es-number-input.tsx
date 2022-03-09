@@ -1,5 +1,5 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
-import { ValidationMessages } from '../../types';
+import type { ValidationMessages } from '../../types';
 import { Field } from '../Field/Field';
 
 /** A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used. */

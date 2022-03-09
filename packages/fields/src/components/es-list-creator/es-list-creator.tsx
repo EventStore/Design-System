@@ -1,4 +1,4 @@
-import { IconDescription } from '@eventstore/components';
+import type { IconDescription } from '@eventstore/components';
 import {
     Component,
     h,
@@ -12,8 +12,11 @@ import {
     VNode,
 } from '@stencil/core';
 
-import { FieldChangeEvent, WorkingDataArray } from '../../types';
-import { RenderTypeaheadField, TypeaheadOption } from '../es-typeahead/types';
+import type { FieldChangeEvent, WorkingDataArray } from '../../types';
+import type {
+    RenderTypeaheadField,
+    TypeaheadOption,
+} from '../es-typeahead/types';
 import { ES_FIELDS } from '../../icons/namespace';
 import { Field } from '../Field/Field';
 

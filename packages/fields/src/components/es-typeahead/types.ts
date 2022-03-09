@@ -1,4 +1,4 @@
-import { VNode, FunctionalComponent } from '@stencil/core';
+import type { VNode, FunctionalComponent } from '@stencil/core';
 
 /** An option to be selected. */
 export interface TypeaheadOption {

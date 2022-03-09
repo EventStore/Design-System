@@ -1,5 +1,5 @@
-import { FunctionalComponent } from '@stencil/core';
-import { MDXLayoutProps } from '@eventstore/stencil-markdown-plugin';
+import type { FunctionalComponent } from '@stencil/core';
+import type { MDXLayoutProps } from '@eventstore/stencil-markdown-plugin';
 
 export interface SectionDef {
     title: string;
@@ -26,8 +26,9 @@ interface RequireContext<T> {
 }
 
 declare let require: any;
-const requireReadme: RequireContext<FunctionalComponent<MDXLayoutProps>> =
-    require.context('../../../', true, /^((?!node_modules).)*\/readme\.md$/);
+const requireReadme: RequireContext<
+    FunctionalComponent<MDXLayoutProps>
+> = require.context('../../../', true, /^((?!node_modules).)*\/readme\.md$/);
 
 const joinUrls = (...paths: string[]) => {
     const result = [];

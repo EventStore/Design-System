@@ -1,6 +1,6 @@
 import { forceUpdate, getRenderingRef, getElement } from '@stencil/core';
 import { debounce } from '@eventstore/utils';
-import { Subscription } from '../types';
+import type { Subscription } from '../types';
 
 type Element = any;
 

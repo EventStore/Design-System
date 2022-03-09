@@ -1,4 +1,4 @@
-import { JSONOutput } from 'typedoc';
+import type { JSONOutput } from 'typedoc';
 
 // this is taken from typedoc, but importing it breaks the build
 export const enum ReflectionKind {

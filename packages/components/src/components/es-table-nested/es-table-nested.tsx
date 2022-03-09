@@ -7,7 +7,7 @@ import {
     State,
     Fragment,
 } from '@stencil/core';
-import { TableCells } from '../es-table/types';
+import type { TableCells } from '../es-table/types';
 
 /** Create a nested table from data. */
 @Component({

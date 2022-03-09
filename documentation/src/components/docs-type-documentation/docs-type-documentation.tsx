@@ -1,5 +1,5 @@
 import { Component, h, Prop } from '@stencil/core';
-import { JSONOutput } from 'typedoc';
+import type { JSONOutput } from 'typedoc';
 import { DeclarationReflection } from './components/DeclarationReflection';
 
 @Component({

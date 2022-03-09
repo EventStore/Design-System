@@ -1,8 +1,8 @@
 import { Redirect, Route, Switch } from '@eventstore/router';
 import { Component, h, Prop } from '@stencil/core';
 import { Host, Watch } from '@stencil/core/internal';
-import { Lib } from 'sitemap';
-import { JSONOutput } from 'typedoc';
+import type { Lib } from 'sitemap';
+import type { JSONOutput } from 'typedoc';
 import { ReflectionKind } from 'utils/typedoc/reflectionKind';
 import { isFunctionalComponentDeclaration } from 'utils/typedoc/declaration';
 import { Anchor, extractAnchors } from 'utils/extractAnchors';
@@ -164,33 +164,30 @@ export class DocsPackage {
         );
     }
 
-    private extractKinds =
-        (kinds: number[], check: (d: Dec) => boolean = () => true) =>
-        () => {
-            if (!this.lib.typeDocs) return;
-            const { lookup, project } = this.lib.typeDocs;
-            if (!project.groups) return;
+    private extractKinds = (
+        kinds: number[],
+        check: (d: Dec) => boolean = () => true,
+    ) => () => {
+        if (!this.lib.typeDocs) return;
+        const { lookup, project } = this.lib.typeDocs;
+        if (!project.groups) return;
 
-            const modules = project.groups
-                .filter(
-                    (group) => group.kind === (ReflectionKind.Module as number),
-                )
-                .flatMap((group) => group.children ?? [])
-                .flatMap((id) => lookup.get(id)!.groups!);
+        const modules = project.groups
+            .filter((group) => group.kind === (ReflectionKind.Module as number))
+            .flatMap((group) => group.children ?? [])
+            .flatMap((id) => lookup.get(id)!.groups!);
 
-            const names = [...project.groups, ...modules]
-                .filter((group) => kinds.includes(group.kind))
-                .flatMap((group) => group.children ?? [])
-                .map((id) => lookup.get(id)!)
-                .filter((item) => !item.flags.isExternal)
-                .filter(check)
-                .sort((a, b) =>
-                    this.fileName(a).localeCompare(this.fileName(b)),
-                );
+        const names = [...project.groups, ...modules]
+            .filter((group) => kinds.includes(group.kind))
+            .flatMap((group) => group.children ?? [])
+            .map((id) => lookup.get(id)!)
+            .filter((item) => !item.flags.isExternal)
+            .filter(check)
+            .sort((a, b) => this.fileName(a).localeCompare(this.fileName(b)));
 
-            if (!names.length) return;
-            return names;
-        };
+        if (!names.length) return;
+        return names;
+    };
 
     private fileName = ({
         name,

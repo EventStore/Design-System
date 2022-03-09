@@ -7,11 +7,11 @@ import {
     Element,
     VNode,
 } from '@stencil/core';
-import { IconDescription } from '@eventstore/components';
+import type { IconDescription } from '@eventstore/components';
 
-import { ValidationMessages, FieldChangeEvent } from '../../types';
+import type { ValidationMessages, FieldChangeEvent } from '../../types';
 import { Field } from '../Field/Field';
-import {
+import type {
     RenderTypeaheadField,
     TypeaheadOption,
     OptionFilter,

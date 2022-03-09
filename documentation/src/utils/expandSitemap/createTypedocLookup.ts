@@ -1,4 +1,4 @@
-import { JSONOutput } from 'typedoc';
+import type { JSONOutput } from 'typedoc';
 
 export type TypedocLookup = Map<
     number | string,

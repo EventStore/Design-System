@@ -1,5 +1,5 @@
 import md from 'markdown-it';
-import { Settings } from './types';
+import type { Settings } from './types';
 
 export const extractPartsFromMarkdown = (markdown: string): Settings => {
     const settings: Settings = {

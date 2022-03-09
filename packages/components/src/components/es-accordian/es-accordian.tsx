@@ -1,6 +1,6 @@
 import { Component, h, Prop, Host, State, Watch, Listen } from '@stencil/core';
 import { findAssignedSlot } from '@eventstore/utils';
-import { AccordianSection } from './types';
+import type { AccordianSection } from './types';
 
 /**
  * Optionally collapsible sectioned view. Each section can be targeted via a part.

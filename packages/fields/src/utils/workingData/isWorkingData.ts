@@ -1,5 +1,5 @@
 import { wDAKey, wDKey } from '../../symbols';
-import { WorkingData, WorkingDataArray } from '../../types';
+import type { WorkingData, WorkingDataArray } from '../../types';
 
 export const isWorkingData = (d: any): d is WorkingData<any> =>
     d != null && !!d[wDKey];

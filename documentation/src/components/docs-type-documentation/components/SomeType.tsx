@@ -1,5 +1,5 @@
 import { h, FunctionalComponent } from '@stencil/core';
-import { JSONOutput } from 'typedoc';
+import type { JSONOutput } from 'typedoc';
 import { isReflectionType } from 'utils/typedoc/someType';
 import { DeclarationReflection } from './DeclarationReflection';
 

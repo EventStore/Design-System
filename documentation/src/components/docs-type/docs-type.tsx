@@ -1,5 +1,5 @@
 import { Component, h, Fragment, VNode, Prop } from '@stencil/core';
-import { JSONOutput } from 'typedoc';
+import type { JSONOutput } from 'typedoc';
 import {
     isCallSignature,
     isConstructorSignature,

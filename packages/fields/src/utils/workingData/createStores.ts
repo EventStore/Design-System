@@ -1,5 +1,5 @@
 import { createStore, Store } from '@eventstore/stores';
-import {
+import type {
     InternalWorkingDataOptions,
     InternalFieldOptions,
     WorkingDataState,

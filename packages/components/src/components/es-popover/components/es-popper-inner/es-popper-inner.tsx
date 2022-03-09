@@ -1,5 +1,5 @@
 import { Component, h, State, Method, Host } from '@stencil/core';
-import { Position } from '../../../../utils/calcPosition';
+import type { Position } from '../../../../utils/calcPosition';
 
 /** @internal */
 @Component({

@@ -11,8 +11,10 @@
         "target": "es2017",
         "noUnusedLocals": true,
         "noUnusedParameters": true,
+        "importsNotUsedAsValues": "error",
         "jsx": "react",
-        "jsxFactory": "h"
+        "jsxFactory": "h",
+        "jsxFragmentFactory": "Fragment"
     },
     "typedocOptions": {
         "name": "@eventstore/layout",
