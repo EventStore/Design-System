@@ -32,7 +32,8 @@
         "docs:typedoc": "typedoc --json ../../documentation/generated/layout.typedoc.json",
         "test": "stencil test --spec --e2e --passWithNoTests",
         "test.watch": "stencil test --spec --e2e --watchAll",
-        "lint": "yarn g:lint"
+        "lint": "yarn g:lint",
+        "icon": "icon --dir=./src/icons"
     },
     "peerDependencies": {
         "@eventstore/router": "0.1.x",
@@ -41,6 +42,7 @@
     },
     "devDependencies": {
         "@eventstore/configs": "workspace:*",
+        "@eventstore/icon-manager": "workspace:*",
         "@eventstore/router": "workspace:*",
         "@eventstore/theme": "workspace:*",
         "@eventstore/utils": "workspace:*",

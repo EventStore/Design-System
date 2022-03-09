@@ -1,5 +1,8 @@
 import { Component, h, Host, State } from '@stencil/core';
 import { theme } from '@eventstore/theme';
+import type { IconDescription } from '@eventstore/components';
+
+import { ES_LAYOUT } from '../../icons/namespace';
 
 @Component({
     tag: 'es-theme-dropdown',
@@ -37,7 +40,10 @@ export class ThemePicker {
         );
     }
 
-    private activeIcon = () => `${theme.shade}-${theme.contrast}-theme`;
+    private activeIcon = (): IconDescription => [
+        ES_LAYOUT,
+        `${theme.shade}-${theme.contrast}-theme`,
+    ];
 
     private openDropdown = (e: MouseEvent) => {
         e.stopPropagation();

@@ -1,6 +1,7 @@
 import { iconStore } from '@eventstore/components';
+import { ES_LAYOUT } from './namespace';
 
-iconStore.addIcons({
+iconStore.addIcons(ES_LAYOUT, {
     get 'dark-high-theme'() {
         return import('./components/DarkHighTheme').then(
             ({ DarkHighTheme }) => DarkHighTheme,

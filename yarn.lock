@@ -2503,6 +2503,7 @@ __metadata:
   resolution: "@eventstore/layout@workspace:packages/layout"
   dependencies:
     "@eventstore/configs": "workspace:*"
+    "@eventstore/icon-manager": "workspace:*"
     "@eventstore/router": "workspace:*"
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"
