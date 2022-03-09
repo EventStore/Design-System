@@ -3,6 +3,7 @@
 import * as yargs from 'yargs';
 import { addIcon } from './commands/addIcon';
 import { aliasIcon } from './commands/aliasIcon';
+import { setNamespace } from './commands/namespace';
 import { removeIcon } from './commands/removeIcon';
 import { upgrade } from './commands/upgrade';
 import { version } from './utils/version';
@@ -76,6 +77,18 @@ yargs
                 });
         },
         aliasIcon,
+    )
+    .command(
+        'namespace [namespace]',
+        'set the namespace of the icons in the directory',
+        (yargs) => {
+            yargs.positional('namespace', {
+                describe:
+                    'The namespace to set.\nPrefix with @@ to use a symbol.\nOmit to remove namespace',
+                type: 'string',
+            });
+        },
+        setNamespace,
     )
     .command(
         'upgrade',

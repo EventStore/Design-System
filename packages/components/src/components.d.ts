@@ -12,6 +12,7 @@ import { ButtonVariant } from "./components/buttons/types";
 import { EsCalloutVariant } from "./components/es-callout/es-callout";
 import { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
 import { CounterVariant } from "./components/es-counter/es-counter";
+import { IconDescription } from "./components/es-icon/types";
 import { AttachmentX, AttachmentY, Constrain, Position, PositionX, PositionY } from "./utils/calcPosition";
 import { Checkpoint } from "./components/es-progression/es-progression";
 import { Status } from "./components/es-status/es-status";
@@ -193,7 +194,7 @@ export namespace Components {
         /**
           * Which icon to display.
          */
-        "icon": string;
+        "icon": IconDescription;
         /**
           * The hight and width to scale the icon to.
          */
@@ -912,7 +913,7 @@ declare namespace LocalJSX {
         /**
           * Which icon to display.
          */
-        "icon": string;
+        "icon": IconDescription;
         /**
           * The hight and width to scale the icon to.
          */

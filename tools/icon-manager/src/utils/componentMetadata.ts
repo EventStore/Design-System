@@ -1,4 +1,4 @@
-import * as camelCase from 'camelcase';
+import { pascalCase } from 'case-anything';
 
 export interface ComponentMetadata {
     name: string;
@@ -9,6 +9,6 @@ export interface ComponentMetadata {
 
 export const componentMetadata = (name: string): ComponentMetadata => ({
     name,
-    component: camelCase(name, { pascalCase: true }),
-    path: `./components/${camelCase(name, { pascalCase: true })}.tsx`,
+    component: pascalCase(name),
+    path: `./components/${pascalCase(name)}.tsx`,
 });

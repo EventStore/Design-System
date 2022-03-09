@@ -10,12 +10,14 @@ import {
 } from '@stencil/core';
 import { createLogger } from '@eventstore/utils';
 import { iconStore, SVGProps } from '../../utils/iconStore';
+import type { IconDescription } from './types';
 
 const logger = createLogger('es-icon', 'orange');
 
 /**
  * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
  * See [IconStore](/components/variables/iconStore) for details on how to load icons.
+ * @part icon - The internal icon.
  */
 @Component({
     tag: 'es-icon',
@@ -26,7 +28,7 @@ export class Icon {
     @Element() host!: HTMLEsIconElement;
 
     /** Which icon to display. */
-    @Prop() icon!: string;
+    @Prop() icon!: IconDescription;
     /** The hight and width to scale the icon to. */
     @Prop() size: number = 24;
     /** Rotate the icon to a speciied angle. */
@@ -69,6 +71,7 @@ export class Icon {
 
         return (
             <Component
+                part={'icon'}
                 aria-hidden={'true'}
                 focusable={'false'}
                 role={'img'}
@@ -87,16 +90,29 @@ export class Icon {
         );
     }
 
-    private loadIcon = async (name: string) => {
-        if (!iconStore.has(name)) {
+    private parseIconDescription = (
+        description: IconDescription,
+    ): [namespace: string | symbol | undefined, name: string] => {
+        if (typeof description === 'string') {
+            return [undefined, description];
+        }
+        return description;
+    };
+
+    private loadIcon = async (description: IconDescription) => {
+        const [namespace, name] = this.parseIconDescription(description);
+
+        if (!iconStore.has(name, namespace)) {
             logger.log.once(
-                `Unknown icon: '${name}'`,
+                `Unknown icon: '${name}'${
+                    namespace ? ` in namespace ${String(namespace)}` : ''
+                }.`,
                 'Please add it to iconStore.',
             );
             return;
         }
 
-        const component = await iconStore.get(name);
+        const component = await iconStore.get(name, namespace)!;
         this.Component = component(h);
     };
 }

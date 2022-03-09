@@ -32,13 +32,13 @@ export default () =>
 
 ## Properties
 
-| Property            | Attribute        | Description                                               | Type                             | Default       |
-| ------------------- | ---------------- | --------------------------------------------------------- | -------------------------------- | ------------- |
-| `angle`             | `angle`          | Rotate the icon to a speciied angle.                      | `number`                         | `0`           |
-| `icon` _(required)_ | `icon`           | Which icon to display.                                    | `string`                         | `undefined`   |
-| `size`              | `size`           | The hight and width to scale the icon to.                 | `number`                         | `24`          |
-| `spin`              | `spin`           | Apply a spin animation.                                   | `boolean \| undefined`           | `undefined`   |
-| `spinDirection`     | `spin-direction` | When spinning, should it spin clockwise or anticlockwise. | `"antiClockwise" \| "clockwise"` | `'clockwise'` |
+| Property            | Attribute        | Description                                               | Type                                                    | Default       |
+| ------------------- | ---------------- | --------------------------------------------------------- | ------------------------------------------------------- | ------------- |
+| `angle`             | `angle`          | Rotate the icon to a speciied angle.                      | `number`                                                | `0`           |
+| `icon` _(required)_ | `icon`           | Which icon to display.                                    | `[namespace: string \| symbol, name: string] \| string` | `undefined`   |
+| `size`              | `size`           | The hight and width to scale the icon to.                 | `number`                                                | `24`          |
+| `spin`              | `spin`           | Apply a spin animation.                                   | `boolean \| undefined`                                  | `undefined`   |
+| `spinDirection`     | `spin-direction` | When spinning, should it spin clockwise or anticlockwise. | `"antiClockwise" \| "clockwise"`                        | `'clockwise'` |
 
 
 ## Methods
@@ -52,6 +52,13 @@ Provides a promise that resolves at the end of a single spin, if the icon is spi
 Type: `Promise<void>`
 
 
+
+
+## Shadow Parts
+
+| Part     | Description        |
+| -------- | ------------------ |
+| `"icon"` | The internal icon. |
 
 
 ## Dependencies

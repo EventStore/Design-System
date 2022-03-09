@@ -129,6 +129,54 @@ Display help
 icon alias --help
 ```
 
+### Namespace
+
+```shell
+icon namespace [namespace]
+```
+
+Sets or removes the namespace of the icons in the directory.
+Prefix `namespace` with `@@` to use a symbol.
+Omit `namespace` to remove the currently set namespace.
+
+**Positionals**
+
+| Option    | Description           | Required | Type   |
+| --------- | --------------------- | -------- | ------ |
+| namespace | The namespace to set. | no       | string |
+
+**Options**
+
+| Option | Alias | Description                 | Required | Type |
+| ------ | ----- | --------------------------- | -------- | ---- |
+| --dir  | -d    | Where your icons are stored | yes      | path |
+
+**Examples**
+
+Set namespace in `./icons` to the string "myNamespace".
+
+```shell
+icon namespace myNamespace --dir=./icons
+```
+
+Set namespace in `./icons` to a symbol exported as constant MY_NAMESPACE.
+
+```shell
+icon namespace @@myNamespace --dir=./icons
+```
+
+Remove namespace in `./icons`.
+
+```shell
+icon namespace --dir=./icons
+```
+
+Display help
+
+```shell
+icon namespace --help
+```
+
 ### Upgrade
 
 ```shell

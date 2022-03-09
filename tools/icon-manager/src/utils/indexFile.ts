@@ -1,7 +1,8 @@
-import { readFile, writeFile } from 'fs/promises';
+import { readFile, unlink, writeFile } from 'fs/promises';
 import { join } from 'path';
 
 import { gt, SemVer } from 'semver';
+import { constantCase } from 'case-anything';
 
 import { version } from './version';
 import { prettify } from './prettify';
@@ -10,6 +11,11 @@ import type { ComponentMetadata } from './componentMetadata';
 import { fileExists } from './exists';
 
 export type IndexMap = Map<string, ComponentMetadata>;
+export interface IndexFileDetails {
+    destination: string;
+    namespace?: string;
+    indexMap: IndexMap;
+}
 
 interface IconJSONV00 {
     [name: string]: ComponentMetadata;
@@ -17,6 +23,7 @@ interface IconJSONV00 {
 
 interface IconJSONV01 {
     version: string;
+    namespace?: string;
     icons: {
         [name: string]: ComponentMetadata;
     };
@@ -81,41 +88,104 @@ export const readIndex = async (
     destination: string,
     force: boolean = false,
 ): Promise<IndexMap> => {
+    const details = await readIndexFileDetails(destination, force);
+    return details.indexMap;
+};
+
+export const readIndexFileDetails = async (
+    destination: string,
+    force: boolean = false,
+): Promise<IndexFileDetails> => {
     const indexPath = join(destination, 'icons.json');
     const exists = await fileExists(indexPath);
 
     if (exists) {
         const file = await readFile(indexPath, 'utf-8');
         const content = JSON.parse(file);
-        return indexToMap(content, force);
+
+        return {
+            destination,
+            indexMap: indexToMap(content, force),
+            namespace: content.namespace,
+        };
     }
 
-    return new Map();
+    return {
+        destination,
+        indexMap: new Map(),
+    };
 };
 
-const writeIndex = async (destination: string, indexMap: IndexMap) => {
+export const readNamespace = async (
+    destination: string,
+): Promise<string | undefined> => {
+    const indexPath = join(destination, 'icons.json');
+    const exists = await fileExists(indexPath);
+
+    if (exists) {
+        const file = await readFile(indexPath, 'utf-8');
+        const content = JSON.parse(file);
+        return content.namespace;
+    }
+
+    return;
+};
+
+const writeIndex = async ({
+    destination,
+    namespace,
+    indexMap,
+}: IndexFileDetails) => {
     const indexFile: CurrentIndexFile = {
         version,
+        namespace,
         icons: Array.from(indexMap)
             .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
             .reduce((acc, [name, info]) => ({ ...acc, [name]: info }), {}),
     };
+
     const indexPath = join(destination, 'icons.json');
     const index = JSON.stringify(indexFile);
     const prettyIndex = await prettify(index, indexPath);
     return writeFile(indexPath, prettyIndex);
 };
 
-const writeLoader = async (destination: string, indexMap: IndexMap) => {
+const createNamespace = async ({
+    destination,
+    namespace,
+}: IndexFileDetails): Promise<string | undefined> => {
+    const namespacePath = join(destination, 'namespace.ts');
+    if (await fileExists(namespacePath)) {
+        await unlink(namespacePath);
+    }
+
+    if (!namespace) return undefined;
+
+    const isSymbol = namespace.startsWith('@@');
+    const name = namespace.replace(/^@@/, '');
+    const variableName = constantCase(name);
+    const namespaceFile = `export const ${variableName} = ${
+        isSymbol ? `Symbol('${name}');` : `'${name}'`
+    }`;
+    const prettyNamespaceFile = await prettify(namespaceFile, namespacePath);
+
+    await writeFile(namespacePath, prettyNamespaceFile);
+
+    return variableName;
+};
+
+const writeLoader = async (options: IndexFileDetails) => {
+    const namespaceOptions = await createNamespace(options);
+    const { destination, indexMap } = options;
     const loaderPath = join(destination, 'index.ts');
-    const loader = convertToLoader(indexMap);
+    const loader = convertToLoader(indexMap, namespaceOptions);
     const prettyLoader = await prettify(loader, loaderPath);
     return writeFile(loaderPath, prettyLoader);
 };
 
-const updateIndex = async (destination: string, indexMap: IndexMap) => {
-    await writeIndex(destination, indexMap);
-    await writeLoader(destination, indexMap);
+export const updateIndex = async (options: IndexFileDetails) => {
+    await writeIndex(options);
+    await writeLoader(options);
 };
 
 type ExistDetails = [exists: boolean, aliasOf?: string];
@@ -141,9 +211,9 @@ export const addToIndex = async (
     destination: string,
     component: ComponentMetadata,
 ) => {
-    const indexFile = await readIndex(destination);
-    indexFile.set(component.name, component);
-    return updateIndex(destination, indexFile);
+    const indexFile = await readIndexFileDetails(destination);
+    indexFile.indexMap.set(component.name, component);
+    return updateIndex(indexFile);
 };
 
 export const addAliasToIndex = async (
@@ -151,17 +221,17 @@ export const addAliasToIndex = async (
     name: string,
     alias: string,
 ) => {
-    const indexFile = await readIndex(destination);
+    const { indexMap, ...indexFile } = await readIndexFileDetails(destination);
 
-    if (!indexFile.has(name)) {
+    if (!indexMap.has(name)) {
         throw `Unable to alias ${name} as ${alias}, because no icon named ${name} exists`;
     }
 
-    if (indexFile.has(alias)) {
+    if (indexMap.has(alias)) {
         throw `Unable to alias ${name} as ${alias}, because ${alias} is an existing icon`;
     }
 
-    const existing = Array.from(indexFile.values()).find(({ aliases }) =>
+    const existing = Array.from(indexMap.values()).find(({ aliases }) =>
         aliases?.includes(alias),
     );
 
@@ -169,14 +239,17 @@ export const addAliasToIndex = async (
         throw `Unable to alias ${name} as ${alias}, because ${alias} already exists as an alias of ${existing.name}`;
     }
 
-    const component = indexFile.get(name)!;
+    const component = indexMap.get(name)!;
 
-    indexFile.set(name, {
+    indexMap.set(name, {
         ...component,
         aliases: [...(component.aliases ?? []), alias].sort(),
     });
 
-    return updateIndex(destination, indexFile);
+    return updateIndex({
+        indexMap,
+        ...indexFile,
+    });
 };
 
 export const removeAliasFromIndex = async (
@@ -184,37 +257,40 @@ export const removeAliasFromIndex = async (
     name: string,
     alias: string,
 ) => {
-    const indexFile = await readIndex(destination);
+    const { indexMap, ...indexFile } = await readIndexFileDetails(destination);
 
-    if (!indexFile.has(name)) {
+    if (!indexMap.has(name)) {
         throw `Unable to remove alias ${alias} from ${name}, as no icon named ${name} exists`;
     }
 
-    const { aliases: prior, ...component } = indexFile.get(name)!;
+    const { aliases: prior, ...component } = indexMap.get(name)!;
     const aliases = prior?.filter((a) => a !== alias);
 
     if (aliases?.length) {
-        indexFile.set(name, {
+        indexMap.set(name, {
             ...component,
             aliases,
         });
     } else {
-        indexFile.set(name, component);
+        indexMap.set(name, component);
     }
 
-    return updateIndex(destination, indexFile);
+    return updateIndex({
+        indexMap,
+        ...indexFile,
+    });
 };
 
 export const removeFromIndex = async (
     destination: string,
     component: ComponentMetadata,
 ) => {
-    const indexFile = await readIndex(destination);
-    indexFile.delete(component.name);
-    return updateIndex(destination, indexFile);
+    const indexFile = await readIndexFileDetails(destination);
+    indexFile.indexMap.delete(component.name);
+    return updateIndex(indexFile);
 };
 
 export const regenerateIndex = async (destination: string) => {
-    const indexFile = await readIndex(destination, true);
-    return updateIndex(destination, indexFile);
+    const indexFile = await readIndexFileDetails(destination, true);
+    return updateIndex(indexFile);
 };
