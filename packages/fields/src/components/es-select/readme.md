@@ -84,10 +84,10 @@ export default () => (
 
 ## Shadow Parts
 
-| Part           | Description |
-| -------------- | ----------- |
-| `"input"`      |             |
-| `"true_input"` |             |
+| Part           | Description                    |
+| -------------- | ------------------------------ |
+| `"input"`      | The wrapping div of the input. |
+| `"true_input"` | The input element.             |
 
 
 ## Dependencies

@@ -25,6 +25,7 @@ export const packageConfig = ({
               {
                   type: 'docs-readme',
                   footer: '',
+                  strict: true,
               },
           ],
     devServer: {

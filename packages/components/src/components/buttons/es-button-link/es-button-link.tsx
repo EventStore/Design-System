@@ -8,6 +8,8 @@ import type { ButtonVariant } from '../types';
  * Anchor link version of es-button, wraps a `Link` from `@eventstore/router`.
  * @slot before - Placed before the main content with correct padding.
  * @slot after -  Placed after the main content with correct padding.
+ * @part link - The internal a element.
+ * @part inner - The inner span, wrapping the default slot.
  */
 @Component({
     tag: 'es-button-link',

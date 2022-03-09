@@ -64,10 +64,10 @@ export default () =>
 
 ## Shadow Parts
 
-| Part       | Description |
-| ---------- | ----------- |
-| `"button"` |             |
-| `"inner"`  |             |
+| Part       | Description                                |
+| ---------- | ------------------------------------------ |
+| `"button"` | The internal button element.               |
+| `"inner"`  | The inner span, wrapping the default slot. |
 
 
 ## CSS Custom Properties

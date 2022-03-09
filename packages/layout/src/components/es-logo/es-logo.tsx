@@ -3,6 +3,8 @@ import { theme } from '@eventstore/theme';
 
 /**
  * The Event Store logo.
+ * @part ouroboros - The g element wrapping the ouroboros logo mark.
+ * @part text - the g element wrapping the Event Store text.
  */
 @Component({
     tag: 'es-logo',

@@ -135,9 +135,9 @@ const sections = [
 
 ## Shadow Parts
 
-| Part            | Description |
-| --------------- | ----------- |
-| `"group-title"` |             |
+| Part            | Description                |
+| --------------- | -------------------------- |
+| `"group-title"` | The title of a card group. |
 
 
 ## Dependencies

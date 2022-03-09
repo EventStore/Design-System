@@ -26,7 +26,8 @@ export type RenderSelectValue = (
 
 /**
  * A searchable select dropdown.
- * @usage <es-select />
+ * @part input - The wrapping div of the input.
+ * @part true_input - The input element.
  */
 @Component({
     tag: 'es-select',

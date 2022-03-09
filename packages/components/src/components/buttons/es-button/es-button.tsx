@@ -6,6 +6,8 @@ import type { ButtonVariant } from '../types';
  * A button.
  * @slot before - Placed before the main content with correct padding.
  * @slot after - Placed after the main content with correct padding.
+ * @part button - The internal button element.
+ * @part inner - The inner span, wrapping the default slot.
  */
 @Component({
     tag: 'es-button',

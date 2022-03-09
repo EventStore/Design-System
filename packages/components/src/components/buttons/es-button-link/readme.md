@@ -91,10 +91,10 @@ export default () =>
 
 ## Shadow Parts
 
-| Part      | Description |
-| --------- | ----------- |
-| `"inner"` |             |
-| `"link"`  |             |
+| Part      | Description                                |
+| --------- | ------------------------------------------ |
+| `"inner"` | The inner span, wrapping the default slot. |
+| `"link"`  | The internal a element.                    |
 
 
 ## CSS Custom Properties

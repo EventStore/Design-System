@@ -21,7 +21,10 @@ export type RenderCard<T extends RadioCardGroupOption> = (
     active: boolean,
 ) => VNode | VNode[];
 
-/** A card based single select input. */
+/**
+ * A card based single select input.
+ * @part group-title - The title of a card group.
+ */
 @Component({
     tag: 'es-radio-card-group',
     styleUrl: 'es-radio-card-group.css',

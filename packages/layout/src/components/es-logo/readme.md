@@ -34,10 +34,10 @@ export default () => <es-logo />;
 
 ## Shadow Parts
 
-| Part          | Description |
-| ------------- | ----------- |
-| `"ouroboros"` |             |
-| `"text"`      |             |
+| Part          | Description                                     |
+| ------------- | ----------------------------------------------- |
+| `"ouroboros"` | The g element wrapping the ouroboros logo mark. |
+| `"text"`      | the g element wrapping the Event Store text.    |
 
 
 ----------------------------------------------
