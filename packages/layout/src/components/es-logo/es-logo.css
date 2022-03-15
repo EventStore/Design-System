@@ -3,15 +3,15 @@
 }
 
 [part='ouroboros'] {
-    fill: var(--color-header-alt);
+    fill: var(--color-layout-highlight);
 }
 
 [part='text'] {
-    fill: var(--color-header-contrast);
+    fill: var(--color-layout-contrast);
 }
 
 :host([high-contrast]) {
     & [part='ouroboros'] {
-        fill: var(--color-header-contrast);
+        fill: var(--color-layout-contrast);
     }
 }

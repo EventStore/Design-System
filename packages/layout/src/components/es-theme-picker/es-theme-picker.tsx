@@ -30,7 +30,7 @@ export class ThemePicker {
                         <rect
                             width="331"
                             height="24"
-                            fill={theme.scheme.header}
+                            fill={theme.scheme.primary}
                         />
                         <line
                             x1="68.5"

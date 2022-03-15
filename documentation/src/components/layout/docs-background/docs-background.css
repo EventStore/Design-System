@@ -5,14 +5,14 @@
     right: 0;
     bottom: 0;
     z-index: -1;
-    background-color: var(--color-header);
+    background-color: var(--color-layout-base);
     display: flex;
     justify-content: center;
     overflow: hidden;
 }
 
 svg {
-    background-color: var(--color-header);
+    background-color: var(--color-layout-base);
     overflow: visible;
     max-width: 100%;
     width: var(--layout-max-width);
@@ -25,15 +25,15 @@ svg {
 }
 
 .circle_1 {
-    fill: var(--color-header-contrast);
+    fill: var(--color-layout-contrast);
     opacity: 0.2;
 }
 
 .circle_2 {
-    fill: var(--color-header-alt);
+    fill: var(--color-layout-highlight);
 }
 
 .circle_3 {
-    fill: var(--color-header-contrast);
+    fill: var(--color-layout-contrast);
     opacity: 0.2;
 }

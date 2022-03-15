@@ -71,10 +71,6 @@ export const theme: ThemeDefinition = {
         shade_60: colors.white,
 
         // special
-        header: colors.navy,
-        header_alt: colors.navy,
-        header_contrast: colors.white,
-
         overlay: colors.navy,
         overlay_alpha: 0.9,
 

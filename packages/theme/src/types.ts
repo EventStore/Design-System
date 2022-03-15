@@ -77,10 +77,6 @@ export interface BaseScheme {
     shade_60: Color;
 
     // special
-    header: Color;
-    header_alt: Color;
-    header_contrast: Color;
-
     overlay: Color;
     overlay_alpha: number;
 
