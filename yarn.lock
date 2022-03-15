@@ -2599,6 +2599,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@eventstore/typedoc-plugin-usage@workspace:tools/typedoc-plugin-usage":
+  version: 0.0.0-use.local
+  resolution: "@eventstore/typedoc-plugin-usage@workspace:tools/typedoc-plugin-usage"
+  dependencies:
+    "@types/node": ^16.11.9
+    typedoc: ^0.21.4
+    typescript: 4.2.3
+  peerDependencies:
+    typedoc: ">=0.21.0"
+  languageName: unknown
+  linkType: soft
+
 "@eventstore/utils@workspace:*, @eventstore/utils@workspace:packages/utils":
   version: 0.0.0-use.local
   resolution: "@eventstore/utils@workspace:packages/utils"
@@ -12649,18 +12661,6 @@ __metadata:
   checksum: 4c19a0fecdf24777bd153c6ae4a4f2b23c95521a83483cdbee89aaeef985d7e37f2665b37d55f809ef36d0eb4433a921209dc45a1055791d81464bffeea77dfd
   languageName: node
   linkType: hard
-
-"typedoc-plugin-usage@workspace:tools/typedoc-plugin-usage":
-  version: 0.0.0-use.local
-  resolution: "typedoc-plugin-usage@workspace:tools/typedoc-plugin-usage"
-  dependencies:
-    "@types/node": ^16.11.9
-    typedoc: ^0.21.4
-    typescript: 4.2.3
-  peerDependencies:
-    typedoc: ">=0.21.0"
-  languageName: unknown
-  linkType: soft
 
 "typedoc@npm:0.21.5":
   version: 0.21.5

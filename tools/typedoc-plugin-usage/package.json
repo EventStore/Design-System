@@ -1,10 +1,9 @@
 {
-    "name": "typedoc-plugin-usage",
+    "name": "@eventstore/typedoc-plugin-usage",
     "version": "0.1.0-alpha",
     "description": "Typedoc plugin that resolves @usage paths to content.",
     "license": "Apache-2.0",
     "main": "dist/index.js",
-    "private": true,
     "files": [
         "dist"
     ],
