@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Crumb } from "./components/es-breadcrumb/types";
+import { LoadingBarStatus } from "./components/es-loading-bar/types";
 import { NavNode, NavTree } from "./components/es-nav/types";
 export namespace Components {
     interface DevRoot {
@@ -20,7 +21,23 @@ export namespace Components {
          */
         "noValidate": boolean;
     }
+    interface EsErrorState {
+        /**
+          * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore/utils` the details title and description will be shown.
+         */
+        "error": Error;
+    }
     interface EsHeader {
+    }
+    interface EsLoadingBar {
+        /**
+          * The bar's name, for use in `setProgress`
+         */
+        "name": string;
+        /**
+          * Set (and animate to) a progress.
+         */
+        "progress": (completion: number, status?: LoadingBarStatus) => Promise<void>;
     }
     interface EsLogo {
         /**
@@ -71,11 +88,23 @@ declare global {
         prototype: HTMLEsBreadcrumbElement;
         new (): HTMLEsBreadcrumbElement;
     };
+    interface HTMLEsErrorStateElement extends Components.EsErrorState, HTMLStencilElement {
+    }
+    var HTMLEsErrorStateElement: {
+        prototype: HTMLEsErrorStateElement;
+        new (): HTMLEsErrorStateElement;
+    };
     interface HTMLEsHeaderElement extends Components.EsHeader, HTMLStencilElement {
     }
     var HTMLEsHeaderElement: {
         prototype: HTMLEsHeaderElement;
         new (): HTMLEsHeaderElement;
+    };
+    interface HTMLEsLoadingBarElement extends Components.EsLoadingBar, HTMLStencilElement {
+    }
+    var HTMLEsLoadingBarElement: {
+        prototype: HTMLEsLoadingBarElement;
+        new (): HTMLEsLoadingBarElement;
     };
     interface HTMLEsLogoElement extends Components.EsLogo, HTMLStencilElement {
     }
@@ -128,7 +157,9 @@ declare global {
     interface HTMLElementTagNameMap {
         "dev-root": HTMLDevRootElement;
         "es-breadcrumb": HTMLEsBreadcrumbElement;
+        "es-error-state": HTMLEsErrorStateElement;
         "es-header": HTMLEsHeaderElement;
+        "es-loading-bar": HTMLEsLoadingBarElement;
         "es-logo": HTMLEsLogoElement;
         "es-nav": HTMLEsNavElement;
         "es-nav-node-0": HTMLEsNavNode0Element;
@@ -152,7 +183,19 @@ declare namespace LocalJSX {
          */
         "noValidate"?: boolean;
     }
+    interface EsErrorState {
+        /**
+          * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore/utils` the details title and description will be shown.
+         */
+        "error": Error;
+    }
     interface EsHeader {
+    }
+    interface EsLoadingBar {
+        /**
+          * The bar's name, for use in `setProgress`
+         */
+        "name": string;
     }
     interface EsLogo {
         /**
@@ -192,7 +235,9 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "dev-root": DevRoot;
         "es-breadcrumb": EsBreadcrumb;
+        "es-error-state": EsErrorState;
         "es-header": EsHeader;
+        "es-loading-bar": EsLoadingBar;
         "es-logo": EsLogo;
         "es-nav": EsNav;
         "es-nav-node-0": EsNavNode0;
@@ -209,7 +254,9 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "dev-root": LocalJSX.DevRoot & JSXBase.HTMLAttributes<HTMLDevRootElement>;
             "es-breadcrumb": LocalJSX.EsBreadcrumb & JSXBase.HTMLAttributes<HTMLEsBreadcrumbElement>;
+            "es-error-state": LocalJSX.EsErrorState & JSXBase.HTMLAttributes<HTMLEsErrorStateElement>;
             "es-header": LocalJSX.EsHeader & JSXBase.HTMLAttributes<HTMLEsHeaderElement>;
+            "es-loading-bar": LocalJSX.EsLoadingBar & JSXBase.HTMLAttributes<HTMLEsLoadingBarElement>;
             "es-logo": LocalJSX.EsLogo & JSXBase.HTMLAttributes<HTMLEsLogoElement>;
             "es-nav": LocalJSX.EsNav & JSXBase.HTMLAttributes<HTMLEsNavElement>;
             "es-nav-node-0": LocalJSX.EsNavNode0 & JSXBase.HTMLAttributes<HTMLEsNavNode0Element>;

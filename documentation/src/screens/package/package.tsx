@@ -108,58 +108,49 @@ export class DocsPackage {
                         </docs-sidebar-link>
                     ))}
                 </docs-sidebar>
-                <main>
-                    <Switch>
+                <Switch>
+                    <Route exact url={`/${this.lib.slug}`}>
+                        <docs-readme lib={this.lib} />
+                    </Route>
+                    {this.lib.stencilDocs?.components.map((doc) => (
                         <Route
                             exact
-                            url={`/${this.lib.slug}`}
-                            routeRender={() => (
-                                <docs-markdown md={this.lib.readme} />
-                            )}
-                        />
-                        {this.lib.stencilDocs?.components.map((doc) => (
-                            <Route
-                                exact
-                                url={`/${this.lib.slug}/components/${doc.tag}`}
-                            >
-                                <docs-component-docs
-                                    lib={this.lib}
-                                    comp={doc}
-                                />
-                            </Route>
-                        ))}
-                        {this.functionalComponents?.map((doc) => (
-                            <Route
-                                exact
-                                url={`/${this.lib.slug}/functional-components/${doc.name}`}
-                            >
-                                <docs-functional-component-docs
-                                    lib={this.lib}
-                                    doc={doc}
-                                />
-                            </Route>
-                        ))}
-                        {this.utils?.map((doc) => (
-                            <Route
-                                exact
-                                url={`/${this.lib.slug}/utils/${doc.name}`}
-                            >
-                                <docs-util-docs lib={this.lib} doc={doc} />
-                            </Route>
-                        ))}
-                        {this.types?.map((doc) => (
-                            <Route
-                                exact
-                                url={`/${this.lib.slug}/types/${doc.name}`}
-                            >
-                                <docs-type-docs lib={this.lib} doc={doc} />
-                            </Route>
-                        ))}
-                        <Route>
-                            <Redirect url={`/${this.lib.slug}`} />
+                            url={`/${this.lib.slug}/components/${doc.tag}`}
+                        >
+                            <docs-component-docs lib={this.lib} comp={doc} />
                         </Route>
-                    </Switch>
-                </main>
+                    ))}
+                    {this.functionalComponents?.map((doc) => (
+                        <Route
+                            exact
+                            url={`/${this.lib.slug}/functional-components/${doc.name}`}
+                        >
+                            <docs-functional-component-docs
+                                lib={this.lib}
+                                doc={doc}
+                            />
+                        </Route>
+                    ))}
+                    {this.utils?.map((doc) => (
+                        <Route
+                            exact
+                            url={`/${this.lib.slug}/utils/${doc.name}`}
+                        >
+                            <docs-util-docs lib={this.lib} doc={doc} />
+                        </Route>
+                    ))}
+                    {this.types?.map((doc) => (
+                        <Route
+                            exact
+                            url={`/${this.lib.slug}/types/${doc.name}`}
+                        >
+                            <docs-type-docs lib={this.lib} doc={doc} />
+                        </Route>
+                    ))}
+                    <Route>
+                        <Redirect url={`/${this.lib.slug}`} />
+                    </Route>
+                </Switch>
             </Host>
         );
     }

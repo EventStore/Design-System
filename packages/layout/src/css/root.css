@@ -1,0 +1,45 @@
+:root {
+    --layout-max-width: 1680px;
+    --layout-content-max-width: 1430px;
+    --layout-header-base-height: 70px;
+    --layout-header-under-height: 0px;
+    --layout-header-height: calc(
+        var(--layout-header-base-height) + var(--layout-header-under-height)
+    );
+    --layout-banner-height: 0px;
+    --layout-body-top: calc(
+        var(--layout-header-height) + var(--layout-banner-height)
+    );
+    --layout-sidebar-width: 0px;
+    --layout-panel-height: 0px;
+
+    --font-family-sans: 'MuseoSans', Arial, sans-serif;
+    --font-sans: 500 16px var(--font-family-sans);
+    --font-family-monospace: 'Source Code Pro', monospace;
+    --font-monospace: 400 16px var(--font-family-monospace);
+}
+
+body {
+    font: var(--font-sans);
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
+    width: 100%;
+    max-width: var(--layout-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns:
+        var(--layout-sidebar-width)
+        auto;
+    grid-template-rows:
+        var(--layout-header-height)
+        var(--layout-banner-height)
+        auto
+        var(--layout-panel-height);
+    grid-template-areas:
+        'header header'
+        'banner banner'
+        'sidebar body'
+        'sidebar panel';
+}

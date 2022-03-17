@@ -43,6 +43,19 @@ export default () => (
 | `noValidate` | `no-validate` | Do not warn if the crumbs do not match the current router location. (Only warns in dev mode) | `boolean` | `false` |
 
 
+## Dependencies
+
+### Used by
+
+ - dev-root
+
+### Graph
+```mermaid
+graph TD;
+  dev-root --> es-breadcrumb
+  style es-breadcrumb fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 

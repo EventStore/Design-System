@@ -1,12 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-
 :host {
     display: contents;
-}
-
-main {
-    padding: 20px;
-    grid-area: body;
 }

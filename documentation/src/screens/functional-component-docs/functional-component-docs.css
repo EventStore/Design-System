@@ -1,26 +1,7 @@
-* {
-    box-sizing: border-box;
-}
+@import url('~@eventstore/layout/css/page.css');
 
-:host {
-    display: contents;
-}
-
-header {
-    display: flex;
-    align-items: center;
-
-    & es-icon {
-        margin-left: auto;
-    }
-}
-
-h1 {
-    font: var(--font-monospace);
-    color: var(--color-title-1);
-    font-size: 36px;
-    font-weight: 100;
-    margin: 0px;
+es-page-title {
+    font-family: var(--font-family-monospace);
 
     &::before,
     &::after {
@@ -36,6 +17,7 @@ h1 {
     }
 }
 
-.intro {
-    margin: 20px 0;
+.intro,
+.body {
+    margin-bottom: 20px;
 }

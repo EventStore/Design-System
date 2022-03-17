@@ -1,11 +1,13 @@
-import { router } from '@eventstore/router';
 import { Component, h, Host } from '@stencil/core';
+
+import { router } from '@eventstore/router';
+import { Page } from '../Page/Page';
 
 /** @internal */
 @Component({
     tag: 'dev-root',
     styleUrl: 'dev-root.css',
-    shadow: false,
+    shadow: true,
 })
 export class DevRoot {
     componentWillLoad() {
@@ -19,6 +21,10 @@ export class DevRoot {
                     <es-nav navTree={this.navTree} slot={'under'} />
                     <es-theme-dropdown slot={'right'} />
                 </es-header>
+                <es-loading-bar name={'page'} />
+                <Page pageTitle={'Test'} state={new Error('Oh no!')}>
+                    <div>{'hello'}</div>
+                </Page>
             </Host>
         );
     }

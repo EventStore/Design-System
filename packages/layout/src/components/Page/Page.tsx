@@ -1,0 +1,138 @@
+import {
+    h,
+    FunctionalComponent,
+    getRenderingRef,
+    getElement,
+    Fragment,
+} from '@stencil/core';
+import { PageTitle } from '@eventstore/router';
+import { setProgress } from '../es-loading-bar/utils/setProgress';
+
+export type PageState = 'loading' | 'ready' | Error;
+
+export interface ErrorStateProps {
+    error: Error;
+}
+
+export interface PageProps {
+    /** Sets the title of the document. */
+    pageTitle: string;
+    /** Displays breadcrumbs via `<es-breadcrumb />` */
+    crumbs?: HTMLEsBreadcrumbElement['crumbs'];
+    /**
+     * The current state of the page, used to decide what to render.
+     * When the state of a page changes, a `pageStateChange` event is fired.
+     */
+    state?: PageState;
+    /** Enables you to display a splash screen if the page has no content to display. */
+    empty?: boolean;
+    /** Empty state renderer. Used if `empty` is `true`, and `state` is "ready". */
+    renderEmptyState?: FunctionalComponent;
+    /** Error state renderer. Used if `state` is an Error. */
+    renderErrorState?: FunctionalComponent<ErrorStateProps>;
+    /** Loading state renderer. Used if `state` is an "loading". */
+    renderLoadingState?: FunctionalComponent;
+    /** Title for the header. Defaults to the passed `pageTitle`. Can be set to `false` to disable. */
+    headerTitle?: string | false;
+    /** Render to the right of the page header. */
+    headerRight?: FunctionalComponent;
+    /** Which progress bar to control via the page state. Defaults to "page". */
+    progressBarId?: string;
+}
+
+const previousStates = new Map<string, PageState>();
+
+const updateLoadingBar = (progressBarId: string, state: PageState) => {
+    switch (state) {
+        case 'loading':
+            setProgress(progressBarId)(0);
+            setProgress(progressBarId)(80);
+            break;
+        case 'ready':
+            setProgress(progressBarId)(100);
+            break;
+        default:
+            setProgress(progressBarId)(100, 'error');
+            break;
+    }
+};
+
+const updateElementState = (state: PageState) => {
+    const ref = getRenderingRef();
+    const element = getElement(ref);
+
+    if (!element) return;
+
+    element.dataset.state = typeof state === 'string' ? state : 'error';
+    element.dispatchEvent(
+        new CustomEvent('pageStateChange', {
+            detail: state,
+            bubbles: true,
+            cancelable: true,
+        }),
+    );
+};
+
+const updateState = (progressBarId: string, state: PageState) => {
+    const previousState = previousStates.get(progressBarId);
+    if (state === previousState) return;
+    updateLoadingBar(progressBarId, state);
+    updateElementState(state);
+    previousStates.set(progressBarId, state);
+};
+
+const BasicErrorState: FunctionalComponent<ErrorStateProps> = ({ error }) => (
+    <es-error-state error={error} />
+);
+
+const PageBody: FunctionalComponent<PageProps> = (
+    {
+        state = 'ready',
+        empty = false,
+        renderEmptyState: EmptyState = Fragment,
+        renderLoadingState: LoadingState = Fragment,
+        renderErrorState: ErrorState = BasicErrorState,
+        pageTitle,
+        headerTitle = pageTitle,
+        headerRight: HeaderRight,
+        progressBarId = 'page',
+    },
+    children,
+) => {
+    updateState(progressBarId, state);
+    if (state === 'loading') return <LoadingState />;
+    if (state instanceof Error) return <ErrorState error={state} />;
+    if (empty) return <EmptyState />;
+    return (
+        <>
+            {(!!headerTitle || !!HeaderRight) && (
+                <header>
+                    {!!headerTitle && (
+                        <es-page-title>{headerTitle}</es-page-title>
+                    )}
+                    {HeaderRight && (
+                        <div class={'header_right'}>
+                            <HeaderRight />
+                        </div>
+                    )}
+                </header>
+            )}
+            {children}
+        </>
+    );
+};
+
+/**
+ * Create a standard page.
+ * Add `@import url('~@eventstore/layout/css/page.css')` to the containing web component for styles.
+ * @usage ./Page.usage.md
+ */
+export const Page: FunctionalComponent<PageProps> = (props, children) => (
+    <>
+        <PageTitle>{props.pageTitle}</PageTitle>
+        <main ref={(ref) => ((document as any).main = ref)}>
+            {props.crumbs && <es-breadcrumb crumbs={props.crumbs} />}
+            <PageBody {...props}>{children}</PageBody>
+        </main>
+    </>
+);

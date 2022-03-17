@@ -1,3 +1,4 @@
+import { sidebarWidth } from '@eventstore/layout';
 import { Component, h } from '@stencil/core';
 
 @Component({
@@ -6,6 +7,14 @@ import { Component, h } from '@stencil/core';
     shadow: true,
 })
 export class Sidebar {
+    componentWillLoad() {
+        sidebarWidth.set(290);
+    }
+
+    disconnectedCallback() {
+        sidebarWidth.reset();
+    }
+
     render() {
         return (
             <aside>

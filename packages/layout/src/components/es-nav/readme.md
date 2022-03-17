@@ -189,6 +189,17 @@ export default () => (
 );
 ```
 
+```css
+preview-usage-location {
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid var(--color-shade-40);
+    border-radius: 0;
+    left: 0;
+    right: 0;
+}
+```
+
 
 
 ## Properties

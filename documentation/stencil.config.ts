@@ -16,6 +16,8 @@ const imports = [
     ['@eventstore/components', 'collection'],
     ['@eventstore/fields', 'collection'],
     ['@eventstore/editor', 'collection'],
+    ['@eventstore/layout', 'collection'],
+    ['@eventstore/theme'],
     ['@eventstore/router'],
     ['@eventstore/utils'],
     ['@eventstore/stores'],

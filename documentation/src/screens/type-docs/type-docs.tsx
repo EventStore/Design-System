@@ -1,5 +1,7 @@
-import { Component, h, Prop, Host, Watch } from '@stencil/core';
+import { Component, h, Prop, Watch } from '@stencil/core';
 import type { JSONOutput } from 'typedoc';
+
+import { Page } from '@eventstore/layout';
 
 import type { Lib } from 'sitemap';
 import { findAllReferences } from 'utils/typedoc/findAllReferences';
@@ -27,21 +29,17 @@ export class TypeDocs {
 
     render() {
         return (
-            <Host>
-                <es-breadcrumb
-                    crumbs={[
-                        this.lib.crumb,
-                        { name: 'Types', path: './types' },
-                        {
-                            name: this.doc.name,
-                            path: `./${this.doc.name}`,
-                        },
-                    ]}
-                />
-                <header>
-                    <h1>{this.doc.name}</h1>
-                </header>
-
+            <Page
+                pageTitle={this.doc.name}
+                crumbs={[
+                    this.lib.crumb,
+                    { name: 'Types', path: './types' },
+                    {
+                        name: this.doc.name,
+                        path: `./${this.doc.name}`,
+                    },
+                ]}
+            >
                 <docs-markdown class={'intro'} md={extractAbstract(this.doc)} />
 
                 {Object.entries(extractUsage(this.doc)).map(
@@ -70,7 +68,7 @@ export class TypeDocs {
                         <docs-type-documentation declaration={doc} />
                     </div>
                 ))}
-            </Host>
+            </Page>
         );
     }
 }

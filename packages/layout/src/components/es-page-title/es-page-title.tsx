@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Host } from '@stencil/core';
 
 /**
  * Standard page title
@@ -11,9 +11,9 @@ import { Component, h } from '@stencil/core';
 export class PageTitle {
     render() {
         return (
-            <h1 role="heading" aria-level="1">
+            <Host role={'heading'} aria-level={'1'}>
                 <slot />
-            </h1>
+            </Host>
         );
     }
 }

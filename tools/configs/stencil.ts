@@ -1,26 +1,35 @@
 import { Config } from '@stencil/core';
 import { parseFlags } from '@stencil/core/cli';
+import { CopyTask } from '@stencil/core/internal';
 import { postcss } from '@stencil/postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 
 export const flags = parseFlags(process.argv.slice(2));
 
+interface PackageConfig extends Partial<Config> {
+    namespace: string;
+    copy?: CopyTask[];
+}
+
 export const packageConfig = ({
     devServer = {},
     plugins = [],
+    copy,
     ...config
-}: Partial<Config>): Config => ({
+}: PackageConfig): Config => ({
     taskQueue: 'async',
     outputTargets: flags.dev
         ? [
               {
                   type: 'www',
+                  copy,
               },
           ]
         : [
               {
                   type: 'dist',
                   esmLoaderPath: './loader',
+                  copy,
               },
               {
                   type: 'docs-readme',

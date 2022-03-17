@@ -1,0 +1,33 @@
+:host {
+    height: 3px;
+    width: 100%;
+    top: var(--layout-header-height);
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 20000;
+}
+
+div {
+    background-color: var(--color-info);
+    height: 100%;
+    width: 0%;
+    opacity: 0;
+    position: absolute;
+    transition-property: opacity;
+    transition-duration: 0ms;
+    transition-timing-function: ease;
+
+    &.success {
+        background-color: var(--color-success);
+    }
+    &.info {
+        background-color: var(--color-info);
+    }
+    &.warning {
+        background-color: var(--color-warning);
+    }
+    &.error {
+        background-color: var(--color-error);
+    }
+}

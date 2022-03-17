@@ -1,6 +1,8 @@
-import { Component, h, Prop, Host } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 import type { JsonDocs } from '@stencil/core/internal';
 import type { JSONOutput } from 'typedoc';
+
+import { Page } from '@eventstore/layout';
 
 import type { Lib } from 'sitemap';
 import { extractTypes } from 'utils/typedoc/isIntrinsic';
@@ -19,19 +21,17 @@ export class ComponentDocs {
         const relatedTypes = this.findRelatedTypes();
 
         return (
-            <Host>
-                <es-breadcrumb
-                    crumbs={[
-                        this.lib.crumb,
-                        { name: 'Components', path: './components' },
-                        {
-                            name: tag,
-                            path: `./${tag}`,
-                        },
-                    ]}
-                />
-                <header>
-                    <h1>{tag}</h1>
+            <Page
+                pageTitle={tag}
+                crumbs={[
+                    this.lib.crumb,
+                    { name: 'Components', path: './components' },
+                    {
+                        name: tag,
+                        path: `./${tag}`,
+                    },
+                ]}
+                headerRight={() => (
                     <es-icon
                         size={45}
                         icon={encapsulation === 'shadow' ? 'shadow' : 'light'}
@@ -41,7 +41,8 @@ export class ComponentDocs {
                                 : 'Light DOM'
                         }
                     />
-                </header>
+                )}
+            >
                 <docs-markdown class={'intro'} md={this.comp.docs} />
 
                 {Object.entries(this.comp.usage).map(([name, usage]) => (
@@ -78,7 +79,7 @@ export class ComponentDocs {
 
                 <docs-styles-table id={'css'} styles={this.comp.styles} />
                 <docs-parts-table id={'parts'} parts={this.comp.parts} />
-            </Host>
+            </Page>
         );
     }
 

@@ -35,4 +35,12 @@ In your `globalScript` file, add an import:
 import '@eventstore/layout';
 ```
 
-Then you can use the element anywhere in your JSX, html, templates etc.
+Then you can use the elements anywhere in your JSX, html, templates etc.
+
+In your `globalStyle` file, add an import:
+
+```css
+@import url('~@eventstore/layout/css/root.css');
+```
+
+This sets up the base styles and css vars needed for layout components.

@@ -1,9 +1,7 @@
 import { Link } from '@eventstore/router';
 import { theme } from '@eventstore/theme';
 import { Component, h, Host, State } from '@stencil/core';
-
-const UNDER_HEIGHT = '--layout-header-under-height';
-
+import { headerUnderHeight } from '../../utils/LayoutVar';
 /**
  * A site header for applications.
  * @slot left - The left of the header. By default shows an eventstore logo, linking to '/'.
@@ -25,7 +23,7 @@ export class Header {
     @State() under: boolean = false;
 
     disconnectedCallback() {
-        document.documentElement.style.removeProperty(UNDER_HEIGHT);
+        headerUnderHeight.reset();
     }
 
     render() {
@@ -66,11 +64,7 @@ export class Header {
                 return total + element.clientHeight;
             }, 0);
 
-        document.documentElement.style.setProperty(
-            UNDER_HEIGHT,
-            `${totalHeight}px`,
-        );
-
+        headerUnderHeight.set(totalHeight);
         this.under = totalHeight !== 0;
     };
 }

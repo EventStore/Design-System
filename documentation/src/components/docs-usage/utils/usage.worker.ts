@@ -34,6 +34,8 @@ const resolveLookup = new Map<string, string>([
     ['@eventstore/components', '/modules/@eventstore/components/index.js'],
     ['@eventstore/fields', '/modules/@eventstore/fields/index.js'],
     ['@eventstore/editor', '/modules/@eventstore/editor/index.js'],
+    ['@eventstore/layout', '/modules/@eventstore/layout/index.js'],
+    ['@eventstore/theme', '/modules/@eventstore/theme/index.js'],
     ['@eventstore/router', '/modules/@eventstore/router/index.js'],
     ['@eventstore/utils', '/modules/@eventstore/utils/index.mjs'],
     ['@eventstore/stores', '/modules/@eventstore/stores/index.mjs'],

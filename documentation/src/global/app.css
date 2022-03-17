@@ -1,21 +1,4 @@
-:root {
-    --layout-max-width: 1680px;
-    --layout-content-max-width: 980px;
-    --layout-header-base-height: 70px;
-    --layout-header-under-height: 0px;
-    --layout-header-height: calc(
-        var(--layout-header-base-height) + var(--layout-header-under-height)
-    );
-    --layout-banner-height: 0px;
-    --layout-body-top: calc(
-        var(--layout-header-height) + var(--layout-banner-height)
-    );
-    --layout-sidebar-width: 290px;
-    --layout-footer-height: 90px;
-
-    --font-sans: 500 16px 'MuseoSans', Arial, sans-serif;
-    --font-monospace: 400 16px 'Source Code Pro', monospace;
-}
+@import url('~@eventstore/layout/css/root.css');
 
 @font-face {
     font-family: 'MuseoSans';
@@ -78,15 +61,6 @@
         url('/assets/fonts/SourceCodePro_500-webfont.woff') format('woff');
     font-weight: 500;
     font-style: normal;
-}
-
-body {
-    font-family: 'MuseoSans', Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
 }
 
 .monaco-aria-container {

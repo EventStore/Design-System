@@ -1,26 +1,9 @@
-:root {
-    --layout-max-width: 1680px;
-    --layout-content-max-width: 1430px;
-    --layout-header-base-height: 70px;
-    --layout-header-under-height: 0px;
-    --layout-header-height: calc(
-        var(--layout-header-base-height) + var(--layout-header-under-height)
-    );
-    --layout-banner-height: 0px;
-    --layout-body-top: calc(
-        var(--layout-header-height) + var(--layout-banner-height)
-    );
-    --layout-sidebar-width: 250px;
-    --layout-panel-height: 0;
-
-    --font-sans: 500 16px 'MuseoSans', Arial, sans-serif;
-    --font-monospace: 400 16px 'Source Code Pro', monospace;
-}
+@import url('./css/root.css');
 
 @font-face {
     font-family: 'MuseoSans';
     src: url('/assets/fonts/MuseoSans_100-webfont.woff2') format('woff2'),
-        url('/assets/fonts//MuseoSans_100-webfont.woff') format('woff');
+        url('/assets/fonts/MuseoSans_100-webfont.woff') format('woff');
     font-weight: 100;
     font-style: normal;
 }
@@ -73,13 +56,4 @@
         url('/assets/fonts/SourceCodePro_500-webfont.woff') format('woff');
     font-weight: 500;
     font-style: normal;
-}
-
-body {
-    font-family: 'MuseoSans', Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0px;
-    padding: 0px;
-    overflow: hidden;
 }

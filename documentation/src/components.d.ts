@@ -40,6 +40,9 @@ export namespace Components {
     interface DocsPropsTable {
         "props": JsonDocsProp[];
     }
+    interface DocsReadme {
+        "lib": Lib;
+    }
     interface DocsRoot {
     }
     interface DocsSidebar {
@@ -147,6 +150,12 @@ declare global {
         prototype: HTMLDocsPropsTableElement;
         new (): HTMLDocsPropsTableElement;
     };
+    interface HTMLDocsReadmeElement extends Components.DocsReadme, HTMLStencilElement {
+    }
+    var HTMLDocsReadmeElement: {
+        prototype: HTMLDocsReadmeElement;
+        new (): HTMLDocsReadmeElement;
+    };
     interface HTMLDocsRootElement extends Components.DocsRoot, HTMLStencilElement {
     }
     var HTMLDocsRootElement: {
@@ -230,6 +239,7 @@ declare global {
         "docs-package": HTMLDocsPackageElement;
         "docs-parts-table": HTMLDocsPartsTableElement;
         "docs-props-table": HTMLDocsPropsTableElement;
+        "docs-readme": HTMLDocsReadmeElement;
         "docs-root": HTMLDocsRootElement;
         "docs-sidebar": HTMLDocsSidebarElement;
         "docs-sidebar-dropdown": HTMLDocsSidebarDropdownElement;
@@ -274,6 +284,9 @@ declare namespace LocalJSX {
     }
     interface DocsPropsTable {
         "props": JsonDocsProp[];
+    }
+    interface DocsReadme {
+        "lib": Lib;
     }
     interface DocsRoot {
     }
@@ -331,6 +344,7 @@ declare namespace LocalJSX {
         "docs-package": DocsPackage;
         "docs-parts-table": DocsPartsTable;
         "docs-props-table": DocsPropsTable;
+        "docs-readme": DocsReadme;
         "docs-root": DocsRoot;
         "docs-sidebar": DocsSidebar;
         "docs-sidebar-dropdown": DocsSidebarDropdown;
@@ -359,6 +373,7 @@ declare module "@stencil/core" {
             "docs-package": LocalJSX.DocsPackage & JSXBase.HTMLAttributes<HTMLDocsPackageElement>;
             "docs-parts-table": LocalJSX.DocsPartsTable & JSXBase.HTMLAttributes<HTMLDocsPartsTableElement>;
             "docs-props-table": LocalJSX.DocsPropsTable & JSXBase.HTMLAttributes<HTMLDocsPropsTableElement>;
+            "docs-readme": LocalJSX.DocsReadme & JSXBase.HTMLAttributes<HTMLDocsReadmeElement>;
             "docs-root": LocalJSX.DocsRoot & JSXBase.HTMLAttributes<HTMLDocsRootElement>;
             "docs-sidebar": LocalJSX.DocsSidebar & JSXBase.HTMLAttributes<HTMLDocsSidebarElement>;
             "docs-sidebar-dropdown": LocalJSX.DocsSidebarDropdown & JSXBase.HTMLAttributes<HTMLDocsSidebarDropdownElement>;

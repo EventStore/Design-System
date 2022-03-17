@@ -3,7 +3,7 @@ import { postcss } from '@stencil/postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 
 export const config: Config = {
-    globalStyle: '../src/global/app.css',
+    globalStyle: './src/preview.css',
     globalScript: './src/main.ts',
     taskQueue: 'async',
     outputTargets: [

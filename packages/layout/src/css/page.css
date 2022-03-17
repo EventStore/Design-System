@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+:host {
+    display: contents;
+}
+
+:host::after {
+    content: '';
+    grid-area: panel;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    grid-row-start: body;
+    grid-row-end: body;
+    grid-column-start: body;
+    grid-column-end: body;
+    margin: 0 auto;
+    width: 100%;
+    max-width: var(--layout-content-max-width);
+    height: 100%;
+    padding: 30px 40px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+}
+
+.header_right {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.header_right > * {
+    margin-left: 10px;
+}
