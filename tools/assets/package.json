@@ -1,0 +1,25 @@
+{
+    "name": "@eventstore/assets",
+    "version": "0.1.0-alpha",
+    "description": "Assets for use with the Event Store Design System",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "echo \"Nothing to do\"",
+        "test": "echo \"Nothing to test\"",
+        "lint": "echo \"Nothing to lint\""
+    },
+    "files": [
+        "assets/",
+        "font-face.css",
+        "index.ts"
+    ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:EventStore/Design-System.git",
+        "directory": "tools/assets"
+    }
+}

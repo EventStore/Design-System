@@ -2349,6 +2349,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eventstore/assets@workspace:*, @eventstore/assets@workspace:tools/assets":
+  version: 0.0.0-use.local
+  resolution: "@eventstore/assets@workspace:tools/assets"
+  languageName: unknown
+  linkType: soft
+
 "@eventstore/components@workspace:*, @eventstore/components@workspace:packages/components":
   version: 0.0.0-use.local
   resolution: "@eventstore/components@workspace:packages/components"
@@ -2374,6 +2380,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eventstore/configs@workspace:tools/configs"
   dependencies:
+    "@eventstore/assets": "workspace:*"
     "@stencil/core": ^2.11.0
     "@stencil/postcss": ^2.1.0
     "@typescript-eslint/eslint-plugin": ^5.6.0
@@ -2394,6 +2401,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eventstore/docs@workspace:documentation"
   dependencies:
+    "@eventstore/assets": "workspace:*"
     "@eventstore/components": "workspace:*"
     "@eventstore/configs": "workspace:*"
     "@eventstore/editor": "workspace:*"

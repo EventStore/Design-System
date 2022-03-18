@@ -14,7 +14,8 @@
     },
     "files": [
         "eslint.js",
-        "prettier.js"
+        "prettier.js",
+        "stencil.ts"
     ],
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/",
@@ -26,6 +27,7 @@
         "directory": "tools/configs"
     },
     "dependencies": {
+        "@eventstore/assets": "workspace:*",
         "@stencil/postcss": "^2.1.0",
         "postcss-preset-env": "6.7.0"
     },

@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core';
 import { postcss } from '@stencil/postcss';
+import { assetsPath } from '@eventstore/assets';
 import postcssPresetEnv from 'postcss-preset-env';
 import nodePolyfills from 'rollup-plugin-node-polyfills';
 import requireContext from 'rollup-plugin-require-context';
@@ -49,6 +50,10 @@ export const config: Config = {
                 {
                     src: workerPath,
                     dest: 'workers',
+                },
+                {
+                    src: assetsPath,
+                    dest: 'assets',
                 },
             ],
         },
