@@ -4,6 +4,8 @@ import { CopyTask } from '@stencil/core/internal';
 import { postcss } from '@stencil/postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 
+import { assetsPath } from '@eventstore/assets';
+
 export const flags = parseFlags(process.argv.slice(2));
 
 interface PackageConfig extends Partial<Config> {
@@ -22,7 +24,13 @@ export const packageConfig = ({
         ? [
               {
                   type: 'www',
-                  copy,
+                  copy: [
+                      {
+                          src: assetsPath,
+                          dest: 'assets',
+                      },
+                      ...(copy ?? []),
+                  ],
               },
           ]
         : [
