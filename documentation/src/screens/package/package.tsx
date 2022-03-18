@@ -43,71 +43,71 @@ export class DocsPackage {
     render() {
         return (
             <Host>
-                <docs-sidebar>
-                    <docs-sidebar-section sectionTitle={'Package'}>
+                <es-sidebar>
+                    <es-sidebar-section sectionTitle={'Package'}>
                         <docs-sidebar-dropdown active={this.lib} />
-                    </docs-sidebar-section>
+                    </es-sidebar-section>
                     {this.lib.stencilDocs && (
-                        <docs-sidebar-section sectionTitle={'Components'}>
+                        <es-sidebar-section sectionTitle={'Components'}>
                             {this.lib.stencilDocs.components.map(({ tag }) => (
-                                <docs-sidebar-link
+                                <es-sidebar-link
                                     key={tag}
                                     url={`/${this.lib.slug}/components/${tag}`}
                                 >
                                     {tag}
-                                </docs-sidebar-link>
+                                </es-sidebar-link>
                             ))}
-                        </docs-sidebar-section>
+                        </es-sidebar-section>
                     )}
                     {this.functionalComponents && (
-                        <docs-sidebar-section
+                        <es-sidebar-section
                             sectionTitle={'Functional Components'}
                         >
                             {this.functionalComponents.map(({ name }) => (
-                                <docs-sidebar-link
+                                <es-sidebar-link
                                     key={name}
                                     url={`/${this.lib.slug}/functional-components/${name}`}
                                 >
                                     {name}
-                                </docs-sidebar-link>
+                                </es-sidebar-link>
                             ))}
-                        </docs-sidebar-section>
+                        </es-sidebar-section>
                     )}
                     {this.utils && (
-                        <docs-sidebar-section sectionTitle={'Utils'}>
+                        <es-sidebar-section sectionTitle={'Utils'}>
                             {this.utils.map(({ name }) => (
-                                <docs-sidebar-link
+                                <es-sidebar-link
                                     key={name}
                                     url={`/${this.lib.slug}/utils/${name}`}
                                 >
                                     {name}
-                                </docs-sidebar-link>
+                                </es-sidebar-link>
                             ))}
-                        </docs-sidebar-section>
+                        </es-sidebar-section>
                     )}
                     {this.types && (
-                        <docs-sidebar-section sectionTitle={'Types'}>
+                        <es-sidebar-section sectionTitle={'Types'}>
                             {this.types.map(({ name }) => (
-                                <docs-sidebar-link
+                                <es-sidebar-link
                                     key={name}
                                     url={`/${this.lib.slug}/types/${name}`}
                                 >
                                     {name}
-                                </docs-sidebar-link>
+                                </es-sidebar-link>
                             ))}
-                        </docs-sidebar-section>
+                        </es-sidebar-section>
                     )}
 
                     {this.anchors?.map(({ id, name, level }) => (
-                        <docs-sidebar-link
-                            level={level}
+                        <es-sidebar-link
+                            level={level - 1}
                             key={id}
                             url={`#${id}`}
                         >
                             {name}
-                        </docs-sidebar-link>
+                        </es-sidebar-link>
                     ))}
-                </docs-sidebar>
+                </es-sidebar>
                 <Switch>
                     <Route exact url={`/${this.lib.slug}`}>
                         <docs-readme lib={this.lib} />

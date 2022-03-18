@@ -12,15 +12,17 @@
     right: 0;
     z-index: 1000;
     background-color: var(--color-layout-base);
-    box-sizing: content-box;
+    box-sizing: border-box;
+    border-top: 4px solid var(--color-layout-base);
+    border-bottom: 4px solid var(--color-layout-base);
 }
 
 :host([dark]:not(.has_under):not([high-contrast])) {
-    border-bottom: 2px solid var(--color-layout-shade-20);
+    border-bottom-color: var(--color-layout-shade-20);
 }
 
-:host([high-contrast]) {
-    border-bottom: 2px solid var(--color-layout-shade-70);
+:host([dark][high-contrast]) {
+    border-bottom-color: var(--color-layout-shade-70);
 }
 
 header {

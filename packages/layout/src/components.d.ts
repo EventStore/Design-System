@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Crumb } from "./components/es-breadcrumb/types";
 import { LoadingBarStatus } from "./components/es-loading-bar/types";
 import { NavNode, NavTree } from "./components/es-nav/types";
+import { IconDescription } from "@eventstore/components";
 export namespace Components {
     interface DevRoot {
     }
@@ -69,6 +70,40 @@ export namespace Components {
         "node": NavNode;
     }
     interface EsPageTitle {
+    }
+    interface EsSidebar {
+    }
+    interface EsSidebarLink {
+        /**
+          * Display a dot on the icon, to attract attention to the link.
+         */
+        "alertLevel"?: HTMLEsBadgeElement['color'];
+        /**
+          * If the link should be disabled.
+         */
+        "disabled": boolean;
+        /**
+          * Display an icon on the left.
+         */
+        "icon"?: IconDescription;
+        /**
+          * Apply an indent to the left of the link, for basic nesting.
+         */
+        "level"?: number;
+        /**
+          * Where to link to.
+         */
+        "url"?: string;
+        /**
+          * When to display as active. Uses the `url` by default.
+         */
+        "urlMatch"?: string;
+    }
+    interface EsSidebarSection {
+        /**
+          * Optionally renders a title
+         */
+        "sectionTitle"?: string;
     }
     interface EsThemeDropdown {
     }
@@ -142,6 +177,24 @@ declare global {
         prototype: HTMLEsPageTitleElement;
         new (): HTMLEsPageTitleElement;
     };
+    interface HTMLEsSidebarElement extends Components.EsSidebar, HTMLStencilElement {
+    }
+    var HTMLEsSidebarElement: {
+        prototype: HTMLEsSidebarElement;
+        new (): HTMLEsSidebarElement;
+    };
+    interface HTMLEsSidebarLinkElement extends Components.EsSidebarLink, HTMLStencilElement {
+    }
+    var HTMLEsSidebarLinkElement: {
+        prototype: HTMLEsSidebarLinkElement;
+        new (): HTMLEsSidebarLinkElement;
+    };
+    interface HTMLEsSidebarSectionElement extends Components.EsSidebarSection, HTMLStencilElement {
+    }
+    var HTMLEsSidebarSectionElement: {
+        prototype: HTMLEsSidebarSectionElement;
+        new (): HTMLEsSidebarSectionElement;
+    };
     interface HTMLEsThemeDropdownElement extends Components.EsThemeDropdown, HTMLStencilElement {
     }
     var HTMLEsThemeDropdownElement: {
@@ -166,6 +219,9 @@ declare global {
         "es-nav-node-1": HTMLEsNavNode1Element;
         "es-nav-node-2": HTMLEsNavNode2Element;
         "es-page-title": HTMLEsPageTitleElement;
+        "es-sidebar": HTMLEsSidebarElement;
+        "es-sidebar-link": HTMLEsSidebarLinkElement;
+        "es-sidebar-section": HTMLEsSidebarSectionElement;
         "es-theme-dropdown": HTMLEsThemeDropdownElement;
         "es-theme-picker": HTMLEsThemePickerElement;
     }
@@ -228,6 +284,40 @@ declare namespace LocalJSX {
     }
     interface EsPageTitle {
     }
+    interface EsSidebar {
+    }
+    interface EsSidebarLink {
+        /**
+          * Display a dot on the icon, to attract attention to the link.
+         */
+        "alertLevel"?: HTMLEsBadgeElement['color'];
+        /**
+          * If the link should be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Display an icon on the left.
+         */
+        "icon"?: IconDescription;
+        /**
+          * Apply an indent to the left of the link, for basic nesting.
+         */
+        "level"?: number;
+        /**
+          * Where to link to.
+         */
+        "url"?: string;
+        /**
+          * When to display as active. Uses the `url` by default.
+         */
+        "urlMatch"?: string;
+    }
+    interface EsSidebarSection {
+        /**
+          * Optionally renders a title
+         */
+        "sectionTitle"?: string;
+    }
     interface EsThemeDropdown {
     }
     interface EsThemePicker {
@@ -244,6 +334,9 @@ declare namespace LocalJSX {
         "es-nav-node-1": EsNavNode1;
         "es-nav-node-2": EsNavNode2;
         "es-page-title": EsPageTitle;
+        "es-sidebar": EsSidebar;
+        "es-sidebar-link": EsSidebarLink;
+        "es-sidebar-section": EsSidebarSection;
         "es-theme-dropdown": EsThemeDropdown;
         "es-theme-picker": EsThemePicker;
     }
@@ -263,6 +356,9 @@ declare module "@stencil/core" {
             "es-nav-node-1": LocalJSX.EsNavNode1 & JSXBase.HTMLAttributes<HTMLEsNavNode1Element>;
             "es-nav-node-2": LocalJSX.EsNavNode2 & JSXBase.HTMLAttributes<HTMLEsNavNode2Element>;
             "es-page-title": LocalJSX.EsPageTitle & JSXBase.HTMLAttributes<HTMLEsPageTitleElement>;
+            "es-sidebar": LocalJSX.EsSidebar & JSXBase.HTMLAttributes<HTMLEsSidebarElement>;
+            "es-sidebar-link": LocalJSX.EsSidebarLink & JSXBase.HTMLAttributes<HTMLEsSidebarLinkElement>;
+            "es-sidebar-section": LocalJSX.EsSidebarSection & JSXBase.HTMLAttributes<HTMLEsSidebarSectionElement>;
             "es-theme-dropdown": LocalJSX.EsThemeDropdown & JSXBase.HTMLAttributes<HTMLEsThemeDropdownElement>;
             "es-theme-picker": LocalJSX.EsThemePicker & JSXBase.HTMLAttributes<HTMLEsThemePickerElement>;
         }

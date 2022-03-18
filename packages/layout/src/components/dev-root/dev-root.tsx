@@ -1,7 +1,8 @@
 import { Component, h, Host } from '@stencil/core';
 
-import { router } from '@eventstore/router';
+import { Route, router, Switch } from '@eventstore/router';
 import { Page } from '../Page/Page';
+import { ES_LAYOUT } from '../../icons/namespace';
 
 /** @internal */
 @Component({
@@ -18,13 +19,47 @@ export class DevRoot {
         return (
             <Host>
                 <es-header>
-                    <es-nav navTree={this.navTree} slot={'under'} />
+                    <es-nav navTree={this.navTree} slot={'right'} />
                     <es-theme-dropdown slot={'right'} />
                 </es-header>
                 <es-loading-bar name={'page'} />
-                <Page pageTitle={'Test'} state={new Error('Oh no!')}>
-                    <div>{'hello'}</div>
-                </Page>
+
+                <Switch>
+                    <Route exact url={'/'}>
+                        <es-sidebar>
+                            <es-sidebar-section sectionTitle={'My Section'}>
+                                <es-sidebar-link
+                                    url={'/'}
+                                    icon={[ES_LAYOUT, 'dark-high-theme']}
+                                >
+                                    {'Hello!'}
+                                </es-sidebar-link>
+                                <es-sidebar-link
+                                    url={'./somewhere'}
+                                    icon={[ES_LAYOUT, 'dark-high-theme']}
+                                >
+                                    {'Go somewhere'}
+                                </es-sidebar-link>
+                            </es-sidebar-section>
+                        </es-sidebar>
+                        <Page pageTitle={'Home'}>
+                            <div>{'hello'}</div>
+                        </Page>
+                    </Route>
+                    <Route url={'/error'}>
+                        <Page
+                            pageTitle={'Error Test'}
+                            state={new Error('Oh no!')}
+                        >
+                            <div>{'hello'}</div>
+                        </Page>
+                    </Route>
+                    <Route>
+                        <Page pageTitle={'404'}>
+                            <div>{'404'}</div>
+                        </Page>
+                    </Route>
+                </Switch>
             </Host>
         );
     }
@@ -35,8 +70,8 @@ export class DevRoot {
             title: 'Level 0b',
             children: [
                 {
-                    title: 'Level 1a',
-                    url: '/sometasdasdwhing',
+                    title: 'Error Test',
+                    url: '/error',
                 },
                 {
                     title: 'Level 1b',
