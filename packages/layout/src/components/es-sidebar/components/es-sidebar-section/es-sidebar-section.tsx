@@ -1,17 +1,21 @@
 import { Component, h, Prop } from '@stencil/core';
 
+/**
+ * A sidebar section with an optional title
+ */
 @Component({
-    tag: 'docs-sidebar-section',
-    styleUrl: 'docs-sidebar-section.css',
+    tag: 'es-sidebar-section',
+    styleUrl: 'es-sidebar-section.css',
     shadow: true,
 })
 export class SidebarSection {
-    @Prop() sectionTitle!: string;
+    /** Optionally renders a title */
+    @Prop() sectionTitle?: string;
 
     render() {
         return (
             <section>
-                <h1>{this.sectionTitle}</h1>
+                {!!this.sectionTitle && <h1>{this.sectionTitle}</h1>}
                 <nav>
                     <slot />
                 </nav>

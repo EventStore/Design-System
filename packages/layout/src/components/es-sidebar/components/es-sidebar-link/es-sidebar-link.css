@@ -4,20 +4,20 @@
     --blob-size: 40px;
 }
 
-:host([variant='small']) {
-    --blob-size: 18px;
-}
-
-:host([level='3']) a {
+:host([level='2']) a {
     padding-left: calc(var(--blob-size) * 1.5);
 }
 
-:host([level='4']) a {
+:host([level='3']) a {
     padding-left: calc(var(--blob-size) * 2);
 }
 
-:host([level='5']) a {
+:host([level='4']) a {
     padding-left: calc(var(--blob-size) * 2.5);
+}
+
+:host([level='5']) a {
+    padding-left: calc(var(--blob-size) * 3);
 }
 
 a {
@@ -94,6 +94,6 @@ a {
     overflow: hidden;
 }
 
-es-icon {
+es-badge {
     margin-right: 12px;
 }
