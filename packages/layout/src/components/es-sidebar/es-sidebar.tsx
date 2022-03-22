@@ -1,5 +1,5 @@
 import { Component, h, Host, Element } from '@stencil/core';
-import { sidebarWidth } from '@eventstore/layout';
+import { sidebarWidth } from '../../utils/LayoutVar';
 
 /**
  * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.

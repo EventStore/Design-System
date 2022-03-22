@@ -34,6 +34,9 @@
         "test.watch": "stencil test --spec --e2e --watchAll",
         "lint": "yarn g:lint"
     },
+    "dependencies": {
+        "@floating-ui/dom": "0.4.1"
+    },
     "peerDependencies": {
         "@eventstore/router": "0.1.x",
         "@eventstore/theme": "0.1.x",

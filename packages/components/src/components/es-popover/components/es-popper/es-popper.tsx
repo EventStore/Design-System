@@ -6,6 +6,7 @@ import {
     h,
     Host,
     Listen,
+    Method,
     Prop,
 } from '@stencil/core';
 import { delegateFocus, trapFocus } from '@eventstore/utils';
@@ -22,8 +23,23 @@ export class Popper {
     @Prop({ attribute: 'trap-focus' }) trapFocus: boolean = false;
 
     private releaseFocus?: () => void;
+    private loadedPromise!: Promise<void>;
+    private hasLoaded!: () => void;
+
+    @Method()
+    async loaded() {
+        await this.loadedPromise;
+        return true;
+    }
+
+    componentWillLoad() {
+        this.loadedPromise = new Promise((resolve) => {
+            this.hasLoaded = resolve;
+        });
+    }
 
     componentDidLoad() {
+        this.hasLoaded();
         if (!this.trapFocus) return;
         delegateFocus(getElement(this));
     }

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {
     Component,
     Prop,
@@ -6,18 +7,19 @@ import {
     Element,
     Event,
     EventEmitter,
-    writeTask,
 } from '@stencil/core';
-import { allowFocus } from '@eventstore/utils';
 import {
-    AttachmentX,
-    AttachmentY,
-    calcPosition,
-    Constrain,
-    PositionX,
-    PositionY,
-} from '../../utils/calcPosition';
-import { shadowMutationObserver } from '../../utils/shadowMutationObserver';
+    arrow,
+    computePosition,
+    flip,
+    offset,
+    Placement,
+} from '@floating-ui/dom';
+
+import { size } from '@floating-ui/core';
+import { allowFocus, shadowMutationObserver } from '@eventstore/utils';
+
+export type Constrain = 'none' | 'width' | 'height' | 'both';
 
 /**
  * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
@@ -38,42 +40,43 @@ export class Popover {
     @Prop({ reflect: true }) open: boolean = false;
     /** If the popover should overlay a backdrop, to prevent external clicks. */
     @Prop() backdrop: boolean = false;
+    /** If the popover should render an arrow. */
+    @Prop() arrow: boolean = false;
     /** If the popover should trap focus within, and return focus on close. */
     @Prop({ attribute: 'trap-focus' }) trapFocus: boolean = false;
 
     /** Pass an element to attach the popover to. (Defaults to the parent element.) */
     @Prop() attachTo?: HTMLElement;
     /** Constrain the size of the popover to the size of the attachment node. */
-    @Prop() constrain: Constrain = 'none';
-    /** The Y axis positioning location. */
-    @Prop() positionY: PositionY = 'top';
-    /** The X axis positioning location. */
-    @Prop() positionX: PositionX = 'middle';
-    /** The Y axis attachment location. */
-    @Prop() attachmentY: AttachmentY = 'bottom';
-    /** The Y axis attachment location. */
-    @Prop() attachmentX: AttachmentX = 'middle';
-    /** The offset the Y axis in pixels. */
-    @Prop() offsetY: number = 0;
-    /** The offset the X axis in pixels. */
-    @Prop() offsetX: number = 0;
+    @Prop() autoSize: Constrain = 'none';
+    /** Constrain the size of the popover inner to the size of the window. */
+    @Prop() constrain: Constrain = 'height';
+    /** The maximum height to constrain to. */
+    @Prop() maxHeight: number = Infinity;
+    /** The maximum width to constrain to. */
+    @Prop() maxWidth: number = Infinity;
+    /** Where to place the popover in relation to the attachment point. */
+    @Prop() placement: Placement = 'top';
+    /** An array of allowed placements or enable / disable */
+    @Prop() flip?: Placement[] | boolean = true;
+    /** The offset away from the attachement element in px. */
+    @Prop() offset: number = 0;
 
     /** Triggers when the popover requests to close. */
     @Event() requestClose!: EventEmitter;
 
-    private assigedNodes: Node[] = [];
-    private portalledNodes: Node[] = [];
+    private mutationObserver!: MutationObserver;
+    private detachAllowFocus?: ReturnType<typeof allowFocus>;
+    private portalledNodes: Array<[node: Node, placeholder: Node]> = [];
     private popper?: HTMLEsPopperElement;
     private popperShadow?: HTMLEsPopperInnerElement;
     private popperInner?: HTMLDivElement;
-    private mutationObserver!: MutationObserver;
-    private detachAllowFocus?: ReturnType<typeof allowFocus>;
+    private popperArrow?: HTMLDivElement;
 
     componentDidLoad() {
-        this.assigedNodes = Array.from(this.host.childNodes);
         this.mutationObserver = shadowMutationObserver(
             this.host,
-            this.mutation,
+            this.positionPopper,
         );
 
         if (this.open) {
@@ -96,11 +99,17 @@ export class Popover {
         if (!this.popperInner) return;
 
         if (previousClass) {
-            this.popperInner.classList.remove(previousClass);
+            for (const className of previousClass.split(' ')) {
+                if (!className.length) continue;
+                this.popperInner.classList.remove(className);
+            }
         }
 
         if (popperClass) {
-            this.popperInner.classList.add(popperClass);
+            for (const className of popperClass.split(' ')) {
+                if (!className.length) continue;
+                this.popperInner.classList.remove(className);
+            }
         }
     }
 
@@ -113,13 +122,8 @@ export class Popover {
     }
 
     render() {
-        return <slot onSlotchange={this.slotChange} />;
+        return <slot />;
     }
-
-    private slotChange = (e: Event) => {
-        const slot = e.target as HTMLSlotElement;
-        this.assigedNodes = slot.assignedNodes();
-    };
 
     private adoptStyleRules = ({
         from,
@@ -134,14 +138,22 @@ export class Popover {
 
             for (let i = 0; i < rules.length; i++) {
                 const rule = rules.item(i) as CSSStyleRule;
-                if (rule.selectorText !== ':host') {
+                if (
+                    rule.selectorText &&
+                    rule.selectorText.startsWith('es-popper-inner')
+                ) {
+                    to.insertRule(
+                        rule.cssText.replace('es-popper-inner', ':host'),
+                        to.cssRules.length,
+                    );
+                } else if (rule.selectorText !== ':host') {
                     to.insertRule(rule.cssText, to.cssRules.length);
                 }
             }
         }
     };
 
-    private attachPopper = () => {
+    private attachPopper = async () => {
         const target = document.querySelector(this.target);
 
         if (!target) return;
@@ -152,13 +164,19 @@ export class Popover {
         const popperShadow = document.createElement('es-popper-inner');
         const popperInner = document.createElement('div');
 
+        const assignedNodes =
+            this.host.shadowRoot!.querySelector('slot')?.assignedNodes() ?? [];
+
         popper.style.opacity = '0';
         popper.setAttribute('backdrop', `${this.backdrop}`);
         popper.setAttribute('trap-focus', `${this.trapFocus}`);
         popperInner.classList.add('inner');
 
         if (this.popperClass) {
-            popperInner.classList.add(this.popperClass);
+            for (const className of this.popperClass.split(' ')) {
+                if (!className.length) continue;
+                popperInner.classList.add(className);
+            }
         }
 
         target.appendChild(popper);
@@ -180,19 +198,44 @@ export class Popover {
             });
         }
 
-        for (const node of this.assigedNodes) {
-            popperInner.appendChild(node);
+        this.portalledNodes = [];
+
+        for (const node of assignedNodes) {
+            if (node.nodeName === 'SLOT') {
+                const slot = node as HTMLSlotElement;
+                for (const slottedNode of slot.assignedNodes()) {
+                    const placeholder = this.createPlaceholder();
+                    this.portalledNodes.push([slottedNode, placeholder]);
+                    slottedNode.parentNode!.replaceChild(
+                        placeholder,
+                        slottedNode,
+                    );
+                    popperInner.appendChild(slottedNode);
+                }
+            } else {
+                const placeholder = this.createPlaceholder();
+                this.portalledNodes.push([node, placeholder]);
+                node.parentNode!.replaceChild(placeholder, node);
+                popperInner.appendChild(node);
+            }
         }
 
-        this.portalledNodes = this.assigedNodes;
         popper.addEventListener('requestClose', this.bubbleRequestClose);
 
         this.popper = popper;
         this.popperShadow = popperShadow;
         this.popperInner = popperInner;
-        this.positionPopper();
-        this.attachDocumentListeners();
 
+        if (this.arrow) {
+            const popperArrow = document.createElement('div');
+            popperArrow.classList.add('arrow');
+            popperShadow.shadowRoot?.appendChild(popperArrow);
+            this.popperArrow = popperArrow;
+        }
+
+        await popper.loaded();
+        await this.positionPopper();
+        this.attachDocumentListeners();
         setTimeout(this.enterPopper, 50);
     };
 
@@ -212,16 +255,92 @@ export class Popover {
         window.removeEventListener('resize', this.positionPopper);
     };
 
-    private enterPopper = () => {
-        if (!this.popper || !this.popperInner) return;
+    private positionPopper = async () => {
+        if (!this.open || !this.popperShadow) return;
 
-        this.popperInner.classList.add('entered');
+        const attachment = this.attachTo ?? this.getParentNode()!;
+        const location = await computePosition(attachment, this.popperShadow, {
+            placement: this.placement,
+            strategy: 'fixed',
+            middleware: [
+                offset(() => ({
+                    mainAxis: this.offset,
+                })),
+                ...(this.flip
+                    ? [
+                          flip({
+                              fallbackStrategy: 'initialPlacement',
+                              fallbackPlacements: Array.isArray(this.flip)
+                                  ? this.flip
+                                  : undefined,
+                          }),
+                      ]
+                    : []),
+                size({
+                    padding: 10,
+                    apply: ({ width, height, reference }) => {
+                        const as = this.autoSize;
+                        if (as === 'height' || as === 'both') {
+                            this.popperShadow!.style.height = `${reference.height}px`;
+                        }
+                        if (as === 'width' || as === 'both') {
+                            this.popperShadow!.style.width = `${reference.width}px`;
+                        }
+
+                        const c = this.constrain;
+                        if (c === 'height' || c === 'both') {
+                            this.popperInner!.style.maxHeight = `${Math.min(
+                                height,
+                                this.maxHeight,
+                            )}px`;
+                        }
+                        if (c === 'width' || c === 'both') {
+                            this.popperInner!.style.maxWidth = `${Math.min(
+                                width,
+                                this.maxWidth,
+                            )}px`;
+                        }
+                    },
+                }),
+                ...(this.popperArrow
+                    ? [
+                          arrow({
+                              element: this.popperArrow!,
+                          }),
+                      ]
+                    : []),
+            ],
+        });
+
+        this.popperInner!.dataset.placement = location.placement;
+        this.popperShadow.style.transform = `translate(${location.x}px, ${location.y}px)`;
+
+        if (this.popperArrow) {
+            const { x: arrowX, y: arrowY } = location.middlewareData.arrow!;
+            this.popperArrow.dataset.placement = location.placement;
+            Object.assign(this.popperArrow.style, {
+                left: arrowX != null ? `${arrowX}px` : '',
+                top: arrowY != null ? `${arrowY}px` : '',
+                right: '',
+                bottom: '',
+            });
+        }
+    };
+
+    private enterPopper = async () => {
+        if (!this.popper) return;
+
+        this.popperInner?.classList.add('entered');
+        this.popperArrow?.classList.add('entered');
         this.popper.style.opacity = '1';
+        this.positionPopper();
     };
 
     private closePopper = () => {
         this.popperInner?.classList.add('exiting');
         this.popperInner?.classList.remove('entered');
+        this.popperArrow?.classList.add('exiting');
+        this.popperArrow?.classList.remove('entered');
         setTimeout(this.detachPopper, 400);
     };
 
@@ -230,16 +349,16 @@ export class Popover {
 
         this.detachDocumentListeners();
 
-        for (const node of this.portalledNodes) {
-            this.host.appendChild(node);
+        for (const [node, placeholder] of this.portalledNodes) {
+            placeholder.parentNode?.replaceChild(node, placeholder);
         }
 
         this.portalledNodes = [];
 
         this.popper.parentNode?.removeChild(this.popper);
         this.popper = undefined;
-        this.popperShadow = undefined;
         this.popperInner = undefined;
+        this.popperArrow = undefined;
     };
 
     private bubbleRequestClose = (e: any) => {
@@ -258,28 +377,8 @@ export class Popover {
         return parent;
     };
 
-    private mutation: MutationCallback = () => {
-        if (!this.open) return;
-        writeTask(this.positionPopper);
-    };
-
-    private positionPopper = () => {
-        const attachment = this.attachTo ?? this.getParentNode();
-
-        if (!attachment || !this.popperShadow) return;
-
-        const clientRect = attachment.getBoundingClientRect();
-
-        const position = calcPosition(clientRect, {
-            attachmentY: this.attachmentY,
-            positionY: this.positionY,
-            offsetY: this.offsetY,
-            attachmentX: this.attachmentX,
-            positionX: this.positionX,
-            offsetX: this.offsetX,
-            constrain: this.constrain,
-        });
-
-        this.popperShadow.setPosition(position);
+    private createPlaceholder = () => {
+        const id = Math.random().toString(16).slice(2);
+        return document.createComment(id);
     };
 }

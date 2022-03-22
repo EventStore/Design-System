@@ -1,7 +1,7 @@
 import { Redirect, Route, Switch } from '@eventstore/router';
 import { Component, h, Prop } from '@stencil/core';
 import { Host, Watch } from '@stencil/core/internal';
-import type { Lib } from 'sitemap';
+import { Lib, sitemap } from 'sitemap';
 import type { JSONOutput } from 'typedoc';
 import { ReflectionKind } from 'utils/typedoc/reflectionKind';
 import { isFunctionalComponentDeclaration } from 'utils/typedoc/declaration';
@@ -45,7 +45,25 @@ export class DocsPackage {
             <Host>
                 <es-sidebar>
                     <es-sidebar-section sectionTitle={'Package'}>
-                        <docs-sidebar-dropdown active={this.lib} />
+                        <es-sidebar-dropdown
+                            defaultTitle={'Package'}
+                            defaultIcon={'gift'}
+                        >
+                            {sitemap.map(({ title, children }) => (
+                                <es-sidebar-section title={title}>
+                                    {children.map(
+                                        ({ title, packageJson, slug }) => (
+                                            <es-sidebar-link
+                                                url={`/${slug}`}
+                                                icon={packageJson.name}
+                                            >
+                                                {title}
+                                            </es-sidebar-link>
+                                        ),
+                                    )}
+                                </es-sidebar-section>
+                            ))}
+                        </es-sidebar-dropdown>
                     </es-sidebar-section>
                     {this.lib.stencilDocs && (
                         <es-sidebar-section sectionTitle={'Components'}>

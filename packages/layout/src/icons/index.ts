@@ -5,6 +5,9 @@ iconStore.addIcons(ES_LAYOUT, {
     get caret() {
         return import('./components/Caret').then(({ Caret }) => Caret);
     },
+    get chevron() {
+        return import('./components/Chevron').then(({ Chevron }) => Chevron);
+    },
     get 'dark-high-theme'() {
         return import('./components/DarkHighTheme').then(
             ({ DarkHighTheme }) => DarkHighTheme,

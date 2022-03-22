@@ -1,7 +1,11 @@
 :host {
     display: block;
 
-    --blob-size: 40px;
+    --blob-size: 30px;
+    --default-color: var(--color-text);
+    --active-color: var(--color-secondary);
+    --disabled-color: var(--color-shade-50);
+    --active-background-color: transparent;
 }
 
 :host([level='2']) a {
@@ -24,7 +28,7 @@ a {
     padding: 10px;
     padding-left: var(--blob-size);
     padding-right: var(--blob-size);
-    color: var(--color-text);
+    color: var(--default-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,6 +36,7 @@ a {
     text-decoration: none;
     position: relative;
     overflow: hidden;
+    outline-offset: -1px;
 
     &::before {
         content: '';
@@ -49,9 +54,13 @@ a {
         opacity: 0;
     }
 
-    &:active,
+    &:active {
+        color: var(--active-color);
+    }
+
     &.link-active {
-        color: var(--color-secondary);
+        color: var(--active-color);
+        background-color: var(--active-background-color);
 
         &:hover,
         &:focus,
@@ -74,7 +83,7 @@ a {
     }
 
     &.disabled {
-        color: var(--color-shade-50);
+        color: var(--disabled-color);
         cursor: not-allowed;
 
         &:hover,

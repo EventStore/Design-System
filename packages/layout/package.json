@@ -41,6 +41,9 @@
         "@eventstore/theme": "0.1.x",
         "@eventstore/utils": "0.1.x"
     },
+    "dependencies": {
+        "@floating-ui/dom": "0.4.1"
+    },
     "devDependencies": {
         "@eventstore/configs": "workspace:*",
         "@eventstore/icon-manager": "workspace:*",

@@ -25,27 +25,6 @@ export class DevRoot {
                 <es-loading-bar name={'page'} />
 
                 <Switch>
-                    <Route exact url={'/'}>
-                        <es-sidebar>
-                            <es-sidebar-section sectionTitle={'My Section'}>
-                                <es-sidebar-link
-                                    url={'/'}
-                                    icon={[ES_LAYOUT, 'dark-high-theme']}
-                                >
-                                    {'Hello!'}
-                                </es-sidebar-link>
-                                <es-sidebar-link
-                                    url={'./somewhere'}
-                                    icon={[ES_LAYOUT, 'dark-high-theme']}
-                                >
-                                    {'Go somewhere'}
-                                </es-sidebar-link>
-                            </es-sidebar-section>
-                        </es-sidebar>
-                        <Page pageTitle={'Home'}>
-                            <div>{'hello'}</div>
-                        </Page>
-                    </Route>
                     <Route url={'/error'}>
                         <Page
                             pageTitle={'Error Test'}
@@ -55,9 +34,114 @@ export class DevRoot {
                         </Page>
                     </Route>
                     <Route>
-                        <Page pageTitle={'404'}>
-                            <div>{'404'}</div>
-                        </Page>
+                        <es-sidebar>
+                            <es-sidebar-section title={'Dropdown'}>
+                                <es-sidebar-dropdown
+                                    defaultIcon={[ES_LAYOUT, 'light-low-theme']}
+                                    defaultTitle={'Hello there'}
+                                >
+                                    <es-sidebar-section
+                                        collapsable
+                                        defaultCollapsed
+                                        title={'Night Time'}
+                                    >
+                                        <es-sidebar-link
+                                            matchExact
+                                            url={'/'}
+                                            icon={[
+                                                ES_LAYOUT,
+                                                'dark-high-theme',
+                                            ]}
+                                        >
+                                            {'Hello!'}
+                                        </es-sidebar-link>
+                                        <es-sidebar-link
+                                            url={'/somewhere'}
+                                            icon={[
+                                                ES_LAYOUT,
+                                                'dark-high-theme',
+                                            ]}
+                                        >
+                                            {'Go somewhere'}
+                                        </es-sidebar-link>
+                                    </es-sidebar-section>
+                                    <es-sidebar-section
+                                        collapsable
+                                        title={'Day Time'}
+                                    >
+                                        <es-sidebar-link
+                                            url={'/good-morning'}
+                                            icon={[
+                                                ES_LAYOUT,
+                                                'light-high-theme',
+                                            ]}
+                                        >
+                                            {'Good morning!'}
+                                        </es-sidebar-link>
+                                        <es-sidebar-link
+                                            url={'/work'}
+                                            icon={[
+                                                ES_LAYOUT,
+                                                'light-high-theme',
+                                            ]}
+                                        >
+                                            {'Go to work'}
+                                        </es-sidebar-link>
+                                    </es-sidebar-section>
+                                    <es-sidebar-section
+                                        collapsable
+                                        defaultCollapsed
+                                        title={'Another Time'}
+                                    >
+                                        {Array.from({ length: 200 }, (_, i) => (
+                                            <es-sidebar-link
+                                                url={`/another-${i}`}
+                                                icon={[
+                                                    ES_LAYOUT,
+                                                    'light-low-theme',
+                                                ]}
+                                            >
+                                                {`Link ${1}`}
+                                            </es-sidebar-link>
+                                        ))}
+                                    </es-sidebar-section>
+                                </es-sidebar-dropdown>
+                            </es-sidebar-section>
+                            <es-sidebar-section title={'My Section'}>
+                                <es-sidebar-link
+                                    matchExact
+                                    url={'/'}
+                                    icon={[ES_LAYOUT, 'dark-high-theme']}
+                                >
+                                    {'Hello!'}
+                                </es-sidebar-link>
+                                <es-sidebar-link
+                                    url={'/somewhere'}
+                                    icon={[ES_LAYOUT, 'dark-high-theme']}
+                                >
+                                    {'Go somewhere'}
+                                </es-sidebar-link>
+                            </es-sidebar-section>
+                        </es-sidebar>
+                        <Switch>
+                            <Route exact url={'/'}>
+                                <Page pageTitle={'Home'}>
+                                    <div class={'padder'} />
+                                    {'hello'}
+                                    <div class={'padder'} />
+                                </Page>
+                            </Route>
+                            <Route url={'/somewhere'}>
+                                <Page pageTitle={'Somewhere'}>
+                                    <div>{'Welcome to somewhere'}</div>
+                                </Page>
+                            </Route>
+                            <Route>
+                                <Page pageTitle={'404'}>
+                                    <div>{'404'}</div>
+                                </Page>
+                            </Route>
+                        </Switch>
                     </Route>
                 </Switch>
             </Host>

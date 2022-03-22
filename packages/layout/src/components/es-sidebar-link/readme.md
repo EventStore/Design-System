@@ -84,9 +84,6 @@ export default () => (
             <es-sidebar-link url={'/icon-1'} level={3}>
                 {'Level 3'}
             </es-sidebar-link>
-            <es-sidebar-link url={'/icon-1'} level={4}>
-                {'Level 4'}
-            </es-sidebar-link>
             <es-sidebar-link url={'/icon-1'} level={3}>
                 {'Level 3'}
             </es-sidebar-link>
@@ -102,14 +99,36 @@ export default () => (
 
 ## Properties
 
-| Property     | Attribute     | Description                                                  | Type                                                                 | Default     |
-| ------------ | ------------- | ------------------------------------------------------------ | -------------------------------------------------------------------- | ----------- |
-| `alertLevel` | `alert-level` | Display a dot on the icon, to attract attention to the link. | `"error" \| "okay" \| "warning" \| undefined`                        | `undefined` |
-| `disabled`   | `disabled`    | If the link should be disabled.                              | `boolean`                                                            | `false`     |
-| `icon`       | `icon`        | Display an icon on the left.                                 | `[namespace: string \| symbol, name: string] \| string \| undefined` | `undefined` |
-| `level`      | `level`       | Apply an indent to the left of the link, for basic nesting.  | `number \| undefined`                                                | `undefined` |
-| `url`        | `url`         | Where to link to.                                            | `string \| undefined`                                                | `undefined` |
-| `urlMatch`   | `url-match`   | When to display as active. Uses the `url` by default.        | `string \| undefined`                                                | `undefined` |
+| Property      | Attribute      | Description                                                  | Type                                                                 | Default     |
+| ------------- | -------------- | ------------------------------------------------------------ | -------------------------------------------------------------------- | ----------- |
+| `alertLevel`  | `alert-level`  | Display a dot on the icon, to attract attention to the link. | `"error" \| "okay" \| "warning" \| undefined`                        | `undefined` |
+| `disabled`    | `disabled`     | If the link should be disabled.                              | `boolean`                                                            | `false`     |
+| `icon`        | `icon`         | Display an icon on the left.                                 | `[namespace: string \| symbol, name: string] \| string \| undefined` | `undefined` |
+| `level`       | `level`        | Apply an indent to the left of the link, for basic nesting.  | `number \| undefined`                                                | `undefined` |
+| `matchExact`  | `match-exact`  | Use exact url matching for active.                           | `boolean \| undefined`                                               | `undefined` |
+| `matchStrict` | `match-strict` | Use strict url matching for active.                          | `boolean \| undefined`                                               | `undefined` |
+| `matchUrl`    | `match-url`    | When to display as active. Uses the `url` by default.        | `string \| undefined`                                                | `undefined` |
+| `url`         | `url`          | Where to link to.                                            | `string \| undefined`                                                | `undefined` |
+
+
+## Methods
+
+### `isActive() => Promise<boolean>`
+
+If the link is currently active
+
+#### Returns
+
+Type: `Promise<boolean>`
+
+
+
+
+## Shadow Parts
+
+| Part     | Description       |
+| -------- | ----------------- |
+| `"link"` | The link element. |
 
 
 ## Dependencies

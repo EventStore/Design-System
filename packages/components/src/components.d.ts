@@ -13,7 +13,8 @@ import { EsCalloutVariant } from "./components/es-callout/es-callout";
 import { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
 import { CounterVariant } from "./components/es-counter/es-counter";
 import { IconDescription } from "./components/es-icon/types";
-import { AttachmentX, AttachmentY, Constrain, Position, PositionX, PositionY } from "./utils/calcPosition";
+import { Constrain } from "./components/es-popover/es-popover";
+import { Placement } from "@floating-ui/dom";
 import { Checkpoint } from "./components/es-progression/es-progression";
 import { Status } from "./components/es-status/es-status";
 import { TableCells } from "./components/es-table/types";
@@ -224,49 +225,53 @@ export namespace Components {
     }
     interface EsPopover {
         /**
+          * If the popover should render an arrow.
+         */
+        "arrow": boolean;
+        /**
           * Pass an element to attach the popover to. (Defaults to the parent element.)
          */
         "attachTo"?: HTMLElement;
         /**
-          * The Y axis attachment location.
+          * Constrain the size of the popover to the size of the attachment node.
          */
-        "attachmentX": AttachmentX;
-        /**
-          * The Y axis attachment location.
-         */
-        "attachmentY": AttachmentY;
+        "autoSize": Constrain;
         /**
           * If the popover should overlay a backdrop, to prevent external clicks.
          */
         "backdrop": boolean;
         /**
-          * Constrain the size of the popover to the size of the attachment node.
+          * Constrain the size of the popover inner to the size of the window.
          */
         "constrain": Constrain;
         /**
-          * The offset the X axis in pixels.
+          * An array of allowed placements or enable / disable
          */
-        "offsetX": number;
+        "flip"?: Placement[] | boolean;
         /**
-          * The offset the Y axis in pixels.
+          * The maximum height to constrain to.
          */
-        "offsetY": number;
+        "maxHeight": number;
+        /**
+          * The maximum width to constrain to.
+         */
+        "maxWidth": number;
+        /**
+          * The offset away from the attachement element in px.
+         */
+        "offset": number;
         /**
           * Toggles if the popover is open or not.
          */
         "open": boolean;
         /**
+          * Where to place the popover in relation to the attachment point.
+         */
+        "placement": Placement;
+        /**
           * Class name for the popper
          */
         "popperClass"?: string;
-        /**
-          * The X axis positioning location.
-         */
-        "positionX": PositionX;
-        /**
-          * The Y axis positioning location.
-         */
-        "positionY": PositionY;
         /**
           * A query selecter to select the element to portal the popper to.
          */
@@ -278,10 +283,10 @@ export namespace Components {
     }
     interface EsPopper {
         "backdrop": boolean;
+        "loaded": () => Promise<boolean>;
         "trapFocus": boolean;
     }
     interface EsPopperInner {
-        "setPosition": (position: Position) => Promise<void>;
     }
     interface EsPortal {
         "attachElement": () => Promise<void>;
@@ -943,33 +948,41 @@ declare namespace LocalJSX {
     }
     interface EsPopover {
         /**
+          * If the popover should render an arrow.
+         */
+        "arrow"?: boolean;
+        /**
           * Pass an element to attach the popover to. (Defaults to the parent element.)
          */
         "attachTo"?: HTMLElement;
         /**
-          * The Y axis attachment location.
+          * Constrain the size of the popover to the size of the attachment node.
          */
-        "attachmentX"?: AttachmentX;
-        /**
-          * The Y axis attachment location.
-         */
-        "attachmentY"?: AttachmentY;
+        "autoSize"?: Constrain;
         /**
           * If the popover should overlay a backdrop, to prevent external clicks.
          */
         "backdrop"?: boolean;
         /**
-          * Constrain the size of the popover to the size of the attachment node.
+          * Constrain the size of the popover inner to the size of the window.
          */
         "constrain"?: Constrain;
         /**
-          * The offset the X axis in pixels.
+          * An array of allowed placements or enable / disable
          */
-        "offsetX"?: number;
+        "flip"?: Placement[] | boolean;
         /**
-          * The offset the Y axis in pixels.
+          * The maximum height to constrain to.
          */
-        "offsetY"?: number;
+        "maxHeight"?: number;
+        /**
+          * The maximum width to constrain to.
+         */
+        "maxWidth"?: number;
+        /**
+          * The offset away from the attachement element in px.
+         */
+        "offset"?: number;
         /**
           * Triggers when the popover requests to close.
          */
@@ -979,17 +992,13 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
+          * Where to place the popover in relation to the attachment point.
+         */
+        "placement"?: Placement;
+        /**
           * Class name for the popper
          */
         "popperClass"?: string;
-        /**
-          * The X axis positioning location.
-         */
-        "positionX"?: PositionX;
-        /**
-          * The Y axis positioning location.
-         */
-        "positionY"?: PositionY;
         /**
           * A query selecter to select the element to portal the popper to.
          */

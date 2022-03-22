@@ -2363,6 +2363,7 @@ __metadata:
     "@eventstore/router": "workspace:*"
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"
+    "@floating-ui/dom": 0.4.1
     "@stencil/core": ^2.11.0
     jest: ^26.6.3
     npm-run-all: ^4.1.5
@@ -2515,6 +2516,7 @@ __metadata:
     "@eventstore/router": "workspace:*"
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"
+    "@floating-ui/dom": 0.4.1
     "@stencil/core": ^2.11.0
     jest: ^26.6.3
     npm-run-all: ^4.1.5
@@ -2635,6 +2637,22 @@ __metadata:
     typescript: 4.2.3
   languageName: unknown
   linkType: soft
+
+"@floating-ui/core@npm:^0.6.1":
+  version: 0.6.1
+  resolution: "@floating-ui/core@npm:0.6.1"
+  checksum: 6761c4ced6c1ee8f5166b2d869ad4de6285ae36b9649d83adfcba82dc3c4e019b6020903073e20c0ddacf76e8078b5e2e43b1c82f7472ca0b52f1025c3a8f72b
+  languageName: node
+  linkType: hard
+
+"@floating-ui/dom@npm:0.4.1":
+  version: 0.4.1
+  resolution: "@floating-ui/dom@npm:0.4.1"
+  dependencies:
+    "@floating-ui/core": ^0.6.1
+  checksum: 4f3887df449093b46ec23fe8fa8a999a2e097d6765c3373c1da754c6c1e7770029a75e4ea5f8895f7ef89d1810bf780e01d9a769d704cc40a77c318c28a78220
+  languageName: node
+  linkType: hard
 
 "@gar/promisify@npm:^1.0.1":
   version: 1.1.2

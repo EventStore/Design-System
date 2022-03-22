@@ -7,6 +7,11 @@
             "component": "Caret",
             "path": "./components/Caret.tsx"
         },
+        "chevron": {
+            "name": "chevron",
+            "component": "Chevron",
+            "path": "./components/Chevron.tsx"
+        },
         "dark-high-theme": {
             "name": "dark-high-theme",
             "component": "DarkHighTheme",
