@@ -137,14 +137,15 @@ export class EsTypeahead {
                 })}
                 {this.open && (
                     <es-popover
+                        arrow
                         open={this.open}
                         popperClass={'typeahead'}
                         attachTo={this.fieldElement}
-                        attachmentX={'left'}
-                        positionX={'left'}
-                        attachmentY={'top'}
-                        positionY={'top'}
-                        constrain={'width'}
+                        placement={'bottom'}
+                        flip={['top']}
+                        autoSize={'width'}
+                        constrain={'height'}
+                        maxHeight={300}
                     >
                         <div class={'list_sizer'}>
                             <ul

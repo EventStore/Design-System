@@ -1,27 +1,22 @@
 ```tsx
 import { createStore } from '@eventstore/stores';
-import { debounce } from '@eventstore/utils';
 
 interface PopoverStore {
     open: boolean;
+    arrow: boolean;
+    autoSize: HTMLESPopoverElement['autoSize'];
     constrain: HTMLESPopoverElement['constrain'];
-    positionY: HTMLESPopoverElement['positionY'];
-    positionX: HTMLESPopoverElement['positionX'];
-    attachmentY: HTMLESPopoverElement['attachmentY'];
-    attachmentX: HTMLESPopoverElement['attachmentX'];
-    offsetY: number;
-    offsetX: number;
+    placement: HTMLESPopoverElement['placement'];
+    offset: number;
 }
 
 const { state } = createStore<PopoverStore>({
     open: true,
+    arrow: true,
+    autoSize: 'none',
     constrain: 'none',
-    positionY: 'top',
-    positionX: 'right',
-    attachmentY: 'bottom',
-    attachmentX: 'left',
-    offsetY: 0,
-    offsetX: 0,
+    placement: 'top',
+    offset: 16,
 });
 
 export default () => (
@@ -34,6 +29,20 @@ export default () => (
             >
                 {'Open'}
             </es-checkbox>
+            <es-checkbox
+                name={'arrow'}
+                value={state.arrow}
+                onFieldchange={fieldChange}
+            >
+                {'Arrow'}
+            </es-checkbox>
+            <es-select
+                name={'autoSize'}
+                label={'autoSize'}
+                options={constrainOptions}
+                value={state.autoSize}
+                onFieldchange={fieldChange}
+            />
             <es-select
                 name={'constrain'}
                 label={'constrain'}
@@ -42,45 +51,17 @@ export default () => (
                 onFieldchange={fieldChange}
             />
             <es-select
-                name={'positionY'}
-                label={'positionY'}
-                options={yLocations}
-                value={state.positionY}
-                onFieldchange={fieldChange}
-            />
-            <es-select
-                name={'positionX'}
-                label={'positionX'}
-                options={xLocations}
-                value={state.positionX}
-                onFieldchange={fieldChange}
-            />
-            <es-select
-                name={'attachmentY'}
-                label={'attachmentY'}
-                options={yLocations}
-                value={state.attachmentY}
-                onFieldchange={fieldChange}
-            />
-            <es-select
-                name={'attachmentX'}
-                label={'attachmentX'}
-                options={xLocations}
-                value={state.attachmentX}
+                name={'placement'}
+                label={'placement'}
+                options={placement}
+                value={state.placement}
                 onFieldchange={fieldChange}
             />
             <es-number-input
-                label={'offsetY'}
+                label={'offset'}
                 unit={'px'}
-                name={'offsetY'}
-                value={state.offsetY}
-                onFieldchange={fieldChange}
-            />
-            <es-number-input
-                label={'offsetX'}
-                unit={'px'}
-                name={'offsetX'}
-                value={state.offsetX}
+                name={'offset'}
+                value={state.offset}
                 onFieldchange={fieldChange}
             />
         </div>
@@ -89,13 +70,11 @@ export default () => (
                 {'Attachment element'}
                 <es-popover
                     open={state.open}
+                    arrow={state.arrow}
+                    autoSize={state.autoSize}
                     constrain={state.constrain}
-                    positionY={state.positionY}
-                    positionX={state.positionX}
-                    attachmentY={state.attachmentY}
-                    attachmentX={state.attachmentX}
-                    offsetY={state.offsetY}
-                    offsetX={state.offsetX}
+                    placement={state.placement}
+                    offset={state.offset}
                 >
                     <div class={'popper'}>{'popover'}</div>
                 </es-popover>
@@ -116,16 +95,19 @@ const constrainOptions = [
     { value: 'both', name: 'both' },
 ];
 
-const yLocations = [
+const placement = [
     { value: 'top', name: 'top' },
-    { value: 'middle', name: 'middle' },
-    { value: 'bottom', name: 'bottom' },
-];
-
-const xLocations = [
+    { value: 'top-start', name: 'top-start' },
+    { value: 'top-end', name: 'top-end' },
     { value: 'right', name: 'right' },
-    { value: 'middle', name: 'middle' },
+    { value: 'right-start', name: 'right-start' },
+    { value: 'right-end', name: 'right-end' },
+    { value: 'bottom', name: 'bottom' },
+    { value: 'bottom-start', name: 'bottom-start' },
+    { value: 'bottom-end', name: 'bottom-end' },
     { value: 'left', name: 'left' },
+    { value: 'left-start', name: 'left-start' },
+    { value: 'left-end', name: 'left-end' },
 ];
 ```
 
@@ -153,15 +135,23 @@ const xLocations = [
 }
 
 .inner {
-    width: 100%;
-    height: 100%;
+    opacity: 0;
+    transition: opacity 400ms ease;
+    background-color: skyblue;
+    box-shadow: none;
+    position: relative;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.popper {
-    background-color: skyblue;
-    width: 100%;
-    height: 100%;
-    padding: 5px;
+.inner.entered {
+    opacity: 1;
+}
+
+.arrow::after {
+    background-color: red;
 }
 
 .options {
@@ -175,10 +165,10 @@ const xLocations = [
 
 es-select,
 es-number-input {
-    --field-grid-columns: [before] 100px [input] 150px [after] 0px;
+    --field-grid-columns: [before] 85px [input] 150px [after] 0px;
 }
 
 es-checkbox {
-    --field-grid-columns: [before] 100px [input] 24px [label] 1fr [after] 0;
+    --field-grid-columns: [before] 85px [input] 24px [label] 1fr [after] 0;
 }
 ```

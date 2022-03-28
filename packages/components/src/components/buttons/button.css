@@ -21,7 +21,7 @@
     --height: 40px;
 
     --border-style: solid;
-    --border-radius: 20px;
+    --border-radius: 30px;
     --border-width: 2px;
     --text-decoration: none;
     --transition-duration: 500ms;
@@ -169,8 +169,8 @@
     --background-color: transparent;
     --foreground-color: var(---primary);
     --border-color: transparent;
-    --border-width: 0;
-    --border-radius: 0;
+    --border-width: 0px;
+    --border-radius: 0px;
 }
 :host([variant='minimal']:not([disabled]):hover) {
     --foreground-color: var(---secondary);
@@ -187,8 +187,8 @@
     --background-color: transparent;
     --foreground-color: var(--color-secondary);
     --border-color: transparent;
-    --border-width: 0;
-    --border-radius: 0;
+    --border-width: 0px;
+    --border-radius: 0px;
 }
 :host([variant='link']:not([disabled]):hover) {
     --text-decoration: underline;
@@ -223,7 +223,6 @@ a {
     font-size: inherit;
     cursor: pointer;
     font-weight: 500;
-    border-radius: 30px;
     outline: none;
     border-style: solid;
     align-items: center;
@@ -235,6 +234,7 @@ a {
     padding-bottom: 0;
     padding-left: var(--spacing);
     padding-right: var(--spacing);
+    border-radius: var(--border-radius);
     border-width: var(--border-width);
     border-style: var(--border-style);
     text-decoration: var(--text-decoration);

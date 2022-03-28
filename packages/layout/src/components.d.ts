@@ -73,6 +73,16 @@ export namespace Components {
     }
     interface EsSidebar {
     }
+    interface EsSidebarDropdown {
+        /**
+          * The icon to display if no nested es-sidebar-link is active
+         */
+        "defaultIcon": IconDescription;
+        /**
+          * The title to display if no nested es-sidebar-link is active
+         */
+        "defaultTitle": string;
+    }
     interface EsSidebarLink {
         /**
           * Display a dot on the icon, to attract attention to the link.
@@ -87,19 +97,39 @@ export namespace Components {
          */
         "icon"?: IconDescription;
         /**
+          * If the link is currently active
+         */
+        "isActive": () => Promise<boolean>;
+        /**
           * Apply an indent to the left of the link, for basic nesting.
          */
         "level"?: number;
         /**
-          * Where to link to.
+          * Use exact url matching for active.
          */
-        "url"?: string;
+        "matchExact"?: boolean;
+        /**
+          * Use strict url matching for active.
+         */
+        "matchStrict"?: boolean;
         /**
           * When to display as active. Uses the `url` by default.
          */
-        "urlMatch"?: string;
+        "matchUrl"?: string;
+        /**
+          * Where to link to.
+         */
+        "url"?: string;
     }
     interface EsSidebarSection {
+        /**
+          * If the section is collapsable
+         */
+        "collapsable": boolean;
+        /**
+          * If the section should be collapsed by default
+         */
+        "defaultCollapsed": boolean;
         /**
           * Optionally renders a title
          */
@@ -183,6 +213,12 @@ declare global {
         prototype: HTMLEsSidebarElement;
         new (): HTMLEsSidebarElement;
     };
+    interface HTMLEsSidebarDropdownElement extends Components.EsSidebarDropdown, HTMLStencilElement {
+    }
+    var HTMLEsSidebarDropdownElement: {
+        prototype: HTMLEsSidebarDropdownElement;
+        new (): HTMLEsSidebarDropdownElement;
+    };
     interface HTMLEsSidebarLinkElement extends Components.EsSidebarLink, HTMLStencilElement {
     }
     var HTMLEsSidebarLinkElement: {
@@ -220,6 +256,7 @@ declare global {
         "es-nav-node-2": HTMLEsNavNode2Element;
         "es-page-title": HTMLEsPageTitleElement;
         "es-sidebar": HTMLEsSidebarElement;
+        "es-sidebar-dropdown": HTMLEsSidebarDropdownElement;
         "es-sidebar-link": HTMLEsSidebarLinkElement;
         "es-sidebar-section": HTMLEsSidebarSectionElement;
         "es-theme-dropdown": HTMLEsThemeDropdownElement;
@@ -286,6 +323,16 @@ declare namespace LocalJSX {
     }
     interface EsSidebar {
     }
+    interface EsSidebarDropdown {
+        /**
+          * The icon to display if no nested es-sidebar-link is active
+         */
+        "defaultIcon": IconDescription;
+        /**
+          * The title to display if no nested es-sidebar-link is active
+         */
+        "defaultTitle": string;
+    }
     interface EsSidebarLink {
         /**
           * Display a dot on the icon, to attract attention to the link.
@@ -304,15 +351,31 @@ declare namespace LocalJSX {
          */
         "level"?: number;
         /**
-          * Where to link to.
+          * Use exact url matching for active.
          */
-        "url"?: string;
+        "matchExact"?: boolean;
+        /**
+          * Use strict url matching for active.
+         */
+        "matchStrict"?: boolean;
         /**
           * When to display as active. Uses the `url` by default.
          */
-        "urlMatch"?: string;
+        "matchUrl"?: string;
+        /**
+          * Where to link to.
+         */
+        "url"?: string;
     }
     interface EsSidebarSection {
+        /**
+          * If the section is collapsable
+         */
+        "collapsable"?: boolean;
+        /**
+          * If the section should be collapsed by default
+         */
+        "defaultCollapsed"?: boolean;
         /**
           * Optionally renders a title
          */
@@ -335,6 +398,7 @@ declare namespace LocalJSX {
         "es-nav-node-2": EsNavNode2;
         "es-page-title": EsPageTitle;
         "es-sidebar": EsSidebar;
+        "es-sidebar-dropdown": EsSidebarDropdown;
         "es-sidebar-link": EsSidebarLink;
         "es-sidebar-section": EsSidebarSection;
         "es-theme-dropdown": EsThemeDropdown;
@@ -357,6 +421,7 @@ declare module "@stencil/core" {
             "es-nav-node-2": LocalJSX.EsNavNode2 & JSXBase.HTMLAttributes<HTMLEsNavNode2Element>;
             "es-page-title": LocalJSX.EsPageTitle & JSXBase.HTMLAttributes<HTMLEsPageTitleElement>;
             "es-sidebar": LocalJSX.EsSidebar & JSXBase.HTMLAttributes<HTMLEsSidebarElement>;
+            "es-sidebar-dropdown": LocalJSX.EsSidebarDropdown & JSXBase.HTMLAttributes<HTMLEsSidebarDropdownElement>;
             "es-sidebar-link": LocalJSX.EsSidebarLink & JSXBase.HTMLAttributes<HTMLEsSidebarLinkElement>;
             "es-sidebar-section": LocalJSX.EsSidebarSection & JSXBase.HTMLAttributes<HTMLEsSidebarSectionElement>;
             "es-theme-dropdown": LocalJSX.EsThemeDropdown & JSXBase.HTMLAttributes<HTMLEsThemeDropdownElement>;

@@ -27,11 +27,8 @@ export class ThemePicker {
                     open={this.dropdownOpen}
                     onRequestClose={this.closeDropdown}
                     popperClass={'popper'}
-                    attachmentY={'top'}
-                    positionY={'bottom'}
-                    offsetY={17}
-                    attachmentX={'right'}
-                    positionX={'right'}
+                    placement={'bottom-end'}
+                    offset={17}
                     trapFocus
                 >
                     <es-theme-picker />

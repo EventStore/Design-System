@@ -44,9 +44,6 @@ export namespace Components {
     }
     interface DocsRoot {
     }
-    interface DocsSidebarDropdown {
-        "active": Lib;
-    }
     interface DocsSlotsTable {
         "slots": JsonDocsSlot[];
     }
@@ -148,12 +145,6 @@ declare global {
         prototype: HTMLDocsRootElement;
         new (): HTMLDocsRootElement;
     };
-    interface HTMLDocsSidebarDropdownElement extends Components.DocsSidebarDropdown, HTMLStencilElement {
-    }
-    var HTMLDocsSidebarDropdownElement: {
-        prototype: HTMLDocsSidebarDropdownElement;
-        new (): HTMLDocsSidebarDropdownElement;
-    };
     interface HTMLDocsSlotsTableElement extends Components.DocsSlotsTable, HTMLStencilElement {
     }
     var HTMLDocsSlotsTableElement: {
@@ -209,7 +200,6 @@ declare global {
         "docs-props-table": HTMLDocsPropsTableElement;
         "docs-readme": HTMLDocsReadmeElement;
         "docs-root": HTMLDocsRootElement;
-        "docs-sidebar-dropdown": HTMLDocsSidebarDropdownElement;
         "docs-slots-table": HTMLDocsSlotsTableElement;
         "docs-styles-table": HTMLDocsStylesTableElement;
         "docs-type": HTMLDocsTypeElement;
@@ -255,9 +245,6 @@ declare namespace LocalJSX {
     }
     interface DocsRoot {
     }
-    interface DocsSidebarDropdown {
-        "active": Lib;
-    }
     interface DocsSlotsTable {
         "slots": JsonDocsSlot[];
     }
@@ -298,7 +285,6 @@ declare namespace LocalJSX {
         "docs-props-table": DocsPropsTable;
         "docs-readme": DocsReadme;
         "docs-root": DocsRoot;
-        "docs-sidebar-dropdown": DocsSidebarDropdown;
         "docs-slots-table": DocsSlotsTable;
         "docs-styles-table": DocsStylesTable;
         "docs-type": DocsType;
@@ -324,7 +310,6 @@ declare module "@stencil/core" {
             "docs-props-table": LocalJSX.DocsPropsTable & JSXBase.HTMLAttributes<HTMLDocsPropsTableElement>;
             "docs-readme": LocalJSX.DocsReadme & JSXBase.HTMLAttributes<HTMLDocsReadmeElement>;
             "docs-root": LocalJSX.DocsRoot & JSXBase.HTMLAttributes<HTMLDocsRootElement>;
-            "docs-sidebar-dropdown": LocalJSX.DocsSidebarDropdown & JSXBase.HTMLAttributes<HTMLDocsSidebarDropdownElement>;
             "docs-slots-table": LocalJSX.DocsSlotsTable & JSXBase.HTMLAttributes<HTMLDocsSlotsTableElement>;
             "docs-styles-table": LocalJSX.DocsStylesTable & JSXBase.HTMLAttributes<HTMLDocsStylesTableElement>;
             "docs-type": LocalJSX.DocsType & JSXBase.HTMLAttributes<HTMLDocsTypeElement>;
