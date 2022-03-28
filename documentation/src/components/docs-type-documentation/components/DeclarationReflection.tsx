@@ -1,5 +1,4 @@
 import { h, FunctionalComponent } from '@stencil/core';
-import type { JSONOutput } from 'typedoc';
 import {
     isTypeLiteral,
     isVariable,
@@ -7,13 +6,14 @@ import {
     isInterface,
     isClass,
 } from 'utils/typedoc/reflectionKind';
+import type { SomeReflection } from 'utils/typedoc/types';
 import { ClassTable } from './ClassTable';
 import { InterfaceTable } from './InterfaceTable';
 import { ObjectTable } from './ObjectTable';
 import { SomeType } from './SomeType';
 
 export const DeclarationReflection: FunctionalComponent<{
-    declaration: JSONOutput.DeclarationReflection;
+    declaration: SomeReflection;
 }> = ({ declaration }) => {
     if (isVariable(declaration)) {
         if (declaration.type) {

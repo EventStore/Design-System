@@ -1,5 +1,5 @@
 import type { JsonDocs } from '@stencil/core/internal';
-import type { JSONOutput } from 'typedoc';
+import type { ProjectReflection } from 'typedoc';
 import type { PackageJson } from '.';
 
 interface RequireContext<T> {
@@ -43,7 +43,7 @@ export const optionallyRequireStencilDocs = (slug: string) => {
     }
 };
 
-const requireTypeDocs = require.context<JSONOutput.ProjectReflection>(
+const requireTypeDocs = require.context<ProjectReflection>(
     '../../../generated',
     true,
     /.*\.typedoc\.json$/,

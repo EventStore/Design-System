@@ -1,41 +1,45 @@
-import type { JSONOutput } from 'typedoc';
+import type {
+    DeclarationReflection,
+    ReflectionType,
+    SignatureReflection,
+    Type,
+} from 'typedoc';
 import type { TypedocLookup } from 'utils/expandSitemap/createTypedocLookup';
 import { isArrayType, isReferenceType, isUnionType } from './someType';
+import type { SomeReflection } from './types';
 
 export const findAllReferences = (
-    declaration: JSONOutput.DeclarationReflection,
+    reflection: SomeReflection,
     lookup: TypedocLookup,
-): JSONOutput.DeclarationReflection[] => {
+): SomeReflection[] => {
     const referenceNames = new Set<string>();
     const visited = new Set<number>();
 
-    const insertIfReference = (type?: JSONOutput.SomeType) => {
-        if (!type || !isReferenceType(type) || type.name === declaration.name) {
+    const insertIfReference = (type?: Type) => {
+        if (!type || !isReferenceType(type) || type.name === reflection.name) {
             return;
         }
 
         referenceNames.add(type.name);
     };
 
-    const findReferences = (dec: JSONOutput.DeclarationReflection) => {
-        if (visited.has(dec.id)) return;
-        visited.add(dec.id);
+    const findReferences = (refl: SomeReflection) => {
+        if (visited.has(refl.id)) return;
+        visited.add(refl.id);
 
-        insertIfReference(dec.type);
+        (refl as DeclarationReflection).children?.forEach(findReferences);
+        (refl as DeclarationReflection).signatures?.forEach(findReferences);
 
-        dec.children?.forEach(findReferences);
-        dec.signatures?.forEach(findReferences);
+        (refl as SignatureReflection).parameters?.forEach(findReferences);
 
-        (dec as JSONOutput.SignatureReflection).parameters?.forEach(
-            findReferences,
-        );
+        if (!('type' in refl) || refl.type == null) return;
 
-        if (!dec.type) return;
+        const type = refl.type;
 
-        const type = dec.type;
+        insertIfReference(type);
 
-        if ((type as JSONOutput.ReflectionType).declaration) {
-            findReferences((type as JSONOutput.ReflectionType).declaration!);
+        if ((type as ReflectionType).declaration) {
+            findReferences((type as ReflectionType).declaration!);
         }
 
         if (isReferenceType(type) && type.typeArguments) {
@@ -50,12 +54,16 @@ export const findAllReferences = (
             insertIfReference(type.elementType);
         }
 
-        if (isReferenceType(type) && type.id != null && lookup.has(type.id)) {
-            findReferences(lookup.get(type.id)!);
+        if (
+            isReferenceType(type) &&
+            type.name != null &&
+            lookup.has(type.name)
+        ) {
+            findReferences(lookup.get(type.name)!);
         }
     };
 
-    findReferences(declaration);
+    findReferences(reflection);
 
     const references = [];
 

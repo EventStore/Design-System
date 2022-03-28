@@ -2,12 +2,11 @@ import { Redirect, Route, Switch } from '@eventstore/router';
 import { Component, h, Prop } from '@stencil/core';
 import { Host, Watch } from '@stencil/core/internal';
 import { Lib, sitemap } from 'sitemap';
-import type { JSONOutput } from 'typedoc';
 import { ReflectionKind } from 'utils/typedoc/reflectionKind';
 import { isFunctionalComponentDeclaration } from 'utils/typedoc/declaration';
 import { Anchor, extractAnchors } from 'utils/extractAnchors';
-
-type Dec = JSONOutput.DeclarationReflection;
+import type { SomeReflection } from 'utils/typedoc/types';
+import type { DeclarationReflection } from 'typedoc';
 
 @Component({
     tag: 'docs-package',
@@ -17,9 +16,9 @@ type Dec = JSONOutput.DeclarationReflection;
 export class DocsPackage {
     @Prop() lib!: Lib;
 
-    private utils?: Dec[];
-    private types?: Dec[];
-    private functionalComponents?: Dec[];
+    private utils?: SomeReflection[];
+    private types?: SomeReflection[];
+    private functionalComponents?: SomeReflection[];
     private anchors?: Anchor[];
 
     @Watch('lib')
@@ -175,20 +174,22 @@ export class DocsPackage {
 
     private extractKinds = (
         kinds: number[],
-        check: (d: Dec) => boolean = () => true,
+        check: (d: SomeReflection) => boolean = () => true,
     ) => () => {
         if (!this.lib.typeDocs) return;
-        const { lookup, project } = this.lib.typeDocs;
+        const { project, lookup } = this.lib.typeDocs;
         if (!project.groups) return;
 
         const modules = project.groups
             .filter((group) => group.kind === (ReflectionKind.Module as number))
-            .flatMap((group) => group.children ?? [])
-            .flatMap((id) => lookup.get(id)!.groups!);
+            .flatMap((group: any) => group.children ?? [])
+            .flatMap(
+                (id) => (lookup.get(id)! as DeclarationReflection).groups!,
+            );
 
         const names = [...project.groups, ...modules]
             .filter((group) => kinds.includes(group.kind))
-            .flatMap((group) => group.children ?? [])
+            .flatMap((group: any) => group.children ?? [])
             .map((id) => lookup.get(id)!)
             .filter((item) => !item.flags.isExternal)
             .filter(check)
@@ -198,10 +199,7 @@ export class DocsPackage {
         return names;
     };
 
-    private fileName = ({
-        name,
-        sources,
-    }: JSONOutput.DeclarationReflection): string =>
+    private fileName = ({ name, sources }: SomeReflection): string =>
         `${sources?.[0].fileName ?? ''}${name}`;
 
     private extractUtils = this.extractKinds(
@@ -223,6 +221,7 @@ export class DocsPackage {
             ReflectionKind.TypeParameter,
             ReflectionKind.TypeAlias,
         ],
-        (item) => !item.comment?.tags?.some(({ tag }) => tag === 'props'),
+        (item) =>
+            !item.comment?.tags?.some(({ tagName }) => tagName === 'props'),
     );
 }

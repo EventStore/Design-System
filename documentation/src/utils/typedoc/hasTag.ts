@@ -1,4 +1,4 @@
-import type { JSONOutput } from 'typedoc';
+import type { Comment } from 'typedoc';
 
-export const hasTag = (doc: { comment?: JSONOutput.Comment }, tag: string) =>
-    doc.comment?.tags?.some((t) => t.tag === tag);
+export const hasTag = (doc: { comment?: Comment }, tag: string) =>
+    doc.comment?.tags?.some((t) => t.tagName === tag);

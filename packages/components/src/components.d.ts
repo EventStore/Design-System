@@ -99,22 +99,6 @@ export namespace Components {
          */
         "anchorTitle"?: string;
         /**
-          * Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element.
-         */
-        "ariaHaspopup"?: string;
-        /**
-          * Fefines a string value that labels the current element.
-         */
-        "ariaLabel"?: string;
-        /**
-          * Defines an element's number or position in the current set of listitems or treeitems.
-         */
-        "ariaPosinset"?: string;
-        /**
-          * Defines the number of items in the current set of listitems or treeitems.
-         */
-        "ariaSetsize"?: number;
-        /**
           * If the link is disabled. Prevents the user from interacting with the link: it cannot be pressed or focused.
          */
         "disabled"?: boolean;
@@ -825,22 +809,6 @@ declare namespace LocalJSX {
           * Title for the contained anchor element
          */
         "anchorTitle"?: string;
-        /**
-          * Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element.
-         */
-        "ariaHaspopup"?: string;
-        /**
-          * Fefines a string value that labels the current element.
-         */
-        "ariaLabel"?: string;
-        /**
-          * Defines an element's number or position in the current set of listitems or treeitems.
-         */
-        "ariaPosinset"?: string;
-        /**
-          * Defines the number of items in the current set of listitems or treeitems.
-         */
-        "ariaSetsize"?: number;
         /**
           * If the link is disabled. Prevents the user from interacting with the link: it cannot be pressed or focused.
          */

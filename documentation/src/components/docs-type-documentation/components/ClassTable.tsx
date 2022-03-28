@@ -1,12 +1,13 @@
 import { h, FunctionalComponent, Fragment } from '@stencil/core';
 import type { TableCells } from '@eventstore/components';
-import type { JSONOutput } from 'typedoc';
+import type { DeclarationReflection } from 'typedoc';
+import type { SomeReflection } from 'utils/typedoc/types';
 
 export const ClassTable: FunctionalComponent<{
-    declaration: JSONOutput.DeclarationReflection;
+    declaration: DeclarationReflection;
 }> = ({ declaration }) => {
     const props = !!declaration.comment?.tags?.find(
-        (tag) => tag.tag === 'props' || tag.tag === 'options',
+        (tag) => tag.tagName === 'props' || tag.tagName === 'options',
     );
 
     return (
@@ -20,24 +21,34 @@ export const ClassTable: FunctionalComponent<{
     );
 };
 
-const expandAndFilterSignatures = (
-    declarations: JSONOutput.DeclarationReflection[],
-) =>
+const expandAndFilterSignatures = (declarations: SomeReflection[]) =>
     declarations
         .filter((d) => !d.flags.isExternal && !d.flags.isPrivate)
         .flatMap(
-            (d) => d.signatures?.map((s) => ({ ...s, flags: d.flags })) ?? d,
+            (d) =>
+                (d as DeclarationReflection).signatures?.map(
+                    (s) =>
+                        ({
+                            ...s,
+                            flags: d.flags,
+                        } as SomeReflection),
+                ) ?? d,
         )
-        .filter((d) => !d.comment?.tags?.find(({ tag }) => tag === 'internal'));
+        .filter(
+            (d) =>
+                !d.comment?.tags?.find(({ tagName }) => tagName === 'internal'),
+        );
 
-const cells: TableCells<JSONOutput.DeclarationReflection> = {
+const cells: TableCells<DeclarationReflection> = {
     name: {
         title: 'Name',
         cell: ({ data: { name, comment } }) => (
             <docs-type
                 string={name}
                 depreciated={
-                    !!comment?.tags?.find(({ tag }) => tag === 'depreciated')
+                    !!comment?.tags?.find(
+                        ({ tagName }) => tagName === 'depreciated',
+                    )
                 }
             />
         ),
@@ -47,7 +58,7 @@ const cells: TableCells<JSONOutput.DeclarationReflection> = {
         title: 'Description',
         cell: ({ data: { comment } }) => {
             const deprecation = comment?.tags?.find(
-                ({ tag }) => tag === 'depreciated',
+                ({ tagName }) => tagName === 'depreciated',
             );
 
             return (
@@ -82,6 +93,6 @@ const cells: TableCells<JSONOutput.DeclarationReflection> = {
     },
 };
 
-const rowClass = ({ flags }: JSONOutput.DeclarationReflection) => ({
+const rowClass = ({ flags }: DeclarationReflection) => ({
     required: !flags.isOptional,
 });

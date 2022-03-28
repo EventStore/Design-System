@@ -1,5 +1,4 @@
 import { Component, h, Prop, Watch } from '@stencil/core';
-import type { JSONOutput } from 'typedoc';
 
 import { Page } from '@eventstore/layout';
 
@@ -9,6 +8,7 @@ import { isVariable } from 'utils/typedoc/reflectionKind';
 import { isReferenceType } from 'utils/typedoc/someType';
 import { extractUsage } from 'utils/extractUsage';
 import { extractAbstract, extractBodyText } from 'utils/extractText';
+import type { SomeReflection } from 'utils/typedoc/types';
 
 @Component({
     tag: 'docs-util-docs',
@@ -16,20 +16,18 @@ import { extractAbstract, extractBodyText } from 'utils/extractText';
     shadow: true,
 })
 export class UtilDocs {
-    @Prop() doc!: JSONOutput.DeclarationReflection;
+    @Prop() doc!: SomeReflection;
     @Prop() lib!: Lib;
 
-    private references!: JSONOutput.DeclarationReflection[];
-    private instanceOf?: JSONOutput.DeclarationReflection;
+    private references!: SomeReflection[];
+    private instanceOf?: SomeReflection;
 
     @Watch('doc')
     componentWillLoad() {
-        const isInstance =
-            isVariable(this.doc) && isReferenceType(this.doc.type!);
-
-        this.instanceOf = isInstance
-            ? this.lib.typeDocs!.lookup.get((this.doc.type as any).name)
-            : undefined;
+        this.instanceOf =
+            isVariable(this.doc) && isReferenceType(this.doc.type!)
+                ? this.lib.typeDocs!.lookup.get((this.doc.type as any).name)
+                : undefined;
 
         this.references = findAllReferences(
             this.instanceOf ?? this.doc,

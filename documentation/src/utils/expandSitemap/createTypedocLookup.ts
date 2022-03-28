@@ -1,22 +1,15 @@
-import type { JSONOutput } from 'typedoc';
+import type { SomeReflection } from 'utils/typedoc/types';
 
-export type TypedocLookup = Map<
-    number | string,
-    JSONOutput.DeclarationReflection
->;
+export type TypedocLookup = Map<number | string, SomeReflection>;
 
-export const createTypedocLookup = (
-    typedoc: JSONOutput.ProjectReflection,
-): TypedocLookup => {
+export const createTypedocLookup = (typedoc: SomeReflection): TypedocLookup => {
     const typeMap: TypedocLookup = new Map();
 
-    const insertTypeAndDecendants = (
-        type: JSONOutput.DeclarationReflection,
-    ) => {
+    const insertTypeAndDecendants = (type: SomeReflection) => {
         typeMap.set(type.id, type);
         typeMap.set(type.name, type);
 
-        if (type.children) {
+        if ('children' in type && type.children) {
             type.children.forEach(insertTypeAndDecendants);
         }
     };
