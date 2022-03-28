@@ -40,14 +40,6 @@ export class ButtonLink {
     @Prop() anchorId?: string;
     /** Target for link (eg: target="_blank") */
     @Prop() target?: string;
-    /** Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. */
-    @Prop() ariaHaspopup?: string;
-    /**  Defines an element's number or position in the current set of listitems or treeitems. */
-    @Prop() ariaPosinset?: string;
-    /** Defines the number of items in the current set of listitems or treeitems. */
-    @Prop() ariaSetsize?: number;
-    /** Fefines a string value that labels the current element. */
-    @Prop() ariaLabel?: string;
 
     render() {
         return (
@@ -60,10 +52,6 @@ export class ButtonLink {
                     title={this.anchorTitle}
                     tabIndex={this.anchorTabIndex}
                     id={this.anchorId}
-                    ariaHaspopup={this.ariaHaspopup}
-                    ariaPosinset={this.ariaPosinset}
-                    ariaSetsize={this.ariaSetsize}
-                    ariaLabel={this.ariaLabel}
                     target={this.target ?? this.external ? '_blank' : undefined}
                     rel={this.external ? 'noopener' : undefined}
                     disabled={this.disabled}

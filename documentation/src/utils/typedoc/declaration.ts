@@ -1,10 +1,10 @@
-import type { JSONOutput } from 'typedoc';
 import { isReferenceType, isUnionType } from './someType';
+import type { SomeReflection } from './types';
 
 export const isFunctionalComponentDeclaration = (
-    d: JSONOutput.DeclarationReflection,
+    d: SomeReflection,
 ): boolean => {
-    if (!d.signatures) return false;
+    if (!('signatures' in d) || !d.signatures) return false;
     const [signature] = d.signatures;
     const returnType = signature.type;
     if (!returnType || !isUnionType(returnType)) return false;

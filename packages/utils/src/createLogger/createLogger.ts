@@ -127,7 +127,7 @@ export function createLogger(name: string, color = 'black'): Logger {
     ];
 
     const group: any[] = [];
-    const createLogFunction = (method: keyof typeof console) => {
+    const createLogFunction = (method: keyof Omit<Console, 'Console'>) => {
         const log = (...args: any[]): void => {
             if (method === 'groupCollapsed') {
                 group.push(args);
@@ -143,7 +143,7 @@ export function createLogger(name: string, color = 'black'): Logger {
                         ? [`%c${name}`, styles.join(';')]
                         : [`[${name}]`];
 
-                console[method](...prefix, ...args);
+                (console[method] as any)(...prefix, ...args);
             }
 
             if (method !== 'error' && method !== 'warn' && method !== 'log') {

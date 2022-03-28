@@ -1,10 +1,10 @@
 import { h, FunctionalComponent } from '@stencil/core';
-import type { JSONOutput } from 'typedoc';
+import type { SomeType as TDSomeType } from 'typedoc';
 import { isReflectionType } from 'utils/typedoc/someType';
 import { DeclarationReflection } from './DeclarationReflection';
 
 export const SomeType: FunctionalComponent<{
-    type: JSONOutput.SomeType;
+    type: TDSomeType;
 }> = ({ type }) => {
     if (isReflectionType(type)) {
         if (type.declaration) {

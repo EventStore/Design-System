@@ -7,7 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { JsonDocs, JsonDocsEvent, JsonDocsMethod, JsonDocsPart, JsonDocsProp, JsonDocsSlot, JsonDocsStyle } from "@stencil/core/internal";
 import { Lib } from "sitemap";
-import { JSONOutput } from "typedoc";
+import { SomeReflection } from "utils/typedoc/types";
+import { SomeType } from "typedoc";
 export namespace Components {
     interface DocsBackground {
     }
@@ -19,7 +20,7 @@ export namespace Components {
         "events": JsonDocsEvent[];
     }
     interface DocsFunctionalComponentDocs {
-        "doc": JSONOutput.DeclarationReflection;
+        "doc": SomeReflection;
         "lib": Lib;
     }
     interface DocsHome {
@@ -51,24 +52,24 @@ export namespace Components {
         "styles": JsonDocsStyle[];
     }
     interface DocsType {
-        "declaration"?: JSONOutput.DeclarationReflection;
+        "declaration"?: SomeReflection;
         "depreciated": boolean;
-        "someType"?: JSONOutput.SomeType;
+        "someType"?: SomeType;
         "string"?: string;
     }
     interface DocsTypeDocs {
-        "doc": JSONOutput.DeclarationReflection;
+        "doc": SomeReflection;
         "lib": Lib;
     }
     interface DocsTypeDocumentation {
-        "declaration": JSONOutput.DeclarationReflection;
+        "declaration": SomeReflection;
     }
     interface DocsUsage {
         "identifier": string;
         "usage": string;
     }
     interface DocsUtilDocs {
-        "doc": JSONOutput.DeclarationReflection;
+        "doc": SomeReflection;
         "lib": Lib;
     }
 }
@@ -220,7 +221,7 @@ declare namespace LocalJSX {
         "events": JsonDocsEvent[];
     }
     interface DocsFunctionalComponentDocs {
-        "doc": JSONOutput.DeclarationReflection;
+        "doc": SomeReflection;
         "lib": Lib;
     }
     interface DocsHome {
@@ -252,24 +253,24 @@ declare namespace LocalJSX {
         "styles": JsonDocsStyle[];
     }
     interface DocsType {
-        "declaration"?: JSONOutput.DeclarationReflection;
+        "declaration"?: SomeReflection;
         "depreciated"?: boolean;
-        "someType"?: JSONOutput.SomeType;
+        "someType"?: SomeType;
         "string"?: string;
     }
     interface DocsTypeDocs {
-        "doc": JSONOutput.DeclarationReflection;
+        "doc": SomeReflection;
         "lib": Lib;
     }
     interface DocsTypeDocumentation {
-        "declaration": JSONOutput.DeclarationReflection;
+        "declaration": SomeReflection;
     }
     interface DocsUsage {
         "identifier": string;
         "usage": string;
     }
     interface DocsUtilDocs {
-        "doc": JSONOutput.DeclarationReflection;
+        "doc": SomeReflection;
         "lib": Lib;
     }
     interface IntrinsicElements {

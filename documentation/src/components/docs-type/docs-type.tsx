@@ -1,5 +1,5 @@
 import { Component, h, Fragment, VNode, Prop } from '@stencil/core';
-import type { JSONOutput } from 'typedoc';
+import type { SignatureReflection, SomeType } from 'typedoc';
 import {
     isCallSignature,
     isConstructorSignature,
@@ -7,7 +7,6 @@ import {
 } from 'utils/typedoc/reflectionKind';
 import {
     isIntrinsicType,
-    isTypeParameterType,
     isArrayType,
     isUnionType,
     isUnknownType,
@@ -26,6 +25,7 @@ import {
     isTypeOperatorType,
     isNamedTupleMember,
 } from 'utils/typedoc/someType';
+import type { SomeReflection } from 'utils/typedoc/types';
 
 @Component({
     tag: 'docs-type',
@@ -35,8 +35,8 @@ import {
 export class DocsSomeType {
     @Prop({ reflect: true }) depreciated: boolean = false;
     @Prop() string?: string;
-    @Prop() someType?: JSONOutput.SomeType;
-    @Prop() declaration?: JSONOutput.DeclarationReflection;
+    @Prop() someType?: SomeType;
+    @Prop() declaration?: SomeReflection;
 
     render() {
         if (this.string) return this.string;
@@ -45,19 +45,13 @@ export class DocsSomeType {
         return null;
     }
 
-    private renderSomeType = (
-        someType: JSONOutput.SomeType | any,
-    ): VNode | VNode[] => {
+    private renderSomeType = (someType: SomeType | any): VNode | VNode[] => {
         if (isIntrinsicType(someType)) {
             return (
                 <span class={`intrinsic ${someType.name}`}>
                     {someType.name}
                 </span>
             );
-        }
-
-        if (isTypeParameterType(someType)) {
-            return <span class={'parameter'}>{someType.name}</span>;
         }
 
         if (isArrayType(someType)) {
@@ -253,18 +247,18 @@ export class DocsSomeType {
     };
 
     private renderDeclaration = (
-        declaration: JSONOutput.DeclarationReflection,
+        declaration: SomeReflection,
     ): VNode | VNode[] => {
-        if (declaration.signatures) {
+        if ('signatures' in declaration && declaration.signatures) {
             return <>{declaration.signatures.map(this.renderDeclaration)}</>;
         }
 
         if (isConstructorSignature(declaration)) {
-            const signature = declaration as JSONOutput.SignatureReflection;
+            const signature = declaration as SignatureReflection;
             return (
                 <span class={'constructor'}>
                     <span class={'new'}>{'new '}</span>
-                    {declaration.type && this.renderSomeType(declaration.type)}
+                    {signature.type && this.renderSomeType(signature.type)}
                     {'('}
                     {signature.parameters && signature.parameters.length > 0 && (
                         <span class={'params'}>
@@ -290,7 +284,7 @@ export class DocsSomeType {
         }
 
         if (isCallSignature(declaration)) {
-            const signature = declaration as JSONOutput.SignatureReflection;
+            const signature = declaration as SignatureReflection;
             return (
                 <span class={'signature'}>
                     {'('}
@@ -324,11 +318,11 @@ export class DocsSomeType {
             return (
                 <span class={'alias'}>
                     {declaration.name}
-                    {declaration.typeParameter && (
+                    {declaration.typeParameters && (
                         <>
                             {'<'}
                             <span class={'params'}>
-                                {declaration.typeParameter?.map((param) => (
+                                {declaration.typeParameters?.map((param) => (
                                     <span class={'param'} key={param.name}>
                                         {param.name}
                                         {' extends '}
@@ -351,7 +345,7 @@ export class DocsSomeType {
             );
         }
 
-        if (declaration.type) {
+        if ('type' in declaration && declaration.type) {
             return this.renderSomeType(declaration.type);
         }
 

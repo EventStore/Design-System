@@ -1,5 +1,4 @@
 import { Component, h, Prop, Watch } from '@stencil/core';
-import type { JSONOutput } from 'typedoc';
 
 import { Page } from '@eventstore/layout';
 
@@ -7,6 +6,7 @@ import type { Lib } from 'sitemap';
 import { findAllReferences } from 'utils/typedoc/findAllReferences';
 import { extractAbstract } from 'utils/extractText';
 import { extractUsage } from 'utils/extractUsage';
+import type { SomeReflection } from 'utils/typedoc/types';
 
 @Component({
     tag: 'docs-type-docs',
@@ -14,10 +14,10 @@ import { extractUsage } from 'utils/extractUsage';
     shadow: true,
 })
 export class TypeDocs {
-    @Prop() doc!: JSONOutput.DeclarationReflection;
+    @Prop() doc!: SomeReflection;
     @Prop() lib!: Lib;
 
-    private references!: JSONOutput.DeclarationReflection[];
+    private references!: SomeReflection[];
 
     @Watch('doc')
     componentWillLoad() {

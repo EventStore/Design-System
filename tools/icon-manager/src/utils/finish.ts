@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-export const failure = (error: string, hint?: string) => {
+export const failure = (error: unknown, hint?: string) => {
     console.error(error);
 
     if (hint) {

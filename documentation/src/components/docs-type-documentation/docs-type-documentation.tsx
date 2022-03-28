@@ -1,5 +1,5 @@
 import { Component, h, Prop } from '@stencil/core';
-import type { JSONOutput } from 'typedoc';
+import type { SomeReflection } from 'utils/typedoc/types';
 import { DeclarationReflection } from './components/DeclarationReflection';
 
 @Component({
@@ -8,7 +8,7 @@ import { DeclarationReflection } from './components/DeclarationReflection';
     shadow: true,
 })
 export class DocsTypeDocumentation {
-    @Prop() declaration!: JSONOutput.DeclarationReflection;
+    @Prop() declaration!: SomeReflection;
 
     render() {
         return <DeclarationReflection declaration={this.declaration} />;

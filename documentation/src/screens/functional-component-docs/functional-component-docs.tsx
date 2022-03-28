@@ -1,5 +1,4 @@
 import { Component, h, Prop, Watch } from '@stencil/core';
-import type { JSONOutput } from 'typedoc';
 
 import { Page } from '@eventstore/layout';
 
@@ -12,6 +11,7 @@ import {
     extractFullText,
 } from 'utils/extractText';
 import { hasTag } from 'utils/typedoc/hasTag';
+import type { SomeReflection } from 'utils/typedoc/types';
 
 @Component({
     tag: 'docs-functional-component-docs',
@@ -19,10 +19,10 @@ import { hasTag } from 'utils/typedoc/hasTag';
     shadow: true,
 })
 export class FunctionalComponentDocs {
-    @Prop() doc!: JSONOutput.DeclarationReflection;
+    @Prop() doc!: SomeReflection;
     @Prop() lib!: Lib;
 
-    private references!: JSONOutput.DeclarationReflection[];
+    private references!: SomeReflection[];
 
     @Watch('doc')
     componentWillLoad() {

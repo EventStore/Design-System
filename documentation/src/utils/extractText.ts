@@ -1,16 +1,14 @@
-import type { JSONOutput } from 'typedoc';
+import type { SomeReflection } from './typedoc/types';
 
-export const extractFullText = ({
-    comment,
-    signatures,
-}: JSONOutput.DeclarationReflection): string => {
+export const extractFullText = (refl: SomeReflection): string => {
     const text = [];
+    const comment = refl.comment;
 
     if (comment) {
         if (comment.shortText) text.push(comment.shortText);
         if (comment.text) text.push(comment.text);
-    } else if (signatures?.length === 1) {
-        const [{ comment }] = signatures;
+    } else if ('signatures' in refl && refl.signatures?.length === 1) {
+        const [{ comment }] = refl.signatures;
         if (comment?.shortText) text.push(comment.shortText);
         if (comment?.text) text.push(comment.text);
     }
@@ -18,32 +16,30 @@ export const extractFullText = ({
     return text.join('\n');
 };
 
-export const extractAbstract = ({
-    comment,
-    signatures,
-}: JSONOutput.DeclarationReflection): string => {
+export const extractAbstract = (refl: SomeReflection): string => {
+    const comment = refl.comment;
+
     if (comment?.shortText) {
         return comment.shortText;
     }
 
-    if (signatures?.length === 1) {
-        const [{ comment }] = signatures;
+    if ('signatures' in refl && refl.signatures?.length === 1) {
+        const [{ comment }] = refl.signatures;
         if (comment?.shortText) return comment.shortText;
     }
 
     return '';
 };
 
-export const extractBodyText = ({
-    comment,
-    signatures,
-}: JSONOutput.DeclarationReflection): string => {
+export const extractBodyText = (refl: SomeReflection): string => {
+    const comment = refl.comment;
+
     if (comment?.text) {
         return comment.text;
     }
 
-    if (signatures?.length === 1) {
-        const [{ comment }] = signatures;
+    if ('signatures' in refl && refl.signatures?.length === 1) {
+        const [{ comment }] = refl.signatures;
         if (comment?.text) return comment.text;
     }
 

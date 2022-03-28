@@ -189,7 +189,8 @@ export const bundle = async (files: Files) => {
         });
 
         return { bundle: generated.output[0].code };
-    } catch (e) {
+    } catch (err) {
+        const e = err as any;
         logger.error(e);
 
         let errorMessage = e.toString();

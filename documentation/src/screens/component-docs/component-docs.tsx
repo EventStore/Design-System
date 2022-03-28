@@ -1,11 +1,11 @@
 import { Component, h, Prop } from '@stencil/core';
 import type { JsonDocs } from '@stencil/core/internal';
-import type { JSONOutput } from 'typedoc';
 
 import { Page } from '@eventstore/layout';
 
 import type { Lib } from 'sitemap';
 import { extractTypes } from 'utils/typedoc/isIntrinsic';
+import type { SomeReflection } from 'utils/typedoc/types';
 
 @Component({
     tag: 'docs-component-docs',
@@ -83,15 +83,12 @@ export class ComponentDocs {
         );
     }
 
-    private findRelatedTypes = (): JSONOutput.DeclarationReflection[] => {
+    private findRelatedTypes = (): SomeReflection[] => {
         const { typeDocs } = this.lib;
         const { props } = this.comp;
         if (!typeDocs) return [];
 
-        const relatedTypes = new Map<
-            string,
-            JSONOutput.DeclarationReflection
-        >();
+        const relatedTypes = new Map<string, SomeReflection>();
 
         for (const prop of props) {
             for (const value of prop.values) {
