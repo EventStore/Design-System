@@ -8,23 +8,24 @@
     --active-background-color: transparent;
 }
 
-:host([level='2']) a {
+:host([level='2']) :matches(a, button) {
     padding-left: calc(var(--blob-size) * 1.5);
 }
 
-:host([level='3']) a {
+:host([level='3']) :matches(a, button) {
     padding-left: calc(var(--blob-size) * 2);
 }
 
-:host([level='4']) a {
+:host([level='4']) :matches(a, button) {
     padding-left: calc(var(--blob-size) * 2.5);
 }
 
-:host([level='5']) a {
+:host([level='5']) :matches(a, button) {
     padding-left: calc(var(--blob-size) * 3);
 }
 
-a {
+a,
+button {
     padding: 10px;
     padding-left: var(--blob-size);
     padding-right: var(--blob-size);
@@ -58,6 +59,7 @@ a {
         color: var(--active-color);
     }
 
+    &.active,
     &.link-active {
         color: var(--active-color);
         background-color: var(--active-background-color);
@@ -104,5 +106,9 @@ a {
 }
 
 es-badge {
+    margin-right: 12px;
+}
+
+es-counter {
     margin-right: 12px;
 }

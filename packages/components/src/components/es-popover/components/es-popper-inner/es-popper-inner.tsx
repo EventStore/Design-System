@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Host } from '@stencil/core';
 
 /** @internal */
 @Component({
@@ -8,6 +8,6 @@ import { Component, h } from '@stencil/core';
 })
 export class Popper {
     render() {
-        return <slot />;
+        return <Host />;
     }
 }

@@ -3,6 +3,8 @@ import { Component, h, Host } from '@stencil/core';
 import { Route, router, Switch } from '@eventstore/router';
 import { Page } from '../Page/Page';
 import { ES_LAYOUT } from '../../icons/namespace';
+import { requestClose } from '@eventstore/components';
+import { logger } from '../../utils/logger';
 
 /** @internal */
 @Component({
@@ -19,7 +21,42 @@ export class DevRoot {
         return (
             <Host>
                 <es-header>
-                    <es-nav navTree={this.navTree} slot={'right'} />
+                    <es-nav navTree={this.navTree} slot={'under'} />
+                    <es-header-dropdown
+                        disabled
+                        slot={'right'}
+                        icon={[ES_LAYOUT, 'dark-low-theme']}
+                        buttonText={'JJJ'}
+                    >
+                        <header class={'user_dropdown_header'}>
+                            <es-icon icon={[ES_LAYOUT, 'dark-low-theme']} />
+                            <h1>{'John John Johnson'}</h1>
+                            <h2>{'jjj@johnson.com'}</h2>
+                        </header>
+                        <es-layout-link
+                            matchExact
+                            url={'/'}
+                            count={22}
+                            alertLevel={'error'}
+                        >
+                            {'Hello!'}
+                        </es-layout-link>
+                        <es-layout-button
+                            onClick={(e) => {
+                                logger.log('hello');
+                                requestClose(e.target);
+                            }}
+                            icon={[ES_LAYOUT, 'dark-low-theme']}
+                        >
+                            {'Go away'}
+                        </es-layout-button>
+                        <es-layout-link
+                            url={'/somewhere'}
+                            icon={[ES_LAYOUT, 'dark-high-theme']}
+                        >
+                            {'Go somewhere'}
+                        </es-layout-link>
+                    </es-header-dropdown>
                     <es-theme-dropdown slot={'right'} />
                 </es-header>
                 <es-loading-bar name={'page'} />
@@ -35,17 +72,26 @@ export class DevRoot {
                     </Route>
                     <Route>
                         <es-sidebar>
-                            <es-sidebar-section title={'Dropdown'}>
+                            <es-layout-section title={'Dropdown'}>
                                 <es-sidebar-dropdown
                                     defaultIcon={[ES_LAYOUT, 'light-low-theme']}
                                     defaultTitle={'Hello there'}
                                 >
-                                    <es-sidebar-section
+                                    <es-layout-section
                                         collapsable
                                         defaultCollapsed
                                         title={'Night Time'}
                                     >
-                                        <es-sidebar-link
+                                        <es-layout-button
+                                            onClick={(e) => {
+                                                logger.log('hello');
+                                                requestClose(e.target);
+                                            }}
+                                            icon={[ES_LAYOUT, 'dark-low-theme']}
+                                        >
+                                            {'Go away'}
+                                        </es-layout-button>
+                                        <es-layout-link
                                             matchExact
                                             url={'/'}
                                             icon={[
@@ -54,8 +100,8 @@ export class DevRoot {
                                             ]}
                                         >
                                             {'Hello!'}
-                                        </es-sidebar-link>
-                                        <es-sidebar-link
+                                        </es-layout-link>
+                                        <es-layout-link
                                             url={'/somewhere'}
                                             icon={[
                                                 ES_LAYOUT,
@@ -63,13 +109,13 @@ export class DevRoot {
                                             ]}
                                         >
                                             {'Go somewhere'}
-                                        </es-sidebar-link>
-                                    </es-sidebar-section>
-                                    <es-sidebar-section
+                                        </es-layout-link>
+                                    </es-layout-section>
+                                    <es-layout-section
                                         collapsable
                                         title={'Day Time'}
                                     >
-                                        <es-sidebar-link
+                                        <es-layout-link
                                             url={'/good-morning'}
                                             icon={[
                                                 ES_LAYOUT,
@@ -77,8 +123,8 @@ export class DevRoot {
                                             ]}
                                         >
                                             {'Good morning!'}
-                                        </es-sidebar-link>
-                                        <es-sidebar-link
+                                        </es-layout-link>
+                                        <es-layout-link
                                             url={'/work'}
                                             icon={[
                                                 ES_LAYOUT,
@@ -86,15 +132,15 @@ export class DevRoot {
                                             ]}
                                         >
                                             {'Go to work'}
-                                        </es-sidebar-link>
-                                    </es-sidebar-section>
-                                    <es-sidebar-section
+                                        </es-layout-link>
+                                    </es-layout-section>
+                                    <es-layout-section
                                         collapsable
                                         defaultCollapsed
                                         title={'Another Time'}
                                     >
                                         {Array.from({ length: 200 }, (_, i) => (
-                                            <es-sidebar-link
+                                            <es-layout-link
                                                 url={`/another-${i}`}
                                                 icon={[
                                                     ES_LAYOUT,
@@ -102,26 +148,31 @@ export class DevRoot {
                                                 ]}
                                             >
                                                 {`Link ${1}`}
-                                            </es-sidebar-link>
+                                            </es-layout-link>
                                         ))}
-                                    </es-sidebar-section>
+                                    </es-layout-section>
                                 </es-sidebar-dropdown>
-                            </es-sidebar-section>
-                            <es-sidebar-section title={'My Section'}>
-                                <es-sidebar-link
+                            </es-layout-section>
+                            <es-layout-section title={'My Section'}>
+                                <es-layout-link
                                     matchExact
                                     url={'/'}
                                     icon={[ES_LAYOUT, 'dark-high-theme']}
                                 >
                                     {'Hello!'}
-                                </es-sidebar-link>
-                                <es-sidebar-link
+                                </es-layout-link>
+                                <es-layout-button
+                                    icon={[ES_LAYOUT, 'dark-high-theme']}
+                                >
+                                    {'Go somewhere'}
+                                </es-layout-button>
+                                <es-layout-link
                                     url={'/somewhere'}
                                     icon={[ES_LAYOUT, 'dark-high-theme']}
                                 >
                                     {'Go somewhere'}
-                                </es-sidebar-link>
-                            </es-sidebar-section>
+                                </es-layout-link>
+                            </es-layout-section>
                         </es-sidebar>
                         <Switch>
                             <Route exact url={'/'}>

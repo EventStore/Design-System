@@ -13,16 +13,16 @@ import { randomIcon } from 'helpers';
 
 export default () => (
     <es-sidebar>
-        <es-sidebar-section>
-            <es-sidebar-link url={'/'}>
+        <es-layout-section>
+            <es-layout-link url={'/'}>
                 {'My section has no title'}
-            </es-sidebar-link>
-        </es-sidebar-section>
-        <es-sidebar-section sectionTitle={'I am a section'}>
-            <es-sidebar-link url={'/somewhere-else'}>
+            </es-layout-link>
+        </es-layout-section>
+        <es-layout-section sectionTitle={'I am a section'}>
+            <es-layout-link url={'/somewhere-else'}>
                 {'My section has a title'}
-            </es-sidebar-link>
-        </es-sidebar-section>
+            </es-layout-link>
+        </es-layout-section>
     </es-sidebar>
 );
 ```
@@ -61,9 +61,9 @@ export default () => (
 ### Graph
 ```mermaid
 graph TD;
-  es-sidebar-section --> es-icon
-  dev-root --> es-sidebar-section
-  style es-sidebar-section fill:#f9f,stroke:#333,stroke-width:4px
+  es-layout-section --> es-icon
+  dev-root --> es-layout-section
+  style es-layout-section fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

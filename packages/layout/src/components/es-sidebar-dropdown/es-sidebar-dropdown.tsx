@@ -1,12 +1,12 @@
 import { Component, h, Host, Prop, State, Element } from '@stencil/core';
 import type { IconDescription } from '@eventstore/components';
-
-import { ES_LAYOUT } from '../../icons/namespace';
 import { router } from '@eventstore/router';
 import { theme } from '@eventstore/theme';
 
+import { ES_LAYOUT } from '../../icons/namespace';
+
 /**
- * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `es-sidebar-link`.
+ * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `es-layout-link` or `es-layout-button`.
  */
 @Component({
     tag: 'es-sidebar-dropdown',
@@ -16,9 +16,9 @@ import { theme } from '@eventstore/theme';
 export class SidebarDropdown {
     @Element() host!: HTMLEsSidebarDropdownElement;
 
-    /** The title to display if no nested es-sidebar-link is active */
+    /** The title to display if no nested es-layout-link or es-layout-button is active */
     @Prop() defaultTitle!: string;
-    /** The icon to display if no nested es-sidebar-link is active */
+    /** The icon to display if no nested es-layout-link or es-layout-button is active */
     @Prop() defaultIcon!: IconDescription;
 
     @State() dropdownOpen: boolean = false;
@@ -26,7 +26,9 @@ export class SidebarDropdown {
     @State() activeIcon: IconDescription = this.defaultIcon;
 
     private unsubscribe?: () => void;
-    private links: HTMLEsSidebarLinkElement[] = [];
+    private links: Array<
+        HTMLEsLayoutLinkElement | HTMLEsLayoutButtonElement
+    > = [];
 
     componentWillLoad() {
         this.unsubscribe = router.history.listen(() => {
@@ -65,17 +67,15 @@ export class SidebarDropdown {
                     />
                 </es-button>
                 <es-popover
-                    backdrop
                     arrow
+                    trapFocus
+                    closeOnBlur
                     open={this.dropdownOpen}
                     onRequestClose={this.closeDropdown}
-                    popperClass={`popper ${
-                        theme.isHighContrast() ? 'high-contrast' : ''
-                    }`}
+                    popperClass={theme.isHighContrast() ? 'high-contrast' : ''}
                     placement={'bottom'}
                     autoSize={'width'}
                     offset={14}
-                    trapFocus
                 >
                     <slot onSlotchange={this.slotChange} />
                 </es-popover>
@@ -99,10 +99,12 @@ export class SidebarDropdown {
         const slot = e.target as HTMLSlotElement;
         if (!slot) return;
 
-        const links: HTMLEsSidebarLinkElement[] = [];
+        const links: HTMLEsLayoutLinkElement[] = [];
 
         for (const element of slot.assignedElements()) {
-            const childLinks = element.querySelectorAll('es-sidebar-link');
+            const childLinks = element.querySelectorAll<
+                HTMLEsLayoutLinkElement | HTMLEsLayoutButtonElement
+            >('es-layout-link,es-layout-button');
             links.push(...Array.from(childLinks));
         }
 

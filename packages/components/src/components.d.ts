@@ -7,11 +7,11 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordianSection } from "./components/es-accordian/types";
 import { VNode } from "@stencil/core";
-import { BadgeColor, BadgeVariant } from "./components/es-badge/es-badge";
+import { BadgeVariant } from "./components/es-badge/es-badge";
 import { ButtonVariant } from "./components/buttons/types";
 import { EsCalloutVariant } from "./components/es-callout/es-callout";
 import { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
-import { CounterVariant } from "./components/es-counter/es-counter";
+import { CounterColor, CounterVariant } from "./components/es-counter/es-counter";
 import { IconDescription } from "./components/es-icon/types";
 import { Constrain } from "./components/es-popover/es-popover";
 import { Placement } from "@floating-ui/dom";
@@ -41,7 +41,7 @@ export namespace Components {
         /**
           * Choose the color variant of the badge
          */
-        "color": BadgeColor;
+        "color": HTMLEsCounterElement['color'];
         /**
           * What number to display in the counter (or if the dot should display)
          */
@@ -159,6 +159,10 @@ export namespace Components {
     }
     interface EsCounter {
         /**
+          * Choose the color variant of the counter
+         */
+        "color"?: CounterColor;
+        /**
           * The number to display
          */
         "count": number;
@@ -225,6 +229,10 @@ export namespace Components {
          */
         "backdrop": boolean;
         /**
+          * If the popover should request to close when focus is lost
+         */
+        "closeOnBlur": boolean;
+        /**
           * Constrain the size of the popover inner to the size of the window.
          */
         "constrain": Constrain;
@@ -264,6 +272,10 @@ export namespace Components {
           * If the popover should trap focus within, and return focus on close.
          */
         "trapFocus": boolean;
+        /**
+          * What zIndex to place the popover in.
+         */
+        "zIndex"?: number;
     }
     interface EsPopper {
         "backdrop": boolean;
@@ -752,7 +764,7 @@ declare namespace LocalJSX {
         /**
           * Choose the color variant of the badge
          */
-        "color"?: BadgeColor;
+        "color"?: HTMLEsCounterElement['color'];
         /**
           * What number to display in the counter (or if the dot should display)
          */
@@ -866,6 +878,10 @@ declare namespace LocalJSX {
     }
     interface EsCounter {
         /**
+          * Choose the color variant of the counter
+         */
+        "color"?: CounterColor;
+        /**
           * The number to display
          */
         "count"?: number;
@@ -932,6 +948,10 @@ declare namespace LocalJSX {
          */
         "backdrop"?: boolean;
         /**
+          * If the popover should request to close when focus is lost
+         */
+        "closeOnBlur"?: boolean;
+        /**
           * Constrain the size of the popover inner to the size of the window.
          */
         "constrain"?: Constrain;
@@ -975,6 +995,10 @@ declare namespace LocalJSX {
           * If the popover should trap focus within, and return focus on close.
          */
         "trapFocus"?: boolean;
+        /**
+          * What zIndex to place the popover in.
+         */
+        "zIndex"?: number;
     }
     interface EsPopper {
         "backdrop"?: boolean;

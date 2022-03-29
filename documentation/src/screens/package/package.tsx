@@ -43,86 +43,86 @@ export class DocsPackage {
         return (
             <Host>
                 <es-sidebar>
-                    <es-sidebar-section sectionTitle={'Package'}>
+                    <es-layout-section sectionTitle={'Package'}>
                         <es-sidebar-dropdown
                             defaultTitle={'Package'}
                             defaultIcon={'gift'}
                         >
                             {sitemap.map(({ title, children }) => (
-                                <es-sidebar-section title={title}>
+                                <es-layout-section title={title}>
                                     {children.map(
                                         ({ title, packageJson, slug }) => (
-                                            <es-sidebar-link
+                                            <es-layout-link
                                                 url={`/${slug}`}
                                                 icon={packageJson.name}
                                             >
                                                 {title}
-                                            </es-sidebar-link>
+                                            </es-layout-link>
                                         ),
                                     )}
-                                </es-sidebar-section>
+                                </es-layout-section>
                             ))}
                         </es-sidebar-dropdown>
-                    </es-sidebar-section>
+                    </es-layout-section>
                     {this.lib.stencilDocs && (
-                        <es-sidebar-section sectionTitle={'Components'}>
+                        <es-layout-section sectionTitle={'Components'}>
                             {this.lib.stencilDocs.components.map(({ tag }) => (
-                                <es-sidebar-link
+                                <es-layout-link
                                     key={tag}
                                     url={`/${this.lib.slug}/components/${tag}`}
                                 >
                                     {tag}
-                                </es-sidebar-link>
+                                </es-layout-link>
                             ))}
-                        </es-sidebar-section>
+                        </es-layout-section>
                     )}
                     {this.functionalComponents && (
-                        <es-sidebar-section
+                        <es-layout-section
                             sectionTitle={'Functional Components'}
                         >
                             {this.functionalComponents.map(({ name }) => (
-                                <es-sidebar-link
+                                <es-layout-link
                                     key={name}
                                     url={`/${this.lib.slug}/functional-components/${name}`}
                                 >
                                     {name}
-                                </es-sidebar-link>
+                                </es-layout-link>
                             ))}
-                        </es-sidebar-section>
+                        </es-layout-section>
                     )}
                     {this.utils && (
-                        <es-sidebar-section sectionTitle={'Utils'}>
+                        <es-layout-section sectionTitle={'Utils'}>
                             {this.utils.map(({ name }) => (
-                                <es-sidebar-link
+                                <es-layout-link
                                     key={name}
                                     url={`/${this.lib.slug}/utils/${name}`}
                                 >
                                     {name}
-                                </es-sidebar-link>
+                                </es-layout-link>
                             ))}
-                        </es-sidebar-section>
+                        </es-layout-section>
                     )}
                     {this.types && (
-                        <es-sidebar-section sectionTitle={'Types'}>
+                        <es-layout-section sectionTitle={'Types'}>
                             {this.types.map(({ name }) => (
-                                <es-sidebar-link
+                                <es-layout-link
                                     key={name}
                                     url={`/${this.lib.slug}/types/${name}`}
                                 >
                                     {name}
-                                </es-sidebar-link>
+                                </es-layout-link>
                             ))}
-                        </es-sidebar-section>
+                        </es-layout-section>
                     )}
 
                     {this.anchors?.map(({ id, name, level }) => (
-                        <es-sidebar-link
+                        <es-layout-link
                             level={level - 1}
                             key={id}
                             url={`#${id}`}
                         >
                             {name}
-                        </es-sidebar-link>
+                        </es-layout-link>
                     ))}
                 </es-sidebar>
                 <Switch>

@@ -40,10 +40,14 @@ export class Popover {
     @Prop({ reflect: true }) open: boolean = false;
     /** If the popover should overlay a backdrop, to prevent external clicks. */
     @Prop() backdrop: boolean = false;
+    /** What zIndex to place the popover in. */
+    @Prop() zIndex?: number;
     /** If the popover should render an arrow. */
     @Prop() arrow: boolean = false;
     /** If the popover should trap focus within, and return focus on close. */
     @Prop({ attribute: 'trap-focus' }) trapFocus: boolean = false;
+    /** If the popover should request to close when focus is lost */
+    @Prop() closeOnBlur: boolean = false;
 
     /** Pass an element to attach the popover to. (Defaults to the parent element.) */
     @Prop() attachTo?: HTMLElement;
@@ -168,6 +172,9 @@ export class Popover {
             this.host.shadowRoot!.querySelector('slot')?.assignedNodes() ?? [];
 
         popper.style.opacity = '0';
+        if (this.zIndex != null) {
+            popper.style.zIndex = `${this.zIndex}`;
+        }
         popper.setAttribute('backdrop', `${this.backdrop}`);
         popper.setAttribute('trap-focus', `${this.trapFocus}`);
         popperInner.classList.add('inner');
@@ -196,6 +203,20 @@ export class Popover {
                 from: parentShadow.styleSheets,
                 to: shadowSheet,
             });
+
+            if (assignedNodes.find(({ nodeName }) => nodeName === 'SLOT')) {
+                const grandParentShadow = parentShadow.host.parentNode?.getRootNode() as ShadowRoot;
+
+                this.adoptStyleRules({
+                    from: (grandParentShadow as any)?.adoptedStyleSheets,
+                    to: shadowSheet,
+                });
+
+                this.adoptStyleRules({
+                    from: grandParentShadow?.styleSheets,
+                    to: shadowSheet,
+                });
+            }
         }
 
         this.portalledNodes = [];
@@ -221,6 +242,15 @@ export class Popover {
         }
 
         popper.addEventListener('requestClose', this.bubbleRequestClose);
+
+        if (this.closeOnBlur) {
+            popperInner.addEventListener('focusout', (e) => {
+                if (popperInner.contains(e.relatedTarget as HTMLElement)) {
+                    return;
+                }
+                this.requestClose.emit('blur');
+            });
+        }
 
         this.popper = popper;
         this.popperShadow = popperShadow;

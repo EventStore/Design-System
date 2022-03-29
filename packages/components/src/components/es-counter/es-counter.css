@@ -1,7 +1,7 @@
 /**
  * @prop --transition-duration: Duration of the pulse. Defaults to 300ms.
  * @prop --text-color: Defaults to --color-text. The background color. Named to imherit colors from es-button.
- * @prop --background-color: Defaults to --color-secondary. The forground color. Named to imherit colors from es-button.
+ * @prop --background-color: Defaults to --color-secondary. The foreground color. Named to imherit colors from es-button.
  */
 
 :host {
@@ -37,6 +37,21 @@
         transition-property: fill;
         transition-timing-function: ease;
     }
+}
+
+:host(.okay) {
+    --text-color: var(--color-info);
+    --background-color: var(--color-info-contrast);
+}
+
+:host(.warning) {
+    --text-color: var(--color-warning);
+    --background-color: var(--color-warning-contrast);
+}
+
+:host(.error) {
+    --text-color: var(--color-error);
+    --background-color: var(--color-error-contrast);
 }
 
 :host(.pulse) {

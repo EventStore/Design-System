@@ -6,6 +6,7 @@
  * @prop --primary-color: Sets the primary theming color 
  * @prop --secondary-color: Sets the secondary theming color 
  * @prop --tertiary-color: Sets the tertiary theming color 
+ * @prop --focus-color: Sets the color of the outline on focus.
  * @prop --foreground-color: Directly set the foreground color of the button. 
  * @prop --background-color: Directly set the background color of the button. 
  * @prop --border-color:  Directly set the border color of the button. 
@@ -27,6 +28,7 @@
     --transition-duration: 500ms;
     --spacing: 14px;
     --align-inner: center;
+    --focus: var(--focus-color, var(--color-focus));
 
     font-size: 16px;
     display: inline-block;
@@ -34,9 +36,11 @@
     border-radius: var(--border-radius);
 }
 
-:host(:focus),
-:host(:focus-within) {
-    --border-color: var(--color-focus);
+:host(:not([disabled]):focus),
+:host(:not([disabled]):focus-within) {
+    outline-offset: 2px;
+    outline-color: var(--focus);
+    outline-style: solid;
 }
 
 /* variants */
@@ -53,10 +57,6 @@
     --background-color: var(---secondary);
     --foreground-color: var(---primary);
     --border-color: var(---primary);
-}
-:host([variant='default']:not([disabled]):focus),
-:host([variant='default']:not([disabled]):focus-within) {
-    --border-color: var(--color-focus);
 }
 :host([variant='default'][disabled]) {
     --background-color: var(--color-shade-40);
@@ -78,10 +78,6 @@
     --foreground-color: var(---primary);
     --border-color: var(---tertiary);
 }
-:host([variant='filled']:not([disabled]):focus),
-:host([variant='filled']:not([disabled]):focus-within) {
-    --border-color: var(--color-focus);
-}
 :host([variant='filled'][disabled]) {
     --background-color: var(--color-shade-40);
     --foreground-color: var(--color-background);
@@ -102,10 +98,6 @@
     --foreground-color: var(---primary);
     --border-color: var(---tertiary);
 }
-:host([variant='outline']:not([disabled]):focus),
-:host([variant='outline']:not([disabled]):focus-within) {
-    --border-color: var(--color-focus);
-}
 :host([variant='outline'][disabled]) {
     --background-color: var(--color-shade-40);
     --foreground-color: var(--color-background);
@@ -124,10 +116,6 @@
     --background-color: var(--color-error);
     --foreground-color: var(--color-error-contrast);
     --border-color: var(--color-error);
-}
-:host([variant='delete']:not([disabled]):focus),
-:host([variant='delete']:not([disabled]):focus-within) {
-    --border-color: var(--color-focus);
 }
 :host([variant='delete'][disabled]) {
     --background-color: var(--color-shade-40);
@@ -200,12 +188,6 @@
 }
 :host([variant='link'][disabled]) {
     --foreground-color: var(--color-shade-40);
-}
-
-:host([variant][high-contrast]:focus),
-:host([variant][high-contrast]:focus-within) {
-    outline: solid var(--color-focus);
-    outline-offset: 2px;
 }
 
 :host([variant][high-contrast][disabled]) {

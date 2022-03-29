@@ -46,6 +46,14 @@ export class EsNav {
         this.activeChild = undefined;
     }
 
+    @Listen('focusout') handleFocusOut(event: FocusEvent) {
+        if (this.activeChild == null) return;
+        if (this.host.contains(event.relatedTarget as HTMLElement)) {
+            return;
+        }
+        this.activeChild = undefined;
+    }
+
     @Listen('keydown')
     keyPress(e: KeyboardEvent) {
         if (e.key !== 'Escape') return;
