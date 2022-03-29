@@ -30,27 +30,26 @@
         "dev": "stencil build --dev --watch --serve",
         "docs": "run-s \"docs:*\"",
         "docs:stencil": "stencil build --docs-json ../../documentation/generated/layout.stencil.json",
-        "docs:typedoc": "typedoc --json ../../documentation/generated/layout.typedoc.json",
+        "docs:typedoc": "typedoc --logLevel Error --json ../../documentation/generated/layout.typedoc.json",
         "test": "stencil test --spec --e2e --passWithNoTests",
         "test.watch": "stencil test --spec --e2e --watchAll",
         "lint": "yarn g:lint",
         "icon": "icon --dir=./src/icons"
     },
     "peerDependencies": {
+        "@eventstore/components": "0.1.x",
         "@eventstore/router": "0.1.x",
         "@eventstore/theme": "0.1.x",
         "@eventstore/utils": "0.1.x"
     },
-    "dependencies": {
-        "@floating-ui/dom": "0.4.1"
-    },
     "devDependencies": {
+        "@eventstore/components": "workspace:*",
         "@eventstore/configs": "workspace:*",
         "@eventstore/icon-manager": "workspace:*",
         "@eventstore/router": "workspace:*",
         "@eventstore/theme": "workspace:*",
         "@eventstore/utils": "workspace:*",
-        "@stencil/core": "^2.14.2",
+        "@stencil/core": "^2.15.0",
         "jest": "^26.6.3",
         "npm-run-all": "^4.1.5",
         "puppeteer": "^10.2.0",
