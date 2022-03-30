@@ -3,15 +3,15 @@ import { Link, router } from '@eventstore/router';
 import type { IconDescription } from '@eventstore/components';
 
 /**
- * A link for the sidebar.
+ * A link for the sidebar, sidebar-dropdown, and header-dropdown.
  * @part link - The link element.
  */
 @Component({
-    tag: 'es-sidebar-link',
-    styleUrl: 'es-sidebar-link.css',
+    tag: 'es-layout-link',
+    styleUrl: 'es-layout-link.css',
     shadow: true,
 })
-export class SidebarLink {
+export class LayoutLink {
     /** Where to link to. */
     @Prop() url?: string;
     /** When to display as active. Uses the `url` by default. */
@@ -29,6 +29,8 @@ export class SidebarLink {
     @Prop({ reflect: true }) level?: number;
     /** Display a dot on the icon, to attract attention to the link.  */
     @Prop() alertLevel?: HTMLEsBadgeElement['color'];
+    /** Display a counter in place of the icon. */
+    @Prop() count?: number;
 
     /** If the link is currently active */
     @Method()
@@ -54,14 +56,22 @@ export class SidebarLink {
                 aria-disabled={this.disabled}
                 part={'link'}
             >
-                {!!this.icon && (
-                    <es-badge
-                        count={this.alertLevel ? 1 : 0}
-                        variant={'dot'}
+                {this.count != null ? (
+                    <es-counter
+                        count={this.count}
+                        variant={'filled'}
                         color={this.alertLevel}
-                    >
-                        <es-icon icon={this.icon} />
-                    </es-badge>
+                    />
+                ) : (
+                    !!this.icon && (
+                        <es-badge
+                            count={this.alertLevel ? 1 : 0}
+                            variant={'dot'}
+                            color={this.alertLevel}
+                        >
+                            <es-icon icon={this.icon} />
+                        </es-badge>
+                    )
                 )}
                 <span class="inner">
                     <slot />

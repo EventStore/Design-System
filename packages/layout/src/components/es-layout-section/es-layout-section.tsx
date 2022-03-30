@@ -2,18 +2,18 @@ import { Component, h, Host, Listen, Prop, State } from '@stencil/core';
 import { ES_LAYOUT } from '../../icons/namespace';
 
 /**
- * A sidebar section with an optional title
+ * A section with an optional title for containing layout-links
  * @part header - The header containing the title.
  * @part title - The title h1 element.
  * @part nav - The nav element.
  * @part nav_inner - The element inside the nav.
  */
 @Component({
-    tag: 'es-sidebar-section',
-    styleUrl: 'es-sidebar-section.css',
+    tag: 'es-layout-section',
+    styleUrl: 'es-layout-section.css',
     shadow: true,
 })
-export class SidebarSection {
+export class LayoutSection {
     /** Optionally renders a title */
     @Prop({ attribute: 'title' }) sectionTitle?: string;
     /** If the section is collapsable */

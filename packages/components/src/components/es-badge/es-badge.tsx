@@ -1,7 +1,6 @@
 import { Component, h, Prop, Host } from '@stencil/core';
 
 export type BadgeVariant = 'dot' | HTMLEsCounterElement['variant'];
-export type BadgeColor = 'error' | 'warning' | 'okay';
 
 /**
  * Display a counter or dot beside a component to indicate action being required.
@@ -15,7 +14,7 @@ export class ESBadge {
     /** Select the display variant of the badge */
     @Prop() variant: BadgeVariant = 'filled';
     /** Choose the color variant of the badge */
-    @Prop() color: BadgeColor = 'error';
+    @Prop() color: HTMLEsCounterElement['color'] = 'error';
     /** What number to display in the counter (or if the dot should display) */
     @Prop() count!: number;
     /** Show the dot and counter even if the count 0 (or negative) */
@@ -41,6 +40,7 @@ export class ESBadge {
                         size={this.size}
                         variant={this.variant}
                         count={this.count}
+                        color={this.color}
                         class={{
                             active: this.showZero || this.count > 0,
                         }}

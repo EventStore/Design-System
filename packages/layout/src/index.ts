@@ -7,6 +7,7 @@ export type {
     NavNode,
     NavTree,
 } from './components/es-nav/types';
+export type { HeaderDropdownButtonVariant } from './components/es-header-dropdown/types';
 export type {
     PageState,
     ErrorStateProps,

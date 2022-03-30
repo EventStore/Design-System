@@ -1,6 +1,7 @@
 import type { JsonDocs } from '@stencil/core/internal';
 import type { ProjectReflection } from 'typedoc';
 import { createTypedocLookup, TypedocLookup } from './createTypedocLookup';
+import { fixTagNames } from './fixTagName';
 
 import {
     optionallyRequireStencilDocs,
@@ -81,7 +82,7 @@ const expandSection = (section: SectionDefinition) => ({
 });
 
 const expandLib = ({ title, filePath }: LibDefinition): Lib => {
-    const project = optionallyRequireTypeDocs(slugize(title));
+    const project = fixTagNames(optionallyRequireTypeDocs(slugize(title)));
     const packageJson = requirePackageJson(`${filePath}/package.json`);
     const slug = slugize(title);
 

@@ -102,6 +102,7 @@ export default () =>
 | `--border-color`        | Directly set the border color of the button.                |
 | `--border-radius`       | The border radius of the button.                            |
 | `--border-width`        | The border width of the button.                             |
+| `--focus-color`         | Sets the color of the outline on focus.                     |
 | `--foreground-color`    | Directly set the foreground color of the button.            |
 | `--primary-color`       | Sets the primary theming color                              |
 | `--secondary-color`     | Sets the secondary theming color                            |

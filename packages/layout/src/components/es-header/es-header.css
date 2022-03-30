@@ -28,7 +28,7 @@
 header {
     width: 100%;
     max-width: var(--layout-max-width);
-    min-height: var(--layout-header-base-height);
+    height: calc(var(--layout-header-base-height) - 8px);
     display: grid;
     align-items: center;
     grid-template-columns: auto 1fr auto;
@@ -63,7 +63,7 @@ header {
     &::before {
         content: '';
         display: block;
-        background-color: var(--color-layout-shade-20);
+        background-color: var(--color-layout-shade-10);
         position: absolute;
         height: var(--layout-header-under-height);
         left: 0;

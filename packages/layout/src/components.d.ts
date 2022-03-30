@@ -6,9 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Crumb } from "./components/es-breadcrumb/types";
+import { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/types";
+import { IconDescription } from "@eventstore/components";
 import { LoadingBarStatus } from "./components/es-loading-bar/types";
 import { NavNode, NavTree } from "./components/es-nav/types";
-import { IconDescription } from "@eventstore/components";
 export namespace Components {
     interface DevRoot {
     }
@@ -29,6 +30,126 @@ export namespace Components {
         "error": Error;
     }
     interface EsHeader {
+    }
+    interface EsHeaderDropdown {
+        /**
+          * Display a dot on the icon, to attract attention to the button.
+         */
+        "alertLevel"?: HTMLEsBadgeElement['color'];
+        /**
+          * text for use in the button.
+         */
+        "buttonText"?: string;
+        /**
+          * If a caret should be rendered.
+         */
+        "caret": boolean;
+        /**
+          * Display a counter in place of the icon.
+         */
+        "count"?: number;
+        /**
+          * If the button should be disabled.
+         */
+        "disabled": boolean;
+        /**
+          * Icon for use in the button.
+         */
+        "icon"?: IconDescription;
+        /**
+          * Apply an indent to the left of the button, for basic nesting.
+         */
+        "level"?: number;
+        /**
+          * Which styling variant to use.
+         */
+        "variant": HeaderDropdownButtonVariant;
+    }
+    interface EsLayoutButton {
+        /**
+          * If the button should display as active
+         */
+        "active": boolean;
+        /**
+          * Display a dot on the icon, to attract attention to the button.
+         */
+        "alertLevel"?: HTMLEsBadgeElement['color'];
+        /**
+          * Display a counter in place of the icon.
+         */
+        "count"?: number;
+        /**
+          * If the button should be disabled.
+         */
+        "disabled": boolean;
+        /**
+          * Display an icon on the left.
+         */
+        "icon"?: IconDescription;
+        /**
+          * If the button is currently active
+         */
+        "isActive": () => Promise<boolean>;
+        /**
+          * Apply an indent to the left of the button, for basic nesting.
+         */
+        "level"?: number;
+    }
+    interface EsLayoutLink {
+        /**
+          * Display a dot on the icon, to attract attention to the link.
+         */
+        "alertLevel"?: HTMLEsBadgeElement['color'];
+        /**
+          * Display a counter in place of the icon.
+         */
+        "count"?: number;
+        /**
+          * If the link should be disabled.
+         */
+        "disabled": boolean;
+        /**
+          * Display an icon on the left.
+         */
+        "icon"?: IconDescription;
+        /**
+          * If the link is currently active
+         */
+        "isActive": () => Promise<boolean>;
+        /**
+          * Apply an indent to the left of the link, for basic nesting.
+         */
+        "level"?: number;
+        /**
+          * Use exact url matching for active.
+         */
+        "matchExact"?: boolean;
+        /**
+          * Use strict url matching for active.
+         */
+        "matchStrict"?: boolean;
+        /**
+          * When to display as active. Uses the `url` by default.
+         */
+        "matchUrl"?: string;
+        /**
+          * Where to link to.
+         */
+        "url"?: string;
+    }
+    interface EsLayoutSection {
+        /**
+          * If the section is collapsable
+         */
+        "collapsable": boolean;
+        /**
+          * If the section should be collapsed by default
+         */
+        "defaultCollapsed": boolean;
+        /**
+          * Optionally renders a title
+         */
+        "sectionTitle"?: string;
     }
     interface EsLoadingBar {
         /**
@@ -75,65 +196,13 @@ export namespace Components {
     }
     interface EsSidebarDropdown {
         /**
-          * The icon to display if no nested es-sidebar-link is active
+          * The icon to display if no nested es-layout-link or es-layout-button is active
          */
         "defaultIcon": IconDescription;
         /**
-          * The title to display if no nested es-sidebar-link is active
+          * The title to display if no nested es-layout-link or es-layout-button is active
          */
         "defaultTitle": string;
-    }
-    interface EsSidebarLink {
-        /**
-          * Display a dot on the icon, to attract attention to the link.
-         */
-        "alertLevel"?: HTMLEsBadgeElement['color'];
-        /**
-          * If the link should be disabled.
-         */
-        "disabled": boolean;
-        /**
-          * Display an icon on the left.
-         */
-        "icon"?: IconDescription;
-        /**
-          * If the link is currently active
-         */
-        "isActive": () => Promise<boolean>;
-        /**
-          * Apply an indent to the left of the link, for basic nesting.
-         */
-        "level"?: number;
-        /**
-          * Use exact url matching for active.
-         */
-        "matchExact"?: boolean;
-        /**
-          * Use strict url matching for active.
-         */
-        "matchStrict"?: boolean;
-        /**
-          * When to display as active. Uses the `url` by default.
-         */
-        "matchUrl"?: string;
-        /**
-          * Where to link to.
-         */
-        "url"?: string;
-    }
-    interface EsSidebarSection {
-        /**
-          * If the section is collapsable
-         */
-        "collapsable": boolean;
-        /**
-          * If the section should be collapsed by default
-         */
-        "defaultCollapsed": boolean;
-        /**
-          * Optionally renders a title
-         */
-        "sectionTitle"?: string;
     }
     interface EsThemeDropdown {
     }
@@ -164,6 +233,30 @@ declare global {
     var HTMLEsHeaderElement: {
         prototype: HTMLEsHeaderElement;
         new (): HTMLEsHeaderElement;
+    };
+    interface HTMLEsHeaderDropdownElement extends Components.EsHeaderDropdown, HTMLStencilElement {
+    }
+    var HTMLEsHeaderDropdownElement: {
+        prototype: HTMLEsHeaderDropdownElement;
+        new (): HTMLEsHeaderDropdownElement;
+    };
+    interface HTMLEsLayoutButtonElement extends Components.EsLayoutButton, HTMLStencilElement {
+    }
+    var HTMLEsLayoutButtonElement: {
+        prototype: HTMLEsLayoutButtonElement;
+        new (): HTMLEsLayoutButtonElement;
+    };
+    interface HTMLEsLayoutLinkElement extends Components.EsLayoutLink, HTMLStencilElement {
+    }
+    var HTMLEsLayoutLinkElement: {
+        prototype: HTMLEsLayoutLinkElement;
+        new (): HTMLEsLayoutLinkElement;
+    };
+    interface HTMLEsLayoutSectionElement extends Components.EsLayoutSection, HTMLStencilElement {
+    }
+    var HTMLEsLayoutSectionElement: {
+        prototype: HTMLEsLayoutSectionElement;
+        new (): HTMLEsLayoutSectionElement;
     };
     interface HTMLEsLoadingBarElement extends Components.EsLoadingBar, HTMLStencilElement {
     }
@@ -219,18 +312,6 @@ declare global {
         prototype: HTMLEsSidebarDropdownElement;
         new (): HTMLEsSidebarDropdownElement;
     };
-    interface HTMLEsSidebarLinkElement extends Components.EsSidebarLink, HTMLStencilElement {
-    }
-    var HTMLEsSidebarLinkElement: {
-        prototype: HTMLEsSidebarLinkElement;
-        new (): HTMLEsSidebarLinkElement;
-    };
-    interface HTMLEsSidebarSectionElement extends Components.EsSidebarSection, HTMLStencilElement {
-    }
-    var HTMLEsSidebarSectionElement: {
-        prototype: HTMLEsSidebarSectionElement;
-        new (): HTMLEsSidebarSectionElement;
-    };
     interface HTMLEsThemeDropdownElement extends Components.EsThemeDropdown, HTMLStencilElement {
     }
     var HTMLEsThemeDropdownElement: {
@@ -248,6 +329,10 @@ declare global {
         "es-breadcrumb": HTMLEsBreadcrumbElement;
         "es-error-state": HTMLEsErrorStateElement;
         "es-header": HTMLEsHeaderElement;
+        "es-header-dropdown": HTMLEsHeaderDropdownElement;
+        "es-layout-button": HTMLEsLayoutButtonElement;
+        "es-layout-link": HTMLEsLayoutLinkElement;
+        "es-layout-section": HTMLEsLayoutSectionElement;
         "es-loading-bar": HTMLEsLoadingBarElement;
         "es-logo": HTMLEsLogoElement;
         "es-nav": HTMLEsNavElement;
@@ -257,8 +342,6 @@ declare global {
         "es-page-title": HTMLEsPageTitleElement;
         "es-sidebar": HTMLEsSidebarElement;
         "es-sidebar-dropdown": HTMLEsSidebarDropdownElement;
-        "es-sidebar-link": HTMLEsSidebarLinkElement;
-        "es-sidebar-section": HTMLEsSidebarSectionElement;
         "es-theme-dropdown": HTMLEsThemeDropdownElement;
         "es-theme-picker": HTMLEsThemePickerElement;
     }
@@ -283,6 +366,118 @@ declare namespace LocalJSX {
         "error": Error;
     }
     interface EsHeader {
+    }
+    interface EsHeaderDropdown {
+        /**
+          * Display a dot on the icon, to attract attention to the button.
+         */
+        "alertLevel"?: HTMLEsBadgeElement['color'];
+        /**
+          * text for use in the button.
+         */
+        "buttonText"?: string;
+        /**
+          * If a caret should be rendered.
+         */
+        "caret"?: boolean;
+        /**
+          * Display a counter in place of the icon.
+         */
+        "count"?: number;
+        /**
+          * If the button should be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Icon for use in the button.
+         */
+        "icon"?: IconDescription;
+        /**
+          * Apply an indent to the left of the button, for basic nesting.
+         */
+        "level"?: number;
+        /**
+          * Which styling variant to use.
+         */
+        "variant"?: HeaderDropdownButtonVariant;
+    }
+    interface EsLayoutButton {
+        /**
+          * If the button should display as active
+         */
+        "active"?: boolean;
+        /**
+          * Display a dot on the icon, to attract attention to the button.
+         */
+        "alertLevel"?: HTMLEsBadgeElement['color'];
+        /**
+          * Display a counter in place of the icon.
+         */
+        "count"?: number;
+        /**
+          * If the button should be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Display an icon on the left.
+         */
+        "icon"?: IconDescription;
+        /**
+          * Apply an indent to the left of the button, for basic nesting.
+         */
+        "level"?: number;
+    }
+    interface EsLayoutLink {
+        /**
+          * Display a dot on the icon, to attract attention to the link.
+         */
+        "alertLevel"?: HTMLEsBadgeElement['color'];
+        /**
+          * Display a counter in place of the icon.
+         */
+        "count"?: number;
+        /**
+          * If the link should be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Display an icon on the left.
+         */
+        "icon"?: IconDescription;
+        /**
+          * Apply an indent to the left of the link, for basic nesting.
+         */
+        "level"?: number;
+        /**
+          * Use exact url matching for active.
+         */
+        "matchExact"?: boolean;
+        /**
+          * Use strict url matching for active.
+         */
+        "matchStrict"?: boolean;
+        /**
+          * When to display as active. Uses the `url` by default.
+         */
+        "matchUrl"?: string;
+        /**
+          * Where to link to.
+         */
+        "url"?: string;
+    }
+    interface EsLayoutSection {
+        /**
+          * If the section is collapsable
+         */
+        "collapsable"?: boolean;
+        /**
+          * If the section should be collapsed by default
+         */
+        "defaultCollapsed"?: boolean;
+        /**
+          * Optionally renders a title
+         */
+        "sectionTitle"?: string;
     }
     interface EsLoadingBar {
         /**
@@ -325,61 +520,13 @@ declare namespace LocalJSX {
     }
     interface EsSidebarDropdown {
         /**
-          * The icon to display if no nested es-sidebar-link is active
+          * The icon to display if no nested es-layout-link or es-layout-button is active
          */
         "defaultIcon": IconDescription;
         /**
-          * The title to display if no nested es-sidebar-link is active
+          * The title to display if no nested es-layout-link or es-layout-button is active
          */
         "defaultTitle": string;
-    }
-    interface EsSidebarLink {
-        /**
-          * Display a dot on the icon, to attract attention to the link.
-         */
-        "alertLevel"?: HTMLEsBadgeElement['color'];
-        /**
-          * If the link should be disabled.
-         */
-        "disabled"?: boolean;
-        /**
-          * Display an icon on the left.
-         */
-        "icon"?: IconDescription;
-        /**
-          * Apply an indent to the left of the link, for basic nesting.
-         */
-        "level"?: number;
-        /**
-          * Use exact url matching for active.
-         */
-        "matchExact"?: boolean;
-        /**
-          * Use strict url matching for active.
-         */
-        "matchStrict"?: boolean;
-        /**
-          * When to display as active. Uses the `url` by default.
-         */
-        "matchUrl"?: string;
-        /**
-          * Where to link to.
-         */
-        "url"?: string;
-    }
-    interface EsSidebarSection {
-        /**
-          * If the section is collapsable
-         */
-        "collapsable"?: boolean;
-        /**
-          * If the section should be collapsed by default
-         */
-        "defaultCollapsed"?: boolean;
-        /**
-          * Optionally renders a title
-         */
-        "sectionTitle"?: string;
     }
     interface EsThemeDropdown {
     }
@@ -390,6 +537,10 @@ declare namespace LocalJSX {
         "es-breadcrumb": EsBreadcrumb;
         "es-error-state": EsErrorState;
         "es-header": EsHeader;
+        "es-header-dropdown": EsHeaderDropdown;
+        "es-layout-button": EsLayoutButton;
+        "es-layout-link": EsLayoutLink;
+        "es-layout-section": EsLayoutSection;
         "es-loading-bar": EsLoadingBar;
         "es-logo": EsLogo;
         "es-nav": EsNav;
@@ -399,8 +550,6 @@ declare namespace LocalJSX {
         "es-page-title": EsPageTitle;
         "es-sidebar": EsSidebar;
         "es-sidebar-dropdown": EsSidebarDropdown;
-        "es-sidebar-link": EsSidebarLink;
-        "es-sidebar-section": EsSidebarSection;
         "es-theme-dropdown": EsThemeDropdown;
         "es-theme-picker": EsThemePicker;
     }
@@ -413,6 +562,10 @@ declare module "@stencil/core" {
             "es-breadcrumb": LocalJSX.EsBreadcrumb & JSXBase.HTMLAttributes<HTMLEsBreadcrumbElement>;
             "es-error-state": LocalJSX.EsErrorState & JSXBase.HTMLAttributes<HTMLEsErrorStateElement>;
             "es-header": LocalJSX.EsHeader & JSXBase.HTMLAttributes<HTMLEsHeaderElement>;
+            "es-header-dropdown": LocalJSX.EsHeaderDropdown & JSXBase.HTMLAttributes<HTMLEsHeaderDropdownElement>;
+            "es-layout-button": LocalJSX.EsLayoutButton & JSXBase.HTMLAttributes<HTMLEsLayoutButtonElement>;
+            "es-layout-link": LocalJSX.EsLayoutLink & JSXBase.HTMLAttributes<HTMLEsLayoutLinkElement>;
+            "es-layout-section": LocalJSX.EsLayoutSection & JSXBase.HTMLAttributes<HTMLEsLayoutSectionElement>;
             "es-loading-bar": LocalJSX.EsLoadingBar & JSXBase.HTMLAttributes<HTMLEsLoadingBarElement>;
             "es-logo": LocalJSX.EsLogo & JSXBase.HTMLAttributes<HTMLEsLogoElement>;
             "es-nav": LocalJSX.EsNav & JSXBase.HTMLAttributes<HTMLEsNavElement>;
@@ -422,8 +575,6 @@ declare module "@stencil/core" {
             "es-page-title": LocalJSX.EsPageTitle & JSXBase.HTMLAttributes<HTMLEsPageTitleElement>;
             "es-sidebar": LocalJSX.EsSidebar & JSXBase.HTMLAttributes<HTMLEsSidebarElement>;
             "es-sidebar-dropdown": LocalJSX.EsSidebarDropdown & JSXBase.HTMLAttributes<HTMLEsSidebarDropdownElement>;
-            "es-sidebar-link": LocalJSX.EsSidebarLink & JSXBase.HTMLAttributes<HTMLEsSidebarLinkElement>;
-            "es-sidebar-section": LocalJSX.EsSidebarSection & JSXBase.HTMLAttributes<HTMLEsSidebarSectionElement>;
             "es-theme-dropdown": LocalJSX.EsThemeDropdown & JSXBase.HTMLAttributes<HTMLEsThemeDropdownElement>;
             "es-theme-picker": LocalJSX.EsThemePicker & JSXBase.HTMLAttributes<HTMLEsThemePickerElement>;
         }

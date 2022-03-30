@@ -44,20 +44,21 @@ export default () =>
 
 ## Properties
 
-| Property  | Attribute | Description                                                          | Type                                 | Default    |
-| --------- | --------- | -------------------------------------------------------------------- | ------------------------------------ | ---------- |
-| `count`   | `count`   | The number to display                                                | `number`                             | `0`        |
-| `size`    | `size`    | The height of the counter that the rest of the dimensions scale from | `number`                             | `24`       |
-| `variant` | `variant` | The display style of the counter.                                    | `"filled" \| "minimal" \| "outline"` | `'filled'` |
+| Property  | Attribute | Description                                                          | Type                                          | Default     |
+| --------- | --------- | -------------------------------------------------------------------- | --------------------------------------------- | ----------- |
+| `color`   | `color`   | Choose the color variant of the counter                              | `"error" \| "okay" \| "warning" \| undefined` | `undefined` |
+| `count`   | `count`   | The number to display                                                | `number`                                      | `0`         |
+| `size`    | `size`    | The height of the counter that the rest of the dimensions scale from | `number`                                      | `24`        |
+| `variant` | `variant` | The display style of the counter.                                    | `"filled" \| "minimal" \| "outline"`          | `'filled'`  |
 
 
 ## CSS Custom Properties
 
-| Name                    | Description                                                                                 |
-| ----------------------- | ------------------------------------------------------------------------------------------- |
-| `--background-color`    | Defaults to --color-secondary. The forground color. Named to imherit colors from es-button. |
-| `--text-color`          | Defaults to --color-text. The background color. Named to imherit colors from es-button.     |
-| `--transition-duration` | Duration of the pulse. Defaults to 300ms.                                                   |
+| Name                    | Description                                                                                  |
+| ----------------------- | -------------------------------------------------------------------------------------------- |
+| `--background-color`    | Defaults to --color-secondary. The foreground color. Named to imherit colors from es-button. |
+| `--text-color`          | Defaults to --color-text. The background color. Named to imherit colors from es-button.      |
+| `--transition-duration` | Duration of the pulse. Defaults to 300ms.                                                    |
 
 
 ## Dependencies

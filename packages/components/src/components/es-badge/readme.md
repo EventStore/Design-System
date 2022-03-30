@@ -95,7 +95,7 @@ export default () => (
 
 | Property             | Attribute   | Description                                                          | Type                                          | Default     |
 | -------------------- | ----------- | -------------------------------------------------------------------- | --------------------------------------------- | ----------- |
-| `color`              | `color`     | Choose the color variant of the badge                                | `"error" \| "okay" \| "warning"`              | `'error'`   |
+| `color`              | `color`     | Choose the color variant of the badge                                | `"error" \| "okay" \| "warning" \| undefined` | `'error'`   |
 | `count` _(required)_ | `count`     | What number to display in the counter (or if the dot should display) | `number`                                      | `undefined` |
 | `showZero`           | `show-zero` | Show the dot and counter even if the count 0 (or negative)           | `boolean`                                     | `false`     |
 | `size`               | `size`      | The base size (in px) of the counter (has no effect on the dot)      | `number \| undefined`                         | `undefined` |

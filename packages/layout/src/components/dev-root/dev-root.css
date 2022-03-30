@@ -7,3 +7,30 @@
 .padder {
     height: 60vh;
 }
+
+.user_dropdown_header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: var(--color-layout-shade-20);
+    color: var(--color-layout-contrast);
+
+    & es-icon {
+        color: var(--color-layout-highlight);
+    }
+
+    & h1 {
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 17px;
+        margin-bottom: 5px;
+    }
+
+    & h2 {
+        font-size: 12px;
+        font-weight: 500;
+        margin: 0;
+    }
+}

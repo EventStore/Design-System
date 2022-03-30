@@ -1,6 +1,7 @@
 import { Component, h, Prop, Host, Watch, State } from '@stencil/core';
 
 export type CounterVariant = 'filled' | 'outline' | 'minimal';
+export type CounterColor = 'error' | 'warning' | 'okay';
 
 /** A pill display of an number, that pulses on change. Caps out at 999. */
 @Component({
@@ -15,6 +16,8 @@ export class Counter {
     @Prop() size: number = 24;
     /** The display style of the counter. */
     @Prop({ reflect: true }) variant: CounterVariant = 'filled';
+    /** Choose the color variant of the counter */
+    @Prop() color?: CounterColor;
 
     @State() pulsing: boolean = false;
 
@@ -39,7 +42,12 @@ export class Counter {
                 : this.size;
 
         return (
-            <Host class={{ pulse: this.pulsing }}>
+            <Host
+                class={{
+                    pulse: this.pulsing,
+                    [this.color ?? '']: this.color !== null,
+                }}
+            >
                 <svg
                     xmlns={'http://www.w3.org/2000/svg'}
                     height={height}

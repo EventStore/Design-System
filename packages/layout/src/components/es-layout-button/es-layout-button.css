@@ -1,0 +1,12 @@
+@import url('../es-layout-link/es-layout-link.css');
+
+button {
+    appearance: unset;
+    border: unset;
+    margin: unset;
+    width: 100%;
+    text-align: unset;
+    font: unset;
+    cursor: pointer;
+    background-color: unset;
+}

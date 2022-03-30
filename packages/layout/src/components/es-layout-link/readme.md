@@ -13,84 +13,83 @@ import { randomIcon } from 'helpers';
 
 export default () => (
     <es-sidebar>
-        <es-sidebar-section sectionTitle={'Links'}>
-            <es-sidebar-link url={'/no-icon-1'}>
-                {'Example link'}
-            </es-sidebar-link>
-            <es-sidebar-link url={'/preview'}>{'I am active'}</es-sidebar-link>
-            <es-sidebar-link url={'/no-icon-1'}>
-                {'Example link'}
-            </es-sidebar-link>
-            <es-sidebar-link disabled url={'/no-icon-2'}>
+        <es-layout-section sectionTitle={'Links'}>
+            <es-layout-link url={'/no-icon-1'}>{'Example link'}</es-layout-link>
+            <es-layout-link url={'/preview'}>{'I am active'}</es-layout-link>
+            <es-layout-link url={'/no-icon-1'}>{'Example link'}</es-layout-link>
+            <es-layout-link disabled url={'/no-icon-2'}>
                 {'Disabled example  '}
-            </es-sidebar-link>
-        </es-sidebar-section>
-        <es-sidebar-section sectionTitle={'With Icon'}>
-            <es-sidebar-link url={'/icon-1'} icon={randomIcon()}>
+            </es-layout-link>
+        </es-layout-section>
+        <es-layout-section sectionTitle={'With Icon'}>
+            <es-layout-link url={'/icon-1'} icon={randomIcon()}>
                 {'With Icon'}
-            </es-sidebar-link>
-            <es-sidebar-link disabled url={'/icon-2'} icon={randomIcon()}>
+            </es-layout-link>
+            <es-layout-link disabled url={'/icon-2'} icon={randomIcon()}>
                 {'Disabled'}
-            </es-sidebar-link>
-            <es-sidebar-link url={'/icon-1'} icon={randomIcon()}>
+            </es-layout-link>
+            <es-layout-link url={'/icon-1'} icon={randomIcon()}>
                 {'Another'}
-            </es-sidebar-link>
-            <es-sidebar-link url={'/icon-1'} icon={randomIcon()}>
+            </es-layout-link>
+            <es-layout-link url={'/icon-1'} icon={randomIcon()}>
                 {'More Icon'}
-            </es-sidebar-link>
-        </es-sidebar-section>
-        <es-sidebar-section sectionTitle={'Alert levels'}>
-            <es-sidebar-link
+            </es-layout-link>
+        </es-layout-section>
+        <es-layout-section sectionTitle={'Alert levels'}>
+            <es-layout-link
                 alertLevel={'error'}
                 url={'/icon-1'}
                 icon={randomIcon()}
             >
                 {'Error'}
-            </es-sidebar-link>
-            <es-sidebar-link
+            </es-layout-link>
+            <es-layout-link
                 alertLevel={'warning'}
                 url={'/icon-1'}
                 icon={randomIcon()}
             >
                 {'Warning'}
-            </es-sidebar-link>
-            <es-sidebar-link
+            </es-layout-link>
+            <es-layout-link
                 alertLevel={'okay'}
                 url={'/icon-1'}
                 icon={randomIcon()}
             >
                 {'Okay'}
-            </es-sidebar-link>
-        </es-sidebar-section>
-        <es-sidebar-section sectionTitle={'Level Example'}>
-            <es-sidebar-link url={'/icon-1'} level={1}>
+            </es-layout-link>
+            <es-layout-link url={'/icon-1'} count={12}>
+                {'Counter'}
+            </es-layout-link>
+        </es-layout-section>
+        <es-layout-section sectionTitle={'Level Example'}>
+            <es-layout-link url={'/icon-1'} level={1}>
                 {'Level 1'}
-            </es-sidebar-link>
-            <es-sidebar-link url={'/icon-1'} level={1}>
+            </es-layout-link>
+            <es-layout-link url={'/icon-1'} level={1}>
                 {'Level 1'}
-            </es-sidebar-link>
-            <es-sidebar-link url={'/icon-1'} level={2}>
+            </es-layout-link>
+            <es-layout-link url={'/icon-1'} level={2}>
                 {'Level 2'}
-            </es-sidebar-link>
-            <es-sidebar-link url={'/icon-1'} level={2}>
+            </es-layout-link>
+            <es-layout-link url={'/icon-1'} level={2}>
                 {'Level 2'}
-            </es-sidebar-link>
-            <es-sidebar-link url={'/icon-1'} level={1}>
+            </es-layout-link>
+            <es-layout-link url={'/icon-1'} level={1}>
                 {'Level 1'}
-            </es-sidebar-link>
-            <es-sidebar-link url={'/icon-1'} level={2}>
+            </es-layout-link>
+            <es-layout-link url={'/icon-1'} level={2}>
                 {'Level 2'}
-            </es-sidebar-link>
-            <es-sidebar-link url={'/icon-1'} level={3}>
+            </es-layout-link>
+            <es-layout-link url={'/icon-1'} level={3}>
                 {'Level 3'}
-            </es-sidebar-link>
-            <es-sidebar-link url={'/icon-1'} level={3}>
+            </es-layout-link>
+            <es-layout-link url={'/icon-1'} level={3}>
                 {'Level 3'}
-            </es-sidebar-link>
-            <es-sidebar-link url={'/icon-1'} level={1}>
+            </es-layout-link>
+            <es-layout-link url={'/icon-1'} level={1}>
                 {'Level 1'}
-            </es-sidebar-link>
-        </es-sidebar-section>
+            </es-layout-link>
+        </es-layout-section>
     </es-sidebar>
 );
 ```
@@ -102,6 +101,7 @@ export default () => (
 | Property      | Attribute      | Description                                                  | Type                                                                 | Default     |
 | ------------- | -------------- | ------------------------------------------------------------ | -------------------------------------------------------------------- | ----------- |
 | `alertLevel`  | `alert-level`  | Display a dot on the icon, to attract attention to the link. | `"error" \| "okay" \| "warning" \| undefined`                        | `undefined` |
+| `count`       | `count`        | Display a counter in place of the icon.                      | `number \| undefined`                                                | `undefined` |
 | `disabled`    | `disabled`     | If the link should be disabled.                              | `boolean`                                                            | `false`     |
 | `icon`        | `icon`         | Display an icon on the left.                                 | `[namespace: string \| symbol, name: string] \| string \| undefined` | `undefined` |
 | `level`       | `level`        | Apply an indent to the left of the link, for basic nesting.  | `number \| undefined`                                                | `undefined` |
@@ -139,17 +139,19 @@ Type: `Promise<boolean>`
 
 ### Depends on
 
+- es-counter
 - es-badge
 - es-icon
 
 ### Graph
 ```mermaid
 graph TD;
-  es-sidebar-link --> es-badge
-  es-sidebar-link --> es-icon
+  es-layout-link --> es-counter
+  es-layout-link --> es-badge
+  es-layout-link --> es-icon
   es-badge --> es-counter
-  dev-root --> es-sidebar-link
-  style es-sidebar-link fill:#f9f,stroke:#333,stroke-width:4px
+  dev-root --> es-layout-link
+  style es-layout-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
