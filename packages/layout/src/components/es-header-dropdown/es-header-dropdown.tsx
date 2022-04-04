@@ -52,7 +52,8 @@ export class HeaderDropdown {
         return (
             <Host>
                 <es-button
-                    onClick={this.openDropdown}
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={this.toggleDropdown}
                     class={{ header_button: true, open: this.dropdownOpen }}
                     disabled={this.disabled}
                 >
@@ -102,9 +103,9 @@ export class HeaderDropdown {
         );
     }
 
-    private openDropdown = (e: MouseEvent) => {
+    private toggleDropdown = (e: MouseEvent) => {
         e.stopPropagation();
-        this.dropdownOpen = true;
+        this.dropdownOpen = !this.dropdownOpen;
     };
 
     private closeDropdown = (e: CustomEvent | MouseEvent) => {

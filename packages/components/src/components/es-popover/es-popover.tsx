@@ -69,6 +69,7 @@ export class Popover {
     /** Triggers when the popover requests to close. */
     @Event() requestClose!: EventEmitter;
 
+    private attached: boolean = false;
     private mutationObserver!: MutationObserver;
     private detachAllowFocus?: ReturnType<typeof allowFocus>;
     private portalledNodes: Array<[node: Node, placeholder: Node]> = [];
@@ -159,8 +160,7 @@ export class Popover {
 
     private attachPopper = async () => {
         const target = document.querySelector(this.target);
-
-        if (!target) return;
+        if (!target || this.attached) return;
 
         const parentShadow = this.host.parentNode?.getRootNode() as ShadowRoot;
         const popper = document.createElement('es-popper');
@@ -244,6 +244,9 @@ export class Popover {
         popper.addEventListener('requestClose', this.bubbleRequestClose);
 
         if (this.closeOnBlur) {
+            popperInner.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+            });
             popperInner.addEventListener('focusout', (e) => {
                 if (popperInner.contains(e.relatedTarget as HTMLElement)) {
                     return;
@@ -262,6 +265,8 @@ export class Popover {
             popperShadow.shadowRoot?.appendChild(popperArrow);
             this.popperArrow = popperArrow;
         }
+
+        this.attached = true;
 
         await popper.loaded();
         await this.positionPopper();
@@ -309,23 +314,25 @@ export class Popover {
                 size({
                     padding: 10,
                     apply: ({ width, height, reference }) => {
+                        if (!this.popperShadow || !this.popperInner) return;
+
                         const as = this.autoSize;
                         if (as === 'height' || as === 'both') {
-                            this.popperShadow!.style.height = `${reference.height}px`;
+                            this.popperShadow.style.height = `${reference.height}px`;
                         }
                         if (as === 'width' || as === 'both') {
-                            this.popperShadow!.style.width = `${reference.width}px`;
+                            this.popperShadow.style.width = `${reference.width}px`;
                         }
 
                         const c = this.constrain;
                         if (c === 'height' || c === 'both') {
-                            this.popperInner!.style.maxHeight = `${Math.min(
+                            this.popperInner.style.maxHeight = `${Math.min(
                                 height,
                                 this.maxHeight,
                             )}px`;
                         }
                         if (c === 'width' || c === 'both') {
-                            this.popperInner!.style.maxWidth = `${Math.min(
+                            this.popperInner.style.maxWidth = `${Math.min(
                                 width,
                                 this.maxWidth,
                             )}px`;
@@ -342,11 +349,13 @@ export class Popover {
             ],
         });
 
-        this.popperInner!.dataset.placement = location.placement;
+        if (!this.open || !this.popperShadow || !this.popperInner) return;
+
+        this.popperInner.dataset.placement = location.placement;
         this.popperShadow.style.transform = `translate(${location.x}px, ${location.y}px)`;
 
-        if (this.popperArrow) {
-            const { x: arrowX, y: arrowY } = location.middlewareData.arrow!;
+        if (this.popperArrow && location.middlewareData.arrow) {
+            const { x: arrowX, y: arrowY } = location.middlewareData.arrow;
             this.popperArrow.dataset.placement = location.placement;
             Object.assign(this.popperArrow.style, {
                 left: arrowX != null ? `${arrowX}px` : '',
@@ -357,13 +366,12 @@ export class Popover {
         }
     };
 
-    private enterPopper = async () => {
+    private enterPopper = () => {
         if (!this.popper) return;
-
         this.popperInner?.classList.add('entered');
         this.popperArrow?.classList.add('entered');
         this.popper.style.opacity = '1';
-        this.positionPopper();
+        return this.positionPopper();
     };
 
     private closePopper = () => {
@@ -375,7 +383,7 @@ export class Popover {
     };
 
     private detachPopper = () => {
-        if (!this.popper) return;
+        if (!this.popper || !this.attached) return;
 
         this.detachDocumentListeners();
 
@@ -389,6 +397,7 @@ export class Popover {
         this.popper = undefined;
         this.popperInner = undefined;
         this.popperArrow = undefined;
+        this.attached = false;
     };
 
     private bubbleRequestClose = (e: any) => {
