@@ -23,7 +23,6 @@ export class DevRoot {
                 <es-header>
                     <es-nav navTree={this.navTree} slot={'under'} />
                     <es-header-dropdown
-                        disabled
                         slot={'right'}
                         icon={[ES_LAYOUT, 'dark-low-theme']}
                         buttonText={'JJJ'}
@@ -180,6 +179,35 @@ export class DevRoot {
                                     <div class={'padder'} />
                                     {'hello'}
                                     <div class={'padder'} />
+                                    <es-panel>
+                                        <es-panel-header>
+                                            {'Hello there'}
+                                            <es-button
+                                                variant={'minimal'}
+                                                slot={'actions'}
+                                            >
+                                                <es-icon
+                                                    icon={[
+                                                        ES_LAYOUT,
+                                                        'dark-high-theme',
+                                                    ]}
+                                                    size={20}
+                                                />
+                                            </es-button>
+                                            <es-button
+                                                variant={'minimal'}
+                                                slot={'actions'}
+                                            >
+                                                <es-icon
+                                                    icon={[
+                                                        ES_LAYOUT,
+                                                        'light-high-theme',
+                                                    ]}
+                                                    size={20}
+                                                />
+                                            </es-button>
+                                        </es-panel-header>
+                                    </es-panel>
                                 </Page>
                             </Route>
                             <Route url={'/somewhere'}>

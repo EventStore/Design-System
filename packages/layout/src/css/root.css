@@ -1,17 +1,20 @@
 :root {
     --layout-max-width: 1680px;
-    --layout-content-max-width: 1430px;
     --layout-header-base-height: 70px;
     --layout-header-under-height: 0px;
+    --layout-banner-height: 0px;
+    --layout-sidebar-width: 0px;
+    --layout-panel-height: 0px;
+
     --layout-header-height: calc(
         var(--layout-header-base-height) + var(--layout-header-under-height)
     );
-    --layout-banner-height: 0px;
     --layout-body-top: calc(
         var(--layout-header-height) + var(--layout-banner-height)
     );
-    --layout-sidebar-width: 0px;
-    --layout-panel-height: 0px;
+    --layout-content-max-width: calc(
+        var(--layout-max-width) - var(--layout-sidebar-width)
+    );
 
     --font-family-sans: 'MuseoSans', Arial, sans-serif;
     --font-sans: 500 16px var(--font-family-sans);

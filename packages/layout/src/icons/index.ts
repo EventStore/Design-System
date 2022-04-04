@@ -18,6 +18,11 @@ iconStore.addIcons(ES_LAYOUT, {
             ({ DarkLowTheme }) => DarkLowTheme,
         );
     },
+    get 'grip-lines'() {
+        return import('./components/GripLines').then(
+            ({ GripLines }) => GripLines,
+        );
+    },
     get 'light-high-theme'() {
         return import('./components/LightHighTheme').then(
             ({ LightHighTheme }) => LightHighTheme,

@@ -192,6 +192,10 @@ export namespace Components {
     }
     interface EsPageTitle {
     }
+    interface EsPanel {
+    }
+    interface EsPanelHeader {
+    }
     interface EsSidebar {
     }
     interface EsSidebarDropdown {
@@ -300,6 +304,18 @@ declare global {
         prototype: HTMLEsPageTitleElement;
         new (): HTMLEsPageTitleElement;
     };
+    interface HTMLEsPanelElement extends Components.EsPanel, HTMLStencilElement {
+    }
+    var HTMLEsPanelElement: {
+        prototype: HTMLEsPanelElement;
+        new (): HTMLEsPanelElement;
+    };
+    interface HTMLEsPanelHeaderElement extends Components.EsPanelHeader, HTMLStencilElement {
+    }
+    var HTMLEsPanelHeaderElement: {
+        prototype: HTMLEsPanelHeaderElement;
+        new (): HTMLEsPanelHeaderElement;
+    };
     interface HTMLEsSidebarElement extends Components.EsSidebar, HTMLStencilElement {
     }
     var HTMLEsSidebarElement: {
@@ -340,6 +356,8 @@ declare global {
         "es-nav-node-1": HTMLEsNavNode1Element;
         "es-nav-node-2": HTMLEsNavNode2Element;
         "es-page-title": HTMLEsPageTitleElement;
+        "es-panel": HTMLEsPanelElement;
+        "es-panel-header": HTMLEsPanelHeaderElement;
         "es-sidebar": HTMLEsSidebarElement;
         "es-sidebar-dropdown": HTMLEsSidebarDropdownElement;
         "es-theme-dropdown": HTMLEsThemeDropdownElement;
@@ -516,6 +534,10 @@ declare namespace LocalJSX {
     }
     interface EsPageTitle {
     }
+    interface EsPanel {
+    }
+    interface EsPanelHeader {
+    }
     interface EsSidebar {
     }
     interface EsSidebarDropdown {
@@ -548,6 +570,8 @@ declare namespace LocalJSX {
         "es-nav-node-1": EsNavNode1;
         "es-nav-node-2": EsNavNode2;
         "es-page-title": EsPageTitle;
+        "es-panel": EsPanel;
+        "es-panel-header": EsPanelHeader;
         "es-sidebar": EsSidebar;
         "es-sidebar-dropdown": EsSidebarDropdown;
         "es-theme-dropdown": EsThemeDropdown;
@@ -573,6 +597,8 @@ declare module "@stencil/core" {
             "es-nav-node-1": LocalJSX.EsNavNode1 & JSXBase.HTMLAttributes<HTMLEsNavNode1Element>;
             "es-nav-node-2": LocalJSX.EsNavNode2 & JSXBase.HTMLAttributes<HTMLEsNavNode2Element>;
             "es-page-title": LocalJSX.EsPageTitle & JSXBase.HTMLAttributes<HTMLEsPageTitleElement>;
+            "es-panel": LocalJSX.EsPanel & JSXBase.HTMLAttributes<HTMLEsPanelElement>;
+            "es-panel-header": LocalJSX.EsPanelHeader & JSXBase.HTMLAttributes<HTMLEsPanelHeaderElement>;
             "es-sidebar": LocalJSX.EsSidebar & JSXBase.HTMLAttributes<HTMLEsSidebarElement>;
             "es-sidebar-dropdown": LocalJSX.EsSidebarDropdown & JSXBase.HTMLAttributes<HTMLEsSidebarDropdownElement>;
             "es-theme-dropdown": LocalJSX.EsThemeDropdown & JSXBase.HTMLAttributes<HTMLEsThemeDropdownElement>;

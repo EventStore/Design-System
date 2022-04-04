@@ -1,0 +1,21 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-grey-200);
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--color-primary-dark);
+    margin: 0;
+}
+
+[part='actions'] {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+}

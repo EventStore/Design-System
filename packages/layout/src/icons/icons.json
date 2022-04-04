@@ -22,6 +22,11 @@
             "component": "DarkLowTheme",
             "path": "./components/DarkLowTheme.tsx"
         },
+        "grip-lines": {
+            "name": "grip-lines",
+            "component": "GripLines",
+            "path": "./components/GripLines.tsx"
+        },
         "light-high-theme": {
             "name": "light-high-theme",
             "component": "LightHighTheme",
