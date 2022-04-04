@@ -81,3 +81,22 @@ header {
 ::slotted(es-nav[slot='right']) {
     height: 100%;
 }
+
+.backdrop {
+    position: absolute;
+    top: -4px;
+    right: 0px;
+    bottom: var(--layout-header-under-height);
+    left: 0px;
+    z-index: -1;
+    background-color: var(--color-layout-base);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+::slotted([slot='backdrop']) {
+    overflow: visible;
+    max-width: 100%;
+    width: var(--layout-max-width);
+}

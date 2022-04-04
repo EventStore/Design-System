@@ -8,6 +8,7 @@ import { headerUnderHeight } from '../../utils/LayoutVar';
  * @slot center - The center of the header. Place some navigational elements.
  * @slot right - The right of the header. Place some navigational elements.
  * @slot under - Underneath the header. Place an es-nav or other. Automatically sets the `layout-header-under-height` css var with the height of the content.
+ * @slot backdrop - Slot an svg to use as a backdrop
  * @part header - The wrapping header element
  * @part left - The left of the header.
  * @part center - The center of the header.
@@ -50,6 +51,9 @@ export class Header {
                 </header>
                 <div class={'under'} part={'under'}>
                     <slot name={'under'} onSlotchange={this.underSlotChange} />
+                </div>
+                <div class={'backdrop'}>
+                    <slot name={'backdrop'} />
                 </div>
             </Host>
         );
