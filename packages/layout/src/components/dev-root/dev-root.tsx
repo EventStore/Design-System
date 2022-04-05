@@ -23,10 +23,10 @@ export class DevRoot {
                 <es-header>
                     <es-nav navTree={this.navTree} slot={'under'} />
                     <es-header-dropdown
-                        disabled
                         slot={'right'}
                         icon={[ES_LAYOUT, 'dark-low-theme']}
                         buttonText={'JJJ'}
+                        variant={'highlight'}
                     >
                         <header class={'user_dropdown_header'}>
                             <es-icon icon={[ES_LAYOUT, 'dark-low-theme']} />
@@ -58,6 +58,33 @@ export class DevRoot {
                         </es-layout-link>
                     </es-header-dropdown>
                     <es-theme-dropdown slot={'right'} />
+                    <svg
+                        slot={'backdrop'}
+                        width={1920}
+                        height={1080}
+                        viewBox={'0 0 1280 800'}
+                        preserveAspectRatio={'xMidYMin meet'}
+                        xmlns={'http://www.w3.org/2000/svg'}
+                    >
+                        <circle
+                            class={'circle_1'}
+                            r={1280}
+                            cx={1848}
+                            cy={400}
+                        />
+                        <circle
+                            class={'circle_2'}
+                            r={400}
+                            cx={1150}
+                            cy={-250}
+                        />
+                        <circle
+                            class={'circle_3'}
+                            r={600}
+                            cx={-200}
+                            cy={1200}
+                        />
+                    </svg>
                 </es-header>
                 <es-loading-bar name={'page'} />
 

@@ -34,3 +34,17 @@
         margin: 0;
     }
 }
+
+.circle_1 {
+    fill: var(--color-layout-contrast);
+    opacity: 0.2;
+}
+
+.circle_2 {
+    fill: var(--color-layout-highlight);
+}
+
+.circle_3 {
+    fill: var(--color-layout-contrast);
+    opacity: 0.2;
+}
