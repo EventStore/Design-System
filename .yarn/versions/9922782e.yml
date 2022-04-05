@@ -1,0 +1,18 @@
+undecided:
+  - root-workspace-0b6124
+  - "@eventstore/docs"
+  - "@eventstore/components"
+  - "@eventstore/editor"
+  - "@eventstore/fields"
+  - "@eventstore/layout"
+  - "@eventstore/router"
+  - "@eventstore/stores"
+  - "@eventstore/theme"
+  - "@eventstore/utils"
+  - "@eventstore/assets"
+  - "@eventstore/configs"
+  - "@eventstore/icon-manager"
+  - "@eventstore/postcss-palette-plugin"
+  - router-demo
+  - "@eventstore/stencil-markdown-plugin"
+  - stores-demo
