@@ -1,4 +1,4 @@
-import { Component, h, Host, Element } from '@stencil/core';
+import { Component, h, Element } from '@stencil/core';
 import { sidebarWidth } from '../../utils/LayoutVar';
 
 /**
@@ -13,8 +13,10 @@ export class Sidebar {
     @Element() host!: HTMLEsSidebarElement;
 
     private resizeObserver = new ResizeObserver((entries) => {
-        for (const { contentRect } of entries) {
-            sidebarWidth.set(contentRect.width);
+        for (const {
+            borderBoxSize: [{ inlineSize }],
+        } of entries) {
+            sidebarWidth.set(inlineSize);
         }
     });
 
@@ -29,11 +31,9 @@ export class Sidebar {
 
     render() {
         return (
-            <Host>
-                <aside>
-                    <slot />
-                </aside>
-            </Host>
+            <aside>
+                <slot />
+            </aside>
         );
     }
 }
