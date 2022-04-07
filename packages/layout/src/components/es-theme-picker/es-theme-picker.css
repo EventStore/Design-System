@@ -1,12 +1,14 @@
 :host {
     display: block;
-    padding: 10px;
+    padding: 20px;
     background-color: var(--color-layout-shade-20);
     color: var(--color-layout-contrast);
+    width: 260px;
+    height: 281px;
 }
 
 h1 {
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 0;
 }
 
@@ -14,9 +16,10 @@ form {
     display: grid;
     padding: 0px;
     margin: 0px;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, 100px);
     gap: 20px;
-    width: 350px;
+    width: 220px;
+    height: 208px;
 }
 
 .auto + label {
@@ -24,14 +27,14 @@ form {
 }
 
 label {
-    border-radius: 10px;
+    border-radius: 6px;
     overflow: hidden;
     padding-bottom: 5px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 12px;
 
     & svg {
-        border-radius: 12px;
+        border-radius: 6px;
         border: 1px solid white;
     }
 
@@ -49,14 +52,14 @@ h1 {
 .field {
     outline: none;
     border: none;
-    display: inline-block;
+    display: inline-flex;
     background-color: transparent;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     font-family: inherit;
-    font-size: 16px;
-    margin-left: 50%;
+    font-size: 14px;
+    margin-left: auto;
     padding-bottom: 10px;
     color: white;
 
@@ -91,6 +94,7 @@ h1 {
     color: var(--color--layout-60);
     transition: color 400ms ease;
     overflow: visible;
+    margin-left: 5px;
 
     & .track {
         fill: transparent;
@@ -106,11 +110,21 @@ h1 {
 }
 
 input[type='radio'] {
-    width: 30px;
-    height: 30px;
-    accent-color: var(--color-layout-highlight);
+    width: 20px;
+    height: 20px;
     vertical-align: middle;
     margin: 0 5px 0 0;
+    flex: none;
+    border-radius: 100%;
+    appearance: none;
+    border: 1px solid var(--color-layout-contrast);
+}
+
+input[type='radio']:checked {
+    background: var(--color-layout-highlight);
+    border: 1px solid var(--color-layout-highlight);
+    box-shadow: inset 0 0 0 4px var(--color-layout-shade-20);
+    padding: 6px;
 }
 
 span {
@@ -118,7 +132,13 @@ span {
 }
 
 .selection-wrapper {
-    padding-top: 5px;
     display: inline-flex;
+    padding-top: 5px;
+    align-items: center;
+}
+
+.header-wrapper {
+    display: flex;
+    padding-bottom: 10px;
     align-items: center;
 }

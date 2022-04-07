@@ -85,7 +85,7 @@ export class ThemePicker {
 
         return (
             <Host>
-                <div>
+                <div class="header-wrapper">
                     <h1>{'Themes'}</h1>
                     <button
                         class={{
@@ -115,15 +115,15 @@ export class ThemePicker {
                     </button>
                 </div>
                 <form onChange={this.onThemeSelection}>
-                        {Object.values(themes).map((themeDefinition) =>
-                            this.renderTheme(themeDefinition, theme.name),
-                        )}
+                    {Object.values(themes).map((themeDefinition) =>
+                        this.renderTheme(themeDefinition, theme.name),
+                    )}
                 </form>
             </Host>
         );
     }
 
-	private onThemeSelection = (e: Event) => {
+    private onThemeSelection = (e: Event) => {
         const { value } = e.target as HTMLInputElement;
         theme.select(value);
     };
