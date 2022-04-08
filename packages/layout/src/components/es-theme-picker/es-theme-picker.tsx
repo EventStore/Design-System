@@ -8,7 +8,7 @@ import type { ThemeDefinition } from '@eventstore/theme/dist/types';
     shadow: true,
 })
 
-/** The current autopick of the field. */
+/** Choose a theme from available themes */
 export class ThemePicker {
     renderTheme(theme: ThemeDefinition, selectedTheme: string) {
         const selected = selectedTheme === theme.name;
@@ -67,7 +67,7 @@ export class ThemePicker {
                     </svg>
                 </div>
 
-                <div class="selection-wrapper">
+                <div class="selection_wrapper">
                     <input
                         type={'radio'}
                         name={'theme'}
@@ -85,11 +85,11 @@ export class ThemePicker {
 
         return (
             <Host>
-                <div class="header-wrapper">
+                <div class="header_wrapper">
                     <h1>{'Themes'}</h1>
                     <button
                         class={{
-                            field: true,
+                            auto: true,
                             checked: theme.selected === 'auto',
                         }}
                         onClick={this.onAutoClick}
@@ -106,11 +106,11 @@ export class ThemePicker {
                                 class={'track'}
                                 x1={4}
                                 x2={41}
-                                y1={10}
-                                y2={10}
+                                y1={9}
+                                y2={9}
                                 stroke-linecap={'round'}
                             />
-                            <circle class={'handle'} cx={8} cy={10} r={8} />
+                            <circle class={'handle'} cx={8} cy={9} r={8} />
                         </svg>
                     </button>
                 </div>

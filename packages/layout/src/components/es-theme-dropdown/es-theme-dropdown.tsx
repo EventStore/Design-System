@@ -4,6 +4,7 @@ import type { IconDescription } from '@eventstore/components';
 
 import { ES_LAYOUT } from '../../icons/namespace';
 
+/** A theme picker dropdown for the header */
 @Component({
     tag: 'es-theme-dropdown',
     styleUrl: 'es-theme-dropdown.css',
