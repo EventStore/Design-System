@@ -4,6 +4,7 @@ import type { IconDescription } from '@eventstore/components';
 
 import { ES_LAYOUT } from '../../icons/namespace';
 
+/** A theme picker dropdown for the header */
 @Component({
     tag: 'es-theme-dropdown',
     styleUrl: 'es-theme-dropdown.css',
@@ -15,24 +16,9 @@ export class ThemePicker {
     render() {
         return (
             <Host>
-                <es-button
-                    onClick={this.openDropdown}
-                    class={{ open: this.dropdownOpen }}
-                    variant={'outline'}
-                >
-                    <es-icon icon={this.activeIcon()} size={22} />
-                </es-button>
-                <es-popover
-                    backdrop
-                    open={this.dropdownOpen}
-                    onRequestClose={this.closeDropdown}
-                    popperClass={'popper'}
-                    placement={'bottom-end'}
-                    offset={17}
-                    trapFocus
-                >
+                <es-header-dropdown icon={this.activeIcon()} caret={false}>
                     <es-theme-picker />
-                </es-popover>
+                </es-header-dropdown>
             </Host>
         );
     }
@@ -41,14 +27,4 @@ export class ThemePicker {
         ES_LAYOUT,
         `${theme.shade}-${theme.contrast}-theme`,
     ];
-
-    private openDropdown = (e: MouseEvent) => {
-        e.stopPropagation();
-        this.dropdownOpen = true;
-    };
-
-    private closeDropdown = (e: CustomEvent | MouseEvent) => {
-        e.stopPropagation();
-        this.dropdownOpen = false;
-    };
 }
