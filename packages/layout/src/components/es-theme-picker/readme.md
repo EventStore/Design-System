@@ -5,6 +5,18 @@
 <!-- Auto Generated Below -->
 
 
+## Usage
+
+### Example
+
+```tsx
+export default () => (
+    <es-theme-picker />
+);
+```
+
+
+
 ## Dependencies
 
 ### Used by
