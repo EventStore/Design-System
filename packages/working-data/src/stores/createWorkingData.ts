@@ -1,6 +1,6 @@
 import { delegateFocus, HTTPError } from '@eventstore/utils';
 import { toast } from '@eventstore/components';
-import { logger } from '../logger';
+
 import type {
     WorkingDataOptions,
     WorkingData,
@@ -10,15 +10,12 @@ import type {
     FieldOptions,
     InternalFieldOptions,
     ValidationMessages,
-} from '../../types';
-import { expandOptions } from './expandOptions';
-import { createStores } from './createStores';
-import { focusError, insertError, wDKey } from '../../symbols';
-import {
-    isChildData,
-    isWorkingData,
-    isWorkingDataArray,
-} from './isWorkingData';
+} from '../types';
+import { focusError, insertError, wDKey } from '../symbols';
+import { logger } from '../utils/logger';
+import { expandOptions } from '../utils/expandOptions';
+import { createStores } from '../utils/createStores';
+import { isWorkingData } from '../utils/isWorkingData';
 
 /**
  * Create a "Working Data" store to back a form or set of fields.
@@ -52,7 +49,7 @@ export const createWorkingData = <T extends object>(
 
     const fullData = (): T =>
         Array.from(fields.entries()).reduce<T>((acc, [key, field]) => {
-            if (isChildData(field)) {
+            if (isWorkingData(field)) {
                 acc[key] = field.data;
             } else {
                 acc[key] = data[key];
@@ -65,6 +62,7 @@ export const createWorkingData = <T extends object>(
         severity: Severity,
         message: string,
         id: string,
+        index?: number,
     ) => {
         if (!messages[key]) {
             logger.warn(`Unknown key "${key}" passed to validation failure`);
@@ -76,16 +74,34 @@ export const createWorkingData = <T extends object>(
             ?.forEach((cb) =>
                 cb({ id, severity, message, key }, refs.get(key)),
             );
+
         validationFailedCallbacks
             .get('*' as never)
             ?.forEach((cb) =>
                 cb({ id, severity, message, key }, refs.get(key)),
             );
 
-        messages[key] = {
-            ...messages[key],
-            [severity]: [...messages[key][severity], message],
-        };
+        if (index != null && !Number.isNaN(index)) {
+            messages[key] = {
+                ...messages[key],
+                children: {
+                    ...(messages[key].children ?? {}),
+                    [index]: {
+                        ...(messages[key].children?.[index] ?? {}),
+                        [severity]: [
+                            ...(messages[key].children?.[index]?.[severity] ??
+                                []),
+                            message,
+                        ],
+                    },
+                },
+            };
+        } else {
+            messages[key] = {
+                ...messages[key],
+                [severity]: [...messages[key][severity], message],
+            };
+        }
     };
 
     const insertValidationError = (
@@ -97,7 +113,7 @@ export const createWorkingData = <T extends object>(
         const key = k as keyof T;
         const field = fields.get(key);
 
-        if (isChildData(field)) {
+        if (isWorkingData(field)) {
             failures.add(key);
             field[insertError](
                 !path.length ? [':root'] : path,
@@ -115,7 +131,8 @@ export const createWorkingData = <T extends object>(
 
         if (field) {
             failures.add(key);
-            processValidationFailure(key, severity, message, id);
+            const index = path.length ? parseInt(path[0], 10) : undefined;
+            processValidationFailure(key, severity, message, id, index);
             return;
         }
 
@@ -131,7 +148,7 @@ export const createWorkingData = <T extends object>(
         for (const [key, field] of fields) {
             if (!failures.has(key)) continue;
 
-            if (isChildData(field)) {
+            if (isWorkingData(field)) {
                 const focused = await field[focusError]();
                 if (focused) return true;
                 continue;
@@ -196,7 +213,7 @@ export const createWorkingData = <T extends object>(
         failures.clear();
         try {
             for (const [key, field] of fields) {
-                if (isChildData(field)) {
+                if (isWorkingData(field)) {
                     validationPromises.push(
                         (async () => {
                             const success = await field.validate(false);
@@ -231,25 +248,56 @@ export const createWorkingData = <T extends object>(
                     }
                     continue;
                 }
-                validations.forEach(
-                    ({ validator, message, severity = 'error', id }, i) =>
-                        validationPromises.push(
-                            (async () => {
-                                const success = await validator(value, data);
-                                if (success) return;
 
+                for (const [
+                    i,
+                    { validator, message, severity = 'error', id, ...rest },
+                ] of validations.entries()) {
+                    if ((rest as any).callOnEach) {
+                        if (!Array.isArray(value)) continue;
+                        for (const [j, v] of value.entries()) {
+                            validationPromises.push(
+                                (async () => {
+                                    const success = await validator(v, data);
+
+                                    if (success) return;
+                                    if (severity === 'error') {
+                                        failures.add(key);
+                                    }
+
+                                    processValidationFailure(
+                                        key,
+                                        severity,
+                                        typeof message === 'string'
+                                            ? message
+                                            : message(value, data),
+                                        id ?? `${i}`,
+                                        j,
+                                    );
+                                })(),
+                            );
+                        }
+                        continue;
+                    }
+
+                    validationPromises.push(
+                        (async () => {
+                            const success = await validator(value, data);
+                            if (success) return;
+                            if (severity === 'error') {
                                 failures.add(key);
-                                processValidationFailure(
-                                    key,
-                                    severity,
-                                    typeof message === 'string'
-                                        ? message
-                                        : message(value, data),
-                                    id ?? `${i}`,
-                                );
-                            })(),
-                        ),
-                );
+                            }
+                            processValidationFailure(
+                                key,
+                                severity,
+                                typeof message === 'string'
+                                    ? message
+                                    : message(value, data),
+                                id ?? `${i}`,
+                            );
+                        })(),
+                    );
+                }
             }
             await Promise.all(validationPromises);
 
@@ -311,7 +359,7 @@ export const createWorkingData = <T extends object>(
             if (state.frozen) return;
             for (const [key, value] of Object.entries<any>(partial)) {
                 const wd = fields.get(key as keyof T);
-                if (isChildData(wd)) {
+                if (isWorkingData(wd)) {
                     wd.update(value);
                 } else {
                     (data as any)[key] = value;
@@ -325,7 +373,7 @@ export const createWorkingData = <T extends object>(
         connect: (key: keyof T, ...args: any[]) => {
             const wd = fields.get(key);
 
-            if (isChildData(wd)) {
+            if (isWorkingData(wd)) {
                 if (args.length) {
                     return (wd.connect as any)(...args);
                 }
@@ -426,10 +474,6 @@ export const createWorkingData = <T extends object>(
                     continue;
                 }
 
-                if (isWorkingDataArray(field)) {
-                    continue;
-                }
-
                 const options = value as Partial<
                     FieldOptions<T[typeof key], T>
                 >;
@@ -443,7 +487,7 @@ export const createWorkingData = <T extends object>(
                     validations: [
                         ...field.validations,
                         ...(options.validations ?? []),
-                    ],
+                    ] as InternalFieldOptions<T[typeof key], T>['validations'],
                 };
 
                 fields.set(key, expanded);

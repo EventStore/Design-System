@@ -1,8 +1,20 @@
-import { Component, h, Prop, Element, Host } from '@stencil/core';
+import {
+    Component,
+    h,
+    Prop,
+    Element,
+    Host,
+    Event,
+    EventEmitter,
+} from '@stencil/core';
 import type { IconDescription } from '@eventstore/components';
 
-import type { WorkingDataArray } from '../../types';
 import { ES_FIELDS } from '../../icons/namespace';
+import type {
+    FieldChange,
+    FieldChangeEvent,
+    ValidationMessages,
+} from '../../types';
 
 /** A list creator input. */
 @Component({
@@ -12,6 +24,10 @@ import { ES_FIELDS } from '../../icons/namespace';
 })
 export class InputList {
     @Element() host!: HTMLEsListCreatorElement;
+
+    /** Emitted when the value of the field is changed. */
+    @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string[]>>;
+
     /** The label of the field. */
     @Prop() label!: string;
     /** Display a placeholder in the input. */
@@ -27,8 +43,10 @@ export class InputList {
 
     /** The name of the field. */
     @Prop() name!: string;
-    /** The backing WorkingDataArray */
-    @Prop() data!: WorkingDataArray<string>;
+    /** The currently selected values */
+    @Prop() value!: string[];
+    /** The validation messages of the field */
+    @Prop() messages?: ValidationMessages;
 
     renderInput = (v: string, i: number) => (
         <es-input
@@ -36,10 +54,12 @@ export class InputList {
             label={this.label}
             placeholder={this.placeholder}
             disabled={this.disabled}
-            {...this.data.connect(i)}
+            name={`${this.name}-${i}`}
+            onFieldchange={this.onFieldChange(i)}
+            messages={this.messages?.children?.[i]}
             value={v}
         >
-            <es-button variant={'minimal'} onClick={() => this.data.delete(i)}>
+            <es-button variant={'minimal'} onClick={this.onDelete(i)}>
                 <es-icon icon={this.deleteIcon} size={20} />
             </es-button>
         </es-input>
@@ -48,11 +68,11 @@ export class InputList {
     render() {
         return (
             <Host>
-                {!this.data.data.length
+                {!this.value.length
                     ? this.renderInput('', 0)
-                    : this.data.data.map(this.renderInput)}
+                    : this.value.map(this.renderInput)}
                 <div class={'row'}>
-                    <es-validation-messages messages={this.data.messages} />
+                    <es-validation-messages messages={this.messages} />
                 </div>
                 {!this.disabled && (
                     <div class={'row'}>
@@ -75,6 +95,29 @@ export class InputList {
     }
 
     private onAdd = () => {
-        this.data.set(this.data.data.length, '');
+        this.fieldchange.emit({
+            name: this.name,
+            value: [...this.value, ''],
+        });
+    };
+
+    private onFieldChange = (i: number) => (e: FieldChangeEvent<string>) => {
+        e.stopImmediatePropagation();
+        const value = e.detail.value;
+        this.fieldchange.emit({
+            name: this.name,
+            value: [
+                ...this.value.slice(0, i),
+                value,
+                ...this.value.slice(i + 1),
+            ],
+        });
+    };
+
+    private onDelete = (i: number) => () => {
+        this.fieldchange.emit({
+            name: this.name,
+            value: [...this.value.slice(0, i), ...this.value.slice(i + 1)],
+        });
     };
 }

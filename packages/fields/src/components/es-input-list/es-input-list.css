@@ -9,7 +9,7 @@
     display: block;
 }
 
-es-input:not(:first-child)::part(label) {
+es-input:not(:first-of-type)::part(label) {
     visibility: hidden;
 }
 

@@ -12,7 +12,11 @@ import {
     VNode,
 } from '@stencil/core';
 
-import type { FieldChangeEvent, WorkingDataArray } from '../../types';
+import type {
+    FieldChange,
+    FieldChangeEvent,
+    ValidationMessages,
+} from '../../types';
 import type {
     RenderTypeaheadField,
     TypeaheadOption,
@@ -34,7 +38,7 @@ export class ListCreator {
     @Element() host!: HTMLEsListCreatorElement;
 
     /** Emitted when the value of the field is changed. */
-    @Event({ bubbles: true }) fieldchange!: EventEmitter;
+    @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string[]>>;
 
     /** The label of the field. */
     @Prop() label!: string;
@@ -43,7 +47,7 @@ export class ListCreator {
     /** If the field is disabled. */
     @Prop() disabled?: boolean;
     /** The icon to display next to the field */
-    @Prop() icon!: IconDescription;
+    @Prop() icon?: IconDescription;
     /** The icon to display next to the field */
     @Prop() addIcon: IconDescription = [ES_FIELDS, 'plus'];
     /** Icon for the delete button. */
@@ -52,8 +56,11 @@ export class ListCreator {
     @Prop() options!: TypeaheadOption[];
     /** The name of the field. */
     @Prop() name!: string;
-    /** The backing WorkingDataArray */
-    @Prop() data!: WorkingDataArray<string>;
+    /** The selected item ids */
+    @Prop() value!: string[];
+    /** The validation messages of the field */
+    @Prop() messages?: ValidationMessages;
+
     /** Render the list item. */
     @Prop() renderItem = ({ name }: TypeaheadOption): VNode => (
         <input readonly class={'input'} value={name} tabindex={-1} />
@@ -65,13 +72,13 @@ export class ListCreator {
 
     componentWillLoad() {
         this.updateOptions();
-        this.data.onChange(() => this.updateOptions());
     }
 
+    @Watch('value')
     @Watch('options')
     updateOptions() {
         const options = this.options;
-        const values = this.data.data;
+        const values = this.value;
 
         this.remainingOptions = options.filter(
             ({ value }) => !values.includes(value),
@@ -90,22 +97,19 @@ export class ListCreator {
             <Host>
                 <Field
                     label={this.label}
-                    messages={this.data.messages}
-                    invalid={!!this.data.messages.error.length}
+                    messages={this.messages}
+                    invalid={!!this.messages?.error.length}
                 >
                     <es-typeahead
                         clearOnSelect
                         name={this.name}
-                        value={this.data.data}
+                        value={this.value}
                         options={this.remainingOptions}
                         renderField={this.renderField}
                         onFieldchange={this.onTypeaheadChange}
                     />
-                    <es-button tabIndex={-1}>
-                        <es-icon icon={this.addIcon} size={20} />
-                    </es-button>
                 </Field>
-                {!!this.data.data.length && (
+                {!!this.value.length && (
                     <ul class={'value_list'} part={'value-list'}>
                         {this.expandedValues.map((value, i) => (
                             <li
@@ -113,10 +117,12 @@ export class ListCreator {
                                 class={'value_list_item'}
                                 part={'value-list-item'}
                             >
-                                <es-icon
-                                    icon={this.icon}
-                                    class={'value_list_item_icon'}
-                                />
+                                {!!this.icon && (
+                                    <es-icon
+                                        icon={this.icon}
+                                        class={'value_list_item_icon'}
+                                    />
+                                )}
                                 {this.renderItem(value)}
                                 <es-button
                                     class={'value_list_item_delete'}
@@ -133,14 +139,18 @@ export class ListCreator {
         );
     }
 
-    private onDelete = (index: number) => () => {
-        this.data.delete(index);
+    private onTypeaheadChange = (e: FieldChangeEvent<string[]>) => {
+        e.stopImmediatePropagation();
+        this.fieldchange.emit({
+            name: this.name,
+            value: e.detail.value,
+        });
     };
 
-    private onTypeaheadChange = (
-        e: FieldChangeEvent<{ typeahead: string[] }>,
-    ) => {
-        e.stopPropagation();
-        this.data.update(e.detail.value);
+    private onDelete = (i: number) => () => {
+        this.fieldchange.emit({
+            name: this.name,
+            value: [...this.value.slice(0, i), ...this.value.slice(i + 1)],
+        });
     };
 }

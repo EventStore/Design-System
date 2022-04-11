@@ -3,12 +3,9 @@ import type {
     InternalWorkingDataOptions,
     InternalFieldOptions,
     WorkingData,
-    ArrayOptions,
-    InternalArrayOptions,
-    WorkingDataArray,
-} from '../../types';
+} from '../types';
 import { defaultCheckExists } from './defaultCheckExists';
-import { isChildData } from './isWorkingData';
+import { isWorkingData } from './isWorkingData';
 
 const defaults: InternalFieldOptions<any, any> = {
     initialValue: null,
@@ -23,13 +20,11 @@ export const expandOptions = <T>(
 ): InternalWorkingDataOptions<T> => {
     const expandedOptions: Record<
         string,
-        | InternalFieldOptions<any, any>
-        | WorkingData<any>
-        | WorkingDataArray<any>
+        InternalFieldOptions<any, any> | WorkingData<any>
     > = {};
 
     for (const [key, value] of Object.entries<any>(options)) {
-        if (isChildData(value)) {
+        if (isWorkingData(value)) {
             expandedOptions[key] = value;
         } else if (
             value != null &&
@@ -54,28 +49,3 @@ export const expandOptions = <T>(
 
     return expandedOptions as any;
 };
-
-export const expandArrayOptions = <T>({
-    name,
-    initialValue = [],
-    minLength,
-    maxLength,
-    globalValidations = [],
-    valueOptional,
-    checkValueExists = defaultCheckExists,
-    requiredValueMessage = 'Field is required',
-    validations = [],
-}: ArrayOptions<T>): InternalArrayOptions<T> => ({
-    name,
-    initialValue,
-    minLength,
-    maxLength,
-    globalValidations,
-    valueOptional:
-        typeof valueOptional === 'boolean'
-            ? () => valueOptional
-            : valueOptional ?? defaults.optional,
-    checkValueExists,
-    requiredValueMessage,
-    validations,
-});

@@ -11,7 +11,7 @@ import {
 import type { IconDescription } from '@eventstore/components';
 
 import { ES_FIELDS } from '../../icons/namespace';
-import type { ValidationMessages } from '../../types';
+import type { FieldChange, ValidationMessages } from '../../types';
 import type { RadioCardGroupOption } from './types';
 
 export type RenderCard<T extends RadioCardGroupOption> = (
@@ -32,7 +32,9 @@ export type RenderCard<T extends RadioCardGroupOption> = (
 })
 export class RadioCardGroup {
     /** Emitted when the value of the field is changed. */
-    @Event({ bubbles: true }) fieldchange!: EventEmitter;
+    @Event({ bubbles: true }) fieldchange!: EventEmitter<
+        FieldChange<string | null>
+    >;
 
     /** The id of the component that labels this input. This input doesn't bring its own label, so must be labeled externally and referenced here. */
     @Prop({ reflect: true, attribute: 'aria-labelledby' }) labelledby!: string;

@@ -7,9 +7,8 @@ import type {
     ValidationFailedCallback,
     BeforeFocusCallback,
     WorkingData,
-    WorkingDataArray,
-} from '../../types';
-import { isChildData } from './isWorkingData';
+} from '../types';
+import { isWorkingData } from './isWorkingData';
 
 type MessageStore<T> = { [key in keyof T]: ValidationMessages };
 
@@ -19,12 +18,10 @@ interface Stores<T> {
     state: Store<WorkingDataState>;
     fields: Map<
         keyof T,
-        | Required<InternalFieldOptions<any, T>>
-        | WorkingData<any>
-        | WorkingDataArray<any>
+        Required<InternalFieldOptions<any, T>> | WorkingData<any>
     >;
     refs: Map<keyof T, HTMLElement>;
-    children: Map<string, WorkingData<any> | WorkingDataArray<any>>;
+    children: Map<string, WorkingData<any>>;
     validationFailedCallbacks: Map<
         keyof T | '*',
         Set<ValidationFailedCallback<T>>
@@ -42,10 +39,7 @@ export const createStores = <T>(
     options: InternalWorkingDataOptions<T>,
 ): Stores<T> => {
     const initialValues: Record<string, any> = {};
-    const children = new Map<
-        string,
-        WorkingData<any> | WorkingDataArray<any>
-    >();
+    const children = new Map<string, WorkingData<any>>();
     const messages: Record<string, any> = {
         [':root']: blankMessages(),
     };
@@ -55,13 +49,11 @@ export const createStores = <T>(
     };
 
     for (const [key, value] of Object.entries<
-        | InternalFieldOptions<any, any>
-        | WorkingData<any>
-        | WorkingDataArray<any>
+        InternalFieldOptions<any, any> | WorkingData<any>
     >(options)) {
         fields.set(key, value);
 
-        if (isChildData(value)) {
+        if (isWorkingData(value)) {
             children.set(key, value);
         } else {
             initialValues[key] = value.initialValue;

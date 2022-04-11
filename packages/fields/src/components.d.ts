@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconDescription } from "@eventstore/components";
-import { ValidationMessages, WorkingDataArray } from "./types";
+import { FieldChange, ValidationMessages } from "./types";
 import { MaskOptions } from "./components/es-input/types";
 import { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
 import { VNode } from "@stencil/core";
@@ -92,10 +92,6 @@ export namespace Components {
          */
         "additionText": string;
         /**
-          * The backing WorkingDataArray
-         */
-        "data": WorkingDataArray<string>;
-        /**
           * Icon for the delete button.
          */
         "deleteIcon": IconDescription;
@@ -108,6 +104,10 @@ export namespace Components {
          */
         "label": string;
         /**
+          * The validation messages of the field
+         */
+        "messages"?: ValidationMessages;
+        /**
           * The name of the field.
          */
         "name": string;
@@ -115,16 +115,16 @@ export namespace Components {
           * Display a placeholder in the input.
          */
         "placeholder": string;
+        /**
+          * The currently selected values
+         */
+        "value": string[];
     }
     interface EsListCreator {
         /**
           * The icon to display next to the field
          */
         "addIcon": IconDescription;
-        /**
-          * The backing WorkingDataArray
-         */
-        "data": WorkingDataArray<string>;
         /**
           * Icon for the delete button.
          */
@@ -136,11 +136,15 @@ export namespace Components {
         /**
           * The icon to display next to the field
          */
-        "icon": IconDescription;
+        "icon"?: IconDescription;
         /**
           * The label of the field.
          */
         "label": string;
+        /**
+          * The validation messages of the field
+         */
+        "messages"?: ValidationMessages;
         /**
           * The name of the field.
          */
@@ -157,6 +161,10 @@ export namespace Components {
           * Render the list item.
          */
         "renderItem": ({ name }: TypeaheadOption) => VNode;
+        /**
+          * The selected item ids
+         */
+        "value": string[];
     }
     interface EsMegaInput {
         /**
@@ -554,7 +562,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<any>) => void;
+        "onFieldchange"?: (event: CustomEvent<FieldChange<boolean>>) => void;
         /**
           * If the field is editable.
          */
@@ -600,7 +608,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<any>) => void;
+        "onFieldchange"?: (event: CustomEvent<FieldChange<string>>) => void;
         /**
           * The placeholder for the input.
          */
@@ -624,10 +632,6 @@ declare namespace LocalJSX {
          */
         "additionText"?: string;
         /**
-          * The backing WorkingDataArray
-         */
-        "data": WorkingDataArray<string>;
-        /**
           * Icon for the delete button.
          */
         "deleteIcon"?: IconDescription;
@@ -640,23 +644,31 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
+          * The validation messages of the field
+         */
+        "messages"?: ValidationMessages;
+        /**
           * The name of the field.
          */
         "name": string;
         /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: CustomEvent<FieldChange<string[]>>) => void;
+        /**
           * Display a placeholder in the input.
          */
         "placeholder": string;
+        /**
+          * The currently selected values
+         */
+        "value": string[];
     }
     interface EsListCreator {
         /**
           * The icon to display next to the field
          */
         "addIcon"?: IconDescription;
-        /**
-          * The backing WorkingDataArray
-         */
-        "data": WorkingDataArray<string>;
         /**
           * Icon for the delete button.
          */
@@ -668,11 +680,15 @@ declare namespace LocalJSX {
         /**
           * The icon to display next to the field
          */
-        "icon": IconDescription;
+        "icon"?: IconDescription;
         /**
           * The label of the field.
          */
         "label": string;
+        /**
+          * The validation messages of the field
+         */
+        "messages"?: ValidationMessages;
         /**
           * The name of the field.
          */
@@ -680,7 +696,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<any>) => void;
+        "onFieldchange"?: (event: CustomEvent<FieldChange<string[]>>) => void;
         /**
           * A list of options to choose from.
          */
@@ -693,6 +709,10 @@ declare namespace LocalJSX {
           * Render the list item.
          */
         "renderItem"?: ({ name }: TypeaheadOption) => VNode;
+        /**
+          * The selected item ids
+         */
+        "value": string[];
     }
     interface EsMegaInput {
         /**
@@ -722,7 +742,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<any>) => void;
+        "onFieldchange"?: (event: CustomEvent<FieldChange<string>>) => void;
         /**
           * The placeholder for the input.
          */
@@ -768,7 +788,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<any>) => void;
+        "onFieldchange"?: (event: CustomEvent<FieldChange<string>>) => void;
         /**
           * The placeholder for the input.
          */
@@ -814,7 +834,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<any>) => void;
+        "onFieldchange"?: (event: CustomEvent<FieldChange<string | null>>) => void;
         /**
           * The options to be displayed and chosen from.
          */
@@ -856,7 +876,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<any>) => void;
+        "onFieldchange"?: (event: CustomEvent<FieldChange<string | null>>) => void;
         /**
           * Pass a custom search filter function
          */
@@ -918,7 +938,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<any>) => void;
+        "onFieldchange"?: (event: CustomEvent<FieldChange<boolean>>) => void;
         /**
           * If the field is editable.
          */
@@ -956,7 +976,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<any>) => void;
+        "onFieldchange"?: (event: CustomEvent<FieldChange<string>>) => void;
         /**
           * The placeholder for the input.
          */
@@ -976,7 +996,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "name": string;
         "onEnter"?: (event: CustomEvent<any>) => void;
-        "onFieldchange"?: (event: CustomEvent<any>) => void;
+        "onFieldchange"?: (event: CustomEvent<FieldChange<string[]>>) => void;
         "optionFilter"?: OptionFilter;
         "options": TypeaheadOption[];
         "readonly"?: boolean;

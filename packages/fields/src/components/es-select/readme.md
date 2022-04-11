@@ -64,7 +64,7 @@ export default () => (
 | `disabled`             | `disabled`     | If the field is disabled.                    | `boolean \| undefined`                                                                    | `undefined`              |
 | `invalid`              | `invalid`      | If the field is currently in an error state. | `boolean \| undefined`                                                                    | `undefined`              |
 | `label` _(required)_   | `label`        | The label of the field.                      | `string`                                                                                  | `undefined`              |
-| `messages`             | --             | The validation messages of the field         | `undefined \| { error: string[]; warning: string[]; info: string[]; }`                    | `undefined`              |
+| `messages`             | --             | The validation messages of the field         | `ValidationMessages \| undefined`                                                         | `undefined`              |
 | `name` _(required)_    | `name`         | The name of the field.                       | `string`                                                                                  | `undefined`              |
 | `optionFilter`         | --             | Pass a custom search filter function         | `((filter: string, option: TypeaheadOption) => boolean) \| undefined`                     | `undefined`              |
 | `options` _(required)_ | --             | A list of options to choose from.            | `TypeaheadOption[]`                                                                       | `undefined`              |
@@ -77,9 +77,9 @@ export default () => (
 
 ## Events
 
-| Event         | Description                                     | Type               |
-| ------------- | ----------------------------------------------- | ------------------ |
-| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<any>` |
+| Event         | Description                                     | Type                                       |
+| ------------- | ----------------------------------------------- | ------------------------------------------ |
+| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string \| null>>` |
 
 
 ## Shadow Parts

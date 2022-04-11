@@ -55,9 +55,9 @@ export default () => (
 
 ## Events
 
-| Event         | Description                                     | Type               |
-| ------------- | ----------------------------------------------- | ------------------ |
-| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<any>` |
+| Event         | Description                                     | Type                                |
+| ------------- | ----------------------------------------------- | ----------------------------------- |
+| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<boolean>>` |
 
 
 ## Methods

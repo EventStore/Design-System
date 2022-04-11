@@ -25,13 +25,13 @@ export default () => (
 
 ## Properties
 
-| Property      | Attribute      | Description                                                        | Type                                                                                                             | Default                  |
-| ------------- | -------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| `errorIcon`   | `error-icon`   | Icon to diplay next to errors. (if `showIcons` or high contrast)   | `[namespace: string \| symbol, name: string] \| string`                                                          | `[ES_FIELDS, 'error']`   |
-| `infoIcon`    | `info-icon`    | Icon to diplay next to infos. (if `showIcons` or high contrast)    | `[namespace: string \| symbol, name: string] \| string`                                                          | `[ES_FIELDS, 'info']`    |
-| `messages`    | --             | The messages to display.                                           | `undefined \| { error?: string[] \| undefined; warning?: string[] \| undefined; info?: string[] \| undefined; }` | `undefined`              |
-| `showIcons`   | `show-icons`   | Display icons alongside messages.                                  | `boolean`                                                                                                        | `false`                  |
-| `warningIcon` | `warning-icon` | Icon to diplay next to warnings. (if `showIcons` or high contrast) | `[namespace: string \| symbol, name: string] \| string`                                                          | `[ES_FIELDS, 'warning']` |
+| Property      | Attribute      | Description                                                        | Type                                                                                                                                                                                   | Default                  |
+| ------------- | -------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| `errorIcon`   | `error-icon`   | Icon to diplay next to errors. (if `showIcons` or high contrast)   | `[namespace: string \| symbol, name: string] \| string`                                                                                                                                | `[ES_FIELDS, 'error']`   |
+| `infoIcon`    | `info-icon`    | Icon to diplay next to infos. (if `showIcons` or high contrast)    | `[namespace: string \| symbol, name: string] \| string`                                                                                                                                | `[ES_FIELDS, 'info']`    |
+| `messages`    | --             | The messages to display.                                           | `undefined \| { error?: string[] \| undefined; warning?: string[] \| undefined; info?: string[] \| undefined; children?: Record<string \| number, ValidationMessages> \| undefined; }` | `undefined`              |
+| `showIcons`   | `show-icons`   | Display icons alongside messages.                                  | `boolean`                                                                                                                                                                              | `false`                  |
+| `warningIcon` | `warning-icon` | Icon to diplay next to warnings. (if `showIcons` or high contrast) | `[namespace: string \| symbol, name: string] \| string`                                                                                                                                | `[ES_FIELDS, 'warning']` |
 
 
 ## Dependencies

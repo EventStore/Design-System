@@ -9,6 +9,7 @@ import {
     Watch,
     Host,
 } from '@stencil/core';
+import type { FieldChange } from '../../types';
 import type {
     TypeaheadOption,
     OptionFilter,
@@ -24,7 +25,7 @@ import type {
     scoped: false,
 })
 export class EsTypeahead {
-    @Event({ bubbles: true }) fieldchange!: EventEmitter;
+    @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string[]>>;
     @Event() enter!: EventEmitter;
 
     @Prop() name!: string;
@@ -138,6 +139,7 @@ export class EsTypeahead {
                 {this.open && (
                     <es-popover
                         arrow
+                        closeOnBlur
                         open={this.open}
                         popperClass={'typeahead'}
                         attachTo={this.fieldElement}

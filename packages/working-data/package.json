@@ -1,0 +1,49 @@
+{
+    "name": "@eventstore/working-data",
+    "version": "0.1.0-alpha",
+    "description": "Form validation and working copy data store.",
+    "license": "Apache-2.0",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist/"
+    ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:EventStore/Design-System.git",
+        "directory": "packages/working-data"
+    },
+    "scripts": {
+        "build": "run-s \"build:*\"",
+        "build:clean": "rm -rf ./dist",
+        "build:ts": "tsc -p .",
+        "build:rollup": "rollup -c rollup.config.js",
+        "build:cleanup": "rm -rf ./build",
+        "docs": "typedoc --logLevel Error --json ../../documentation/generated/stores.typedoc.json",
+        "test": "stencil test --spec",
+        "test.watch": "stencil test --spec --watchAll",
+        "lint": "yarn g:lint"
+    },
+    "peerDependencies": {
+        "@eventstore/components": "0.1.x",
+        "@eventstore/stores": "0.1.x",
+        "@eventstore/utils": "0.1.x"
+    },
+    "devDependencies": {
+        "@eventstore/components": "workspace:*",
+        "@eventstore/stores": "workspace:*",
+        "@eventstore/utils": "workspace:*",
+        "@stencil/core": "^2.15.0",
+        "@types/jest": "26.0.3",
+        "jest": "^26.6.3",
+        "npm-run-all": "^4.1.5",
+        "rollup": "^2.52.7",
+        "typedoc": "^0.22.13",
+        "typescript": "4.5.5"
+    }
+}
