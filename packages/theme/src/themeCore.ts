@@ -61,7 +61,8 @@ class ThemeCore {
         this.updateTheme();
     };
 
-    public updateTheme = async () => {
+    public updateTheme = () => {
+        const previousScheme = this.activeTheme?.name;
         const scheme = this.chooseScheme();
         const [activeTheme, childThemes] = loadTheme(scheme);
         this.activeTheme = activeTheme;
@@ -70,7 +71,9 @@ class ThemeCore {
         applyTheme(this.activeTheme, this.activeChildThemes);
         this.informListeners();
 
-        logger.log(`Updated theme to "${scheme}"`);
+        if (previousScheme !== scheme) {
+            logger.log(`Updated theme to "${scheme}"`);
+        }
     };
 
     public autoThemeName = (): ThemeKey => {
