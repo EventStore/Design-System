@@ -22,6 +22,7 @@ const imports = [
     ['@eventstore/router'],
     ['@eventstore/utils'],
     ['@eventstore/stores'],
+    ['@eventstore/forms'],
 ].map(([name, sub = '.']) => ({
     src: join(dirname(require.resolve(name)), sub),
     dest: `modules/${name}/`,

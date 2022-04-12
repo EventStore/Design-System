@@ -23,7 +23,7 @@ interface SubmitOptions {
     forceFocus?: boolean;
 }
 
-export interface WorkingData<T extends object> {
+export interface ValidatedForm<T extends object> {
     /** The access the contained data directly */
     readonly data: T;
     /** If modifications are currently frozen, (for example, by submitting the data). */
@@ -99,7 +99,7 @@ interface BasicConnection<K extends string, V> {
 
 interface WDConnection<K extends string, V extends object> {
     name: K;
-    data: WorkingData<V>;
+    data: ValidatedForm<V>;
 }
 
 export type Connection<K extends string, V> = V extends Array<any>
@@ -176,14 +176,14 @@ export type ExtendOptions<T> = {
  * Each key can be:
  * - An inital value (required by default, uses default validation messages)
  * - a FieldOptions object, describing the field.
- * - Another WorkingData store
- * - A WorkingDataArray store, to back an array.
+ * - Another ValidatedForm store
+ * - A ValidatedFormArray store, to back an array.
  */
-export type WorkingDataOptions<T> = {
+export type ValidatedFormOptions<T> = {
     [key in keyof T]: T[key] extends Array<any>
         ? FieldOptions<T[key], T> | T[key]
         : T[key] extends object
-        ? FieldOptions<T[key], T> | T[key] | WorkingData<T[key]>
+        ? FieldOptions<T[key], T> | T[key] | ValidatedForm<T[key]>
         : FieldOptions<T[key], T> | T[key];
 };
 
@@ -203,9 +203,9 @@ export interface FieldOptions<ItemType, T> {
         : Validation<ItemType, T>[];
 }
 
-export type InternalWorkingDataOptions<T> = {
+export type InternalValidatedFormOptions<T> = {
     [key in keyof T]: T[key] extends object
-        ? InternalFieldOptions<T[key], T> | WorkingData<T[key]>
+        ? InternalFieldOptions<T[key], T> | ValidatedForm<T[key]>
         : InternalFieldOptions<T[key], T>;
 };
 
@@ -247,6 +247,6 @@ export type ArrayValidation<ItemType extends Array<any>, T> =
     | (Validation<ItemType, T> & { callOnEach?: false })
     | (Validation<ItemType[0], T> & { callOnEach: true });
 
-export interface WorkingDataState {
+export interface ValidatedFormState {
     frozen: boolean;
 }

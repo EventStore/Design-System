@@ -1,5 +1,5 @@
 {
-    "version": "0.1.0-alpha",
+    "version": "0.1.0-alpha.0",
     "icons": {
         "angle-down": {
             "name": "angle-down",
@@ -134,6 +134,12 @@
             "name": "folder",
             "component": "Folder",
             "path": "./components/Folder.tsx"
+        },
+        "forms": {
+            "name": "forms",
+            "component": "Forms",
+            "path": "./components/Forms.tsx",
+            "aliases": ["@eventstore/forms"]
         },
         "gift": {
             "name": "gift",

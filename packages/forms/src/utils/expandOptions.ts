@@ -1,11 +1,11 @@
 import type {
-    WorkingDataOptions,
-    InternalWorkingDataOptions,
+    ValidatedFormOptions,
+    InternalValidatedFormOptions,
     InternalFieldOptions,
-    WorkingData,
+    ValidatedForm,
 } from '../types';
 import { defaultCheckExists } from './defaultCheckExists';
-import { isWorkingData } from './isWorkingData';
+import { isValidatedForm } from './isValidatedForm';
 
 const defaults: InternalFieldOptions<any, any> = {
     initialValue: null,
@@ -16,15 +16,15 @@ const defaults: InternalFieldOptions<any, any> = {
 };
 
 export const expandOptions = <T>(
-    options: WorkingDataOptions<T>,
-): InternalWorkingDataOptions<T> => {
+    options: ValidatedFormOptions<T>,
+): InternalValidatedFormOptions<T> => {
     const expandedOptions: Record<
         string,
-        InternalFieldOptions<any, any> | WorkingData<any>
+        InternalFieldOptions<any, any> | ValidatedForm<any>
     > = {};
 
     for (const [key, value] of Object.entries<any>(options)) {
-        if (isWorkingData(value)) {
+        if (isValidatedForm(value)) {
             expandedOptions[key] = value;
         } else if (
             value != null &&

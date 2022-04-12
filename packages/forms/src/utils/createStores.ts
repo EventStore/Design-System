@@ -1,16 +1,16 @@
 import { createStore, Store } from '@eventstore/stores';
 import type {
-    InternalWorkingDataOptions,
+    InternalValidatedFormOptions,
     InternalFieldOptions,
-    WorkingDataState,
+    ValidatedFormState,
     ValidationMessages,
     ValidationFailedCallback,
     BeforeFocusCallback,
-    WorkingData,
+    ValidatedForm,
     ValidateOn,
     Validation,
 } from '../types';
-import { isWorkingData } from './isWorkingData';
+import { isValidatedForm } from './isValidatedForm';
 
 type MessageStore<T> = { [key in keyof T]: ValidationMessages };
 type ValidationSets<T> = Record<ValidateOn, Set<keyof T>>;
@@ -18,13 +18,13 @@ type ValidationSets<T> = Record<ValidateOn, Set<keyof T>>;
 interface Stores<T> {
     dataStore: Store<T>;
     messageStore: Store<MessageStore<T>>;
-    state: Store<WorkingDataState>;
+    state: Store<ValidatedFormState>;
     fields: Map<
         keyof T,
-        Required<InternalFieldOptions<any, T>> | WorkingData<any>
+        Required<InternalFieldOptions<any, T>> | ValidatedForm<any>
     >;
     refs: Map<keyof T, HTMLElement>;
-    children: Map<string, WorkingData<any>>;
+    children: Map<string, ValidatedForm<any>>;
     validationFailedCallbacks: Map<
         keyof T | '*',
         Set<ValidationFailedCallback<T>>
@@ -51,15 +51,15 @@ export const addToValidationSets = <T>(
 };
 
 export const createStores = <T>(
-    options: InternalWorkingDataOptions<T>,
+    options: InternalValidatedFormOptions<T>,
 ): Stores<T> => {
     const initialValues: Record<string, any> = {};
-    const children = new Map<string, WorkingData<any>>();
+    const children = new Map<string, ValidatedForm<any>>();
     const messages: Record<string, any> = {
         [':root']: blankMessages(),
     };
     const fields = new Map<string, any>();
-    const defaultState: WorkingDataState = {
+    const defaultState: ValidatedFormState = {
         frozen: false,
     };
     const validationSets: ValidationSets<T> = {
@@ -68,11 +68,11 @@ export const createStores = <T>(
     };
 
     for (const [key, value] of Object.entries<
-        InternalFieldOptions<any, any> | WorkingData<any>
+        InternalFieldOptions<any, any> | ValidatedForm<any>
     >(options)) {
         fields.set(key, value);
 
-        if (isWorkingData(value)) {
+        if (isValidatedForm(value)) {
             children.set(key, value);
             continue;
         }
@@ -91,7 +91,7 @@ export const createStores = <T>(
         children,
         dataStore: createStore<T>(initialValues as any),
         messageStore: createStore<MessageStore<T>>(messages as any),
-        state: createStore<WorkingDataState>(defaultState),
+        state: createStore<ValidatedFormState>(defaultState),
         fields: fields as any,
         refs: new Map(),
         validationFailedCallbacks: new Map(),

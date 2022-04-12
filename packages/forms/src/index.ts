@@ -4,7 +4,7 @@ export type {
     Severity,
     Validation,
     ValidationMessages,
-    WorkingData,
-    WorkingDataOptions,
+    ValidatedForm,
+    ValidatedFormOptions,
 } from './types';
-export { createWorkingData } from './stores/createWorkingData';
+export { createValidatedForm } from './stores/createValidatedForm';

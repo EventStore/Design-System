@@ -1,5 +1,5 @@
 {
-    "name": "@eventstore/working-data",
+    "name": "@eventstore/forms",
     "version": "0.1.0-alpha",
     "description": "Form validation and working copy data store.",
     "license": "Apache-2.0",
@@ -16,7 +16,7 @@
     "repository": {
         "type": "git",
         "url": "git@github.com:EventStore/Design-System.git",
-        "directory": "packages/working-data"
+        "directory": "packages/forms"
     },
     "scripts": {
         "build": "run-s \"build:*\"",
@@ -24,7 +24,7 @@
         "build:ts": "tsc -p .",
         "build:rollup": "rollup -c rollup.config.js",
         "build:cleanup": "rm -rf ./build",
-        "docs": "typedoc --logLevel Error --json ../../documentation/generated/stores.typedoc.json",
+        "docs": "typedoc --logLevel Error --json ../../documentation/generated/forms.typedoc.json",
         "test": "stencil test --spec",
         "test.watch": "stencil test --spec --watchAll",
         "lint": "yarn g:lint"

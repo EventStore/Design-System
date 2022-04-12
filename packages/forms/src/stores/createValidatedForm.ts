@@ -2,8 +2,8 @@ import { delegateFocus, HTTPError } from '@eventstore/utils';
 import { toast } from '@eventstore/components';
 
 import type {
-    WorkingDataOptions,
-    WorkingData,
+    ValidatedFormOptions,
+    ValidatedForm,
     Severity,
     FieldChangeEvent,
     ExtendOptions,
@@ -21,19 +21,19 @@ import {
     blankMessages,
     createStores,
 } from '../utils/createStores';
-import { isWorkingData } from '../utils/isWorkingData';
+import { isValidatedForm } from '../utils/isValidatedForm';
 
 /**
  * Create a "Working Data" store to back a form or set of fields.
  * Pass an object describing your data "`T`" with each value being one of:
  * - An inital value (required by default, uses default validation messages)
  * - a FieldOptions object, describing the field.
- * - Another WorkingData store
- * - A WorkingDataArray store, to back an array.
+ * - Another ValidatedForm store
+ * - A ValidatedFormArray store, to back an array.
  */
-export const createWorkingData = <T extends object>(
-    options: WorkingDataOptions<T>,
-): WorkingData<T> => {
+export const createValidatedForm = <T extends object>(
+    options: ValidatedFormOptions<T>,
+): ValidatedForm<T> => {
     const fullOptions = expandOptions(options);
     const {
         dataStore: { state: data, reset: resetData, onChange },
@@ -56,7 +56,7 @@ export const createWorkingData = <T extends object>(
 
     const fullData = (): T =>
         Array.from(fields.entries()).reduce<T>((acc, [key, field]) => {
-            if (isWorkingData(field)) {
+            if (isValidatedForm(field)) {
                 acc[key] = field.data;
             } else {
                 acc[key] = data[key];
@@ -120,7 +120,7 @@ export const createWorkingData = <T extends object>(
         const key = k as keyof T;
         const field = fields.get(key);
 
-        if (isWorkingData(field)) {
+        if (isValidatedForm(field)) {
             failures.add(key);
             field[insertError](
                 !path.length ? [':root'] : path,
@@ -155,7 +155,7 @@ export const createWorkingData = <T extends object>(
         for (const [key, field] of fields) {
             if (!failures.has(key)) continue;
 
-            if (isWorkingData(field)) {
+            if (isValidatedForm(field)) {
                 const focused = await field[focusError]();
                 if (focused) return true;
                 continue;
@@ -225,7 +225,7 @@ export const createWorkingData = <T extends object>(
         failures.clear();
         try {
             for (const [key, field] of fields) {
-                if (isWorkingData(field)) {
+                if (isValidatedForm(field)) {
                     validationPromises.push(
                         (async () => {
                             const success = await field[triggerValidation](
@@ -405,7 +405,7 @@ export const createWorkingData = <T extends object>(
             if (state.frozen) return;
             for (const [key, value] of Object.entries<any>(partial)) {
                 const wd = fields.get(key as keyof T);
-                if (isWorkingData(wd)) {
+                if (isValidatedForm(wd)) {
                     wd.update(value);
                 } else {
                     (data as any)[key] = value;
@@ -421,7 +421,7 @@ export const createWorkingData = <T extends object>(
         connect: (key: keyof T, ...args: any[]) => {
             const wd = fields.get(key);
 
-            if (isWorkingData(wd)) {
+            if (isValidatedForm(wd)) {
                 if (args.length) {
                     return (wd.connect as any)(...args);
                 }
@@ -449,9 +449,7 @@ export const createWorkingData = <T extends object>(
                 };
             }
 
-            throw new Error(
-                `Bad path in workingdata connect: ${[key, ...args]}`,
-            );
+            throw new Error(`Bad path in formdata connect: ${[key, ...args]}`);
         },
         onChange,
         onValidationFailed: (key, callback) => {
@@ -517,7 +515,7 @@ export const createWorkingData = <T extends object>(
                     continue;
                 }
 
-                if (isWorkingData(field)) {
+                if (isValidatedForm(field)) {
                     field.extend(value as ExtendOptions<T[typeof key]>);
                     continue;
                 }
