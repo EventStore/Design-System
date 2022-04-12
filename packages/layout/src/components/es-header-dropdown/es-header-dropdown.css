@@ -67,6 +67,22 @@
     background-color: var(--color-layout-contrast);
 }
 
+.circle {
+    & es-badge {
+        margin: 0;
+    }
+
+    &::part(button) {
+        padding: revert;
+    }
+}
+
+.opened {
+    --background-color: var(---secondary);
+    --foreground-color: var(---primary);
+    --border-color: var(---primary);
+}
+
 es-layout-button,
 es-layout-link {
     --blob-size: 24px;

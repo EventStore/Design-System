@@ -54,7 +54,7 @@ export class HeaderDropdown {
                 <es-button
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={this.toggleDropdown}
-                    class={{ header_button: true, open: this.dropdownOpen }}
+                    class={{ header_button: true, open: this.dropdownOpen, circle:(this.buttonText==undefined && !this.caret), opened : this.dropdownOpen }}
                     disabled={this.disabled}
                 >
                     {this.count != null ? (
