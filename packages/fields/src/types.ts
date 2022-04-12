@@ -1,9 +1,12 @@
+import type { VNode } from '@stencil/core';
+
 export type Severity = 'error' | 'warning' | 'info';
+export type ValidationMessage = string | VNode | VNode[];
 export interface ValidationMessages {
-    error: string[];
-    warning: string[];
-    info: string[];
-    children?: Record<string | number, ValidationMessages>;
+    error: ValidationMessage[];
+    warning: ValidationMessage[];
+    info: ValidationMessage[];
+    children?: Record<number, Record<Severity, ValidationMessage[]>>;
 }
 
 export interface FieldChange<T> {

@@ -1,3 +1,4 @@
+import type { VNode } from '@stencil/core';
 import { wDKey, focusError, insertError, triggerValidation } from './symbols';
 
 interface ChangeEventValue<T extends object, K extends keyof T> {
@@ -10,11 +11,12 @@ export type FieldChangeEvent<T extends object> = CustomEvent<
 >;
 
 export type Severity = 'error' | 'warning' | 'info';
+export type ValidationMessage = string | VNode | VNode[];
 export interface ValidationMessages {
-    error: string[];
-    warning: string[];
-    info: string[];
-    children?: Record<number, Record<Severity, string[]>>;
+    error: ValidationMessage[];
+    warning: ValidationMessage[];
+    info: ValidationMessage[];
+    children?: Record<number, Record<Severity, ValidationMessage[]>>;
 }
 
 interface SubmitOptions {
@@ -139,7 +141,12 @@ export interface OnChangeHandler<T> {
 }
 
 export type ValidationFailedCallback<T> = (
-    info: { id: string; severity: Severity; message: string; key: keyof T },
+    info: {
+        id: string;
+        severity: Severity;
+        message: ValidationMessage;
+        key: keyof T;
+    },
     ref?: HTMLElement,
 ) => void;
 
@@ -214,7 +221,10 @@ export type Validator<ItemType, T> = (
     data: T,
 ) => boolean | Promise<boolean>;
 
-export type Message<ItemType, T> = (value: ItemType, data: T) => string;
+export type Message<ItemType, T> = (
+    value: ItemType,
+    data: T,
+) => ValidationMessage;
 
 export type ValidateOn = 'always' | 'submit';
 

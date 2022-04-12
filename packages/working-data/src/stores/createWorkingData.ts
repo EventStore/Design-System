@@ -11,6 +11,7 @@ import type {
     InternalFieldOptions,
     ValidationMessages,
     ValidateOn,
+    ValidationMessage,
 } from '../types';
 import { focusError, insertError, triggerValidation, wDKey } from '../symbols';
 import { logger } from '../utils/logger';
@@ -66,7 +67,7 @@ export const createWorkingData = <T extends object>(
     const processValidationFailure = (
         key: keyof T,
         severity: Severity,
-        message: string,
+        message: ValidationMessage,
         id: string,
         index?: number,
     ) => {
@@ -208,12 +209,7 @@ export const createWorkingData = <T extends object>(
 
         data[name] = value;
 
-        // We are in post submit validation stage
-        if (failedSubmit) {
-            validate('submit', false);
-        } else {
-            validate('always', false);
-        }
+        validateUpdatedData();
     };
 
     const triggers: ValidateOn[] = ['submit', 'always'];
@@ -366,6 +362,15 @@ export const createWorkingData = <T extends object>(
         });
     };
 
+    const validateUpdatedData = () => {
+        // We are in post submit validation stage
+        if (failedSubmit) {
+            validate('submit', false);
+        } else {
+            validate('always', false);
+        }
+    };
+
     validate('always');
 
     return {
@@ -406,10 +411,12 @@ export const createWorkingData = <T extends object>(
                     (data as any)[key] = value;
                 }
             }
+            validateUpdatedData();
         },
         set: (key, value) => {
             if (state.frozen) return;
             data[key] = value;
+            validateUpdatedData();
         },
         connect: (key: keyof T, ...args: any[]) => {
             const wd = fields.get(key);
