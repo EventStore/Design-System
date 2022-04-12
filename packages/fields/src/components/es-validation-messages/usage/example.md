@@ -4,7 +4,7 @@ export default () => (
         messages={{
             error: ['Oh no!'],
             warning: ['Watch out!', "It's hot!"],
-            info: ['It will cool down soon.'],
+            info: ['It will cool down soon.', <es-button>{'hello'}</es-button>],
         }}
     />
 );

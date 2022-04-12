@@ -10,13 +10,13 @@
 ### Example
 
 ```tsx
-import { createWorkingData } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 
 interface Example {
     text: string;
 }
 
-const workingData = createWorkingData<Example>({
+const form = createValidatedForm<Example>({
     text: '',
 });
 
@@ -25,7 +25,7 @@ export default () => (
         <es-textarea
             label={'Text'}
             placeholder={'Write some text'}
-            {...workingData.connect('text')}
+            {...form.connect('text')}
         />
     </>
 );

@@ -10,18 +10,18 @@
 ### Example
 
 ```tsx
-import { createWorkingData } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 
 interface Example {
     enabled: boolean;
 }
 
-const workingData = createWorkingData<Example>({
+const form = createValidatedForm<Example>({
     enabled: false,
 });
 
 export default () => (
-    <es-checkbox {...workingData.connect('enabled')}>
+    <es-checkbox {...form.connect('enabled')}>
         {'I agree to the terms and conditions?'}
     </es-checkbox>
 );

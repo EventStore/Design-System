@@ -10,13 +10,13 @@
 ### Example
 
 ```tsx
-import { createWorkingData } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 
 interface Example {
     text: string;
 }
 
-const workingData = createWorkingData<Example>({
+const form = createValidatedForm<Example>({
     text: '',
 });
 
@@ -44,19 +44,19 @@ export default () => (
             slot={'mega_example'}
             label={'Text'}
             placeholder={'Write some text'}
-            {...workingData.connect('text')}
+            {...form.connect('text')}
         />
         <es-mega-input
             disabled
             slot={'mega_disabled'}
             label={'Disabled'}
             placeholder={'This is disabled'}
-            {...workingData.connect('text')}
+            {...form.connect('text')}
         />
         <es-button
             slot={'footer'}
             onClick={() => {
-                workingData.submit((data) => {
+                form.submit((data) => {
                     console.log(data);
                 });
             }}

@@ -2472,12 +2472,7 @@ __metadata:
     "@eventstore/stores": "workspace:*"
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"
-<<<<<<< HEAD
-    "@eventstore/working-data": "workspace:*"
     "@stencil/core": 2.15.1
-=======
-    "@stencil/core": ^2.15.0
->>>>>>> 9746375 (Rename `workingData` to `validatedForm`)
     imask: 6.0.5
     jest: ^26.6.3
     npm-run-all: ^4.1.5

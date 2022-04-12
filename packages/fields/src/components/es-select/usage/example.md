@@ -1,11 +1,11 @@
 ```tsx
-import { createWorkingData } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 
 interface Example {
     names: string | null;
 }
 
-const workingData = createWorkingData<Example>({
+const form = createValidatedForm<Example>({
     name: null,
 });
 
@@ -21,14 +21,14 @@ export default () => (
             label={'Name'}
             placeholder={'Choose a name from the list'}
             options={options}
-            {...workingData.connect('name')}
+            {...form.connect('name')}
         />
         <es-select
             disabled
             label={'Disabled'}
             placeholder={'Choose a name from the list'}
             options={options}
-            {...workingData.connect('name')}
+            {...form.connect('name')}
         />
     </>
 );

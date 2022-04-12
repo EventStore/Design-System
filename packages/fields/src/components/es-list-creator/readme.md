@@ -10,17 +10,16 @@
 ### Example
 
 ```tsx
-import { createWorkingData, createWorkingDataArray } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 
 interface Example {
     names: string[];
 }
 
-const workingData = createWorkingData<Example>({
-    names: createWorkingDataArray({
+const workingData = createValidatedForm<Example>({
+    names: {
         initialValue: ['john'],
-        name: 'names',
-    }),
+    },
 });
 
 const options = [

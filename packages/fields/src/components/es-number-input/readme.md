@@ -10,14 +10,14 @@
 ### Example
 
 ```tsx
-import { createWorkingData } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 
 interface Example {
     count: string;
     mice: string;
 }
 
-const workingData = createWorkingData<Example>({
+const form = createValidatedForm<Example>({
     count: '',
     mice: {
         initialValue: '',
@@ -31,7 +31,7 @@ const workingData = createWorkingData<Example>({
 });
 
 const onEnter = () => {
-    workingData.submit((data) => {
+    form.submit((data) => {
         console.log(data);
     });
 };
@@ -42,18 +42,18 @@ export default () => (
             label={'Count'}
             placeholder={'How high can you count'}
             unit={'n'}
-            {...workingData.connect('count')}
+            {...form.connect('count')}
         />
         <es-number-input
             label={'How many mice?'}
             placeholder={'Are there any?'}
             unit={'🐁'}
-            {...workingData.connect('mice')}
+            {...form.connect('mice')}
         />
         <es-button
             slot={'footer'}
             onClick={() => {
-                workingData.submit((data) => {
+                form.submit((data) => {
                     console.log(data);
                 });
             }}

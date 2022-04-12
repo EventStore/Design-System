@@ -10,14 +10,14 @@
 ### Example
 
 ```tsx
-import { createWorkingData } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 
 interface Example {
     best: string | null;
     another: string | null;
 }
 
-const workingData = createWorkingData<Example>({
+const form = createValidatedForm<Example>({
     best: null,
     another: null,
 });
@@ -28,19 +28,19 @@ export default () => (
             slot={'option_one'}
             labelledby={'option_one'}
             options={options}
-            {...workingData.connect('best')}
+            {...form.connect('best')}
         />
         <es-radio-card-group
             slot={'option_two'}
             labelledby={'option_two'}
             options={options}
             groupBy={'group'}
-            {...workingData.connect('another')}
+            {...form.connect('another')}
         />
         <es-button
             slot={'footer'}
             onClick={() => {
-                workingData.submit((data) => {
+                form.submit((data) => {
                     console.log(data);
                 });
             }}

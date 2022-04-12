@@ -10,19 +10,19 @@
 ### Example
 
 ```tsx
-import { createWorkingData } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 
 interface Example {
     good: boolean;
 }
 
-const workingData = createWorkingData<Example>({
+const form = createValidatedForm<Example>({
     good: false,
 });
 
 export default () => (
     <>
-        <es-switch label={'Text'} {...workingData.connect('good')} />
+        <es-switch label={'Text'} {...form.connect('good')} />
     </>
 );
 ```

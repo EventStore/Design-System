@@ -10,14 +10,14 @@
 ### Example
 
 ```tsx
-import { createWorkingData } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 
 interface Example {
     text: string;
     id: string;
 }
 
-const workingData = createWorkingData<Example>({
+const forms = createValidatedForm<Example>({
     text: '',
     id: {
         initialValue: '',
@@ -31,7 +31,7 @@ const workingData = createWorkingData<Example>({
 });
 
 const onEnter = () => {
-    workingData.submit((data) => {
+    forms.submit((data) => {
         console.log(data);
     });
 };
@@ -42,7 +42,7 @@ export default () => (
             label={'Text'}
             placeholder={'Write some text'}
             onEnter={onEnter}
-            {...workingData.connect('text')}
+            {...forms.connect('text')}
         />
         <es-input
             label={'Account Id'}
@@ -53,13 +53,13 @@ export default () => (
                 lazy: false,
                 placeholderChar: '_',
             }}
-            {...workingData.connect('id')}
+            {...forms.connect('id')}
         />
         <es-input
             disabled
             label={'Disabled'}
             placeholder={'This is disabled'}
-            {...workingData.connect('text')}
+            {...forms.connect('text')}
         />
     </>
 );
