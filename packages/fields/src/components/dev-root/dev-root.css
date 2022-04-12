@@ -1,0 +1,6 @@
+@import '~@eventstore/layout/css/root.css';
+@import '~@eventstore/layout/css/page.css';
+
+dev-root {
+    display: contents;
+}

@@ -1,4 +1,4 @@
-import { wDKey, focusError, insertError } from './symbols';
+import { wDKey, focusError, insertError, triggerValidation } from './symbols';
 
 interface ChangeEventValue<T extends object, K extends keyof T> {
     name: K;
@@ -66,6 +66,11 @@ export interface WorkingData<T extends object> {
     extend: (options: ExtendOptions<T>) => void;
 
     /** @internal */
+    [triggerValidation]: (
+        trigger: ValidateOn,
+        forceFocus?: boolean,
+    ) => Promise<any>;
+    /** @internal */
     [focusError]: () => Promise<boolean>;
     /** @internal */
     [insertError]: (
@@ -84,7 +89,7 @@ interface BasicConnection<K extends string, V> {
     onFieldchange: (
         e: CustomEvent<{
             name: string;
-            value: V;
+            value: unknown;
         }>,
     ) => void;
     ref: (ref?: HTMLElement) => void;
@@ -211,6 +216,8 @@ export type Validator<ItemType, T> = (
 
 export type Message<ItemType, T> = (value: ItemType, data: T) => string;
 
+export type ValidateOn = 'always' | 'submit';
+
 /** Validate a value in the data */
 export type Validation<ItemType, T> = {
     /** The id of the validation. */
@@ -221,6 +228,8 @@ export type Validation<ItemType, T> = {
     message: Message<ItemType, T> | string;
     /** What severity this validation is. */
     severity?: Severity;
+    /** When to run the validation. */
+    validateOn?: ValidateOn;
 };
 
 /** Validate a value in the data */

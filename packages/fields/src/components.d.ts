@@ -14,6 +14,8 @@ import { RadioCardGroupOption } from "./components/es-radio-card-group/types";
 import { RenderCard } from "./components/es-radio-card-group/es-radio-card-group";
 import { RenderSelectValue } from "./components/es-select/es-select";
 export namespace Components {
+    interface DevRoot {
+    }
     interface EsCheckbox {
         /**
           * If the field is disabled.
@@ -454,6 +456,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDevRootElement extends Components.DevRoot, HTMLStencilElement {
+    }
+    var HTMLDevRootElement: {
+        prototype: HTMLDevRootElement;
+        new (): HTMLDevRootElement;
+    };
     interface HTMLEsCheckboxElement extends Components.EsCheckbox, HTMLStencilElement {
     }
     var HTMLEsCheckboxElement: {
@@ -527,6 +535,7 @@ declare global {
         new (): HTMLEsValidationMessagesElement;
     };
     interface HTMLElementTagNameMap {
+        "dev-root": HTMLDevRootElement;
         "es-checkbox": HTMLEsCheckboxElement;
         "es-input": HTMLEsInputElement;
         "es-input-list": HTMLEsInputListElement;
@@ -542,6 +551,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface DevRoot {
+    }
     interface EsCheckbox {
         /**
           * If the field is disabled.
@@ -1027,6 +1038,7 @@ declare namespace LocalJSX {
         "warningIcon"?: IconDescription;
     }
     interface IntrinsicElements {
+        "dev-root": DevRoot;
         "es-checkbox": EsCheckbox;
         "es-input": EsInput;
         "es-input-list": EsInputList;
@@ -1045,6 +1057,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "dev-root": LocalJSX.DevRoot & JSXBase.HTMLAttributes<HTMLDevRootElement>;
             "es-checkbox": LocalJSX.EsCheckbox & JSXBase.HTMLAttributes<HTMLEsCheckboxElement>;
             "es-input": LocalJSX.EsInput & JSXBase.HTMLAttributes<HTMLEsInputElement>;
             "es-input-list": LocalJSX.EsInputList & JSXBase.HTMLAttributes<HTMLEsInputListElement>;

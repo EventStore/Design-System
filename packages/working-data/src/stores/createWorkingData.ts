@@ -10,11 +10,16 @@ import type {
     FieldOptions,
     InternalFieldOptions,
     ValidationMessages,
+    ValidateOn,
 } from '../types';
-import { focusError, insertError, wDKey } from '../symbols';
+import { focusError, insertError, triggerValidation, wDKey } from '../symbols';
 import { logger } from '../utils/logger';
 import { expandOptions } from '../utils/expandOptions';
-import { createStores } from '../utils/createStores';
+import {
+    addToValidationSets,
+    blankMessages,
+    createStores,
+} from '../utils/createStores';
 import { isWorkingData } from '../utils/isWorkingData';
 
 /**
@@ -38,11 +43,12 @@ export const createWorkingData = <T extends object>(
         children,
         validationFailedCallbacks,
         beforeFocusCallbacks,
+        validationSets,
     } = createStores(fullOptions);
 
     const failures = new Set<keyof T>();
 
-    let failedValidation = false;
+    let failedSubmit = false;
     let validationTimeout: number;
     let forcingFocus = false;
     let awaiters: Array<(value: boolean | PromiseLike<boolean>) => void> = [];
@@ -202,27 +208,44 @@ export const createWorkingData = <T extends object>(
 
         data[name] = value;
 
-        if (failedValidation) {
-            validate(false);
+        // We are in post submit validation stage
+        if (failedSubmit) {
+            validate('submit', false);
+        } else {
+            validate('always', false);
         }
     };
 
-    const runValidation = async (forceFocus = true) => {
-        resetMessages();
+    const triggers: ValidateOn[] = ['submit', 'always'];
+    const includeTriggers = (trigger: ValidateOn): Set<ValidateOn> => {
+        return new Set(triggers.slice(triggers.indexOf(trigger)));
+    };
+
+    const runValidation = async (trigger: ValidateOn, forceFocus = true) => {
         const validationPromises: Promise<void>[] = [];
+        const toValidate = validationSets[trigger];
+        const triggers = includeTriggers(trigger);
+
         failures.clear();
         try {
             for (const [key, field] of fields) {
                 if (isWorkingData(field)) {
                     validationPromises.push(
                         (async () => {
-                            const success = await field.validate(false);
+                            const success = await field[triggerValidation](
+                                trigger,
+                                false,
+                            );
                             if (success) return;
                             failures.add(key);
                         })(),
                     );
                     continue;
                 }
+
+                if (!toValidate.has(key)) continue;
+
+                messages[key] = blankMessages();
 
                 const {
                     optional,
@@ -234,7 +257,7 @@ export const createWorkingData = <T extends object>(
                 const value = data[key];
                 const exists = checkExists(value, data);
                 if (!exists) {
-                    if (!optional(data)) {
+                    if (!optional(data) && trigger !== 'always') {
                         failures.add(key);
 
                         processValidationFailure(
@@ -251,8 +274,19 @@ export const createWorkingData = <T extends object>(
 
                 for (const [
                     i,
-                    { validator, message, severity = 'error', id, ...rest },
+                    {
+                        validator,
+                        message,
+                        severity = 'error',
+                        id,
+                        validateOn = 'submit',
+                        ...rest
+                    },
                 ] of validations.entries()) {
+                    if (!triggers.has(validateOn)) {
+                        continue;
+                    }
+
                     if ((rest as any).callOnEach) {
                         if (!Array.isArray(value)) continue;
                         for (const [j, v] of value.entries()) {
@@ -301,31 +335,38 @@ export const createWorkingData = <T extends object>(
             }
             await Promise.all(validationPromises);
 
-            failedValidation = !!failures.size;
+            const failed = !!failures.size;
 
-            if (!failedValidation) return true;
-            if (forceFocus) {
-                await focusFirstError();
+            if (trigger === 'submit') {
+                failedSubmit = failed;
+                if (!failedSubmit) return true;
+                if (forceFocus) {
+                    await focusFirstError();
+                }
             }
+
+            return failed;
         } catch (error) {
             logger.error('Validation Failed', error);
         }
         return false;
     };
 
-    const validate = (forceFocus = true) => {
+    const validate = (event: ValidateOn, forceFocus = true) => {
         return new Promise<boolean>((resolve) => {
             forcingFocus = forcingFocus || forceFocus;
             awaiters.push(resolve);
             clearTimeout(validationTimeout);
             validationTimeout = window.setTimeout(async () => {
-                const success = await runValidation(forcingFocus);
+                const success = await runValidation(event, forcingFocus);
                 awaiters.forEach((resolve) => resolve(success));
                 awaiters = [];
                 forcingFocus = false;
             });
         });
     };
+
+    validate('always');
 
     return {
         get data() {
@@ -422,11 +463,11 @@ export const createWorkingData = <T extends object>(
             };
         },
         listen,
-        validate,
+        validate: (forceFocus) => validate('submit', forceFocus),
         submit: async (fn, { forceFocus = true } = {}) => {
             if (state.frozen) return;
             freeze();
-            if (await validate(forceFocus)) {
+            if (await validate('submit', forceFocus)) {
                 try {
                     await fn(fullData());
                 } catch (error) {
@@ -444,7 +485,7 @@ export const createWorkingData = <T extends object>(
                                 'submit',
                             );
                         }
-                        failedValidation = true;
+                        failedSubmit = true;
                         toast.error({
                             title,
                             message: detail,
@@ -490,10 +531,17 @@ export const createWorkingData = <T extends object>(
                     ] as InternalFieldOptions<T[typeof key], T>['validations'],
                 };
 
+                addToValidationSets(
+                    key as keyof T,
+                    options.validations ?? [],
+                    validationSets,
+                );
+
                 fields.set(key, expanded);
             }
         },
 
+        [triggerValidation]: validate,
         [focusError]: focusFirstError,
         [insertError]: insertValidationError,
     };

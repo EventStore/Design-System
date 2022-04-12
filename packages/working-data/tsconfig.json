@@ -10,7 +10,7 @@
         "declarationDir": "dist",
         "moduleResolution": "node",
         "module": "esnext",
-        "target": "es2017",
+        "target": "es2019",
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "importsNotUsedAsValues": "error",

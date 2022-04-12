@@ -7,10 +7,13 @@ import type {
     ValidationFailedCallback,
     BeforeFocusCallback,
     WorkingData,
+    ValidateOn,
+    Validation,
 } from '../types';
 import { isWorkingData } from './isWorkingData';
 
 type MessageStore<T> = { [key in keyof T]: ValidationMessages };
+type ValidationSets<T> = Record<ValidateOn, Set<keyof T>>;
 
 interface Stores<T> {
     dataStore: Store<T>;
@@ -27,6 +30,7 @@ interface Stores<T> {
         Set<ValidationFailedCallback<T>>
     >;
     beforeFocusCallbacks: Set<BeforeFocusCallback<keyof T>>;
+    validationSets: ValidationSets<T>;
 }
 
 export const blankMessages = (): ValidationMessages => ({
@@ -34,6 +38,17 @@ export const blankMessages = (): ValidationMessages => ({
     warning: [],
     info: [],
 });
+
+export const addToValidationSets = <T>(
+    key: keyof T,
+    validations: Validation<any, T>[],
+    validationSets: ValidationSets<T>,
+) => {
+    validationSets.submit.add(key);
+    for (const { validateOn = 'submit' } of validations) {
+        validationSets[validateOn].add(key);
+    }
+};
 
 export const createStores = <T>(
     options: InternalWorkingDataOptions<T>,
@@ -47,6 +62,10 @@ export const createStores = <T>(
     const defaultState: WorkingDataState = {
         frozen: false,
     };
+    const validationSets: ValidationSets<T> = {
+        always: new Set(),
+        submit: new Set(),
+    };
 
     for (const [key, value] of Object.entries<
         InternalFieldOptions<any, any> | WorkingData<any>
@@ -55,10 +74,17 @@ export const createStores = <T>(
 
         if (isWorkingData(value)) {
             children.set(key, value);
-        } else {
-            initialValues[key] = value.initialValue;
-            messages[key] = blankMessages();
+            continue;
         }
+
+        initialValues[key] = value.initialValue;
+        messages[key] = blankMessages();
+
+        addToValidationSets(
+            key as keyof T,
+            value.validations ?? [],
+            validationSets,
+        );
     }
 
     return {
@@ -70,5 +96,6 @@ export const createStores = <T>(
         refs: new Map(),
         validationFailedCallbacks: new Map(),
         beforeFocusCallbacks: new Set(),
+        validationSets,
     };
 };
