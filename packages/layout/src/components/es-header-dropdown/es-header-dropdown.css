@@ -12,12 +12,6 @@
     --tertiary-color: var(--color-layout-shade-40);
 }
 
-:host([variant='highlight']) {
-    --primary-color: var(--color-layout-highlight);
-    --secondary-color: var(--color-layout-contrast);
-    --tertiary-color: var(--color-layout-contrast);
-}
-
 .header_button {
     --spacing: 10px;
 
@@ -25,6 +19,22 @@
         --background-color: var(--primary-color);
         --foreground-color: var(--color-layout-shade-50);
         --border-color: var(--color-layout-shade-30);
+    }
+}
+
+:host([variant='highlight']) {
+    --primary-color: var(--color-layout-highlight);
+    --secondary-color: var(--color-layout-contrast);
+    --tertiary-color: var(--color-layout-contrast);
+}
+
+:host([variant='default']) {
+    & .header_button {
+        --border-color: var(--color-layout-shade-60);
+    }
+
+    & .header_button[high-contrast][disabled] {
+        --foreground-color: var(--color-layout-shade-60);
     }
 }
 
