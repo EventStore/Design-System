@@ -77,7 +77,7 @@ export class ListCreator {
             ({ value }) => !values.includes(value),
         );
         this.expandedValues = values
-            .map((value) => this.options.find((o) => o.value == value)!)
+            .map((value) => this.options.find((o) => o.value === value)!)
             .filter(Boolean);
     }
 
