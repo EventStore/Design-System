@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "@eventstore/assets": "workspace:*",
+        "@stencil/core": "^2.15.0",
         "@stencil/postcss": "^2.1.0",
         "postcss-preset-env": "6.7.0"
     },
@@ -38,7 +39,6 @@
         "prettier": "^2.x.x"
     },
     "devDependencies": {
-        "@stencil/core": "^2.15.0",
         "@typescript-eslint/eslint-plugin": "^5.6.0",
         "@typescript-eslint/parser": "^5.6.0",
         "eslint": "^8.4.0",
