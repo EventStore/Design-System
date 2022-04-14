@@ -268,7 +268,7 @@ export class EsTypeahead {
 
         // currently focusing on input element
         if (currentFocus === this.inputElement) {
-            if (direction == 'down') {
+            if (direction === 'down') {
                 items[0].focus();
             } else {
                 items[lastIndex].focus();

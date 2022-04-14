@@ -44,7 +44,7 @@ export class InternalRouter {
     private updateLocation = (location: LocationSegments) => {
         // Remove the root URL if found at beginning of string
         const pathname =
-            location.pathname.indexOf(this.root) == 0
+            location.pathname.indexOf(this.root) === 0
                 ? '/' + location.pathname.slice(this.root.length)
                 : location.pathname;
 
@@ -118,7 +118,7 @@ export class InternalRouter {
         const root = this.root;
 
         // Don't allow double slashes
-        if (url.charAt(0) == '/' && root.charAt(root.length - 1) == '/') {
+        if (url.charAt(0) === '/' && root.charAt(root.length - 1) === '/') {
             return root.slice(0, root.length - 1) + url;
         }
 
