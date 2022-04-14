@@ -5,6 +5,7 @@ import { theme as high_contrast_dark } from './high_contrast_dark';
 
 import type { ChildThemeDefinition, ThemeDefinition } from '../types';
 import { THEME } from '../utils/constants';
+import { logger } from '../utils/logger';
 
 export type ThemeKey = keyof typeof themes;
 
@@ -32,6 +33,8 @@ export const addChildTheme = <T extends object>(
     for (const [key, scheme] of Object.entries(children)) {
         childThemes[key as ThemeKey]?.push({ prefix, scheme });
     }
+
+    logger.log(`Added child theme "${prefix}"`);
 
     window[THEME]?.updateTheme();
 };
