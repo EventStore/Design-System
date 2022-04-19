@@ -30,7 +30,7 @@
         "docs": "run-s \"docs:*\"",
         "docs:stencil": "stencil build --docs-json ../../documentation/generated/fields.stencil.json",
         "docs:typedoc": "typedoc --logLevel Error --json ../../documentation/generated/fields.typedoc.json",
-        "test": "stencil test --spec --e2e",
+        "test": "stencil test --spec --e2e --passWithNoTests",
         "test.watch": "stencil test --spec --e2e --watchAll",
         "lint": "yarn g:lint",
         "icon": "icon --dir=./src/icons"
@@ -51,7 +51,7 @@
         "@eventstore/stores": "workspace:*",
         "@eventstore/theme": "workspace:*",
         "@eventstore/utils": "workspace:*",
-        "@stencil/core": "^2.15.0",
+        "@stencil/core": "2.15.1",
         "jest": "^26.6.3",
         "npm-run-all": "^4.1.5",
         "puppeteer": "^10.2.0",
