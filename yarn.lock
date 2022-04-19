@@ -2487,7 +2487,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eventstore/forms@workspace:packages/forms":
+"@eventstore/forms@workspace:*, @eventstore/forms@workspace:packages/forms":
   version: 0.0.0-use.local
   resolution: "@eventstore/forms@workspace:packages/forms"
   dependencies:
@@ -6495,6 +6495,25 @@ __metadata:
   checksum: 10c1780fa13dbe1ff3100114c2ce1f9307f8be10b14bf16e103815356ff567b6be39d70fc4a40f8990b9660012dc24b0f5e1dde1b6426166eb23a445ba068ca3
   languageName: node
   linkType: hard
+
+"forms-demo@workspace:demos/forms-demo":
+  version: 0.0.0-use.local
+  resolution: "forms-demo@workspace:demos/forms-demo"
+  dependencies:
+    "@eventstore/assets": "workspace:*"
+    "@eventstore/components": "workspace:*"
+    "@eventstore/configs": "workspace:*"
+    "@eventstore/fields": "workspace:*"
+    "@eventstore/forms": "workspace:*"
+    "@eventstore/icon-manager": "workspace:*"
+    "@eventstore/layout": "workspace:*"
+    "@eventstore/router": "workspace:*"
+    "@eventstore/stores": "workspace:*"
+    "@eventstore/theme": "workspace:*"
+    "@eventstore/utils": "workspace:*"
+    "@stencil/core": 2.15.1
+  languageName: unknown
+  linkType: soft
 
 "fraction.js@npm:^4.1.1":
   version: 4.1.2
