@@ -11500,9 +11500,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"router-demo@workspace:tools/router-demo":
+"router-demo@workspace:demos/router-demo":
   version: 0.0.0-use.local
-  resolution: "router-demo@workspace:tools/router-demo"
+  resolution: "router-demo@workspace:demos/router-demo"
   dependencies:
     "@eventstore/router": "workspace:*"
     "@stencil/core": 2.15.1
@@ -12044,9 +12044,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stores-demo@workspace:tools/stores-demo":
+"stores-demo@workspace:demos/stores-demo":
   version: 0.0.0-use.local
-  resolution: "stores-demo@workspace:tools/stores-demo"
+  resolution: "stores-demo@workspace:demos/stores-demo"
   dependencies:
     "@eventstore/stores": "workspace:*"
     "@eventstore/utils": "workspace:*"
