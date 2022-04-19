@@ -54,7 +54,11 @@ export class HeaderDropdown {
                 <es-button
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={this.toggleDropdown}
-                    class={{ header_button: true, open: this.dropdownOpen }}
+                    class={{
+                        header_button: true,
+                        open: this.dropdownOpen,
+                        circle: !this.buttonText && !this.caret,
+                    }}
                     disabled={this.disabled}
                 >
                     {this.count != null ? (
@@ -62,7 +66,7 @@ export class HeaderDropdown {
                             count={this.count}
                             variant={'filled'}
                             color={this.alertLevel}
-                            slot={'before'}
+                            slot={!this.buttonText ? undefined : 'before'}
                         />
                     ) : (
                         !!this.icon && (
@@ -70,7 +74,7 @@ export class HeaderDropdown {
                                 count={this.alertLevel ? 1 : 0}
                                 variant={'dot'}
                                 color={this.alertLevel}
-                                slot={'before'}
+                                slot={!this.buttonText ? undefined : 'before'}
                             >
                                 <es-icon icon={this.icon} />
                             </es-badge>
