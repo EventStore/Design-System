@@ -289,12 +289,10 @@ export const createValidatedForm = <T extends object>(
                             validationPromises.push(
                                 (async () => {
                                     const success = await validator(v, data);
-
                                     if (success) return;
                                     if (severity === 'error') {
                                         failures.add(key);
                                     }
-
                                     processValidationFailure(
                                         key,
                                         severity,
@@ -335,13 +333,12 @@ export const createValidatedForm = <T extends object>(
 
             if (trigger === 'submit') {
                 failedSubmit = failed;
-                if (!failedSubmit) return true;
-                if (forceFocus) {
+                if (failed && forceFocus) {
                     await focusFirstError();
                 }
             }
 
-            return failed;
+            return !failed;
         } catch (error) {
             logger.error('Validation Failed', error);
         }

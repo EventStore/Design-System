@@ -49,7 +49,7 @@ export interface ValidatedForm<T extends object> {
      * If a [HTTPError](/utils/utils/HTTPError) the HTTPProblemDetails fields will be taken as errors, and applied to the fields.
      */
     submit: (
-        fn: (data: T) => Promise<any>,
+        fn: (data: T) => void | Promise<void>,
         options?: SubmitOptions,
     ) => Promise<void>;
     /** Listen to FieldChange events, and update the data from them. */
