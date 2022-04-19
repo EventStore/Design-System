@@ -2364,7 +2364,7 @@ __metadata:
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"
     "@floating-ui/dom": 0.4.1
-    "@stencil/core": ^2.15.0
+    "@stencil/core": 2.15.1
     jest: ^26.6.3
     npm-run-all: ^4.1.5
     puppeteer: ^10.2.0
@@ -2382,7 +2382,7 @@ __metadata:
   resolution: "@eventstore/configs@workspace:tools/configs"
   dependencies:
     "@eventstore/assets": "workspace:*"
-    "@stencil/core": ^2.15.0
+    "@stencil/core": 2.15.1
     "@stencil/postcss": ^2.1.0
     "@typescript-eslint/eslint-plugin": ^5.6.0
     "@typescript-eslint/parser": ^5.6.0
@@ -2413,7 +2413,7 @@ __metadata:
     "@eventstore/stores": "workspace:*"
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.15.0
+    "@stencil/core": 2.15.1
     "@stencil/postcss": ^2.1.0
     "@types/jest": 25.2.1
     "@types/markdown-it": 12.0.3
@@ -2447,7 +2447,7 @@ __metadata:
     "@eventstore/configs": "workspace:*"
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.15.0
+    "@stencil/core": 2.15.1
     jest: ^26.6.3
     monaco-editor: ^0.22.3
     npm-run-all: ^4.1.5
@@ -2472,7 +2472,7 @@ __metadata:
     "@eventstore/stores": "workspace:*"
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.15.0
+    "@stencil/core": 2.15.1
     imask: 6.0.5
     jest: ^26.6.3
     npm-run-all: ^4.1.5
@@ -2517,7 +2517,7 @@ __metadata:
     "@eventstore/router": "workspace:*"
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.15.0
+    "@stencil/core": 2.15.1
     jest: ^26.6.3
     npm-run-all: ^4.1.5
     puppeteer: ^10.2.0
@@ -2550,7 +2550,7 @@ __metadata:
   resolution: "@eventstore/router@workspace:packages/router"
   dependencies:
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.15.0
+    "@stencil/core": 2.15.1
     "@types/jest": 26.0.3
     jest: ^26.6.3
     typedoc: ^0.22.13
@@ -2566,7 +2566,7 @@ __metadata:
   dependencies:
     "@mdx-js/mdx": ^1.6.22
     "@rollup/pluginutils": ^3.1.0
-    "@stencil/core": ^2.15.0
+    "@stencil/core": 2.15.1
     "@types/node": ^16.11.9
     jest: ^26.6.3
     npm-run-all: ^4.1.5
@@ -2584,7 +2584,7 @@ __metadata:
   resolution: "@eventstore/stores@workspace:packages/stores"
   dependencies:
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.15.0
+    "@stencil/core": 2.15.1
     "@types/jest": 26.0.3
     jest: ^26.6.3
     npm-run-all: ^4.1.5
@@ -2601,7 +2601,7 @@ __metadata:
   resolution: "@eventstore/theme@workspace:packages/theme"
   dependencies:
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.15.0
+    "@stencil/core": 2.15.1
     jest: ^26.6.3
     typedoc: ^0.22.13
     typescript: 4.5.5
@@ -3291,12 +3291,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:^2.15.0":
-  version: 2.15.0
-  resolution: "@stencil/core@npm:2.15.0"
+"@stencil/core@npm:2.15.1":
+  version: 2.15.1
+  resolution: "@stencil/core@npm:2.15.1"
   bin:
     stencil: bin/stencil
-  checksum: 71494bb1b640b20f1210ae2633bcf93635a92f11b0df2711d613d7c8b81f53effa99ac40c9419d603bc4d0537b2b90a82813d3301a4eefe331ba69159255ec5f
+  checksum: 3df40b9ad03f5408dbc73495f0727b5b36b3ac916e4551debd4a90d1b414cb9bdd32d64f55c14223fd6aa2e015d82b1228afa3fbef4735031bcb1fbbd633cd9e
   languageName: node
   linkType: hard
 
@@ -11484,7 +11484,7 @@ __metadata:
   resolution: "router-demo@workspace:tools/router-demo"
   dependencies:
     "@eventstore/router": "workspace:*"
-    "@stencil/core": ^2.15.0
+    "@stencil/core": 2.15.1
   languageName: unknown
   linkType: soft
 
@@ -12029,7 +12029,7 @@ __metadata:
   dependencies:
     "@eventstore/stores": "workspace:*"
     "@eventstore/utils": "workspace:*"
-    "@stencil/core": ^2.15.0
+    "@stencil/core": 2.15.1
   languageName: unknown
   linkType: soft
 
