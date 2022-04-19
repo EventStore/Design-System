@@ -26,7 +26,7 @@
     },
     "scripts": {
         "build": "stencil build --docs",
-        "start": "stencil build --dev --watch --serve",
+        "dev": "stencil build --dev --watch --serve",
         "docs": "run-s \"docs:*\"",
         "docs:stencil": "stencil build --docs-json ../../documentation/generated/fields.stencil.json",
         "docs:typedoc": "typedoc --logLevel Error --json ../../documentation/generated/fields.typedoc.json",

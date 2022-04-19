@@ -39,6 +39,7 @@ const resolveLookup = new Map<string, string>([
     ['@eventstore/router', '/modules/@eventstore/router/index.js'],
     ['@eventstore/utils', '/modules/@eventstore/utils/index.mjs'],
     ['@eventstore/stores', '/modules/@eventstore/stores/index.mjs'],
+    ['@eventstore/forms', '/modules/@eventstore/forms/index.mjs'],
 ]);
 
 let ready: Promise<void>;

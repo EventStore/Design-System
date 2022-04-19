@@ -1,6 +1,7 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 import type { IconDescription } from '@eventstore/components';
 import { ES_FIELDS } from '../../icons/namespace';
+import type { FieldChange } from '../../types';
 
 /** A checkbox component */
 @Component({
@@ -10,7 +11,7 @@ import { ES_FIELDS } from '../../icons/namespace';
 })
 export class EsCheckbox {
     /** Emitted when the value of the field is changed. */
-    @Event({ bubbles: true }) fieldchange!: EventEmitter;
+    @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<boolean>>;
 
     /** The name of the field. */
     @Prop() name!: string;

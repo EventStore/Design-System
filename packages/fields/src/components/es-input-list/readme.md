@@ -10,24 +10,23 @@
 ### Example
 
 ```tsx
-import { createWorkingData, createWorkingDataArray } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 
 interface Example {
     names: string[];
 }
 
-const workingData = createWorkingData<Example>({
-    names: createWorkingDataArray({
+const form = createValidatedForm<Example>({
+    names: {
         initialValue: ['John', ''],
-        name: 'names',
-    }),
+    },
 });
 
 export default () => (
     <es-input-list
         label={'Names'}
         placeholder={'Add a name to your list'}
-        {...workingData.connect('names')}
+        {...form.connect('names')}
     />
 );
 ```
@@ -45,16 +44,24 @@ export default () => (
 
 ## Properties
 
-| Property                   | Attribute       | Description                         | Type                                                    | Default                |
-| -------------------------- | --------------- | ----------------------------------- | ------------------------------------------------------- | ---------------------- |
-| `additionIcon`             | `addition-icon` | Icon for the add item button.       | `[namespace: string \| symbol, name: string] \| string` | `[ES_FIELDS, 'plus']`  |
-| `additionText`             | `addition-text` | Text for the add item button.       | `string`                                                | `'Add item'`           |
-| `data` _(required)_        | --              | The backing WorkingDataArray        | `WorkingDataArray<string>`                              | `undefined`            |
-| `deleteIcon`               | `delete-icon`   | Icon for the delete button.         | `[namespace: string \| symbol, name: string] \| string` | `[ES_FIELDS, 'trash']` |
-| `disabled`                 | `disabled`      | If the input is disabled.           | `boolean \| undefined`                                  | `undefined`            |
-| `label` _(required)_       | `label`         | The label of the field.             | `string`                                                | `undefined`            |
-| `name` _(required)_        | `name`          | The name of the field.              | `string`                                                | `undefined`            |
-| `placeholder` _(required)_ | `placeholder`   | Display a placeholder in the input. | `string`                                                | `undefined`            |
+| Property                   | Attribute       | Description                          | Type                                                    | Default                |
+| -------------------------- | --------------- | ------------------------------------ | ------------------------------------------------------- | ---------------------- |
+| `additionIcon`             | `addition-icon` | Icon for the add item button.        | `[namespace: string \| symbol, name: string] \| string` | `[ES_FIELDS, 'plus']`  |
+| `additionText`             | `addition-text` | Text for the add item button.        | `string`                                                | `'Add item'`           |
+| `deleteIcon`               | `delete-icon`   | Icon for the delete button.          | `[namespace: string \| symbol, name: string] \| string` | `[ES_FIELDS, 'trash']` |
+| `disabled`                 | `disabled`      | If the input is disabled.            | `boolean \| undefined`                                  | `undefined`            |
+| `label` _(required)_       | `label`         | The label of the field.              | `string`                                                | `undefined`            |
+| `messages`                 | --              | The validation messages of the field | `ValidationMessages \| undefined`                       | `undefined`            |
+| `name` _(required)_        | `name`          | The name of the field.               | `string`                                                | `undefined`            |
+| `placeholder` _(required)_ | `placeholder`   | Display a placeholder in the input.  | `string`                                                | `undefined`            |
+| `value` _(required)_       | --              | The currently selected values        | `string[]`                                              | `undefined`            |
+
+
+## Events
+
+| Event         | Description                                     | Type                                 |
+| ------------- | ----------------------------------------------- | ------------------------------------ |
+| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string[]>>` |
 
 
 ## CSS Custom Properties

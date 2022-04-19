@@ -1,36 +1,39 @@
 import { delegateFocus, HTTPError } from '@eventstore/utils';
 import { toast } from '@eventstore/components';
-import { logger } from '../logger';
+
 import type {
-    WorkingDataOptions,
-    WorkingData,
+    ValidatedFormOptions,
+    ValidatedForm,
     Severity,
     FieldChangeEvent,
     ExtendOptions,
     FieldOptions,
     InternalFieldOptions,
     ValidationMessages,
-} from '../../types';
-import { expandOptions } from './expandOptions';
-import { createStores } from './createStores';
-import { focusError, insertError, wDKey } from '../../symbols';
+    ValidateOn,
+    ValidationMessage,
+} from '../types';
+import { focusError, insertError, triggerValidation, wDKey } from '../symbols';
+import { logger } from '../utils/logger';
+import { expandOptions } from '../utils/expandOptions';
 import {
-    isChildData,
-    isWorkingData,
-    isWorkingDataArray,
-} from './isWorkingData';
+    addToValidationSets,
+    blankMessages,
+    createStores,
+} from '../utils/createStores';
+import { isValidatedForm } from '../utils/isValidatedForm';
 
 /**
  * Create a "Working Data" store to back a form or set of fields.
  * Pass an object describing your data "`T`" with each value being one of:
  * - An inital value (required by default, uses default validation messages)
  * - a FieldOptions object, describing the field.
- * - Another WorkingData store
- * - A WorkingDataArray store, to back an array.
+ * - Another ValidatedForm store
+ * - A ValidatedFormArray store, to back an array.
  */
-export const createWorkingData = <T extends object>(
-    options: WorkingDataOptions<T>,
-): WorkingData<T> => {
+export const createValidatedForm = <T extends object>(
+    options: ValidatedFormOptions<T>,
+): ValidatedForm<T> => {
     const fullOptions = expandOptions(options);
     const {
         dataStore: { state: data, reset: resetData, onChange },
@@ -41,18 +44,19 @@ export const createWorkingData = <T extends object>(
         children,
         validationFailedCallbacks,
         beforeFocusCallbacks,
+        validationSets,
     } = createStores(fullOptions);
 
     const failures = new Set<keyof T>();
 
-    let failedValidation = false;
+    let failedSubmit = false;
     let validationTimeout: number;
     let forcingFocus = false;
     let awaiters: Array<(value: boolean | PromiseLike<boolean>) => void> = [];
 
     const fullData = (): T =>
         Array.from(fields.entries()).reduce<T>((acc, [key, field]) => {
-            if (isChildData(field)) {
+            if (isValidatedForm(field)) {
                 acc[key] = field.data;
             } else {
                 acc[key] = data[key];
@@ -63,8 +67,9 @@ export const createWorkingData = <T extends object>(
     const processValidationFailure = (
         key: keyof T,
         severity: Severity,
-        message: string,
+        message: ValidationMessage,
         id: string,
+        index?: number,
     ) => {
         if (!messages[key]) {
             logger.warn(`Unknown key "${key}" passed to validation failure`);
@@ -76,16 +81,34 @@ export const createWorkingData = <T extends object>(
             ?.forEach((cb) =>
                 cb({ id, severity, message, key }, refs.get(key)),
             );
+
         validationFailedCallbacks
             .get('*' as never)
             ?.forEach((cb) =>
                 cb({ id, severity, message, key }, refs.get(key)),
             );
 
-        messages[key] = {
-            ...messages[key],
-            [severity]: [...messages[key][severity], message],
-        };
+        if (index != null && !Number.isNaN(index)) {
+            messages[key] = {
+                ...messages[key],
+                children: {
+                    ...(messages[key].children ?? {}),
+                    [index]: {
+                        ...(messages[key].children?.[index] ?? {}),
+                        [severity]: [
+                            ...(messages[key].children?.[index]?.[severity] ??
+                                []),
+                            message,
+                        ],
+                    },
+                },
+            };
+        } else {
+            messages[key] = {
+                ...messages[key],
+                [severity]: [...messages[key][severity], message],
+            };
+        }
     };
 
     const insertValidationError = (
@@ -97,7 +120,7 @@ export const createWorkingData = <T extends object>(
         const key = k as keyof T;
         const field = fields.get(key);
 
-        if (isChildData(field)) {
+        if (isValidatedForm(field)) {
             failures.add(key);
             field[insertError](
                 !path.length ? [':root'] : path,
@@ -115,7 +138,8 @@ export const createWorkingData = <T extends object>(
 
         if (field) {
             failures.add(key);
-            processValidationFailure(key, severity, message, id);
+            const index = path.length ? parseInt(path[0], 10) : undefined;
+            processValidationFailure(key, severity, message, id, index);
             return;
         }
 
@@ -131,7 +155,7 @@ export const createWorkingData = <T extends object>(
         for (const [key, field] of fields) {
             if (!failures.has(key)) continue;
 
-            if (isChildData(field)) {
+            if (isValidatedForm(field)) {
                 const focused = await field[focusError]();
                 if (focused) return true;
                 continue;
@@ -185,27 +209,39 @@ export const createWorkingData = <T extends object>(
 
         data[name] = value;
 
-        if (failedValidation) {
-            validate(false);
-        }
+        validateUpdatedData();
     };
 
-    const runValidation = async (forceFocus = true) => {
-        resetMessages();
+    const triggers: ValidateOn[] = ['submit', 'always'];
+    const includeTriggers = (trigger: ValidateOn): Set<ValidateOn> => {
+        return new Set(triggers.slice(triggers.indexOf(trigger)));
+    };
+
+    const runValidation = async (trigger: ValidateOn, forceFocus = true) => {
         const validationPromises: Promise<void>[] = [];
+        const toValidate = validationSets[trigger];
+        const triggers = includeTriggers(trigger);
+
         failures.clear();
         try {
             for (const [key, field] of fields) {
-                if (isChildData(field)) {
+                if (isValidatedForm(field)) {
                     validationPromises.push(
                         (async () => {
-                            const success = await field.validate(false);
+                            const success = await field[triggerValidation](
+                                trigger,
+                                false,
+                            );
                             if (success) return;
                             failures.add(key);
                         })(),
                     );
                     continue;
                 }
+
+                if (!toValidate.has(key)) continue;
+
+                messages[key] = blankMessages();
 
                 const {
                     optional,
@@ -217,7 +253,7 @@ export const createWorkingData = <T extends object>(
                 const value = data[key];
                 const exists = checkExists(value, data);
                 if (!exists) {
-                    if (!optional(data)) {
+                    if (!optional(data) && trigger !== 'always') {
                         failures.add(key);
 
                         processValidationFailure(
@@ -231,53 +267,108 @@ export const createWorkingData = <T extends object>(
                     }
                     continue;
                 }
-                validations.forEach(
-                    ({ validator, message, severity = 'error', id }, i) =>
-                        validationPromises.push(
-                            (async () => {
-                                const success = await validator(value, data);
-                                if (success) return;
 
+                for (const [
+                    i,
+                    {
+                        validator,
+                        message,
+                        severity = 'error',
+                        id,
+                        validateOn = 'submit',
+                        ...rest
+                    },
+                ] of validations.entries()) {
+                    if (!triggers.has(validateOn)) {
+                        continue;
+                    }
+
+                    if ((rest as any).callOnEach) {
+                        if (!Array.isArray(value)) continue;
+                        for (const [j, v] of value.entries()) {
+                            validationPromises.push(
+                                (async () => {
+                                    const success = await validator(v, data);
+                                    if (success) return;
+                                    if (severity === 'error') {
+                                        failures.add(key);
+                                    }
+                                    processValidationFailure(
+                                        key,
+                                        severity,
+                                        typeof message === 'string'
+                                            ? message
+                                            : message(value, data),
+                                        id ?? `${i}`,
+                                        j,
+                                    );
+                                })(),
+                            );
+                        }
+                        continue;
+                    }
+
+                    validationPromises.push(
+                        (async () => {
+                            const success = await validator(value, data);
+                            if (success) return;
+                            if (severity === 'error') {
                                 failures.add(key);
-                                processValidationFailure(
-                                    key,
-                                    severity,
-                                    typeof message === 'string'
-                                        ? message
-                                        : message(value, data),
-                                    id ?? `${i}`,
-                                );
-                            })(),
-                        ),
-                );
+                            }
+                            processValidationFailure(
+                                key,
+                                severity,
+                                typeof message === 'string'
+                                    ? message
+                                    : message(value, data),
+                                id ?? `${i}`,
+                            );
+                        })(),
+                    );
+                }
             }
             await Promise.all(validationPromises);
 
-            failedValidation = !!failures.size;
+            const failed = !!failures.size;
 
-            if (!failedValidation) return true;
-            if (forceFocus) {
-                await focusFirstError();
+            if (trigger === 'submit') {
+                failedSubmit = failed;
+                if (failed && forceFocus) {
+                    await focusFirstError();
+                }
             }
+
+            return !failed;
         } catch (error) {
             logger.error('Validation Failed', error);
         }
         return false;
     };
 
-    const validate = (forceFocus = true) => {
+    const validate = (event: ValidateOn, forceFocus = true) => {
         return new Promise<boolean>((resolve) => {
             forcingFocus = forcingFocus || forceFocus;
             awaiters.push(resolve);
             clearTimeout(validationTimeout);
             validationTimeout = window.setTimeout(async () => {
-                const success = await runValidation(forcingFocus);
+                const success = await runValidation(event, forcingFocus);
                 awaiters.forEach((resolve) => resolve(success));
                 awaiters = [];
                 forcingFocus = false;
             });
         });
     };
+
+    const validateUpdatedData = () => {
+        // We are in post submit validation stage
+        if (failedSubmit) {
+            validate('submit', false);
+        } else {
+            validate('always', false);
+        }
+    };
+
+    validate('always');
 
     return {
         get data() {
@@ -311,21 +402,23 @@ export const createWorkingData = <T extends object>(
             if (state.frozen) return;
             for (const [key, value] of Object.entries<any>(partial)) {
                 const wd = fields.get(key as keyof T);
-                if (isChildData(wd)) {
+                if (isValidatedForm(wd)) {
                     wd.update(value);
                 } else {
                     (data as any)[key] = value;
                 }
             }
+            validateUpdatedData();
         },
         set: (key, value) => {
             if (state.frozen) return;
             data[key] = value;
+            validateUpdatedData();
         },
         connect: (key: keyof T, ...args: any[]) => {
             const wd = fields.get(key);
 
-            if (isChildData(wd)) {
+            if (isValidatedForm(wd)) {
                 if (args.length) {
                     return (wd.connect as any)(...args);
                 }
@@ -353,9 +446,7 @@ export const createWorkingData = <T extends object>(
                 };
             }
 
-            throw new Error(
-                `Bad path in workingdata connect: ${[key, ...args]}`,
-            );
+            throw new Error(`Bad path in formdata connect: ${[key, ...args]}`);
         },
         onChange,
         onValidationFailed: (key, callback) => {
@@ -374,11 +465,11 @@ export const createWorkingData = <T extends object>(
             };
         },
         listen,
-        validate,
+        validate: (forceFocus) => validate('submit', forceFocus),
         submit: async (fn, { forceFocus = true } = {}) => {
             if (state.frozen) return;
             freeze();
-            if (await validate(forceFocus)) {
+            if (await validate('submit', forceFocus)) {
                 try {
                     await fn(fullData());
                 } catch (error) {
@@ -396,7 +487,7 @@ export const createWorkingData = <T extends object>(
                                 'submit',
                             );
                         }
-                        failedValidation = true;
+                        failedSubmit = true;
                         toast.error({
                             title,
                             message: detail,
@@ -421,12 +512,8 @@ export const createWorkingData = <T extends object>(
                     continue;
                 }
 
-                if (isWorkingData(field)) {
+                if (isValidatedForm(field)) {
                     field.extend(value as ExtendOptions<T[typeof key]>);
-                    continue;
-                }
-
-                if (isWorkingDataArray(field)) {
                     continue;
                 }
 
@@ -443,13 +530,20 @@ export const createWorkingData = <T extends object>(
                     validations: [
                         ...field.validations,
                         ...(options.validations ?? []),
-                    ],
+                    ] as InternalFieldOptions<T[typeof key], T>['validations'],
                 };
+
+                addToValidationSets(
+                    key as keyof T,
+                    options.validations ?? [],
+                    validationSets,
+                );
 
                 fields.set(key, expanded);
             }
         },
 
+        [triggerValidation]: validate,
         [focusError]: focusFirstError,
         [insertError]: insertValidationError,
     };

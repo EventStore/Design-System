@@ -11,7 +11,7 @@
 
 ```tsx wizard-example.tsx
 import { h, Component, State, Fragment } from '@stencil/core';
-import { createWorkingData } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 import { WizardPage, toast } from '@eventstore/components';
 import { nextFrame } from 'helpers';
 
@@ -23,7 +23,7 @@ import { nextFrame } from 'helpers';
 export class WizardExample {
     @State() location = 'user_details';
 
-    private userDetails = createWorkingData<UserDetails>({
+    private userDetails = createValidatedForm<UserDetails>({
         fullName: '',
         email: '',
         message: {
@@ -32,13 +32,13 @@ export class WizardExample {
         },
     });
 
-    private billingDetails = createWorkingData<BillingDetails>({
+    private billingDetails = createValidatedForm<BillingDetails>({
         billingAddress: '',
         billingCompanyName: '',
         billingEmail: '',
     });
 
-    private workingData = createWorkingData<ProvisioningRequest>({
+    private form = createValidatedForm<ProvisioningRequest>({
         user: this.userDetails,
         billing: this.billingDetails,
     });
@@ -63,44 +63,38 @@ export class WizardExample {
                         label={'Name'}
                         placeholder={'Your name'}
                         slot={'user_details'}
-                        {...this.workingData.connect('user', 'fullName')}
+                        {...this.form.connect('user', 'fullName')}
                     />
                     <es-input
                         label={'Email'}
                         placeholder={'Your contact email'}
                         slot={'user_details'}
-                        {...this.workingData.connect('user', 'email')}
+                        {...this.form.connect('user', 'email')}
                     />
                     <es-textarea
                         label={'Message'}
                         placeholder={'Tell us about your project'}
                         slot={'user_details'}
-                        {...this.workingData.connect('user', 'message')}
+                        {...this.form.connect('user', 'message')}
                     />
                     {/* billing_details */}
                     <es-input
                         label={'Company name'}
                         placeholder={'The name of your company for invoices'}
                         slot={'billing_details'}
-                        {...this.workingData.connect(
-                            'billing',
-                            'billingCompanyName',
-                        )}
+                        {...this.form.connect('billing', 'billingCompanyName')}
                     />
                     <es-input
                         label={'Billing address'}
                         placeholder={'The address of your company for invoices'}
                         slot={'billing_details'}
-                        {...this.workingData.connect(
-                            'billing',
-                            'billingAddress',
-                        )}
+                        {...this.form.connect('billing', 'billingAddress')}
                     />
                     <es-input
                         label={'Billing Email'}
                         placeholder={'The email address to send invoices to'}
                         slot={'billing_details'}
-                        {...this.workingData.connect('billing', 'billingEmail')}
+                        {...this.form.connect('billing', 'billingEmail')}
                     />
                 </es-wizard>
                 <footer>
@@ -112,7 +106,7 @@ export class WizardExample {
                             onClick={() => {
                                 this.location = 'billing_details';
                             }}
-                            disabled={this.workingData.frozen}
+                            disabled={this.form.frozen}
                         >
                             {'Next'}
                             <es-icon
@@ -147,7 +141,7 @@ export class WizardExample {
                                 color={'secondary'}
                                 slot={'footer'}
                                 onClick={() => {
-                                    this.workingData.submit(async (data) => {
+                                    this.form.submit(async (data) => {
                                         toast.success({
                                             icon: 'head',
                                             title: `Thank you ${data.user.fullName}`,
@@ -155,7 +149,7 @@ export class WizardExample {
                                         });
                                     });
                                 }}
-                                disabled={this.workingData.frozen}
+                                disabled={this.form.frozen}
                             >
                                 {'Submit form'}
                             </es-button>

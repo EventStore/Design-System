@@ -10,14 +10,14 @@
 ### Example
 
 ```tsx
-import { createWorkingData } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 
 interface Example {
     count: string;
     mice: string;
 }
 
-const workingData = createWorkingData<Example>({
+const form = createValidatedForm<Example>({
     count: '',
     mice: {
         initialValue: '',
@@ -31,7 +31,7 @@ const workingData = createWorkingData<Example>({
 });
 
 const onEnter = () => {
-    workingData.submit((data) => {
+    form.submit((data) => {
         console.log(data);
     });
 };
@@ -42,18 +42,18 @@ export default () => (
             label={'Count'}
             placeholder={'How high can you count'}
             unit={'n'}
-            {...workingData.connect('count')}
+            {...form.connect('count')}
         />
         <es-number-input
             label={'How many mice?'}
             placeholder={'Are there any?'}
             unit={'🐁'}
-            {...workingData.connect('mice')}
+            {...form.connect('mice')}
         />
         <es-button
             slot={'footer'}
             onClick={() => {
-                workingData.submit((data) => {
+                form.submit((data) => {
                     console.log(data);
                 });
             }}
@@ -81,26 +81,26 @@ es-button {
 
 ## Properties
 
-| Property             | Attribute     | Description                                  | Type                                                                   | Default     |
-| -------------------- | ------------- | -------------------------------------------- | ---------------------------------------------------------------------- | ----------- |
-| `disabled`           | `disabled`    | If the field is disabled.                    | `boolean \| undefined`                                                 | `undefined` |
-| `inputProps`         | --            | Pass props directly to the input.            | `undefined \| { [x: string]: any; }`                                   | `undefined` |
-| `invalid`            | `invalid`     | If the field is currently in an error state. | `boolean \| undefined`                                                 | `undefined` |
-| `label` _(required)_ | `label`       | The label of the field.                      | `string`                                                               | `undefined` |
-| `messages`           | --            | The validation messages of the field         | `undefined \| { error: string[]; warning: string[]; info: string[]; }` | `undefined` |
-| `name` _(required)_  | `name`        | The name of the field.                       | `string`                                                               | `undefined` |
-| `placeholder`        | `placeholder` | The placeholder for the input.               | `string \| undefined`                                                  | `undefined` |
-| `readonly`           | `readonly`    | If the field is editable.                    | `boolean \| undefined`                                                 | `undefined` |
-| `unit`               | `unit`        | Display a unit beside the input.             | `string \| undefined`                                                  | `undefined` |
-| `value` _(required)_ | `value`       | The current value of the field.              | `string`                                                               | `undefined` |
+| Property             | Attribute     | Description                                  | Type                                 | Default     |
+| -------------------- | ------------- | -------------------------------------------- | ------------------------------------ | ----------- |
+| `disabled`           | `disabled`    | If the field is disabled.                    | `boolean \| undefined`               | `undefined` |
+| `inputProps`         | --            | Pass props directly to the input.            | `undefined \| { [x: string]: any; }` | `undefined` |
+| `invalid`            | `invalid`     | If the field is currently in an error state. | `boolean \| undefined`               | `undefined` |
+| `label` _(required)_ | `label`       | The label of the field.                      | `string`                             | `undefined` |
+| `messages`           | --            | The validation messages of the field         | `ValidationMessages \| undefined`    | `undefined` |
+| `name` _(required)_  | `name`        | The name of the field.                       | `string`                             | `undefined` |
+| `placeholder`        | `placeholder` | The placeholder for the input.               | `string \| undefined`                | `undefined` |
+| `readonly`           | `readonly`    | If the field is editable.                    | `boolean \| undefined`               | `undefined` |
+| `unit`               | `unit`        | Display a unit beside the input.             | `string \| undefined`                | `undefined` |
+| `value` _(required)_ | `value`       | The current value of the field.              | `string`                             | `undefined` |
 
 
 ## Events
 
-| Event         | Description                                              | Type               |
-| ------------- | -------------------------------------------------------- | ------------------ |
-| `enter`       | Emitted on keyup of enter, if no modifier keys are held. | `CustomEvent<any>` |
-| `fieldchange` | Emitted when the value of the field is changed.          | `CustomEvent<any>` |
+| Event         | Description                                              | Type                               |
+| ------------- | -------------------------------------------------------- | ---------------------------------- |
+| `enter`       | Emitted on keyup of enter, if no modifier keys are held. | `CustomEvent<any>`                 |
+| `fieldchange` | Emitted when the value of the field is changed.          | `CustomEvent<FieldChange<string>>` |
 
 
 ## CSS Custom Properties

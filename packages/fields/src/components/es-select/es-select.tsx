@@ -9,7 +9,11 @@ import {
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore/components';
 
-import type { ValidationMessages, FieldChangeEvent } from '../../types';
+import type {
+    ValidationMessages,
+    FieldChangeEvent,
+    FieldChange,
+} from '../../types';
 import { Field } from '../Field/Field';
 import type {
     RenderTypeaheadField,
@@ -37,7 +41,9 @@ export type RenderSelectValue = (
 export class EsSelect {
     @Element() host!: HTMLEsListCreatorElement;
     /** Emitted when the value of the field is changed. */
-    @Event({ bubbles: true }) fieldchange!: EventEmitter;
+    @Event({ bubbles: true }) fieldchange!: EventEmitter<
+        FieldChange<string | null>
+    >;
 
     /** The label of the field. */
     @Prop() label!: string;
@@ -113,9 +119,7 @@ export class EsSelect {
         return this.options.find((o) => o.value === value);
     };
 
-    private onTypeaheadChange = (
-        e: FieldChangeEvent<{ typeahead: string[] }>,
-    ) => {
+    private onTypeaheadChange = (e: FieldChangeEvent<string[]>) => {
         e.stopPropagation();
 
         const { value } = e.detail;

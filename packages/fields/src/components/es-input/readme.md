@@ -10,14 +10,14 @@
 ### Example
 
 ```tsx
-import { createWorkingData } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 
 interface Example {
     text: string;
     id: string;
 }
 
-const workingData = createWorkingData<Example>({
+const forms = createValidatedForm<Example>({
     text: '',
     id: {
         initialValue: '',
@@ -31,7 +31,7 @@ const workingData = createWorkingData<Example>({
 });
 
 const onEnter = () => {
-    workingData.submit((data) => {
+    forms.submit((data) => {
         console.log(data);
     });
 };
@@ -42,7 +42,7 @@ export default () => (
             label={'Text'}
             placeholder={'Write some text'}
             onEnter={onEnter}
-            {...workingData.connect('text')}
+            {...forms.connect('text')}
         />
         <es-input
             label={'Account Id'}
@@ -53,13 +53,13 @@ export default () => (
                 lazy: false,
                 placeholderChar: '_',
             }}
-            {...workingData.connect('id')}
+            {...forms.connect('id')}
         />
         <es-input
             disabled
             label={'Disabled'}
             placeholder={'This is disabled'}
-            {...workingData.connect('text')}
+            {...forms.connect('text')}
         />
     </>
 );
@@ -78,26 +78,26 @@ export default () => (
 
 ## Properties
 
-| Property                   | Attribute     | Description                                  | Type                                                                   | Default     |
-| -------------------------- | ------------- | -------------------------------------------- | ---------------------------------------------------------------------- | ----------- |
-| `disabled`                 | `disabled`    | If the field is disabled.                    | `boolean \| undefined`                                                 | `undefined` |
-| `inputProps`               | --            | Pass props directly to the input.            | `undefined \| { [x: string]: any; }`                                   | `undefined` |
-| `invalid`                  | `invalid`     | If the field is currently in an error state. | `boolean \| undefined`                                                 | `undefined` |
-| `label` _(required)_       | `label`       | The label of the field.                      | `string`                                                               | `undefined` |
-| `mask`                     | --            | Apply an input mask                          | `MaskOptions \| undefined`                                             | `undefined` |
-| `messages`                 | --            | The validation messages of the field         | `undefined \| { error: string[]; warning: string[]; info: string[]; }` | `undefined` |
-| `name` _(required)_        | `name`        | The name of the field.                       | `string`                                                               | `undefined` |
-| `placeholder` _(required)_ | `placeholder` | The placeholder for the input.               | `string`                                                               | `undefined` |
-| `readonly`                 | `readonly`    | If the field is editable.                    | `boolean \| undefined`                                                 | `undefined` |
-| `value` _(required)_       | `value`       | The current value of the field.              | `string`                                                               | `undefined` |
+| Property                   | Attribute     | Description                                  | Type                                 | Default     |
+| -------------------------- | ------------- | -------------------------------------------- | ------------------------------------ | ----------- |
+| `disabled`                 | `disabled`    | If the field is disabled.                    | `boolean \| undefined`               | `undefined` |
+| `inputProps`               | --            | Pass props directly to the input.            | `undefined \| { [x: string]: any; }` | `undefined` |
+| `invalid`                  | `invalid`     | If the field is currently in an error state. | `boolean \| undefined`               | `undefined` |
+| `label` _(required)_       | `label`       | The label of the field.                      | `string`                             | `undefined` |
+| `mask`                     | --            | Apply an input mask                          | `MaskOptions \| undefined`           | `undefined` |
+| `messages`                 | --            | The validation messages of the field         | `ValidationMessages \| undefined`    | `undefined` |
+| `name` _(required)_        | `name`        | The name of the field.                       | `string`                             | `undefined` |
+| `placeholder` _(required)_ | `placeholder` | The placeholder for the input.               | `string`                             | `undefined` |
+| `readonly`                 | `readonly`    | If the field is editable.                    | `boolean \| undefined`               | `undefined` |
+| `value` _(required)_       | `value`       | The current value of the field.              | `string`                             | `undefined` |
 
 
 ## Events
 
-| Event         | Description                                              | Type               |
-| ------------- | -------------------------------------------------------- | ------------------ |
-| `enter`       | Emitted on keyup of enter, if no modifier keys are held. | `CustomEvent<any>` |
-| `fieldchange` | Emitted when the value of the field is changed.          | `CustomEvent<any>` |
+| Event         | Description                                              | Type                               |
+| ------------- | -------------------------------------------------------- | ---------------------------------- |
+| `enter`       | Emitted on keyup of enter, if no modifier keys are held. | `CustomEvent<any>`                 |
+| `fieldchange` | Emitted when the value of the field is changed.          | `CustomEvent<FieldChange<string>>` |
 
 
 ## CSS Custom Properties

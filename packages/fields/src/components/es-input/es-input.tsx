@@ -1,6 +1,6 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 import iMask, { InputMask } from 'imask';
-import type { ValidationMessages } from '../../types';
+import type { FieldChange, ValidationMessages } from '../../types';
 import { Field } from '../Field/Field';
 import type { MaskOptions } from './types';
 
@@ -12,7 +12,7 @@ import type { MaskOptions } from './types';
 })
 export class EsInput {
     /** Emitted when the value of the field is changed. */
-    @Event({ bubbles: true }) fieldchange!: EventEmitter;
+    @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
     /** Emitted on keyup of enter, if no modifier keys are held. */
     @Event() enter!: EventEmitter;
 

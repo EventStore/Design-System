@@ -42,6 +42,10 @@ export const sitemap = expandSitemap([
                 title: 'Theme',
                 filePath: './packages/theme',
             },
+            {
+                title: 'Forms',
+                filePath: './packages/forms',
+            },
         ],
     },
     {

@@ -1,5 +1,5 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
-import type { ValidationMessages } from '../../types';
+import type { FieldChange, ValidationMessages } from '../../types';
 import { Field } from '../Field/Field';
 
 /** An extra large input. */
@@ -10,7 +10,7 @@ import { Field } from '../Field/Field';
 })
 export class EsMegaInput {
     /** Emitted when the value of the field is changed. */
-    @Event({ bubbles: true }) fieldchange!: EventEmitter;
+    @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
 
     /** The label of the field. */
     @Prop() label!: string;

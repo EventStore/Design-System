@@ -1,22 +1,21 @@
 ```tsx
-import { createWorkingData, createWorkingDataArray } from '@eventstore/fields';
+import { createValidatedForm } from '@eventstore/forms';
 
 interface Example {
     names: string[];
 }
 
-const workingData = createWorkingData<Example>({
-    names: createWorkingDataArray({
+const form = createValidatedForm<Example>({
+    names: {
         initialValue: ['John', ''],
-        name: 'names',
-    }),
+    },
 });
 
 export default () => (
     <es-input-list
         label={'Names'}
         placeholder={'Add a name to your list'}
-        {...workingData.connect('names')}
+        {...form.connect('names')}
     />
 );
 ```

@@ -99,6 +99,12 @@ iconStore.addIcons({
     get folder() {
         return import('./components/Folder').then(({ Folder }) => Folder);
     },
+    get forms() {
+        return import('./components/Forms').then(({ Forms }) => Forms);
+    },
+    get '@eventstore/forms'() {
+        return this['forms'];
+    },
     get gift() {
         return import('./components/Gift').then(({ Gift }) => Gift);
     },

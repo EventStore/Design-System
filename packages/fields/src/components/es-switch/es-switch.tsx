@@ -12,6 +12,7 @@ import {
 import { theme } from '@eventstore/theme';
 import type { IconDescription } from '@eventstore/components';
 import { ES_FIELDS } from '../../icons/namespace';
+import type { FieldChange } from '../../types';
 
 export type OnOff<T> = { on: T; off: T };
 
@@ -23,7 +24,7 @@ export type OnOff<T> = { on: T; off: T };
 })
 export class EsSwitch {
     /** Emitted when the value of the field is changed. */
-    @Event({ bubbles: true }) fieldchange!: EventEmitter;
+    @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<boolean>>;
 
     /** The name of the field. */
     @Prop({ reflect: true }) name!: string;

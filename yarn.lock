@@ -2487,6 +2487,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@eventstore/forms@workspace:packages/forms":
+  version: 0.0.0-use.local
+  resolution: "@eventstore/forms@workspace:packages/forms"
+  dependencies:
+    "@eventstore/components": "workspace:*"
+    "@eventstore/stores": "workspace:*"
+    "@eventstore/utils": "workspace:*"
+    "@stencil/core": ^2.15.0
+    "@types/jest": 26.0.3
+    jest: ^26.6.3
+    npm-run-all: ^4.1.5
+    rollup: ^2.52.7
+    typedoc: ^0.22.13
+    typescript: 4.5.5
+  peerDependencies:
+    "@eventstore/components": 0.1.x
+    "@eventstore/stores": 0.1.x
+    "@eventstore/utils": 0.1.x
+  languageName: unknown
+  linkType: soft
+
 "@eventstore/icon-manager@workspace:*, @eventstore/icon-manager@workspace:tools/icon-manager":
   version: 0.0.0-use.local
   resolution: "@eventstore/icon-manager@workspace:tools/icon-manager"
@@ -3291,7 +3312,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:2.15.1":
+"@stencil/core@npm:2.15.1, @stencil/core@npm:^2.15.0":
   version: 2.15.1
   resolution: "@stencil/core@npm:2.15.1"
   bin:
