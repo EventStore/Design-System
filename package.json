@@ -8,7 +8,8 @@
     "workspaces": [
         "documentation",
         "packages/*",
-        "tools/*"
+        "tools/*",
+        "demos/*"
     ],
     "prettier": "@eventstore/configs/prettier",
     "scripts": {

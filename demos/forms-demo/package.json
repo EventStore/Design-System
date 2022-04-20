@@ -1,0 +1,28 @@
+{
+    "name": "forms-demo",
+    "private": true,
+    "description": "Demo for @eventstore/forms",
+    "scripts": {
+        "build": "stencil build",
+        "start": "stencil build --dev --watch --serve --no-open",
+        "test": "stencil test --spec --passWithNoTests",
+        "test.watch": "stencil test --spec --watchAll",
+        "lint": "yarn g:lint"
+    },
+    "dependencies": {
+        "@eventstore/components": "workspace:*",
+        "@eventstore/fields": "workspace:*",
+        "@eventstore/forms": "workspace:*",
+        "@eventstore/layout": "workspace:*",
+        "@eventstore/router": "workspace:*",
+        "@eventstore/stores": "workspace:*",
+        "@eventstore/theme": "workspace:*",
+        "@eventstore/utils": "workspace:*"
+    },
+    "devDependencies": {
+        "@eventstore/assets": "workspace:*",
+        "@eventstore/configs": "workspace:*",
+        "@eventstore/icon-manager": "workspace:*",
+        "@stencil/core": "2.15.1"
+    }
+}
