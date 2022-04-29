@@ -37,7 +37,6 @@
     },
     "peerDependencies": {
         "@eventstore/components": "0.1.x",
-        "@eventstore/stores": "0.1.x",
         "@eventstore/theme": "0.1.x",
         "@eventstore/utils": "0.1.x"
     },
@@ -48,7 +47,6 @@
         "@eventstore/components": "workspace:*",
         "@eventstore/configs": "workspace:*",
         "@eventstore/icon-manager": "workspace:*",
-        "@eventstore/stores": "workspace:*",
         "@eventstore/theme": "workspace:*",
         "@eventstore/utils": "workspace:*",
         "@stencil/core": "2.15.1",
