@@ -9,7 +9,7 @@ import {
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore/components';
 
-import { ES_FIELDS } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 import type {
     FieldChange,
     FieldChangeEvent,
@@ -37,9 +37,9 @@ export class InputList {
     /** Text for the add item button. */
     @Prop() additionText: string = 'Add item';
     /** Icon for the add item button. */
-    @Prop() additionIcon: IconDescription = [ES_FIELDS, 'plus'];
+    @Prop() additionIcon: IconDescription = [ICON_NAMESPACE, 'plus'];
     /** Icon for the delete button. */
-    @Prop() deleteIcon: IconDescription = [ES_FIELDS, 'trash'];
+    @Prop() deleteIcon: IconDescription = [ICON_NAMESPACE, 'trash'];
 
     /** The name of the field. */
     @Prop() name!: string;

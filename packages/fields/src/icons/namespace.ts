@@ -1,1 +1,1 @@
-export const ES_FIELDS = 'es-fields';
+export const ICON_NAMESPACE = 'es-fields';

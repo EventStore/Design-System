@@ -1,6 +1,6 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 import type { IconDescription } from '@eventstore/components';
-import { ES_FIELDS } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 import type { FieldChange } from '../../types';
 
 /** A checkbox component */
@@ -24,7 +24,7 @@ export class EsCheckbox {
     /** If the field is currently in an error state. */
     @Prop() invalid?: boolean;
     /** The icon to use. */
-    @Prop() icon: IconDescription = [ES_FIELDS, 'check'];
+    @Prop() icon: IconDescription = [ICON_NAMESPACE, 'check'];
 
     render() {
         return (

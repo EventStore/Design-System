@@ -21,7 +21,7 @@ import type {
     OptionFilter,
     RenderTypeaheadOption,
 } from '../es-typeahead/types';
-import { ES_FIELDS } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 
 export type RenderSelectValue = (
     value: TypeaheadOption | undefined,
@@ -70,7 +70,7 @@ export class EsSelect {
     /** The validation messages of the field */
     @Prop() messages?: ValidationMessages;
     /** Icon to use as a chevron. */
-    @Prop() chevronIcon: IconDescription = [ES_FIELDS, 'chevron'];
+    @Prop() chevronIcon: IconDescription = [ICON_NAMESPACE, 'chevron'];
 
     renderPlaceholder = () => (
         <span class={'placeholder'}>{this.placeholder}</span>

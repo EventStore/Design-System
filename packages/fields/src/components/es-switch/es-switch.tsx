@@ -11,7 +11,7 @@ import {
 } from '@stencil/core';
 import { theme } from '@eventstore/theme';
 import type { IconDescription } from '@eventstore/components';
-import { ES_FIELDS } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 import type { FieldChange } from '../../types';
 
 export type OnOff<T> = { on: T; off: T };
@@ -41,9 +41,9 @@ export class EsSwitch {
     /** Text to display when switch is off in high contrast mode. */
     @Prop() inactiveText: string = 'Off';
     /** Icon to display when switch is on in high contrast mode. */
-    @Prop() activeIcon: IconDescription = [ES_FIELDS, 'check'];
+    @Prop() activeIcon: IconDescription = [ICON_NAMESPACE, 'check'];
     /** Icon to display when switch is off in high contrast mode. */
-    @Prop() inactiveIcon: IconDescription = [ES_FIELDS, 'check'];
+    @Prop() inactiveIcon: IconDescription = [ICON_NAMESPACE, 'check'];
 
     @State() pending: boolean = false;
 

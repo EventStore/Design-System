@@ -1,1 +1,1 @@
-export const ES_LAYOUT = 'es-layout';
+export const ICON_NAMESPACE = 'es-layout';
