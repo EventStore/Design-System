@@ -1,5 +1,6 @@
 import { Component, h, Prop, Element, Listen, Host } from '@stencil/core';
 import { theme } from '@eventstore/theme';
+import { closest } from '@eventstore/utils';
 import type { ButtonVariant } from '../types';
 
 /**
@@ -23,8 +24,6 @@ export class Button {
     @Prop({ reflect: true }) disabled?: boolean;
     /** The default behavior of the button. */
     @Prop() type: string = 'button';
-    /** The form element to associate the button with (it's form owner). */
-    @Prop() form?: string;
 
     private tabindex?: string;
 
@@ -40,6 +39,20 @@ export class Button {
             e.stopPropagation();
             return false;
         }
+
+        if (this.type === 'submit') {
+            const form = closest(this.host, 'form');
+
+            if (form) {
+                e.preventDefault();
+                const fakeSubmit = document.createElement('button');
+                fakeSubmit.type = 'submit';
+                fakeSubmit.style.display = 'none';
+                form.appendChild(fakeSubmit);
+                fakeSubmit.click();
+                fakeSubmit.remove();
+            }
+        }
     }
 
     connectedCallback() {
@@ -54,7 +67,6 @@ export class Button {
                 <button
                     tabindex={this.tabindex}
                     type={this.type}
-                    form={this.form}
                     disabled={this.disabled}
                     part={'button'}
                 >
