@@ -2,7 +2,6 @@ import { readFile, unlink, writeFile } from 'fs/promises';
 import { join } from 'path';
 
 import { gt, SemVer } from 'semver';
-import { constantCase } from 'case-anything';
 
 import { version } from './version';
 import { prettify } from './prettify';
@@ -153,32 +152,31 @@ const writeIndex = async ({
 const createNamespace = async ({
     destination,
     namespace,
-}: IndexFileDetails): Promise<string | undefined> => {
+}: IndexFileDetails): Promise<boolean> => {
     const namespacePath = join(destination, 'namespace.ts');
     if (await fileExists(namespacePath)) {
         await unlink(namespacePath);
     }
 
-    if (!namespace) return undefined;
+    if (!namespace) return false;
 
     const isSymbol = namespace.startsWith('@@');
     const name = namespace.replace(/^@@/, '');
-    const variableName = constantCase(name);
-    const namespaceFile = `export const ${variableName} = ${
+    const namespaceFile = `export const ICON_NAMESPACE = ${
         isSymbol ? `Symbol('${name}');` : `'${name}'`
     }`;
     const prettyNamespaceFile = await prettify(namespaceFile, namespacePath);
 
     await writeFile(namespacePath, prettyNamespaceFile);
 
-    return variableName;
+    return true;
 };
 
 const writeLoader = async (options: IndexFileDetails) => {
-    const namespaceOptions = await createNamespace(options);
+    const namespaced = await createNamespace(options);
     const { destination, indexMap } = options;
     const loaderPath = join(destination, 'index.ts');
-    const loader = convertToLoader(indexMap, namespaceOptions);
+    const loader = convertToLoader(indexMap, namespaced);
     const prettyLoader = await prettify(loader, loaderPath);
     return writeFile(loaderPath, prettyLoader);
 };

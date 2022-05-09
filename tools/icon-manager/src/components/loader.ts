@@ -1,10 +1,10 @@
 import type { IndexMap } from '../utils/indexFile';
 
-export const convertToLoader = (indexMap: IndexMap, namespaceVar?: string) => `\
+export const convertToLoader = (indexMap: IndexMap, namespaced?: boolean) => `\
 import { iconStore } from '@eventstore/components';
-${namespaceVar ? `import { ${namespaceVar} } from './namespace';` : ''}
+${namespaced ? "import { ICON_NAMESPACE } from './namespace';" : ''}
 
-iconStore.addIcons(${namespaceVar ? `${namespaceVar}, ` : ''}{
+iconStore.addIcons(${namespaced ? 'ICON_NAMESPACE, ' : ''}{
     ${Array.from(indexMap)
         .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
         .reduce<string[]>((acc, [name, { path, component, aliases }]) => {
