@@ -14,6 +14,7 @@ jobs:
             resource-node-id: ${{ github.event.issue.node_id }}
             event-action: ${{ github.event.action }}
             labels: ${{ join(github.event.issue.labels.*.name, ', ') }}
+            triage-status: 'Todo'
         secrets:
             project-number: ${{ secrets.UI_PROJECT_NUMBER }}
             token: ${{ secrets.ORG_ACCESS_TOKEN }}
