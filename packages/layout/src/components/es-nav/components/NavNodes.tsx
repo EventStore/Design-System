@@ -1,7 +1,7 @@
 import { h, FunctionalComponent, Host } from '@stencil/core';
 import { Link } from '@eventstore/router';
 
-import { ES_LAYOUT } from '../../../icons/namespace';
+import { ICON_NAMESPACE } from '../../../icons/namespace';
 
 import { activeWithin } from '../utils/activeWithin';
 import type { NavLeafNode, NavParentNode } from '../types';
@@ -43,7 +43,7 @@ export const ParentNode: FunctionalComponent<ParentNodeProps> = (
         >
             {node.title}
             <es-icon
-                icon={[ES_LAYOUT, 'caret']}
+                icon={[ICON_NAMESPACE, 'caret']}
                 size={12}
                 class={'caret'}
                 angle={

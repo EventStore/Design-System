@@ -2,7 +2,7 @@ import { Component, h, Host, State } from '@stencil/core';
 import { theme } from '@eventstore/theme';
 import type { IconDescription } from '@eventstore/components';
 
-import { ES_LAYOUT } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 
 /** A theme picker dropdown for the header */
 @Component({
@@ -24,7 +24,7 @@ export class ThemePicker {
     }
 
     private activeIcon = (): IconDescription => [
-        ES_LAYOUT,
+        ICON_NAMESPACE,
         `${theme.shade}-${theme.contrast}-theme`,
     ];
 }

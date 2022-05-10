@@ -3,7 +3,7 @@ import type { IconDescription } from '@eventstore/components';
 import { router } from '@eventstore/router';
 import { theme } from '@eventstore/theme';
 
-import { ES_LAYOUT } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 
 /**
  * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `es-layout-link` or `es-layout-button`.
@@ -61,7 +61,7 @@ export class SidebarDropdown {
                     />
                     <span class={'truncate'}>{this.activeTitle}</span>
                     <es-icon
-                        icon={[ES_LAYOUT, 'caret']}
+                        icon={[ICON_NAMESPACE, 'caret']}
                         slot={'after'}
                         class={{ caret: true, open: this.dropdownOpen }}
                         size={14}

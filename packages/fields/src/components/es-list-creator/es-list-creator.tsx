@@ -21,7 +21,7 @@ import type {
     RenderTypeaheadField,
     TypeaheadOption,
 } from '../es-typeahead/types';
-import { ES_FIELDS } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 import { Field } from '../Field/Field';
 
 /**
@@ -49,9 +49,9 @@ export class ListCreator {
     /** The icon to display next to the field */
     @Prop() icon?: IconDescription;
     /** The icon to display next to the field */
-    @Prop() addIcon: IconDescription = [ES_FIELDS, 'plus'];
+    @Prop() addIcon: IconDescription = [ICON_NAMESPACE, 'plus'];
     /** Icon for the delete button. */
-    @Prop() deleteIcon: IconDescription = [ES_FIELDS, 'trash'];
+    @Prop() deleteIcon: IconDescription = [ICON_NAMESPACE, 'trash'];
     /** A list of options to choose from. */
     @Prop() options!: TypeaheadOption[];
     /** The name of the field. */

@@ -1,5 +1,5 @@
 import { Component, h, Host, State, Watch, Listen } from '@stencil/core';
-import { ES_LAYOUT } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 import { panelHeight } from '../../utils/LayoutVar';
 
 const LS_KEY = 'es-panel-height';
@@ -48,7 +48,7 @@ export class Panel {
         return (
             <Host>
                 <div class={'handle'} onMouseDown={this.dragStart}>
-                    <es-icon icon={[ES_LAYOUT, 'grip-lines']} />
+                    <es-icon icon={[ICON_NAMESPACE, 'grip-lines']} />
                 </div>
                 <aside part={'inner'}>
                     <slot />

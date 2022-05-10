@@ -2,7 +2,7 @@ import { Component, h, Prop } from '@stencil/core';
 import { theme } from '@eventstore/theme';
 
 import type { ValidationMessages } from '../../types';
-import { ES_FIELDS } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 import type { IconDescription } from '@eventstore/components';
 
 /** Display messages under fields. */
@@ -19,11 +19,11 @@ export class EsValidationMessages {
     @Prop() showIcons: boolean = false;
 
     /** Icon to diplay next to errors. (if `showIcons` or high contrast) */
-    @Prop() errorIcon: IconDescription = [ES_FIELDS, 'error'];
+    @Prop() errorIcon: IconDescription = [ICON_NAMESPACE, 'error'];
     /** Icon to diplay next to warnings. (if `showIcons` or high contrast) */
-    @Prop() warningIcon: IconDescription = [ES_FIELDS, 'warning'];
+    @Prop() warningIcon: IconDescription = [ICON_NAMESPACE, 'warning'];
     /** Icon to diplay next to infos. (if `showIcons` or high contrast) */
-    @Prop() infoIcon: IconDescription = [ES_FIELDS, 'info'];
+    @Prop() infoIcon: IconDescription = [ICON_NAMESPACE, 'info'];
 
     render() {
         const { error = [], info = [], warning = [] } = this.messages ?? {};

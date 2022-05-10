@@ -15,7 +15,7 @@ export type {
 } from './components/Page/Page';
 export type { LoadingBarStatus } from './components/es-loading-bar/types';
 
-export { ES_LAYOUT as ES_LAYOUT_ICON_NAMESPACE } from './icons/namespace';
+export { ICON_NAMESPACE as ES_LAYOUT_ICON_NAMESPACE } from './icons/namespace';
 export { Page } from './components/Page/Page';
 export { setProgress } from './components/es-loading-bar/utils/setProgress';
 export * from './utils/LayoutVar';

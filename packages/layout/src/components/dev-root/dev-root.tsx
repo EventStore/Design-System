@@ -2,7 +2,7 @@ import { Component, h, Host } from '@stencil/core';
 
 import { Route, router, Switch } from '@eventstore/router';
 import { Page } from '../Page/Page';
-import { ES_LAYOUT } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 import { requestClose } from '@eventstore/components';
 import { logger } from '../../utils/logger';
 
@@ -24,12 +24,14 @@ export class DevRoot {
                     <es-nav navTree={this.navTree} slot={'under'} />
                     <es-header-dropdown
                         slot={'right'}
-                        icon={[ES_LAYOUT, 'dark-low-theme']}
+                        icon={[ICON_NAMESPACE, 'dark-low-theme']}
                         buttonText={'JJJ'}
                         variant={'highlight'}
                     >
                         <header class={'user_dropdown_header'}>
-                            <es-icon icon={[ES_LAYOUT, 'dark-low-theme']} />
+                            <es-icon
+                                icon={[ICON_NAMESPACE, 'dark-low-theme']}
+                            />
                             <h1>{'John John Johnson'}</h1>
                             <h2>{'jjj@johnson.com'}</h2>
                         </header>
@@ -46,13 +48,13 @@ export class DevRoot {
                                 logger.log('hello');
                                 requestClose(e.target);
                             }}
-                            icon={[ES_LAYOUT, 'dark-low-theme']}
+                            icon={[ICON_NAMESPACE, 'dark-low-theme']}
                         >
                             {'Go away'}
                         </es-layout-button>
                         <es-layout-link
                             url={'/somewhere'}
-                            icon={[ES_LAYOUT, 'dark-high-theme']}
+                            icon={[ICON_NAMESPACE, 'dark-high-theme']}
                         >
                             {'Go somewhere'}
                         </es-layout-link>
@@ -101,7 +103,10 @@ export class DevRoot {
                         <es-sidebar>
                             <es-layout-section title={'Dropdown'}>
                                 <es-sidebar-dropdown
-                                    defaultIcon={[ES_LAYOUT, 'light-low-theme']}
+                                    defaultIcon={[
+                                        ICON_NAMESPACE,
+                                        'light-low-theme',
+                                    ]}
                                     defaultTitle={'Hello there'}
                                 >
                                     <es-layout-section
@@ -114,7 +119,10 @@ export class DevRoot {
                                                 logger.log('hello');
                                                 requestClose(e.target);
                                             }}
-                                            icon={[ES_LAYOUT, 'dark-low-theme']}
+                                            icon={[
+                                                ICON_NAMESPACE,
+                                                'dark-low-theme',
+                                            ]}
                                         >
                                             {'Go away'}
                                         </es-layout-button>
@@ -122,7 +130,7 @@ export class DevRoot {
                                             matchExact
                                             url={'/'}
                                             icon={[
-                                                ES_LAYOUT,
+                                                ICON_NAMESPACE,
                                                 'dark-high-theme',
                                             ]}
                                         >
@@ -131,7 +139,7 @@ export class DevRoot {
                                         <es-layout-link
                                             url={'/somewhere'}
                                             icon={[
-                                                ES_LAYOUT,
+                                                ICON_NAMESPACE,
                                                 'dark-high-theme',
                                             ]}
                                         >
@@ -145,7 +153,7 @@ export class DevRoot {
                                         <es-layout-link
                                             url={'/good-morning'}
                                             icon={[
-                                                ES_LAYOUT,
+                                                ICON_NAMESPACE,
                                                 'light-high-theme',
                                             ]}
                                         >
@@ -154,7 +162,7 @@ export class DevRoot {
                                         <es-layout-link
                                             url={'/work'}
                                             icon={[
-                                                ES_LAYOUT,
+                                                ICON_NAMESPACE,
                                                 'light-high-theme',
                                             ]}
                                         >
@@ -170,7 +178,7 @@ export class DevRoot {
                                             <es-layout-link
                                                 url={`/another-${i}`}
                                                 icon={[
-                                                    ES_LAYOUT,
+                                                    ICON_NAMESPACE,
                                                     'light-low-theme',
                                                 ]}
                                             >
@@ -184,18 +192,18 @@ export class DevRoot {
                                 <es-layout-link
                                     matchExact
                                     url={'/'}
-                                    icon={[ES_LAYOUT, 'dark-high-theme']}
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
                                 >
                                     {'Hello!'}
                                 </es-layout-link>
                                 <es-layout-button
-                                    icon={[ES_LAYOUT, 'dark-high-theme']}
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
                                 >
                                     {'Go somewhere'}
                                 </es-layout-button>
                                 <es-layout-link
                                     url={'/somewhere'}
-                                    icon={[ES_LAYOUT, 'dark-high-theme']}
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
                                 >
                                     {'Go somewhere'}
                                 </es-layout-link>
@@ -216,7 +224,7 @@ export class DevRoot {
                                             >
                                                 <es-icon
                                                     icon={[
-                                                        ES_LAYOUT,
+                                                        ICON_NAMESPACE,
                                                         'dark-high-theme',
                                                     ]}
                                                     size={20}
@@ -228,7 +236,7 @@ export class DevRoot {
                                             >
                                                 <es-icon
                                                     icon={[
-                                                        ES_LAYOUT,
+                                                        ICON_NAMESPACE,
                                                         'light-high-theme',
                                                     ]}
                                                     size={20}

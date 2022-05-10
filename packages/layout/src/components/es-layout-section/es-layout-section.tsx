@@ -1,5 +1,5 @@
 import { Component, h, Host, Listen, Prop, State } from '@stencil/core';
-import { ES_LAYOUT } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 
 /**
  * A section with an optional title for containing layout-links
@@ -44,7 +44,10 @@ export class LayoutSection {
                     >
                         <h1 part={'title'}>{this.sectionTitle}</h1>
                         {this.collapsable && (
-                            <es-icon icon={[ES_LAYOUT, 'chevron']} size={14} />
+                            <es-icon
+                                icon={[ICON_NAMESPACE, 'chevron']}
+                                size={14}
+                            />
                         )}
                     </header>
                 )}

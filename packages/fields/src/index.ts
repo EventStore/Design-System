@@ -9,4 +9,4 @@ export type {
     FieldChangeEvent,
 } from './types';
 
-export { ES_FIELDS as ES_FIELDS_ICON_NAMESPACE } from './icons/namespace';
+export { ICON_NAMESPACE as ES_FIELDS_ICON_NAMESPACE } from './icons/namespace';

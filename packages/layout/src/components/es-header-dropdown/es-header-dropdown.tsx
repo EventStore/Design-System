@@ -1,7 +1,7 @@
 import { Component, h, Host, Prop, State, Element } from '@stencil/core';
 import type { IconDescription } from '@eventstore/components';
 
-import { ES_LAYOUT } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 import { router } from '@eventstore/router';
 import { theme } from '@eventstore/theme';
 import type { HeaderDropdownButtonVariant } from './types';
@@ -83,7 +83,7 @@ export class HeaderDropdown {
                     {this.buttonText}
                     {this.caret && (
                         <es-icon
-                            icon={[ES_LAYOUT, 'caret']}
+                            icon={[ICON_NAMESPACE, 'caret']}
                             slot={'after'}
                             class={{ caret: true, open: this.dropdownOpen }}
                             size={14}

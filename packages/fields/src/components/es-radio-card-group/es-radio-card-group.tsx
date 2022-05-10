@@ -10,7 +10,7 @@ import {
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore/components';
 
-import { ES_FIELDS } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 import type { FieldChange, ValidationMessages } from '../../types';
 import type { RadioCardGroupOption } from './types';
 
@@ -53,7 +53,7 @@ export class RadioCardGroup {
     /** The validation messages of the field */
     @Prop() messages?: ValidationMessages;
     /** Icon to display when checked. */
-    @Prop() icon: IconDescription = [ES_FIELDS, 'check'];
+    @Prop() icon: IconDescription = [ICON_NAMESPACE, 'check'];
 
     static defaultRenderCard: RenderCard<RadioCardGroupOption> = (option) => [
         <span class={'label'}>{option.name}</span>,

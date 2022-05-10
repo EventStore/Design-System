@@ -1,7 +1,7 @@
 import { iconStore } from '@eventstore/components';
-import { ES_FIELDS } from './namespace';
+import { ICON_NAMESPACE } from './namespace';
 
-iconStore.addIcons(ES_FIELDS, {
+iconStore.addIcons(ICON_NAMESPACE, {
     get check() {
         return import('./components/Check').then(({ Check }) => Check);
     },

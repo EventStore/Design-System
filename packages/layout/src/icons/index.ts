@@ -1,7 +1,7 @@
 import { iconStore } from '@eventstore/components';
-import { ES_LAYOUT } from './namespace';
+import { ICON_NAMESPACE } from './namespace';
 
-iconStore.addIcons(ES_LAYOUT, {
+iconStore.addIcons(ICON_NAMESPACE, {
     get caret() {
         return import('./components/Caret').then(({ Caret }) => Caret);
     },
