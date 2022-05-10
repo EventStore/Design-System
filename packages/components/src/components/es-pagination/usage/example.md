@@ -1,31 +1,39 @@
 ```tsx
-import { PageChangeEventType } from '@eventstore/components
-private handlePageChange = (e: CustomEvent<PageChangeEventType>) => {
+import { PageChangeEventType } from '@eventstore/components';
+import { createStore } from '@eventstore/stores';
+
+interface PageStore {
+    current: number;
+    pageCount: number;
+}
+
+const { state } = createStore<PageStore>({
+    current: 1,
+    pageCount: 20,
+});
+
+const handlePageChange = (e: CustomEvent<PageChangeEventType>) => {
     switch (e.detail) {
         case 'first':
-            this.current = 1;
+            state.current = 1;
             break;
         case 'previous':
-            this.current = this.current - 1;
+            state.current = state.current - 1;
             break;
         case 'next':
-            this.current = this.current + 1;
+            state.current = state.current + 1;
             break;
         case 'last':
-            this.current = this.pages;
+            state.current = state.pageCount;
             break;
     }
 };
 
-
 export default () => (
-    <>
-        <es-pagination
-            pages={this.pages}
-            onUpdate={this.handlePageChange}
-            current={this.current}
-            finite={true}
-        />
-    </>
+    <es-pagination
+        pageCount={state.pageCount}
+        onUpdate={handlePageChange}
+        current={state.current}
+    />
 );
 ```

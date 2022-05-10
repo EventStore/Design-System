@@ -1,6 +1,10 @@
 import { Component, h, Event, Prop, Host, EventEmitter } from '@stencil/core';
 import { PageChangeEventType } from './types';
 
+/**
+ * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
+ */
+
 @Component({
     tag: 'es-pagination',
     styleUrl: 'es-pagination.css',
@@ -8,19 +12,21 @@ import { PageChangeEventType } from './types';
 })
 export class Pagination {
     /**  Number of pages. */
-    @Prop() pages: number = 1;
+    @Prop() pageCount?: number;
     /**  Current Page. */
-    @Prop() current: number = 1;
-    /**Hides jump to first, jump to last and page count if number of pages is unknown/infinite. */
-    @Prop() finite: boolean = true;
+    @Prop() current!: number;
     /** Triggered when a pagination button is clicked*/
     @Event() update!: EventEmitter<PageChangeEventType>;
 
     render() {
+        const finite: boolean = this.pageCount != null;
+
         return (
-            <Host>
-                {this.finite && (
+            <Host role={'navigation'} aria-label={'pagination'}>
+                {finite && (
                     <es-button
+                        role={'button'}
+                        aria-label={'First page'}
                         variant={'minimal'}
                         disabled={this.current === 1}
                         onClick={this.first}
@@ -34,6 +40,8 @@ export class Pagination {
                 )}
 
                 <es-button
+                    role={'button'}
+                    aria-label={'Previous page'}
                     variant={'minimal'}
                     disabled={this.current === 1}
                     onClick={this.previous}
@@ -43,21 +51,27 @@ export class Pagination {
 
                 <div>
                     <span>{this.current}</span>
-                    {this.finite && <span> / {this.pages}</span>}
+                    {finite && (
+                        <span class={'page-count'}> / {this.pageCount}</span>
+                    )}
                 </div>
 
                 <es-button
+                    role={'button'}
+                    aria-label={'Next page'}
                     variant={'minimal'}
-                    disabled={this.current === this.pages && this.finite}
+                    disabled={this.current === this.pageCount && finite}
                     onClick={this.next}
                 >
                     <es-icon icon={'chevron'} angle={90} size={12} />
                 </es-button>
 
-                {this.finite && (
+                {finite && (
                     <es-button
+                        role={'button'}
+                        aria-label={'Last page'}
                         variant={'minimal'}
-                        disabled={this.current === this.pages && this.finite}
+                        disabled={this.current === this.pageCount && finite}
                         onClick={this.last}
                     >
                         <es-icon icon={'chevron-double'} angle={90} size={12} />
