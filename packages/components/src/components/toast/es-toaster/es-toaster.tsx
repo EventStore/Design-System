@@ -6,6 +6,7 @@ import {
     Element,
     forceUpdate,
 } from '@stencil/core';
+import { ICON_NAMESPACE } from '../../../icons/namespace';
 import type { Toast, ToastLevel, ToastOptions } from '../types';
 
 /** @internal */
@@ -19,11 +20,11 @@ export class EsToast {
     @State() slices = new Map<string, Toast>();
     @State() loaf = new Map<string, HTMLEsToastElement>();
 
-    private defaultIcons: Record<ToastLevel, string> = {
-        success: 'check',
-        info: 'info',
-        warning: 'warning',
-        error: 'error',
+    private defaultIcons: Record<ToastLevel, Toast['icon']> = {
+        success: [ICON_NAMESPACE, 'check'],
+        info: [ICON_NAMESPACE, 'info'],
+        warning: [ICON_NAMESPACE, 'warning'],
+        error: [ICON_NAMESPACE, 'error'],
     };
 
     @Method() async popToast(

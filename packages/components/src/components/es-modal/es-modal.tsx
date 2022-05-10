@@ -1,4 +1,3 @@
-import { delegateFocus, trapFocus } from '@eventstore/utils';
 import {
     Component,
     h,
@@ -9,6 +8,8 @@ import {
     getElement,
     Listen,
 } from '@stencil/core';
+import { delegateFocus, trapFocus } from '@eventstore/utils';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 
 /**
  * A pop up modal for overlaying information, warnings and confirmations.
@@ -59,7 +60,7 @@ export class Modal {
                     onClick={() => this.requestClose.emit()}
                     data-skip-focus-delegation
                 >
-                    <es-icon icon={'close'} size={22} />
+                    <es-icon icon={[ICON_NAMESPACE, 'close']} size={22} />
                 </button>
                 {this.header && (
                     <header>

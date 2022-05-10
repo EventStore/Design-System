@@ -1,5 +1,7 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 import { theme } from '@eventstore/theme';
+import type { IconDescription } from '../../components/es-icon/types';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 
 export type EsCalloutVariant = 'tip' | 'info' | 'warning' | 'error';
 
@@ -19,7 +21,7 @@ export class EsCallout {
     /** Which color set to use. */
     @Prop({ reflect: true }) variant: EsCalloutVariant = 'tip';
     /** Override the variant icon. */
-    @Prop() icon?: string;
+    @Prop() icon?: IconDescription;
 
     render() {
         return (
@@ -31,18 +33,18 @@ export class EsCallout {
         );
     }
 
-    private getIcon = () => {
+    private getIcon = (): IconDescription => {
         if (this.icon) return this.icon;
 
         switch (this.variant) {
             case 'error':
             case 'warning':
-                return 'warning';
+                return [ICON_NAMESPACE, 'warning'];
             case 'info':
-                return 'info';
+                return [ICON_NAMESPACE, 'info'];
             case 'tip':
             default:
-                return 'lightbulb';
+                return [ICON_NAMESPACE, 'lightbulb'];
         }
     };
 }

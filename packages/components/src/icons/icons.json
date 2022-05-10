@@ -1,0 +1,66 @@
+{
+    "version": "0.1.0-alpha.0",
+    "namespace": "es-components",
+    "icons": {
+        "check": {
+            "name": "check",
+            "component": "Check",
+            "path": "./components/Check.tsx"
+        },
+        "chevron": {
+            "name": "chevron",
+            "component": "Chevron",
+            "path": "./components/Chevron.tsx"
+        },
+        "close": {
+            "name": "close",
+            "component": "Close",
+            "path": "./components/Close.tsx"
+        },
+        "copy": {
+            "name": "copy",
+            "component": "Copy",
+            "path": "./components/Copy.tsx"
+        },
+        "critical": {
+            "name": "critical",
+            "component": "Critical",
+            "path": "./components/Critical.tsx"
+        },
+        "degraded": {
+            "name": "degraded",
+            "component": "Degraded",
+            "path": "./components/Degraded.tsx"
+        },
+        "error": {
+            "name": "error",
+            "component": "Error",
+            "path": "./components/Error.tsx"
+        },
+        "info": {
+            "name": "info",
+            "component": "Info",
+            "path": "./components/Info.tsx"
+        },
+        "lightbulb": {
+            "name": "lightbulb",
+            "component": "Lightbulb",
+            "path": "./components/Lightbulb.tsx"
+        },
+        "okay": {
+            "name": "okay",
+            "component": "Okay",
+            "path": "./components/Okay.tsx"
+        },
+        "spinner": {
+            "name": "spinner",
+            "component": "Spinner",
+            "path": "./components/Spinner.tsx"
+        },
+        "warning": {
+            "name": "warning",
+            "component": "Warning",
+            "path": "./components/Warning.tsx"
+        }
+    }
+}

@@ -1,7 +1,9 @@
+import type { IconDescription } from '../../components/es-icon/types';
+
 export type ToastLevel = 'success' | 'info' | 'warning' | 'error';
 export interface ToastOptions {
     /** Icon to display on left of the toast. Will default to default of level. */
-    icon?: string;
+    icon?: IconDescription;
     /** Title to be displayed on the toast. */
     title: string;
     /** Message to be displayed under the title. */

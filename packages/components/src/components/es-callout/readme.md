@@ -59,11 +59,11 @@ export default () => (
 
 ## Properties
 
-| Property               | Attribute | Description                | Type                                      | Default     |
-| ---------------------- | --------- | -------------------------- | ----------------------------------------- | ----------- |
-| `heading` _(required)_ | `heading` | Heading text.              | `string`                                  | `undefined` |
-| `icon`                 | `icon`    | Override the variant icon. | `string \| undefined`                     | `undefined` |
-| `variant`              | `variant` | Which color set to use.    | `"error" \| "info" \| "tip" \| "warning"` | `'tip'`     |
+| Property               | Attribute | Description                | Type                                                                 | Default     |
+| ---------------------- | --------- | -------------------------- | -------------------------------------------------------------------- | ----------- |
+| `heading` _(required)_ | `heading` | Heading text.              | `string`                                                             | `undefined` |
+| `icon`                 | `icon`    | Override the variant icon. | `[namespace: string \| symbol, name: string] \| string \| undefined` | `undefined` |
+| `variant`              | `variant` | Which color set to use.    | `"error" \| "info" \| "tip" \| "warning"`                            | `'tip'`     |
 
 
 ## Shadow Parts

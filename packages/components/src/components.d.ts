@@ -10,9 +10,9 @@ import { VNode } from "@stencil/core";
 import { BadgeVariant } from "./components/es-badge/es-badge";
 import { ButtonVariant } from "./components/buttons/types";
 import { EsCalloutVariant } from "./components/es-callout/es-callout";
+import { IconDescription } from "./components/es-icon/types";
 import { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
 import { CounterColor, CounterVariant } from "./components/es-counter/es-counter";
-import { IconDescription } from "./components/es-icon/types";
 import { Constrain } from "./components/es-popover/es-popover";
 import { Placement } from "@floating-ui/dom";
 import { Checkpoint } from "./components/es-progression/es-progression";
@@ -127,7 +127,7 @@ export namespace Components {
         /**
           * Override the variant icon.
          */
-        "icon"?: string;
+        "icon"?: IconDescription;
         /**
           * Which color set to use.
          */
@@ -497,11 +497,11 @@ export namespace Components {
         /**
           * The icon to display when the action completed successfully.
          */
-        "completeIcon": string;
+        "completeIcon": IconDescription;
         /**
           * The default icon to display when nothing is happening.
          */
-        "defaultIcon": string;
+        "defaultIcon": IconDescription;
         /**
           * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
          */
@@ -509,7 +509,7 @@ export namespace Components {
         /**
           * The icon to display when the action errored out.
          */
-        "failedIcon": string;
+        "failedIcon": IconDescription;
         /**
           * Optional text of the button
          */
@@ -517,7 +517,7 @@ export namespace Components {
         /**
           * The icon to display when we are awaiting the action.
          */
-        "thinkingIcon": string;
+        "thinkingIcon": IconDescription;
         /**
           * Which styling variant to use.
          */
@@ -846,7 +846,7 @@ declare namespace LocalJSX {
         /**
           * Override the variant icon.
          */
-        "icon"?: string;
+        "icon"?: IconDescription;
         /**
           * Which color set to use.
          */
@@ -1242,11 +1242,11 @@ declare namespace LocalJSX {
         /**
           * The icon to display when the action completed successfully.
          */
-        "completeIcon"?: string;
+        "completeIcon"?: IconDescription;
         /**
           * The default icon to display when nothing is happening.
          */
-        "defaultIcon": string;
+        "defaultIcon": IconDescription;
         /**
           * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
          */
@@ -1254,7 +1254,7 @@ declare namespace LocalJSX {
         /**
           * The icon to display when the action errored out.
          */
-        "failedIcon"?: string;
+        "failedIcon"?: IconDescription;
         /**
           * Optional text of the button
          */
@@ -1262,7 +1262,7 @@ declare namespace LocalJSX {
         /**
           * The icon to display when we are awaiting the action.
          */
-        "thinkingIcon"?: string;
+        "thinkingIcon"?: IconDescription;
         /**
           * Which styling variant to use.
          */
