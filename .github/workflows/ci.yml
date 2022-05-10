@@ -8,8 +8,8 @@ on:
 
 jobs:
     build:
+        name: 'Build, Test & Lint'
         runs-on: ubuntu-18.04
-
         steps:
             - uses: actions/checkout@v2
 
@@ -27,14 +27,20 @@ jobs:
               with:
                   node-version: '16.x'
 
-            # install ds
-            - run: yarn install
+            - name: Install
+              run: yarn install
 
-            # build
-            - run: yarn build
+            - name: Build
+              run: yarn build
 
-            # run tests
-            - run: yarn test
+            - name: Test
+              run: yarn test
 
-            # run lints
-            - run: yarn lint
+            - name: Lint
+              run: yarn lint
+
+            - name: All generated code is commited
+              run: |
+                  git checkout ./.yarn
+                  git update-index --refresh
+                  git diff-index --exit-code --name-status HEAD --

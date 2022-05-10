@@ -49,7 +49,6 @@ export default () =>
 | Property   | Attribute  | Description                                                                                                     | Type                                                                                | Default     |
 | ---------- | ---------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------- |
 | `disabled` | `disabled` | If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused. | `boolean \| undefined`                                                              | `undefined` |
-| `form`     | `form`     | The form element to associate the button with (it's form owner).                                                | `string \| undefined`                                                               | `undefined` |
 | `type`     | `type`     | The default behavior of the button.                                                                             | `string`                                                                            | `'button'`  |
 | `variant`  | `variant`  | Which styling variant to use.                                                                                   | `"cancel" \| "default" \| "delete" \| "filled" \| "link" \| "minimal" \| "outline"` | `'default'` |
 

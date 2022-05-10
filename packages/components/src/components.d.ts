@@ -65,10 +65,6 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * The form element to associate the button with (it's form owner).
-         */
-        "form"?: string;
-        /**
           * The default behavior of the button.
          */
         "type": string;
@@ -787,10 +783,6 @@ declare namespace LocalJSX {
           * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
          */
         "disabled"?: boolean;
-        /**
-          * The form element to associate the button with (it's form owner).
-         */
-        "form"?: string;
         /**
           * The default behavior of the button.
          */
