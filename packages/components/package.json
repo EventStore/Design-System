@@ -32,7 +32,8 @@
         "docs:typedoc": "typedoc --logLevel Error --json ../../documentation/generated/components.typedoc.json",
         "test": "stencil test --spec --e2e --passWithNoTests",
         "test.watch": "stencil test --spec --e2e --watchAll",
-        "lint": "yarn g:lint"
+        "lint": "yarn g:lint",
+        "icon": "icon --dir=./src/icons"
     },
     "dependencies": {
         "@floating-ui/dom": "0.4.1"
@@ -44,6 +45,7 @@
     },
     "devDependencies": {
         "@eventstore/configs": "workspace:*",
+        "@eventstore/icon-manager": "workspace:*",
         "@eventstore/router": "workspace:*",
         "@eventstore/theme": "workspace:*",
         "@eventstore/utils": "workspace:*",

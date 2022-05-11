@@ -1,4 +1,6 @@
 import { Component, h, State, Prop } from '@stencil/core';
+import type { IconDescription } from '../../components/es-icon/types';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 
 export type Status = 'default' | 'thinking' | 'complete' | 'failed';
 
@@ -19,13 +21,13 @@ export class YThinkingButton {
     @Prop() disabled?: boolean;
 
     /** The default icon to display when nothing is happening. */
-    @Prop() defaultIcon!: string;
+    @Prop() defaultIcon!: IconDescription;
     /** The icon to display when we are awaiting the action. */
-    @Prop() thinkingIcon: string = 'spinner';
+    @Prop() thinkingIcon: IconDescription = [ICON_NAMESPACE, 'spinner'];
     /** The icon to display when the action completed successfully. */
-    @Prop() completeIcon: string = 'check';
+    @Prop() completeIcon: IconDescription = [ICON_NAMESPACE, 'check'];
     /** The icon to display when the action errored out. */
-    @Prop() failedIcon: string = 'error';
+    @Prop() failedIcon: IconDescription = [ICON_NAMESPACE, 'error'];
 
     @State() status: Status = 'default';
 

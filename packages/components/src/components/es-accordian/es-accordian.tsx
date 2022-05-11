@@ -1,6 +1,7 @@
 import { Component, h, Prop, Host, State, Watch, Listen } from '@stencil/core';
 import { findAssignedSlot } from '@eventstore/utils';
 import type { AccordianSection } from './types';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 
 /**
  * Optionally collapsible sectioned view. Each section can be targeted via a part.
@@ -109,7 +110,10 @@ export class Accordian {
                                         </h1>
                                         {collapsable && (
                                             <es-icon
-                                                icon={'chevron'}
+                                                icon={[
+                                                    ICON_NAMESPACE,
+                                                    'chevron',
+                                                ]}
                                                 size={14}
                                             />
                                         )}

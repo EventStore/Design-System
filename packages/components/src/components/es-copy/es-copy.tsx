@@ -7,6 +7,8 @@ import {
     Method,
     State,
 } from '@stencil/core';
+import type { IconDescription } from '../../components/es-icon/types';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 
 export type Status = 'default' | 'thinking' | 'copied' | 'failed';
 
@@ -49,11 +51,11 @@ export class EsCopy {
         );
     }
 
-    private iconName: Record<Status, string> = {
-        default: 'copy',
-        thinking: 'spinner',
-        copied: 'check',
-        failed: 'cross',
+    private iconName: Record<Status, IconDescription> = {
+        default: [ICON_NAMESPACE, 'copy'],
+        thinking: [ICON_NAMESPACE, 'spinner'],
+        copied: [ICON_NAMESPACE, 'check'],
+        failed: [ICON_NAMESPACE, 'error'],
     };
 
     private timeout!: ReturnType<typeof setTimeout>;

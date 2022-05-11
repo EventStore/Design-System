@@ -2360,6 +2360,7 @@ __metadata:
   resolution: "@eventstore/components@workspace:packages/components"
   dependencies:
     "@eventstore/configs": "workspace:*"
+    "@eventstore/icon-manager": "workspace:*"
     "@eventstore/router": "workspace:*"
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"

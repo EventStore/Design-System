@@ -7,6 +7,7 @@ import {
     State,
     Fragment,
 } from '@stencil/core';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 import type { TableCells } from '../es-table/types';
 
 /** Create a nested table from data. */
@@ -196,7 +197,11 @@ export class TableNested {
                     >
                         <es-icon
                             size={18}
-                            icon={this.loading.has(key) ? 'spinner' : 'chevron'}
+                            icon={
+                                this.loading.has(key)
+                                    ? [ICON_NAMESPACE, 'spinner']
+                                    : [ICON_NAMESPACE, 'chevron']
+                            }
                             angle={this.expanded.has(key) ? 180 : 0}
                         />
                     </es-button>

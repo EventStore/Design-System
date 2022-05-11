@@ -38,6 +38,7 @@ export class Icon {
     /** When spinning, should it spin clockwise or anticlockwise. */
     @Prop() spinDirection: 'clockwise' | 'antiClockwise' = 'clockwise';
 
+    @State() autoSpin: boolean = false;
     @State() Component: FunctionalComponent<SVGProps> = (props) => (
         <svg {...props}></svg>
     );
@@ -78,7 +79,7 @@ export class Icon {
                 height={this.size}
                 width={this.size}
                 class={{
-                    spin: this.spin || this.icon === 'spinner',
+                    spin: this.spin || (this.spin == null && this.autoSpin),
                     antiClockwise: this.spinDirection === 'antiClockwise',
                 }}
                 style={
@@ -101,6 +102,7 @@ export class Icon {
 
     private loadIcon = async (description: IconDescription) => {
         const [namespace, name] = this.parseIconDescription(description);
+        this.autoSpin = name === 'spinner';
 
         if (!iconStore.has(name, namespace)) {
             logger.log.once(
