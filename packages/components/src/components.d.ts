@@ -13,6 +13,7 @@ import { EsCalloutVariant } from "./components/es-callout/es-callout";
 import { IconDescription } from "./components/es-icon/types";
 import { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
 import { CounterColor, CounterVariant } from "./components/es-counter/es-counter";
+import { PageChangeEventType } from "./components/es-pagination/types";
 import { Constrain } from "./components/es-popover/es-popover";
 import { Placement } from "@floating-ui/dom";
 import { Checkpoint } from "./components/es-progression/es-progression";
@@ -206,6 +207,16 @@ export namespace Components {
           * If the modal should have a header.
          */
         "header": boolean;
+    }
+    interface EsPagination {
+        /**
+          * Current Page.
+         */
+        "current": number;
+        /**
+          * Number of pages.
+         */
+        "pageCount"?: number;
     }
     interface EsPopover {
         /**
@@ -614,6 +625,12 @@ declare global {
         prototype: HTMLEsModalElement;
         new (): HTMLEsModalElement;
     };
+    interface HTMLEsPaginationElement extends Components.EsPagination, HTMLStencilElement {
+    }
+    var HTMLEsPaginationElement: {
+        prototype: HTMLEsPaginationElement;
+        new (): HTMLEsPaginationElement;
+    };
     interface HTMLEsPopoverElement extends Components.EsPopover, HTMLStencilElement {
     }
     var HTMLEsPopoverElement: {
@@ -722,6 +739,7 @@ declare global {
         "es-counter": HTMLEsCounterElement;
         "es-icon": HTMLEsIconElement;
         "es-modal": HTMLEsModalElement;
+        "es-pagination": HTMLEsPaginationElement;
         "es-popover": HTMLEsPopoverElement;
         "es-popper": HTMLEsPopperElement;
         "es-popper-inner": HTMLEsPopperInnerElement;
@@ -921,6 +939,20 @@ declare namespace LocalJSX {
           * Triggers when the modal requests to be closed.
          */
         "onRequestClose"?: (event: CustomEvent<void>) => void;
+    }
+    interface EsPagination {
+        /**
+          * Current Page.
+         */
+        "current": number;
+        /**
+          * Triggered when a pagination button is clicked
+         */
+        "onUpdate"?: (event: CustomEvent<PageChangeEventType>) => void;
+        /**
+          * Number of pages.
+         */
+        "pageCount"?: number;
     }
     interface EsPopover {
         /**
@@ -1301,6 +1333,7 @@ declare namespace LocalJSX {
         "es-counter": EsCounter;
         "es-icon": EsIcon;
         "es-modal": EsModal;
+        "es-pagination": EsPagination;
         "es-popover": EsPopover;
         "es-popper": EsPopper;
         "es-popper-inner": EsPopperInner;
@@ -1334,6 +1367,7 @@ declare module "@stencil/core" {
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
             "es-icon": LocalJSX.EsIcon & JSXBase.HTMLAttributes<HTMLEsIconElement>;
             "es-modal": LocalJSX.EsModal & JSXBase.HTMLAttributes<HTMLEsModalElement>;
+            "es-pagination": LocalJSX.EsPagination & JSXBase.HTMLAttributes<HTMLEsPaginationElement>;
             "es-popover": LocalJSX.EsPopover & JSXBase.HTMLAttributes<HTMLEsPopoverElement>;
             "es-popper": LocalJSX.EsPopper & JSXBase.HTMLAttributes<HTMLEsPopperElement>;
             "es-popper-inner": LocalJSX.EsPopperInner & JSXBase.HTMLAttributes<HTMLEsPopperInnerElement>;
