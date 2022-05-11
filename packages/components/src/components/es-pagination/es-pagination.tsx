@@ -1,5 +1,6 @@
 import { Component, h, Event, Prop, Host, EventEmitter } from '@stencil/core';
 import { PageChangeEventType } from './types';
+import { ICON_NAMESPACE } from '../../icons/namespace';
 
 /**
  * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
@@ -32,8 +33,8 @@ export class Pagination {
                         onClick={this.first}
                     >
                         <es-icon
-                            icon={'chevron-double'}
-                            angle={-90}
+                            icon={[ICON_NAMESPACE, 'chevron-double']}
+                            angle={90}
                             size={12}
                         />
                     </es-button>
@@ -46,7 +47,11 @@ export class Pagination {
                     disabled={this.current === 1}
                     onClick={this.previous}
                 >
-                    <es-icon icon={'chevron'} angle={-90} size={12} />
+                    <es-icon
+                        icon={[ICON_NAMESPACE, 'chevron']}
+                        angle={90}
+                        size={12}
+                    />
                 </es-button>
 
                 <div>
@@ -63,7 +68,11 @@ export class Pagination {
                     disabled={this.current === this.pageCount && finite}
                     onClick={this.next}
                 >
-                    <es-icon icon={'chevron'} angle={90} size={12} />
+                    <es-icon
+                        icon={[ICON_NAMESPACE, 'chevron']}
+                        angle={-90}
+                        size={12}
+                    />
                 </es-button>
 
                 {finite && (
@@ -74,7 +83,11 @@ export class Pagination {
                         disabled={this.current === this.pageCount && finite}
                         onClick={this.last}
                     >
-                        <es-icon icon={'chevron-double'} angle={90} size={12} />
+                        <es-icon
+                            icon={[ICON_NAMESPACE, 'chevron-double']}
+                            angle={-90}
+                            size={12}
+                        />
                     </es-button>
                 )}
             </Host>

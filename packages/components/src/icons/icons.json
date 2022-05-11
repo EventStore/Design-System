@@ -12,6 +12,11 @@
             "component": "Chevron",
             "path": "./components/Chevron.tsx"
         },
+        "chevron-double": {
+            "name": "chevron-double",
+            "component": "ChevronDouble",
+            "path": "./components/ChevronDouble.tsx"
+        },
         "close": {
             "name": "close",
             "component": "Close",
