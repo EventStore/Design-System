@@ -92,12 +92,14 @@ export default () =>
 
 ### Used by
 
+ - [es-pagination](../../es-pagination)
  - [es-table-nested](../../es-table-nested)
  - [es-thinking-button](../../es-thinking-button)
 
 ### Graph
 ```mermaid
 graph TD;
+  es-pagination --> es-button
   es-table-nested --> es-button
   es-thinking-button --> es-button
   style es-button fill:#f9f,stroke:#333,stroke-width:4px
