@@ -69,6 +69,7 @@ export class Popover {
     /** Triggers when the popover requests to close. */
     @Event() requestClose!: EventEmitter;
 
+    private connected: boolean = false;
     private attached: boolean = false;
     private mutationObserver!: MutationObserver;
     private detachAllowFocus?: ReturnType<typeof allowFocus>;
@@ -79,6 +80,7 @@ export class Popover {
     private popperArrow?: HTMLDivElement;
 
     componentDidLoad() {
+        this.connected = true;
         this.mutationObserver = shadowMutationObserver(
             this.host,
             this.positionPopper,
@@ -90,10 +92,11 @@ export class Popover {
     }
 
     disconnectedCallback() {
+        this.connected = false;
         this.mutationObserver.disconnect();
 
         if (this.open) {
-            this.closePopper();
+            this.closePopper(false);
         }
     }
 
@@ -248,7 +251,10 @@ export class Popover {
                 e.preventDefault();
             });
             popperInner.addEventListener('focusout', (e) => {
-                if (popperInner.contains(e.relatedTarget as HTMLElement)) {
+                if (
+                    !this.connected ||
+                    popperInner.contains(e.relatedTarget as HTMLElement)
+                ) {
                     return;
                 }
                 this.requestClose.emit('blur');
@@ -374,12 +380,16 @@ export class Popover {
         return this.positionPopper();
     };
 
-    private closePopper = () => {
+    private closePopper = (animate = true) => {
         this.popperInner?.classList.add('exiting');
         this.popperInner?.classList.remove('entered');
         this.popperArrow?.classList.add('exiting');
         this.popperArrow?.classList.remove('entered');
-        setTimeout(this.detachPopper, 400);
+        if (animate) {
+            setTimeout(this.detachPopper, 400);
+        } else {
+            this.detachPopper();
+        }
     };
 
     private detachPopper = () => {
@@ -401,6 +411,7 @@ export class Popover {
     };
 
     private bubbleRequestClose = (e: any) => {
+        if (!this.connected) return;
         this.requestClose.emit(e.detail);
     };
 
