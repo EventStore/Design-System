@@ -13,3 +13,4 @@ export type {
 export { toast } from './utils/toast';
 export { iconStore } from './utils/iconStore';
 export { requestClose } from './components/es-popover/utils/requestClose';
+export { PageChangeEventType } from './components/es-pagination/types';

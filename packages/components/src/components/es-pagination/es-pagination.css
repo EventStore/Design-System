@@ -1,0 +1,24 @@
+:host {
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    font-size: 14px;
+}
+
+span {
+    word-spacing: 6px;
+    font-weight: 600;
+}
+
+.page-count {
+    color: var(--color-info);
+}
+
+es-button {
+    --border-width: 2px;
+    --border-radius: 100%;
+
+    &:hover {
+        --border-color: var(--color-shade-60);
+    }
+}

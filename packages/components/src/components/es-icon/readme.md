@@ -69,6 +69,7 @@ Type: `Promise<void>`
  - [es-callout](../es-callout)
  - [es-copy](../es-copy)
  - [es-modal](../es-modal)
+ - [es-pagination](../es-pagination)
  - es-status
  - [es-table-nested](../es-table-nested)
  - [es-thinking-button](../es-thinking-button)
@@ -81,6 +82,7 @@ graph TD;
   es-callout --> es-icon
   es-copy --> es-icon
   es-modal --> es-icon
+  es-pagination --> es-icon
   es-status --> es-icon
   es-table-nested --> es-icon
   es-thinking-button --> es-icon
