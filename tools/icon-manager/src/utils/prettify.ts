@@ -12,7 +12,9 @@ const chooseParser = (destination: string): BuiltInParserName | undefined => {
 };
 
 export const prettify = async (file: string, destination: string) => {
-    const prettierConfig = await resolveConfig(destination);
+    const prettierConfig = await resolveConfig(destination, {
+        editorconfig: true,
+    });
     const parser = chooseParser(destination);
     return format(file, {
         ...(prettierConfig || {}),
