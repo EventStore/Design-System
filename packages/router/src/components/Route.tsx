@@ -3,6 +3,7 @@ import type { RouteRenderProps, MatchResults } from '../types';
 
 import { INTERNAL_ROUTER } from '../utils/globals';
 import { cullDecendants } from '../utils/createCullableNode';
+import { getInternalRouter } from '../utils/getInternalRouter';
 
 /** @props */
 export interface RouteProps {
@@ -27,7 +28,7 @@ export const Route: FunctionalComponent<RouteProps> = (
     children,
     utils,
 ) => {
-    const match = window[INTERNAL_ROUTER].match({
+    const match = getInternalRouter().match({
         exact: exact,
         path: url,
         strict: true,

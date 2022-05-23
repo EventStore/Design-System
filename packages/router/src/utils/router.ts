@@ -1,3 +1,4 @@
+import { forceUpdate, getRenderingRef } from '@stencil/core';
 import type {
     RouterHistory,
     LocationSegments,
@@ -14,7 +15,7 @@ export class PublicRouter implements Router {
             this.init();
         }
 
-        return window[INTERNAL_ROUTER];
+        return window[INTERNAL_ROUTER].with(getRenderingRef, forceUpdate);
     }
 
     public init = (options?: RouterOptions) => {
