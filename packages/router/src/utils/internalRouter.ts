@@ -62,19 +62,37 @@ export class InternalRouter {
         window.scrollTo(...scrollPosition);
     };
 
-    private interestedParties = new Set<any>();
+    private interestFinders = new Map<
+        typeof getRenderingRef,
+        typeof forceUpdate
+    >([[getRenderingRef, forceUpdate]]);
+    public with = (
+        getInterested: typeof getRenderingRef,
+        updateInterested: typeof forceUpdate,
+    ): this => {
+        if (!this.interestFinders.has(getInterested)) {
+            this.interestFinders.set(getInterested, updateInterested);
+        }
+
+        return this;
+    };
+
+    private interestedParties = new Set<() => void>();
     public updateInterestedParties = () => {
-        const ref = getRenderingRef();
-        if (!ref) return;
-        this.interestedParties.add(ref);
+        for (const [getInterested, updateInterested] of this.interestFinders) {
+            const ref = getInterested();
+            if (ref) {
+                this.interestedParties.add(() => updateInterested(ref));
+            }
+        }
     };
 
     private informInterestedParties = () => {
         const interestedParties = Array.from(this.interestedParties);
         this.interestedParties.clear();
 
-        for (const ref of interestedParties) {
-            forceUpdate(ref);
+        for (const update of interestedParties) {
+            update();
         }
     };
 

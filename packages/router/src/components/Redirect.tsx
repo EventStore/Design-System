@@ -1,7 +1,7 @@
 import type { FunctionalComponent } from '@stencil/core';
 
-import { INTERNAL_ROUTER } from '../utils/globals';
 import { createCullableNode } from '../utils/createCullableNode';
+import { getInternalRouter } from '../utils/getInternalRouter';
 
 /** @props */
 export interface RedirectProps {
@@ -19,10 +19,10 @@ export const Redirect: FunctionalComponent<RedirectProps> = (
     utils,
 ) => {
     if (!props.url) return null as any;
-
+    const router = getInternalRouter();
     return createCullableNode(
-        window[INTERNAL_ROUTER].action(() => {
-            window[INTERNAL_ROUTER].redirect(props.url);
+        router.action(() => {
+            router.redirect(props.url);
         }),
         utils,
     );
