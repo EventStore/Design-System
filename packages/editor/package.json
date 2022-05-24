@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/editor",
-    "version": "0.1.0-alpha.1",
+    "version": "0.1.0-alpha.2",
     "description": "Monaco Editor for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
@@ -72,6 +72,5 @@
         "rollup": "2.33.1",
         "typedoc": "^0.22.13",
         "typescript": "4.5.5"
-    },
-    "stableVersion": "0.0.66"
+    }
 }
