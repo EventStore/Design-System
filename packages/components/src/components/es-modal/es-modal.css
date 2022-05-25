@@ -65,7 +65,7 @@ header {
 }
 
 ::slotted(h2[slot='header']) {
-    font-weight: 500;
+    font-weight: 400;
     font-size: 16px;
     color: var(--color-text);
     margin: 0;

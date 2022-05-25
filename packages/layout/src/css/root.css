@@ -16,8 +16,8 @@
         var(--layout-max-width) - var(--layout-sidebar-width)
     );
 
-    --font-family-sans: 'MuseoSans', Arial, sans-serif;
-    --font-sans: 500 16px var(--font-family-sans);
+    --font-family-sans: 'Open Sans', Arial, sans-serif;
+    --font-sans: 400 16px var(--font-family-sans);
     --font-family-monospace: 'Source Code Pro', monospace;
     --font-monospace: 400 16px var(--font-family-monospace);
 }
