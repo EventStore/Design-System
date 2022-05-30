@@ -1,7 +1,11 @@
 import type { IndexMap } from '../utils/indexFile';
 
-export const convertToLoader = (indexMap: IndexMap, namespaced?: boolean) => `\
-import { iconStore } from '@eventstore/components';
+export const convertToLoader = (
+    indexMap: IndexMap,
+    iconStoreImportPath: string = '@eventstore/components',
+    namespaced?: boolean,
+) => `\
+import { iconStore } from '${iconStoreImportPath}';
 ${namespaced ? "import { ICON_NAMESPACE } from './namespace';" : ''}
 
 iconStore.addIcons(${namespaced ? 'ICON_NAMESPACE, ' : ''}{

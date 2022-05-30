@@ -1,121 +1,107 @@
-import * as SVGO from 'svgo';
+import { optimize, OptimizedSvg, OptimizeOptions } from 'svgo';
 
-const svgo = new SVGO({
+const config: OptimizeOptions = {
     js2svg: {
         pretty: true,
     },
     plugins: [
         {
-            cleanupAttrs: true,
-        },
-        {
-            removeDoctype: true,
-        },
-        {
-            removeXMLProcInst: true,
-        },
-        {
-            removeComments: true,
-        },
-        {
-            removeMetadata: true,
-        },
-        {
-            removeTitle: true,
-        },
-        {
-            removeDesc: true,
-        },
-        {
-            removeUselessDefs: true,
-        },
-        {
-            removeEditorsNSData: true,
-        },
-        {
-            removeEmptyAttrs: true,
-        },
-        {
-            removeHiddenElems: true,
-        },
-        {
-            removeEmptyText: true,
-        },
-        {
-            removeEmptyContainers: true,
-        },
-        {
-            removeViewBox: false,
-        },
-        {
-            cleanupEnableBackground: true,
-        },
-        {
-            convertStyleToAttrs: true,
-        },
-        {
-            convertColors: true,
-        },
-        {
-            convertPathData: true,
-        },
-        {
-            convertTransform: true,
-        },
-        {
-            removeUnknownsAndDefaults: true,
-        },
-        {
-            removeNonInheritableGroupAttrs: true,
-        },
-        {
-            removeUselessStrokeAndFill: true,
-        },
-        {
-            removeUnusedNS: true,
-        },
-        {
-            cleanupIDs: true,
-        },
-        {
-            cleanupNumericValues: true,
-        },
-        {
-            moveElemsAttrsToGroup: true,
-        },
-        {
-            moveGroupAttrsToElems: true,
-        },
-        {
-            collapseGroups: true,
-        },
-        {
-            removeRasterImages: false,
-        },
-        {
-            mergePaths: true,
-        },
-        {
-            convertShapeToPath: true,
-        },
-        {
-            sortAttrs: true,
-        },
-        {
-            removeDimensions: true,
-        },
-        {
-            removeAttrs: { attrs: ['data.*', '(stroke|fill)', 'class'] },
-        },
-        {
-            addAttributesToSVGElement: {
-                attributes: [{ 'aria-hidden': true }],
+            name: 'removeHidden',
+            type: 'visitor' as any,
+            fn() {
+                return {
+                    element: {
+                        enter: (node: any, parentNode: any) => {
+                            if (
+                                node.attributes.stroke === 'none' &&
+                                node.attributes.fill === 'none'
+                            ) {
+                                parentNode.children = parentNode.children.filter(
+                                    (child: any) => child !== node,
+                                );
+                            }
+                        },
+                    },
+                };
             },
         },
+        {
+            name: 'currentColor',
+            type: 'visitor' as any,
+            fn() {
+                return {
+                    element: {
+                        enter: (node: any) => {
+                            if (
+                                node.attributes.stroke &&
+                                node.attributes.stroke !== 'none'
+                            ) {
+                                node.attributes.stroke = 'currentColor';
+                            }
+
+                            if (
+                                node.attributes.fill &&
+                                node.attributes.fill !== 'none'
+                            ) {
+                                node.attributes.fill = 'currentColor';
+                            }
+                        },
+                    },
+                };
+            },
+        },
+        {
+            name: 'removeAttrs',
+            params: {
+                attrs: ['data.*', 'stroke-.*', 'class'],
+            },
+        },
+        {
+            name: 'addAttributesToSVGElement',
+            params: {
+                attributes: [{ 'aria-hidden': 'true' }],
+            },
+        },
+        'cleanupAttrs',
+        'removeDoctype',
+        'removeXMLProcInst',
+        'removeComments',
+        'removeMetadata',
+        'removeTitle',
+        'removeDesc',
+        'removeUselessDefs',
+        'removeEditorsNSData',
+        'removeEmptyAttrs',
+        'removeHiddenElems',
+        'removeEmptyText',
+        'removeEmptyContainers',
+        'cleanupEnableBackground',
+        'convertStyleToAttrs',
+        'convertColors',
+        'convertPathData',
+        'convertTransform',
+        'removeUnknownsAndDefaults',
+        'removeNonInheritableGroupAttrs',
+        'removeUselessStrokeAndFill',
+        'removeUnusedNS',
+        'cleanupIDs',
+        'cleanupNumericValues',
+        'moveElemsAttrsToGroup',
+        'moveGroupAttrsToElems',
+        'collapseGroups',
+        'mergePaths',
+        'convertShapeToPath',
+        'sortAttrs',
+        'removeDimensions',
+        'removeRasterImages',
+        {
+            name: 'removeViewBox',
+            active: false,
+        },
     ],
-});
+};
 
 export const optimiseSVG = async (icon: string) => {
-    const { data } = await svgo.optimize(icon);
+    const { data } = optimize(icon, config) as OptimizedSvg;
     return data;
 };

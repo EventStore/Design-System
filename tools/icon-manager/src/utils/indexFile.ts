@@ -12,6 +12,7 @@ import { fileExists } from './exists';
 export type IndexMap = Map<string, ComponentMetadata>;
 export interface IndexFileDetails {
     destination: string;
+    iconStoreImportPath?: string;
     namespace?: string;
     indexMap: IndexMap;
 }
@@ -23,6 +24,7 @@ interface IconJSONV00 {
 interface IconJSONV01 {
     version: string;
     namespace?: string;
+    iconStoreImportPath?: string;
     icons: {
         [name: string]: ComponentMetadata;
     };
@@ -106,6 +108,7 @@ export const readIndexFileDetails = async (
             destination,
             indexMap: indexToMap(content, force),
             namespace: content.namespace,
+            iconStoreImportPath: content.iconStoreImportPath,
         };
     }
 
@@ -133,11 +136,13 @@ export const readNamespace = async (
 const writeIndex = async ({
     destination,
     namespace,
+    iconStoreImportPath,
     indexMap,
 }: IndexFileDetails) => {
     const indexFile: CurrentIndexFile = {
         version,
         namespace,
+        iconStoreImportPath,
         icons: Array.from(indexMap)
             .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
             .reduce((acc, [name, info]) => ({ ...acc, [name]: info }), {}),
@@ -174,9 +179,9 @@ const createNamespace = async ({
 
 const writeLoader = async (options: IndexFileDetails) => {
     const namespaced = await createNamespace(options);
-    const { destination, indexMap } = options;
+    const { destination, indexMap, iconStoreImportPath } = options;
     const loaderPath = join(destination, 'index.ts');
-    const loader = convertToLoader(indexMap, namespaced);
+    const loader = convertToLoader(indexMap, iconStoreImportPath, namespaced);
     const prettyLoader = await prettify(loader, loaderPath);
     return writeFile(loaderPath, prettyLoader);
 };
