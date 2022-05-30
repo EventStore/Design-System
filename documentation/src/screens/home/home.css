@@ -60,7 +60,7 @@ section {
         margin: 0;
         font-size: 18px;
         grid-area: title;
-        font-weight: 500;
+        font-weight: 400;
     }
 
     & .package_name {
