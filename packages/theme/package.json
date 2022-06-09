@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/theme",
-    "version": "0.1.0-alpha.2",
+    "version": "0.1.0-alpha.3",
     "description": "Core components for Event Store Design System",
     "main": "dist/index.js",
     "prettier": "@eventstore/configs/prettier",
