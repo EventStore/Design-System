@@ -18,28 +18,21 @@ export class TableDetail {
     @Prop() columns?: Array<string>;
 
     private renderHeader = (title: string) => <dt>{title}</dt>;
-
-    private renderCell = (name: string, Cell: TableCell<any>['cell']) => {
-        const value = this.data[name];
-        const child =
-            typeof value === 'string' || typeof value === 'number'
-                ? value
-                : null;
-
-        return (
-            <dd>
-                {Cell ? (
-                    <Cell
-                        data={this.data}
-                        key={name}
-                        parent={this.identifier}
-                    />
-                ) : (
-                    child
-                )}
-            </dd>
-        );
+    private autoExtract = (name: string) => {
+        const value = this.data?.[name];
+        return typeof value === 'string' || typeof value === 'number'
+            ? value
+            : null;
     };
+    private renderCell = (name: string, Cell: TableCell<any>['cell']) => (
+        <dd>
+            {Cell ? (
+                <Cell data={this.data} key={name} parent={this.identifier} />
+            ) : (
+                this.autoExtract(name)
+            )}
+        </dd>
+    );
 
     render() {
         const columns =

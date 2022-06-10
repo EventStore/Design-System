@@ -406,9 +406,9 @@ export namespace Components {
          */
         "identifier": string;
         /**
-          * The key of the title in the data
+          * Which cell to place as the title
          */
-        "titleKey": string;
+        "titleCell": string;
     }
     interface EsTableNested {
         /**
@@ -1160,9 +1160,9 @@ declare namespace LocalJSX {
          */
         "identifier"?: string;
         /**
-          * The key of the title in the data
+          * Which cell to place as the title
          */
-        "titleKey": string;
+        "titleCell"?: string;
     }
     interface EsTableNested {
         /**
