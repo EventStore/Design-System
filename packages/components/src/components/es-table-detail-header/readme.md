@@ -68,13 +68,13 @@ pre {
 
 ## Properties
 
-| Property                | Attribute      | Description                                                | Type                               | Default           |
-| ----------------------- | -------------- | ---------------------------------------------------------- | ---------------------------------- | ----------------- |
-| `actionsCell`           | `actions-cell` | Which cell to place in the top right as a list of actions. | `string`                           | `'actions'`       |
-| `cells` _(required)_    | --             | A record of table cell definitions.                        | `{ [x: string]: TableCell<any>; }` | `undefined`       |
-| `data` _(required)_     | `data`         | The data to render.                                        | `any`                              | `undefined`       |
-| `identifier`            | `identifier`   | Passed to cell renderer as `parent`.                       | `string`                           | `'detail-header'` |
-| `titleKey` _(required)_ | `title-key`    | The key of the title in the data                           | `string`                           | `undefined`       |
+| Property             | Attribute      | Description                                                | Type                               | Default           |
+| -------------------- | -------------- | ---------------------------------------------------------- | ---------------------------------- | ----------------- |
+| `actionsCell`        | `actions-cell` | Which cell to place in the top right as a list of actions. | `string`                           | `'actions'`       |
+| `cells` _(required)_ | --             | A record of table cell definitions.                        | `{ [x: string]: TableCell<any>; }` | `undefined`       |
+| `data` _(required)_  | `data`         | The data to render.                                        | `any`                              | `undefined`       |
+| `identifier`         | `identifier`   | Passed to cell renderer as `parent`.                       | `string`                           | `'detail-header'` |
+| `titleCell`          | `title-cell`   | Which cell to place as the title                           | `string`                           | `'title'`         |
 
 
 ----------------------------------------------

@@ -107,19 +107,19 @@ export class Table {
             </div>
         );
     };
-
+    private autoExtract = (data: any, name: string) => {
+        const value = data?.[name];
+        return typeof value === 'string' || typeof value === 'number'
+            ? value
+            : null;
+    };
     private renderCells = (data: any, key: string) =>
         this.getColumns().map((name, i) => {
             const { cell: Cell, variant, class: rawClasses } = this.getCell(
                 name,
             );
-            const value = data[name];
             const variants =
                 typeof variant === 'string' ? [variant] : variant ?? [];
-            const child =
-                typeof value === 'string' || typeof value === 'number'
-                    ? value
-                    : null;
 
             const focusCell =
                 i === 0 && (!!this.rowTakesFocus || !!this.linkRowTo);
@@ -153,7 +153,7 @@ export class Table {
                     {Cell ? (
                         <Cell key={key} data={data} parent={this.identifier} />
                     ) : (
-                        child
+                        this.autoExtract(data, name)
                     )}
                 </span>
             );
