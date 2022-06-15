@@ -187,9 +187,10 @@ Upgrades from an earlier version on `icon-manager` & `@eventstore/components`
 
 **Options**
 
-| Option | Alias | Description                 | Required | Type |
-| ------ | ----- | --------------------------- | -------- | ---- |
-| --dir  | -d    | Where your icons are stored | yes      | path |
+| Option  | Alias | Description                                       | Required | Type    |
+| ------- | ----- | ------------------------------------------------- | -------- | ------- |
+| --dir   | -d    | Where your icons are stored                       | yes      | path    |
+| --force |       | Forces an upgrade, even if version numbers match. |          | boolean |
 
 **Examples**
 
@@ -203,6 +204,66 @@ Display help
 
 ```shell
 icon upgrade --help
+```
+
+### Regenerate
+
+```shell
+icon regenerate
+```
+
+Regenerate your index from icons.json
+
+**Options**
+
+| Option | Alias | Description                 | Required | Type |
+| ------ | ----- | --------------------------- | -------- | ---- |
+| --dir  | -d    | Where your icons are stored | yes      | path |
+
+**Examples**
+
+Regenerate icon set in `./icons`
+
+```shell
+icon upgrade --dir=./icons
+```
+
+Display help
+
+```shell
+icon regenerate --help
+```
+
+### Display
+
+Display icons in browser.
+
+**Options**
+
+| Option  | Alias | Description                 | Required | Type    | Default |
+| ------- | ----- | --------------------------- | -------- | ------- | ------- |
+| --dir   | -d    | Where your icons are stored | yes      | path    |         |
+| --port  | -p    | Which port to host on       |          | number  | 8080    |
+| --watch | -w    | Watch for changes           |          | boolean | true    |
+
+**Examples**
+
+Launch display server for icon set in `./icons`, on localhost:2022, watching for changes.
+
+```shell
+icon display --dir=./icons --port 2022
+```
+
+Don't watch for changes.
+
+```shell
+icon display --dir=./icons --watch false
+```
+
+Display help
+
+```shell
+icon display --help
 ```
 
 ## Pro tip

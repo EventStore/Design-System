@@ -21,14 +21,15 @@ import { version } from '../utils/version';
 
 interface UpgradeOptions {
     dir: string;
+    force: boolean;
 }
 
-export const upgrade = async ({ dir }: UpgradeOptions) => {
+export const upgrade = async ({ dir, force }: UpgradeOptions) => {
     try {
         const directory = isAbsolute(dir) ? dir : resolve(cwd(), dir);
         const needsUpdate = await checkIfIndexNeedsUpdate(directory);
 
-        if (!needsUpdate) {
+        if (!force && !needsUpdate) {
             return failure('No upgrade needed');
         }
 
@@ -37,7 +38,11 @@ export const upgrade = async ({ dir }: UpgradeOptions) => {
             return success(`Updated version to ${version}`);
         }
 
-        info('Major version update. Regenerating icons.');
+        if (!force) {
+            info('Major version update. Regenerating icons.');
+        } else {
+            info('Forced update. Regenerating icons.');
+        }
 
         const index = await readIndex(directory, true);
         const old = `${directory}_old`;

@@ -210,6 +210,14 @@ export const isInIndex = async (
     return [false];
 };
 
+export const readAliasesFromIndex = async (
+    destination: string,
+    name: string,
+): Promise<string[] | undefined> => {
+    const indexFile = await readIndex(destination);
+    return indexFile.get(name)?.aliases;
+};
+
 export const addToIndex = async (
     destination: string,
     component: ComponentMetadata,

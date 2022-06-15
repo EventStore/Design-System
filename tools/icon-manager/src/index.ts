@@ -7,6 +7,7 @@ import { setNamespace } from './commands/namespace';
 import { removeIcon } from './commands/removeIcon';
 import { upgrade } from './commands/upgrade';
 import { display } from './commands/display';
+import { regenerate } from './commands/regenerate';
 import { version } from './utils/version';
 
 yargs
@@ -94,10 +95,23 @@ yargs
     .command(
         'upgrade',
         'Upgrade from a previous version of icon manager',
-        () => {
-            // no additional args
+        (yargs) => {
+            yargs.options({
+                force: {
+                    describe: 'Upgrade even if not needed.',
+                    type: 'boolean',
+                },
+            });
         },
         upgrade,
+    )
+    .command(
+        'regenerate',
+        'Regenerate your index from icons.json',
+        () => {
+            // no options
+        },
+        regenerate,
     )
     .command(
         'display',
