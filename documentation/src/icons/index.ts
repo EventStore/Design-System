@@ -1,11 +1,6 @@
 import { iconStore } from '@eventstore/components';
 
 iconStore.addIcons({
-    get 'angle-down'() {
-        return import('./components/AngleDown').then(
-            ({ AngleDown }) => AngleDown,
-        );
-    },
     get arrow() {
         return import('./components/Arrow').then(({ Arrow }) => Arrow);
     },
@@ -17,9 +12,6 @@ iconStore.addIcons({
     },
     get bubbles() {
         return import('./components/Bubbles').then(({ Bubbles }) => Bubbles);
-    },
-    get building() {
-        return import('./components/Building').then(({ Building }) => Building);
     },
     get cancelable() {
         return import('./components/Cancelable').then(
@@ -80,9 +72,6 @@ iconStore.addIcons({
     },
     get '@eventstore/editor'() {
         return this['editor'];
-    },
-    get ellipsis() {
-        return import('./components/Ellipsis').then(({ Ellipsis }) => Ellipsis);
     },
     get error() {
         return import('./components/Error').then(({ Error }) => Error);
@@ -165,6 +154,9 @@ iconStore.addIcons({
     get 'stencil-markdown-plugin'() {
         return this['markdown'];
     },
+    get more() {
+        return import('./components/More').then(({ More }) => More);
+    },
     get mutable() {
         return import('./components/Mutable').then(({ Mutable }) => Mutable);
     },
@@ -191,12 +183,6 @@ iconStore.addIcons({
     get '@eventstore/postcss-palette-plugin'() {
         return this['postcss-palette-plugin'];
     },
-    get question() {
-        return import('./components/Question').then(({ Question }) => Question);
-    },
-    get optional() {
-        return this['question'];
-    },
     get 'reflect-to-attr'() {
         return import('./components/ReflectToAttr').then(
             ({ ReflectToAttr }) => ReflectToAttr,
@@ -204,9 +190,6 @@ iconStore.addIcons({
     },
     get refresh() {
         return import('./components/Refresh').then(({ Refresh }) => Refresh);
-    },
-    get reload() {
-        return import('./components/Reload').then(({ Reload }) => Reload);
     },
     get required() {
         return import('./components/Required').then(({ Required }) => Required);
@@ -250,11 +233,6 @@ iconStore.addIcons({
     get '@eventstore/stores'() {
         return this['stores'];
     },
-    get 'testing-icon'() {
-        return import('./components/TestingIcon').then(
-            ({ TestingIcon }) => TestingIcon,
-        );
-    },
     get theme() {
         return import('./components/Theme').then(({ Theme }) => Theme);
     },
@@ -269,9 +247,6 @@ iconStore.addIcons({
     },
     get tails() {
         return this['unicorn'];
-    },
-    get unknown() {
-        return import('./components/Unknown').then(({ Unknown }) => Unknown);
     },
     get user() {
         return import('./components/User').then(({ User }) => User);

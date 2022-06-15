@@ -1,11 +1,6 @@
 {
     "version": "0.1.0-alpha.3",
     "icons": {
-        "angle-down": {
-            "name": "angle-down",
-            "component": "AngleDown",
-            "path": "./components/AngleDown.tsx"
-        },
         "arrow": {
             "name": "arrow",
             "component": "Arrow",
@@ -25,11 +20,6 @@
             "name": "bubbles",
             "component": "Bubbles",
             "path": "./components/Bubbles.tsx"
-        },
-        "building": {
-            "name": "building",
-            "component": "Building",
-            "path": "./components/Building.tsx"
         },
         "cancelable": {
             "name": "cancelable",
@@ -108,11 +98,6 @@
             "component": "Editor",
             "path": "./components/Editor.tsx",
             "aliases": ["@eventstore/editor"]
-        },
-        "ellipsis": {
-            "name": "ellipsis",
-            "component": "Ellipsis",
-            "path": "./components/Ellipsis.tsx"
         },
         "error": {
             "name": "error",
@@ -209,6 +194,11 @@
                 "stencil-markdown-plugin"
             ]
         },
+        "more": {
+            "name": "more",
+            "component": "More",
+            "path": "./components/More.tsx"
+        },
         "mutable": {
             "name": "mutable",
             "component": "Mutable",
@@ -245,12 +235,6 @@
             "path": "./components/PostcssPalettePlugin.tsx",
             "aliases": ["@eventstore/postcss-palette-plugin"]
         },
-        "question": {
-            "name": "question",
-            "component": "Question",
-            "path": "./components/Question.tsx",
-            "aliases": ["optional"]
-        },
         "reflect-to-attr": {
             "name": "reflect-to-attr",
             "component": "ReflectToAttr",
@@ -260,11 +244,6 @@
             "name": "refresh",
             "component": "Refresh",
             "path": "./components/Refresh.tsx"
-        },
-        "reload": {
-            "name": "reload",
-            "component": "Reload",
-            "path": "./components/Reload.tsx"
         },
         "required": {
             "name": "required",
@@ -324,11 +303,6 @@
             "path": "./components/Stores.tsx",
             "aliases": ["@eventstore/stores"]
         },
-        "testing-icon": {
-            "name": "testing-icon",
-            "component": "TestingIcon",
-            "path": "./components/TestingIcon.tsx"
-        },
         "theme": {
             "name": "theme",
             "component": "Theme",
@@ -345,11 +319,6 @@
             "component": "Unicorn",
             "path": "./components/Unicorn.tsx",
             "aliases": ["tails"]
-        },
-        "unknown": {
-            "name": "unknown",
-            "component": "Unknown",
-            "path": "./components/Unknown.tsx"
         },
         "user": {
             "name": "user",
