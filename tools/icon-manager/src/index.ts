@@ -6,6 +6,7 @@ import { aliasIcon } from './commands/aliasIcon';
 import { setNamespace } from './commands/namespace';
 import { removeIcon } from './commands/removeIcon';
 import { upgrade } from './commands/upgrade';
+import { display } from './commands/display';
 import { version } from './utils/version';
 
 yargs
@@ -97,6 +98,27 @@ yargs
             // no additional args
         },
         upgrade,
+    )
+    .command(
+        'display',
+        'Display icons in browser',
+        () => {
+            yargs.options({
+                port: {
+                    alias: 'p',
+                    describe: 'Which port to host on',
+                    type: 'number',
+                    default: 8080,
+                },
+                watch: {
+                    alias: 'w',
+                    describe: 'Watch for changes',
+                    type: 'boolean',
+                    default: true,
+                },
+            });
+        },
+        display,
     )
     .option('dir', {
         alias: 'd',
