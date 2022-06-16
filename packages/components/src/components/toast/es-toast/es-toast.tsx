@@ -55,7 +55,7 @@ export class EsToast {
                                 variant={'minimal'}
                             />
                         ) : (
-                            <es-icon icon={this.icon} size={20} />
+                            <es-icon icon={this.icon} size={22} />
                         )}
                     </div>
                     <div class={'content'}>
