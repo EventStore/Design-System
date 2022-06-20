@@ -5,12 +5,19 @@
 }
 
 svg {
-    fill: currentColor;
     display: block;
+    stroke-width: 1.5px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
     animation-name: spinClockwise;
     animation-iteration-count: 0;
     animation-timing-function: linear;
     animation-duration: 500ms;
+
+    &:not([stroke]):not([fill]) {
+        fill: currentColor;
+    }
 
     &.antiClockwise {
         animation-name: spinAntiClockwise;

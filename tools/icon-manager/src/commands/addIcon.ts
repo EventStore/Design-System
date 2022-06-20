@@ -5,6 +5,7 @@ import { resolve, join, isAbsolute } from 'path';
 import {
     addToIndex,
     isInIndex,
+    readAliasesFromIndex,
     removeAliasFromIndex,
 } from '../utils/indexFile';
 import { prettify } from '../utils/prettify';
@@ -60,6 +61,8 @@ export const addIcon = async ({
             }
 
             info(`Overwriting icon ${name} in ${filePath}`);
+
+            metadata.aliases = await readAliasesFromIndex(directory, name);
         }
 
         const icon = await loadIcon({ clipboard, file });

@@ -1,6 +1,7 @@
 {
-    "version": "0.1.0-alpha.0",
+    "version": "0.1.0-alpha.2",
     "namespace": "es-components",
+    "iconStoreImportPath": "../utils/iconStore",
     "icons": {
         "check": {
             "name": "check",
