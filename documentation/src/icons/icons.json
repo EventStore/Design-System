@@ -1,5 +1,5 @@
 {
-    "version": "0.1.0-alpha.0",
+    "version": "0.1.0-alpha.3",
     "icons": {
         "angle-down": {
             "name": "angle-down",
@@ -167,6 +167,12 @@
             "name": "id-card",
             "component": "IdCard",
             "path": "./components/IdCard.tsx"
+        },
+        "illustrations": {
+            "name": "illustrations",
+            "component": "Illustrations",
+            "path": "./components/Illustrations.tsx",
+            "aliases": ["@eventstore/illustrations"]
         },
         "info": {
             "name": "info",

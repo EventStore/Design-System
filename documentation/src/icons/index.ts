@@ -128,6 +128,14 @@ iconStore.addIcons({
     get 'id-card'() {
         return import('./components/IdCard').then(({ IdCard }) => IdCard);
     },
+    get illustrations() {
+        return import('./components/Illustrations').then(
+            ({ Illustrations }) => Illustrations,
+        );
+    },
+    get '@eventstore/illustrations'() {
+        return this['illustrations'];
+    },
     get info() {
         return import('./components/Info').then(({ Info }) => Info);
     },

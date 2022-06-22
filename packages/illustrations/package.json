@@ -1,0 +1,54 @@
+{
+    "name": "@eventstore/illustrations",
+    "version": "0.1.0-alpha",
+    "description": "Illustrations for Event Store Design System",
+    "license": "Apache-2.0",
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.js",
+    "es2015": "dist/esm/index.js",
+    "es2017": "dist/esm/index.js",
+    "jsnext:main": "dist/esm/index.js",
+    "types": "dist/types/index.d.ts",
+    "collection": "dist/collection/collection-manifest.json",
+    "collection:main": "dist/collection/index.js",
+    "unpkg": "dist/components/components.js",
+    "files": [
+        "dist/"
+    ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/",
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:EventStore/Design-System.git",
+        "directory": "packages/illustrations"
+    },
+    "scripts": {
+        "import": "node ./scripts/import.mjs",
+        "build": "stencil build --docs",
+        "start": "stencil build --dev --watch --serve",
+        "docs": "run-s \"docs:*\"",
+        "docs:stencil": "stencil build --docs-json ../../documentation/generated/illustrations.stencil.json",
+        "docs:typedoc": "typedoc --logLevel Error --json ../../documentation/generated/illustrations.typedoc.json",
+        "test": "stencil test --spec --e2e --passWithNoTests",
+        "test.watch": "stencil test --spec --e2e --watchAll",
+        "lint": "yarn g:lint"
+    },
+    "peerDependencies": {
+        "@eventstore/theme": "0.1.x"
+    },
+    "devDependencies": {
+        "@eventstore/theme": "workspace:*",
+        "@stencil/core": "2.15.1",
+        "case-anything": "^2.1.10",
+        "jest": "^26.6.3",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.2.1",
+        "puppeteer": "^10.2.0",
+        "svgo": "^2.8.0",
+        "typedoc": "^0.22.13",
+        "typescript": "4.5.5",
+        "yargs": "^15.3.1"
+    }
+}

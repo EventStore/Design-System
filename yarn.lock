@@ -2409,6 +2409,7 @@ __metadata:
     "@eventstore/editor": "workspace:*"
     "@eventstore/fields": "workspace:*"
     "@eventstore/icon-manager": "workspace:*"
+    "@eventstore/illustrations": "workspace:*"
     "@eventstore/layout": "workspace:*"
     "@eventstore/router": "workspace:*"
     "@eventstore/stores": "workspace:*"
@@ -2524,6 +2525,26 @@ __metadata:
     yargs: ^15.3.1
   bin:
     icon: ./dist/index.js
+  languageName: unknown
+  linkType: soft
+
+"@eventstore/illustrations@workspace:*, @eventstore/illustrations@workspace:packages/illustrations":
+  version: 0.0.0-use.local
+  resolution: "@eventstore/illustrations@workspace:packages/illustrations"
+  dependencies:
+    "@eventstore/theme": "workspace:*"
+    "@stencil/core": 2.15.1
+    case-anything: ^2.1.10
+    jest: ^26.6.3
+    npm-run-all: ^4.1.5
+    prettier: ^2.2.1
+    puppeteer: ^10.2.0
+    svgo: ^2.8.0
+    typedoc: ^0.22.13
+    typescript: 4.5.5
+    yargs: ^15.3.1
+  peerDependencies:
+    "@eventstore/theme": 0.1.x
   languageName: unknown
   linkType: soft
 

@@ -30,6 +30,7 @@
         "@eventstore/components": "workspace:*",
         "@eventstore/editor": "workspace:*",
         "@eventstore/fields": "workspace:*",
+        "@eventstore/illustrations": "workspace:*",
         "@eventstore/layout": "workspace:*",
         "@eventstore/router": "workspace:*",
         "@eventstore/stores": "workspace:*",

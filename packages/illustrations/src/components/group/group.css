@@ -1,0 +1,71 @@
+:host([light]) {
+    & .group_f {
+        fill: #fff;
+    }
+    & .group_f,
+    & .group_g,
+    & .group_h,
+    & .group_i,
+    & .group_j {
+        fill-rule: evenodd;
+    }
+    & .group_g {
+        fill: url(#group_c);
+    }
+    & .group_h {
+        fill: url(#group_b);
+    }
+    & .group_k {
+        fill: none;
+        stroke: #1a4e85;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 6px;
+    }
+    & .group_i {
+        fill: url(#group_e);
+    }
+    & .group_j {
+        fill: url(#group_d);
+    }
+    & .group_l {
+        fill: #1a4e85;
+    }
+}
+:host([dark]) {
+    & .group_f {
+        fill: #09264a;
+    }
+    & .group_g {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 6px;
+    }
+    & .group_h {
+        fill: url(#group_c);
+    }
+    & .group_h,
+    & .group_i,
+    & .group_j,
+    & .group_k,
+    & .group_l {
+        fill-rule: evenodd;
+    }
+    & .group_i {
+        fill: url(#group_b);
+    }
+    & .group_j {
+        fill: url(#group_e);
+    }
+    & .group_k {
+        fill: #ced4db;
+    }
+    & .group_l {
+        fill: url(#group_d);
+    }
+    & .group_m {
+        fill: #1a4e85;
+    }
+}
