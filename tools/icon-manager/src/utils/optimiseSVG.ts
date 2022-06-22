@@ -50,18 +50,7 @@ const config: OptimizeOptions = {
                 };
             },
         },
-        {
-            name: 'removeAttrs',
-            params: {
-                attrs: ['data.*', 'stroke-.*', 'class'],
-            },
-        },
-        {
-            name: 'addAttributesToSVGElement',
-            params: {
-                attributes: [{ 'aria-hidden': 'true' }],
-            },
-        },
+
         'cleanupAttrs',
         'removeDoctype',
         'removeXMLProcInst',
@@ -91,9 +80,35 @@ const config: OptimizeOptions = {
         'collapseGroups',
         'mergePaths',
         'convertShapeToPath',
+        { name: 'inlineStyles', params: { onlyMatchedOnce: false } },
+        'convertStyleToAttrs',
         'sortAttrs',
         'removeDimensions',
         'removeRasterImages',
+        'removeStyleElement',
+        {
+            name: 'removeAttrs',
+            params: {
+                attrs: [
+                    'data.*',
+                    'stroke-.*',
+                    'class',
+                    'enable-background',
+                    'xml.*',
+                    'id',
+                    'x',
+                    'y',
+                    'version',
+                    'xmlns',
+                ],
+            },
+        },
+        {
+            name: 'addAttributesToSVGElement',
+            params: {
+                attributes: [{ 'aria-hidden': 'true' }],
+            },
+        },
         {
             name: 'removeViewBox',
             active: false,
