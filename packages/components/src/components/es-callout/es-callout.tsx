@@ -26,7 +26,7 @@ export class EsCallout {
     render() {
         return (
             <Host high-contrast={theme.isHighContrast()}>
-                <es-icon part={'icon'} icon={this.getIcon()} />
+                <es-icon part={'icon'} icon={this.getIcon()} size={26} />
                 <h1 part={'heading'}>{this.heading}</h1>
                 <slot />
             </Host>
