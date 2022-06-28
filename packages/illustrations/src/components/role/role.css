@@ -1,0 +1,62 @@
+:host([light]) {
+    & .role_st0 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#role_SVGID_1_);
+    }
+    & .role_st1 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#role_SVGID_00000116234084690342937480000007428748611919554946_);
+    }
+    & .role_st2 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #ffffff;
+    }
+    & .role_st3 {
+        fill: #1a4e85;
+    }
+    & .role_st4 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#role_SVGID_00000108267027881778137290000003258602392118814611_);
+    }
+    & .role_st5 {
+        fill: none;
+        stroke: #1a4e85;
+        stroke-width: 6;
+        stroke-miterlimit: 10;
+    }
+}
+:host([dark]) {
+    & .role_st0 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#role_SVGID_1_);
+    }
+    & .role_st1 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#role_SVGID_00000100362812451898374270000014206645909332594304_);
+    }
+    & .role_st2 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #ced4db;
+    }
+    & .role_st3 {
+        fill: #09264a;
+    }
+    & .role_st4 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#role_SVGID_00000018208031099414325640000000131171010994404271_);
+    }
+    & .role_st5 {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 6;
+        stroke-miterlimit: 10;
+    }
+}

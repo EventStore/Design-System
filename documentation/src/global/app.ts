@@ -4,6 +4,7 @@ import '@eventstore/layout';
 import '@eventstore/editor';
 import '@eventstore/fields';
 import '@eventstore/theme';
+import '@eventstore/illustrations';
 import '../icons';
 
 import { initialize } from '@eventstore/editor/initialize';

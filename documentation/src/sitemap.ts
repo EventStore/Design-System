@@ -25,6 +25,10 @@ export const sitemap = expandSitemap([
                 title: 'Editor',
                 filePath: './packages/editor',
             },
+            {
+                title: 'Illustrations',
+                filePath: './packages/illustrations',
+            },
         ],
     },
     {
