@@ -8,6 +8,7 @@ export interface LayoutColorScheme {
     base: string;
     contrast: string;
     highlight: string;
+    title: string;
 
     shade_10: string;
     shade_20: string;
@@ -22,6 +23,7 @@ const lowContrast: LayoutColorScheme = {
     base: '#09264a',
     contrast: '#ffffff',
     highlight: '#5ab552',
+    title: '#1976d2',
 
     shade_10: '#223c5c',
     shade_20: '#2e4665',
@@ -36,6 +38,7 @@ const highContrast: LayoutColorScheme = {
     base: '#09264a',
     contrast: '#ffffff',
     highlight: '#77c271',
+    title: '#ffffff',
 
     shade_10: '#09264a',
     shade_20: '#09264a',

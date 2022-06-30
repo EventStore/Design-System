@@ -6,6 +6,7 @@ const codeScheme = [
     'base',
     'contrast',
     'highlight',
+    'title',
     'shade_10',
     'shade_20',
     'shade_30',
@@ -43,7 +44,7 @@ export default () => (
     display: grid;
     gap: 10px;
     grid-auto-rows: minmax(100px, auto);
-    grid-template-columns: repeat(21, 1fr);
+    grid-template-columns: repeat(28, 1fr);
 }
 
 .swatch {
@@ -52,11 +53,11 @@ export default () => (
     border: 1px solid var(--color-contrast);
     border-radius: 4px;
     overflow: hidden;
-    grid-column: span 3;
+    grid-column: span 4;
     grid-row: span 2;
 }
 
-.swatch:nth-child(-n + 3) {
+.swatch:nth-child(-n + 4) {
     grid-column: span 7;
     grid-row: span 1;
 }
