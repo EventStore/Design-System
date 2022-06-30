@@ -24,6 +24,7 @@
 
 body {
     font: var(--font-sans);
+    -webkit-font-smoothing: subpixel-antialiased;
     padding: 0px;
     overflow-x: hidden;
     overflow-y: auto;
