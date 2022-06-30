@@ -740,6 +740,10 @@ declare namespace LocalJSX {
          */
         "name": string;
         /**
+          * Emitted on keyup of enter, if no modifier keys are held.
+         */
+        "onEnter"?: (event: CustomEvent<any>) => void;
+        /**
           * Emitted when the value of the field is changed.
          */
         "onFieldchange"?: (event: CustomEvent<FieldChange<string>>) => void;

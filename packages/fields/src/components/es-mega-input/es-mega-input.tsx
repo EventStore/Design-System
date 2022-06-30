@@ -11,6 +11,8 @@ import { Field } from '../Field/Field';
 export class EsMegaInput {
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
+    /** Emitted on keyup of enter, if no modifier keys are held. */
+    @Event() enter!: EventEmitter;
 
     /** The label of the field. */
     @Prop() label!: string;
@@ -45,6 +47,7 @@ export class EsMegaInput {
                     name={this.name}
                     value={this.value}
                     onInput={this.onChange}
+                    onKeyUp={this.onKeyUp}
                     placeholder={this.placeholder}
                     disabled={this.disabled}
                     readonly={this.readonly}
@@ -59,5 +62,11 @@ export class EsMegaInput {
             name: this.name,
             value: e?.target?.value,
         });
+    };
+
+    private onKeyUp = (e: KeyboardEvent) => {
+        if (e.key === 'Enter' && !e.shiftKey && !e.altKey && !e.metaKey) {
+            this.enter.emit();
+        }
     };
 }
