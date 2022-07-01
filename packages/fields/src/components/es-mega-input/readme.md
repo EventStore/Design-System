@@ -86,9 +86,10 @@ export default () => (
 
 ## Events
 
-| Event         | Description                                     | Type                               |
-| ------------- | ----------------------------------------------- | ---------------------------------- |
-| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string>>` |
+| Event         | Description                                              | Type                               |
+| ------------- | -------------------------------------------------------- | ---------------------------------- |
+| `enter`       | Emitted on keyup of enter, if no modifier keys are held. | `CustomEvent<any>`                 |
+| `fieldchange` | Emitted when the value of the field is changed.          | `CustomEvent<FieldChange<string>>` |
 
 
 ## Dependencies
