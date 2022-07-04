@@ -1,6 +1,6 @@
 {
     "name": "@eventstore/assets",
-    "version": "0.1.0-alpha.3",
+    "version": "0.1.0-alpha.6",
     "description": "Assets for use with the Event Store Design System",
     "license": "Apache-2.0",
     "scripts": {
@@ -21,5 +21,6 @@
         "type": "git",
         "url": "git@github.com:EventStore/Design-System.git",
         "directory": "tools/assets"
-    }
+    },
+    "stableVersion": "0.1.0-alpha.3"
 }
