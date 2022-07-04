@@ -48,6 +48,11 @@ export class PublicRouter implements Router {
         this.internal.updateInterestedParties();
         return this.internal.fillPath(path, parameters);
     };
+
+    public getUrl = (url: string): string => {
+        this.internal.updateInterestedParties();
+        return this.internal.getUrl(url);
+    };
 }
 
 export const router = new PublicRouter();
