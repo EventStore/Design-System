@@ -1,0 +1,82 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 25px;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: inherit;
+}
+
+h1 {
+    display: block;
+    color: var(--color-title-1);
+    font-size: 36px;
+    font-weight: 100;
+    margin: 0;
+}
+
+span {
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+}
+
+slot[name='illustration'] > *,
+::slotted([slot='illustration']) {
+    height: 150px;
+    width: 150px;
+}
+
+:host([variant='small']) {
+    gap: 20px;
+
+    & h1 {
+        color: var(--color-text);
+        font-size: 22px;
+    }
+
+    & span {
+        font-weight: 500;
+    }
+
+    & slot[name='illustration'] > *,
+    & ::slotted([slot='illustration']) {
+        height: 80px;
+        width: 80px;
+    }
+}
+
+:host([variant='landscape']) {
+    flex-direction: row;
+    gap: 20px;
+
+    & .inner {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    & h1 {
+        color: var(--color-text);
+        font-size: 22px;
+    }
+
+    & span {
+        font-weight: 500;
+    }
+
+    & slot[name='illustration'] > *,
+    & ::slotted([slot='illustration']) {
+        height: 80px;
+        width: 80px;
+    }
+}

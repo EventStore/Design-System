@@ -473,7 +473,7 @@ export const createValidatedForm = <T extends object>(
                 try {
                     await fn(fullData());
                 } catch (error) {
-                    if (error instanceof HTTPError) {
+                    if (HTTPError.isHTTPError(error)) {
                         const {
                             title,
                             detail,

@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Crumb } from "./components/es-breadcrumb/types";
+import { DisplayErrorVariant } from "./components/es-display-error/types";
 import { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/types";
 import { IconDescription } from "@eventstore/components";
 import { LoadingBarStatus } from "./components/es-loading-bar/types";
@@ -23,11 +24,15 @@ export namespace Components {
          */
         "noValidate": boolean;
     }
-    interface EsErrorState {
+    interface EsDisplayError {
         /**
           * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore/utils` the details title and description will be shown.
          */
-        "error": Error;
+        "error": unknown;
+        /**
+          * Which styling variant to use.
+         */
+        "variant": DisplayErrorVariant;
     }
     interface EsHeader {
     }
@@ -226,11 +231,11 @@ declare global {
         prototype: HTMLEsBreadcrumbElement;
         new (): HTMLEsBreadcrumbElement;
     };
-    interface HTMLEsErrorStateElement extends Components.EsErrorState, HTMLStencilElement {
+    interface HTMLEsDisplayErrorElement extends Components.EsDisplayError, HTMLStencilElement {
     }
-    var HTMLEsErrorStateElement: {
-        prototype: HTMLEsErrorStateElement;
-        new (): HTMLEsErrorStateElement;
+    var HTMLEsDisplayErrorElement: {
+        prototype: HTMLEsDisplayErrorElement;
+        new (): HTMLEsDisplayErrorElement;
     };
     interface HTMLEsHeaderElement extends Components.EsHeader, HTMLStencilElement {
     }
@@ -343,7 +348,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "dev-root": HTMLDevRootElement;
         "es-breadcrumb": HTMLEsBreadcrumbElement;
-        "es-error-state": HTMLEsErrorStateElement;
+        "es-display-error": HTMLEsDisplayErrorElement;
         "es-header": HTMLEsHeaderElement;
         "es-header-dropdown": HTMLEsHeaderDropdownElement;
         "es-layout-button": HTMLEsLayoutButtonElement;
@@ -377,11 +382,15 @@ declare namespace LocalJSX {
          */
         "noValidate"?: boolean;
     }
-    interface EsErrorState {
+    interface EsDisplayError {
         /**
           * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore/utils` the details title and description will be shown.
          */
-        "error": Error;
+        "error"?: unknown;
+        /**
+          * Which styling variant to use.
+         */
+        "variant"?: DisplayErrorVariant;
     }
     interface EsHeader {
     }
@@ -557,7 +566,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "dev-root": DevRoot;
         "es-breadcrumb": EsBreadcrumb;
-        "es-error-state": EsErrorState;
+        "es-display-error": EsDisplayError;
         "es-header": EsHeader;
         "es-header-dropdown": EsHeaderDropdown;
         "es-layout-button": EsLayoutButton;
@@ -584,7 +593,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "dev-root": LocalJSX.DevRoot & JSXBase.HTMLAttributes<HTMLDevRootElement>;
             "es-breadcrumb": LocalJSX.EsBreadcrumb & JSXBase.HTMLAttributes<HTMLEsBreadcrumbElement>;
-            "es-error-state": LocalJSX.EsErrorState & JSXBase.HTMLAttributes<HTMLEsErrorStateElement>;
+            "es-display-error": LocalJSX.EsDisplayError & JSXBase.HTMLAttributes<HTMLEsDisplayErrorElement>;
             "es-header": LocalJSX.EsHeader & JSXBase.HTMLAttributes<HTMLEsHeaderElement>;
             "es-header-dropdown": LocalJSX.EsHeaderDropdown & JSXBase.HTMLAttributes<HTMLEsHeaderDropdownElement>;
             "es-layout-button": LocalJSX.EsLayoutButton & JSXBase.HTMLAttributes<HTMLEsLayoutButtonElement>;

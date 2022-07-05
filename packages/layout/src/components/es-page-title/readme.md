@@ -28,13 +28,11 @@ export default () => <es-page-title>{'A lovely page'}</es-page-title>;
 ### Used by
 
  - dev-root
- - [es-error-state](../es-error-state)
 
 ### Graph
 ```mermaid
 graph TD;
   dev-root --> es-page-title
-  es-error-state --> es-page-title
   style es-page-title fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
