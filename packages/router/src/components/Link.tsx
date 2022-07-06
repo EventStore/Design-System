@@ -63,7 +63,7 @@ export const Link: FunctionalComponent<LinkProps> = (
 
     return (
         <Element
-            href={disabled ? undefined : url}
+            href={disabled || url == null ? undefined : router.getUrl(url)}
             class={{
                 [activeClass]: !!match,
                 ...(typeof classes === 'string'
@@ -81,7 +81,7 @@ export const Link: FunctionalComponent<LinkProps> = (
                     disabled ||
                     forceRefresh ||
                     isModifiedEvent(e) ||
-                    !url
+                    url == null
                 ) {
                     return;
                 }

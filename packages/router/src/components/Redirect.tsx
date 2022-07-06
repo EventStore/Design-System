@@ -18,7 +18,7 @@ export const Redirect: FunctionalComponent<RedirectProps> = (
     _children,
     utils,
 ) => {
-    if (!props.url) return null as any;
+    if (props.url == null) return null as any;
     const router = getInternalRouter();
     return createCullableNode(
         router.action(() => {
