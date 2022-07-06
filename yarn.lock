@@ -2555,6 +2555,7 @@ __metadata:
     "@eventstore/components": "workspace:*"
     "@eventstore/configs": "workspace:*"
     "@eventstore/icon-manager": "workspace:*"
+    "@eventstore/illustrations": "workspace:*"
     "@eventstore/router": "workspace:*"
     "@eventstore/theme": "workspace:*"
     "@eventstore/utils": "workspace:*"
@@ -2566,6 +2567,7 @@ __metadata:
     typescript: 4.5.5
   peerDependencies:
     "@eventstore/components": 0.1.x
+    "@eventstore/illustrations": 0.1.x
     "@eventstore/router": 0.1.x
     "@eventstore/theme": 0.1.x
     "@eventstore/utils": 0.1.x
