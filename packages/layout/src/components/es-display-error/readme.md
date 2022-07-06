@@ -36,6 +36,19 @@ export default () => (
 | `"illustration"` | Replace the illustration for your error. |
 
 
+## Dependencies
+
+### Used by
+
+ - dev-root
+
+### Graph
+```mermaid
+graph TD;
+  dev-root --> es-display-error
+  style es-display-error fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 

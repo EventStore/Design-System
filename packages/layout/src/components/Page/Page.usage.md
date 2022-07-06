@@ -5,7 +5,6 @@ import { Component, h, State } from '@stencil/core';
 import { Page, PageState } from '@eventstore/layout';
 
 import { loadData, Data } from './loadData';
-import { ErrorIllustration } from './ErrorIllustration';
 
 @Component({
     tag: 'my-great-page',
@@ -54,10 +53,9 @@ export class MyGreatPage {
     }
 
     renderErrorState = (error: Error) => (
-        <es-error-state error={error}>
-            <ErrorIllustration slot={'illustration'} />
+        <es-display-error error={error}>
             <es-button-link url={'/'}>{'Go home'}</es-button-link>
-        </es-error-state>
+        </es-display-error>
     );
 
     renderEmptyState = () => (
