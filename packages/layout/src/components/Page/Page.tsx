@@ -82,7 +82,7 @@ const updateState = (progressBarId: string, state: PageState) => {
 };
 
 const BasicErrorState: FunctionalComponent<ErrorStateProps> = ({ error }) => (
-    <es-error-state error={error} />
+    <es-display-error error={error} />
 );
 
 const PageBody: FunctionalComponent<PageProps> = (
