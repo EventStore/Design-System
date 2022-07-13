@@ -11,7 +11,7 @@
 
 ```tsx
 import { iconDetails, IconDetail } from 'helpers';
-import { TableCells, toast } from '@eventstore/components';
+import { TableCells, toast } from '@eventstore-ui/components';
 
 const tableCells: TableCells<IconDetail> = {
     name: {

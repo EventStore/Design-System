@@ -1,7 +1,7 @@
 <!-- show-location -->
 
 ```tsx
-import { Switch, Link, Route, PageTitle } from '@eventstore/router';
+import { Switch, Link, Route, PageTitle } from '@eventstore-ui/router';
 
 export default () => (
     <>

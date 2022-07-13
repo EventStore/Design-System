@@ -1,5 +1,5 @@
 import { Host, Component, h, Prop } from '@stencil/core';
-import { theme } from '@eventstore/theme';
+import { theme } from '@eventstore-ui/theme';
 
 /**
  * The Event Store logo.

@@ -1,5 +1,5 @@
 {
-    "name": "@eventstore/illustrations",
+    "name": "@eventstore-ui/illustrations",
     "version": "0.1.0-alpha.8",
     "description": "Illustrations for Event Store Design System",
     "license": "Apache-2.0",
@@ -36,10 +36,10 @@
         "lint": "yarn g:lint"
     },
     "peerDependencies": {
-        "@eventstore/theme": "0.1.x"
+        "@eventstore-ui/theme": "0.1.x"
     },
     "devDependencies": {
-        "@eventstore/theme": "workspace:*",
+        "@eventstore-ui/theme": "workspace:*",
         "@stencil/core": "2.15.1",
         "case-anything": "^2.1.10",
         "jest": "^26.6.3",

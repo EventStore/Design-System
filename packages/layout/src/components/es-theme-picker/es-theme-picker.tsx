@@ -1,7 +1,7 @@
 import { Component, h, Host } from '@stencil/core';
-import { theme } from '@eventstore/theme';
-import { themes } from '@eventstore/theme/dist/themes';
-import type { ThemeDefinition } from '@eventstore/theme/dist/types';
+import { theme } from '@eventstore-ui/theme';
+import { themes } from '@eventstore-ui/theme/dist/themes';
+import type { ThemeDefinition } from '@eventstore-ui/theme/dist/types';
 @Component({
     tag: 'es-theme-picker',
     styleUrl: 'es-theme-picker.css',

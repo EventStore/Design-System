@@ -1,4 +1,4 @@
-import { iconStore } from '@eventstore/components';
+import { iconStore } from '@eventstore-ui/components';
 
 iconStore.addIcons({
     get arrow() {
@@ -44,13 +44,13 @@ iconStore.addIcons({
             ({ Components }) => Components,
         );
     },
-    get '@eventstore/components'() {
+    get '@eventstore-ui/components'() {
         return this['components'];
     },
     get configs() {
         return import('./components/Configs').then(({ Configs }) => Configs);
     },
-    get '@eventstore/configs'() {
+    get '@eventstore-ui/configs'() {
         return this['configs'];
     },
     get copy() {
@@ -70,7 +70,7 @@ iconStore.addIcons({
     get editor() {
         return import('./components/Editor').then(({ Editor }) => Editor);
     },
-    get '@eventstore/editor'() {
+    get '@eventstore-ui/editor'() {
         return this['editor'];
     },
     get error() {
@@ -82,7 +82,7 @@ iconStore.addIcons({
     get fields() {
         return import('./components/Fields').then(({ Fields }) => Fields);
     },
-    get '@eventstore/fields'() {
+    get '@eventstore-ui/fields'() {
         return this['fields'];
     },
     get folder() {
@@ -91,7 +91,7 @@ iconStore.addIcons({
     get forms() {
         return import('./components/Forms').then(({ Forms }) => Forms);
     },
-    get '@eventstore/forms'() {
+    get '@eventstore-ui/forms'() {
         return this['forms'];
     },
     get gift() {
@@ -111,7 +111,7 @@ iconStore.addIcons({
             ({ IconManager }) => IconManager,
         );
     },
-    get '@eventstore/icon-manager'() {
+    get '@eventstore-ui/icon-manager'() {
         return this['icon-manager'];
     },
     get 'id-card'() {
@@ -122,7 +122,7 @@ iconStore.addIcons({
             ({ Illustrations }) => Illustrations,
         );
     },
-    get '@eventstore/illustrations'() {
+    get '@eventstore-ui/illustrations'() {
         return this['illustrations'];
     },
     get info() {
@@ -134,7 +134,7 @@ iconStore.addIcons({
     get layout() {
         return import('./components/Layout').then(({ Layout }) => Layout);
     },
-    get '@eventstore/layout'() {
+    get '@eventstore-ui/layout'() {
         return this['layout'];
     },
     get light() {
@@ -148,7 +148,7 @@ iconStore.addIcons({
     get markdown() {
         return import('./components/Markdown').then(({ Markdown }) => Markdown);
     },
-    get '@eventstore/stencil-markdown-plugin'() {
+    get '@eventstore-ui/stencil-markdown-plugin'() {
         return this['markdown'];
     },
     get 'stencil-markdown-plugin'() {
@@ -180,7 +180,7 @@ iconStore.addIcons({
             ({ PostcssPalettePlugin }) => PostcssPalettePlugin,
         );
     },
-    get '@eventstore/postcss-palette-plugin'() {
+    get '@eventstore-ui/postcss-palette-plugin'() {
         return this['postcss-palette-plugin'];
     },
     get 'reflect-to-attr'() {
@@ -203,7 +203,7 @@ iconStore.addIcons({
     get router() {
         return import('./components/Router').then(({ Router }) => Router);
     },
-    get '@eventstore/router'() {
+    get '@eventstore-ui/router'() {
         return this['router'];
     },
     get scroll() {
@@ -230,13 +230,13 @@ iconStore.addIcons({
     get stores() {
         return import('./components/Stores').then(({ Stores }) => Stores);
     },
-    get '@eventstore/stores'() {
+    get '@eventstore-ui/stores'() {
         return this['stores'];
     },
     get theme() {
         return import('./components/Theme').then(({ Theme }) => Theme);
     },
-    get '@eventstore/theme'() {
+    get '@eventstore-ui/theme'() {
         return this['theme'];
     },
     get trash() {
@@ -273,7 +273,7 @@ iconStore.addIcons({
     get utils() {
         return import('./components/Utils').then(({ Utils }) => Utils);
     },
-    get '@eventstore/utils'() {
+    get '@eventstore-ui/utils'() {
         return this['utils'];
     },
     get warning() {

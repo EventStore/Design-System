@@ -5,6 +5,6 @@ import { join, dirname } from 'path';
  * Include the workers in your stencil project by adding them to "copy" in your stencil config.
  */
 export const workerPath = join(
-    dirname(require.resolve('@eventstore/editor/package.json')),
+    dirname(require.resolve('@eventstore-ui/editor/package.json')),
     'workers',
 );

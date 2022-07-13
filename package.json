@@ -11,20 +11,20 @@
         "tools/*",
         "demos/*"
     ],
-    "prettier": "@eventstore/configs/prettier",
+    "prettier": "@eventstore-ui/configs/prettier",
     "scripts": {
         "build": "yarn workspaces foreach -vpi --topological-dev --no-private run build",
         "docs": "run-s docs:generate docs:build",
         "docs:generate": "yarn workspaces foreach -vpi --topological-dev --no-private run docs",
-        "docs:build": "yarn workspace @eventstore/docs run build",
-        "docs:dev": "yarn workspace @eventstore/docs run dev",
-        "serve-docs": "yarn workspace @eventstore/docs serve",
-        "test": "yarn workspaces foreach -v --exclude @eventstore/docs run test",
+        "docs:build": "yarn workspace @eventstore-ui/docs run build",
+        "docs:dev": "yarn workspace @eventstore-ui/docs run dev",
+        "serve-docs": "yarn workspace @eventstore-ui/docs serve",
+        "test": "yarn workspaces foreach -v --exclude @eventstore-ui/docs run test",
         "lint": "yarn workspaces foreach -v run lint",
         "bump": "yarn workspaces foreach --no-private --since version"
     },
     "devDependencies": {
-        "@eventstore/configs": "workspace:*",
+        "@eventstore-ui/configs": "workspace:*",
         "npm-run-all": "^4.1.5"
     },
     "packageManager": "yarn@3.1.0"

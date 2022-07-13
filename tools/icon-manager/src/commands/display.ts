@@ -39,7 +39,7 @@ export const display = async ({
             case req.url === '/icons.js': {
                 return iconDetails(meta)(req, res);
             }
-            case req.url?.startsWith('/lib/@eventstore/components'): {
+            case req.url?.startsWith('/lib/@eventstore-ui/components'): {
                 return esComponents(meta)(req, res);
             }
             case req.url?.startsWith('/lib/icons'): {
@@ -108,7 +108,7 @@ const index: RequestHandler = ({ shouldWatch }) => async (_, res) => {
                 content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
             />
             <meta http-equiv="x-ua-compatible" content="IE=Edge" />
-            <script type="module" src="/lib/@eventstore/components/es-components/es-components.esm.js" data-stencil></script>
+            <script type="module" src="/lib/@eventstore-ui/components/es-components/es-components.esm.js" data-stencil></script>
             <script type="module" src="/lib/icons/index.js"></script>
             <script type="module">
                 import { icons, namespace } from '/icons.js';
@@ -195,14 +195,14 @@ const iconDetails: RequestHandler = ({ indexFile }) => async (req, res) => {
 };
 
 const esComponentsDir = join(
-    dirname(require.resolve('@eventstore/components/package.json')),
+    dirname(require.resolve('@eventstore-ui/components/package.json')),
     '/dist',
 );
 const resolveESComponents = (path: string) => join(esComponentsDir, path);
 const esComponents: RequestHandler = () => async (req, res) => {
     try {
         const path = resolveESComponents(
-            req.url!.replace('/lib/@eventstore/components', ''),
+            req.url!.replace('/lib/@eventstore-ui/components', ''),
         );
         const file = await readFile(path);
         res.writeHead(200, {
@@ -249,8 +249,8 @@ const transpile = (
         },
     });
     return output.outputText.replace(
-        indexFile.iconStoreImportPath ?? '@eventstore/components',
-        '/lib/@eventstore/components/es-components/index.esm.js',
+        indexFile.iconStoreImportPath ?? '@eventstore-ui/components',
+        '/lib/@eventstore-ui/components/es-components/index.esm.js',
     );
 };
 const icons: RequestHandler = ({

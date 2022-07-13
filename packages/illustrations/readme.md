@@ -1,4 +1,4 @@
-# @eventstore/illustrations
+# @eventstore-ui/illustrations
 
 Illustrations for use with the Event Store design system
 
@@ -18,7 +18,7 @@ $ npm login --registry=https://npm.pkg.github.com
 ### Add to your project
 
 ```sh
-yarn add @eventstore/illustrations
+yarn add @eventstore-ui/illustrations
 ```
 
 ## Usage within a stencil project
@@ -26,7 +26,7 @@ yarn add @eventstore/illustrations
 In your `globalScript` file, add an import:
 
 ```ts
-import '@eventstore/illustrations';
+import '@eventstore-ui/illustrations';
 ```
 
 Then you can use the element anywhere in your JSX, html, templates etc.

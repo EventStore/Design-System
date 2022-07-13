@@ -1,5 +1,5 @@
 import { Component, h } from '@stencil/core';
-import { theme } from '@eventstore/theme';
+import { theme } from '@eventstore-ui/theme';
 
 @Component({
     tag: 'docs-background',

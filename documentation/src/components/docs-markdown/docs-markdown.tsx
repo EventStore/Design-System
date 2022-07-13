@@ -1,4 +1,4 @@
-import { router } from '@eventstore/router';
+import { router } from '@eventstore-ui/router';
 import { Component, h, Host, Prop, Element, Watch } from '@stencil/core';
 import markdown from 'markdown-it';
 import anchor from 'markdown-it-anchor';

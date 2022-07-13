@@ -1,6 +1,6 @@
 import { Component, h, Method, Prop } from '@stencil/core';
-import { Link, router } from '@eventstore/router';
-import type { IconDescription } from '@eventstore/components';
+import { Link, router } from '@eventstore-ui/router';
+import type { IconDescription } from '@eventstore-ui/components';
 
 /**
  * A link for the sidebar, sidebar-dropdown, and header-dropdown.

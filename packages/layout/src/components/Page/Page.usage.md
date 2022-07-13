@@ -2,7 +2,7 @@
 
 ```tsx my-great-page.tsx
 import { Component, h, State } from '@stencil/core';
-import { Page, PageState } from '@eventstore/layout';
+import { Page, PageState } from '@eventstore-ui/layout';
 
 import { loadData, Data } from './loadData';
 
@@ -70,5 +70,5 @@ export class MyGreatPage {
 ```
 
 ```css my-great-page.css
-@import url('~@eventstore/layout/css/page.css');
+@import url('~@eventstore-ui/layout/css/page.css');
 ```

@@ -1,4 +1,4 @@
-import { Link } from '@eventstore/router';
+import { Link } from '@eventstore-ui/router';
 import { Component, h, Host } from '@stencil/core';
 import { sitemap } from 'sitemap';
 

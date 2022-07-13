@@ -18,7 +18,7 @@
         "jsxFactory": "h"
     },
     "typedocOptions": {
-        "name": "@eventstore/forms",
+        "name": "@eventstore-ui/forms",
         "entryPoints": ["./src/index.ts"]
     },
     "include": ["src"],

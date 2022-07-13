@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop } from '@stencil/core';
-import { theme } from '@eventstore/theme';
+import { theme } from '@eventstore-ui/theme';
 import type { IconDescription } from '../../components/es-icon/types';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 

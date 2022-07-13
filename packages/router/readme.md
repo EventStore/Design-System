@@ -1,4 +1,4 @@
-# @eventstore/router
+# @eventstore-ui/router
 
 Stencil router using only Functional Components.
 
@@ -18,13 +18,13 @@ $ npm login --registry=https://npm.pkg.github.com
 ### Add to your project
 
 ```sh
-yarn add @eventstore/router
+yarn add @eventstore-ui/router
 ```
 
 Also, include the peer dependencies:
 
 ```sh
-yarn add @eventstore/utils
+yarn add @eventstore-ui/utils
 ```
 
 ## Usage within a stencil project
@@ -32,7 +32,7 @@ yarn add @eventstore/utils
 Initialize the router with your options, in the `componentWillLoad` of the root component.
 
 ```ts
-import { router } from '@eventstore/router';
+import { router } from '@eventstore-ui/router';
 
 @Component({
     tag: 'ui-root',
@@ -50,5 +50,5 @@ export class Root {
 Import the functional components directly, and use them within your components:
 
 ```ts
-import { Link } from '@eventstore/router';
+import { Link } from '@eventstore-ui/router';
 ```

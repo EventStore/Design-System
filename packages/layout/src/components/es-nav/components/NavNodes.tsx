@@ -1,5 +1,5 @@
 import { h, FunctionalComponent, Host } from '@stencil/core';
-import { Link } from '@eventstore/router';
+import { Link } from '@eventstore-ui/router';
 
 import { ICON_NAMESPACE } from '../../../icons/namespace';
 

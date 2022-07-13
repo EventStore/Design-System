@@ -1,4 +1,4 @@
-import { Redirect, Route, Switch } from '@eventstore/router';
+import { Redirect, Route, Switch } from '@eventstore-ui/router';
 import { Component, h, Prop } from '@stencil/core';
 import { Host, Watch } from '@stencil/core/internal';
 import { Lib, sitemap } from 'sitemap';

@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Crumb } from "./components/es-breadcrumb/types";
 import { DisplayErrorVariant } from "./components/es-display-error/types";
 import { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/types";
-import { IconDescription } from "@eventstore/components";
+import { IconDescription } from "@eventstore-ui/components";
 import { LoadingBarStatus } from "./components/es-loading-bar/types";
 import { NavNode, NavTree } from "./components/es-nav/types";
 export namespace Components {
@@ -26,7 +26,7 @@ export namespace Components {
     }
     interface EsDisplayError {
         /**
-          * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore/utils` the details title and description will be shown.
+          * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore-ui/utils` the details title and description will be shown.
          */
         "error": unknown;
         /**
@@ -384,7 +384,7 @@ declare namespace LocalJSX {
     }
     interface EsDisplayError {
         /**
-          * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore/utils` the details title and description will be shown.
+          * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore-ui/utils` the details title and description will be shown.
          */
         "error"?: unknown;
         /**

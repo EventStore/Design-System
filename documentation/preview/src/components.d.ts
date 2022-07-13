@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { LocationSegments, Router } from "@eventstore/router";
+import { LocationSegments, Router } from "@eventstore-ui/router";
 export namespace Components {
     interface PreviewUsageLocation {
         "location"?: LocationSegments;

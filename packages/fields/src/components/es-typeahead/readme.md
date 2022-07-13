@@ -10,7 +10,7 @@
 ### Example
 
 ```tsx
-import { createWorkingData } from '@eventstore/fields';
+import { createWorkingData } from '@eventstore-ui/fields';
 
 interface Example {
     text: string;

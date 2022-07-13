@@ -1,5 +1,5 @@
-import { delegateFocus, HTTPError } from '@eventstore/utils';
-import { toast } from '@eventstore/components';
+import { delegateFocus, HTTPError } from '@eventstore-ui/utils';
+import { toast } from '@eventstore-ui/components';
 
 import type {
     ValidatedFormOptions,

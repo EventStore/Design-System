@@ -1,5 +1,5 @@
 import type { FunctionalComponent, h as JSXFactory } from '@stencil/core';
-import { createLogger } from '@eventstore/utils';
+import { createLogger } from '@eventstore-ui/utils';
 import type { JSXBase } from '@stencil/core/internal';
 
 const ICON_STORE = Symbol.for('es-icon-store');
@@ -68,6 +68,6 @@ class IconStore {
 
 /**
  * Register icons for `es-icon` to reference by name.
- * It is recommended to use [`@eventstore/icon-manager`](/icon-manager) to manage your icons.
+ * It is recommended to use [`@eventstore-ui/icon-manager`](/icon-manager) to manage your icons.
  */
 export const iconStore = window[ICON_STORE] ?? new IconStore();

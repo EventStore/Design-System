@@ -1,5 +1,5 @@
-import { Uri, editor, languages } from '@eventstore/editor/monaco';
-import { debounce } from '@eventstore/utils';
+import { Uri, editor, languages } from '@eventstore-ui/editor/monaco';
+import { debounce } from '@eventstore-ui/utils';
 
 import type { Parts, Models } from './types';
 

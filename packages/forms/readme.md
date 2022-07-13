@@ -1,4 +1,4 @@
-# @eventstore/forms
+# @eventstore-ui/forms
 
 Form validation library for the Event Store design system.
 
@@ -18,11 +18,11 @@ $ npm login --registry=https://npm.pkg.github.com
 ### Add to your project
 
 ```sh
-yarn add @eventstore/stores
+yarn add @eventstore-ui/stores
 ```
 
 Also, include the peer dependencies:
 
 ```sh
-yarn add @eventstore/utils
+yarn add @eventstore-ui/utils
 ```

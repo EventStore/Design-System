@@ -1,6 +1,6 @@
 ```tsx
 import { random, delay } from 'helpers';
-import { toast } from '@eventstore/components';
+import { toast } from '@eventstore-ui/components';
 
 type CoinToss = 'heads' | 'tails';
 

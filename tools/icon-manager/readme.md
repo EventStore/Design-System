@@ -1,11 +1,11 @@
-# @eventstore/icon-manager
+# @eventstore-ui/icon-manager
 
 Automated icon inclusion for Event Store design system.
 
 ## Install
 
 ```shell
-yarn add --dev @eventstore/icon-manager
+yarn add --dev @eventstore-ui/icon-manager
 ```
 
 ## Usage
@@ -183,7 +183,7 @@ icon namespace --help
 icon upgrade
 ```
 
-Upgrades from an earlier version on `icon-manager` & `@eventstore/components`
+Upgrades from an earlier version on `icon-manager` & `@eventstore-ui/components`
 
 **Options**
 

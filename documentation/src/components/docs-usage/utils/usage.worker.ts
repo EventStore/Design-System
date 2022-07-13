@@ -2,7 +2,7 @@ import type StencilTypes from '@stencil/core/compiler';
 import type RollupTypes from 'rollup';
 import { replace } from './replace';
 
-import { createLogger } from '@eventstore/utils';
+import { createLogger } from '@eventstore-ui/utils';
 import type { Files } from './types';
 import { Build } from '@stencil/core';
 
@@ -31,15 +31,15 @@ const resolveLookup = new Map<string, string>([
         '@stencil/core/internal/app-data',
         '/modules/@stencil/core/internal/app-data/index.js',
     ],
-    ['@eventstore/components', '/modules/@eventstore/components/index.js'],
-    ['@eventstore/fields', '/modules/@eventstore/fields/index.js'],
-    ['@eventstore/editor', '/modules/@eventstore/editor/index.js'],
-    ['@eventstore/layout', '/modules/@eventstore/layout/index.js'],
-    ['@eventstore/theme', '/modules/@eventstore/theme/index.js'],
-    ['@eventstore/router', '/modules/@eventstore/router/index.js'],
-    ['@eventstore/utils', '/modules/@eventstore/utils/index.mjs'],
-    ['@eventstore/stores', '/modules/@eventstore/stores/index.mjs'],
-    ['@eventstore/forms', '/modules/@eventstore/forms/index.mjs'],
+    ['@eventstore-ui/components', '/modules/@eventstore-ui/components/index.js'],
+    ['@eventstore-ui/fields', '/modules/@eventstore-ui/fields/index.js'],
+    ['@eventstore-ui/editor', '/modules/@eventstore-ui/editor/index.js'],
+    ['@eventstore-ui/layout', '/modules/@eventstore-ui/layout/index.js'],
+    ['@eventstore-ui/theme', '/modules/@eventstore-ui/theme/index.js'],
+    ['@eventstore-ui/router', '/modules/@eventstore-ui/router/index.js'],
+    ['@eventstore-ui/utils', '/modules/@eventstore-ui/utils/index.mjs'],
+    ['@eventstore-ui/stores', '/modules/@eventstore-ui/stores/index.mjs'],
+    ['@eventstore-ui/forms', '/modules/@eventstore-ui/forms/index.mjs'],
 ]);
 
 let ready: Promise<void>;

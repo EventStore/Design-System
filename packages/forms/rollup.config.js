@@ -19,8 +19,8 @@ export default {
     ],
     external: [
         '@stencil/core',
-        '@eventstore/components',
-        '@eventstore/stores',
-        '@eventstore/utils',
+        '@eventstore-ui/components',
+        '@eventstore-ui/stores',
+        '@eventstore-ui/utils',
     ],
 };

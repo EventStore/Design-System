@@ -1,5 +1,5 @@
 import { Component, h, Prop, Watch, Element } from '@stencil/core';
-import { delegateFocus } from '@eventstore/utils';
+import { delegateFocus } from '@eventstore-ui/utils';
 import type { WizardPage } from './types';
 
 const PAGES_REF = '__PAGES_REF__';

@@ -148,7 +148,7 @@ const createComponent = ({ title, light, dark }, noCss) => {
 
     return `
 import { Component, h, Host } from '@stencil/core';
-import { theme } from '@eventstore/theme';
+import { theme } from '@eventstore-ui/theme';
 
 /** 
  * Displays ${capitalCase(title)} illustration. 

@@ -1,5 +1,5 @@
 import { Component, h, Host } from '@stencil/core';
-import { Switch, Route, router } from '@eventstore/router';
+import { Switch, Route, router } from '@eventstore-ui/router';
 import { sitemap } from 'sitemap';
 
 @Component({

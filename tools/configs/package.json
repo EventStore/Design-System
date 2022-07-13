@@ -1,5 +1,5 @@
 {
-    "name": "@eventstore/configs",
+    "name": "@eventstore-ui/configs",
     "version": "0.1.0-alpha.8",
     "description": "Configs for the Event Store Design System",
     "license": "Apache-2.0",
@@ -27,7 +27,7 @@
         "directory": "tools/configs"
     },
     "dependencies": {
-        "@eventstore/assets": "workspace:*",
+        "@eventstore-ui/assets": "workspace:*",
         "@stencil/core": "2.15.1",
         "@stencil/postcss": "^2.1.0",
         "postcss-preset-env": "6.7.0"

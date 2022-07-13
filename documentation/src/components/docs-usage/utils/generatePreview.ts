@@ -4,7 +4,7 @@ import iconDetails from 'icons/icons.json';
 export const generatePreview = ({ parts, showLocation }: Settings): Files => {
     const previewComponent = `  
     import { Component, h, Fragment, Prop, State, Host } from '@stencil/core';
-    import { router } from '@eventstore/router';
+    import { router } from '@eventstore-ui/router';
     import Usage from 'usage';
     
     @Component({

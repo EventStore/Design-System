@@ -17,7 +17,7 @@ import {
 } from '@floating-ui/dom';
 
 import { size } from '@floating-ui/core';
-import { allowFocus, shadowMutationObserver } from '@eventstore/utils';
+import { allowFocus, shadowMutationObserver } from '@eventstore-ui/utils';
 
 export type Constrain = 'none' | 'width' | 'height' | 'both';
 

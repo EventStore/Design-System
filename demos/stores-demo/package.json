@@ -2,7 +2,7 @@
     "name": "stores-demo",
     "version": "0.1.0-alpha",
     "private": true,
-    "description": "Demo for @eventstore/stores",
+    "description": "Demo for @eventstore-ui/stores",
     "scripts": {
         "build": "stencil build",
         "start": "stencil build --dev --watch --serve --no-open",
@@ -11,8 +11,8 @@
         "lint": "yarn g:prettier"
     },
     "dependencies": {
-        "@eventstore/stores": "workspace:*",
-        "@eventstore/utils": "workspace:*"
+        "@eventstore-ui/stores": "workspace:*",
+        "@eventstore-ui/utils": "workspace:*"
     },
     "devDependencies": {
         "@stencil/core": "2.15.1"

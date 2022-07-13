@@ -5,7 +5,7 @@ import {
     getElement,
     Fragment,
 } from '@stencil/core';
-import { PageTitle } from '@eventstore/router';
+import { PageTitle } from '@eventstore-ui/router';
 import { setProgress } from '../es-loading-bar/utils/setProgress';
 
 export type PageState = 'loading' | 'ready' | Error;
@@ -124,7 +124,7 @@ const PageBody: FunctionalComponent<PageProps> = (
 
 /**
  * Create a standard page.
- * Add `@import url('~@eventstore/layout/css/page.css')` to the containing web component for styles.
+ * Add `@import url('~@eventstore-ui/layout/css/page.css')` to the containing web component for styles.
  * @usage ./Page.usage.md
  */
 export const Page: FunctionalComponent<PageProps> = (props, children) => (

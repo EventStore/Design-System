@@ -7,7 +7,7 @@ import {
     Event,
     EventEmitter,
 } from '@stencil/core';
-import type { IconDescription } from '@eventstore/components';
+import type { IconDescription } from '@eventstore-ui/components';
 
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import type {

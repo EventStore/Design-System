@@ -1,4 +1,4 @@
-# @eventstore/editor
+# @eventstore-ui/editor
 
 Monaco editor wrapped in a web component, with pre-built workers.
 
@@ -18,13 +18,13 @@ $ npm login --registry=https://npm.pkg.github.com
 ### Add to your project
 
 ```sh
-yarn add @eventstore/editor
+yarn add @eventstore-ui/editor
 ```
 
 Also, include the peer dependencies:
 
 ```sh
-yarn add @eventstore/components @eventstore/utils
+yarn add @eventstore-ui/components @eventstore-ui/utils
 ```
 
 ## Set up within a Stencil project:
@@ -33,7 +33,7 @@ In your stencil config, add the workers to your [copy task](https://stenciljs.co
 
 ```tsx
 // import the path to the workers
-import { workerPath } from '@eventstore/editor/configure';
+import { workerPath } from '@eventstore-ui/editor/configure';
 
 export const config: Config = {
     // ...
@@ -56,12 +56,12 @@ In your `globalScript` file:
 
 ```tsx
 // Add the core web components to the global pool
-import '@eventstore/components';
+import '@eventstore-ui/components';
 // add the editor web components to the global pool
-import '@eventstore/editor';
+import '@eventstore-ui/editor';
 
 // import the monaco initialization code
-import { initialize } from '@eventstore/editor/initialize';
+import { initialize } from '@eventstore-ui/editor/initialize';
 
 // initialize the monaco library (with options, if required)
 initialize();

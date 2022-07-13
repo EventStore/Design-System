@@ -4,7 +4,7 @@ import { CopyTask } from '@stencil/core/internal';
 import { postcss } from '@stencil/postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 
-import { assetsPath } from '@eventstore/assets';
+import { assetsPath } from '@eventstore-ui/assets';
 
 export const flags = parseFlags(process.argv.slice(2));
 

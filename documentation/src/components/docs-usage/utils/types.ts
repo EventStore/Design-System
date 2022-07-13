@@ -1,4 +1,4 @@
-import type { editor } from '@eventstore/editor/monaco';
+import type { editor } from '@eventstore-ui/editor/monaco';
 
 export interface FileDetails {
     fileName: string;

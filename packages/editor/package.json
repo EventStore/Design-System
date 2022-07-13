@@ -1,5 +1,5 @@
 {
-    "name": "@eventstore/editor",
+    "name": "@eventstore-ui/editor",
     "version": "0.1.0-alpha.8",
     "description": "Monaco Editor for Event Store Design System",
     "license": "Apache-2.0",
@@ -58,15 +58,15 @@
         "monaco-editor": "^0.22.3"
     },
     "peerDependencies": {
-        "@eventstore/components": "0.1.x",
-        "@eventstore/theme": "0.1.x",
-        "@eventstore/utils": "0.1.x"
+        "@eventstore-ui/components": "0.1.x",
+        "@eventstore-ui/theme": "0.1.x",
+        "@eventstore-ui/utils": "0.1.x"
     },
     "devDependencies": {
-        "@eventstore/components": "workspace:*",
-        "@eventstore/configs": "workspace:*",
-        "@eventstore/theme": "workspace:*",
-        "@eventstore/utils": "workspace:*",
+        "@eventstore-ui/components": "workspace:*",
+        "@eventstore-ui/configs": "workspace:*",
+        "@eventstore-ui/theme": "workspace:*",
+        "@eventstore-ui/utils": "workspace:*",
         "@stencil/core": "2.15.1",
         "jest": "^26.6.3",
         "npm-run-all": "^4.1.5",

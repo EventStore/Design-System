@@ -10,7 +10,7 @@
 ### Example
 
 ```tsx
-import { Tab } from '@eventstore/components';
+import { Tab } from '@eventstore-ui/components';
 
 const tabs: Tab[] = [
     {

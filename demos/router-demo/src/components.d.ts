@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MatchResults, RouterHistory } from "@eventstore/router";
+import { MatchResults, RouterHistory } from "@eventstore-ui/router";
 export namespace Components {
     interface RouterDemoApp {
     }

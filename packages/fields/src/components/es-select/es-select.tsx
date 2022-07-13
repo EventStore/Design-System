@@ -7,7 +7,7 @@ import {
     Element,
     VNode,
 } from '@stencil/core';
-import type { IconDescription } from '@eventstore/components';
+import type { IconDescription } from '@eventstore-ui/components';
 
 import type {
     ValidationMessages,

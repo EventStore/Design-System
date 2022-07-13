@@ -1,6 +1,6 @@
 ```tsx
 import { FunctionalComponent } from '@stencil/core';
-import { createStore } from '@eventstore/stores';
+import { createStore } from '@eventstore-ui/stores';
 
 const { state } = createStore<{ location: string }>({
     location: '1-1',

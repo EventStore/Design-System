@@ -2349,21 +2349,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eventstore/assets@workspace:*, @eventstore/assets@workspace:tools/assets":
+"@eventstore-ui/assets@workspace:*, @eventstore-ui/assets@workspace:tools/assets":
   version: 0.0.0-use.local
-  resolution: "@eventstore/assets@workspace:tools/assets"
+  resolution: "@eventstore-ui/assets@workspace:tools/assets"
   languageName: unknown
   linkType: soft
 
-"@eventstore/components@workspace:*, @eventstore/components@workspace:packages/components":
+"@eventstore-ui/components@workspace:*, @eventstore-ui/components@workspace:packages/components":
   version: 0.0.0-use.local
-  resolution: "@eventstore/components@workspace:packages/components"
+  resolution: "@eventstore-ui/components@workspace:packages/components"
   dependencies:
-    "@eventstore/configs": "workspace:*"
-    "@eventstore/icon-manager": "workspace:*"
-    "@eventstore/router": "workspace:*"
-    "@eventstore/theme": "workspace:*"
-    "@eventstore/utils": "workspace:*"
+    "@eventstore-ui/configs": "workspace:*"
+    "@eventstore-ui/icon-manager": "workspace:*"
+    "@eventstore-ui/router": "workspace:*"
+    "@eventstore-ui/theme": "workspace:*"
+    "@eventstore-ui/utils": "workspace:*"
     "@floating-ui/dom": 0.4.1
     "@stencil/core": 2.15.1
     jest: ^26.6.3
@@ -2372,17 +2372,17 @@ __metadata:
     typedoc: ^0.22.13
     typescript: 4.5.5
   peerDependencies:
-    "@eventstore/router": 0.1.x
-    "@eventstore/theme": 0.1.x
-    "@eventstore/utils": 0.1.x
+    "@eventstore-ui/router": 0.1.x
+    "@eventstore-ui/theme": 0.1.x
+    "@eventstore-ui/utils": 0.1.x
   languageName: unknown
   linkType: soft
 
-"@eventstore/configs@workspace:*, @eventstore/configs@workspace:tools/configs":
+"@eventstore-ui/configs@workspace:*, @eventstore-ui/configs@workspace:tools/configs":
   version: 0.0.0-use.local
-  resolution: "@eventstore/configs@workspace:tools/configs"
+  resolution: "@eventstore-ui/configs@workspace:tools/configs"
   dependencies:
-    "@eventstore/assets": "workspace:*"
+    "@eventstore-ui/assets": "workspace:*"
     "@stencil/core": 2.15.1
     "@stencil/postcss": ^2.1.0
     "@typescript-eslint/eslint-plugin": ^5.6.0
@@ -2399,22 +2399,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eventstore/docs@workspace:documentation":
+"@eventstore-ui/docs@workspace:documentation":
   version: 0.0.0-use.local
-  resolution: "@eventstore/docs@workspace:documentation"
+  resolution: "@eventstore-ui/docs@workspace:documentation"
   dependencies:
-    "@eventstore/assets": "workspace:*"
-    "@eventstore/components": "workspace:*"
-    "@eventstore/configs": "workspace:*"
-    "@eventstore/editor": "workspace:*"
-    "@eventstore/fields": "workspace:*"
-    "@eventstore/icon-manager": "workspace:*"
-    "@eventstore/illustrations": "workspace:*"
-    "@eventstore/layout": "workspace:*"
-    "@eventstore/router": "workspace:*"
-    "@eventstore/stores": "workspace:*"
-    "@eventstore/theme": "workspace:*"
-    "@eventstore/utils": "workspace:*"
+    "@eventstore-ui/assets": "workspace:*"
+    "@eventstore-ui/components": "workspace:*"
+    "@eventstore-ui/configs": "workspace:*"
+    "@eventstore-ui/editor": "workspace:*"
+    "@eventstore-ui/fields": "workspace:*"
+    "@eventstore-ui/icon-manager": "workspace:*"
+    "@eventstore-ui/illustrations": "workspace:*"
+    "@eventstore-ui/layout": "workspace:*"
+    "@eventstore-ui/router": "workspace:*"
+    "@eventstore-ui/stores": "workspace:*"
+    "@eventstore-ui/theme": "workspace:*"
+    "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": 2.15.1
     "@stencil/postcss": ^2.1.0
     "@types/jest": 25.2.1
@@ -2441,14 +2441,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eventstore/editor@workspace:*, @eventstore/editor@workspace:packages/editor":
+"@eventstore-ui/editor@workspace:*, @eventstore-ui/editor@workspace:packages/editor":
   version: 0.0.0-use.local
-  resolution: "@eventstore/editor@workspace:packages/editor"
+  resolution: "@eventstore-ui/editor@workspace:packages/editor"
   dependencies:
-    "@eventstore/components": "workspace:*"
-    "@eventstore/configs": "workspace:*"
-    "@eventstore/theme": "workspace:*"
-    "@eventstore/utils": "workspace:*"
+    "@eventstore-ui/components": "workspace:*"
+    "@eventstore-ui/configs": "workspace:*"
+    "@eventstore-ui/theme": "workspace:*"
+    "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": 2.15.1
     jest: ^26.6.3
     monaco-editor: ^0.22.3
@@ -2458,21 +2458,21 @@ __metadata:
     typedoc: ^0.22.13
     typescript: 4.5.5
   peerDependencies:
-    "@eventstore/components": 0.1.x
-    "@eventstore/theme": 0.1.x
-    "@eventstore/utils": 0.1.x
+    "@eventstore-ui/components": 0.1.x
+    "@eventstore-ui/theme": 0.1.x
+    "@eventstore-ui/utils": 0.1.x
   languageName: unknown
   linkType: soft
 
-"@eventstore/fields@workspace:*, @eventstore/fields@workspace:packages/fields":
+"@eventstore-ui/fields@workspace:*, @eventstore-ui/fields@workspace:packages/fields":
   version: 0.0.0-use.local
-  resolution: "@eventstore/fields@workspace:packages/fields"
+  resolution: "@eventstore-ui/fields@workspace:packages/fields"
   dependencies:
-    "@eventstore/components": "workspace:*"
-    "@eventstore/configs": "workspace:*"
-    "@eventstore/icon-manager": "workspace:*"
-    "@eventstore/theme": "workspace:*"
-    "@eventstore/utils": "workspace:*"
+    "@eventstore-ui/components": "workspace:*"
+    "@eventstore-ui/configs": "workspace:*"
+    "@eventstore-ui/icon-manager": "workspace:*"
+    "@eventstore-ui/theme": "workspace:*"
+    "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": 2.15.1
     imask: 6.0.5
     jest: ^26.6.3
@@ -2481,19 +2481,19 @@ __metadata:
     typedoc: ^0.22.13
     typescript: 4.5.5
   peerDependencies:
-    "@eventstore/components": 0.1.x
-    "@eventstore/theme": 0.1.x
-    "@eventstore/utils": 0.1.x
+    "@eventstore-ui/components": 0.1.x
+    "@eventstore-ui/theme": 0.1.x
+    "@eventstore-ui/utils": 0.1.x
   languageName: unknown
   linkType: soft
 
-"@eventstore/forms@workspace:*, @eventstore/forms@workspace:packages/forms":
+"@eventstore-ui/forms@workspace:*, @eventstore-ui/forms@workspace:packages/forms":
   version: 0.0.0-use.local
-  resolution: "@eventstore/forms@workspace:packages/forms"
+  resolution: "@eventstore-ui/forms@workspace:packages/forms"
   dependencies:
-    "@eventstore/components": "workspace:*"
-    "@eventstore/stores": "workspace:*"
-    "@eventstore/utils": "workspace:*"
+    "@eventstore-ui/components": "workspace:*"
+    "@eventstore-ui/stores": "workspace:*"
+    "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": ^2.15.0
     "@types/jest": 26.0.3
     jest: ^26.6.3
@@ -2502,15 +2502,15 @@ __metadata:
     typedoc: ^0.22.13
     typescript: 4.5.5
   peerDependencies:
-    "@eventstore/components": 0.1.x
-    "@eventstore/stores": 0.1.x
-    "@eventstore/utils": 0.1.x
+    "@eventstore-ui/components": 0.1.x
+    "@eventstore-ui/stores": 0.1.x
+    "@eventstore-ui/utils": 0.1.x
   languageName: unknown
   linkType: soft
 
-"@eventstore/icon-manager@workspace:*, @eventstore/icon-manager@workspace:tools/icon-manager":
+"@eventstore-ui/icon-manager@workspace:*, @eventstore-ui/icon-manager@workspace:tools/icon-manager":
   version: 0.0.0-use.local
-  resolution: "@eventstore/icon-manager@workspace:tools/icon-manager"
+  resolution: "@eventstore-ui/icon-manager@workspace:tools/icon-manager"
   dependencies:
     "@types/node": ^16.11.9
     "@types/semver": ^7.3.9
@@ -2528,11 +2528,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eventstore/illustrations@workspace:*, @eventstore/illustrations@workspace:packages/illustrations":
+"@eventstore-ui/illustrations@workspace:*, @eventstore-ui/illustrations@workspace:packages/illustrations":
   version: 0.0.0-use.local
-  resolution: "@eventstore/illustrations@workspace:packages/illustrations"
+  resolution: "@eventstore-ui/illustrations@workspace:packages/illustrations"
   dependencies:
-    "@eventstore/theme": "workspace:*"
+    "@eventstore-ui/theme": "workspace:*"
     "@stencil/core": 2.15.1
     case-anything: ^2.1.10
     jest: ^26.6.3
@@ -2544,21 +2544,21 @@ __metadata:
     typescript: 4.5.5
     yargs: ^15.3.1
   peerDependencies:
-    "@eventstore/theme": 0.1.x
+    "@eventstore-ui/theme": 0.1.x
   languageName: unknown
   linkType: soft
 
-"@eventstore/layout@workspace:*, @eventstore/layout@workspace:packages/layout":
+"@eventstore-ui/layout@workspace:*, @eventstore-ui/layout@workspace:packages/layout":
   version: 0.0.0-use.local
-  resolution: "@eventstore/layout@workspace:packages/layout"
+  resolution: "@eventstore-ui/layout@workspace:packages/layout"
   dependencies:
-    "@eventstore/components": "workspace:*"
-    "@eventstore/configs": "workspace:*"
-    "@eventstore/icon-manager": "workspace:*"
-    "@eventstore/illustrations": "workspace:*"
-    "@eventstore/router": "workspace:*"
-    "@eventstore/theme": "workspace:*"
-    "@eventstore/utils": "workspace:*"
+    "@eventstore-ui/components": "workspace:*"
+    "@eventstore-ui/configs": "workspace:*"
+    "@eventstore-ui/icon-manager": "workspace:*"
+    "@eventstore-ui/illustrations": "workspace:*"
+    "@eventstore-ui/router": "workspace:*"
+    "@eventstore-ui/theme": "workspace:*"
+    "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": 2.15.1
     jest: ^26.6.3
     npm-run-all: ^4.1.5
@@ -2566,17 +2566,17 @@ __metadata:
     typedoc: ^0.22.13
     typescript: 4.5.5
   peerDependencies:
-    "@eventstore/components": 0.1.x
-    "@eventstore/illustrations": 0.1.x
-    "@eventstore/router": 0.1.x
-    "@eventstore/theme": 0.1.x
-    "@eventstore/utils": 0.1.x
+    "@eventstore-ui/components": 0.1.x
+    "@eventstore-ui/illustrations": 0.1.x
+    "@eventstore-ui/router": 0.1.x
+    "@eventstore-ui/theme": 0.1.x
+    "@eventstore-ui/utils": 0.1.x
   languageName: unknown
   linkType: soft
 
-"@eventstore/postcss-palette-plugin@workspace:tools/postcss-palette-plugin":
+"@eventstore-ui/postcss-palette-plugin@workspace:tools/postcss-palette-plugin":
   version: 0.0.0-use.local
-  resolution: "@eventstore/postcss-palette-plugin@workspace:tools/postcss-palette-plugin"
+  resolution: "@eventstore-ui/postcss-palette-plugin@workspace:tools/postcss-palette-plugin"
   dependencies:
     "@babel/core": ^7.10.4
     "@babel/preset-env": ^7.10.4
@@ -2588,24 +2588,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eventstore/router@workspace:*, @eventstore/router@workspace:packages/router":
+"@eventstore-ui/router@workspace:*, @eventstore-ui/router@workspace:packages/router":
   version: 0.0.0-use.local
-  resolution: "@eventstore/router@workspace:packages/router"
+  resolution: "@eventstore-ui/router@workspace:packages/router"
   dependencies:
-    "@eventstore/utils": "workspace:*"
+    "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": 2.15.1
     "@types/jest": 26.0.3
     jest: ^26.6.3
     typedoc: ^0.22.13
     typescript: 4.5.5
   peerDependencies:
-    "@eventstore/utils": 0.1.x
+    "@eventstore-ui/utils": 0.1.x
   languageName: unknown
   linkType: soft
 
-"@eventstore/stencil-markdown-plugin@workspace:tools/stencil-markdown-plugin":
+"@eventstore-ui/stencil-markdown-plugin@workspace:tools/stencil-markdown-plugin":
   version: 0.0.0-use.local
-  resolution: "@eventstore/stencil-markdown-plugin@workspace:tools/stencil-markdown-plugin"
+  resolution: "@eventstore-ui/stencil-markdown-plugin@workspace:tools/stencil-markdown-plugin"
   dependencies:
     "@mdx-js/mdx": ^1.6.22
     "@rollup/pluginutils": ^3.1.0
@@ -2622,11 +2622,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eventstore/stores@workspace:*, @eventstore/stores@workspace:packages/stores":
+"@eventstore-ui/stores@workspace:*, @eventstore-ui/stores@workspace:packages/stores":
   version: 0.0.0-use.local
-  resolution: "@eventstore/stores@workspace:packages/stores"
+  resolution: "@eventstore-ui/stores@workspace:packages/stores"
   dependencies:
-    "@eventstore/utils": "workspace:*"
+    "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": 2.15.1
     "@types/jest": 26.0.3
     jest: ^26.6.3
@@ -2635,27 +2635,27 @@ __metadata:
     typedoc: ^0.22.13
     typescript: 4.5.5
   peerDependencies:
-    "@eventstore/utils": 0.1.x
+    "@eventstore-ui/utils": 0.1.x
   languageName: unknown
   linkType: soft
 
-"@eventstore/theme@workspace:*, @eventstore/theme@workspace:packages/theme":
+"@eventstore-ui/theme@workspace:*, @eventstore-ui/theme@workspace:packages/theme":
   version: 0.0.0-use.local
-  resolution: "@eventstore/theme@workspace:packages/theme"
+  resolution: "@eventstore-ui/theme@workspace:packages/theme"
   dependencies:
-    "@eventstore/utils": "workspace:*"
+    "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": 2.15.1
     jest: ^26.6.3
     typedoc: ^0.22.13
     typescript: 4.5.5
   peerDependencies:
-    "@eventstore/utils": 0.1.x
+    "@eventstore-ui/utils": 0.1.x
   languageName: unknown
   linkType: soft
 
-"@eventstore/typedoc-plugin-usage@workspace:tools/typedoc-plugin-usage":
+"@eventstore-ui/typedoc-plugin-usage@workspace:tools/typedoc-plugin-usage":
   version: 0.0.0-use.local
-  resolution: "@eventstore/typedoc-plugin-usage@workspace:tools/typedoc-plugin-usage"
+  resolution: "@eventstore-ui/typedoc-plugin-usage@workspace:tools/typedoc-plugin-usage"
   dependencies:
     "@types/node": ^16.11.9
     typedoc: ^0.22.13
@@ -2665,14 +2665,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eventstore/utils@workspace:*, @eventstore/utils@workspace:packages/utils":
+"@eventstore-ui/utils@workspace:*, @eventstore-ui/utils@workspace:packages/utils":
   version: 0.0.0-use.local
-  resolution: "@eventstore/utils@workspace:packages/utils"
+  resolution: "@eventstore-ui/utils@workspace:packages/utils"
   dependencies:
     "@babel/core": ^7.12.10
     "@babel/preset-env": ^7.12.11
     "@babel/preset-typescript": ^7.12.7
-    "@eventstore/configs": "workspace:*"
+    "@eventstore-ui/configs": "workspace:*"
     babel-jest: ^26.1.0
     jest: ^26.6.3
     npm-run-all: ^4.1.5
@@ -6515,17 +6515,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "forms-demo@workspace:demos/forms-demo"
   dependencies:
-    "@eventstore/assets": "workspace:*"
-    "@eventstore/components": "workspace:*"
-    "@eventstore/configs": "workspace:*"
-    "@eventstore/fields": "workspace:*"
-    "@eventstore/forms": "workspace:*"
-    "@eventstore/icon-manager": "workspace:*"
-    "@eventstore/layout": "workspace:*"
-    "@eventstore/router": "workspace:*"
-    "@eventstore/stores": "workspace:*"
-    "@eventstore/theme": "workspace:*"
-    "@eventstore/utils": "workspace:*"
+    "@eventstore-ui/assets": "workspace:*"
+    "@eventstore-ui/components": "workspace:*"
+    "@eventstore-ui/configs": "workspace:*"
+    "@eventstore-ui/fields": "workspace:*"
+    "@eventstore-ui/forms": "workspace:*"
+    "@eventstore-ui/icon-manager": "workspace:*"
+    "@eventstore-ui/layout": "workspace:*"
+    "@eventstore-ui/router": "workspace:*"
+    "@eventstore-ui/stores": "workspace:*"
+    "@eventstore-ui/theme": "workspace:*"
+    "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": 2.15.1
   languageName: unknown
   linkType: soft
@@ -11503,7 +11503,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@eventstore/configs": "workspace:*"
+    "@eventstore-ui/configs": "workspace:*"
     npm-run-all: ^4.1.5
   languageName: unknown
   linkType: soft
@@ -11512,7 +11512,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "router-demo@workspace:demos/router-demo"
   dependencies:
-    "@eventstore/router": "workspace:*"
+    "@eventstore-ui/router": "workspace:*"
     "@stencil/core": 2.15.1
   languageName: unknown
   linkType: soft
@@ -12056,8 +12056,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stores-demo@workspace:demos/stores-demo"
   dependencies:
-    "@eventstore/stores": "workspace:*"
-    "@eventstore/utils": "workspace:*"
+    "@eventstore-ui/stores": "workspace:*"
+    "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": 2.15.1
   languageName: unknown
   linkType: soft

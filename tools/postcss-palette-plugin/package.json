@@ -1,8 +1,8 @@
 {
-    "name": "@eventstore/postcss-palette-plugin",
+    "name": "@eventstore-ui/postcss-palette-plugin",
     "version": "0.1.0-alpha.0",
     "description": "PostCSS plugin that imports a palette into your css by convert a js palette into css vars.",
-    "deprecated": "Superseeded by @eventstore/theme",
+    "deprecated": "Superseeded by @eventstore-ui/theme",
     "license": "Apache-2.0",
     "main": "./dist/injectPalettePlugin",
     "files": [
@@ -23,7 +23,7 @@
         "test": "jest",
         "lint": "yarn g:lint"
     },
-    "prettier": "@eventstore/configs/prettier",
+    "prettier": "@eventstore-ui/configs/prettier",
     "dependencies": {
         "postcss": "^8.3.6"
     },

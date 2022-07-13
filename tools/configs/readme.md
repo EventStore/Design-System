@@ -1,4 +1,4 @@
-# @eventstore/configs
+# @eventstore-ui/configs
 
 Configs for the Event Store design system
 
@@ -9,7 +9,7 @@ Includes all required dependencies for [eslint](https://eslint.org/). Hook up th
 `.eslint.js`
 
 ```js
-module.exports = require('@eventstore/configs/eslint');
+module.exports = require('@eventstore-ui/configs/eslint');
 ```
 
 ## Prettier
@@ -19,5 +19,5 @@ Includes all required dependencies for [prettier](https://prettier.io/). Hook up
 `package.json`
 
 ```json
-"prettier": "@eventstore/configs/prettier"
+"prettier": "@eventstore-ui/configs/prettier"
 ```

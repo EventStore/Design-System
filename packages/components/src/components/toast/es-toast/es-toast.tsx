@@ -7,7 +7,7 @@ import {
     State,
     Method,
 } from '@stencil/core';
-import { theme } from '@eventstore/theme';
+import { theme } from '@eventstore-ui/theme';
 import type { ToastLevel, Toast } from '../types';
 
 /** @internal */

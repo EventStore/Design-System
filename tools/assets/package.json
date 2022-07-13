@@ -1,5 +1,5 @@
 {
-    "name": "@eventstore/assets",
+    "name": "@eventstore-ui/assets",
     "version": "0.1.0-alpha.8",
     "description": "Assets for use with the Event Store Design System",
     "license": "Apache-2.0",

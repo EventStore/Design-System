@@ -9,8 +9,8 @@ import {
     Fragment,
     Host,
 } from '@stencil/core';
-import { theme } from '@eventstore/theme';
-import type { IconDescription } from '@eventstore/components';
+import { theme } from '@eventstore-ui/theme';
+import type { IconDescription } from '@eventstore-ui/components';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import type { FieldChange } from '../../types';
 

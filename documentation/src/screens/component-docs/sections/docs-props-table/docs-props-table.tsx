@@ -1,6 +1,6 @@
 import { Component, h, Prop, Fragment, Host } from '@stencil/core';
 import type { JsonDocsProp } from '@stencil/core/internal';
-import type { TableCells } from '@eventstore/components';
+import type { TableCells } from '@eventstore-ui/components';
 
 @Component({
     tag: 'docs-props-table',

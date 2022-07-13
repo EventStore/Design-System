@@ -1,4 +1,4 @@
-# @eventstore/utils
+# @eventstore-ui/utils
 
 Helpful utilities for the Event Store design system. These utililities are used across the design system, and should be provided as a peer dependancy.
 
@@ -18,5 +18,5 @@ $ npm login --registry=https://npm.pkg.github.com
 ### Add to your project
 
 ```sh
-yarn add @eventstore/utils
+yarn add @eventstore-ui/utils
 ```

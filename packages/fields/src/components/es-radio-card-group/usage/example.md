@@ -1,5 +1,5 @@
 ```tsx
-import { createValidatedForm } from '@eventstore/forms';
+import { createValidatedForm } from '@eventstore-ui/forms';
 
 interface Example {
     best: string | null;

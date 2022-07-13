@@ -1,5 +1,5 @@
-@import url('~@eventstore/layout/css/root.css');
-@import url('~@eventstore/assets/font-face.css');
+@import url('~@eventstore-ui/layout/css/root.css');
+@import url('~@eventstore-ui/assets/font-face.css');
 
 .monaco-aria-container {
     display: none;
