@@ -217,6 +217,8 @@ export namespace Components {
     }
     interface EsThemePicker {
     }
+    interface EsToolbar {
+    }
 }
 declare global {
     interface HTMLDevRootElement extends Components.DevRoot, HTMLStencilElement {
@@ -345,6 +347,12 @@ declare global {
         prototype: HTMLEsThemePickerElement;
         new (): HTMLEsThemePickerElement;
     };
+    interface HTMLEsToolbarElement extends Components.EsToolbar, HTMLStencilElement {
+    }
+    var HTMLEsToolbarElement: {
+        prototype: HTMLEsToolbarElement;
+        new (): HTMLEsToolbarElement;
+    };
     interface HTMLElementTagNameMap {
         "dev-root": HTMLDevRootElement;
         "es-breadcrumb": HTMLEsBreadcrumbElement;
@@ -367,6 +375,7 @@ declare global {
         "es-sidebar-dropdown": HTMLEsSidebarDropdownElement;
         "es-theme-dropdown": HTMLEsThemeDropdownElement;
         "es-theme-picker": HTMLEsThemePickerElement;
+        "es-toolbar": HTMLEsToolbarElement;
     }
 }
 declare namespace LocalJSX {
@@ -563,6 +572,8 @@ declare namespace LocalJSX {
     }
     interface EsThemePicker {
     }
+    interface EsToolbar {
+    }
     interface IntrinsicElements {
         "dev-root": DevRoot;
         "es-breadcrumb": EsBreadcrumb;
@@ -585,6 +596,7 @@ declare namespace LocalJSX {
         "es-sidebar-dropdown": EsSidebarDropdown;
         "es-theme-dropdown": EsThemeDropdown;
         "es-theme-picker": EsThemePicker;
+        "es-toolbar": EsToolbar;
     }
 }
 export { LocalJSX as JSX };
@@ -612,6 +624,7 @@ declare module "@stencil/core" {
             "es-sidebar-dropdown": LocalJSX.EsSidebarDropdown & JSXBase.HTMLAttributes<HTMLEsSidebarDropdownElement>;
             "es-theme-dropdown": LocalJSX.EsThemeDropdown & JSXBase.HTMLAttributes<HTMLEsThemeDropdownElement>;
             "es-theme-picker": LocalJSX.EsThemePicker & JSXBase.HTMLAttributes<HTMLEsThemePickerElement>;
+            "es-toolbar": LocalJSX.EsToolbar & JSXBase.HTMLAttributes<HTMLEsToolbarElement>;
         }
     }
 }

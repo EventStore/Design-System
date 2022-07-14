@@ -1,0 +1,12 @@
+:host {
+    box-sizing: border-box;
+    grid-area: toolbar;
+    position: fixed;
+    top: var(--layout-body-top);
+    bottom: var(--layout-body-bottom);
+    right: var(--layout-current-edge);
+    z-index: 1000;
+    margin: auto;
+    background-color: var(--color-background);
+    border-left: 4px solid var(--color-shade-20);
+}

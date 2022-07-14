@@ -1,24 +1,55 @@
 :root {
+    /** The maximum width of the layout area */
     --layout-max-width: 1680px;
+    /** The base header height */
     --layout-header-base-height: 70px;
+    /** The height of the area under the header */
     --layout-header-under-height: 0px;
+    /** The height of the banner area */
     --layout-banner-height: 0px;
+    /** The width of the sidebar area */
     --layout-sidebar-width: 0px;
+    /** The width of the toolbar area */
+    --layout-toolbar-width: 0px;
+    /** The height of the panel area */
     --layout-panel-height: 0px;
 
+    /** The current width of the body */
+    --layout-current-width: min(var(--layout-max-width), 100vw);
+    /** The distance from the edge of the screen to edge of the body */
+    --layout-current-edge: calc((100vw - var(--layout-current-width)) / 2);
+
+    /** The total height of the header area */
     --layout-header-height: calc(
         var(--layout-header-base-height) + var(--layout-header-under-height)
     );
+
+    /** The top of the body area */
     --layout-body-top: calc(
         var(--layout-header-height) + var(--layout-banner-height)
     );
-    --layout-content-max-width: calc(
+    /** The bottom of the body area */
+    --layout-body-bottom: var(--layout-panel-height);
+    /** The maximum width of the body area */
+    --layout-body-max-width: calc(
+        var(--layout-max-width) - var(--layout-sidebar-width) -
+            var(--layout-toolbar-width)
+    );
+    /** @deprecated Use var(--layout-body-max-width) */
+    --layout-content-max-width: var(--layout-body-max-width);
+
+    /** The maximum width of the panel area */
+    --layout-panel-max-width: calc(
         var(--layout-max-width) - var(--layout-sidebar-width)
     );
 
+    /** The sans serif font family */
     --font-family-sans: 'Open Sans', Arial, sans-serif;
+    /** The sans serif font styles */
     --font-sans: 400 16px var(--font-family-sans);
+    /** The monospace font family */
     --font-family-monospace: 'Source Code Pro', monospace;
+    /** The monospace font styles */
     --font-monospace: 400 16px var(--font-family-monospace);
 }
 
@@ -35,15 +66,16 @@ body {
     display: grid;
     grid-template-columns:
         var(--layout-sidebar-width)
-        auto;
+        auto
+        var(--layout-toolbar-width);
     grid-template-rows:
         var(--layout-header-height)
         var(--layout-banner-height)
         auto
         var(--layout-panel-height);
     grid-template-areas:
-        'header header'
-        'banner banner'
-        'sidebar body'
-        'sidebar panel';
+        'header header header'
+        'banner banner banner'
+        'sidebar body toolbar'
+        'sidebar panel panel';
 }

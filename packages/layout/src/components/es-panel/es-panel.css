@@ -15,7 +15,7 @@
     left: var(--layout-sidebar-width);
     right: 0;
     height: var(--layout-panel-height);
-    max-width: var(--layout-content-max-width);
+    max-width: var(--layout-panel-max-width);
     margin: auto;
     background-color: var(--color-background);
     box-sizing: border-box;

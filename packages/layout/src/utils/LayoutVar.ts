@@ -1,4 +1,4 @@
-class CssVar {
+export class CssVar {
     private name: string;
     private default: string;
 
@@ -35,6 +35,9 @@ export const bannerHeight = new CssVar('--layout-banner-height', defaults);
 
 /** Control the --layout-sidebar-width css var. */
 export const sidebarWidth = new CssVar('--layout-sidebar-width', defaults);
+
+/** Control the --layout-toolbar-width css var. */
+export const toolbarWidth = new CssVar('--layout-toolbar-width', defaults);
 
 /** Control the --layout-panel-height css var. */
 export const panelHeight = new CssVar('--layout-panel-height', defaults);
