@@ -7,8 +7,8 @@ import {
     EventEmitter,
     VNode,
 } from '@stencil/core';
-import { Link, router } from '@eventstore/router';
-import { theme } from '@eventstore/theme';
+import { Link, router } from '@eventstore-ui/router';
+import { theme } from '@eventstore-ui/theme';
 import type { TableCell, TableCells } from './types';
 import { logger } from '../../utils/logger';
 

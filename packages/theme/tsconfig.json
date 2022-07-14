@@ -16,7 +16,7 @@
         "jsxFactory": "h"
     },
     "typedocOptions": {
-        "name": "@eventstore/theme",
+        "name": "@eventstore-ui/theme",
         "entryPoints": ["./src/index.ts"],
         "exclude": ["./src/components.d.ts"]
     },

@@ -1,6 +1,6 @@
 ```tsx
-import { requestClose } from '@eventstore/components';
-import { createStore } from '@eventstore/stores';
+import { requestClose } from '@eventstore-ui/components';
+import { createStore } from '@eventstore-ui/stores';
 
 const { state } = createStore({
     open: false,

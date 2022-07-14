@@ -1,7 +1,7 @@
-import { addChildTheme } from '@eventstore/theme';
+import { addChildTheme } from '@eventstore-ui/theme';
 
 /**
- * These css vaiables are automatically added via @eventstore/theme.
+ * These css vaiables are automatically added via @eventstore-ui/theme.
  * @usage ./layoutThemes.usage.md
  */
 export interface LayoutColorScheme {

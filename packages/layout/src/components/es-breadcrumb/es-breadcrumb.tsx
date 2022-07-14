@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop, Build } from '@stencil/core';
-import { Link, router } from '@eventstore/router';
+import { Link, router } from '@eventstore-ui/router';
 import { logger } from '../../utils/logger';
 
 import type { Crumb } from './types';

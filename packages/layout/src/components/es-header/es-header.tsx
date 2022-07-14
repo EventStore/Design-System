@@ -1,5 +1,5 @@
-import { Link } from '@eventstore/router';
-import { theme } from '@eventstore/theme';
+import { Link } from '@eventstore-ui/router';
+import { theme } from '@eventstore-ui/theme';
 import { Component, h, Host, State } from '@stencil/core';
 import { headerUnderHeight } from '../../utils/LayoutVar';
 /**

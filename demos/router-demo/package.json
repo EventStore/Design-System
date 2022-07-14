@@ -2,7 +2,7 @@
     "name": "router-demo",
     "version": "0.1.0-alpha",
     "private": true,
-    "description": "Demo for @eventstore/router",
+    "description": "Demo for @eventstore-ui/router",
     "scripts": {
         "build": "stencil build",
         "start": "stencil build --dev --watch --serve --no-open",
@@ -11,7 +11,7 @@
         "lint": "yarn g:lint"
     },
     "dependencies": {
-        "@eventstore/router": "workspace:*"
+        "@eventstore-ui/router": "workspace:*"
     },
     "devDependencies": {
         "@stencil/core": "2.15.1"

@@ -1,5 +1,5 @@
 import { Component, h, Listen, Method, Prop } from '@stencil/core';
-import type { IconDescription } from '@eventstore/components';
+import type { IconDescription } from '@eventstore-ui/components';
 
 /**
  * A button for the sidebar, sidebar-dropdown, and header-dropdown.

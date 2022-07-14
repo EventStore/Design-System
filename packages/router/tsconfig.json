@@ -16,7 +16,7 @@
         "importsNotUsedAsValues": "error"
     },
     "typedocOptions": {
-        "name": "@eventstore/router",
+        "name": "@eventstore-ui/router",
         "entryPoints": ["./src/index.ts"]
     },
     "include": ["src", "types/jsx.d.ts"],

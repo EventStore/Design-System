@@ -1,1 +1,1 @@
-module.exports = require('@eventstore/configs/eslint');
+module.exports = require('@eventstore-ui/configs/eslint');

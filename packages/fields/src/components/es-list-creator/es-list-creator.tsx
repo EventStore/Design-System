@@ -1,4 +1,4 @@
-import type { IconDescription } from '@eventstore/components';
+import type { IconDescription } from '@eventstore-ui/components';
 import {
     Component,
     h,

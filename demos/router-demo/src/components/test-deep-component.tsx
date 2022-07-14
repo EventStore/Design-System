@@ -1,5 +1,5 @@
 import { h, Component } from '@stencil/core';
-import { router } from '@eventstore/router';
+import { router } from '@eventstore-ui/router';
 import { logger } from '../logger';
 
 @Component({

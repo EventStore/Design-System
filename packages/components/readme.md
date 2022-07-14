@@ -1,4 +1,4 @@
-# @eventstore/components
+# @eventstore-ui/components
 
 Base web components for the Event Store design system.
 
@@ -18,13 +18,13 @@ $ npm login --registry=https://npm.pkg.github.com
 ### Add to your project
 
 ```sh
-yarn add @eventstore/components
+yarn add @eventstore-ui/components
 ```
 
 Also, include the peer dependencies:
 
 ```sh
-yarn add @eventstore/router @eventstore/utils
+yarn add @eventstore-ui/router @eventstore-ui/utils
 ```
 
 ## Usage within a stencil project
@@ -32,7 +32,7 @@ yarn add @eventstore/router @eventstore/utils
 In your `globalScript` file, add an import:
 
 ```ts
-import '@eventstore/components';
+import '@eventstore-ui/components';
 ```
 
 Then you can use the element anywhere in your JSX, html, templates etc.

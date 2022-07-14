@@ -1,7 +1,7 @@
 ```tsx wizard-example.tsx
 import { h, Component, State, Fragment } from '@stencil/core';
-import { createValidatedForm } from '@eventstore/forms';
-import { WizardPage, toast } from '@eventstore/components';
+import { createValidatedForm } from '@eventstore-ui/forms';
+import { WizardPage, toast } from '@eventstore-ui/components';
 import { nextFrame } from 'helpers';
 
 @Component({

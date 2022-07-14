@@ -17,5 +17,5 @@ export default {
             entryFileNames: '[name].mjs',
         },
     ],
-    external: ['@stencil/core', '@eventstore/utils'],
+    external: ['@stencil/core', '@eventstore-ui/utils'],
 };

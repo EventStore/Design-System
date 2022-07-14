@@ -1,7 +1,7 @@
-import '@eventstore/components';
-import '@eventstore/theme';
-import '@eventstore/layout';
-import '@eventstore/editor';
-import '@eventstore/fields';
-import '@eventstore/illustrations';
+import '@eventstore-ui/components';
+import '@eventstore-ui/theme';
+import '@eventstore-ui/layout';
+import '@eventstore-ui/editor';
+import '@eventstore-ui/fields';
+import '@eventstore-ui/illustrations';
 import '../../src/icons';

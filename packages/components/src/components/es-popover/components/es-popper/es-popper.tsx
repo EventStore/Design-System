@@ -9,7 +9,7 @@ import {
     Method,
     Prop,
 } from '@stencil/core';
-import { delegateFocus, trapFocus } from '@eventstore/utils';
+import { delegateFocus, trapFocus } from '@eventstore-ui/utils';
 
 /** @internal */
 @Component({

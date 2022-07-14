@@ -1,7 +1,7 @@
 import { Component, h, Prop } from '@stencil/core';
 import type { JsonDocs } from '@stencil/core/internal';
 
-import { Page } from '@eventstore/layout';
+import { Page } from '@eventstore-ui/layout';
 
 import type { Lib } from 'sitemap';
 import { extractTypes } from 'utils/typedoc/isIntrinsic';

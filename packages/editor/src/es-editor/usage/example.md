@@ -1,8 +1,8 @@
 <!-- no-preview -->
 
 ```tsx usage.tsx
-import { Uri, editor, languages } from '@eventstore/editor/monaco';
-import { debounce } from '@eventstore/utils';
+import { Uri, editor, languages } from '@eventstore-ui/editor/monaco';
+import { debounce } from '@eventstore-ui/utils';
 
 // Create a model for the editor to use.
 const model = editor.createModel('Hello!', undefined, Uri.parse('example.md'));
@@ -19,17 +19,17 @@ export default () => <es-editor options={{ model }} />;
 
 ```tsx main.ts
 // add the web components to the global pool
-import '@eventstore/editor';
+import '@eventstore-ui/editor';
 
 // import the monaco initialization code
-import { initialize } from '@eventstore/editor/initialize';
+import { initialize } from '@eventstore-ui/editor/initialize';
 
 // initialize the monaco library (with options, if required)
 initialize();
 ```
 
 ```ts stencil.config.ts
-import { workerPath } from '@eventstore/editor/configure';
+import { workerPath } from '@eventstore-ui/editor/configure';
 
 export const config: Config = {
     // ...

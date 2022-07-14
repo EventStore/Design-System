@@ -1,5 +1,5 @@
 {
-    "name": "@eventstore/layout",
+    "name": "@eventstore-ui/layout",
     "version": "0.1.0-alpha.8",
     "description": "Page layout components for Event Store Design System",
     "license": "Apache-2.0",
@@ -37,20 +37,20 @@
         "icon": "icon --dir=./src/icons"
     },
     "peerDependencies": {
-        "@eventstore/components": "0.1.x",
-        "@eventstore/illustrations": "0.1.x",
-        "@eventstore/router": "0.1.x",
-        "@eventstore/theme": "0.1.x",
-        "@eventstore/utils": "0.1.x"
+        "@eventstore-ui/components": "0.1.x",
+        "@eventstore-ui/illustrations": "0.1.x",
+        "@eventstore-ui/router": "0.1.x",
+        "@eventstore-ui/theme": "0.1.x",
+        "@eventstore-ui/utils": "0.1.x"
     },
     "devDependencies": {
-        "@eventstore/components": "workspace:*",
-        "@eventstore/configs": "workspace:*",
-        "@eventstore/icon-manager": "workspace:*",
-        "@eventstore/illustrations": "workspace:*",
-        "@eventstore/router": "workspace:*",
-        "@eventstore/theme": "workspace:*",
-        "@eventstore/utils": "workspace:*",
+        "@eventstore-ui/components": "workspace:*",
+        "@eventstore-ui/configs": "workspace:*",
+        "@eventstore-ui/icon-manager": "workspace:*",
+        "@eventstore-ui/illustrations": "workspace:*",
+        "@eventstore-ui/router": "workspace:*",
+        "@eventstore-ui/theme": "workspace:*",
+        "@eventstore-ui/utils": "workspace:*",
         "@stencil/core": "2.15.1",
         "jest": "^26.6.3",
         "npm-run-all": "^4.1.5",

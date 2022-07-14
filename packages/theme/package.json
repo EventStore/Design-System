@@ -1,9 +1,9 @@
 {
-    "name": "@eventstore/theme",
+    "name": "@eventstore-ui/theme",
     "version": "0.1.0-alpha.8",
     "description": "Core components for Event Store Design System",
     "main": "dist/index.js",
-    "prettier": "@eventstore/configs/prettier",
+    "prettier": "@eventstore-ui/configs/prettier",
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/",
         "access": "restricted"
@@ -24,10 +24,10 @@
         "lint": "yarn g:lint"
     },
     "peerDependencies": {
-        "@eventstore/utils": "0.1.x"
+        "@eventstore-ui/utils": "0.1.x"
     },
     "devDependencies": {
-        "@eventstore/utils": "workspace:*",
+        "@eventstore-ui/utils": "workspace:*",
         "@stencil/core": "2.15.1",
         "jest": "^26.6.3",
         "typedoc": "^0.22.13",

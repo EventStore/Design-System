@@ -1,5 +1,5 @@
 import { editor, Environment } from 'monaco-editor';
-import { theme } from '@eventstore/theme';
+import { theme } from '@eventstore-ui/theme';
 import {
     ES_DARK,
     ES_HIGH_CONTRAST_DARK,

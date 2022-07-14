@@ -7,7 +7,7 @@ import {
     PageTitle,
     RouteRenderProps,
     router,
-} from '@eventstore/router';
+} from '@eventstore-ui/router';
 
 const PrivateRoute: FunctionalComponent<{
     url: string;
@@ -29,7 +29,7 @@ const PrivateRoute: FunctionalComponent<{
 })
 export class RouterDemoApp {
     componentWillLoad() {
-        router.init({ titleSuffix: ' - @eventstore/router' });
+        router.init({ titleSuffix: ' - @eventstore-ui/router' });
     }
 
     render() {

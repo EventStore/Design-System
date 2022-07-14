@@ -12,7 +12,7 @@
 <!-- show-location -->
 
 ```tsx
-import type { NavTree } from '@eventstore/layout';
+import type { NavTree } from '@eventstore-ui/layout';
 
 const navTree: NavTree = [
     {

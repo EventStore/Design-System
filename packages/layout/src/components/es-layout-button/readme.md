@@ -8,7 +8,7 @@
 ### Example
 
 ```tsx
-import { Link } from '@eventstore/router';
+import { Link } from '@eventstore-ui/router';
 import { randomIcon } from 'helpers';
 
 export default () => (

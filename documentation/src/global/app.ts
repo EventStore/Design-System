@@ -1,13 +1,13 @@
 import './polyfills';
-import '@eventstore/components';
-import '@eventstore/layout';
-import '@eventstore/editor';
-import '@eventstore/fields';
-import '@eventstore/theme';
-import '@eventstore/illustrations';
+import '@eventstore-ui/components';
+import '@eventstore-ui/layout';
+import '@eventstore-ui/editor';
+import '@eventstore-ui/fields';
+import '@eventstore-ui/theme';
+import '@eventstore-ui/illustrations';
 import '../icons';
 
-import { initialize } from '@eventstore/editor/initialize';
+import { initialize } from '@eventstore-ui/editor/initialize';
 
 initialize({
     getWorkerUrl(_moduleId: string, label: string) {

@@ -8,7 +8,7 @@
 ### Example
 
 ```tsx
-import { createStore } from '@eventstore/stores';
+import { createStore } from '@eventstore-ui/stores';
 
 interface PopoverStore {
     open: boolean;

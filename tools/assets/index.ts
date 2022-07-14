@@ -5,6 +5,6 @@ import { join, dirname } from 'path';
  * Include the assets in your stencil project by adding them to "copy" in your stencil config.
  */
 export const assetsPath = join(
-    dirname(require.resolve('@eventstore/assets/package.json')),
+    dirname(require.resolve('@eventstore-ui/assets/package.json')),
     'assets',
 );

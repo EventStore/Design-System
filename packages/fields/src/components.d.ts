@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IconDescription } from "@eventstore/components";
+import { IconDescription } from "@eventstore-ui/components";
 import { FieldChange, ValidationMessages } from "./types";
 import { MaskOptions } from "./components/es-input/types";
 import { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";

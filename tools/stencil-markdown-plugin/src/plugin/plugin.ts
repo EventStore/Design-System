@@ -71,7 +71,7 @@ export interface MDXOptions {
  * Usage:
  * `stencil.config.ts`
  * ``` ts
- *  import { mdx } from '@eventstore/stencil-markdown-plugin/plugin';
+ *  import { mdx } from '@eventstore-ui/stencil-markdown-plugin/plugin';
  *
  *  export const config: Config = {
  *    plugins: [

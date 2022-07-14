@@ -1,9 +1,9 @@
 import { Component, h } from '@stencil/core';
 
-import { Page } from '@eventstore/layout';
-import { HTTPError } from '@eventstore/utils';
+import { Page } from '@eventstore-ui/layout';
+import { HTTPError } from '@eventstore-ui/utils';
 
-import { createValidatedForm } from '@eventstore/forms';
+import { createValidatedForm } from '@eventstore-ui/forms';
 import { logger } from '../../utils/logger';
 
 interface MyForm {

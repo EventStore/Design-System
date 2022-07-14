@@ -1,4 +1,4 @@
-import { packageConfig, flags } from '@eventstore/configs/stencil';
+import { packageConfig, flags } from '@eventstore-ui/configs/stencil';
 
 export const config = packageConfig({
     namespace: 'es-layout',

@@ -1,5 +1,5 @@
 import { h, Component, ComponentInterface, Prop, State } from '@stencil/core';
-import { RouterHistory, MatchResults, Link } from '@eventstore/router';
+import { RouterHistory, MatchResults, Link } from '@eventstore-ui/router';
 
 @Component({
     tag: 'test-route-guard',

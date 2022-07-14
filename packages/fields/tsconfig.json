@@ -17,7 +17,7 @@
         "jsxFragmentFactory": "Fragment"
     },
     "typedocOptions": {
-        "name": "@eventstore/fields",
+        "name": "@eventstore-ui/fields",
         "entryPoints": ["./src/index.ts"]
     },
     "include": ["src", "types/jsx.d.ts"],

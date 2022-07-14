@@ -1,6 +1,6 @@
 import { Component, h } from '@stencil/core';
 
-import { Route, router, Switch } from '@eventstore/router';
+import { Route, router, Switch } from '@eventstore-ui/router';
 
 @Component({
     tag: 'demo-root',

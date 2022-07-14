@@ -1,6 +1,6 @@
 ```tsx
-import { PageChangeEventType } from '@eventstore/components';
-import { createStore } from '@eventstore/stores';
+import { PageChangeEventType } from '@eventstore-ui/components';
+import { createStore } from '@eventstore-ui/stores';
 
 interface PageStore {
     current: number;

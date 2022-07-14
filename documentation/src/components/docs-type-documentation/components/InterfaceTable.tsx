@@ -1,5 +1,5 @@
 import { h, FunctionalComponent, Fragment } from '@stencil/core';
-import type { TableCells } from '@eventstore/components';
+import type { TableCells } from '@eventstore-ui/components';
 import type { DeclarationReflection } from 'typedoc';
 import type { SomeReflection } from 'utils/typedoc/types';
 

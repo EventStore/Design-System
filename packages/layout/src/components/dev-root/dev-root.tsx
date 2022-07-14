@@ -1,9 +1,9 @@
 import { Component, h, Host } from '@stencil/core';
 
-import { Route, router, Switch } from '@eventstore/router';
+import { Route, router, Switch } from '@eventstore-ui/router';
 import { Page } from '../Page/Page';
 import { ICON_NAMESPACE } from '../../icons/namespace';
-import { requestClose } from '@eventstore/components';
+import { requestClose } from '@eventstore-ui/components';
 import { logger } from '../../utils/logger';
 
 /** @internal */

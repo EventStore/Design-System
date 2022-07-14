@@ -1,4 +1,4 @@
-# @eventstore/theme
+# @eventstore-ui/theme
 
 Theming for the Event Store design system.
 
@@ -18,7 +18,7 @@ $ npm login --registry=https://npm.pkg.github.com
 ### Add to your project
 
 ```sh
-yarn add @eventstore/theme
+yarn add @eventstore-ui/theme
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ yarn add @eventstore/theme
 In your `globalScript` file, add an import:
 
 ```ts
-import '@eventstore/theme';
+import '@eventstore-ui/theme';
 ```
 
 The active theme will be automatically applied as a set of css variables.
@@ -38,9 +38,9 @@ background-color: var(--color-background);
 By default, an appropriate theme will be chosen from the users system settings, or a theme can be chosen directly:
 
 ```ts
-import { theme } from '@eventstore/theme';
+import { theme } from '@eventstore-ui/theme';
 
 theme.select('high_contrast_dark');
 ```
 
-Additionally, `@eventstore/layout` contains components for selecting a theme.
+Additionally, `@eventstore-ui/layout` contains components for selecting a theme.

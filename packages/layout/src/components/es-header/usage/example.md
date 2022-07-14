@@ -1,5 +1,5 @@
 ```tsx
-import { Link } from '@eventstore/router';
+import { Link } from '@eventstore-ui/router';
 
 export default () => (
     <es-header>

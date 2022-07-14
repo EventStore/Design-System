@@ -65,13 +65,13 @@
             "name": "components",
             "component": "Components",
             "path": "./components/Components.tsx",
-            "aliases": ["@eventstore/components"]
+            "aliases": ["@eventstore-ui/components"]
         },
         "configs": {
             "name": "configs",
             "component": "Configs",
             "path": "./components/Configs.tsx",
-            "aliases": ["@eventstore/configs"]
+            "aliases": ["@eventstore-ui/configs"]
         },
         "copy": {
             "name": "copy",
@@ -97,7 +97,7 @@
             "name": "editor",
             "component": "Editor",
             "path": "./components/Editor.tsx",
-            "aliases": ["@eventstore/editor"]
+            "aliases": ["@eventstore-ui/editor"]
         },
         "error": {
             "name": "error",
@@ -113,7 +113,7 @@
             "name": "fields",
             "component": "Fields",
             "path": "./components/Fields.tsx",
-            "aliases": ["@eventstore/fields"]
+            "aliases": ["@eventstore-ui/fields"]
         },
         "folder": {
             "name": "folder",
@@ -124,7 +124,7 @@
             "name": "forms",
             "component": "Forms",
             "path": "./components/Forms.tsx",
-            "aliases": ["@eventstore/forms"]
+            "aliases": ["@eventstore-ui/forms"]
         },
         "gift": {
             "name": "gift",
@@ -146,7 +146,7 @@
             "name": "icon-manager",
             "component": "IconManager",
             "path": "./components/IconManager.tsx",
-            "aliases": ["@eventstore/icon-manager"]
+            "aliases": ["@eventstore-ui/icon-manager"]
         },
         "id-card": {
             "name": "id-card",
@@ -157,7 +157,7 @@
             "name": "illustrations",
             "component": "Illustrations",
             "path": "./components/Illustrations.tsx",
-            "aliases": ["@eventstore/illustrations"]
+            "aliases": ["@eventstore-ui/illustrations"]
         },
         "info": {
             "name": "info",
@@ -173,7 +173,7 @@
             "name": "layout",
             "component": "Layout",
             "path": "./components/Layout.tsx",
-            "aliases": ["@eventstore/layout"]
+            "aliases": ["@eventstore-ui/layout"]
         },
         "light": {
             "name": "light",
@@ -190,7 +190,7 @@
             "component": "Markdown",
             "path": "./components/Markdown.tsx",
             "aliases": [
-                "@eventstore/stencil-markdown-plugin",
+                "@eventstore-ui/stencil-markdown-plugin",
                 "stencil-markdown-plugin"
             ]
         },
@@ -233,7 +233,7 @@
             "name": "postcss-palette-plugin",
             "component": "PostcssPalettePlugin",
             "path": "./components/PostcssPalettePlugin.tsx",
-            "aliases": ["@eventstore/postcss-palette-plugin"]
+            "aliases": ["@eventstore-ui/postcss-palette-plugin"]
         },
         "reflect-to-attr": {
             "name": "reflect-to-attr",
@@ -260,7 +260,7 @@
             "name": "router",
             "component": "Router",
             "path": "./components/Router.tsx",
-            "aliases": ["@eventstore/router"]
+            "aliases": ["@eventstore-ui/router"]
         },
         "scroll": {
             "name": "scroll",
@@ -301,13 +301,13 @@
             "name": "stores",
             "component": "Stores",
             "path": "./components/Stores.tsx",
-            "aliases": ["@eventstore/stores"]
+            "aliases": ["@eventstore-ui/stores"]
         },
         "theme": {
             "name": "theme",
             "component": "Theme",
             "path": "./components/Theme.tsx",
-            "aliases": ["@eventstore/theme"]
+            "aliases": ["@eventstore-ui/theme"]
         },
         "trash": {
             "name": "trash",
@@ -354,7 +354,7 @@
             "name": "utils",
             "component": "Utils",
             "path": "./components/Utils.tsx",
-            "aliases": ["@eventstore/utils"]
+            "aliases": ["@eventstore-ui/utils"]
         },
         "warning": {
             "name": "warning",

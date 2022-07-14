@@ -1,4 +1,4 @@
-# @eventstore/postcss-palette-plugin
+# @eventstore-ui/postcss-palette-plugin
 
 Imports a palette into your css by convert a js palette into css vars.
 
@@ -7,7 +7,7 @@ Imports a palette into your css by convert a js palette into css vars.
 ### Create a palette
 
 ```ts
-import { Palette } from '@eventstore/postcss-palette-plugin/types';
+import { Palette } from '@eventstore-ui/postcss-palette-plugin/types';
 
 export const palette: Palette = {
     primary: {
@@ -121,7 +121,7 @@ const palette = require('./path/to/palette');
 module.exports = {
     plugins: [
         // other plugins
-        require('@eventstore/postcss-palette-plugin')({ palette }),
+        require('@eventstore-ui/postcss-palette-plugin')({ palette }),
     ],
 };
 ```

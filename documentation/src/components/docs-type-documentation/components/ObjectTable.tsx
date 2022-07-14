@@ -1,4 +1,4 @@
-import type { TableCells } from '@eventstore/components';
+import type { TableCells } from '@eventstore-ui/components';
 import { h, FunctionalComponent } from '@stencil/core';
 import type { DeclarationReflection } from 'typedoc';
 

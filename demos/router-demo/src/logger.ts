@@ -1,4 +1,4 @@
-import { createLogger } from '@eventstore/utils';
+import { createLogger } from '@eventstore-ui/utils';
 
 export const logger = createLogger(
     'Router demo',

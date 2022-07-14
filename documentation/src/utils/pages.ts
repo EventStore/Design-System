@@ -1,5 +1,5 @@
 import type { FunctionalComponent } from '@stencil/core';
-import type { MDXLayoutProps } from '@eventstore/stencil-markdown-plugin';
+import type { MDXLayoutProps } from '@eventstore-ui/stencil-markdown-plugin';
 
 export interface SectionDef {
     title: string;

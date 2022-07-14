@@ -1,9 +1,9 @@
 import { Component, h, Prop } from '@stencil/core';
-import { theme } from '@eventstore/theme';
+import { theme } from '@eventstore-ui/theme';
 
 import type { ValidationMessages } from '../../types';
 import { ICON_NAMESPACE } from '../../icons/namespace';
-import type { IconDescription } from '@eventstore/components';
+import type { IconDescription } from '@eventstore-ui/components';
 
 /** Display messages under fields. */
 @Component({

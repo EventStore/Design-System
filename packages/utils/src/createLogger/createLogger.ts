@@ -41,7 +41,7 @@ interface createLogger {
  * Example:
  *
  * ```ts
- * import { createLogger } from '@eventstore/utils';
+ * import { createLogger } from '@eventstore-ui/utils';
  * const logger = createLogger('Documentation', 'blue');
  *
  * logger.log('hello');
@@ -73,7 +73,7 @@ interface createLogger {
  * Adds a subsciption to all calls to loggers. Returns an unsubscribe function. If a subscription throws an error, it will be silently ignored.
  *
  * ```ts
- * import { createLogger } from '@eventstore/utils';
+ * import { createLogger } from '@eventstore-ui/utils';
  *
  * const unsubscribe = createLogger.subscribe((logEvent) => {
  *     navigator.clipboard.writeText(JSON.stringify(logEvent));

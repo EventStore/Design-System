@@ -1,4 +1,4 @@
-@import url('~@eventstore/layout/css/page.css');
+@import url('~@eventstore-ui/layout/css/page.css');
 
 es-page-title {
     font-family: var(--font-family-monospace);

@@ -10,7 +10,7 @@
 ### Example
 
 ```tsx
-import { setProgress } from '@eventstore/layout';
+import { setProgress } from '@eventstore-ui/layout';
 import { random } from 'helpers';
 
 const updateBarProgress = setProgress('example');

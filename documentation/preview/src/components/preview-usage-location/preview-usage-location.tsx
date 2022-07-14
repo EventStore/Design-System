@@ -1,5 +1,5 @@
 import { Component, h, Prop, Host } from '@stencil/core';
-import type { LocationSegments, Router } from '@eventstore/router';
+import type { LocationSegments, Router } from '@eventstore-ui/router';
 
 @Component({
     tag: 'preview-usage-location',

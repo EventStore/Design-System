@@ -1,5 +1,5 @@
 {
-    "name": "@eventstore/typedoc-plugin-usage",
+    "name": "@eventstore-ui/typedoc-plugin-usage",
     "version": "0.1.0-alpha.8",
     "description": "Typedoc plugin that resolves @usage paths to content.",
     "license": "Apache-2.0",
@@ -25,7 +25,7 @@
         "dev": "tsc --outDir ./dist --declaration --watch",
         "lint": "yarn g:lint"
     },
-    "prettier": "@eventstore/configs/prettier",
+    "prettier": "@eventstore-ui/configs/prettier",
     "peerDependencies": {
         "typedoc": ">=0.21.0"
     },

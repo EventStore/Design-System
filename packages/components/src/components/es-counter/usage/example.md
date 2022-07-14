@@ -1,5 +1,5 @@
 ```tsx
-import { createStore } from '@eventstore/stores';
+import { createStore } from '@eventstore-ui/stores';
 import { random } from 'helpers';
 
 const { state } = createStore(Array.from({ length: 144 }, () => random(800)));

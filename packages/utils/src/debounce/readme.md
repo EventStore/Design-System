@@ -10,7 +10,7 @@ Debounce a function, only making the call if the passed timeout is reached.
 Example:
 
 ```ts
-import { debounce } from '@eventstore/utils';
+import { debounce } from '@eventstore-ui/utils';
 
 const debouncedLog = debounce(console.log, 200);
 
@@ -30,7 +30,7 @@ Cancels the queued function call.
 Example:
 
 ```ts
-import { debounce } from '@eventstore/utils';
+import { debounce } from '@eventstore-ui/utils';
 
 const debouncedLog = debounce(console.log, 200);
 
@@ -50,7 +50,7 @@ Immediately calls the queued function call.
 Example:
 
 ```ts
-import { debounce } from '@eventstore/utils';
+import { debounce } from '@eventstore-ui/utils';
 
 const debouncedLog = debounce(console.log, 200);
 

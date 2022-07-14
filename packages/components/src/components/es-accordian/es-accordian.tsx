@@ -1,5 +1,5 @@
 import { Component, h, Prop, Host, State, Watch, Listen } from '@stencil/core';
-import { findAssignedSlot } from '@eventstore/utils';
+import { findAssignedSlot } from '@eventstore-ui/utils';
 import type { AccordianSection } from './types';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 

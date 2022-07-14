@@ -1,5 +1,10 @@
 import { h, Component, Prop } from '@stencil/core';
-import { MatchResults, Route, router, RouterHistory } from '@eventstore/router';
+import {
+    MatchResults,
+    Route,
+    router,
+    RouterHistory,
+} from '@eventstore-ui/router';
 
 @Component({
     tag: 'test-demo-three',

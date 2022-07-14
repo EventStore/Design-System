@@ -1,4 +1,4 @@
-import { theme } from '@eventstore/theme';
+import { theme } from '@eventstore-ui/theme';
 import {
     Component,
     h,
