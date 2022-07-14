@@ -9,6 +9,7 @@ module.exports = {
     ignorePatterns: ['node_modules', 'dist', 'www', '**/*.d.ts'],
     rules: {
         'no-undef': 0,
+        'no-mixed-spaces-and-tabs': 0,
         eqeqeq: ['error', 'always', { null: 'ignore' }],
         quotes: [
             2,
