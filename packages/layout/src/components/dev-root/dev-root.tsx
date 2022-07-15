@@ -215,6 +215,30 @@ export class DevRoot {
                                     <div class={'padder'} />
                                     {'hello'}
                                     <div class={'padder'} />
+                                    <es-toolbar>
+                                        <menu>
+                                            <li>
+                                                <es-button>
+                                                    <es-icon
+                                                        icon={[
+                                                            ICON_NAMESPACE,
+                                                            'dark-high-theme',
+                                                        ]}
+                                                    />
+                                                </es-button>
+                                            </li>
+                                            <li>
+                                                <es-button>
+                                                    <es-icon
+                                                        icon={[
+                                                            ICON_NAMESPACE,
+                                                            'light-high-theme',
+                                                        ]}
+                                                    />
+                                                </es-button>
+                                            </li>
+                                        </menu>
+                                    </es-toolbar>
                                     <es-panel>
                                         <es-panel-header>
                                             {'Hello there'}

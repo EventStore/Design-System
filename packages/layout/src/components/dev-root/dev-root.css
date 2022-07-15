@@ -48,3 +48,18 @@
     fill: var(--color-layout-contrast);
     opacity: 0.2;
 }
+
+es-toolbar {
+    & menu {
+        all: unset;
+        display: block;
+        padding: 10px;
+        padding-top: 32px;
+    }
+
+    & li {
+        all: unset;
+        display: block;
+        margin-bottom: 10px;
+    }
+}
