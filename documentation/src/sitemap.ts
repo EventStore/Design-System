@@ -64,10 +64,6 @@ export const sitemap = expandSitemap([
                 filePath: './tools/icon-manager',
             },
             {
-                title: 'Postcss Palette Plugin',
-                filePath: './tools/postcss-palette-plugin',
-            },
-            {
                 title: 'Stencil Markdown Plugin',
                 filePath: './tools/stencil-markdown-plugin',
             },
