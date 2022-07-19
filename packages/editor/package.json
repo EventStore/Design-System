@@ -31,7 +31,7 @@
     "repository": {
         "type": "git",
         "url": "git@github.com:EventStore/Design-System.git",
-        "directory": "packages/components"
+        "directory": "packages/editor"
     },
     "scripts": {
         "build": "run-s \"build:*\"",
