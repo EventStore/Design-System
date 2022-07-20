@@ -9,10 +9,6 @@
     "files": [
         "dist/"
     ],
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/",
-        "access": "restricted"
-    },
     "repository": {
         "type": "git",
         "url": "git@github.com:EventStore/Design-System.git",
@@ -45,6 +41,5 @@
         "rollup": "^2.52.7",
         "typedoc": "^0.22.13",
         "typescript": "4.5.5"
-    },
-    "stableVersion": "0.1.0-alpha.2"
+    }
 }

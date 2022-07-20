@@ -9,10 +9,6 @@
     "files": [
         "dist/"
     ],
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/",
-        "access": "restricted"
-    },
     "repository": {
         "type": "git",
         "url": "git@github.com:EventStore/Design-System.git",
@@ -52,6 +48,5 @@
             ],
             "@babel/preset-typescript"
         ]
-    },
-    "stableVersion": "0.1.0-alpha.3"
+    }
 }
