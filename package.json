@@ -21,7 +21,7 @@
         "serve-docs": "yarn workspace @eventstore-ui/docs serve",
         "test": "yarn workspaces foreach -v --exclude @eventstore-ui/docs run test",
         "lint": "yarn workspaces foreach -v run lint",
-        "bump": "yarn workspaces foreach --no-private --since version"
+        "bump": "yarn workspaces foreach --no-private version"
     },
     "devDependencies": {
         "@eventstore-ui/configs": "workspace:*",
