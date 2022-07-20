@@ -16,14 +16,6 @@ This repository uses [Yarn] with offline cache.
 corepack enable
 ```
 
-### Authenticate with github packages
-
-```sh
-yarn config set -H 'npmRegistries["//npm.pkg.github.com"].npmAuthToken' "TOKEN"
-```
-
-`TOKEN` can be obtained from https://github.com/settings/tokens and requires `repo` and `read:packages` permissions
-
 ### Unpack `node_modules` from cache.
 
 ```sh
@@ -44,12 +36,11 @@ Generate documentation:
 yarn docs:generate
 ```
 
-Run the docs 
+Run the docs
 
 ```sh
 yarn docs:dev
 ```
-
 
 [nodejs]: https://nodejs.org/en/
 [yarn]: https://yarnpkg.com/

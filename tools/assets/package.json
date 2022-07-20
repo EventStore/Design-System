@@ -13,14 +13,9 @@
         "font-face.css",
         "index.ts"
     ],
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/",
-        "access": "restricted"
-    },
     "repository": {
         "type": "git",
         "url": "git@github.com:EventStore/Design-System.git",
         "directory": "tools/assets"
-    },
-    "stableVersion": "0.1.0-alpha.3"
+    }
 }
