@@ -1,0 +1,63 @@
+name: GitHub Pages
+
+on:
+    push:
+        branches:
+            - 'main'
+
+permissions: read-all
+
+jobs:
+    pages:
+        runs-on: ubuntu-latest
+
+        permissions:
+            pages: write
+            id-token: write
+
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Cache git lfs
+              uses: actions/cache@v2
+              with:
+                  path: .yarn/cache
+                  key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+
+            - run: git lfs pull
+
+            - name: Setup Node
+              uses: actions/setup-node@v1
+              with:
+                  node-version: '16.x'
+
+            - name: Corepack
+              run: corepack enable
+
+            - name: Install
+              run: yarn install
+
+            - name: Build libraries
+              run: yarn build
+
+            - name: Build documentation
+              run: yarn docs
+
+            # Note: The following two steps are temporary and won't be
+            # necessary once actions/deploy-pages is out of beta.
+            - name: Archive documentation
+              run: tar --directory documentation/www/ -cvf artifact.tar .
+
+            - name: Upload artifact
+              uses: actions/upload-artifact@v3
+              with:
+                  name: github-pages
+                  path: ./artifact.tar
+
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v1-beta
