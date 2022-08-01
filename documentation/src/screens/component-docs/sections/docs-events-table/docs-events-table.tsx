@@ -11,7 +11,7 @@ export class DocsEventsTable {
     @Prop() events!: JsonDocsEvent[];
 
     render() {
-        if (!this.events.length) return null;
+        if (!this.events?.length) return null;
         return (
             <Host>
                 <h2>{'Events'}</h2>

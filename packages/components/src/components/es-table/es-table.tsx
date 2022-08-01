@@ -168,7 +168,7 @@ export class Table {
                 dark={theme.isDark()}
             >
                 {this.renderHeader()}
-                {this.rows.map(this.renderRowGroup)}
+                {this.rows?.map(this.renderRowGroup)}
             </Host>
         );
     }

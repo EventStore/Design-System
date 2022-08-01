@@ -11,7 +11,7 @@ export class DocsSlotsTable {
     @Prop() slots!: JsonDocsSlot[];
 
     render() {
-        if (!this.slots.length) return null;
+        if (!this.slots?.length) return null;
         return (
             <Host>
                 <h2>{'Slots'}</h2>

@@ -17,6 +17,8 @@ export class ComponentDocs {
     @Prop() lib!: Lib;
 
     render() {
+        if (!this.comp || !this.lib) return null;
+
         const { tag, encapsulation } = this.comp;
         const relatedTypes = this.findRelatedTypes();
 

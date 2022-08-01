@@ -19,8 +19,10 @@ export class TypeDocs {
 
     private references!: SomeReflection[];
 
+    @Watch('lib')
     @Watch('doc')
     componentWillLoad() {
+        if (!this.doc || !this.lib) return;
         this.references = findAllReferences(
             this.doc,
             this.lib.typeDocs!.lookup,
@@ -28,6 +30,8 @@ export class TypeDocs {
     }
 
     render() {
+        if (!this.doc || !this.lib) return null;
+
         return (
             <Page
                 pageTitle={this.doc.name}
