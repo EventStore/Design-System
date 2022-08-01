@@ -29,7 +29,7 @@ export interface LibDefinition {
 interface Section {
     id: string;
     title: string;
-    children: Lib[];
+    children: string[];
 }
 
 export interface Lib extends LibDefinition {
@@ -72,14 +72,35 @@ export interface PackageJson {
     devDependencies?: Record<string, string>;
 }
 
-export const expandSitemap = (sitemap: SectionDefinition[]): Section[] =>
-    sitemap.map(expandSection);
+export interface Sitemap {
+    sections: Section[];
+    libs: Record<string, Lib>;
+}
 
-const expandSection = (section: SectionDefinition) => ({
-    id: slugize(section.title),
-    title: section.title,
-    children: section.children.map(expandLib),
-});
+export const expandSitemap = (siteDefinition: SectionDefinition[]): Sitemap => {
+    const sitemap: Sitemap = {
+        sections: [],
+        libs: {},
+    };
+
+    for (const { title, children } of siteDefinition) {
+        const section: Section = {
+            id: slugize(title),
+            title: title,
+            children: [],
+        };
+
+        for (const libDef of children) {
+            const lib = expandLib(libDef);
+            section.children.push(lib.slug);
+            sitemap.libs[lib.slug] = lib;
+        }
+
+        sitemap.sections.push(section);
+    }
+
+    return sitemap;
+};
 
 const expandLib = ({ title, filePath }: LibDefinition): Lib => {
     const project = fixTagNames(optionallyRequireTypeDocs(slugize(title)));

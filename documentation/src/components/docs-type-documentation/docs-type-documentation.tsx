@@ -11,6 +11,7 @@ export class DocsTypeDocumentation {
     @Prop() declaration!: SomeReflection;
 
     render() {
+        if (!this.declaration) return null;
         return <DeclarationReflection declaration={this.declaration} />;
     }
 }

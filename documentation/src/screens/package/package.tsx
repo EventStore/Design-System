@@ -1,7 +1,7 @@
 import { Redirect, Route, Switch } from '@eventstore-ui/router';
 import { Component, h, Prop } from '@stencil/core';
 import { Host, Watch } from '@stencil/core/internal';
-import { Lib, sitemap } from 'sitemap';
+import { sitemap } from 'sitemap';
 import { ReflectionKind } from 'utils/typedoc/reflectionKind';
 import { isFunctionalComponentDeclaration } from 'utils/typedoc/declaration';
 import { Anchor, extractAnchors } from 'utils/extractAnchors';
@@ -14,32 +14,36 @@ import type { DeclarationReflection } from 'typedoc';
     shadow: true,
 })
 export class DocsPackage {
-    @Prop() lib!: Lib;
+    @Prop({ reflect: true }) slug!: string;
 
     private utils?: SomeReflection[];
     private types?: SomeReflection[];
     private functionalComponents?: SomeReflection[];
     private anchors?: Anchor[];
 
-    @Watch('lib')
+    @Watch('slug')
     componentWillLoad() {
+        const lib = sitemap.libs[this.slug];
+        if (!lib) return;
         this.utils = this.extractUtils();
         this.types = this.extractTypes();
         this.functionalComponents = this.extractFunctionalComponents();
 
         if (
-            !this.lib.stencilDocs &&
+            !lib.stencilDocs &&
             !this.utils &&
             !this.types &&
             !this.functionalComponents
         ) {
-            this.anchors = extractAnchors(this.lib.readme);
+            this.anchors = extractAnchors(lib.readme);
         } else {
             this.anchors = undefined;
         }
     }
 
     render() {
+        const lib = sitemap.libs[this.slug]!;
+
         return (
             <Host>
                 <es-sidebar>
@@ -48,28 +52,33 @@ export class DocsPackage {
                             defaultTitle={'Package'}
                             defaultIcon={'gift'}
                         >
-                            {sitemap.map(({ title, children }) => (
+                            {sitemap.sections.map(({ title, children }) => (
                                 <es-layout-section title={title}>
-                                    {children.map(
-                                        ({ title, packageJson, slug }) => (
+                                    {children.map((lib) => {
+                                        const {
+                                            title,
+                                            packageJson,
+                                            slug,
+                                        } = sitemap.libs[lib];
+                                        return (
                                             <es-layout-link
                                                 url={`/${slug}`}
                                                 icon={packageJson.name}
                                             >
                                                 {title}
                                             </es-layout-link>
-                                        ),
-                                    )}
+                                        );
+                                    })}
                                 </es-layout-section>
                             ))}
                         </es-sidebar-dropdown>
                     </es-layout-section>
-                    {this.lib.stencilDocs && (
+                    {lib.stencilDocs && (
                         <es-layout-section sectionTitle={'Components'}>
-                            {this.lib.stencilDocs.components.map(({ tag }) => (
+                            {lib.stencilDocs.components.map(({ tag }) => (
                                 <es-layout-link
                                     key={tag}
-                                    url={`/${this.lib.slug}/components/${tag}`}
+                                    url={`/${this.slug}/components/${tag}`}
                                 >
                                     {tag}
                                 </es-layout-link>
@@ -83,7 +92,7 @@ export class DocsPackage {
                             {this.functionalComponents.map(({ name }) => (
                                 <es-layout-link
                                     key={name}
-                                    url={`/${this.lib.slug}/functional-components/${name}`}
+                                    url={`/${this.slug}/functional-components/${name}`}
                                 >
                                     {name}
                                 </es-layout-link>
@@ -95,7 +104,7 @@ export class DocsPackage {
                             {this.utils.map(({ name }) => (
                                 <es-layout-link
                                     key={name}
-                                    url={`/${this.lib.slug}/utils/${name}`}
+                                    url={`/${this.slug}/utils/${name}`}
                                 >
                                     {name}
                                 </es-layout-link>
@@ -107,7 +116,7 @@ export class DocsPackage {
                             {this.types.map(({ name }) => (
                                 <es-layout-link
                                     key={name}
-                                    url={`/${this.lib.slug}/types/${name}`}
+                                    url={`/${this.slug}/types/${name}`}
                                 >
                                     {name}
                                 </es-layout-link>
@@ -126,46 +135,40 @@ export class DocsPackage {
                     ))}
                 </es-sidebar>
                 <Switch>
-                    <Route exact url={`/${this.lib.slug}`}>
-                        <docs-readme lib={this.lib} />
+                    <Route exact url={`/${this.slug}`}>
+                        <docs-readme lib={lib} />
                     </Route>
-                    {this.lib.stencilDocs?.components.map((doc) => (
+                    {lib.stencilDocs?.components.map((doc) => (
                         <Route
                             exact
-                            url={`/${this.lib.slug}/components/${doc.tag}`}
+                            url={`/${this.slug}/components/${doc.tag}`}
                         >
-                            <docs-component-docs lib={this.lib} comp={doc} />
+                            <docs-component-docs lib={lib} comp={doc} />
                         </Route>
                     ))}
                     {this.functionalComponents?.map((doc) => (
                         <Route
                             exact
-                            url={`/${this.lib.slug}/functional-components/${doc.name}`}
+                            url={`/${this.slug}/functional-components/${doc.name}`}
                         >
                             <docs-functional-component-docs
-                                lib={this.lib}
+                                lib={lib}
                                 doc={doc}
                             />
                         </Route>
                     ))}
                     {this.utils?.map((doc) => (
-                        <Route
-                            exact
-                            url={`/${this.lib.slug}/utils/${doc.name}`}
-                        >
-                            <docs-util-docs lib={this.lib} doc={doc} />
+                        <Route exact url={`/${this.slug}/utils/${doc.name}`}>
+                            <docs-util-docs lib={lib} doc={doc} />
                         </Route>
                     ))}
                     {this.types?.map((doc) => (
-                        <Route
-                            exact
-                            url={`/${this.lib.slug}/types/${doc.name}`}
-                        >
-                            <docs-type-docs lib={this.lib} doc={doc} />
+                        <Route exact url={`/${this.slug}/types/${doc.name}`}>
+                            <docs-type-docs lib={lib} doc={doc} />
                         </Route>
                     ))}
                     <Route>
-                        <Redirect url={`/${this.lib.slug}`} />
+                        <Redirect url={`/${this.slug}`} />
                     </Route>
                 </Switch>
             </Host>
@@ -176,8 +179,9 @@ export class DocsPackage {
         kinds: number[],
         check: (d: SomeReflection) => boolean = () => true,
     ) => () => {
-        if (!this.lib.typeDocs) return;
-        const { project, lookup } = this.lib.typeDocs;
+        const lib = sitemap.libs[this.slug];
+        if (!lib?.typeDocs) return;
+        const { project, lookup } = lib.typeDocs;
         if (!project.groups) return;
 
         const modules = project.groups

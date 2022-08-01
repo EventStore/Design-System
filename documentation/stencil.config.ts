@@ -37,7 +37,7 @@ export const config: Config = {
         {
             type: 'www',
             serviceWorker: null,
-            baseUrl: 'https://myapp.local/',
+            baseUrl: 'https://design-system.eventstore.com/',
             copy: [
                 ...imports,
                 {

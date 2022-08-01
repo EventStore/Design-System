@@ -100,7 +100,8 @@ export class Icon {
         return description;
     };
 
-    private loadIcon = async (description: IconDescription) => {
+    private loadIcon = async (description?: IconDescription) => {
+        if (!description) return;
         const [namespace, name] = this.parseIconDescription(description);
         this.autoSpin = name === 'spinner';
 

@@ -32,7 +32,7 @@ export namespace Components {
         "methods": JsonDocsMethod[];
     }
     interface DocsPackage {
-        "lib": Lib;
+        "slug": string;
     }
     interface DocsPartsTable {
         "parts": JsonDocsPart[];
@@ -233,7 +233,7 @@ declare namespace LocalJSX {
         "methods": JsonDocsMethod[];
     }
     interface DocsPackage {
-        "lib": Lib;
+        "slug": string;
     }
     interface DocsPartsTable {
         "parts": JsonDocsPart[];
