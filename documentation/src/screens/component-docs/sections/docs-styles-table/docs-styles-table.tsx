@@ -11,7 +11,7 @@ export class DocsPropsTable {
     @Prop() styles!: JsonDocsStyle[];
 
     render() {
-        if (!this.styles.length) return null;
+        if (!this.styles?.length) return null;
         return (
             <Host>
                 <h2>{'CSS Variables'}</h2>

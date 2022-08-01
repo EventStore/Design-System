@@ -78,7 +78,9 @@ export class DocsPackage {
                             {lib.stencilDocs.components.map(({ tag }) => (
                                 <es-layout-link
                                     key={tag}
-                                    url={`/${this.slug}/components/${tag}`}
+                                    url={`/${
+                                        this.slug
+                                    }/components/${tag.toLowerCase()}`}
                                 >
                                     {tag}
                                 </es-layout-link>
@@ -92,7 +94,9 @@ export class DocsPackage {
                             {this.functionalComponents.map(({ name }) => (
                                 <es-layout-link
                                     key={name}
-                                    url={`/${this.slug}/functional-components/${name}`}
+                                    url={`/${
+                                        this.slug
+                                    }/functional-components/${name.toLowerCase()}`}
                                 >
                                     {name}
                                 </es-layout-link>
@@ -104,7 +108,9 @@ export class DocsPackage {
                             {this.utils.map(({ name }) => (
                                 <es-layout-link
                                     key={name}
-                                    url={`/${this.slug}/utils/${name}`}
+                                    url={`/${
+                                        this.slug
+                                    }/utils/${name.toLowerCase()}`}
                                 >
                                     {name}
                                 </es-layout-link>
@@ -116,7 +122,9 @@ export class DocsPackage {
                             {this.types.map(({ name }) => (
                                 <es-layout-link
                                     key={name}
-                                    url={`/${this.slug}/types/${name}`}
+                                    url={`/${
+                                        this.slug
+                                    }/types/${name.toLowerCase()}`}
                                 >
                                     {name}
                                 </es-layout-link>
@@ -141,7 +149,9 @@ export class DocsPackage {
                     {lib.stencilDocs?.components.map((doc) => (
                         <Route
                             exact
-                            url={`/${this.slug}/components/${doc.tag}`}
+                            url={`/${
+                                this.slug
+                            }/components/${doc.tag.toLowerCase()}`}
                         >
                             <docs-component-docs lib={lib} comp={doc} />
                         </Route>
@@ -149,7 +159,9 @@ export class DocsPackage {
                     {this.functionalComponents?.map((doc) => (
                         <Route
                             exact
-                            url={`/${this.slug}/functional-components/${doc.name}`}
+                            url={`/${
+                                this.slug
+                            }/functional-components/${doc.name.toLowerCase()}`}
                         >
                             <docs-functional-component-docs
                                 lib={lib}
@@ -158,12 +170,22 @@ export class DocsPackage {
                         </Route>
                     ))}
                     {this.utils?.map((doc) => (
-                        <Route exact url={`/${this.slug}/utils/${doc.name}`}>
+                        <Route
+                            exact
+                            url={`/${
+                                this.slug
+                            }/utils/${doc.name.toLowerCase()}`}
+                        >
                             <docs-util-docs lib={lib} doc={doc} />
                         </Route>
                     ))}
                     {this.types?.map((doc) => (
-                        <Route exact url={`/${this.slug}/types/${doc.name}`}>
+                        <Route
+                            exact
+                            url={`/${
+                                this.slug
+                            }/types/${doc.name.toLowerCase()}`}
+                        >
                             <docs-type-docs lib={lib} doc={doc} />
                         </Route>
                     ))}

@@ -24,8 +24,11 @@ export class FunctionalComponentDocs {
 
     private references!: SomeReflection[];
 
+    @Watch('lib')
     @Watch('doc')
     componentWillLoad() {
+        if (!this.doc || !this.lib) return null;
+
         this.references = findAllReferences(
             this.doc,
             this.lib.typeDocs!.lookup,
@@ -33,6 +36,8 @@ export class FunctionalComponentDocs {
     }
 
     render() {
+        if (!this.doc || !this.lib) return null;
+
         return (
             <Page
                 pageTitle={this.doc.name}

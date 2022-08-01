@@ -11,7 +11,7 @@ export class DocsMethodsTable {
     @Prop() methods!: JsonDocsMethod[];
 
     render() {
-        if (!this.methods.length) return null;
+        if (!this.methods?.length) return null;
         return (
             <Host>
                 <h2>{'Methods'}</h2>

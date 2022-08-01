@@ -22,20 +22,24 @@ export class UtilDocs {
     private references!: SomeReflection[];
     private instanceOf?: SomeReflection;
 
+    @Watch('lib')
     @Watch('doc')
     componentWillLoad() {
+        if (!this.doc || !this.lib) return;
+
         this.instanceOf =
             isVariable(this.doc) && isReferenceType(this.doc.type!)
                 ? this.lib.typeDocs!.lookup.get((this.doc.type as any).name)
                 : undefined;
 
         this.references = findAllReferences(
-            this.instanceOf ?? this.doc,
+            this.doc,
             this.lib.typeDocs!.lookup,
         );
     }
 
     render() {
+        if (!this.doc || !this.lib) return null;
         return (
             <Page
                 pageTitle={this.doc.name}

@@ -11,7 +11,7 @@ export class DocsPartsTable {
     @Prop() parts!: JsonDocsPart[];
 
     render() {
-        if (!this.parts.length) return null;
+        if (!this.parts?.length) return null;
         return (
             <Host>
                 <h2>{'Parts'}</h2>
