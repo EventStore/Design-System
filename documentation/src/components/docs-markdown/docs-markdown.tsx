@@ -36,6 +36,7 @@ export class DocsMarkdown {
 
     @Watch('md')
     componentWillLoad() {
+        if (!this.md) return;
         this.host.innerHTML = parser.render(this.md);
         this.host
             .querySelectorAll<HTMLElement>('pre > code')

@@ -1,4 +1,4 @@
-import { Component, h, Element } from '@stencil/core';
+import { Component, h, Element, Build } from '@stencil/core';
 import { sidebarWidth } from '../../utils/LayoutVar';
 
 /**
@@ -22,6 +22,12 @@ export class Sidebar {
 
     componentWillLoad() {
         this.resizeObserver.observe(this.host);
+    }
+
+    componentDidLoad() {
+        if (Build.isServer) {
+            sidebarWidth.set(this.host.offsetWidth ?? 260);
+        }
     }
 
     disconnectedCallback() {

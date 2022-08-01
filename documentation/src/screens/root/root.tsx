@@ -21,12 +21,12 @@ export class Root {
                 </es-header>
                 <Switch>
                     <Route exact url={'/'} routeRender={() => <docs-home />} />
-                    {sitemap.map((section) =>
-                        section.children.map((lib) => (
+                    {sitemap.sections.map((section) =>
+                        section.children.map((slug) => (
                             <Route
-                                url={`/${lib.slug}`}
+                                url={`/${slug}`}
                                 routeRender={() => (
-                                    <docs-package lib={lib} key={lib.title} />
+                                    <docs-package slug={slug} key={slug} />
                                 )}
                             />
                         )),

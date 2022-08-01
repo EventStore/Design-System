@@ -11,7 +11,7 @@ export class DocsPropsTable {
     @Prop() props!: JsonDocsProp[];
 
     render() {
-        if (!this.props.length) return null;
+        if (!this.props?.length) return null;
 
         return (
             <Host>

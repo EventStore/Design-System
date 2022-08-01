@@ -71,7 +71,7 @@ export class Popover {
 
     private connected: boolean = false;
     private attached: boolean = false;
-    private mutationObserver!: MutationObserver;
+    private mutationObserver?: MutationObserver;
     private detachAllowFocus?: ReturnType<typeof allowFocus>;
     private portalledNodes: Array<[node: Node, placeholder: Node]> = [];
     private popper?: HTMLEsPopperElement;
@@ -93,7 +93,7 @@ export class Popover {
 
     disconnectedCallback() {
         this.connected = false;
-        this.mutationObserver.disconnect();
+        this.mutationObserver?.disconnect();
 
         if (this.open) {
             this.closePopper(false);
