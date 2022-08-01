@@ -33,11 +33,17 @@ export const config: Config = {
     globalStyle: 'src/global/app.css',
     globalScript: 'src/global/app.ts',
     taskQueue: 'async',
+    sourceMap: true,
     outputTargets: [
         {
             type: 'www',
-            serviceWorker: null,
             baseUrl: 'https://design-system.eventstore.com/',
+            serviceWorker: {
+                swSrc: './src/global/sw.js',
+                globPatterns: ['**/*.{js,css,woff,woff2}'],
+                // monaco is pretty chunky, but we still want to pre-cache it
+                maximumFileSizeToCacheInBytes: 3_000_000,
+            },
             copy: [
                 ...imports,
                 {

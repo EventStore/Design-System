@@ -193,7 +193,7 @@ export class Table {
 
     private getColumns = (): string[] => {
         if (this.columns) return this.columns;
-        return Object.keys(this.cells);
+        return Object.keys(this.cells ?? {});
     };
 
     private gridTemplateColumns = () =>
