@@ -1,4 +1,4 @@
-import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter, Watch } from '@stencil/core';
 import iMask, { InputMask } from 'imask';
 import type { FieldChange, ValidationMessages } from '../../types';
 import { Field } from '../Field/Field';
@@ -51,6 +51,11 @@ export class EsInput {
 
     disconnectedCallback() {
         this.destroyMask();
+    }
+
+    @Watch('value')
+    updateMaskValue() {
+        this.maskValue = this.value;
     }
 
     render() {
