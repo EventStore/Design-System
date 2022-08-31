@@ -453,6 +453,50 @@ export namespace Components {
         "warningIcon": IconDescription;
     }
 }
+export interface EsCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsCheckboxElement;
+}
+export interface EsInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsInputElement;
+}
+export interface EsInputListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsInputListElement;
+}
+export interface EsListCreatorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsListCreatorElement;
+}
+export interface EsMegaInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsMegaInputElement;
+}
+export interface EsNumberInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsNumberInputElement;
+}
+export interface EsRadioCardGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsRadioCardGroupElement;
+}
+export interface EsSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsSelectElement;
+}
+export interface EsSwitchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsSwitchElement;
+}
+export interface EsTextareaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsTextareaElement;
+}
+export interface EsTypeaheadCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsTypeaheadElement;
+}
 declare global {
     interface HTMLEsCheckboxElement extends Components.EsCheckbox, HTMLStencilElement {
     }
@@ -562,7 +606,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<FieldChange<boolean>>) => void;
+        "onFieldchange"?: (event: EsCheckboxCustomEvent<FieldChange<boolean>>) => void;
         /**
           * If the field is editable.
          */
@@ -604,11 +648,11 @@ declare namespace LocalJSX {
         /**
           * Emitted on keyup of enter, if no modifier keys are held.
          */
-        "onEnter"?: (event: CustomEvent<any>) => void;
+        "onEnter"?: (event: EsInputCustomEvent<any>) => void;
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<FieldChange<string>>) => void;
+        "onFieldchange"?: (event: EsInputCustomEvent<FieldChange<string>>) => void;
         /**
           * The placeholder for the input.
          */
@@ -654,7 +698,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<FieldChange<string[]>>) => void;
+        "onFieldchange"?: (event: EsInputListCustomEvent<FieldChange<string[]>>) => void;
         /**
           * Display a placeholder in the input.
          */
@@ -696,7 +740,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<FieldChange<string[]>>) => void;
+        "onFieldchange"?: (event: EsListCreatorCustomEvent<FieldChange<string[]>>) => void;
         /**
           * A list of options to choose from.
          */
@@ -742,11 +786,11 @@ declare namespace LocalJSX {
         /**
           * Emitted on keyup of enter, if no modifier keys are held.
          */
-        "onEnter"?: (event: CustomEvent<any>) => void;
+        "onEnter"?: (event: EsMegaInputCustomEvent<any>) => void;
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<FieldChange<string>>) => void;
+        "onFieldchange"?: (event: EsMegaInputCustomEvent<FieldChange<string>>) => void;
         /**
           * The placeholder for the input.
          */
@@ -788,11 +832,11 @@ declare namespace LocalJSX {
         /**
           * Emitted on keyup of enter, if no modifier keys are held.
          */
-        "onEnter"?: (event: CustomEvent<any>) => void;
+        "onEnter"?: (event: EsNumberInputCustomEvent<any>) => void;
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<FieldChange<string>>) => void;
+        "onFieldchange"?: (event: EsNumberInputCustomEvent<FieldChange<string>>) => void;
         /**
           * The placeholder for the input.
          */
@@ -838,7 +882,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<FieldChange<string | null>>) => void;
+        "onFieldchange"?: (event: EsRadioCardGroupCustomEvent<FieldChange<string | null>>) => void;
         /**
           * The options to be displayed and chosen from.
          */
@@ -880,7 +924,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<FieldChange<string | null>>) => void;
+        "onFieldchange"?: (event: EsSelectCustomEvent<FieldChange<string | null>>) => void;
         /**
           * Pass a custom search filter function
          */
@@ -942,7 +986,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<FieldChange<boolean>>) => void;
+        "onFieldchange"?: (event: EsSwitchCustomEvent<FieldChange<boolean>>) => void;
         /**
           * If the field is editable.
          */
@@ -980,7 +1024,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: CustomEvent<FieldChange<string>>) => void;
+        "onFieldchange"?: (event: EsTextareaCustomEvent<FieldChange<string>>) => void;
         /**
           * The placeholder for the input.
          */
@@ -999,8 +1043,8 @@ declare namespace LocalJSX {
         "closeOnSelect"?: boolean;
         "disabled"?: boolean;
         "name": string;
-        "onEnter"?: (event: CustomEvent<any>) => void;
-        "onFieldchange"?: (event: CustomEvent<FieldChange<string[]>>) => void;
+        "onEnter"?: (event: EsTypeaheadCustomEvent<any>) => void;
+        "onFieldchange"?: (event: EsTypeaheadCustomEvent<FieldChange<string[]>>) => void;
         "optionFilter"?: OptionFilter;
         "options": TypeaheadOption[];
         "readonly"?: boolean;

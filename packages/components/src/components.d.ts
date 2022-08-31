@@ -558,6 +558,50 @@ export namespace Components {
         "scrollOffset": number;
     }
 }
+export interface EsBackdropCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsBackdropElement;
+}
+export interface EsModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsModalElement;
+}
+export interface EsPaginationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsPaginationElement;
+}
+export interface EsPopoverCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsPopoverElement;
+}
+export interface EsPopperCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsPopperElement;
+}
+export interface EsPortalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsPortalElement;
+}
+export interface EsProgressionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsProgressionElement;
+}
+export interface EsResizeObserverCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsResizeObserverElement;
+}
+export interface EsTableCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsTableElement;
+}
+export interface EsTableNestedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsTableNestedElement;
+}
+export interface EsTabsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsTabsElement;
+}
 declare global {
     interface HTMLEsAccordianElement extends Components.EsAccordian, HTMLStencilElement {
     }
@@ -770,8 +814,8 @@ declare namespace LocalJSX {
         "steps"?: boolean;
     }
     interface EsBackdrop {
-        "onClosed"?: (event: CustomEvent<any>) => void;
-        "onRequestClose"?: (event: CustomEvent<any>) => void;
+        "onClosed"?: (event: EsBackdropCustomEvent<any>) => void;
+        "onRequestClose"?: (event: EsBackdropCustomEvent<any>) => void;
         "showBackdrop"?: boolean;
     }
     interface EsBadge {
@@ -938,7 +982,7 @@ declare namespace LocalJSX {
         /**
           * Triggers when the modal requests to be closed.
          */
-        "onRequestClose"?: (event: CustomEvent<void>) => void;
+        "onRequestClose"?: (event: EsModalCustomEvent<void>) => void;
     }
     interface EsPagination {
         /**
@@ -948,7 +992,7 @@ declare namespace LocalJSX {
         /**
           * Triggered when a pagination button is clicked
          */
-        "onUpdate"?: (event: CustomEvent<PageChangeEventType>) => void;
+        "onUpdate"?: (event: EsPaginationCustomEvent<PageChangeEventType>) => void;
         /**
           * Number of pages.
          */
@@ -998,7 +1042,7 @@ declare namespace LocalJSX {
         /**
           * Triggers when the popover requests to close.
          */
-        "onRequestClose"?: (event: CustomEvent<any>) => void;
+        "onRequestClose"?: (event: EsPopoverCustomEvent<any>) => void;
         /**
           * Toggles if the popover is open or not.
          */
@@ -1026,7 +1070,7 @@ declare namespace LocalJSX {
     }
     interface EsPopper {
         "backdrop"?: boolean;
-        "onRequestClose"?: (event: CustomEvent<any>) => void;
+        "onRequestClose"?: (event: EsPopperCustomEvent<any>) => void;
         "trapFocus"?: boolean;
     }
     interface EsPopperInner {
@@ -1043,7 +1087,7 @@ declare namespace LocalJSX {
         /**
           * Triggers when the popover requests to close.
          */
-        "onRequestClose"?: (event: CustomEvent<any>) => void;
+        "onRequestClose"?: (event: EsPortalCustomEvent<any>) => void;
         /**
           * If the element is portaled or not.
          */
@@ -1065,13 +1109,13 @@ declare namespace LocalJSX {
         /**
           * Emitted when a checkpoint is clicked.
          */
-        "onProgressionRequest"?: (event: CustomEvent<string>) => void;
+        "onProgressionRequest"?: (event: EsProgressionCustomEvent<string>) => void;
     }
     interface EsResizeObserver {
         /**
           * Triggered when the size of the element changes.
          */
-        "onSizeChanged"?: (event: CustomEvent<DOMRectReadOnly>) => void;
+        "onSizeChanged"?: (event: EsResizeObserverCustomEvent<DOMRectReadOnly>) => void;
     }
     interface EsStatus {
         "status": Status;
@@ -1104,7 +1148,7 @@ declare namespace LocalJSX {
         /**
           * Triggered whenever a row is clicked. The `detail` is the item in the row array.
          */
-        "onClickRow"?: (event: CustomEvent<any>) => void;
+        "onClickRow"?: (event: EsTableCustomEvent<any>) => void;
         /**
           * Allows rendering a node after the row.
          */
@@ -1224,11 +1268,11 @@ declare namespace LocalJSX {
         /**
           * Triggered whenever a row (or nested row) is clicked. The `detail` is the item in the row array.
          */
-        "onClickRow"?: (event: CustomEvent<any>) => void;
+        "onClickRow"?: (event: EsTableNestedCustomEvent<any>) => void;
         /**
           * Triggered whenever a row is expanded.
          */
-        "onExpansion"?: (event: CustomEvent<{ data: any; key: string }>) => void;
+        "onExpansion"?: (event: EsTableNestedCustomEvent<{ data: any; key: string }>) => void;
         /**
           * Passed to cell renderer as `parent`.
          */
@@ -1260,7 +1304,7 @@ declare namespace LocalJSX {
         /**
           * Triggered when the active tab is changed. `detail` is the newly active tab.
          */
-        "onTabChange"?: (event: CustomEvent<string>) => void;
+        "onTabChange"?: (event: EsTabsCustomEvent<string>) => void;
         /**
           * A list of tabs.
          */
