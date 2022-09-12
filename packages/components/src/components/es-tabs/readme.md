@@ -76,6 +76,7 @@ export default () => (
 
 | Part          | Description                 |
 | ------------- | --------------------------- |
+| `"active"`    | The active tab.             |
 | `"indicator"` | The sliding indicatior bar. |
 | `"panel"`     | Tab panels.                 |
 | `"tab"`       | Tabs.                       |

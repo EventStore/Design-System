@@ -19,6 +19,7 @@ import type { Tab } from './types';
  * @part indicator - The sliding indicatior bar.
  * @part panel - Tab panels.
  * @part tab - Tabs.
+ * @part active - The active tab.
  * @part tablist - The tab container.
  */
 @Component({
@@ -81,7 +82,7 @@ export class EsTabs {
             aria-selected={this.active === id}
             id={`tab-${id}`}
             class={{ tab: true, active: this.active === id }}
-            part={'tab'}
+            part={this.active === id ? 'tab active' : 'tab'}
             onClick={this.setActive(id)}
             ref={this.captureTab(id)}
         >
