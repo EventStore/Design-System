@@ -1,3 +1,4 @@
+import '../utils/initialize';
 import { createStore } from './createStore';
 
 describe.each<[string, 'reset' | 'dispose']>([
