@@ -1,3 +1,5 @@
+import './utils/initialize';
+
 export { createStore, Store } from './stores/createStore';
 export { createListStore, ListStore } from './stores/createListStore';
 export {
