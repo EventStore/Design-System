@@ -100,7 +100,7 @@ export default () => (
 
 | Part       | Description      |
 | ---------- | ---------------- |
-| `"body"`   | The modal bouy   |
+| `"body"`   | The modal body   |
 | `"footer"` | The modal footer |
 | `"header"` | The modal header |
 

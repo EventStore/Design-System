@@ -16,7 +16,7 @@ import { ICON_NAMESPACE } from '../../icons/namespace';
  * Traps focus within the modal, and returns focus to previous location when closed.
  * Pair with an [`es-portal`](/components/components/es-portal) to open and close.
  * @part header - The modal header
- * @part body - The modal bouy
+ * @part body - The modal body
  * @part footer - The modal footer
  * @slot - Places components in the body.
  * @slot header - Places components in the header. Pass a h2 then a h1 for standard styling.
