@@ -15,8 +15,12 @@ import { ICON_NAMESPACE } from '../../icons/namespace';
  * A pop up modal for overlaying information, warnings and confirmations.
  * Traps focus within the modal, and returns focus to previous location when closed.
  * Pair with an [`es-portal`](/components/components/es-portal) to open and close.
- * @part header - Places components in the header. Pass a h2 then a h1 for standard styling.
- * @part footer - Places components in the footer. Pass es-button and es-button-link.
+ * @part header - The modal header
+ * @part body - The modal body
+ * @part footer - The modal footer
+ * @slot - Places components in the body.
+ * @slot header - Places components in the header. Pass a h2 then a h1 for standard styling.
+ * @slot footer - Places components in the footer. Pass es-button and es-button-link.
  */
 @Component({
     tag: 'es-modal',
@@ -63,15 +67,15 @@ export class Modal {
                     <es-icon icon={[ICON_NAMESPACE, 'close']} size={22} />
                 </button>
                 {this.header && (
-                    <header>
+                    <header part={'header'}>
                         <slot name={'header'} />
                     </header>
                 )}
-                <div class={'body'}>
+                <div class={'body'} part={'body'}>
                     <slot />
                 </div>
                 {this.footer && (
-                    <footer>
+                    <footer part={'footer'}>
                         <slot name={'footer'} />
                     </footer>
                 )}

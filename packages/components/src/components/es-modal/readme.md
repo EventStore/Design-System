@@ -87,12 +87,22 @@ export default () => (
 | `requestClose` | Triggers when the modal requests to be closed. | `CustomEvent<void>` |
 
 
-## Shadow Parts
+## Slots
 
-| Part       | Description                                                                |
+| Slot       | Description                                                                |
 | ---------- | -------------------------------------------------------------------------- |
+|            | Places components in the body.                                             |
 | `"footer"` | Places components in the footer. Pass es-button and es-button-link.        |
 | `"header"` | Places components in the header. Pass a h2 then a h1 for standard styling. |
+
+
+## Shadow Parts
+
+| Part       | Description      |
+| ---------- | ---------------- |
+| `"body"`   | The modal body   |
+| `"footer"` | The modal footer |
+| `"header"` | The modal header |
 
 
 ## Dependencies
