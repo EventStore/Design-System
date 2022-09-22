@@ -23,7 +23,7 @@
     "scripts": {
         "import": "node ./scripts/import.mjs",
         "build": "stencil build --docs",
-        "start": "stencil build --dev --watch --serve",
+        "dev": "stencil build --dev --watch --serve",
         "docs": "run-s \"docs:*\"",
         "docs:stencil": "stencil build --docs-json ../../documentation/generated/illustrations.stencil.json",
         "docs:typedoc": "typedoc --logLevel Error --json ../../documentation/generated/illustrations.typedoc.json",

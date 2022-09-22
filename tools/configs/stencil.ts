@@ -1,16 +1,24 @@
-import { Config } from '@stencil/core';
+import { join } from 'path';
+import { existsSync } from 'fs';
+
+import { Config as StencilConfig } from '@stencil/core';
 import { parseFlags } from '@stencil/core/cli';
 import { CopyTask } from '@stencil/core/internal';
 import { postcss } from '@stencil/postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 
 import { assetsPath } from '@eventstore-ui/assets';
+import { devMode } from './dev/devMode';
 
 export const flags = parseFlags(process.argv.slice(2));
 
 interface PackageConfig extends Partial<Config> {
     namespace: string;
     copy?: CopyTask[];
+}
+
+interface Config extends StencilConfig {
+    buildDocs: boolean;
 }
 
 export const packageConfig = ({
@@ -20,8 +28,12 @@ export const packageConfig = ({
     ...config
 }: PackageConfig): Config => ({
     taskQueue: 'async',
+    globalStyle:
+        config.globalStyle ??
+        (flags.dev ? join(__dirname, './dev/dev.css') : undefined),
     outputTargets: flags.dev
         ? [
+              devMode(),
               {
                   type: 'www',
                   copy: [
@@ -49,6 +61,11 @@ export const packageConfig = ({
         openBrowser: false,
         ...devServer,
     },
+    tsconfig:
+        !flags.dev && existsSync('./tsconfig.build.json')
+            ? './tsconfig.build.json'
+            : './tsconfig.json',
+    buildDocs: flags.docs || flags.dev || false,
     plugins: [
         postcss({
             plugins: [
