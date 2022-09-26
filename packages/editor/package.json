@@ -31,7 +31,7 @@
     },
     "scripts": {
         "build": "run-s \"build:*\"",
-        "start": "stencil build --dev --watch --serve --openBrowser=false",
+        "dev": "stencil build --dev --watch --serve",
         "build:utils": "run-p \"utils:*\"",
         "build:workers": "run-p \"workers:*\"",
         "build:stencil": "stencil build --docs",
