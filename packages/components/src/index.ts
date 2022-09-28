@@ -5,6 +5,7 @@ export type { TableCells, TableCell } from './components/es-table/types';
 export type { WizardPage } from './components/es-wizard/types';
 export type { Tab } from './components/es-tabs/types';
 export type { ToastOptions } from './components/toast/types';
+export type { PageChangeEventType } from './components/es-pagination/types';
 export type {
     IconDescription,
     NamespacedIcon,
@@ -12,6 +13,9 @@ export type {
 
 export { toast } from './utils/toast';
 export { iconStore } from './utils/iconStore';
-export { requestClose } from './components/es-popover/utils/requestClose';
-export { PageChangeEventType } from './components/es-pagination/types';
 export { ICON_NAMESPACE as ES_COMPONENTS_ICON_NAMESPACE } from './icons/namespace';
+export { requestClose } from './components/es-popover/utils/requestClose';
+export {
+    LoadingText,
+    LoadingTextProps,
+} from './components/es-loading-text/LoadingText';
