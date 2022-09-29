@@ -1,5 +1,5 @@
 {
-    "version": "0.1.0-alpha.3",
+    "version": "0.1.0-alpha.10",
     "namespace": "es-components",
     "iconStoreImportPath": "../utils/iconStore",
     "icons": {
@@ -38,6 +38,11 @@
             "component": "Degraded",
             "path": "./components/Degraded.tsx"
         },
+        "dot": {
+            "name": "dot",
+            "component": "Dot",
+            "path": "./components/Dot.tsx"
+        },
         "error": {
             "name": "error",
             "component": "Error",
@@ -57,6 +62,16 @@
             "name": "okay",
             "component": "Okay",
             "path": "./components/Okay.tsx"
+        },
+        "sort": {
+            "name": "sort",
+            "component": "Sort",
+            "path": "./components/Sort.tsx"
+        },
+        "sorted": {
+            "name": "sorted",
+            "component": "Sorted",
+            "path": "./components/Sorted.tsx"
         },
         "spinner": {
             "name": "spinner",

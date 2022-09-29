@@ -25,6 +25,9 @@ iconStore.addIcons(ICON_NAMESPACE, {
     get degraded() {
         return import('./components/Degraded').then(({ Degraded }) => Degraded);
     },
+    get dot() {
+        return import('./components/Dot').then(({ Dot }) => Dot);
+    },
     get error() {
         return import('./components/Error').then(({ Error }) => Error);
     },
@@ -38,6 +41,12 @@ iconStore.addIcons(ICON_NAMESPACE, {
     },
     get okay() {
         return import('./components/Okay').then(({ Okay }) => Okay);
+    },
+    get sort() {
+        return import('./components/Sort').then(({ Sort }) => Sort);
+    },
+    get sorted() {
+        return import('./components/Sorted').then(({ Sorted }) => Sorted);
     },
     get spinner() {
         return import('./components/Spinner').then(({ Spinner }) => Spinner);

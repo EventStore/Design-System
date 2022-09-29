@@ -9,8 +9,9 @@ import {
 } from '@stencil/core';
 import { Link, router } from '@eventstore-ui/router';
 import { theme } from '@eventstore-ui/theme';
-import type { TableCell, TableCells } from './types';
-import { logger } from '../../utils/logger';
+
+import type { TableCell, TableCells } from '../types';
+import { logger } from '../../../utils/logger';
 
 /** Create a table from data. */
 @Component({

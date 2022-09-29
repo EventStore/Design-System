@@ -68,10 +68,12 @@ Type: `Promise<void>`
  - [es-accordian](../es-accordian)
  - [es-callout](../es-callout)
  - [es-copy](../es-copy)
+ - [es-loading-dots](../es-loading-dots)
  - [es-modal](../es-modal)
  - [es-pagination](../es-pagination)
  - es-status
- - [es-table-nested](../es-table-nested)
+ - [es-table-nested](../tables/es-table-nested)
+ - [es-table-virtualized](../tables/es-table-virtualized)
  - [es-thinking-button](../es-thinking-button)
  - es-toast
 
@@ -81,10 +83,12 @@ graph TD;
   es-accordian --> es-icon
   es-callout --> es-icon
   es-copy --> es-icon
+  es-loading-dots --> es-icon
   es-modal --> es-icon
   es-pagination --> es-icon
   es-status --> es-icon
   es-table-nested --> es-icon
+  es-table-virtualized --> es-icon
   es-thinking-button --> es-icon
   es-toast --> es-icon
   style es-icon fill:#f9f,stroke:#333,stroke-width:4px

@@ -42,8 +42,8 @@
 ### Depends on
 
 - [es-table](../es-table)
-- [es-button](../buttons/es-button)
-- [es-icon](../es-icon)
+- [es-button](../../buttons/es-button)
+- [es-icon](../../es-icon)
 
 ### Graph
 ```mermaid

@@ -1,5 +1,5 @@
 import { Component, h, Prop, Host } from '@stencil/core';
-import type { TableCells } from '../es-table/types';
+import type { TableCells } from '../types';
 
 /** A default header for [`es-table-detail`](/components/components/es-table-detail). */
 @Component({

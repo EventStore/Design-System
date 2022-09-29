@@ -6,4 +6,5 @@ export { HTTPError, HTTPProblemDetails } from './HTTPError';
 export { shadowMutationObserver } from './shadowMutationObserver';
 export * from './focus';
 export * from './pierce';
+export * from './bigMath';
 export { downloadArrayBuffer } from './downloadArrayBuffer';
