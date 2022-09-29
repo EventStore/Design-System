@@ -198,6 +198,16 @@ export namespace Components {
          */
         "spinEnd": () => Promise<void>;
     }
+    interface EsLoadingText {
+        /**
+          * The expected loaded text length.
+         */
+        "expectedLength": number;
+        /**
+          * Adds a random number of chars (up to the passed amount)
+         */
+        "variance"?: number;
+    }
     interface EsModal {
         /**
           * If the modal should have a footer.
@@ -663,6 +673,12 @@ declare global {
         prototype: HTMLEsIconElement;
         new (): HTMLEsIconElement;
     };
+    interface HTMLEsLoadingTextElement extends Components.EsLoadingText, HTMLStencilElement {
+    }
+    var HTMLEsLoadingTextElement: {
+        prototype: HTMLEsLoadingTextElement;
+        new (): HTMLEsLoadingTextElement;
+    };
     interface HTMLEsModalElement extends Components.EsModal, HTMLStencilElement {
     }
     var HTMLEsModalElement: {
@@ -782,6 +798,7 @@ declare global {
         "es-corner-banner": HTMLEsCornerBannerElement;
         "es-counter": HTMLEsCounterElement;
         "es-icon": HTMLEsIconElement;
+        "es-loading-text": HTMLEsLoadingTextElement;
         "es-modal": HTMLEsModalElement;
         "es-pagination": HTMLEsPaginationElement;
         "es-popover": HTMLEsPopoverElement;
@@ -969,6 +986,16 @@ declare namespace LocalJSX {
           * When spinning, should it spin clockwise or anticlockwise.
          */
         "spinDirection"?: 'clockwise' | 'antiClockwise';
+    }
+    interface EsLoadingText {
+        /**
+          * The expected loaded text length.
+         */
+        "expectedLength": number;
+        /**
+          * Adds a random number of chars (up to the passed amount)
+         */
+        "variance"?: number;
     }
     interface EsModal {
         /**
@@ -1376,6 +1403,7 @@ declare namespace LocalJSX {
         "es-corner-banner": EsCornerBanner;
         "es-counter": EsCounter;
         "es-icon": EsIcon;
+        "es-loading-text": EsLoadingText;
         "es-modal": EsModal;
         "es-pagination": EsPagination;
         "es-popover": EsPopover;
@@ -1410,6 +1438,7 @@ declare module "@stencil/core" {
             "es-corner-banner": LocalJSX.EsCornerBanner & JSXBase.HTMLAttributes<HTMLEsCornerBannerElement>;
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
             "es-icon": LocalJSX.EsIcon & JSXBase.HTMLAttributes<HTMLEsIconElement>;
+            "es-loading-text": LocalJSX.EsLoadingText & JSXBase.HTMLAttributes<HTMLEsLoadingTextElement>;
             "es-modal": LocalJSX.EsModal & JSXBase.HTMLAttributes<HTMLEsModalElement>;
             "es-pagination": LocalJSX.EsPagination & JSXBase.HTMLAttributes<HTMLEsPaginationElement>;
             "es-popover": LocalJSX.EsPopover & JSXBase.HTMLAttributes<HTMLEsPopoverElement>;
