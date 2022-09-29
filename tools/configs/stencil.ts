@@ -18,7 +18,7 @@ interface PackageConfig extends Partial<Config> {
 }
 
 interface Config extends StencilConfig {
-    buildDocs: boolean;
+    buildDocs?: boolean;
 }
 
 export const packageConfig = ({
@@ -65,7 +65,7 @@ export const packageConfig = ({
         !flags.dev && existsSync('./tsconfig.build.json')
             ? './tsconfig.build.json'
             : './tsconfig.json',
-    buildDocs: flags.docs || flags.dev || false,
+    buildDocs: flags.dev || undefined,
     plugins: [
         postcss({
             plugins: [
