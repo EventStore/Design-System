@@ -10,5 +10,6 @@ export { Switch } from './components/Switch';
 
 export * from './types';
 export { searchParam } from './utils/searchParam';
+export { routeHasChanged } from './utils/routeHasChanged';
 
 export { router } from './utils/router';
