@@ -1531,7 +1531,7 @@ declare namespace LocalJSX {
         /**
           * The height (in pixels) of the row
          */
-        "rowHeight": number;
+        "rowHeight"?: number;
         /**
           * If rows should be allowed to take focus
          */

@@ -13,6 +13,8 @@ import {
 } from '@stencil/core';
 import { Link, router } from '@eventstore-ui/router';
 import { theme } from '@eventstore-ui/theme';
+import { debounce, bigIntMin, rateLimit } from '@eventstore-ui/utils';
+
 import type {
     ClickRow,
     JumpOptions,
@@ -22,7 +24,6 @@ import type {
     TableCells,
     TableSort,
 } from '../types';
-import { debounce, bigIntMin } from '@eventstore-ui/utils';
 
 import { ICON_NAMESPACE } from '../../../icons/namespace';
 
@@ -66,7 +67,7 @@ export class Table {
     /** A function to calculate a href from the cell data. */
     @Prop() linkRowTo?: (row: any) => string;
     /** The height (in pixels) of the row */
-    @Prop() rowHeight!: number;
+    @Prop() rowHeight: number = 50;
     /** The height (in pixels) of the header */
     @Prop() headerHeight: number = this.rowHeight;
     /** The height (in pixels) of the before */
@@ -212,7 +213,7 @@ export class Table {
         if (this.headless) return null;
         const [sortKey, order] = this.sort ?? [];
         return (
-            <div role={'row'} class={'sticky_header'}>
+            <div role={'row'} class={{ sticky_header: this.stickyHeader }}>
                 {this.getColumns().map((name) => {
                     const { variant, title, sortable } = this.getCell(name);
                     if (variant === 'exclude') return;
@@ -500,10 +501,10 @@ export class Table {
     };
 
     private previousScrollTop = 0;
-    private handleScroll = debounce(() => {
+    private handleScroll = rateLimit(() => {
         this.calculateWarp();
         this.calculateWindowing();
-    }, 10);
+    }, 50);
 
     private internalScrollTop = 0;
     private warpedScrollTop = 0;
@@ -554,12 +555,13 @@ export class Table {
     };
 
     private applyWarp = debounce(() => {
+        this.justWarped = true;
+
         if (this.scrollParent.scrollTop === this.warpedScrollTop) {
             this.warp = 0;
             return;
         }
 
-        this.justWarped = true;
         this.scrollParent.scrollTop = this.warpedScrollTop;
         this.warp = this.internalScrollTop - this.warpedScrollTop;
     }, 200);
@@ -601,7 +603,10 @@ export class Table {
             }
 
             // at top edge, no warp
-            const topEdge = this.rowCount / 8n;
+            const topEdge = BigInt(
+                Math.floor(MAX_TABLE_HEIGHT / 8 / this.rowHeight),
+            );
+
             if (index <= topEdge) {
                 return Math.max(0, expectedTop);
             }

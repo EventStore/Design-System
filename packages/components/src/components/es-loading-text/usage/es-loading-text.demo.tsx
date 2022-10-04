@@ -1,5 +1,5 @@
 import { Component, h, Host, State } from '@stencil/core';
-import { LoadingText } from './LoadingText';
+import { LoadingText } from '../LoadingText';
 
 /**
  * es-loading-text & LoadingText demo

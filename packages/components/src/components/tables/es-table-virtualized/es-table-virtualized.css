@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 es-table-virtualized {
     display: block;
     width: 100%;
@@ -132,7 +136,7 @@ es-table-virtualized {
 
     & .sticky_header *[role='columnheader'] {
         position: sticky;
-        top: var(--layout-header-height);
+        top: 0;
         z-index: 1;
         background-color: var(--color-background);
     }
