@@ -1,10 +1,5 @@
-import type {
-    OnHandler,
-    OnChangeHandler,
-    Subscription,
-    Handlers,
-} from '../types';
-import { stencilSubscription } from '../subscriptions/stencil';
+import type { OnHandler, OnChangeHandler, Handlers, Plugin } from '../types';
+import { stencilPlugin } from '../plugins/stencil';
 import { $data } from '../symbols';
 
 /** A basic key value store. */
@@ -18,6 +13,8 @@ export interface Store<T> {
     /** set value for key in store */
     set<K extends keyof T>(key: K, value: T[K]): void;
     /** remove value for key in store */
+    keys(): IterableIterator<keyof T>;
+    /** remove value for key in store */
     delete<K extends keyof T>(key: K): boolean;
     /** subscribe to events within the store */
     on: OnHandler<T>;
@@ -28,7 +25,7 @@ export interface Store<T> {
     /** Resets the state to its original state. */
     reset(): void;
     /** Registers a subscription that will be called whenever the user gets, sets, or resets a value. */
-    use(...plugins: Subscription<T>[]): () => void;
+    use(...plugins: Plugin<T>[]): () => void;
     /** the number of key / value pairs in the store */
     readonly size: number;
 
@@ -90,9 +87,11 @@ export const createStore = <T extends { [key: string]: any }>(
         };
     };
 
-    const use = (...subscriptions: Subscription<T>[]): (() => void) => {
+    const use = (...subscriptions: Plugin<T>[]): (() => void) => {
         const unsubscribes = subscriptions.reduce<Array<() => void>>(
-            (acc, subscription) => {
+            (acc, plugin) => {
+                const subscription = plugin(store);
+
                 if (subscription.delete) {
                     acc.push(on('delete', subscription.delete));
                 }
@@ -174,6 +173,7 @@ export const createStore = <T extends { [key: string]: any }>(
         has: (key) => backingMap.has(key),
         get: (key) => state[key],
         set: (key, value) => (state[key] = value),
+        keys: () => backingMap.keys(),
         delete: (key) => {
             const existed = backingMap.has(key);
             delete state[key];
@@ -190,7 +190,7 @@ export const createStore = <T extends { [key: string]: any }>(
         [$data]: backingMap,
     };
 
-    store.use(stencilSubscription());
+    store.use(stencilPlugin());
 
     return store;
 };
