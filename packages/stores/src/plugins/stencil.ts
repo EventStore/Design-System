@@ -1,9 +1,9 @@
 import { createInterestedParties } from '../utils/interest';
-import type { Subscription } from '../types';
+import type { Plugin } from '../types';
 
 const $keys = Symbol('keys');
 
-export const stencilSubscription = <T>(): Subscription<T> => {
+export const stencilPlugin = <T>(): Plugin<T> => () => {
     const interestedParties = createInterestedParties();
     return {
         dispose: () => {

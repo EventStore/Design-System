@@ -1,3 +1,5 @@
+import type { Store } from './stores/createStore';
+
 export interface Handlers<T> {
     delete: Set<DeleteEventHandler<T>>;
     dispose: Set<DisposeEventHandler>;
@@ -40,7 +42,9 @@ export interface OnChangeHandler<StoreType> {
     ): () => void;
 }
 
-/** An interface for createing subscriptions on the store. */
+export type Plugin<T> = (store: Store<T>) => Subscription<T>;
+
+/** An interface for creating subscriptions on the store. */
 export interface Subscription<StoreType> {
     /** Triggered when an item is deleted from the store. */
     delete?: DeleteEventHandler<StoreType>;
@@ -56,4 +60,5 @@ export interface Subscription<StoreType> {
     reset?: ResetEventHandler;
     /** Triggered when an item is set in the store (regardless of if it was previously present or not). */
     set?: SetEventHandler<StoreType>;
+    /** Triggered when a store is created. */
 }

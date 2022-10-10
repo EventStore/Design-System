@@ -7,4 +7,9 @@ export {
     CorrelationStore,
 } from './stores/createCorrelationStore';
 
-export type { Subscription } from './types';
+export {
+    persistLocally,
+    PersistLocallyOptions,
+} from './plugins/persistLocally';
+
+export type { Plugin, Subscription } from './types';
