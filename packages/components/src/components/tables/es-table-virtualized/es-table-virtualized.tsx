@@ -504,7 +504,7 @@ export class Table {
     private handleScroll = rateLimit(() => {
         this.calculateWarp();
         this.calculateWindowing();
-    }, 50);
+    }, 200);
 
     private internalScrollTop = 0;
     private warpedScrollTop = 0;
@@ -519,7 +519,7 @@ export class Table {
         if (this.justWarped) {
             this.justWarped = false;
         } else if (warpFactor === 1) {
-            this.internalScrollTop = scrollTop;
+            this.internalScrollTop += distance;
             this.warpedScrollTop = this.internalScrollTop;
         } else if (Math.abs(distance) > 10_000) {
             const jumpWarp = this.warpFactor(scrollTop);
@@ -558,13 +558,12 @@ export class Table {
         this.justWarped = true;
 
         if (this.scrollParent.scrollTop === this.warpedScrollTop) {
-            this.warp = 0;
             return;
         }
 
         this.scrollParent.scrollTop = this.warpedScrollTop;
         this.warp = this.internalScrollTop - this.warpedScrollTop;
-    }, 200);
+    }, 1000);
 
     private calculateWindowing = () => {
         if (this.rowCount <= this.windowSize) return;

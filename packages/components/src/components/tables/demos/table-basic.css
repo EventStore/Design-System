@@ -1,17 +1,20 @@
-es-table {
-    & [role='cell'].amount {
-        justify-content: flex-end;
-        background-color: var(--color-success);
-        color: var(--color-success-contrast);
+:host {
+    display: block;
+}
 
-        &.large {
-            background-color: var(--color-error);
-            color: var(--color-error-contrast);
-        }
-    }
+.amount {
+    justify-content: flex-end;
+    background-color: var(--color-success);
+    color: var(--color-success-contrast);
 
-    & .some_class h1 {
-        color: pink;
-        font-size: 40px;
+    &.large {
+        background-color: var(--color-error);
+        color: var(--color-error-contrast);
     }
+}
+
+.some_class h1 {
+    color: pink;
+    font-size: 16px;
+    margin: 0;
 }

@@ -1,4 +1,5 @@
 import { Component, h, State } from '@stencil/core';
+import { router } from '@eventstore-ui/router';
 import type { TableCells } from '../types';
 
 interface DummyData {
@@ -37,8 +38,19 @@ export class LoadingTextDemo {
         },
     ];
 
+    componentWillLoad() {
+        router.init();
+    }
+
     render() {
-        return <es-table cells={this.cells} rows={this.data} />;
+        return (
+            <es-table
+                cells={this.cells}
+                rows={this.data}
+                linkRowTo={() => '#'}
+                rowClass={() => 'selectable'}
+            />
+        );
     }
 
     private cells: TableCells<DummyData> = {

@@ -10,6 +10,7 @@ interface DummyData {
 /** Basic es-table demo. */
 @Component({
     tag: 'es-table-virtualized-demo',
+    styleUrl: './table-basic.css',
     shadow: true,
 })
 export class LoadingTextDemo {
@@ -19,7 +20,7 @@ export class LoadingTextDemo {
                 <es-table-virtualized
                     stickyHeader
                     cells={this.cells}
-                    rowCount={10_000_000n}
+                    rowCount={1_000_000n}
                     getCellData={this.getCellData}
                     ref={this.captureTable}
                 />
@@ -58,7 +59,7 @@ export class LoadingTextDemo {
 
     private jumpToRandom = () => {
         if (!this.table) return;
-        const index = BigInt(Math.floor(Math.random() * 10_000_000));
+        const index = BigInt(Math.floor(Math.random() * 1_000_000));
         this.table.jumpToRow(index, { smooth: 'auto', highlight: true });
     };
 }

@@ -62,7 +62,12 @@ export class Table {
     };
 
     private renderRowGroup = (key: string, i: number) => (
-        <div role={'rowgroup'}>
+        <div
+            role={'rowgroup'}
+            class={{
+                odd: i % 2 === 0,
+            }}
+        >
             {this.renderRow(key, i)}
             {this.renderExpansion(key)}
         </div>
@@ -137,7 +142,7 @@ export class Table {
                 : classes;
 
             return (
-                <span
+                <div
                     role={'cell'}
                     tabindex={focusCell ? '0' : undefined}
                     onKeyDown={
@@ -156,7 +161,7 @@ export class Table {
                     ) : (
                         this.autoExtract(data, name)
                     )}
-                </span>
+                </div>
             );
         });
 
