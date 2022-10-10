@@ -255,7 +255,7 @@ describe('use subscriptions', () => {
     test('get is called whenever we get a prop', () => {
         const store = createStore({ str: 'hola' });
         const get = jest.fn();
-        store.use({ get });
+        store.use(() => ({ get }));
 
         store.state.str;
 
@@ -266,7 +266,7 @@ describe('use subscriptions', () => {
     test('get is unregistered', () => {
         const store = createStore({ str: 'hola' });
         const get = jest.fn();
-        const unregister = store.use({ get });
+        const unregister = store.use(() => ({ get }));
         store.state.str;
         expect(get).toHaveBeenCalledTimes(1);
         get.mockClear();
@@ -280,7 +280,7 @@ describe('use subscriptions', () => {
     test('set is called whenever we set a prop', () => {
         const store = createStore({ str: 'hola' });
         const set = jest.fn();
-        store.use({ set });
+        store.use(() => ({ set }));
 
         store.state.str = 'adios';
 
@@ -291,7 +291,7 @@ describe('use subscriptions', () => {
     test('set is unregistered', () => {
         const store = createStore({ str: 'hola' });
         const set = jest.fn();
-        const unregister = store.use({ set });
+        const unregister = store.use(() => ({ set }));
         store.state.str = 'adios';
         expect(set).toHaveBeenCalledTimes(1);
         set.mockClear();
@@ -305,7 +305,7 @@ describe('use subscriptions', () => {
     test('reset is called when we reset the store', () => {
         const store = createStore({ str: 'hola' });
         const reset = jest.fn();
-        store.use({ reset });
+        store.use(() => ({ reset }));
 
         store.reset();
 
@@ -315,7 +315,7 @@ describe('use subscriptions', () => {
     test('reset is unregistered', () => {
         const store = createStore({ str: 'hola' });
         const reset = jest.fn();
-        const unregister = store.use({ reset });
+        const unregister = store.use(() => ({ reset }));
         store.reset();
         expect(reset).toHaveBeenCalledTimes(1);
         reset.mockClear();
@@ -329,7 +329,7 @@ describe('use subscriptions', () => {
     test('dispose is called when we dispose the store', () => {
         const store = createStore({ str: 'hola' });
         const dispose = jest.fn();
-        store.use({ dispose });
+        store.use(() => ({ dispose }));
 
         store.dispose();
 
@@ -339,7 +339,7 @@ describe('use subscriptions', () => {
     test('dispose is unregistered', () => {
         const store = createStore({ str: 'hola' });
         const dispose = jest.fn();
-        const unregister = store.use({ dispose });
+        const unregister = store.use(() => ({ dispose }));
         store.dispose();
         expect(dispose).toHaveBeenCalledTimes(1);
         dispose.mockClear();
@@ -358,7 +358,8 @@ describe('use subscriptions', () => {
             reset: jest.fn(),
             set: jest.fn(),
         };
-        store.use(subscription);
+
+        store.use(() => subscription);
 
         store.state.str;
         expect(subscription.get).toHaveBeenCalledTimes(1);
@@ -381,7 +382,7 @@ describe('use subscriptions', () => {
             reset: jest.fn(),
             set: jest.fn(),
         };
-        const unregister = store.use(subscription);
+        const unregister = store.use(() => subscription);
 
         store.state.str;
         expect(subscription.get).toHaveBeenCalledTimes(1);
@@ -419,7 +420,10 @@ describe('use subscriptions', () => {
             reset: jest.fn(),
             set: jest.fn(),
         };
-        store.use(subscription, subscription2);
+        store.use(
+            () => subscription,
+            () => subscription2,
+        );
 
         store.state.str;
         expect(subscription.get).toHaveBeenCalledTimes(1);
@@ -452,7 +456,10 @@ describe('use subscriptions', () => {
             reset: jest.fn(),
             set: jest.fn(),
         };
-        const unregister = store.use(subscription, subscription2);
+        const unregister = store.use(
+            () => subscription,
+            () => subscription2,
+        );
         store.state.str;
         expect(subscription.get).toHaveBeenCalledTimes(1);
         expect(subscription2.get).toHaveBeenCalledTimes(1);
