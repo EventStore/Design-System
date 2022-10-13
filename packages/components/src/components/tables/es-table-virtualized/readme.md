@@ -29,7 +29,7 @@
 | `rowTakesFocus`            | `row-takes-focus` | If rows should be allowed to take focus                                                                                 | `boolean \| undefined`                                                                     | `undefined`           |
 | `scrollLock`               | `scroll-lock`     | If the table should lock scroll on appending events                                                                     | `boolean \| undefined`                                                                     | `undefined`           |
 | `sort`                     | --                | How the table is sorted                                                                                                 | `[key: string, order: SortOrder] \| undefined`                                             | `undefined`           |
-| `stickyHeader`             | `sticky-header`   | Do not render header.                                                                                                   | `boolean`                                                                                  | `true`                |
+| `stickyHeader`             | `sticky-header`   | Header sticks to scroll parent.                                                                                         | `boolean`                                                                                  | `true`                |
 | `windowSize`               | --                | The size of the window to render                                                                                        | `bigint`                                                                                   | `100n`                |
 
 

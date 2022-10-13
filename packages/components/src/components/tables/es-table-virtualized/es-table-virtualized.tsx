@@ -24,8 +24,7 @@ import type {
     TableCells,
     TableSort,
 } from '../types';
-
-import { ICON_NAMESPACE } from '../../../icons/namespace';
+import { TableHeader } from '../TableHeader';
 
 const MAX_TABLE_HEIGHT = 15_000_000;
 
@@ -42,7 +41,7 @@ export class Table {
     @Prop() identifier: string = 'table-virtualized';
     /** Do not render header. */
     @Prop() headless: boolean = false;
-    /** Do not render header. */
+    /** Header sticks to scroll parent. */
     @Prop() stickyHeader: boolean = true;
     /** Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns. */
     @Prop() getCellData!: (key: string, index: bigint) => any;
@@ -209,49 +208,6 @@ export class Table {
         this.internalJumpToRow(index, { highlight, smooth });
     }
 
-    private renderHeader = () => {
-        if (this.headless) return null;
-        const [sortKey, order] = this.sort ?? [];
-        return (
-            <div role={'row'} class={{ sticky_header: this.stickyHeader }}>
-                {this.getColumns().map((name) => {
-                    const { variant, title, sortable } = this.getCell(name);
-                    if (variant === 'exclude') return;
-                    if (sortable) {
-                        return (
-                            <es-button
-                                role={'columnheader'}
-                                aria-sort={sortKey === name ? order : 'none'}
-                                variant={'minimal'}
-                                onClick={this.emitSortClick(name)}
-                            >
-                                {title ?? ''}
-                                <es-icon
-                                    size={20}
-                                    icon={[
-                                        ICON_NAMESPACE,
-                                        sortKey === name ? 'sorted' : 'sort',
-                                    ]}
-                                    slot={'after'}
-                                    angle={order === 'ascending' ? 0 : -180}
-                                />
-                            </es-button>
-                        );
-                    }
-
-                    return (
-                        <div
-                            role={'columnheader'}
-                            aria-sort={sortKey === name ? order : 'none'}
-                        >
-                            {title ?? ''}
-                        </div>
-                    );
-                })}
-            </div>
-        );
-    };
-
     private renderRowGroup = (key: string, index: bigint) => (
         <div
             role={'rowgroup'}
@@ -385,7 +341,14 @@ export class Table {
                         }px`,
                     }}
                 >
-                    {this.renderHeader()}
+                    <TableHeader
+                        columns={this.getColumns()}
+                        getCell={this.getCell}
+                        clickSort={this.clickSort}
+                        headless={this.headless}
+                        sort={this.sort}
+                        sticky={this.stickyHeader}
+                    />
                     <div
                         class={'before'}
                         style={{ height: `${this.beforeHeight}px` }}
@@ -430,10 +393,6 @@ export class Table {
 
     private emitRowClick = (data: ClickRow) => () => {
         this.clickRow.emit(data);
-    };
-
-    private emitSortClick = (name: string) => () => {
-        this.clickSort.emit(name);
     };
 
     private getCell = (col: string): TableCell<unknown> => {

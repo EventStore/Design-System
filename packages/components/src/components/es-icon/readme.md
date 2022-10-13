@@ -72,6 +72,7 @@ Type: `Promise<void>`
  - [es-modal](../es-modal)
  - [es-pagination](../es-pagination)
  - es-status
+ - [es-table](../tables/es-table)
  - [es-table-nested](../tables/es-table-nested)
  - [es-table-virtualized](../tables/es-table-virtualized)
  - [es-thinking-button](../es-thinking-button)
@@ -87,6 +88,7 @@ graph TD;
   es-modal --> es-icon
   es-pagination --> es-icon
   es-status --> es-icon
+  es-table --> es-icon
   es-table-nested --> es-icon
   es-table-virtualized --> es-icon
   es-thinking-button --> es-icon

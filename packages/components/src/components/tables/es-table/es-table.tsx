@@ -10,8 +10,9 @@ import {
 import { Link, router } from '@eventstore-ui/router';
 import { theme } from '@eventstore-ui/theme';
 
-import type { TableCell, TableCells } from '../types';
+import type { ClickRow, TableCell, TableCells, TableSort } from '../types';
 import { logger } from '../../../utils/logger';
+import { TableHeader } from '../TableHeader';
 
 /** Create a table from data. */
 @Component({
@@ -24,6 +25,8 @@ export class Table {
     @Prop() identifier: string = 'table';
     /** Do not render header. */
     @Prop() headless: boolean = false;
+    /** Header sticks to scroll parent. */
+    @Prop() stickyHeader: boolean = false;
     /** Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns. */
     @Prop() getCellData: (key: string) => any = (d) => d;
     /** A record of table cell definitions. */
@@ -42,24 +45,13 @@ export class Table {
     ) => Record<string, boolean> | string | undefined = () => undefined;
     /** Allows rendering a node after the row. */
     @Prop() renderExpansion: (key: string) => VNode | null = () => null;
+    /** How the table is sorted */
+    @Prop() sort?: TableSort;
 
-    /** Triggered whenever a row is clicked. The `detail` is the item in the row array. */
-    @Event() clickRow!: EventEmitter<any>;
-
-    private renderHeader = () => {
-        if (this.headless) return null;
-        return (
-            <div role={'row'}>
-                {this.getColumns()
-                    .filter((col) => this.getCell(col).variant !== 'exclude')
-                    .map((name) => (
-                        <div role={'columnheader'} aria-sort="none">
-                            {this.getCell(name).title}
-                        </div>
-                    ))}
-            </div>
-        );
-    };
+    /** Triggered whenever a row is clicked. */
+    @Event() clickRow!: EventEmitter<ClickRow<any>>;
+    /** Triggered whenever a sortable header is clicked */
+    @Event() clickSort!: EventEmitter<string>;
 
     private renderRowGroup = (key: string, i: number) => (
         <div
@@ -73,13 +65,13 @@ export class Table {
         </div>
     );
 
-    private renderRow = (key: string, i: number) => {
+    private renderRow = (key: string, index: number) => {
         const data = this.getCellData?.(key);
 
         if (!data) {
             logger.warn.once(
                 'es-table:',
-                `Data not found for cell with key ${key} at index ${i}`,
+                `Data not found for cell with key ${key} at index ${index}`,
             );
             return null;
         }
@@ -89,13 +81,17 @@ export class Table {
                 <Link
                     url={this.linkRowTo(data)}
                     role={'row'}
-                    aria-rowindex={i}
+                    aria-rowindex={index}
                     key={key}
                     class={this.rowClass(data)}
-                    onClick={this.emitRowClick(data)}
+                    onClick={this.emitRowClick({
+                        index: BigInt(index),
+                        key,
+                        data,
+                    })}
                     tabindex={'-1'}
                 >
-                    {this.renderCells(data, key)}
+                    {this.renderCells(data, key, index)}
                 </Link>
             );
         }
@@ -103,13 +99,17 @@ export class Table {
         return (
             <div
                 role={'row'}
-                aria-rowindex={i}
+                aria-rowindex={index}
                 key={key}
                 class={this.rowClass(data)}
-                onClick={this.emitRowClick(data)}
+                onClick={this.emitRowClick({
+                    index: BigInt(index),
+                    key,
+                    data,
+                })}
                 tabindex={'-1'}
             >
-                {this.renderCells(data, key)}
+                {this.renderCells(data, key, index)}
             </div>
         );
     };
@@ -119,7 +119,7 @@ export class Table {
             ? value
             : null;
     };
-    private renderCells = (data: any, key: string) =>
+    private renderCells = (data: any, key: string, index: number) =>
         this.getColumns().map((name, i) => {
             const { cell: Cell, variant, class: rawClasses } = this.getCell(
                 name,
@@ -146,7 +146,13 @@ export class Table {
                     role={'cell'}
                     tabindex={focusCell ? '0' : undefined}
                     onKeyDown={
-                        focusCell ? this.focusCellKeyPress(data) : undefined
+                        focusCell
+                            ? this.focusCellKeyPress({
+                                  index: BigInt(index),
+                                  key,
+                                  data,
+                              })
+                            : undefined
                     }
                     class={{
                         no_pad: variants.includes('no-pad'),
@@ -173,13 +179,20 @@ export class Table {
                 high-contrast={theme.isHighContrast()}
                 dark={theme.isDark()}
             >
-                {this.renderHeader()}
+                <TableHeader
+                    columns={this.getColumns()}
+                    getCell={this.getCell}
+                    clickSort={this.clickSort}
+                    headless={this.headless}
+                    sort={this.sort}
+                    sticky={this.stickyHeader}
+                />
                 {this.rows?.map(this.renderRowGroup)}
             </Host>
         );
     }
 
-    private focusCellKeyPress = (data: any) => (e: KeyboardEvent) => {
+    private focusCellKeyPress = (data: ClickRow) => (e: KeyboardEvent) => {
         if (e.code !== 'Space' && e.code !== 'Enter') return;
 
         this.clickRow.emit(data);
@@ -189,7 +202,7 @@ export class Table {
         }
     };
 
-    private emitRowClick = (data: any) => () => {
+    private emitRowClick = (data: ClickRow) => () => {
         this.clickRow.emit(data);
     };
 

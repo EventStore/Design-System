@@ -381,6 +381,14 @@ export namespace Components {
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
         "rows": any[];
+        /**
+          * How the table is sorted
+         */
+        "sort"?: TableSort;
+        /**
+          * Header sticks to scroll parent.
+         */
+        "stickyHeader": boolean;
     }
     interface EsTableDetail {
         /**
@@ -588,7 +596,7 @@ export namespace Components {
          */
         "sort"?: TableSort;
         /**
-          * Do not render header.
+          * Header sticks to scroll parent.
          */
         "stickyHeader": boolean;
         /**
@@ -1293,9 +1301,13 @@ declare namespace LocalJSX {
          */
         "linkRowTo"?: (row: any) => string;
         /**
-          * Triggered whenever a row is clicked. The `detail` is the item in the row array.
+          * Triggered whenever a row is clicked.
          */
-        "onClickRow"?: (event: EsTableCustomEvent<any>) => void;
+        "onClickRow"?: (event: EsTableCustomEvent<ClickRow<any>>) => void;
+        /**
+          * Triggered whenever a sortable header is clicked
+         */
+        "onClickSort"?: (event: EsTableCustomEvent<string>) => void;
         /**
           * Allows rendering a node after the row.
          */
@@ -1314,6 +1326,14 @@ declare namespace LocalJSX {
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
         "rows": any[];
+        /**
+          * How the table is sorted
+         */
+        "sort"?: TableSort;
+        /**
+          * Header sticks to scroll parent.
+         */
+        "stickyHeader"?: boolean;
     }
     interface EsTableDetail {
         /**
@@ -1545,7 +1565,7 @@ declare namespace LocalJSX {
          */
         "sort"?: TableSort;
         /**
-          * Do not render header.
+          * Header sticks to scroll parent.
          */
         "stickyHeader"?: boolean;
         /**
