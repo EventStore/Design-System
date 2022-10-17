@@ -28,6 +28,14 @@
     &.no_pad {
         padding: 0;
     }
+
+    &.group_first {
+        padding-left: 20px;
+    }
+
+    &.group_last {
+        padding-right: 20px;
+    }
 }
 
 :where([role='columnheader']) {
@@ -36,14 +44,16 @@
     text-align: left;
     font-weight: 700;
     font-size: 16px;
+
+    height: auto;
     min-height: 52px;
     color: var(--color-title-2);
     line-height: 1;
 
-    border-color: var(--color-shade-20);
+    border-color: var(--color-shade-30);
     border-style: solid;
     border-width: 0;
-    border-bottom-width: 4px;
+    border-bottom-width: 2px;
 
     &.expander-header {
         padding-left: 0;
@@ -52,16 +62,22 @@
             padding-left: 0;
         }
     }
+
+    &.group_first {
+        border-left-width: 2px;
+    }
 }
 
 :where(es-button[role='columnheader']) {
     --primary-color: var(--color-title-2);
     --spacing: 2px;
     --align-inner: flex-start;
+
+    line-height: 1;
     outline-offset: -6px;
 
     &::part(button) {
-        padding: 16px 12px;
+        padding: 14px 12px;
     }
 
     &:first-child::part(button) {
@@ -75,14 +91,31 @@
     &.no_pad::part(button) {
         padding: 0;
     }
+
+    &.group_first::part(button) {
+        border-left-width: 2px;
+        padding-left: 20px;
+    }
+
+    &.group_last::part(button) {
+        padding-right: 20px;
+    }
+}
+
+:where(.subheader [role='columnheader']) {
+    font-weight: 400;
 }
 
 .sticky [role='columnheader'] {
     position: sticky;
-    top: 0;
+    top: var(--sticky-top, 0);
     z-index: 1;
     background-color: var(--color-background);
     transform: translate3d(0, 0, 0);
+}
+
+.subheader.sticky [role='columnheader'] {
+    top: calc(var(--sticky-top, 0px) + 52px);
 }
 
 :where([role='rowgroup']) {
@@ -191,6 +224,15 @@
     &.centered {
         justify-content: center;
     }
+
+    &.group_first {
+        border-left: 2px solid var(--color-shade-30);
+        padding-left: 20px;
+    }
+
+    &.group_last {
+        padding-right: 20px;
+    }
 }
 
 :where([role='details']) {
@@ -199,7 +241,7 @@
     grid-column: 1/-1;
     padding: 14px 24px 14px 50px;
     min-height: 50px;
-    border-bottom: 1px solid var(--color-shade-20);
+    border-bottom: 1px solid var(--color-shade-30);
 }
 
 @keyframes es-table-jump-highlight {

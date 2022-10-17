@@ -17,6 +17,7 @@ import { debounce, bigIntMin, rateLimit } from '@eventstore-ui/utils';
 
 import type {
     ClickRow,
+    ColumnGroups,
     JumpOptions,
     LoadWindow,
     SortOrder,
@@ -25,6 +26,8 @@ import type {
     TableSort,
 } from '../types';
 import { TableHeader } from '../TableHeader';
+import { cellClasses } from '../utils/cellClasses';
+import { autoExtract } from '../utils/autoExtract';
 
 const MAX_TABLE_HEIGHT = 15_000_000;
 
@@ -68,7 +71,7 @@ export class Table {
     /** The height (in pixels) of the row */
     @Prop() rowHeight: number = 50;
     /** The height (in pixels) of the header */
-    @Prop() headerHeight: number = this.rowHeight;
+    @Prop() headerHeight: number = 52;
     /** The height (in pixels) of the before */
     @Prop() beforeHeight: number = 0;
     /** The height (in pixels) of the after */
@@ -109,6 +112,7 @@ export class Table {
     @State() invertBanding: boolean = false;
 
     private initial!: string;
+    private headerRows!: bigint;
     private resizeObserver = new ResizeObserver(() => this.handleResize());
     private scrollParent!: Element;
     private jumpHighlightTimeout!: ReturnType<typeof setTimeout>;
@@ -119,6 +123,7 @@ export class Table {
             passive: true,
         });
         this.resizeObserver.observe(this.host);
+        this.headerRows = this.calcHeaderRows();
         this.initial = this.getKeyFromIndex(0n);
         this.trailingEdgeChange(this.trailingEdge);
     }
@@ -254,65 +259,48 @@ export class Table {
         );
     };
 
-    private autoExtract = (data: any, name: string) => {
-        const value = data?.[name];
-        return typeof value === 'string' || typeof value === 'bigint'
-            ? value
-            : null;
-    };
     private renderCells = (data: any, key: string, index: bigint) =>
-        this.getColumns().map((name, i) => {
-            const { cell: Cell, variant, class: rawClasses } = this.getCell(
-                name,
-            );
+        this.getColumnGroups().map(([_, cells], groupIndex, groups) =>
+            cells.map(([name, cell], cellIndex, cells) => {
+                const focusCell =
+                    groupIndex === 0 &&
+                    cellIndex === 0 &&
+                    (!!this.rowTakesFocus || !!this.linkRowTo);
 
-            const variants =
-                typeof variant === 'string' ? [variant] : variant ?? [];
-
-            const focusCell =
-                i === 0 && (!!this.rowTakesFocus || !!this.linkRowTo);
-
-            const classes =
-                typeof rawClasses === 'function'
-                    ? rawClasses(data)
-                    : rawClasses;
-
-            const extraClasses = !classes
-                ? {}
-                : typeof classes === 'string'
-                ? { [classes]: true }
-                : classes;
-
-            return (
-                <span
-                    role={'cell'}
-                    tabindex={focusCell ? '0' : undefined}
-                    style={{
-                        gridRowStart: `${this.calculateGridRow(index)}`,
-                    }}
-                    onKeyDown={
-                        focusCell ? this.focusCellKeyPress(data) : undefined
-                    }
-                    class={{
-                        no_pad: variants.includes('no-pad'),
-                        borderless: variants.includes('borderless'),
-                        centered: variants.includes('centered'),
-                        focusCell,
-                        ...extraClasses,
-                    }}
-                >
-                    {Cell ? (
-                        <Cell
-                            key={`${key}`}
-                            data={data}
-                            parent={this.identifier}
-                        />
-                    ) : (
-                        this.autoExtract(data, name)
-                    )}
-                </span>
-            );
-        });
+                return (
+                    <div
+                        role={'cell'}
+                        tabindex={focusCell ? '0' : undefined}
+                        onKeyDown={
+                            focusCell
+                                ? this.focusCellKeyPress({
+                                      index: BigInt(index),
+                                      key,
+                                      data,
+                                  })
+                                : undefined
+                        }
+                        style={{
+                            gridRowStart: `${this.calculateGridRow(index)}`,
+                        }}
+                        class={cellClasses(cell, data, focusCell, {
+                            groupIndex,
+                            groupCount: groups.length,
+                            cellIndex,
+                            cellCount: cells.length,
+                        })}
+                    >
+                        {cell.cell
+                            ? h(cell.cell, {
+                                  key,
+                                  data,
+                                  parent: this.identifier,
+                              })
+                            : autoExtract(data, name)}
+                    </div>
+                );
+            }),
+        );
 
     render() {
         const fullHeight = this.fullHeight();
@@ -331,23 +319,19 @@ export class Table {
                     role={'table'}
                     style={{
                         gridTemplateColumns: this.gridTemplateColumns(),
-                        gridTemplateRows: `[header] ${
-                            this.headerHeight
-                        }px [before] ${this.beforeHeight}px repeat(${
-                            this.rowCount - this.reflowRow
-                        }, ${this.rowHeight}px) [after] ${this.afterHeight}px `,
+                        gridTemplateRows: this.gridTemplateRows(),
                         top: `${
                             Number(this.reflowRow) * this.rowHeight - this.warp
                         }px`,
                     }}
                 >
                     <TableHeader
-                        columns={this.getColumns()}
-                        getCell={this.getCell}
+                        columnGroups={this.getColumnGroups()}
                         clickSort={this.clickSort}
                         headless={this.headless}
                         sort={this.sort}
                         sticky={this.stickyHeader}
+                        headerHeight={this.headerHeight}
                     />
                     <div
                         class={'before'}
@@ -404,12 +388,39 @@ export class Table {
         return Object.keys(this.cells);
     };
 
+    private getColumnGroups = (): ColumnGroups => {
+        return this.getColumns().reduce<ColumnGroups>((acc, col) => {
+            const cell = this.getCell(col);
+            if (cell.variant === 'exclude') return acc;
+            if (acc.at(-1) != null && acc.at(-1)![0] === cell.group) {
+                acc.at(-1)![1].push([col, cell]);
+            } else {
+                acc.push([cell.group, [[col, cell]]]);
+            }
+            return acc;
+        }, []);
+    };
+
     private gridTemplateColumns = () =>
         this.getColumns().reduce((acc, col) => {
             const cell = this.getCell(col);
             if (cell.variant === 'exclude') return acc;
             return `${acc} ${cell.width ?? 'auto'}`;
         }, '');
+
+    private gridTemplateRows = () => {
+        return `repeat(${this.headerRows}, ${this.headerHeight}px) [before] ${
+            this.beforeHeight
+        }px repeat(${this.rowCount - this.reflowRow}, ${
+            this.rowHeight
+        }px) [after] ${this.afterHeight}px `;
+    };
+
+    private calcHeaderRows = () => {
+        if (this.headless) return 0n;
+        if (this.getColumnGroups().some(([g]) => g != null)) return 2n;
+        return 1n;
+    };
 
     private getScrollParent = () => {
         const canScroll = (node: Element) => {
@@ -542,7 +553,7 @@ export class Table {
     };
 
     private calculateGridRow = (index: bigint) => {
-        return index + 3n - this.reflowRow;
+        return index + 2n + this.headerRows - this.reflowRow;
     };
 
     private internalJumpToRow = (

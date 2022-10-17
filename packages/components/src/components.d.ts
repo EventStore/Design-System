@@ -210,6 +210,8 @@ export namespace Components {
          */
         "variance"?: number;
     }
+    interface EsLoadingTextDemo {
+    }
     interface EsModal {
         /**
           * If the modal should have a footer.
@@ -390,6 +392,8 @@ export namespace Components {
          */
         "stickyHeader": boolean;
     }
+    interface EsTableBasicDemo {
+    }
     interface EsTableDetail {
         /**
           * A record of table cell definitions.
@@ -429,6 +433,8 @@ export namespace Components {
           * Which cell to place as the title
          */
         "titleCell": string;
+    }
+    interface EsTableGroupedDemo {
     }
     interface EsTableNested {
         /**
@@ -505,6 +511,8 @@ export namespace Components {
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
         "rows": any[];
+    }
+    interface EsTableSortDemo {
     }
     interface EsTableVirtualized {
         /**
@@ -603,6 +611,10 @@ export namespace Components {
           * The size of the window to render
          */
         "windowSize": bigint;
+    }
+    interface EsTableVirtualizedDemo {
+    }
+    interface EsTableVirtualizedGroupedDemo {
     }
     interface EsTabs {
         /**
@@ -797,6 +809,12 @@ declare global {
         prototype: HTMLEsLoadingTextElement;
         new (): HTMLEsLoadingTextElement;
     };
+    interface HTMLEsLoadingTextDemoElement extends Components.EsLoadingTextDemo, HTMLStencilElement {
+    }
+    var HTMLEsLoadingTextDemoElement: {
+        prototype: HTMLEsLoadingTextDemoElement;
+        new (): HTMLEsLoadingTextDemoElement;
+    };
     interface HTMLEsModalElement extends Components.EsModal, HTMLStencilElement {
     }
     var HTMLEsModalElement: {
@@ -857,6 +875,12 @@ declare global {
         prototype: HTMLEsTableElement;
         new (): HTMLEsTableElement;
     };
+    interface HTMLEsTableBasicDemoElement extends Components.EsTableBasicDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableBasicDemoElement: {
+        prototype: HTMLEsTableBasicDemoElement;
+        new (): HTMLEsTableBasicDemoElement;
+    };
     interface HTMLEsTableDetailElement extends Components.EsTableDetail, HTMLStencilElement {
     }
     var HTMLEsTableDetailElement: {
@@ -869,17 +893,41 @@ declare global {
         prototype: HTMLEsTableDetailHeaderElement;
         new (): HTMLEsTableDetailHeaderElement;
     };
+    interface HTMLEsTableGroupedDemoElement extends Components.EsTableGroupedDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableGroupedDemoElement: {
+        prototype: HTMLEsTableGroupedDemoElement;
+        new (): HTMLEsTableGroupedDemoElement;
+    };
     interface HTMLEsTableNestedElement extends Components.EsTableNested, HTMLStencilElement {
     }
     var HTMLEsTableNestedElement: {
         prototype: HTMLEsTableNestedElement;
         new (): HTMLEsTableNestedElement;
     };
+    interface HTMLEsTableSortDemoElement extends Components.EsTableSortDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableSortDemoElement: {
+        prototype: HTMLEsTableSortDemoElement;
+        new (): HTMLEsTableSortDemoElement;
+    };
     interface HTMLEsTableVirtualizedElement extends Components.EsTableVirtualized, HTMLStencilElement {
     }
     var HTMLEsTableVirtualizedElement: {
         prototype: HTMLEsTableVirtualizedElement;
         new (): HTMLEsTableVirtualizedElement;
+    };
+    interface HTMLEsTableVirtualizedDemoElement extends Components.EsTableVirtualizedDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableVirtualizedDemoElement: {
+        prototype: HTMLEsTableVirtualizedDemoElement;
+        new (): HTMLEsTableVirtualizedDemoElement;
+    };
+    interface HTMLEsTableVirtualizedGroupedDemoElement extends Components.EsTableVirtualizedGroupedDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableVirtualizedGroupedDemoElement: {
+        prototype: HTMLEsTableVirtualizedGroupedDemoElement;
+        new (): HTMLEsTableVirtualizedGroupedDemoElement;
     };
     interface HTMLEsTabsElement extends Components.EsTabs, HTMLStencilElement {
     }
@@ -924,6 +972,7 @@ declare global {
         "es-icon": HTMLEsIconElement;
         "es-loading-dots": HTMLEsLoadingDotsElement;
         "es-loading-text": HTMLEsLoadingTextElement;
+        "es-loading-text-demo": HTMLEsLoadingTextDemoElement;
         "es-modal": HTMLEsModalElement;
         "es-pagination": HTMLEsPaginationElement;
         "es-popover": HTMLEsPopoverElement;
@@ -934,10 +983,15 @@ declare global {
         "es-resize-observer": HTMLEsResizeObserverElement;
         "es-status": HTMLEsStatusElement;
         "es-table": HTMLEsTableElement;
+        "es-table-basic-demo": HTMLEsTableBasicDemoElement;
         "es-table-detail": HTMLEsTableDetailElement;
         "es-table-detail-header": HTMLEsTableDetailHeaderElement;
+        "es-table-grouped-demo": HTMLEsTableGroupedDemoElement;
         "es-table-nested": HTMLEsTableNestedElement;
+        "es-table-sort-demo": HTMLEsTableSortDemoElement;
         "es-table-virtualized": HTMLEsTableVirtualizedElement;
+        "es-table-virtualized-demo": HTMLEsTableVirtualizedDemoElement;
+        "es-table-virtualized-grouped-demo": HTMLEsTableVirtualizedGroupedDemoElement;
         "es-tabs": HTMLEsTabsElement;
         "es-thinking-button": HTMLEsThinkingButtonElement;
         "es-toast": HTMLEsToastElement;
@@ -1124,6 +1178,8 @@ declare namespace LocalJSX {
           * Adds a random number of chars (up to the passed amount)
          */
         "variance"?: number;
+    }
+    interface EsLoadingTextDemo {
     }
     interface EsModal {
         /**
@@ -1335,6 +1391,8 @@ declare namespace LocalJSX {
          */
         "stickyHeader"?: boolean;
     }
+    interface EsTableBasicDemo {
+    }
     interface EsTableDetail {
         /**
           * A record of table cell definitions.
@@ -1374,6 +1432,8 @@ declare namespace LocalJSX {
           * Which cell to place as the title
          */
         "titleCell"?: string;
+    }
+    interface EsTableGroupedDemo {
     }
     interface EsTableNested {
         /**
@@ -1458,6 +1518,8 @@ declare namespace LocalJSX {
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
         "rows": any[];
+    }
+    interface EsTableSortDemo {
     }
     interface EsTableVirtualized {
         /**
@@ -1573,6 +1635,10 @@ declare namespace LocalJSX {
          */
         "windowSize"?: bigint;
     }
+    interface EsTableVirtualizedDemo {
+    }
+    interface EsTableVirtualizedGroupedDemo {
+    }
     interface EsTabs {
         /**
           * The currently active panel. By default it will take from the passed activeParam, or the first tab.
@@ -1659,6 +1725,7 @@ declare namespace LocalJSX {
         "es-icon": EsIcon;
         "es-loading-dots": EsLoadingDots;
         "es-loading-text": EsLoadingText;
+        "es-loading-text-demo": EsLoadingTextDemo;
         "es-modal": EsModal;
         "es-pagination": EsPagination;
         "es-popover": EsPopover;
@@ -1669,10 +1736,15 @@ declare namespace LocalJSX {
         "es-resize-observer": EsResizeObserver;
         "es-status": EsStatus;
         "es-table": EsTable;
+        "es-table-basic-demo": EsTableBasicDemo;
         "es-table-detail": EsTableDetail;
         "es-table-detail-header": EsTableDetailHeader;
+        "es-table-grouped-demo": EsTableGroupedDemo;
         "es-table-nested": EsTableNested;
+        "es-table-sort-demo": EsTableSortDemo;
         "es-table-virtualized": EsTableVirtualized;
+        "es-table-virtualized-demo": EsTableVirtualizedDemo;
+        "es-table-virtualized-grouped-demo": EsTableVirtualizedGroupedDemo;
         "es-tabs": EsTabs;
         "es-thinking-button": EsThinkingButton;
         "es-toast": EsToast;
@@ -1696,6 +1768,7 @@ declare module "@stencil/core" {
             "es-icon": LocalJSX.EsIcon & JSXBase.HTMLAttributes<HTMLEsIconElement>;
             "es-loading-dots": LocalJSX.EsLoadingDots & JSXBase.HTMLAttributes<HTMLEsLoadingDotsElement>;
             "es-loading-text": LocalJSX.EsLoadingText & JSXBase.HTMLAttributes<HTMLEsLoadingTextElement>;
+            "es-loading-text-demo": LocalJSX.EsLoadingTextDemo & JSXBase.HTMLAttributes<HTMLEsLoadingTextDemoElement>;
             "es-modal": LocalJSX.EsModal & JSXBase.HTMLAttributes<HTMLEsModalElement>;
             "es-pagination": LocalJSX.EsPagination & JSXBase.HTMLAttributes<HTMLEsPaginationElement>;
             "es-popover": LocalJSX.EsPopover & JSXBase.HTMLAttributes<HTMLEsPopoverElement>;
@@ -1706,10 +1779,15 @@ declare module "@stencil/core" {
             "es-resize-observer": LocalJSX.EsResizeObserver & JSXBase.HTMLAttributes<HTMLEsResizeObserverElement>;
             "es-status": LocalJSX.EsStatus & JSXBase.HTMLAttributes<HTMLEsStatusElement>;
             "es-table": LocalJSX.EsTable & JSXBase.HTMLAttributes<HTMLEsTableElement>;
+            "es-table-basic-demo": LocalJSX.EsTableBasicDemo & JSXBase.HTMLAttributes<HTMLEsTableBasicDemoElement>;
             "es-table-detail": LocalJSX.EsTableDetail & JSXBase.HTMLAttributes<HTMLEsTableDetailElement>;
             "es-table-detail-header": LocalJSX.EsTableDetailHeader & JSXBase.HTMLAttributes<HTMLEsTableDetailHeaderElement>;
+            "es-table-grouped-demo": LocalJSX.EsTableGroupedDemo & JSXBase.HTMLAttributes<HTMLEsTableGroupedDemoElement>;
             "es-table-nested": LocalJSX.EsTableNested & JSXBase.HTMLAttributes<HTMLEsTableNestedElement>;
+            "es-table-sort-demo": LocalJSX.EsTableSortDemo & JSXBase.HTMLAttributes<HTMLEsTableSortDemoElement>;
             "es-table-virtualized": LocalJSX.EsTableVirtualized & JSXBase.HTMLAttributes<HTMLEsTableVirtualizedElement>;
+            "es-table-virtualized-demo": LocalJSX.EsTableVirtualizedDemo & JSXBase.HTMLAttributes<HTMLEsTableVirtualizedDemoElement>;
+            "es-table-virtualized-grouped-demo": LocalJSX.EsTableVirtualizedGroupedDemo & JSXBase.HTMLAttributes<HTMLEsTableVirtualizedGroupedDemoElement>;
             "es-tabs": LocalJSX.EsTabs & JSXBase.HTMLAttributes<HTMLEsTabsElement>;
             "es-thinking-button": LocalJSX.EsThinkingButton & JSXBase.HTMLAttributes<HTMLEsThinkingButtonElement>;
             "es-toast": LocalJSX.EsToast & JSXBase.HTMLAttributes<HTMLEsToastElement>;

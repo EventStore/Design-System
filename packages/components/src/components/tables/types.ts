@@ -22,6 +22,8 @@ export type TableCellVariant =
 export interface TableCell<T> {
     /** The title to be placed in the header. */
     title?: string;
+    /** If this cell should be grouped with others. */
+    group?: string;
     /** The cell renderer. By default it will take the it's key in in the record, and extract that key from the row data. */
     cell?: (d: CellProps<T>) => string | VNode | VNode[] | null;
     /** Allows passing a [track sizing function](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns#values) for use in the grid. */
@@ -50,6 +52,11 @@ export type TableSort = [key: string, order: SortOrder];
 
 /** A record of table cell definitions. */
 export type TableCells<T> = Record<string, TableCell<T>>;
+
+export type NamedCell = [name: string, cell: TableCell<unknown>];
+export type ColumnGroups = Array<
+    [group: string | undefined, cells: NamedCell[]]
+>;
 
 export interface JumpOptions {
     highlight: boolean;

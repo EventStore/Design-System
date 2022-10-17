@@ -10,9 +10,17 @@ import {
 import { Link, router } from '@eventstore-ui/router';
 import { theme } from '@eventstore-ui/theme';
 
-import type { ClickRow, TableCell, TableCells, TableSort } from '../types';
+import type {
+    ClickRow,
+    TableCell,
+    TableCells,
+    TableSort,
+    ColumnGroups,
+} from '../types';
 import { logger } from '../../../utils/logger';
 import { TableHeader } from '../TableHeader';
+import { autoExtract } from '../utils/autoExtract';
+import { cellClasses } from '../utils/cellClasses';
 
 /** Create a table from data. */
 @Component({
@@ -57,7 +65,7 @@ export class Table {
         <div
             role={'rowgroup'}
             class={{
-                odd: i % 2 === 0,
+                odd: i % 2 !== 0,
             }}
         >
             {this.renderRow(key, i)}
@@ -113,63 +121,46 @@ export class Table {
             </div>
         );
     };
-    private autoExtract = (data: any, name: string) => {
-        const value = data?.[name];
-        return typeof value === 'string' || typeof value === 'number'
-            ? value
-            : null;
-    };
+
     private renderCells = (data: any, key: string, index: number) =>
-        this.getColumns().map((name, i) => {
-            const { cell: Cell, variant, class: rawClasses } = this.getCell(
-                name,
-            );
-            const variants =
-                typeof variant === 'string' ? [variant] : variant ?? [];
+        this.getColumnGroups().map(([_, cells], groupIndex, groups) =>
+            cells.map(([name, cell], cellIndex, cells) => {
+                const focusCell =
+                    groupIndex === 0 &&
+                    cellIndex === 0 &&
+                    (!!this.rowTakesFocus || !!this.linkRowTo);
 
-            const focusCell =
-                i === 0 && (!!this.rowTakesFocus || !!this.linkRowTo);
-
-            const classes =
-                typeof rawClasses === 'function'
-                    ? rawClasses(data)
-                    : rawClasses;
-
-            const extraClasses = !classes
-                ? {}
-                : typeof classes === 'string'
-                ? { [classes]: true }
-                : classes;
-
-            return (
-                <div
-                    role={'cell'}
-                    tabindex={focusCell ? '0' : undefined}
-                    onKeyDown={
-                        focusCell
-                            ? this.focusCellKeyPress({
-                                  index: BigInt(index),
+                return (
+                    <div
+                        role={'cell'}
+                        tabindex={focusCell ? '0' : undefined}
+                        onKeyDown={
+                            focusCell
+                                ? this.focusCellKeyPress({
+                                      index: BigInt(index),
+                                      key,
+                                      data,
+                                  })
+                                : undefined
+                        }
+                        class={cellClasses(cell, data, focusCell, {
+                            groupIndex,
+                            groupCount: groups.length,
+                            cellIndex,
+                            cellCount: cells.length,
+                        })}
+                    >
+                        {cell.cell
+                            ? h(cell.cell, {
                                   key,
                                   data,
+                                  parent: this.identifier,
                               })
-                            : undefined
-                    }
-                    class={{
-                        no_pad: variants.includes('no-pad'),
-                        borderless: variants.includes('borderless'),
-                        centered: variants.includes('centered'),
-                        focusCell,
-                        ...extraClasses,
-                    }}
-                >
-                    {Cell ? (
-                        <Cell key={key} data={data} parent={this.identifier} />
-                    ) : (
-                        this.autoExtract(data, name)
-                    )}
-                </div>
-            );
-        });
+                            : autoExtract(data, name)}
+                    </div>
+                );
+            }),
+        );
 
     render() {
         return (
@@ -180,8 +171,7 @@ export class Table {
                 dark={theme.isDark()}
             >
                 <TableHeader
-                    columns={this.getColumns()}
-                    getCell={this.getCell}
+                    columnGroups={this.getColumnGroups()}
                     clickSort={this.clickSort}
                     headless={this.headless}
                     sort={this.sort}
@@ -213,6 +203,19 @@ export class Table {
     private getColumns = (): string[] => {
         if (this.columns) return this.columns;
         return Object.keys(this.cells ?? {});
+    };
+
+    private getColumnGroups = (): ColumnGroups => {
+        return this.getColumns().reduce<ColumnGroups>((acc, col) => {
+            const cell = this.getCell(col);
+            if (cell.variant === 'exclude') return acc;
+            if (acc.at(-1) != null && acc.at(-1)![0] === cell.group) {
+                acc.at(-1)![1].push([col, cell]);
+            } else {
+                acc.push([cell.group, [[col, cell]]]);
+            }
+            return acc;
+        }, []);
     };
 
     private gridTemplateColumns = () =>
