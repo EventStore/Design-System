@@ -1,6 +1,8 @@
 import { EventEmitter, FunctionalComponent, h, Fragment } from '@stencil/core';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import type { ColumnGroups, TableCell, TableSort } from './types';
+import { variantClasses } from './utils/cellClasses';
+import { variantMatches } from './utils/variantMatches';
 
 interface TableHeaderProps {
     headless?: boolean;
@@ -27,9 +29,11 @@ export const TableHeader: FunctionalComponent<TableHeaderProps> = ({
     const grouped = columnGroups.some(([g]) => g != null);
 
     const renderCellHeader = (
-        [name, { title, sortable }]: CellTuple,
+        [name, { title, sortable, variant }]: CellTuple,
+        classes: Record<string, boolean> = {},
         props = {},
     ) => {
+        if (variantMatches(variant, 'full-width')) return;
         if (sortable) {
             return (
                 <es-button
@@ -37,6 +41,7 @@ export const TableHeader: FunctionalComponent<TableHeaderProps> = ({
                     aria-sort={sortKey === name ? order : 'none'}
                     variant={'minimal'}
                     onClick={() => clickSort.emit(name)}
+                    class={{ ...classes, ...variantClasses(variant) }}
                     {...props}
                 >
                     {title ?? ''}
@@ -52,11 +57,11 @@ export const TableHeader: FunctionalComponent<TableHeaderProps> = ({
                 </es-button>
             );
         }
-
         return (
             <div
                 role={'columnheader'}
                 aria-sort={sortKey === name ? order : 'none'}
+                class={{ ...classes, ...variantClasses(variant) }}
                 {...props}
             >
                 {title ?? ''}
@@ -106,8 +111,9 @@ export const TableHeader: FunctionalComponent<TableHeaderProps> = ({
                                 );
                             }
                             return children.map((cell, cell_index, cells) =>
-                                renderCellHeader(cell, {
-                                    class: {
+                                renderCellHeader(
+                                    cell,
+                                    {
                                         group_first:
                                             group_index !== 0 &&
                                             cell_index === 0,
@@ -115,12 +121,14 @@ export const TableHeader: FunctionalComponent<TableHeaderProps> = ({
                                             group_index !== groups.length - 1 &&
                                             cell_index === cells.length - 1,
                                     },
-                                    style: headerHeight
-                                        ? {
-                                              top: `calc(var(--sticky-top, 0px) + ${headerHeight}px)`,
-                                          }
-                                        : undefined,
-                                }),
+                                    {
+                                        style: headerHeight
+                                            ? {
+                                                  top: `calc(var(--sticky-top, 0px) + ${headerHeight}px)`,
+                                              }
+                                            : undefined,
+                                    },
+                                ),
                             );
                         },
                     )}

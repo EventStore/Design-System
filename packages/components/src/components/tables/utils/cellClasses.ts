@@ -13,7 +13,6 @@ export const cellClasses = (
     focusCell: boolean,
     { groupIndex, cellIndex, groupCount, cellCount }: CellPosition,
 ) => {
-    const variants = typeof variant === 'string' ? [variant] : variant ?? [];
     const classes =
         typeof rawClasses === 'function' ? rawClasses(data) : rawClasses;
     const extraClasses = !classes
@@ -23,13 +22,21 @@ export const cellClasses = (
         : classes;
 
     return {
-        no_pad: variants.includes('no-pad'),
-        borderless: variants.includes('borderless'),
-        centered: variants.includes('centered'),
         focusCell,
         group_first: groupIndex !== 0 && cellIndex === 0,
         group_last:
             groupIndex !== groupCount - 1 && cellIndex === cellCount - 1,
+        ...variantClasses(variant),
         ...extraClasses,
+    };
+};
+
+export const variantClasses = (variant: TableCell<unknown>['variant']) => {
+    const variants = typeof variant === 'string' ? [variant] : variant ?? [];
+    return {
+        no_pad: variants.includes('no-pad'),
+        borderless: variants.includes('borderless'),
+        centered: variants.includes('centered'),
+        full_width: variants.includes('full-width'),
     };
 };

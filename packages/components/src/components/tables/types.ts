@@ -32,9 +32,9 @@ export interface TableCell<T> {
      * Allows specifiying a predefined variant for the cell.
      * - `default`: The default styling.
      * - `no-pad`: Removes padding.
-     * - `borderless`: Removes border.
+     * - `borderless`: Removes border, if set.
      * - `centered`: Center aligns the content.
-     * - `full-width`:  Breaks the cell onto its own row, taking the full width. **Only use on last cell of row**
+     * - `full-width`: Breaks the cell onto its own row, taking the full width. **Only use on last cell of row, or in es-table-detail. Not supported in es-table-virtualized **
      * - `exclude`: Disables the cell.
      */
     variant?: TableCellVariant | TableCellVariant[];

@@ -29,6 +29,10 @@
         padding: 0;
     }
 
+    &.centered {
+        justify-content: center;
+    }
+
     &.group_first {
         padding-left: 20px;
     }
@@ -90,6 +94,10 @@
 
     &.no_pad::part(button) {
         padding: 0;
+    }
+
+    &.centered {
+        --align-inner: center;
     }
 
     &.group_first::part(button) {
@@ -221,8 +229,8 @@
         border-bottom: 1px solid transparent;
     }
 
-    &.centered {
-        justify-content: center;
+    &.full_width {
+        grid-column: 1 / -1;
     }
 
     &.group_first {

@@ -21,6 +21,7 @@ import { logger } from '../../../utils/logger';
 import { TableHeader } from '../TableHeader';
 import { autoExtract } from '../utils/autoExtract';
 import { cellClasses } from '../utils/cellClasses';
+import { variantMatches } from '../utils/variantMatches';
 
 /** Create a table from data. */
 @Component({
@@ -221,7 +222,9 @@ export class Table {
     private gridTemplateColumns = () =>
         this.getColumns().reduce((acc, col) => {
             const cell = this.getCell(col);
-            if (cell.variant === 'exclude') return acc;
+            if (variantMatches(cell.variant, 'exclude', 'full-width')) {
+                return acc;
+            }
             return `${acc} ${cell.width ?? 'auto'}`;
         }, '');
 }
