@@ -21,7 +21,7 @@ addChildTheme<CodeColorScheme>('code', {
     // one light
     light: {
         fg: '#383a42',
-        bg: '#fafafa',
+        bg: '#fffffe',
         literal: '#0184bc',
         symbol: '#4078f2',
         keyword: '#a626a4',
