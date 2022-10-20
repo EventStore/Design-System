@@ -139,7 +139,6 @@ export class EsTypeahead {
                 {this.open && (
                     <es-popover
                         arrow
-                        closeOnBlur
                         open={this.open}
                         popperClass={'typeahead'}
                         attachTo={this.fieldElement}
