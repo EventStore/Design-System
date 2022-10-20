@@ -23,7 +23,7 @@ const lowContrast: LayoutColorScheme = {
     base: '#09264a',
     contrast: '#ffffff',
     highlight: '#5ab552',
-    title: '#1976d2',
+    title: '#3dd0ff',
 
     shade_10: '#223c5c',
     shade_20: '#2e4665',
