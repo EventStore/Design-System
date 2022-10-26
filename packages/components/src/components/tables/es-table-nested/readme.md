@@ -42,8 +42,8 @@
 ### Depends on
 
 - [es-table](../es-table)
-- [es-button](../buttons/es-button)
-- [es-icon](../es-icon)
+- [es-button](../../buttons/es-button)
+- [es-icon](../../es-icon)
 
 ### Graph
 ```mermaid
@@ -51,6 +51,8 @@ graph TD;
   es-table-nested --> es-table
   es-table-nested --> es-button
   es-table-nested --> es-icon
+  es-table --> es-button
+  es-table --> es-icon
   style es-table-nested fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -2,7 +2,7 @@ es-table-nested {
     & es-table.nested {
         display: contents;
 
-        & *[role='rowgroup'] {
+        & :where([role='rowgroup']) {
             --row-color: inherit;
             --border-bottom-color: var(--color-primary-extra-light);
 
@@ -15,14 +15,10 @@ es-table-nested {
             }
         }
 
-        &:not(.can_expand_more) {
-            & *[role='rowgroup'] {
-                &:last-child {
-                    & .borderless {
-                        border-bottom: 1px solid var(--border-bottom-color);
-                    }
-                }
-            }
+        &:not(.can_expand_more)
+            :where([role='rowgroup']):last-child
+            .borderless {
+            border-bottom: 1px solid var(--border-bottom-color);
         }
     }
 

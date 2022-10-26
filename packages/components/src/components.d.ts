@@ -18,7 +18,7 @@ import { Constrain } from "./components/es-popover/es-popover";
 import { Placement } from "@floating-ui/dom";
 import { Checkpoint } from "./components/es-progression/es-progression";
 import { Status } from "./components/es-status/es-status";
-import { TableCells } from "./components/es-table/types";
+import { ClickRow, JumpOptions, LoadWindow, TableCells, TableSort } from "./components/tables/types";
 import { Tab } from "./components/es-tabs/types";
 import { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
 import { WizardPage } from "./components/es-wizard/types";
@@ -197,6 +197,8 @@ export namespace Components {
           * Provides a promise that resolves at the end of a single spin, if the icon is spinning.
          */
         "spinEnd": () => Promise<void>;
+    }
+    interface EsLoadingDots {
     }
     interface EsLoadingText {
         /**
@@ -379,6 +381,14 @@ export namespace Components {
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
         "rows": any[];
+        /**
+          * How the table is sorted
+         */
+        "sort"?: TableSort;
+        /**
+          * Header sticks to scroll parent.
+         */
+        "stickyHeader": boolean;
     }
     interface EsTableDetail {
         /**
@@ -496,6 +506,104 @@ export namespace Components {
          */
         "rows": any[];
     }
+    interface EsTableVirtualized {
+        /**
+          * The height (in pixels) of the after
+         */
+        "afterHeight": number;
+        /**
+          * The height (in pixels) of the before
+         */
+        "beforeHeight": number;
+        /**
+          * Groups rows into blocks
+         */
+        "blockSize": bigint;
+        /**
+          * A record of table cell definitions.
+         */
+        "cells": TableCells<any>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
+        "columns"?: string[];
+        /**
+          * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
+         */
+        "getCellData": (key: string, index: bigint) => any;
+        /**
+          * Sync function for converting an index into a key
+         */
+        "getKeyFromIndex": (index: bigint) => string;
+        /**
+          * The height (in pixels) of the header
+         */
+        "headerHeight": number;
+        /**
+          * Do not render header.
+         */
+        "headless": boolean;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
+        "identifier": string;
+        /**
+          * Jump to the passed row, with smooth scroll and highlight, if specified.
+         */
+        "jumpToRow": (index: bigint, { highlight, smooth }?: Partial<JumpOptions>) => Promise<void>;
+        /**
+          * A function to calculate a href from the cell data.
+         */
+        "linkRowTo"?: (row: any) => string;
+        /**
+          * The size of the grid rows before starting a reflow
+         */
+        "reflowSize": bigint;
+        /**
+          * Display in a row after the last row
+         */
+        "renderAfter": () => VNode | null;
+        /**
+          * Display in a row before the first row
+         */
+        "renderBefore": () => VNode | null;
+        /**
+          * A function to calculate the class or classes of the row from the cellData.
+         */
+        "rowClass": (
+        row: any,
+        key: string,
+        index: bigint,
+    ) => Record<string, boolean> | string | undefined;
+        /**
+          * The total number of rows
+         */
+        "rowCount": bigint;
+        /**
+          * The height (in pixels) of the row
+         */
+        "rowHeight": number;
+        /**
+          * If rows should be allowed to take focus
+         */
+        "rowTakesFocus"?: boolean;
+        /**
+          * If the table should lock scroll on appending events
+         */
+        "scrollLock"?: boolean;
+        /**
+          * How the table is sorted
+         */
+        "sort"?: TableSort;
+        /**
+          * Header sticks to scroll parent.
+         */
+        "stickyHeader": boolean;
+        /**
+          * The size of the window to render
+         */
+        "windowSize": bigint;
+    }
     interface EsTabs {
         /**
           * The currently active panel. By default it will take from the passed activeParam, or the first tab.
@@ -608,6 +716,10 @@ export interface EsTableNestedCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEsTableNestedElement;
 }
+export interface EsTableVirtualizedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsTableVirtualizedElement;
+}
 export interface EsTabsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEsTabsElement;
@@ -672,6 +784,12 @@ declare global {
     var HTMLEsIconElement: {
         prototype: HTMLEsIconElement;
         new (): HTMLEsIconElement;
+    };
+    interface HTMLEsLoadingDotsElement extends Components.EsLoadingDots, HTMLStencilElement {
+    }
+    var HTMLEsLoadingDotsElement: {
+        prototype: HTMLEsLoadingDotsElement;
+        new (): HTMLEsLoadingDotsElement;
     };
     interface HTMLEsLoadingTextElement extends Components.EsLoadingText, HTMLStencilElement {
     }
@@ -757,6 +875,12 @@ declare global {
         prototype: HTMLEsTableNestedElement;
         new (): HTMLEsTableNestedElement;
     };
+    interface HTMLEsTableVirtualizedElement extends Components.EsTableVirtualized, HTMLStencilElement {
+    }
+    var HTMLEsTableVirtualizedElement: {
+        prototype: HTMLEsTableVirtualizedElement;
+        new (): HTMLEsTableVirtualizedElement;
+    };
     interface HTMLEsTabsElement extends Components.EsTabs, HTMLStencilElement {
     }
     var HTMLEsTabsElement: {
@@ -798,6 +922,7 @@ declare global {
         "es-corner-banner": HTMLEsCornerBannerElement;
         "es-counter": HTMLEsCounterElement;
         "es-icon": HTMLEsIconElement;
+        "es-loading-dots": HTMLEsLoadingDotsElement;
         "es-loading-text": HTMLEsLoadingTextElement;
         "es-modal": HTMLEsModalElement;
         "es-pagination": HTMLEsPaginationElement;
@@ -812,6 +937,7 @@ declare global {
         "es-table-detail": HTMLEsTableDetailElement;
         "es-table-detail-header": HTMLEsTableDetailHeaderElement;
         "es-table-nested": HTMLEsTableNestedElement;
+        "es-table-virtualized": HTMLEsTableVirtualizedElement;
         "es-tabs": HTMLEsTabsElement;
         "es-thinking-button": HTMLEsThinkingButtonElement;
         "es-toast": HTMLEsToastElement;
@@ -986,6 +1112,8 @@ declare namespace LocalJSX {
           * When spinning, should it spin clockwise or anticlockwise.
          */
         "spinDirection"?: 'clockwise' | 'antiClockwise';
+    }
+    interface EsLoadingDots {
     }
     interface EsLoadingText {
         /**
@@ -1173,9 +1301,13 @@ declare namespace LocalJSX {
          */
         "linkRowTo"?: (row: any) => string;
         /**
-          * Triggered whenever a row is clicked. The `detail` is the item in the row array.
+          * Triggered whenever a row is clicked.
          */
-        "onClickRow"?: (event: EsTableCustomEvent<any>) => void;
+        "onClickRow"?: (event: EsTableCustomEvent<ClickRow<any>>) => void;
+        /**
+          * Triggered whenever a sortable header is clicked
+         */
+        "onClickSort"?: (event: EsTableCustomEvent<string>) => void;
         /**
           * Allows rendering a node after the row.
          */
@@ -1194,6 +1326,14 @@ declare namespace LocalJSX {
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
         "rows": any[];
+        /**
+          * How the table is sorted
+         */
+        "sort"?: TableSort;
+        /**
+          * Header sticks to scroll parent.
+         */
+        "stickyHeader"?: boolean;
     }
     interface EsTableDetail {
         /**
@@ -1319,6 +1459,120 @@ declare namespace LocalJSX {
          */
         "rows": any[];
     }
+    interface EsTableVirtualized {
+        /**
+          * The height (in pixels) of the after
+         */
+        "afterHeight"?: number;
+        /**
+          * The height (in pixels) of the before
+         */
+        "beforeHeight"?: number;
+        /**
+          * Groups rows into blocks
+         */
+        "blockSize"?: bigint;
+        /**
+          * A record of table cell definitions.
+         */
+        "cells": TableCells<any>;
+        /**
+          * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
+         */
+        "columns"?: string[];
+        /**
+          * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
+         */
+        "getCellData": (key: string, index: bigint) => any;
+        /**
+          * Sync function for converting an index into a key
+         */
+        "getKeyFromIndex"?: (index: bigint) => string;
+        /**
+          * The height (in pixels) of the header
+         */
+        "headerHeight"?: number;
+        /**
+          * Do not render header.
+         */
+        "headless"?: boolean;
+        /**
+          * Passed to cell renderer as `parent`.
+         */
+        "identifier"?: string;
+        /**
+          * A function to calculate a href from the cell data.
+         */
+        "linkRowTo"?: (row: any) => string;
+        /**
+          * Triggered whenever a row is clicked. The `detail` is the item in the row array.
+         */
+        "onClickRow"?: (event: EsTableVirtualizedCustomEvent<ClickRow>) => void;
+        /**
+          * Triggered whenever a sortable header is clicked
+         */
+        "onClickSort"?: (event: EsTableVirtualizedCustomEvent<string>) => void;
+        /**
+          * Triggered when the first window is scrolled to
+         */
+        "onFirstWindow"?: (event: EsTableVirtualizedCustomEvent<void>) => void;
+        /**
+          * Triggered when the last window is scrolled to
+         */
+        "onLastWindow"?: (event: EsTableVirtualizedCustomEvent<void>) => void;
+        /**
+          * Triggered when a window is rendered
+         */
+        "onLoadWindow"?: (event: EsTableVirtualizedCustomEvent<LoadWindow>) => void;
+        /**
+          * The size of the grid rows before starting a reflow
+         */
+        "reflowSize"?: bigint;
+        /**
+          * Display in a row after the last row
+         */
+        "renderAfter"?: () => VNode | null;
+        /**
+          * Display in a row before the first row
+         */
+        "renderBefore"?: () => VNode | null;
+        /**
+          * A function to calculate the class or classes of the row from the cellData.
+         */
+        "rowClass"?: (
+        row: any,
+        key: string,
+        index: bigint,
+    ) => Record<string, boolean> | string | undefined;
+        /**
+          * The total number of rows
+         */
+        "rowCount": bigint;
+        /**
+          * The height (in pixels) of the row
+         */
+        "rowHeight"?: number;
+        /**
+          * If rows should be allowed to take focus
+         */
+        "rowTakesFocus"?: boolean;
+        /**
+          * If the table should lock scroll on appending events
+         */
+        "scrollLock"?: boolean;
+        /**
+          * How the table is sorted
+         */
+        "sort"?: TableSort;
+        /**
+          * Header sticks to scroll parent.
+         */
+        "stickyHeader"?: boolean;
+        /**
+          * The size of the window to render
+         */
+        "windowSize"?: bigint;
+    }
     interface EsTabs {
         /**
           * The currently active panel. By default it will take from the passed activeParam, or the first tab.
@@ -1403,6 +1657,7 @@ declare namespace LocalJSX {
         "es-corner-banner": EsCornerBanner;
         "es-counter": EsCounter;
         "es-icon": EsIcon;
+        "es-loading-dots": EsLoadingDots;
         "es-loading-text": EsLoadingText;
         "es-modal": EsModal;
         "es-pagination": EsPagination;
@@ -1417,6 +1672,7 @@ declare namespace LocalJSX {
         "es-table-detail": EsTableDetail;
         "es-table-detail-header": EsTableDetailHeader;
         "es-table-nested": EsTableNested;
+        "es-table-virtualized": EsTableVirtualized;
         "es-tabs": EsTabs;
         "es-thinking-button": EsThinkingButton;
         "es-toast": EsToast;
@@ -1438,6 +1694,7 @@ declare module "@stencil/core" {
             "es-corner-banner": LocalJSX.EsCornerBanner & JSXBase.HTMLAttributes<HTMLEsCornerBannerElement>;
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
             "es-icon": LocalJSX.EsIcon & JSXBase.HTMLAttributes<HTMLEsIconElement>;
+            "es-loading-dots": LocalJSX.EsLoadingDots & JSXBase.HTMLAttributes<HTMLEsLoadingDotsElement>;
             "es-loading-text": LocalJSX.EsLoadingText & JSXBase.HTMLAttributes<HTMLEsLoadingTextElement>;
             "es-modal": LocalJSX.EsModal & JSXBase.HTMLAttributes<HTMLEsModalElement>;
             "es-pagination": LocalJSX.EsPagination & JSXBase.HTMLAttributes<HTMLEsPaginationElement>;
@@ -1452,6 +1709,7 @@ declare module "@stencil/core" {
             "es-table-detail": LocalJSX.EsTableDetail & JSXBase.HTMLAttributes<HTMLEsTableDetailElement>;
             "es-table-detail-header": LocalJSX.EsTableDetailHeader & JSXBase.HTMLAttributes<HTMLEsTableDetailHeaderElement>;
             "es-table-nested": LocalJSX.EsTableNested & JSXBase.HTMLAttributes<HTMLEsTableNestedElement>;
+            "es-table-virtualized": LocalJSX.EsTableVirtualized & JSXBase.HTMLAttributes<HTMLEsTableVirtualizedElement>;
             "es-tabs": LocalJSX.EsTabs & JSXBase.HTMLAttributes<HTMLEsTabsElement>;
             "es-thinking-button": LocalJSX.EsThinkingButton & JSXBase.HTMLAttributes<HTMLEsThinkingButtonElement>;
             "es-toast": LocalJSX.EsToast & JSXBase.HTMLAttributes<HTMLEsToastElement>;

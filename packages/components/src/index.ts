@@ -1,7 +1,7 @@
 export type { Components, JSX } from './components';
 
 export type { AccordianSection } from './components/es-accordian/types';
-export type { TableCells, TableCell } from './components/es-table/types';
+export type { TableCells, TableCell } from './components/tables/types';
 export type { WizardPage } from './components/es-wizard/types';
 export type { Tab } from './components/es-tabs/types';
 export type { ToastOptions } from './components/toast/types';

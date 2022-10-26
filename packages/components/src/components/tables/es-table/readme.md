@@ -79,13 +79,16 @@ export default () => (
 | `rowClass`           | --                | A function to calculate the class or classes of the row from the cellData.                                               | `(row: any) => string \| Record<string, boolean> \| undefined` | `() => undefined` |
 | `rowTakesFocus`      | `row-takes-focus` | If rows should be allowed to take focus                                                                                  | `boolean \| undefined`                                         | `undefined`       |
 | `rows` _(required)_  | --                | An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers. | `any[]`                                                        | `undefined`       |
+| `sort`               | --                | How the table is sorted                                                                                                  | `[key: string, order: SortOrder] \| undefined`                 | `undefined`       |
+| `stickyHeader`       | `sticky-header`   | Header sticks to scroll parent.                                                                                          | `boolean`                                                      | `false`           |
 
 
 ## Events
 
-| Event      | Description                                                                     | Type               |
-| ---------- | ------------------------------------------------------------------------------- | ------------------ |
-| `clickRow` | Triggered whenever a row is clicked. The `detail` is the item in the row array. | `CustomEvent<any>` |
+| Event       | Description                                     | Type                         |
+| ----------- | ----------------------------------------------- | ---------------------------- |
+| `clickRow`  | Triggered whenever a row is clicked.            | `CustomEvent<ClickRow<any>>` |
+| `clickSort` | Triggered whenever a sortable header is clicked | `CustomEvent<string>`        |
 
 
 ## Dependencies
@@ -94,9 +97,16 @@ export default () => (
 
  - [es-table-nested](../es-table-nested)
 
+### Depends on
+
+- [es-button](../../buttons/es-button)
+- [es-icon](../../es-icon)
+
 ### Graph
 ```mermaid
 graph TD;
+  es-table --> es-button
+  es-table --> es-icon
   es-table-nested --> es-table
   style es-table fill:#f9f,stroke:#333,stroke-width:4px
 ```

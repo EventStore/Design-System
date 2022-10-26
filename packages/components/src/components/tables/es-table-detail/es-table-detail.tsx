@@ -1,5 +1,6 @@
 import { Component, h, Prop, Host } from '@stencil/core';
-import type { TableCells, TableCell } from '../es-table/types';
+import type { TableCells, TableCell } from '../types';
+import { autoExtract } from '../utils/autoExtract';
 
 /** Render a single row data as a grid of information. */
 @Component({
@@ -17,19 +18,13 @@ export class TableDetail {
     /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: Array<string>;
 
-    private renderHeader = (title: string) => <dt>{title}</dt>;
-    private autoExtract = (name: string) => {
-        const value = this.data?.[name];
-        return typeof value === 'string' || typeof value === 'number'
-            ? value
-            : null;
-    };
+    private renderHeader = (title?: string) => <dt>{title}</dt>;
     private renderCell = (name: string, Cell: TableCell<any>['cell']) => (
         <dd>
             {Cell ? (
                 <Cell data={this.data} key={name} parent={this.identifier} />
             ) : (
-                this.autoExtract(name)
+                autoExtract(this.data, name)
             )}
         </dd>
     );
