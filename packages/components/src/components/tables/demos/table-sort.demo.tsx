@@ -6,6 +6,7 @@ import type {
     TableCells,
     TableSort,
 } from '../types';
+import { logger } from '../../../utils/logger';
 
 interface DummyData {
     name: string;
@@ -77,21 +78,34 @@ export class Demo {
     });
 
     private onClickSort = (e: ClickSortEvent) => {
-        const row = e.detail;
-        const [currentRow, currentSort] = this.sort;
+        const column = e.detail;
+        const [currentColumn, currentSort] = this.sort;
 
-        if (row === currentRow) {
+        if (column === currentColumn) {
             this.applySort([
-                row,
+                column,
                 currentSort === 'ascending' ? 'descending' : 'ascending',
             ]);
         } else {
-            this.applySort([row, 'ascending']);
+            this.applySort([column, 'ascending']);
+        }
+    };
+
+    private columnToSort = (id: string): keyof DummyData => {
+        switch (id) {
+            case 'name':
+            case 'value':
+            case 'amount':
+                return id;
+            default: {
+                logger.warn(`unknown key passed to sort "${id}"`);
+                return 'name';
+            }
         }
     };
 
     private applySort = (sort: TableSort) => {
-        const key = sort[0] as keyof DummyData;
+        const key = this.columnToSort(sort[0]);
         const invert = sort[1] === 'descending';
         this.sort = sort;
         this.keys = this.keys.sort((aa, bb) => {

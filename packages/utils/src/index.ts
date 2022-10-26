@@ -1,5 +1,6 @@
 export { createLogger } from './createLogger/createLogger';
-export { debounce, rateLimit } from './debounce/debounce';
+export { debounce } from './debounce/debounce';
+export { rateLimit } from './debounce/rateLimit';
 export { extractOnly } from './extractOnly';
 export { findAssignedSlot } from './findAssignedSlot';
 export { HTTPError, HTTPProblemDetails } from './HTTPError';

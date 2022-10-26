@@ -6,6 +6,7 @@ import type {
     TableCells,
     TableSort,
 } from '../types';
+import { logger } from '../../../utils/logger';
 
 interface DummyData {
     name: string;
@@ -69,9 +70,9 @@ export class Demo {
                     'sent_current',
                     'sent_pending',
                     'lorem',
-                    'sent_rate',
-                    'sent_current',
-                    'sent_pending',
+                    'received_rate',
+                    'received_current',
+                    'received_pending',
                     'lorem',
                 ]}
             />
@@ -89,21 +90,39 @@ export class Demo {
     });
 
     private onClickSort = (e: ClickSortEvent) => {
-        const row = e.detail;
-        const [currentRow, currentSort] = this.sort;
+        const column = e.detail;
+        const [currentColumn, currentSort] = this.sort;
 
-        if (row === currentRow) {
+        if (column === currentColumn) {
             this.applySort([
-                row,
+                column,
                 currentSort === 'ascending' ? 'descending' : 'ascending',
             ]);
         } else {
-            this.applySort([row, 'ascending']);
+            this.applySort([column, 'ascending']);
+        }
+    };
+
+    private columnToSort = (id: string): keyof DummyData => {
+        switch (id) {
+            case 'name':
+                return id;
+            case 'sent_rate':
+            case 'sent_current':
+            case 'sent_pending':
+            case 'received_rate':
+            case 'received_current':
+            case 'received_pending':
+                return 'amount';
+            default: {
+                logger.warn(`unknown key passed to sort "${id}"`);
+                return 'name';
+            }
         }
     };
 
     private applySort = (sort: TableSort) => {
-        const key = sort[0] as keyof DummyData;
+        const key = this.columnToSort(sort[0]);
         const invert = sort[1] === 'descending';
         this.sort = sort;
         this.keys = this.keys.sort((aa, bb) => {
@@ -141,6 +160,24 @@ export class Demo {
         sent_pending: {
             sortable: true,
             group: 'Sent (Bytes)',
+            title: 'Pending',
+            cell: ({ data }) => `${Math.floor(data.amount / 10)}`,
+        },
+        received_rate: {
+            sortable: true,
+            group: 'Received (Bytes)',
+            title: 'Rate (Bytes/s)',
+            cell: ({ data }) => `${data.amount}`,
+        },
+        received_current: {
+            sortable: true,
+            group: 'Received (Bytes)',
+            title: 'Current',
+            cell: ({ data }) => `${data.amount * 10_000}`,
+        },
+        received_pending: {
+            sortable: true,
+            group: 'Received (Bytes)',
             title: 'Pending',
             cell: ({ data }) => `${Math.floor(data.amount / 10)}`,
         },
