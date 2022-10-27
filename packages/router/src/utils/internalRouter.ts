@@ -1,4 +1,8 @@
-import { forceUpdate, getElement, getRenderingRef } from '@stencil/core';
+import {
+    forceUpdate as forceUpdateRaw,
+    getElement as getElementRaw,
+    getRenderingRef as getRenderingRefRaw,
+} from '@stencil/core';
 
 import type {
     LocationSegments,
@@ -13,6 +17,10 @@ import { logger } from './logger';
 import { matchPath } from './match-path';
 import { compile } from './path-to-regex';
 
+type ForceUpdate = typeof forceUpdateRaw;
+type GetElement = typeof getElementRaw;
+type GetRenderingRef = typeof getRenderingRefRaw;
+
 export class InternalRouter {
     public root: string = '/';
     public titleSuffix!: string;
@@ -26,8 +34,8 @@ export class InternalRouter {
     }: RouterOptions = {}) {
         const doc =
             passedDoc ||
-            (getRenderingRef() &&
-                getElement(getRenderingRef())?.ownerDocument) ||
+            (getRenderingRefRaw() &&
+                getElementRaw(getRenderingRefRaw())?.ownerDocument) ||
             document;
 
         this.root = root;
@@ -62,16 +70,26 @@ export class InternalRouter {
         window.scrollTo(...scrollPosition);
     };
 
-    private interestFinders = new Map<
-        typeof getRenderingRef,
-        typeof forceUpdate
-    >([[getRenderingRef, forceUpdate]]);
+    private refUtils = new Map<
+        GetRenderingRef,
+        { forceUpdate: ForceUpdate; getElement: GetElement }
+    >([
+        [
+            getRenderingRefRaw,
+            { forceUpdate: forceUpdateRaw, getElement: getElementRaw },
+        ],
+    ]);
+
     public with = (
-        getInterested: typeof getRenderingRef,
-        updateInterested: typeof forceUpdate,
+        getRenderingRef: GetRenderingRef,
+        forceUpdate: ForceUpdate,
+        getElement: GetElement,
     ): this => {
-        if (!this.interestFinders.has(getInterested)) {
-            this.interestFinders.set(getInterested, updateInterested);
+        if (!this.refUtils.has(getRenderingRef)) {
+            this.refUtils.set(getRenderingRef, {
+                forceUpdate,
+                getElement,
+            });
         }
 
         return this;
@@ -79,14 +97,13 @@ export class InternalRouter {
 
     private interestedParties = new Set<() => void>();
     public updateInterestedParties = () => {
-        for (const [getInterested, updateInterested] of this.interestFinders) {
-            const ref = getInterested();
+        for (const [getRenderingRef, { forceUpdate }] of this.refUtils) {
+            const ref = getRenderingRef();
             if (ref) {
-                this.interestedParties.add(() => updateInterested(ref));
+                this.interestedParties.add(() => forceUpdate(ref));
             }
         }
     };
-
     private informInterestedParties = () => {
         const interestedParties = Array.from(this.interestedParties);
         this.interestedParties.clear();
@@ -155,15 +172,24 @@ export class InternalRouter {
         this.history.replace(this.getUrl(url));
     };
 
-    private pendingActions = new Map<any, Set<() => void>>();
+    private pendingActions = new Map<ReturnType<GetElement>, Set<() => void>>();
+
+    private getActionElement = () => {
+        for (const [getRenderingRef, { getElement }] of this.refUtils) {
+            const ref = getRenderingRef();
+            if (ref) {
+                return getElement(ref);
+            }
+        }
+    };
 
     public get action() {
         this.updateInterestedParties();
 
         return (callback: () => void) => {
-            const ref = getRenderingRef();
+            const el = this.getActionElement();
 
-            if (!ref) {
+            if (!el) {
                 callback();
                 return () => {
                     logger.warn(
@@ -172,18 +198,28 @@ export class InternalRouter {
                 };
             }
 
-            if (this.pendingActions.has(ref)) {
-                this.pendingActions.get(ref)!.add(callback);
+            if (this.pendingActions.has(el)) {
+                this.pendingActions.get(el)!.add(callback);
             } else {
-                this.pendingActions.set(ref, new Set([callback]));
-                this.queueActionOnRef(ref);
+                this.pendingActions.set(el, new Set([callback]));
+                this.queueActionOnElement(el);
             }
 
             return () => {
-                this.pendingActions.get(ref)!.delete(callback);
+                this.pendingActions.get(el)!.delete(callback);
             };
         };
     }
+
+    private queueActionOnElement = async (element: ReturnType<GetElement>) => {
+        await element?.componentOnReady?.();
+
+        if (element?.ownerDocument?.contains(element)) {
+            this.pendingActions.get(element)?.forEach((cb) => cb());
+        }
+
+        this.pendingActions.delete(element);
+    };
 
     public fillPath = (
         path: string,
@@ -199,15 +235,5 @@ export class InternalRouter {
             {};
 
         return compile(path)(params);
-    };
-
-    private queueActionOnRef = async (ref: any) => {
-        const element = getElement(ref);
-        await element?.componentOnReady?.();
-
-        if (element?.ownerDocument?.contains(element)) {
-            this.pendingActions.get(ref)?.forEach((cb) => cb());
-        }
-        this.pendingActions.delete(ref);
     };
 }
