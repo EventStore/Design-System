@@ -10,6 +10,7 @@ export interface CellProps<T> {
     key: string;
 }
 
+/** Describes which style of table cell should be used. */
 export type TableCellVariant =
     | 'default'
     | 'no-pad'
@@ -47,36 +48,62 @@ export interface TableCell<T> {
     sortable?: boolean;
 }
 
+/** The order that the table column is sorted in. */
 export type SortOrder = 'ascending' | 'descending' | 'other' | 'none';
-export type TableSort = [key: string, order: SortOrder];
+
+/** A tuple representing the column name and order that a table is sorted by. */
+export type TableSort = [
+    /** The column name the table is sorted on. */
+    key: string,
+    /** The order of the sort. */
+    order: SortOrder,
+];
 
 /** A record of table cell definitions. */
 export type TableCells<T> = Record<string, TableCell<T>>;
 
+/** @internal */
 export type NamedCell = [name: string, cell: TableCell<unknown>];
+
+/** @internal */
 export type ColumnGroups = Array<
     [group: string | undefined, cells: NamedCell[]]
 >;
 
+/** How the table should jump to a row.  */
 export interface JumpOptions {
     highlight: boolean;
     smooth: 'auto' | false;
 }
 
+/** How the table should jump to a row.  */
 export interface LoadWindow {
+    /** The first index of the window */
     from: bigint;
+    /** The last index of the window */
     to: bigint;
+    /** The number of rows in the window */
     count: bigint;
 }
 
+/** An event emitted when a window is loaded. */
 export type LoadWindowEvent = CustomEvent<LoadWindow>;
 
+/** Information on the row which was clicked. */
 export interface ClickRow<T = any> {
+    /** The index of the row that was clicked. */
     index: bigint;
+    /** The key of the row that was clicked. */
     key: string;
+    /** The data (if available) of the row that was clicked. */
     data: T;
 }
 
+/** An event emitted when a row is clicked. */
 export type ClickRowEvent<T> = CustomEvent<ClickRow<T>>;
 
+/**
+ * An event emitted when a sortable header is clicked.
+ * The detail contains the key of the header.
+ */
 export type ClickSortEvent = CustomEvent<string>;
