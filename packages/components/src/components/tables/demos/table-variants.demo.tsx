@@ -26,7 +26,7 @@ export class TableVariant {
             return (
                 <es-table-virtualized
                     cells={this.cells}
-                    rowCount={4n}
+                    rowCount={4}
                     getCellData={() => 'hello'}
                     onClickRow={() => (this.mode = 'detail')}
                     columns={[

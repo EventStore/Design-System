@@ -4,7 +4,7 @@ import type { TableCells } from '../types';
 interface DummyData {
     name: string;
     value: string;
-    amount: bigint;
+    amount: number;
 }
 
 /** Basic es-table demo. */
@@ -20,7 +20,7 @@ export class LoadingTextDemo {
                 <es-table-virtualized
                     stickyHeader
                     cells={this.cells}
-                    rowCount={1_000_000n}
+                    rowCount={1_000_000}
                     getCellData={this.getCellData}
                     ref={this.captureTable}
                 />
@@ -46,7 +46,7 @@ export class LoadingTextDemo {
         },
     };
 
-    private getCellData = (key: string, index: bigint): DummyData => ({
+    private getCellData = (key: string, index: number): DummyData => ({
         amount: index,
         name: `row-${key}`,
         value: 'something here',
@@ -59,7 +59,7 @@ export class LoadingTextDemo {
 
     private jumpToRandom = () => {
         if (!this.table) return;
-        const index = BigInt(Math.floor(Math.random() * 1_000_000));
+        const index = Math.floor(Math.random() * 1_000_000);
         this.table.jumpToRow(index, { smooth: 'auto', highlight: true });
     };
 }
