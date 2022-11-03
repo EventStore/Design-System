@@ -94,7 +94,7 @@ export class Table {
                     key={key}
                     class={this.rowClass(data)}
                     onClick={this.emitRowClick({
-                        index: BigInt(index),
+                        index,
                         key,
                         data,
                     })}
@@ -112,7 +112,7 @@ export class Table {
                 key={key}
                 class={this.rowClass(data)}
                 onClick={this.emitRowClick({
-                    index: BigInt(index),
+                    index,
                     key,
                     data,
                 })}
@@ -138,7 +138,7 @@ export class Table {
                         onKeyDown={
                             focusCell
                                 ? this.focusCellKeyPress({
-                                      index: BigInt(index),
+                                      index,
                                       key,
                                       data,
                                   })

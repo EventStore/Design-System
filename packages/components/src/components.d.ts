@@ -518,7 +518,7 @@ export namespace Components {
         /**
           * Groups rows into blocks
          */
-        "blockSize": bigint;
+        "blockSize": number;
         /**
           * A record of table cell definitions.
          */
@@ -530,11 +530,11 @@ export namespace Components {
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
-        "getCellData": (key: string, index: bigint) => any;
+        "getCellData": (key: string, index: number) => any;
         /**
           * Sync function for converting an index into a key
          */
-        "getKeyFromIndex": (index: bigint) => string;
+        "getKeyFromIndex": (index: number) => string;
         /**
           * The height (in pixels) of the header
          */
@@ -550,7 +550,7 @@ export namespace Components {
         /**
           * Jump to the passed row, with smooth scroll and highlight, if specified.
          */
-        "jumpToRow": (index: bigint, { highlight, smooth }?: Partial<JumpOptions>) => Promise<void>;
+        "jumpToRow": (index: number, { highlight, smooth }?: Partial<JumpOptions>) => Promise<void>;
         /**
           * A function to calculate a href from the cell data.
          */
@@ -558,7 +558,7 @@ export namespace Components {
         /**
           * The size of the grid rows before starting a reflow
          */
-        "reflowSize": bigint;
+        "reflowSize": number;
         /**
           * Display in a row after the last row
          */
@@ -573,12 +573,12 @@ export namespace Components {
         "rowClass": (
         row: any,
         key: string,
-        index: bigint,
+        index: number,
     ) => Record<string, boolean> | string | undefined;
         /**
           * The total number of rows
          */
-        "rowCount": bigint;
+        "rowCount": number;
         /**
           * The height (in pixels) of the row
          */
@@ -602,7 +602,7 @@ export namespace Components {
         /**
           * The size of the window to render
          */
-        "windowSize": bigint;
+        "windowSize": number;
     }
     interface EsTabs {
         /**
@@ -1471,7 +1471,7 @@ declare namespace LocalJSX {
         /**
           * Groups rows into blocks
          */
-        "blockSize"?: bigint;
+        "blockSize"?: number;
         /**
           * A record of table cell definitions.
          */
@@ -1483,11 +1483,11 @@ declare namespace LocalJSX {
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
-        "getCellData": (key: string, index: bigint) => any;
+        "getCellData": (key: string, index: number) => any;
         /**
           * Sync function for converting an index into a key
          */
-        "getKeyFromIndex"?: (index: bigint) => string;
+        "getKeyFromIndex"?: (index: number) => string;
         /**
           * The height (in pixels) of the header
          */
@@ -1513,21 +1513,21 @@ declare namespace LocalJSX {
          */
         "onClickSort"?: (event: EsTableVirtualizedCustomEvent<string>) => void;
         /**
-          * Triggered when the first window is scrolled to
+          * Triggered when the first block is rendered
          */
-        "onFirstWindow"?: (event: EsTableVirtualizedCustomEvent<void>) => void;
+        "onFirstBlock"?: (event: EsTableVirtualizedCustomEvent<void>) => void;
         /**
-          * Triggered when the last window is scrolled to
+          * Triggered when the last block is rendered
          */
-        "onLastWindow"?: (event: EsTableVirtualizedCustomEvent<void>) => void;
+        "onLastBlock"?: (event: EsTableVirtualizedCustomEvent<void>) => void;
         /**
-          * Triggered when a window is rendered
+          * Triggered when a block is rendered
          */
-        "onLoadWindow"?: (event: EsTableVirtualizedCustomEvent<LoadWindow>) => void;
+        "onLoadBlock"?: (event: EsTableVirtualizedCustomEvent<LoadWindow>) => void;
         /**
           * The size of the grid rows before starting a reflow
          */
-        "reflowSize"?: bigint;
+        "reflowSize"?: number;
         /**
           * Display in a row after the last row
          */
@@ -1542,12 +1542,12 @@ declare namespace LocalJSX {
         "rowClass"?: (
         row: any,
         key: string,
-        index: bigint,
+        index: number,
     ) => Record<string, boolean> | string | undefined;
         /**
           * The total number of rows
          */
-        "rowCount": bigint;
+        "rowCount": number;
         /**
           * The height (in pixels) of the row
          */
@@ -1571,7 +1571,7 @@ declare namespace LocalJSX {
         /**
           * The size of the window to render
          */
-        "windowSize"?: bigint;
+        "windowSize"?: number;
     }
     interface EsTabs {
         /**

@@ -79,11 +79,11 @@ export interface JumpOptions {
 /** How the table should jump to a row.  */
 export interface LoadWindow {
     /** The first index of the window */
-    from: bigint;
+    from: number;
     /** The last index of the window */
-    to: bigint;
+    to: number;
     /** The number of rows in the window */
-    count: bigint;
+    count: number;
 }
 
 /** An event emitted when a window is loaded. */
@@ -92,7 +92,7 @@ export type LoadWindowEvent = CustomEvent<LoadWindow>;
 /** Information on the row which was clicked. */
 export interface ClickRow<T = any> {
     /** The index of the row that was clicked. */
-    index: bigint;
+    index: number;
     /** The key of the row that was clicked. */
     key: string;
     /** The data (if available) of the row that was clicked. */

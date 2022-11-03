@@ -52,7 +52,7 @@ export class Demo {
                     stickyHeader
                     ref={this.captureTable}
                     cells={this.cells}
-                    rowCount={1_000_000n}
+                    rowCount={1_000_000}
                     getCellData={this.getCellData}
                     rowClass={this.rowClass}
                     sort={this.sort}
@@ -95,8 +95,8 @@ export class Demo {
         selected: row?.name === this.active,
     });
 
-    private getCellData = (key: string, index: bigint): DummyData => ({
-        amount: Number(index),
+    private getCellData = (key: string, index: number): DummyData => ({
+        amount: index,
         name: `row-${key}`,
         value: 'something here',
     });
@@ -136,7 +136,7 @@ export class Demo {
 
     private jumpToRandom = () => {
         if (!this.table) return;
-        const index = BigInt(Math.floor(Math.random() * 1_000_000));
+        const index = Math.floor(Math.random() * 1_000_000);
         this.table.jumpToRow(index, { smooth: 'auto', highlight: true });
     };
 }

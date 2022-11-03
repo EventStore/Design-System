@@ -13,7 +13,7 @@ import {
 } from '@stencil/core';
 import { Link, router } from '@eventstore-ui/router';
 import { theme } from '@eventstore-ui/theme';
-import { debounce, bigIntMin, rateLimit } from '@eventstore-ui/utils';
+import { debounce, rateLimit } from '@eventstore-ui/utils';
 
 import type {
     ClickRow,
@@ -47,25 +47,25 @@ export class Table {
     /** Header sticks to scroll parent. */
     @Prop() stickyHeader: boolean = true;
     /** Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns. */
-    @Prop() getCellData!: (key: string, index: bigint) => any;
+    @Prop() getCellData!: (key: string, index: number) => any;
     /** Sync function for converting an index into a key */
-    @Prop() getKeyFromIndex: (index: bigint) => string = (i) => `${i}`;
+    @Prop() getKeyFromIndex: (index: number) => string = (i) => `${i}`;
     /** A record of table cell definitions. */
     @Prop() cells!: TableCells<any>;
     /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: string[];
     /** The total number of rows */
-    @Prop() rowCount!: bigint;
+    @Prop() rowCount!: number;
     /** Display in a row before the first row */
     @Prop() renderBefore: () => VNode | null = () => null;
     /** Display in a row after the last row */
     @Prop() renderAfter: () => VNode | null = () => null;
     /** The size of the window to render */
-    @Prop() windowSize: bigint = 100n;
+    @Prop() windowSize: number = 100;
     /** Groups rows into blocks */
-    @Prop() blockSize: bigint = 10n;
+    @Prop() blockSize: number = 10;
     /** The size of the grid rows before starting a reflow */
-    @Prop() reflowSize: bigint = 1000n;
+    @Prop() reflowSize: number = 1000;
     /** A function to calculate a href from the cell data. */
     @Prop() linkRowTo?: (row: any) => string;
     /** The height (in pixels) of the row */
@@ -82,7 +82,7 @@ export class Table {
     @Prop() rowClass: (
         row: any,
         key: string,
-        index: bigint,
+        index: number,
     ) => Record<string, boolean> | string | undefined = () => undefined;
     /** How the table is sorted */
     @Prop() sort?: TableSort;
@@ -93,17 +93,17 @@ export class Table {
     @Event() clickRow!: EventEmitter<ClickRow>;
     /** Triggered whenever a sortable header is clicked */
     @Event() clickSort!: EventEmitter<string>;
-    /** Triggered when a window is rendered */
-    @Event() loadWindow!: EventEmitter<LoadWindow>;
-    /** Triggered when the last window is scrolled to */
-    @Event() lastWindow!: EventEmitter<void>;
-    /** Triggered when the first window is scrolled to */
-    @Event() firstWindow!: EventEmitter<void>;
+    /** Triggered when a block is rendered */
+    @Event() loadBlock!: EventEmitter<LoadWindow>;
+    /** Triggered when the last block is rendered */
+    @Event() lastBlock!: EventEmitter<void>;
+    /** Triggered when the first block is rendered */
+    @Event() firstBlock!: EventEmitter<void>;
 
     /** The first row being rendered */
-    @State() trailingEdge: bigint = 0n;
+    @State() trailingEdge: number = 0;
     /** Which row to start the reflow from */
-    @State() reflowRow: bigint = 0n;
+    @State() reflowRow: number = 0;
     /** The distance (in pixels) "warp" the scrollbar */
     @State() warp: number = 0;
     /** Which row to hightlight on jump */
@@ -112,10 +112,11 @@ export class Table {
     @State() invertBanding: boolean = false;
 
     private initial!: string;
-    private headerRows!: bigint;
+    private headerRows!: number;
     private resizeObserver = new ResizeObserver(() => this.handleResize());
     private scrollParent!: Element;
     private jumpHighlightTimeout!: ReturnType<typeof setTimeout>;
+    private lastRenderRowCount?: number;
 
     componentWillLoad() {
         this.scrollParent = this.getScrollParent();
@@ -124,7 +125,7 @@ export class Table {
         });
         this.resizeObserver.observe(this.host);
         this.headerRows = this.calcHeaderRows();
-        this.initial = this.getKeyFromIndex(0n);
+        this.initial = this.getKeyFromIndex(0);
         this.trailingEdgeChange(this.trailingEdge);
     }
 
@@ -152,17 +153,17 @@ export class Table {
         this.trailingEdgeChange(this.trailingEdge);
     }
 
-    private prependCount?: bigint;
+    private prependCount?: number;
 
     @Watch('rowCount')
-    rowCountChange(next: bigint, previous: bigint) {
-        const initial = this.getKeyFromIndex(0n);
+    async rowCountChange(next: number, previous: number) {
+        const initial = this.getKeyFromIndex(0);
 
         if (initial !== this.initial) {
             this.initial = initial;
             const difference = next - previous;
 
-            if (difference % 2n !== 0n) {
+            if (difference % 2 !== 0) {
                 this.invertBanding = !this.invertBanding;
             }
 
@@ -173,52 +174,64 @@ export class Table {
                     this.scrollParent.scrollHeight >
                     this.scrollParent.clientHeight +
                         this.scrollParent.scrollTop +
-                        Number(this.prependCount) * this.rowHeight
+                        this.prependCount * this.rowHeight
                 ) {
                     this.applyScrollLock();
                 }
             }
         }
 
-        this.trailingEdgeChange(this.trailingEdge);
+        await this.hasRenderedWithCurrentRowCount();
+        const trailingEdge = this.trailingEdge;
+        this.calculateWindowing();
+        if (trailingEdge === this.trailingEdge) {
+            this.trailingEdgeChange(this.trailingEdge);
+        }
     }
 
     @Watch('trailingEdge')
-    trailingEdgeChange(trailingEdge: bigint) {
-        const to = bigIntMin(trailingEdge + this.windowSize, this.rowCount);
-        this.loadWindow.emit({
+    trailingEdgeChange(trailingEdge: number) {
+        const to = Math.min(
+            trailingEdge + (this.windowSize - 1),
+            this.rowCount - 1,
+        );
+
+        this.loadBlock.emit({
             from: trailingEdge,
             to,
-            count: to - trailingEdge,
+            count: to - trailingEdge + 1,
         });
 
-        if (trailingEdge <= 0n) {
-            this.firstWindow.emit();
+        if (trailingEdge <= 0) {
+            this.firstBlock.emit();
         }
 
-        if (to >= this.rowCount) {
-            this.lastWindow.emit();
+        if (to >= this.rowCount - 1) {
+            this.lastBlock.emit();
         }
     }
 
     /** Jump to the passed row, with smooth scroll and highlight, if specified. */
     @Method()
     async jumpToRow(
-        index: bigint,
+        index: number,
         { highlight = true, smooth = 'auto' }: Partial<JumpOptions> = {},
     ) {
         if (index < 0 || index > this.rowCount) {
             throw new Error(`Index is out of bounds: ${index}`);
         }
+
+        await this.hasRenderedWithCurrentRowCount();
+
         this.internalJumpToRow(index, { highlight, smooth });
     }
 
-    private renderRowGroup = (key: string, index: bigint) => (
+    private renderRowGroup = (key: string, index: number) => (
         <div
             role={'rowgroup'}
             key={key}
             class={{
-                odd: this.invertBanding ? index % 2n !== 0n : index % 2n === 0n,
+                odd: this.invertBanding ? index % 2 !== 0 : index % 2 === 0,
                 highlight: this.jumpHighlight === key,
             }}
         >
@@ -226,7 +239,7 @@ export class Table {
         </div>
     );
 
-    private renderRow = (key: string, index: bigint) => {
+    private renderRow = (key: string, index: number) => {
         const data = this.getCellData(key, index);
 
         if (this.linkRowTo) {
@@ -259,7 +272,7 @@ export class Table {
         );
     };
 
-    private renderCells = (data: any, key: string, index: bigint) =>
+    private renderCells = (data: any, key: string, index: number) =>
         this.getColumnGroups().map(([_, cells], groupIndex, groups) =>
             cells.map(([name, cell], cellIndex, cells) => {
                 const focusCell =
@@ -274,7 +287,7 @@ export class Table {
                         onKeyDown={
                             focusCell
                                 ? this.focusCellKeyPress({
-                                      index: BigInt(index),
+                                      index,
                                       key,
                                       data,
                                   })
@@ -305,6 +318,7 @@ export class Table {
     render() {
         const fullHeight = this.fullHeight();
         const clippedHeight = Math.min(MAX_TABLE_HEIGHT, fullHeight);
+        this.lastRenderRowCount = this.rowCount;
 
         return (
             <Host
@@ -320,9 +334,7 @@ export class Table {
                     style={{
                         gridTemplateColumns: this.gridTemplateColumns(),
                         gridTemplateRows: this.gridTemplateRows(),
-                        top: `${
-                            Number(this.reflowRow) * this.rowHeight - this.warp
-                        }px`,
+                        top: `${this.reflowRow * this.rowHeight - this.warp}px`,
                     }}
                 >
                     <TableHeader
@@ -341,13 +353,11 @@ export class Table {
                     </div>
                     {Array.from(
                         {
-                            length: Number(
-                                bigIntMin(this.windowSize, this.rowCount),
-                            ),
+                            length: Math.min(this.windowSize, this.rowCount),
                         },
                         (_, i) => {
-                            const index = BigInt(i) + this.trailingEdge;
-                            if (index > this.rowCount - 1n) return;
+                            const index = i + this.trailingEdge;
+                            if (index > this.rowCount - 1) return;
                             return this.renderRowGroup(
                                 this.getKeyFromIndex(index),
                                 index,
@@ -417,9 +427,9 @@ export class Table {
     };
 
     private calcHeaderRows = () => {
-        if (this.headless) return 0n;
-        if (this.getColumnGroups().some(([g]) => g != null)) return 2n;
-        return 1n;
+        if (this.headless) return 0;
+        if (this.getColumnGroups().some(([g]) => g != null)) return 2;
+        return 1;
     };
 
     private getScrollParent = () => {
@@ -450,7 +460,7 @@ export class Table {
         return scrollParent(this.host);
     };
 
-    private rowPosition = (row: bigint) => Number(row) * this.rowHeight;
+    private rowPosition = (row: number) => row * this.rowHeight;
     private fullHeight = () =>
         this.headerHeight +
         this.beforeHeight +
@@ -459,8 +469,7 @@ export class Table {
 
     private applyScrollLock = () => {
         if (!this.prependCount) return;
-        this.scrollParent.scrollTop +=
-            Number(this.prependCount) * this.rowHeight;
+        this.scrollParent.scrollTop += this.prependCount * this.rowHeight;
         delete this.prependCount;
         this.calculateWarp();
         this.calculateWindowing();
@@ -474,7 +483,7 @@ export class Table {
     private handleScroll = rateLimit(() => {
         this.calculateWarp();
         this.calculateWindowing();
-    }, 200);
+    }, 10);
 
     private internalScrollTop = 0;
     private warpedScrollTop = 0;
@@ -536,28 +545,41 @@ export class Table {
     }, 1000);
 
     private calculateWindowing = () => {
-        if (this.rowCount <= this.windowSize) return;
+        if (this.rowCount <= this.windowSize) {
+            this.trailingEdge = 0;
+            this.reflowRow = 0;
+            return;
+        }
 
         const top = Math.floor(this.internalScrollTop / this.rowHeight);
-        const offsetTop = Math.max(0, top - Number(this.windowSize) / 4);
-        const blockTop = offsetTop - (offsetTop % Number(this.blockSize));
+        const offsetTop = Math.max(0, top - this.windowSize / 4);
+        const blockTop = offsetTop - (offsetTop % this.blockSize);
         const lastRow = this.rowCount;
-        const lastBlock = Number(lastRow - (lastRow % this.blockSize));
-        const trailingEdge = BigInt(Math.min(blockTop, lastBlock));
+        const lastBlock = lastRow - (lastRow % this.blockSize);
+        const trailingEdge = Math.min(blockTop, lastBlock);
 
-        if (this.trailingEdge !== trailingEdge) {
-            this.trailingEdge = trailingEdge;
-            this.reflowRow =
-                trailingEdge - (trailingEdge % BigInt(this.reflowSize));
-        }
+        this.trailingEdge = trailingEdge;
+        this.reflowRow = trailingEdge - (trailingEdge % this.reflowSize);
     };
 
-    private calculateGridRow = (index: bigint) => {
-        return index + 2n + this.headerRows - this.reflowRow;
+    private calculateGridRow = (index: number) => {
+        return index + 2 + this.headerRows - this.reflowRow;
+    };
+
+    private hasRenderedWithCurrentRowCount = () => {
+        const matches = (r: () => void) => {
+            requestAnimationFrame(() => {
+                if (this.rowCount === this.lastRenderRowCount) {
+                    return r();
+                }
+                return matches(r);
+            });
+        };
+        return new Promise<void>(matches);
     };
 
     private internalJumpToRow = (
-        index: bigint,
+        index: number,
         { smooth, highlight }: JumpOptions,
     ) => {
         const fullHeight = this.fullHeight();
@@ -572,9 +594,7 @@ export class Table {
             }
 
             // at top edge, no warp
-            const topEdge = BigInt(
-                Math.floor(MAX_TABLE_HEIGHT / 8 / this.rowHeight),
-            );
+            const topEdge = Math.floor(MAX_TABLE_HEIGHT / 8 / this.rowHeight);
 
             if (index <= topEdge) {
                 return Math.max(0, expectedTop);
@@ -602,7 +622,7 @@ export class Table {
         if (
             fullHeight === trueHeight &&
             smooth === 'auto' &&
-            distance < Number(this.windowSize) * this.rowHeight
+            distance < this.windowSize * this.rowHeight
         ) {
             this.scrollParent.scrollTo({
                 top: realTop,
