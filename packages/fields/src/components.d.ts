@@ -294,6 +294,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
           * If the field is currently in an error state.
          */
         "invalid"?: boolean;
@@ -905,6 +909,10 @@ declare namespace LocalJSX {
           * If the field is disabled.
          */
         "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
         /**
           * If the field is currently in an error state.
          */
