@@ -11,7 +11,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 50vh;
+    top: 50%;
     transform: translateY(-50%);
     margin: auto;
     z-index: var(--zindex-modal, 3100);
@@ -75,6 +75,7 @@ header {
 .body {
     padding: 15px 30px;
     overflow: auto;
+    overscroll-behavior: none;
 }
 
 footer {

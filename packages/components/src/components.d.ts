@@ -35,6 +35,7 @@ export namespace Components {
     }
     interface EsBackdrop {
         "close": () => Promise<void>;
+        "preventOverscroll": boolean;
         "renderNode": (node: VNode | null) => Promise<void>;
         "showBackdrop": boolean;
     }
@@ -318,6 +319,10 @@ export namespace Components {
           * If the element is portaled or not.
          */
         "open": boolean;
+        /**
+          * If the portal should prevent overscroll
+         */
+        "preventOverscroll": boolean;
         /**
           * A query selector to select the location to portal to.
          */
@@ -959,6 +964,7 @@ declare namespace LocalJSX {
     interface EsBackdrop {
         "onClosed"?: (event: EsBackdropCustomEvent<any>) => void;
         "onRequestClose"?: (event: EsBackdropCustomEvent<any>) => void;
+        "preventOverscroll"?: boolean;
         "showBackdrop"?: boolean;
     }
     interface EsBadge {
@@ -1247,6 +1253,10 @@ declare namespace LocalJSX {
           * If the element is portaled or not.
          */
         "open"?: boolean;
+        /**
+          * If the portal should prevent overscroll
+         */
+        "preventOverscroll"?: boolean;
         /**
           * A query selector to select the location to portal to.
          */
