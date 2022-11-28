@@ -1,4 +1,4 @@
-import { Route, Switch } from '@eventstore-ui/router';
+import { Redirect, Route, Switch } from '@eventstore-ui/router';
 import { Component, h, Prop } from '@stencil/core';
 import { Host, Watch } from '@stencil/core/internal';
 import { sitemap } from 'sitemap';
@@ -189,6 +189,9 @@ export class DocsPackage {
                             <docs-type-docs lib={lib} doc={doc} />
                         </Route>
                     ))}
+                    <Route>
+                        <Redirect url={`/${this.slug}`} />
+                    </Route>
                 </Switch>
             </Host>
         );

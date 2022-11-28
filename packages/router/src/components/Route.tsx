@@ -11,6 +11,8 @@ export interface RouteProps {
     url?: string | string[];
     /** If the url should match exactly, or allow decendant matching. */
     exact?: boolean;
+    /**  When true the regexp won't allow an optional trailing delimiter to match. */
+    strict?: boolean;
     /** Callback to render the route. */
     routeRender?: (props: RouteRenderProps) => VNode | VNode[];
 }
@@ -24,14 +26,14 @@ export const ROUTE_DELIMITER = '\n'.repeat(3);
  */
 
 export const Route: FunctionalComponent<RouteProps> = (
-    { url, exact, routeRender },
+    { url, exact, strict, routeRender },
     children,
     utils,
 ) => {
     const match = getInternalRouter().match({
-        exact: exact,
+        exact,
         path: url,
-        strict: true,
+        strict,
     });
 
     if (!match) {
