@@ -5,25 +5,28 @@ on:
         branches:
             - 'main'
 
-permissions: read-all
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+concurrency:
+    group: 'pages'
+    cancel-in-progress: true
 
 jobs:
     pages:
         runs-on: ubuntu-latest
-
-        permissions:
-            pages: write
-            id-token: write
 
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
 
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
 
             - name: Cache git lfs
-              uses: actions/cache@v2
+              uses: actions/cache@v3
               with:
                   path: .yarn/cache
                   key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
@@ -31,9 +34,9 @@ jobs:
             - run: git lfs pull
 
             - name: Setup Node
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@v3
               with:
-                  node-version: '16.x'
+                  node-version: '18.x'
 
             - name: Corepack
               run: corepack enable
@@ -47,8 +50,6 @@ jobs:
             - name: Build documentation
               run: yarn docs
 
-            # Note: The following two steps are temporary and won't be
-            # necessary once actions/deploy-pages is out of beta.
             - name: Archive documentation
               run: tar --directory documentation/www/ -cvf artifact.tar .
 
@@ -60,4 +61,4 @@ jobs:
 
             - name: Deploy to GitHub Pages
               id: deployment
-              uses: actions/deploy-pages@v1-beta
+              uses: actions/deploy-pages@v1
