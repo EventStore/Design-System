@@ -18,7 +18,7 @@
         "docs:generate": "yarn workspaces foreach -vpi --topological-dev --no-private run docs",
         "docs:build": "yarn workspace @eventstore-ui/docs run build",
         "docs:dev": "yarn workspace @eventstore-ui/docs run dev",
-        "serve-docs": "yarn workspace @eventstore-ui/docs serve",
+        "docs:serve": "yarn workspace @eventstore-ui/docs serve",
         "test": "yarn workspaces foreach -v --exclude @eventstore-ui/docs run test",
         "lint": "yarn workspaces foreach -v run lint",
         "bump": "yarn workspaces foreach --no-private version"
