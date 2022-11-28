@@ -97,6 +97,9 @@ iconStore.addIcons({
     get gift() {
         return import('./components/Gift').then(({ Gift }) => Gift);
     },
+    get github() {
+        return import('./components/Github').then(({ Github }) => Github);
+    },
     get 'go-back'() {
         return import('./components/GoBack').then(({ GoBack }) => GoBack);
     },

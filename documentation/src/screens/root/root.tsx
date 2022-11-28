@@ -17,6 +17,14 @@ export class Root {
         return (
             <Host>
                 <es-header>
+                    <es-button-link
+                        external
+                        slot={'right'}
+                        variant={'outline'}
+                        url={'https://github.com/EventStore/Design-System'}
+                    >
+                        <es-icon icon={'github'} />
+                    </es-button-link>
                     <es-theme-dropdown slot={'right'} />
                 </es-header>
                 <Switch>
