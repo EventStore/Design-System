@@ -6,27 +6,24 @@ export default () =>
         (variant) => (
             <>
                 <es-button-link
-                    forceRefresh
+                    external
                     variant={variant}
-                    target={'_blank'}
                     url={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}
                 >
                     {`${variant} variant`}
                     <es-icon icon={randomIcon()} slot={'after'} />
                 </es-button-link>
                 <es-button-link
-                    forceRefresh
+                    external
                     variant={variant}
-                    target={'_blank'}
                     url={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}
                 >
                     <es-icon icon={randomIcon()} size={22} />
                 </es-button-link>
                 <es-button-link
                     disabled
-                    forceRefresh
+                    external
                     variant={variant}
-                    target={'_blank'}
                     url={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}
                 >
                     {`${variant} (disabled)`}

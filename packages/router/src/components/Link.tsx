@@ -15,6 +15,8 @@ export interface LinkProps {
     strict?: boolean;
     /** If the Link should break out of the router, and force a page load.  */
     forceRefresh?: boolean;
+    /** If the Link is external. No baseUrl applied.  */
+    external?: boolean;
     /** If the windows scroll position should be set to 0,0 */
     updateScroll?: boolean;
 
@@ -44,6 +46,7 @@ export const Link: FunctionalComponent<LinkProps> = (
         urlMatch = url,
         exact,
         strict,
+        external = false,
         forceRefresh = false,
         updateScroll = true,
         activeClass = 'link-active',
@@ -63,7 +66,13 @@ export const Link: FunctionalComponent<LinkProps> = (
 
     return (
         <Element
-            href={disabled || url == null ? undefined : router.getUrl(url)}
+            href={
+                disabled || url == null
+                    ? undefined
+                    : external
+                    ? url
+                    : router.getUrl(url)
+            }
             class={{
                 [activeClass]: !!match,
                 ...(typeof classes === 'string'
@@ -79,6 +88,7 @@ export const Link: FunctionalComponent<LinkProps> = (
                 if (
                     cancel === false ||
                     disabled ||
+                    external ||
                     forceRefresh ||
                     isModifiedEvent(e) ||
                     url == null

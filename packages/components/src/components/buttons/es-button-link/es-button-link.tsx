@@ -46,7 +46,8 @@ export class ButtonLink {
             <Host high-contrast={theme.isHighContrast()} dark={theme.isDark()}>
                 <Link
                     url={this.url}
-                    forceRefresh={this.external || this.forceRefresh}
+                    forceRefresh={this.forceRefresh}
+                    external={this.external}
                     class={this.anchorClass}
                     role={this.anchorRole}
                     title={this.anchorTitle}
