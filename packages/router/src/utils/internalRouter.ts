@@ -145,20 +145,32 @@ export class InternalRouter {
         };
     }
 
-    public getUrl = (url: string) => {
-        if (url.charAt(0) === '#') {
-            return url;
+    public getUrl(url: LocationSegments): LocationSegments;
+    public getUrl(url: string): string;
+    public getUrl(url: string | LocationSegments): typeof url;
+    public getUrl(url: string | LocationSegments): typeof url {
+        if (typeof url === 'string') {
+            if (url.charAt(0) === '#') {
+                return url;
+            }
+
+            const root = this.root;
+
+            // Don't allow double slashes
+            if (url.charAt(0) === '/' && root.charAt(root.length - 1) === '/') {
+                return root.slice(0, root.length - 1) + url;
+            }
+
+            return root + url;
         }
 
-        const root = this.root;
+        const { pathname, ...rest } = url;
 
-        // Don't allow double slashes
-        if (url.charAt(0) === '/' && root.charAt(root.length - 1) === '/') {
-            return root.slice(0, root.length - 1) + url;
-        }
-
-        return root + url;
-    };
+        return {
+            pathname: this.getUrl(pathname),
+            ...rest,
+        };
+    }
 
     public setDocumentTitle = (
         title: string,
@@ -168,9 +180,17 @@ export class InternalRouter {
         document.title = `${title}${noSuffix ? '' : this.titleSuffix}`;
     };
 
-    public redirect = (url: string) => {
-        this.history.replace(this.getUrl(url));
-    };
+    public push: RouterHistory['push'] = (path, ...args) =>
+        this.history.push(this.getUrl(path), ...args);
+    public replace: RouterHistory['replace'] = (path, ...args) =>
+        this.history.replace(this.getUrl(path), ...args);
+    public goBack: RouterHistory['goBack'] = (...args) =>
+        this.history.goBack(...args);
+    public goForward: RouterHistory['goForward'] = (...args) =>
+        this.history.goForward(...args);
+
+    /** Load a specific page from the session history. You can use it to move forwards and backwards through the history depending on the value of a parameter. */
+    public go: RouterHistory['go'] = (...args) => this.history.go(...args);
 
     private pendingActions = new Map<ReturnType<GetElement>, Set<() => void>>();
 
