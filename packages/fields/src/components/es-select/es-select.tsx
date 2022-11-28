@@ -71,6 +71,8 @@ export class EsSelect {
     @Prop() messages?: ValidationMessages;
     /** Icon to use as a chevron. */
     @Prop() chevronIcon: IconDescription = [ICON_NAMESPACE, 'chevron'];
+    /** Pass props directly to the input. */
+    @Prop() inputProps?: Record<string, any>;
 
     renderPlaceholder = () => (
         <span class={'placeholder'}>{this.placeholder}</span>
@@ -82,7 +84,11 @@ export class EsSelect {
             class={{ input: true, open, disabled: !!this.disabled }}
             part={'input'}
         >
-            <Input class={'true_input'} part={'true_input'} />
+            <Input
+                {...(this.inputProps ?? {})}
+                class={'true_input'}
+                part={'true_input'}
+            />
             {!open || !filter
                 ? this.value
                     ? this.renderValue(this.findOption(this.value), this.value)

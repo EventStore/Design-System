@@ -62,6 +62,7 @@ export default () => (
 | ---------------------- | -------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------- |
 | `chevronIcon`          | `chevron-icon` | Icon to use as a chevron.                    | `[namespace: string \| symbol, name: string] \| string`                                   | `[ICON_NAMESPACE, 'chevron']` |
 | `disabled`             | `disabled`     | If the field is disabled.                    | `boolean \| undefined`                                                                    | `undefined`                   |
+| `inputProps`           | --             | Pass props directly to the input.            | `undefined \| { [x: string]: any; }`                                                      | `undefined`                   |
 | `invalid`              | `invalid`      | If the field is currently in an error state. | `boolean \| undefined`                                                                    | `undefined`                   |
 | `label` _(required)_   | `label`        | The label of the field.                      | `string`                                                                                  | `undefined`                   |
 | `messages`             | --             | The validation messages of the field         | `ValidationMessages \| undefined`                                                         | `undefined`                   |
