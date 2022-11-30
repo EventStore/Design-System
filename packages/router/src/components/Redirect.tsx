@@ -22,7 +22,7 @@ export const Redirect: FunctionalComponent<RedirectProps> = (
     const router = getInternalRouter();
     return createCullableNode(
         router.action(() => {
-            router.redirect(props.url);
+            router.replace(props.url);
         }),
         utils,
     );
