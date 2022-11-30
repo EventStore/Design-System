@@ -103,12 +103,13 @@ const ExampleModal: FunctionalComponent = ({ requestClose }) => (
 
 ## Properties
 
-| Property               | Attribute  | Description                                                          | Type      | Default     |
-| ---------------------- | ---------- | -------------------------------------------------------------------- | --------- | ----------- |
-| `backdrop`             | `backdrop` | If the portal should overlay a backdrop, to prevent external clicks. | `boolean` | `false`     |
-| `element` _(required)_ | --         | The element to render.                                               | `VNode`   | `undefined` |
-| `open`                 | `open`     | If the element is portaled or not.                                   | `boolean` | `false`     |
-| `target`               | `target`   | A query selector to select the location to portal to.                | `string`  | `'body'`    |
+| Property               | Attribute            | Description                                                          | Type      | Default     |
+| ---------------------- | -------------------- | -------------------------------------------------------------------- | --------- | ----------- |
+| `backdrop`             | `backdrop`           | If the portal should overlay a backdrop, to prevent external clicks. | `boolean` | `false`     |
+| `element` _(required)_ | --                   | The element to render.                                               | `VNode`   | `undefined` |
+| `open`                 | `open`               | If the element is portaled or not.                                   | `boolean` | `false`     |
+| `preventOverscroll`    | `prevent-overscroll` | If the portal should prevent overscroll                              | `boolean` | `false`     |
+| `target`               | `target`             | A query selector to select the location to portal to.                | `string`  | `'body'`    |
 
 
 ## Events

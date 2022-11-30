@@ -27,6 +27,8 @@ export class Portal {
     @Prop({ reflect: true }) open: boolean = false;
     /** If the portal should overlay a backdrop, to prevent external clicks. */
     @Prop() backdrop: boolean = false;
+    /** If the portal should prevent overscroll */
+    @Prop() preventOverscroll: boolean = false;
 
     /** Triggers when the popover requests to close. */
     @Event() requestClose!: EventEmitter;
@@ -53,7 +55,8 @@ export class Portal {
 
         if (!this.portalledBackdrop) {
             const backdrop = document.createElement('es-backdrop');
-            backdrop.setAttribute('show-backdrop', `${this.backdrop}`);
+            backdrop.showBackdrop = this.backdrop;
+            backdrop.preventOverscroll = this.preventOverscroll;
             backdrop.style.opacity = '0';
 
             target.appendChild(backdrop);

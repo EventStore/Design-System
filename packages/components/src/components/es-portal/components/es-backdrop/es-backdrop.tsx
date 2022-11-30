@@ -21,7 +21,9 @@ export type BackdropState = 'mounting' | 'entering' | 'entered' | 'exiting';
 export class Backdrop {
     @Event() requestClose!: EventEmitter;
     @Event() closed!: EventEmitter;
-    @Prop({ attribute: 'show-backdrop' }) showBackdrop: boolean = false;
+
+    @Prop() showBackdrop: boolean = false;
+    @Prop({ reflect: true }) preventOverscroll: boolean = false;
 
     @State() child: VNode | null = null;
     @State() state: BackdropState = 'mounting';

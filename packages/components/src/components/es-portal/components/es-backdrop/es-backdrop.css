@@ -1,15 +1,28 @@
 :host {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: -100px;
     background-color: transparent;
     transition: opacity 400ms ease;
     pointer-events: none;
     z-index: var(--zindex-backdrop, 3000);
-
     opacity: 0;
+}
+
+:host([prevent-overscroll]) {
+    overflow: scroll;
+    overscroll-behavior: none;
+
+    & .backdrop {
+        overflow: scroll;
+        overscroll-behavior: none;
+
+        &::after {
+            content: '';
+            display: block;
+            height: 200vh;
+            width: 200vw;
+        }
+    }
 }
 
 :host(.entering),
@@ -18,14 +31,12 @@
 }
 
 .backdrop {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    position: fixed;
+    inset: -100px;
     background-color: var(--color-overlay);
     opacity: var(--color-overlay-alpha);
     z-index: -1;
     pointer-events: all;
     cursor: pointer;
+    overflow: hidden;
 }
