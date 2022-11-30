@@ -73,6 +73,7 @@
         transition-timing-function: ease;
     }
 
+    &.drag_over,
     &:focus-visible {
         color: var(--focus-color);
 
@@ -116,5 +117,5 @@
     position: absolute;
     top: -2px;
     left: 0;
-    z-index: 2;
+    z-index: 20000;
 }

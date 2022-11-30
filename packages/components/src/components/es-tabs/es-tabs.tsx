@@ -7,6 +7,7 @@ import {
     Watch,
     EventEmitter,
     Element,
+    State,
 } from '@stencil/core';
 import { searchParam, SearchParamTracker } from '@eventstore-ui/router';
 import { theme } from '@eventstore-ui/theme';
@@ -37,6 +38,8 @@ export class EsTabs {
     /** The currently active panel. By default it will take from the passed activeParam, or the first tab.  */
     @Prop({ mutable: true }) active?: string;
 
+    @State() activeDragOver?: string;
+
     /** Triggered when the active tab is changed. `detail` is the newly active tab. */
     @Event() tabChange!: EventEmitter<string>;
 
@@ -58,6 +61,7 @@ export class EsTabs {
         this.searchParam?.delete();
         cancelAnimationFrame(this.frame1);
         cancelAnimationFrame(this.frame2);
+        this.dragTimeouts.forEach((t) => clearTimeout(t));
     }
 
     @Watch('active') updateActive(active?: string) {
@@ -76,15 +80,24 @@ export class EsTabs {
 
     renderTab = ({ title, id, badge }: Tab) => (
         <button
+            data-skip-focus-delegation
             type={'button'}
             role={'tab'}
             aria-controls={id}
             aria-selected={this.active === id}
             id={`tab-${id}`}
-            class={{ tab: true, active: this.active === id }}
+            class={{
+                tab: true,
+                active: this.active === id,
+                drag_over: this.activeDragOver === id,
+            }}
             part={this.active === id ? 'tab active' : 'tab'}
             onClick={this.setActive(id)}
             ref={this.captureTab(id)}
+            onDragEnter={this.dragEnterTab(id)}
+            onDragLeave={this.dragLeaveTab(id)}
+            onDrop={this.dropTab(id)}
+            onDragOver={this.dragOverTab}
         >
             <es-badge count={badge?.() ? 1 : 0} variant={'dot'}>
                 {title}
@@ -186,4 +199,45 @@ export class EsTabs {
 
         drawFame(3);
     }
+
+    private dragTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
+    private dragCounts = new Map<string, number>();
+    private dragEnterTab = (id: string) => (e: DragEvent) => {
+        e.preventDefault();
+
+        const count = (this.dragCounts.get(id) ?? 0) + 1;
+        this.dragCounts.set(id, count);
+
+        if (this.dragTimeouts.has(id)) return;
+        this.activeDragOver = id;
+        this.dragTimeouts.set(
+            id,
+            setTimeout(() => {
+                this.setActive(id)();
+            }, 1000),
+        );
+    };
+    private finishDrag = (id: string) => {
+        clearTimeout(this.dragTimeouts.get(id)!);
+        this.dragTimeouts.delete(id);
+        this.dragCounts.delete(id);
+        if (this.activeDragOver === id) {
+            this.activeDragOver = undefined;
+        }
+    };
+    private dragLeaveTab = (id: string) => (e: DragEvent) => {
+        e.preventDefault();
+        const count = (this.dragCounts.get(id) ?? 1) - 1;
+        this.dragCounts.set(id, count);
+        if (count <= 0) {
+            this.finishDrag(id);
+        }
+    };
+    private dropTab = (id: string) => (e: DragEvent) => {
+        e.preventDefault();
+        this.finishDrag(id);
+    };
+    private dragOverTab = (e: DragEvent) => {
+        e.preventDefault();
+    };
 }
