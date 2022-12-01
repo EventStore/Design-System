@@ -58,22 +58,22 @@ export default () => (
 
 ## Properties
 
-| Property               | Attribute      | Description                                  | Type                                                                                      | Default                       |
-| ---------------------- | -------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------- |
-| `chevronIcon`          | `chevron-icon` | Icon to use as a chevron.                    | `[namespace: string \| symbol, name: string] \| string`                                   | `[ICON_NAMESPACE, 'chevron']` |
-| `disabled`             | `disabled`     | If the field is disabled.                    | `boolean \| undefined`                                                                    | `undefined`                   |
-| `inputProps`           | --             | Pass props directly to the input.            | `undefined \| { [x: string]: any; }`                                                      | `undefined`                   |
-| `invalid`              | `invalid`      | If the field is currently in an error state. | `boolean \| undefined`                                                                    | `undefined`                   |
-| `label` _(required)_   | `label`        | The label of the field.                      | `string`                                                                                  | `undefined`                   |
-| `messages`             | --             | The validation messages of the field         | `ValidationMessages \| undefined`                                                         | `undefined`                   |
-| `name` _(required)_    | `name`         | The name of the field.                       | `string`                                                                                  | `undefined`                   |
-| `optionFilter`         | --             | Pass a custom search filter function         | `((filter: string, option: TypeaheadOption) => boolean) \| undefined`                     | `undefined`                   |
-| `options` _(required)_ | --             | A list of options to choose from.            | `TypeaheadOption[]`                                                                       | `undefined`                   |
-| `placeholder`          | `placeholder`  | The placeholder for the input.               | `string \| undefined`                                                                     | `undefined`                   |
-| `readonly`             | `readonly`     | If the field is editable.                    | `boolean \| undefined`                                                                    | `undefined`                   |
-| `renderOption`         | --             | Overwrite the default option renderer.       | `((option: TypeaheadOption, chosen: boolean) => string \| VNode \| VNode[]) \| undefined` | `undefined`                   |
-| `renderValue`          | --             | Overwrite the default value renderer.        | `(value: TypeaheadOption \| undefined, rawValue: string) => string \| VNode`              | `(o, v) => o?.name ?? v`      |
-| `value` _(required)_   | `value`        | The current value of the field.              | `null \| string`                                                                          | `undefined`                   |
+| Property               | Attribute      | Description                                  | Type                                                                                                           | Default                       |
+| ---------------------- | -------------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| `chevronIcon`          | `chevron-icon` | Icon to use as a chevron.                    | `[namespace: string \| symbol, name: string] \| string`                                                        | `[ICON_NAMESPACE, 'chevron']` |
+| `disabled`             | `disabled`     | If the field is disabled.                    | `boolean \| undefined`                                                                                         | `undefined`                   |
+| `inputProps`           | --             | Pass props directly to the input.            | `undefined \| { [x: string]: any; }`                                                                           | `undefined`                   |
+| `invalid`              | `invalid`      | If the field is currently in an error state. | `boolean \| undefined`                                                                                         | `undefined`                   |
+| `label` _(required)_   | `label`        | The label of the field.                      | `string`                                                                                                       | `undefined`                   |
+| `messages`             | --             | The validation messages of the field         | `ValidationMessages \| undefined`                                                                              | `undefined`                   |
+| `name` _(required)_    | `name`         | The name of the field.                       | `string`                                                                                                       | `undefined`                   |
+| `optionFilter`         | --             | Pass a custom search filter function         | `((filter: string, option: TypeaheadOption) => boolean) \| undefined`                                          | `undefined`                   |
+| `options` _(required)_ | --             | A list of options to choose from.            | `TypeaheadOption[]`                                                                                            | `undefined`                   |
+| `placeholder`          | `placeholder`  | The placeholder for the input.               | `string \| undefined`                                                                                          | `undefined`                   |
+| `readonly`             | `readonly`     | If the field is editable.                    | `boolean \| undefined`                                                                                         | `undefined`                   |
+| `renderOption`         | --             | Overwrite the default option renderer.       | `((h: typeof h, option: TypeaheadOption, chosen: boolean) => string \| VNode \| VNode[] \| null) \| undefined` | `undefined`                   |
+| `renderValue`          | --             | Overwrite the default value renderer.        | `(h: typeof h, value: TypeaheadOption \| undefined, rawValue: string) => string \| VNode \| VNode[] \| null`   | `(_, o, v) => o?.name ?? v`   |
+| `value` _(required)_   | `value`        | The current value of the field.              | `null \| string`                                                                                               | `undefined`                   |
 
 
 ## Events

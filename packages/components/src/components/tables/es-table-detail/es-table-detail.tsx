@@ -19,13 +19,15 @@ export class TableDetail {
     @Prop() columns?: Array<string>;
 
     private renderHeader = (title?: string) => <dt>{title}</dt>;
-    private renderCell = (name: string, Cell: TableCell<any>['cell']) => (
+    private renderCell = (name: string, renderCell: TableCell<any>['cell']) => (
         <dd>
-            {Cell ? (
-                <Cell data={this.data} key={name} parent={this.identifier} />
-            ) : (
-                autoExtract(this.data, name)
-            )}
+            {renderCell
+                ? renderCell(h, {
+                      data: this.data,
+                      key: name,
+                      parent: this.identifier,
+                  })
+                : autoExtract(this.data, name)}
         </dd>
     );
 

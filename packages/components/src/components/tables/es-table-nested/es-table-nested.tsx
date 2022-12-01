@@ -8,6 +8,7 @@ import {
     Fragment,
 } from '@stencil/core';
 import { ICON_NAMESPACE } from '../../../icons/namespace';
+import type { RenderFunction } from '../../../types';
 import type { TableCells } from '../types';
 
 /** Create a nested table from data. */
@@ -71,7 +72,10 @@ export class TableNested {
     /** Triggered whenever a row is expanded. */
     @Event() expansion!: EventEmitter<{ data: any; key: string }>;
 
-    renderExpansion = (depth: number) => (key: string) => {
+    renderExpansion = (depth: number): RenderFunction<[key: string]> => (
+        h,
+        key,
+    ) => {
         const expanded = this.expanded.has(key);
         const nestedActive =
             !expanded && this.activePath && this.activePath[depth] === key
@@ -187,7 +191,7 @@ export class TableNested {
             title: '',
             width: '50px',
             variant: 'no-pad',
-            cell: ({ data, key }) => {
+            cell: (h, { data, key }) => {
                 if (!this.canExpand(key, data)) return null;
                 return (
                     <es-button

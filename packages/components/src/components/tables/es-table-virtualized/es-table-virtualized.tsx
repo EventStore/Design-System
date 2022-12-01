@@ -9,7 +9,6 @@ import {
     State,
     Method,
     Watch,
-    VNode,
 } from '@stencil/core';
 import { Link, router } from '@eventstore-ui/router';
 import { theme } from '@eventstore-ui/theme';
@@ -28,6 +27,7 @@ import type {
 import { TableHeader } from '../TableHeader';
 import { cellClasses } from '../utils/cellClasses';
 import { autoExtract } from '../utils/autoExtract';
+import type { RenderFunction } from '../../../types';
 
 const MAX_TABLE_HEIGHT = 15_000_000;
 
@@ -57,9 +57,9 @@ export class Table {
     /** The total number of rows */
     @Prop() rowCount!: number;
     /** Display in a row before the first row */
-    @Prop() renderBefore: () => VNode | null = () => null;
+    @Prop() renderBefore: RenderFunction = () => null;
     /** Display in a row after the last row */
-    @Prop() renderAfter: () => VNode | null = () => null;
+    @Prop() renderAfter: RenderFunction = () => null;
     /** The size of the window to render */
     @Prop() windowSize: number = 100;
     /** Groups rows into blocks */
@@ -304,7 +304,7 @@ export class Table {
                         })}
                     >
                         {cell.cell
-                            ? h(cell.cell, {
+                            ? cell.cell(h, {
                                   key,
                                   data,
                                   parent: this.identifier,
@@ -349,7 +349,7 @@ export class Table {
                         class={'before'}
                         style={{ height: `${this.beforeHeight}px` }}
                     >
-                        {h(this.renderBefore)}
+                        {this.renderBefore(h)}
                     </div>
                     {Array.from(
                         {
@@ -368,7 +368,7 @@ export class Table {
                         class={'after'}
                         style={{ height: `${this.afterHeight}px` }}
                     >
-                        {h(this.renderAfter)}
+                        {this.renderAfter(h)}
                     </div>
                 </div>
             </Host>

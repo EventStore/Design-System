@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordianSection } from "./components/es-accordian/types";
-import { VNode } from "@stencil/core";
+import { RenderFunction } from "./types";
 import { BadgeVariant } from "./components/es-badge/es-badge";
 import { ButtonVariant } from "./components/buttons/types";
 import { EsCalloutVariant } from "./components/es-callout/es-callout";
@@ -36,7 +36,7 @@ export namespace Components {
     interface EsBackdrop {
         "close": () => Promise<void>;
         "preventOverscroll": boolean;
-        "renderNode": (node: VNode | null) => Promise<void>;
+        "renderNode": (node: RenderFunction) => Promise<void>;
         "showBackdrop": boolean;
     }
     interface EsBadge {
@@ -312,10 +312,6 @@ export namespace Components {
         "backdrop": boolean;
         "detatchElement": () => Promise<void>;
         /**
-          * The element to render.
-         */
-        "element": VNode;
-        /**
           * If the element is portaled or not.
          */
         "open": boolean;
@@ -323,6 +319,10 @@ export namespace Components {
           * If the portal should prevent overscroll
          */
         "preventOverscroll": boolean;
+        /**
+          * The element to render.
+         */
+        "renderElement": RenderFunction;
         /**
           * A query selector to select the location to portal to.
          */
@@ -371,7 +371,7 @@ export namespace Components {
         /**
           * Allows rendering a node after the row.
          */
-        "renderExpansion": (key: string) => VNode | null;
+        "renderExpansion": RenderFunction<[key: string]>;
         /**
           * A function to calculate the class or classes of the row from the cellData.
          */
@@ -567,11 +567,11 @@ export namespace Components {
         /**
           * Display in a row after the last row
          */
-        "renderAfter": () => VNode | null;
+        "renderAfter": RenderFunction;
         /**
           * Display in a row before the first row
          */
-        "renderBefore": () => VNode | null;
+        "renderBefore": RenderFunction;
         /**
           * A function to calculate the class or classes of the row from the cellData.
          */
@@ -1242,10 +1242,6 @@ declare namespace LocalJSX {
          */
         "backdrop"?: boolean;
         /**
-          * The element to render.
-         */
-        "element": VNode;
-        /**
           * Triggers when the popover requests to close.
          */
         "onRequestClose"?: (event: EsPortalCustomEvent<any>) => void;
@@ -1257,6 +1253,10 @@ declare namespace LocalJSX {
           * If the portal should prevent overscroll
          */
         "preventOverscroll"?: boolean;
+        /**
+          * The element to render.
+         */
+        "renderElement": RenderFunction;
         /**
           * A query selector to select the location to portal to.
          */
@@ -1321,7 +1321,7 @@ declare namespace LocalJSX {
         /**
           * Allows rendering a node after the row.
          */
-        "renderExpansion"?: (key: string) => VNode | null;
+        "renderExpansion"?: RenderFunction<[key: string]>;
         /**
           * A function to calculate the class or classes of the row from the cellData.
          */
@@ -1541,11 +1541,11 @@ declare namespace LocalJSX {
         /**
           * Display in a row after the last row
          */
-        "renderAfter"?: () => VNode | null;
+        "renderAfter"?: RenderFunction;
         /**
           * Display in a row before the first row
          */
-        "renderBefore"?: () => VNode | null;
+        "renderBefore"?: RenderFunction;
         /**
           * A function to calculate the class or classes of the row from the cellData.
          */

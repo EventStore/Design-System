@@ -59,7 +59,7 @@ export class LoadingTextDemo {
         },
         value: {
             title: 'Value',
-            cell: ({ data }) => (
+            cell: (h, { data }) => (
                 <div class={'some_class'}>
                     <h1>{data.amount}</h1>
                 </div>

@@ -1,4 +1,4 @@
-import type { VNode } from '@stencil/core';
+import type { h as jsxFactory, VNode } from '@stencil/core';
 import { wDKey, focusError, insertError, triggerValidation } from './symbols';
 
 interface ChangeEventValue<T extends object, K extends keyof T> {
@@ -11,7 +11,11 @@ export type FieldChangeEvent<T extends object> = CustomEvent<
 >;
 
 export type Severity = 'error' | 'warning' | 'info';
-export type ValidationMessage = string | VNode | VNode[];
+
+export type ValidationMessage =
+    | string
+    | ((h: typeof jsxFactory) => VNode | VNode[] | null | string);
+
 export interface ValidationMessages {
     error: ValidationMessage[];
     warning: ValidationMessage[];

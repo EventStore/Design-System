@@ -127,7 +127,7 @@ export class Demo {
         value: {
             sortable: true,
             title: 'Value',
-            cell: ({ data }) => (
+            cell: (h, { data }) => (
                 <div class={'some_class'}>
                     <h1>{data.value}</h1>
                 </div>

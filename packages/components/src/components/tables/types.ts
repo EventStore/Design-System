@@ -1,4 +1,4 @@
-import type { VNode } from '@stencil/core';
+import type { RenderFunction } from '../../types';
 
 /** Props passed to the cell renderer. */
 export interface CellProps<T> {
@@ -26,7 +26,7 @@ export interface TableCell<T> {
     /** If this cell should be grouped with others. */
     group?: string;
     /** The cell renderer. By default it will take the it's key in in the record, and extract that key from the row data. */
-    cell?: (d: CellProps<T>) => string | VNode | VNode[] | null;
+    cell?: RenderFunction<[d: CellProps<T>]>;
     /** Allows passing a [track sizing function](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns#values) for use in the grid. */
     width?: string;
     /**

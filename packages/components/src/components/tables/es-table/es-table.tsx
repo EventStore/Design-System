@@ -1,12 +1,4 @@
-import {
-    Component,
-    h,
-    Prop,
-    Host,
-    Event,
-    EventEmitter,
-    VNode,
-} from '@stencil/core';
+import { Component, h, Prop, Host, Event, EventEmitter } from '@stencil/core';
 import { Link, router } from '@eventstore-ui/router';
 import { theme } from '@eventstore-ui/theme';
 
@@ -22,6 +14,7 @@ import { TableHeader } from '../TableHeader';
 import { autoExtract } from '../utils/autoExtract';
 import { cellClasses } from '../utils/cellClasses';
 import { variantMatches } from '../utils/variantMatches';
+import type { RenderFunction } from '../../../types';
 
 /** Create a table from data. */
 @Component({
@@ -53,7 +46,7 @@ export class Table {
         row: any,
     ) => Record<string, boolean> | string | undefined = () => undefined;
     /** Allows rendering a node after the row. */
-    @Prop() renderExpansion: (key: string) => VNode | null = () => null;
+    @Prop() renderExpansion: RenderFunction<[key: string]> = () => null;
     /** How the table is sorted */
     @Prop() sort?: TableSort;
 
@@ -70,7 +63,7 @@ export class Table {
             }}
         >
             {this.renderRow(key, i)}
-            {this.renderExpansion(key)}
+            {this.renderExpansion(h, key)}
         </div>
     );
 
@@ -152,7 +145,7 @@ export class Table {
                         })}
                     >
                         {cell.cell
-                            ? h(cell.cell, {
+                            ? cell.cell(h, {
                                   key,
                                   data,
                                   parent: this.identifier,

@@ -19,19 +19,19 @@ const tableCells: TableCells<IconDetail> = {
     },
     icon: {
         title: 'Icon',
-        cell: ({ data: { name } }) => <es-icon icon={name} />,
+        cell: (h, { data: { name } }) => <es-icon icon={name} />,
     },
     component: {
         title: 'Internal Name',
     },
     aliases: {
         title: 'Aliases',
-        cell: ({ data: { aliases } }) => aliases?.join(', ') ?? '-',
+        cell: (h, { data: { aliases } }) => aliases?.join(', ') ?? '-',
     },
     usage: {
         title: 'Usage',
         variant: 'full-width',
-        cell: ({ data: { name } }) => (
+        cell: (h, { data: { name } }) => (
             <pre style={{ margin: 0 }}>{`<es-icon icon={'${name}'} />`}</pre>
         ),
     },

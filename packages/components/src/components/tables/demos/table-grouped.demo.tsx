@@ -149,41 +149,41 @@ export class Demo {
             sortable: true,
             group: 'Sent (Bytes)',
             title: 'Rate (Bytes/s)',
-            cell: ({ data }) => `${data.amount}`,
+            cell: (_, { data }) => `${data.amount}`,
         },
         sent_current: {
             sortable: true,
             group: 'Sent (Bytes)',
             title: 'Current',
-            cell: ({ data }) => `${data.amount * 10_000}`,
+            cell: (_, { data }) => `${data.amount * 10_000}`,
         },
         sent_pending: {
             sortable: true,
             group: 'Sent (Bytes)',
             title: 'Pending',
-            cell: ({ data }) => `${Math.floor(data.amount / 10)}`,
+            cell: (_, { data }) => `${Math.floor(data.amount / 10)}`,
         },
         received_rate: {
             sortable: true,
             group: 'Received (Bytes)',
             title: 'Rate (Bytes/s)',
-            cell: ({ data }) => `${data.amount}`,
+            cell: (_, { data }) => `${data.amount}`,
         },
         received_current: {
             sortable: true,
             group: 'Received (Bytes)',
             title: 'Current',
-            cell: ({ data }) => `${data.amount * 10_000}`,
+            cell: (_, { data }) => `${data.amount * 10_000}`,
         },
         received_pending: {
             sortable: true,
             group: 'Received (Bytes)',
             title: 'Pending',
-            cell: ({ data }) => `${Math.floor(data.amount / 10)}`,
+            cell: (_, { data }) => `${Math.floor(data.amount / 10)}`,
         },
         lorem: {
             title: 'Lorem',
-            cell: ({ data }) => data.value,
+            cell: (_, { data }) => data.value,
         },
     };
 }
