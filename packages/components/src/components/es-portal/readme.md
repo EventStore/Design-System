@@ -45,18 +45,6 @@ const ExampleModal: FunctionalComponent = ({ requestClose }) => (
                 .important {
                     color: var(--color-error);
                 }
-
-                .cancel {
-                    --current-color: var(--color-shade-30);
-                    --contrast-color: var(--color-white);
-
-                    --text-color: var(--color-text);
-                }
-
-                .delete {
-                    --current-color: var(--color-error);
-                    --contrast-color: var(--color-white);
-                }
             `}
         </style>
         <es-modal role={'alert'}>
@@ -71,17 +59,15 @@ const ExampleModal: FunctionalComponent = ({ requestClose }) => (
                 {'Are you sure you want to proceed in deleting this project?'}
             </p>
             <es-button
-                variant={'outline'}
+                variant={'cancel'}
                 slot={'footer'}
-                class={'cancel'}
                 onClick={requestClose}
             >
                 {'Cancel'}
             </es-button>
             <es-button
-                variant={'outline'}
+                variant={'delete'}
                 slot={'footer'}
-                class={'delete'}
                 onClick={requestClose}
             >
                 {'Delete project'}
