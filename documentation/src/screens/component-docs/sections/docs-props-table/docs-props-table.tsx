@@ -28,13 +28,13 @@ export class DocsPropsTable {
     private cells: TableCells<JsonDocsProp> = {
         name: {
             title: 'Name',
-            cell: ({ data: { name, deprecation } }) => (
+            cell: (h, { data: { name, deprecation } }) => (
                 <pre class={{ depreciated: !!deprecation }}>{name}</pre>
             ),
         },
         docs: {
             title: 'Description',
-            cell: ({ data: { docs, deprecation } }) => (
+            cell: (h, { data: { docs, deprecation } }) => (
                 <>
                     <docs-markdown
                         class={{ depreciated: !!deprecation }}
@@ -46,7 +46,7 @@ export class DocsPropsTable {
         },
         type: {
             title: 'Type',
-            cell: ({ data: { values } }) =>
+            cell: (h, { data: { values } }) =>
                 values.map(({ type, value }, i, c) => (
                     <>
                         <pre class={type}>{value ?? type}</pre>
@@ -57,7 +57,7 @@ export class DocsPropsTable {
         },
         default: {
             title: 'Default',
-            cell: ({ data: { default: d } }) =>
+            cell: (h, { data: { default: d } }) =>
                 d ? (
                     <pre class={d.startsWith("'") ? 'string' : 'default'}>
                         {d.replace(/'/g, '')}
@@ -68,7 +68,7 @@ export class DocsPropsTable {
             title: '',
             class: 'extras',
             width: 'fit-content(100%)',
-            cell: ({ data: { mutable, reflectToAttr, required, attr } }) => (
+            cell: (h, { data: { mutable, reflectToAttr, required, attr } }) => (
                 <>
                     {required && (
                         <es-icon icon={'required'} title={'Required'} />

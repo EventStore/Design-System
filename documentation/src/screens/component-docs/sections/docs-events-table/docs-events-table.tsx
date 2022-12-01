@@ -23,17 +23,17 @@ export class DocsEventsTable {
     private cells: TableCells<JsonDocsEvent> = {
         name: {
             title: 'Event',
-            cell: ({ data: { event, deprecation } }) => (
+            cell: (h, { data: { event, deprecation } }) => (
                 <pre class={{ depreciated: !!deprecation }}>{event}</pre>
             ),
         },
         detail: {
             title: 'Detail',
-            cell: ({ data: { detail } }) => <pre>{detail}</pre>,
+            cell: (h, { data: { detail } }) => <pre>{detail}</pre>,
         },
         docs: {
             title: 'Description',
-            cell: ({ data: { docs, deprecation } }) => (
+            cell: (h, { data: { docs, deprecation } }) => (
                 <>
                     <docs-markdown
                         class={{ depreciated: !!deprecation }}
@@ -47,7 +47,7 @@ export class DocsEventsTable {
             title: '',
             class: 'extras',
             width: 'fit-content(100%)',
-            cell: ({ data: { bubbles, cancelable, composed } }) => (
+            cell: (h, { data: { bubbles, cancelable, composed } }) => (
                 <>
                     {bubbles && <es-icon icon={'bubbles'} title={'Bubbles'} />}
                     {cancelable && (
