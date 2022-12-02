@@ -23,6 +23,6 @@ es-table-detail-header {
 
 .header_actions {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-left: auto;
 }
