@@ -38,7 +38,7 @@ export class EsValidationMessages {
                         {showIcons && (
                             <es-icon icon={this.errorIcon} size={16} />
                         )}
-                        {message}
+                        {typeof message === 'string' ? message : message(h)}
                     </li>
                 ))}
                 {warning.map((message) => (
@@ -46,7 +46,7 @@ export class EsValidationMessages {
                         {showIcons && (
                             <es-icon icon={this.warningIcon} size={16} />
                         )}
-                        {message}
+                        {typeof message === 'string' ? message : message(h)}
                     </li>
                 ))}
                 {info.map((message) => (
@@ -54,7 +54,7 @@ export class EsValidationMessages {
                         {showIcons && (
                             <es-icon icon={this.infoIcon} size={16} />
                         )}
-                        {message}
+                        {typeof message === 'string' ? message : message(h)}
                     </li>
                 ))}
             </ul>

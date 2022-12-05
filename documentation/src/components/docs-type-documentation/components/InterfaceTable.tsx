@@ -42,7 +42,7 @@ const expandAndFilterSignatures = (declarations: DeclarationReflection[]) =>
 const cells: TableCells<DeclarationReflection> = {
     name: {
         title: 'Name',
-        cell: ({ data: { name, comment } }) => (
+        cell: (h, { data: { name, comment } }) => (
             <docs-type
                 string={name}
                 depreciated={
@@ -56,7 +56,7 @@ const cells: TableCells<DeclarationReflection> = {
 
     docs: {
         title: 'Description',
-        cell: ({ data: { comment } }) => {
+        cell: (h, { data: { comment } }) => {
             const deprecation = comment?.tags?.find(
                 ({ tagName }) => tagName === 'depreciated',
             );
@@ -78,12 +78,12 @@ const cells: TableCells<DeclarationReflection> = {
     },
     type: {
         title: 'Type',
-        cell: ({ data }) => <docs-type declaration={data} />,
+        cell: (h, { data }) => <docs-type declaration={data} />,
         class: 'types',
     },
     extras: {
         title: '',
-        cell: ({ data: { flags } }) => (
+        cell: (h, { data: { flags } }) => (
             <>
                 {!flags.isOptional && (
                     <es-icon icon={'required'} title={'Required'} />

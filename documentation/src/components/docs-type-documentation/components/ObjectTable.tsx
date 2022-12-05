@@ -12,6 +12,6 @@ const cells: TableCells<DeclarationReflection> = {
     name: { title: 'Property' },
     value: {
         title: 'Value',
-        cell: ({ data }) => <docs-type someType={data.type!} />,
+        cell: (h, { data }) => <docs-type someType={data.type!} />,
     },
 };

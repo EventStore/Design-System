@@ -27,29 +27,27 @@ export class TableDetailHeader {
     };
 
     render() {
-        const Actions = this.cells[this.actionsCell]?.cell;
-        const Title = this.cells[this.titleCell]?.cell;
+        const renderTitle = this.cells[this.titleCell]?.cell;
+        const renderActions = this.cells[this.actionsCell]?.cell;
 
         return (
             <Host>
                 <h1 class={'header_title'}>
-                    {Title ? (
-                        <Title
-                            data={this.data}
-                            parent={this.identifier}
-                            key={this.identifier}
-                        />
-                    ) : (
-                        this.autoExtract(this.titleCell)
-                    )}
+                    {renderTitle
+                        ? renderTitle(h, {
+                              data: this.data,
+                              parent: this.identifier,
+                              key: this.identifier,
+                          })
+                        : this.autoExtract(this.titleCell)}
                 </h1>
-                {Actions && (
+                {renderActions && (
                     <div class={'header_actions'}>
-                        <Actions
-                            data={this.data}
-                            parent={this.identifier}
-                            key={this.identifier}
-                        />
+                        {renderActions(h, {
+                            data: this.data,
+                            parent: this.identifier,
+                            key: this.identifier,
+                        })}
                     </div>
                 )}
             </Host>

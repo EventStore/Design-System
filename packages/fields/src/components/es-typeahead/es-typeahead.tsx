@@ -9,7 +9,7 @@ import {
     Watch,
     Host,
 } from '@stencil/core';
-import type { FieldChange } from '../../types';
+import type { FieldChange, RenderFunction } from '../../types';
 import type {
     TypeaheadOption,
     OptionFilter,
@@ -39,7 +39,7 @@ export class EsTypeahead {
         return name.toLowerCase().includes(f.toLowerCase());
     };
     @Prop() renderField!: RenderTypeaheadField;
-    @Prop() renderOption: RenderTypeaheadOption = ({ name }) => name;
+    @Prop() renderOption: RenderTypeaheadOption = (_, { name }) => name;
 
     @State() open: boolean = false;
     @State() filter: string = '';
@@ -75,7 +75,7 @@ export class EsTypeahead {
         }
     }
 
-    renderInput = (props: any) => (
+    renderInput: RenderFunction<[props: Record<string, any>]> = (h, props) => (
         <input
             type={'text'}
             part={'input'}
@@ -119,7 +119,7 @@ export class EsTypeahead {
                         onKeyDown={this.onKeyDown}
                         value={option.value}
                     >
-                        {this.renderOption(option, active)}
+                        {this.renderOption(h, option, active)}
                     </button>
                 </li>
             );
@@ -129,8 +129,8 @@ export class EsTypeahead {
     render() {
         return (
             <Host>
-                {this.renderField({
-                    Input: this.renderInput,
+                {this.renderField(h, {
+                    renderInput: this.renderInput,
                     value: this.value,
                     open: this.open,
                     filter: this.filter,

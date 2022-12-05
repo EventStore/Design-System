@@ -23,17 +23,17 @@ export class DocsMethodsTable {
     private cells: TableCells<JsonDocsMethod> = {
         name: {
             title: 'Name',
-            cell: ({ data: { name, deprecation } }) => (
+            cell: (h, { data: { name, deprecation } }) => (
                 <pre class={{ depreciated: !!deprecation }}>{name}</pre>
             ),
         },
         signature: {
             title: 'Signature',
-            cell: ({ data: { signature } }) => <pre>{signature}</pre>,
+            cell: (h, { data: { signature } }) => <pre>{signature}</pre>,
         },
         docs: {
             title: 'Description',
-            cell: ({ data: { docs, deprecation } }) => (
+            cell: (h, { data: { docs, deprecation } }) => (
                 <>
                     <docs-markdown
                         class={{ depreciated: !!deprecation }}

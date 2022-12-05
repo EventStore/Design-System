@@ -6,10 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconDescription } from "@eventstore-ui/components";
-import { FieldChange, ValidationMessages } from "./types";
+import { FieldChange, RenderFunction, ValidationMessages } from "./types";
 import { MaskOptions } from "./components/es-input/types";
 import { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
-import { VNode } from "@stencil/core";
 import { RadioCardGroupOption } from "./components/es-radio-card-group/types";
 import { RenderCard } from "./components/es-radio-card-group/es-radio-card-group";
 import { RenderSelectValue } from "./components/es-select/es-select";
@@ -160,7 +159,7 @@ export namespace Components {
         /**
           * Render the list item.
          */
-        "renderItem": ({ name }: TypeaheadOption) => VNode;
+        "renderItem": RenderFunction<[option: TypeaheadOption]>;
         /**
           * The selected item ids
          */
@@ -756,7 +755,7 @@ declare namespace LocalJSX {
         /**
           * Render the list item.
          */
-        "renderItem"?: ({ name }: TypeaheadOption) => VNode;
+        "renderItem"?: RenderFunction<[option: TypeaheadOption]>;
         /**
           * The selected item ids
          */

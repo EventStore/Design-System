@@ -19,7 +19,7 @@ const tableCells: TableCells<IconDetail> = {
     },
     icon: {
         title: 'Icon',
-        cell: ({ data: { name } }) => <es-icon icon={name} />,
+        cell: (h, { data: { name } }) => <es-icon icon={name} />,
     },
     component: {
         title: 'Internal Name',
@@ -27,13 +27,13 @@ const tableCells: TableCells<IconDetail> = {
     aliases: {
         title: 'Aliases',
         variant: 'full-width',
-        cell: ({ data: { aliases } }) =>
+        cell: (h, { data: { aliases } }) =>
             aliases?.map((alias) => <pre>{alias}</pre>) ?? <pre>{'-'}</pre>,
     },
     usage: {
         title: 'Usage',
         variant: 'full-width',
-        cell: ({ data: { name } }) => (
+        cell: (h, { data: { name } }) => (
             <pre style={{ margin: 0 }}>{`<es-icon icon={'${name}'} />`}</pre>
         ),
     },
@@ -46,7 +46,7 @@ export default () => (
         <es-table-detail-header
             cells={tableCells}
             data={data}
-            titleKey={'component'}
+            titleCell={'component'}
             actionsCell={'icon'}
         />
         <es-table-detail

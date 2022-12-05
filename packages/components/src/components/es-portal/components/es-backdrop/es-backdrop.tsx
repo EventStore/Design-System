@@ -7,8 +7,8 @@ import {
     Prop,
     Method,
     State,
-    VNode,
 } from '@stencil/core';
+import type { RenderFunction } from '../../../../types';
 
 export type BackdropState = 'mounting' | 'entering' | 'entered' | 'exiting';
 
@@ -25,11 +25,11 @@ export class Backdrop {
     @Prop() showBackdrop: boolean = false;
     @Prop({ reflect: true }) preventOverscroll: boolean = false;
 
-    @State() child: VNode | null = null;
+    @State() child: ReturnType<RenderFunction> = null;
     @State() state: BackdropState = 'mounting';
 
-    @Method() async renderNode(node: VNode | null) {
-        this.child = node;
+    @Method() async renderNode(node: RenderFunction) {
+        this.child = node(h);
     }
 
     private closingPromise?: () => void;

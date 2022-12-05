@@ -5,7 +5,6 @@ import {
     Event,
     EventEmitter,
     Element,
-    VNode,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
 
@@ -13,6 +12,7 @@ import type {
     ValidationMessages,
     FieldChangeEvent,
     FieldChange,
+    RenderFunction,
 } from '../../types';
 import { Field } from '../Field/Field';
 import type {
@@ -23,10 +23,14 @@ import type {
 } from '../es-typeahead/types';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 
-export type RenderSelectValue = (
-    value: TypeaheadOption | undefined,
-    rawValue: string,
-) => VNode | string;
+export type RenderSelectValue = RenderFunction<
+    [
+        /** The option currently selected */
+        value: TypeaheadOption | undefined,
+        /** The ID of the option currently selected */
+        rawValue: string,
+    ]
+>;
 
 /**
  * A searchable select dropdown.
@@ -56,7 +60,7 @@ export class EsSelect {
     /** Overwrite the default option renderer. */
     @Prop() renderOption?: RenderTypeaheadOption;
     /** Overwrite the default value renderer. */
-    @Prop() renderValue: RenderSelectValue = (o, v) => o?.name ?? v;
+    @Prop() renderValue: RenderSelectValue = (_, o, v) => o?.name ?? v;
     /** Pass a custom search filter function */
     @Prop() optionFilter?: OptionFilter;
     /** The placeholder for the input. */
@@ -78,20 +82,27 @@ export class EsSelect {
         <span class={'placeholder'}>{this.placeholder}</span>
     );
 
-    renderField: RenderTypeaheadField = ({ Input, open, filter, ref }) => (
+    renderField: RenderTypeaheadField = (
+        h,
+        { renderInput, open, filter, ref },
+    ) => (
         <div
             ref={ref}
             class={{ input: true, open, disabled: !!this.disabled }}
             part={'input'}
         >
-            <Input
-                {...(this.inputProps ?? {})}
-                class={'true_input'}
-                part={'true_input'}
-            />
+            {renderInput(h, {
+                ...(this.inputProps ?? {}),
+                class: 'true_input',
+                part: 'true_input',
+            })}
             {!open || !filter
                 ? this.value
-                    ? this.renderValue(this.findOption(this.value), this.value)
+                    ? this.renderValue(
+                          h,
+                          this.findOption(this.value),
+                          this.value,
+                      )
                     : this.renderPlaceholder()
                 : null}
             <es-icon icon={this.chevronIcon} size={14} />

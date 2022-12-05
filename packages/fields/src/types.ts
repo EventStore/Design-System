@@ -1,7 +1,12 @@
-import type { VNode } from '@stencil/core';
+import type { h as jsxFactory, VNode } from '@stencil/core';
+
+export type RenderFunction<T extends any[] = []> = (
+    h: typeof jsxFactory,
+    ...args: T
+) => VNode | VNode[] | null | string;
 
 export type Severity = 'error' | 'warning' | 'info';
-export type ValidationMessage = string | VNode | VNode[];
+export type ValidationMessage = string | RenderFunction;
 export interface ValidationMessages {
     error: ValidationMessage[];
     warning: ValidationMessage[];

@@ -8,14 +8,14 @@ const tableCells: TableCells<IconDetail> = {
     },
     usage: {
         title: 'Usage',
-        cell: ({ data: { name } }) => (
+        cell: (h, { data: { name } }) => (
             <pre style={{ margin: 0 }}>{`<es-icon icon={'${name}'} />`}</pre>
         ),
     },
     icon: {
         title: '',
         variant: 'no-pad',
-        cell: ({ data: { name } }) => <es-icon icon={name} />,
+        cell: (h, { data: { name } }) => <es-icon icon={name} />,
     },
 };
 

@@ -9,12 +9,12 @@ import {
     Host,
     Element,
     Watch,
-    VNode,
 } from '@stencil/core';
 
 import type {
     FieldChange,
     FieldChangeEvent,
+    RenderFunction,
     ValidationMessages,
 } from '../../types';
 import type {
@@ -62,9 +62,10 @@ export class ListCreator {
     @Prop() messages?: ValidationMessages;
 
     /** Render the list item. */
-    @Prop() renderItem = ({ name }: TypeaheadOption): VNode => (
-        <input readonly class={'input'} value={name} tabindex={-1} />
-    );
+    @Prop() renderItem: RenderFunction<[option: TypeaheadOption]> = (
+        h,
+        { name },
+    ) => <input readonly class={'input'} value={name} tabindex={-1} />;
 
     @State() invalidInput: boolean = false;
     @State() remainingOptions: TypeaheadOption[] = [];
@@ -88,9 +89,11 @@ export class ListCreator {
             .filter(Boolean);
     }
 
-    renderField: RenderTypeaheadField = ({ Input, open }) => (
-        <Input class={{ input: true, open }} placeholder={this.placeholder} />
-    );
+    renderField: RenderTypeaheadField = (h, { renderInput, open }) =>
+        renderInput(h, {
+            class: { input: true, open },
+            placeholder: this.placeholder,
+        });
 
     render() {
         return (
@@ -123,7 +126,7 @@ export class ListCreator {
                                         class={'value_list_item_icon'}
                                     />
                                 )}
-                                {this.renderItem(value)}
+                                {this.renderItem(h, value)}
                                 <es-button
                                     class={'value_list_item_delete'}
                                     variant={'minimal'}

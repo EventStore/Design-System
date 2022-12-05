@@ -107,7 +107,9 @@ export class DemoRoot {
                     placeholder={'how tall?'}
                     {...this.form.connect('subForm', 'hello')}
                 />
-                <es-checkbox {...this.form.connect('agreeToTOS')} />
+                <es-checkbox {...this.form.connect('agreeToTOS')}>
+                    {'do you agree'}
+                </es-checkbox>
                 <es-button onClick={this.submit} disabled={this.form.frozen}>
                     {'Submit'}
                 </es-button>

@@ -12,7 +12,7 @@ export default () => (
             backdrop
             open={state.open}
             onRequestClose={requestClose}
-            element={<ExampleModal requestClose={requestClose} />}
+            renderElement={(h) => <ExampleModal requestClose={requestClose} />}
         />
         <es-button
             variant={'outline'}

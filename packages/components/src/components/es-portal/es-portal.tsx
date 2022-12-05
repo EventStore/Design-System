@@ -5,8 +5,8 @@ import {
     Event,
     EventEmitter,
     Method,
-    VNode,
 } from '@stencil/core';
+import type { RenderFunction } from '../../types';
 
 /**
  * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
@@ -22,7 +22,7 @@ export class Portal {
     /** A query selector to select the location to portal to. */
     @Prop() target = 'body';
     /** The element to render. */
-    @Prop() element!: VNode;
+    @Prop() renderElement!: RenderFunction;
     /** If the element is portaled or not. */
     @Prop({ reflect: true }) open: boolean = false;
     /** If the portal should overlay a backdrop, to prevent external clicks. */
@@ -65,7 +65,7 @@ export class Portal {
             this.portalledBackdrop = backdrop;
         }
 
-        this.portalledBackdrop.renderNode(this.element);
+        this.portalledBackdrop.renderNode(this.renderElement);
     }
 
     /** @internal */

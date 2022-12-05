@@ -6,20 +6,25 @@ import {
     EventEmitter,
     Host,
     Fragment,
-    VNode,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
 
 import { ICON_NAMESPACE } from '../../icons/namespace';
-import type { FieldChange, ValidationMessages } from '../../types';
+import type {
+    FieldChange,
+    RenderFunction,
+    ValidationMessages,
+} from '../../types';
 import type { RadioCardGroupOption } from './types';
 
-export type RenderCard<T extends RadioCardGroupOption> = (
-    /** The option to be rendered */
-    option: T,
-    /** Render a card */
-    active: boolean,
-) => VNode | VNode[];
+export type RenderCard<T extends RadioCardGroupOption> = RenderFunction<
+    [
+        /** The option to be rendered */
+        option: T,
+        /** If the option is currently selected */
+        active: boolean,
+    ]
+>;
 
 /**
  * A card based single select input.
@@ -55,7 +60,10 @@ export class RadioCardGroup {
     /** Icon to display when checked. */
     @Prop() icon: IconDescription = [ICON_NAMESPACE, 'check'];
 
-    static defaultRenderCard: RenderCard<RadioCardGroupOption> = (option) => [
+    static defaultRenderCard: RenderCard<RadioCardGroupOption> = (
+        h,
+        option,
+    ) => [
         <span class={'label'}>{option.name}</span>,
         <span class={'description'}>{option.description}</span>,
     ];
@@ -90,7 +98,7 @@ export class RadioCardGroup {
                                             onChange={this.handleChange}
                                             disabled={option.disabled}
                                         />
-                                        {this.renderCard(option, active)}
+                                        {this.renderCard(h, option, active)}
                                         <es-icon icon={this.icon} />
                                     </label>
                                 );
