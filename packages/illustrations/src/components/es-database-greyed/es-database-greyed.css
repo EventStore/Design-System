@@ -1,0 +1,99 @@
+:host([light]) {
+    & .es_database_greyed_g {
+        fill: #fff;
+    }
+    & .es_database_greyed_g,
+    & .es_database_greyed_h,
+    & .es_database_greyed_i,
+    & .es_database_greyed_j,
+    & .es_database_greyed_k,
+    & .es_database_greyed_l,
+    & .es_database_greyed_m,
+    & .es_database_greyed_n {
+        fill-rule: evenodd;
+    }
+    & .es_database_greyed_h {
+        stroke-width: 14px;
+    }
+    & .es_database_greyed_h,
+    & .es_database_greyed_j {
+        fill: none;
+        stroke: #454545;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    & .es_database_greyed_i {
+        fill: url(#es_database_greyed_c);
+    }
+    & .es_database_greyed_j {
+        stroke-width: 3.6px;
+    }
+    & .es_database_greyed_k {
+        fill: url(#es_database_greyed_f);
+    }
+    & .es_database_greyed_o {
+        fill: #8e8e8e;
+    }
+    & .es_database_greyed_l {
+        fill: url(#es_database_greyed_b);
+    }
+    & .es_database_greyed_m {
+        fill: url(#es_database_greyed_e);
+    }
+    & .es_database_greyed_n {
+        fill: url(#es_database_greyed_d);
+    }
+    & .es_database_greyed_p {
+        fill: #454545;
+    }
+}
+:host([dark]) {
+    & .es_database_greyed_g {
+        stroke: #fff;
+        stroke-width: 14px;
+    }
+    & .es_database_greyed_g,
+    & .es_database_greyed_h {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    & .es_database_greyed_g,
+    & .es_database_greyed_h,
+    & .es_database_greyed_i,
+    & .es_database_greyed_j,
+    & .es_database_greyed_k,
+    & .es_database_greyed_l,
+    & .es_database_greyed_m,
+    & .es_database_greyed_n {
+        fill-rule: evenodd;
+    }
+    & .es_database_greyed_h {
+        stroke: #212121;
+        stroke-width: 3.6px;
+    }
+    & .es_database_greyed_i {
+        fill: #d3d3d3;
+    }
+    & .es_database_greyed_j {
+        fill: url(#es_database_greyed_c);
+    }
+    & .es_database_greyed_k {
+        fill: url(#es_database_greyed_f);
+    }
+    & .es_database_greyed_o {
+        fill: #8e8e8e;
+    }
+    & .es_database_greyed_p {
+        fill: #212121;
+    }
+    & .es_database_greyed_l {
+        fill: url(#es_database_greyed_b);
+    }
+    & .es_database_greyed_m {
+        fill: url(#es_database_greyed_e);
+    }
+    & .es_database_greyed_n {
+        fill: url(#es_database_greyed_d);
+    }
+}

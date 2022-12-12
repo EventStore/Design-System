@@ -12,6 +12,10 @@ export namespace Components {
     }
     interface EsIllustrationCluster {
     }
+    interface EsIllustrationEsDatabase {
+    }
+    interface EsIllustrationEsDatabaseGreyed {
+    }
     interface EsIllustrationEvent {
     }
     interface EsIllustrationGroup {
@@ -19,6 +23,8 @@ export namespace Components {
     interface EsIllustrationIntegration {
     }
     interface EsIllustrationIssues {
+    }
+    interface EsIllustrationLaptop {
     }
     interface EsIllustrationNetwork {
     }
@@ -64,6 +70,18 @@ declare global {
         prototype: HTMLEsIllustrationClusterElement;
         new (): HTMLEsIllustrationClusterElement;
     };
+    interface HTMLEsIllustrationEsDatabaseElement extends Components.EsIllustrationEsDatabase, HTMLStencilElement {
+    }
+    var HTMLEsIllustrationEsDatabaseElement: {
+        prototype: HTMLEsIllustrationEsDatabaseElement;
+        new (): HTMLEsIllustrationEsDatabaseElement;
+    };
+    interface HTMLEsIllustrationEsDatabaseGreyedElement extends Components.EsIllustrationEsDatabaseGreyed, HTMLStencilElement {
+    }
+    var HTMLEsIllustrationEsDatabaseGreyedElement: {
+        prototype: HTMLEsIllustrationEsDatabaseGreyedElement;
+        new (): HTMLEsIllustrationEsDatabaseGreyedElement;
+    };
     interface HTMLEsIllustrationEventElement extends Components.EsIllustrationEvent, HTMLStencilElement {
     }
     var HTMLEsIllustrationEventElement: {
@@ -87,6 +105,12 @@ declare global {
     var HTMLEsIllustrationIssuesElement: {
         prototype: HTMLEsIllustrationIssuesElement;
         new (): HTMLEsIllustrationIssuesElement;
+    };
+    interface HTMLEsIllustrationLaptopElement extends Components.EsIllustrationLaptop, HTMLStencilElement {
+    }
+    var HTMLEsIllustrationLaptopElement: {
+        prototype: HTMLEsIllustrationLaptopElement;
+        new (): HTMLEsIllustrationLaptopElement;
     };
     interface HTMLEsIllustrationNetworkElement extends Components.EsIllustrationNetwork, HTMLStencilElement {
     }
@@ -164,10 +188,13 @@ declare global {
         "es-illustration-backups": HTMLEsIllustrationBackupsElement;
         "es-illustration-building-orgs": HTMLEsIllustrationBuildingOrgsElement;
         "es-illustration-cluster": HTMLEsIllustrationClusterElement;
+        "es-illustration-es-database": HTMLEsIllustrationEsDatabaseElement;
+        "es-illustration-es-database-greyed": HTMLEsIllustrationEsDatabaseGreyedElement;
         "es-illustration-event": HTMLEsIllustrationEventElement;
         "es-illustration-group": HTMLEsIllustrationGroupElement;
         "es-illustration-integration": HTMLEsIllustrationIntegrationElement;
         "es-illustration-issues": HTMLEsIllustrationIssuesElement;
+        "es-illustration-laptop": HTMLEsIllustrationLaptopElement;
         "es-illustration-network": HTMLEsIllustrationNetworkElement;
         "es-illustration-notifications": HTMLEsIllustrationNotificationsElement;
         "es-illustration-peering": HTMLEsIllustrationPeeringElement;
@@ -189,6 +216,10 @@ declare namespace LocalJSX {
     }
     interface EsIllustrationCluster {
     }
+    interface EsIllustrationEsDatabase {
+    }
+    interface EsIllustrationEsDatabaseGreyed {
+    }
     interface EsIllustrationEvent {
     }
     interface EsIllustrationGroup {
@@ -196,6 +227,8 @@ declare namespace LocalJSX {
     interface EsIllustrationIntegration {
     }
     interface EsIllustrationIssues {
+    }
+    interface EsIllustrationLaptop {
     }
     interface EsIllustrationNetwork {
     }
@@ -225,10 +258,13 @@ declare namespace LocalJSX {
         "es-illustration-backups": EsIllustrationBackups;
         "es-illustration-building-orgs": EsIllustrationBuildingOrgs;
         "es-illustration-cluster": EsIllustrationCluster;
+        "es-illustration-es-database": EsIllustrationEsDatabase;
+        "es-illustration-es-database-greyed": EsIllustrationEsDatabaseGreyed;
         "es-illustration-event": EsIllustrationEvent;
         "es-illustration-group": EsIllustrationGroup;
         "es-illustration-integration": EsIllustrationIntegration;
         "es-illustration-issues": EsIllustrationIssues;
+        "es-illustration-laptop": EsIllustrationLaptop;
         "es-illustration-network": EsIllustrationNetwork;
         "es-illustration-notifications": EsIllustrationNotifications;
         "es-illustration-peering": EsIllustrationPeering;
@@ -250,10 +286,13 @@ declare module "@stencil/core" {
             "es-illustration-backups": LocalJSX.EsIllustrationBackups & JSXBase.HTMLAttributes<HTMLEsIllustrationBackupsElement>;
             "es-illustration-building-orgs": LocalJSX.EsIllustrationBuildingOrgs & JSXBase.HTMLAttributes<HTMLEsIllustrationBuildingOrgsElement>;
             "es-illustration-cluster": LocalJSX.EsIllustrationCluster & JSXBase.HTMLAttributes<HTMLEsIllustrationClusterElement>;
+            "es-illustration-es-database": LocalJSX.EsIllustrationEsDatabase & JSXBase.HTMLAttributes<HTMLEsIllustrationEsDatabaseElement>;
+            "es-illustration-es-database-greyed": LocalJSX.EsIllustrationEsDatabaseGreyed & JSXBase.HTMLAttributes<HTMLEsIllustrationEsDatabaseGreyedElement>;
             "es-illustration-event": LocalJSX.EsIllustrationEvent & JSXBase.HTMLAttributes<HTMLEsIllustrationEventElement>;
             "es-illustration-group": LocalJSX.EsIllustrationGroup & JSXBase.HTMLAttributes<HTMLEsIllustrationGroupElement>;
             "es-illustration-integration": LocalJSX.EsIllustrationIntegration & JSXBase.HTMLAttributes<HTMLEsIllustrationIntegrationElement>;
             "es-illustration-issues": LocalJSX.EsIllustrationIssues & JSXBase.HTMLAttributes<HTMLEsIllustrationIssuesElement>;
+            "es-illustration-laptop": LocalJSX.EsIllustrationLaptop & JSXBase.HTMLAttributes<HTMLEsIllustrationLaptopElement>;
             "es-illustration-network": LocalJSX.EsIllustrationNetwork & JSXBase.HTMLAttributes<HTMLEsIllustrationNetworkElement>;
             "es-illustration-notifications": LocalJSX.EsIllustrationNotifications & JSXBase.HTMLAttributes<HTMLEsIllustrationNotificationsElement>;
             "es-illustration-peering": LocalJSX.EsIllustrationPeering & JSXBase.HTMLAttributes<HTMLEsIllustrationPeeringElement>;
