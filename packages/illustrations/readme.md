@@ -36,3 +36,10 @@ yarn import
 ```
 
 Check inside `src/components/[illustration-name]` to ensure that the import worked as expected.
+
+
+Finally, build the package to generate the types.
+
+```
+yarn build
+```
