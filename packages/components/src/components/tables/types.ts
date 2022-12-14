@@ -15,9 +15,10 @@ export type TableCellVariant =
     | 'default'
     | 'no-pad'
     | 'borderless'
-    | 'centered'
     | 'full-width'
     | 'exclude';
+
+export type TableCellAlign = 'start' | 'end' | 'center';
 
 /** A single table cell definition. */
 export interface TableCell<T> {
@@ -34,11 +35,17 @@ export interface TableCell<T> {
      * - `default`: The default styling.
      * - `no-pad`: Removes padding.
      * - `borderless`: Removes border, if set.
-     * - `centered`: Center aligns the content.
      * - `full-width`: Breaks the cell onto its own row, taking the full width. **Only use on last cell of row, or in es-table-detail. Not supported in es-table-virtualized **
      * - `exclude`: Disables the cell.
      */
     variant?: TableCellVariant | TableCellVariant[];
+    /**
+     * Allows aligning the cell and header.
+     * - `start` (default)
+     * - `end`
+     * - `center`
+     */
+    align?: TableCellAlign;
     /** Pass a custom class function, string or record to apply to the cell. */
     class?:
         | ((d: T) => string | Record<string, boolean>)

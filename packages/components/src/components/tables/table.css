@@ -29,8 +29,12 @@
         padding: 0;
     }
 
-    &.centered {
+    &.center {
         justify-content: center;
+    }
+
+    &.end {
+        justify-content: flex-end;
     }
 
     &.group_first {
@@ -96,8 +100,12 @@
         padding: 0;
     }
 
-    &.centered {
+    &.center {
         --align-inner: center;
+    }
+
+    &.end {
+        --align-inner: flex-end;
     }
 
     &.group_first::part(button) {
