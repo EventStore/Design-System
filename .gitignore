@@ -13,6 +13,7 @@ log.txt
 *.sublime-workspace
 
 .stencil/
+.yarn/install-state.gz
 .idea/
 .vscode/
 .sass-cache/
