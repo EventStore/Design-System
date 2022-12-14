@@ -14,8 +14,6 @@ export namespace Components {
     }
     interface EsIllustrationEsDatabase {
     }
-    interface EsIllustrationEsDatabaseGreyed {
-    }
     interface EsIllustrationEvent {
     }
     interface EsIllustrationGroup {
@@ -75,12 +73,6 @@ declare global {
     var HTMLEsIllustrationEsDatabaseElement: {
         prototype: HTMLEsIllustrationEsDatabaseElement;
         new (): HTMLEsIllustrationEsDatabaseElement;
-    };
-    interface HTMLEsIllustrationEsDatabaseGreyedElement extends Components.EsIllustrationEsDatabaseGreyed, HTMLStencilElement {
-    }
-    var HTMLEsIllustrationEsDatabaseGreyedElement: {
-        prototype: HTMLEsIllustrationEsDatabaseGreyedElement;
-        new (): HTMLEsIllustrationEsDatabaseGreyedElement;
     };
     interface HTMLEsIllustrationEventElement extends Components.EsIllustrationEvent, HTMLStencilElement {
     }
@@ -189,7 +181,6 @@ declare global {
         "es-illustration-building-orgs": HTMLEsIllustrationBuildingOrgsElement;
         "es-illustration-cluster": HTMLEsIllustrationClusterElement;
         "es-illustration-es-database": HTMLEsIllustrationEsDatabaseElement;
-        "es-illustration-es-database-greyed": HTMLEsIllustrationEsDatabaseGreyedElement;
         "es-illustration-event": HTMLEsIllustrationEventElement;
         "es-illustration-group": HTMLEsIllustrationGroupElement;
         "es-illustration-integration": HTMLEsIllustrationIntegrationElement;
@@ -217,8 +208,6 @@ declare namespace LocalJSX {
     interface EsIllustrationCluster {
     }
     interface EsIllustrationEsDatabase {
-    }
-    interface EsIllustrationEsDatabaseGreyed {
     }
     interface EsIllustrationEvent {
     }
@@ -259,7 +248,6 @@ declare namespace LocalJSX {
         "es-illustration-building-orgs": EsIllustrationBuildingOrgs;
         "es-illustration-cluster": EsIllustrationCluster;
         "es-illustration-es-database": EsIllustrationEsDatabase;
-        "es-illustration-es-database-greyed": EsIllustrationEsDatabaseGreyed;
         "es-illustration-event": EsIllustrationEvent;
         "es-illustration-group": EsIllustrationGroup;
         "es-illustration-integration": EsIllustrationIntegration;
@@ -287,7 +275,6 @@ declare module "@stencil/core" {
             "es-illustration-building-orgs": LocalJSX.EsIllustrationBuildingOrgs & JSXBase.HTMLAttributes<HTMLEsIllustrationBuildingOrgsElement>;
             "es-illustration-cluster": LocalJSX.EsIllustrationCluster & JSXBase.HTMLAttributes<HTMLEsIllustrationClusterElement>;
             "es-illustration-es-database": LocalJSX.EsIllustrationEsDatabase & JSXBase.HTMLAttributes<HTMLEsIllustrationEsDatabaseElement>;
-            "es-illustration-es-database-greyed": LocalJSX.EsIllustrationEsDatabaseGreyed & JSXBase.HTMLAttributes<HTMLEsIllustrationEsDatabaseGreyedElement>;
             "es-illustration-event": LocalJSX.EsIllustrationEvent & JSXBase.HTMLAttributes<HTMLEsIllustrationEventElement>;
             "es-illustration-group": LocalJSX.EsIllustrationGroup & JSXBase.HTMLAttributes<HTMLEsIllustrationGroupElement>;
             "es-illustration-integration": LocalJSX.EsIllustrationIntegration & JSXBase.HTMLAttributes<HTMLEsIllustrationIntegrationElement>;
