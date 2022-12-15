@@ -18,6 +18,8 @@ export namespace Components {
     }
     interface EsIllustrationGroup {
     }
+    interface EsIllustrationHarddrive {
+    }
     interface EsIllustrationIntegration {
     }
     interface EsIllustrationIssues {
@@ -85,6 +87,12 @@ declare global {
     var HTMLEsIllustrationGroupElement: {
         prototype: HTMLEsIllustrationGroupElement;
         new (): HTMLEsIllustrationGroupElement;
+    };
+    interface HTMLEsIllustrationHarddriveElement extends Components.EsIllustrationHarddrive, HTMLStencilElement {
+    }
+    var HTMLEsIllustrationHarddriveElement: {
+        prototype: HTMLEsIllustrationHarddriveElement;
+        new (): HTMLEsIllustrationHarddriveElement;
     };
     interface HTMLEsIllustrationIntegrationElement extends Components.EsIllustrationIntegration, HTMLStencilElement {
     }
@@ -183,6 +191,7 @@ declare global {
         "es-illustration-es-database": HTMLEsIllustrationEsDatabaseElement;
         "es-illustration-event": HTMLEsIllustrationEventElement;
         "es-illustration-group": HTMLEsIllustrationGroupElement;
+        "es-illustration-harddrive": HTMLEsIllustrationHarddriveElement;
         "es-illustration-integration": HTMLEsIllustrationIntegrationElement;
         "es-illustration-issues": HTMLEsIllustrationIssuesElement;
         "es-illustration-laptop": HTMLEsIllustrationLaptopElement;
@@ -212,6 +221,8 @@ declare namespace LocalJSX {
     interface EsIllustrationEvent {
     }
     interface EsIllustrationGroup {
+    }
+    interface EsIllustrationHarddrive {
     }
     interface EsIllustrationIntegration {
     }
@@ -250,6 +261,7 @@ declare namespace LocalJSX {
         "es-illustration-es-database": EsIllustrationEsDatabase;
         "es-illustration-event": EsIllustrationEvent;
         "es-illustration-group": EsIllustrationGroup;
+        "es-illustration-harddrive": EsIllustrationHarddrive;
         "es-illustration-integration": EsIllustrationIntegration;
         "es-illustration-issues": EsIllustrationIssues;
         "es-illustration-laptop": EsIllustrationLaptop;
@@ -277,6 +289,7 @@ declare module "@stencil/core" {
             "es-illustration-es-database": LocalJSX.EsIllustrationEsDatabase & JSXBase.HTMLAttributes<HTMLEsIllustrationEsDatabaseElement>;
             "es-illustration-event": LocalJSX.EsIllustrationEvent & JSXBase.HTMLAttributes<HTMLEsIllustrationEventElement>;
             "es-illustration-group": LocalJSX.EsIllustrationGroup & JSXBase.HTMLAttributes<HTMLEsIllustrationGroupElement>;
+            "es-illustration-harddrive": LocalJSX.EsIllustrationHarddrive & JSXBase.HTMLAttributes<HTMLEsIllustrationHarddriveElement>;
             "es-illustration-integration": LocalJSX.EsIllustrationIntegration & JSXBase.HTMLAttributes<HTMLEsIllustrationIntegrationElement>;
             "es-illustration-issues": LocalJSX.EsIllustrationIssues & JSXBase.HTMLAttributes<HTMLEsIllustrationIssuesElement>;
             "es-illustration-laptop": LocalJSX.EsIllustrationLaptop & JSXBase.HTMLAttributes<HTMLEsIllustrationLaptopElement>;
