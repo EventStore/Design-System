@@ -140,6 +140,7 @@
     --row-color: var(--color-background);
     --border-top-color: transparent;
     --border-bottom-color: transparent;
+    --border-group-color: var(--color-shade-30);
 
     &.highlight [role='cell'] {
         z-index: 0;
@@ -242,7 +243,7 @@
     }
 
     &.group_first {
-        border-left: 2px solid var(--color-shade-30);
+        border-left: 2px solid var(--border-group-color);
         padding-left: 20px;
     }
 

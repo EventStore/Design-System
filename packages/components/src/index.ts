@@ -9,6 +9,7 @@ export type {
     JumpOptions,
     LoadWindow,
     LoadWindowEvent,
+    NestedTableExtraProps,
     SortOrder,
     TableCell,
     TableCells,

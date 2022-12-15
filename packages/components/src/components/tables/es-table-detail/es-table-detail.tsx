@@ -14,7 +14,7 @@ export class TableDetail {
     /** The data to render. */
     @Prop() data!: any;
     /** A record of table cell definitions. */
-    @Prop() cells!: TableCells<any>;
+    @Prop() cells!: TableCells<any, any>;
     /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: Array<string>;
 

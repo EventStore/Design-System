@@ -51,7 +51,7 @@ export class Table {
     /** Sync function for converting an index into a key */
     @Prop() getKeyFromIndex: (index: number) => string = (i) => `${i}`;
     /** A record of table cell definitions. */
-    @Prop() cells!: TableCells<any>;
+    @Prop() cells!: TableCells<any, any>;
     /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: string[];
     /** The total number of rows */
@@ -88,6 +88,8 @@ export class Table {
     @Prop() sort?: TableSort;
     /** If the table should lock scroll on appending events */
     @Prop() scrollLock?: boolean;
+    /** Pass extra props to cells */
+    @Prop() extraCellProps?: (key: string, data: any) => Record<string, any>;
 
     /** Triggered whenever a row is clicked. The `detail` is the item in the row array. */
     @Event() clickRow!: EventEmitter<ClickRow>;
@@ -305,6 +307,7 @@ export class Table {
                     >
                         {cell.cell
                             ? cell.cell(h, {
+                                  ...(this.extraCellProps?.(key, data) ?? {}),
                                   key,
                                   data,
                                   parent: this.identifier,

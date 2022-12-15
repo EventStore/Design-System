@@ -1,14 +1,29 @@
+/* eslint-disable @typescript-eslint/ban-types */
+
 import type { RenderFunction } from '../../types';
 
 /** Props passed to the cell renderer. */
-export interface CellProps<T> {
+export type CellProps<T, X = {}> = X & {
     /** The data for the cell. */
     data: T;
     /** The identifier prop of the table rendering the cell. */
     parent: string;
     /** The key of the cell in the table cell record. */
     key: string;
-}
+};
+
+export type NestedTableExtraProps = {
+    /** If the row can expand. */
+    canExpand: boolean;
+    /** If the row can expand more. */
+    canExpandMore: boolean;
+    /** If the row is expanded. */
+    expanded: boolean;
+    /** If the row is loading. */
+    loading: boolean;
+    /** Toggles expansion of the row */
+    toggleExpansion: () => Promise<void>;
+};
 
 /** Describes which style of table cell should be used. */
 export type TableCellVariant =
@@ -21,13 +36,13 @@ export type TableCellVariant =
 export type TableCellAlign = 'start' | 'end' | 'center';
 
 /** A single table cell definition. */
-export interface TableCell<T> {
+export interface TableCell<T, X = {}> {
     /** The title to be placed in the header. */
     title?: string;
     /** If this cell should be grouped with others. */
     group?: string;
     /** The cell renderer. By default it will take the it's key in in the record, and extract that key from the row data. */
-    cell?: RenderFunction<[d: CellProps<T>]>;
+    cell?: RenderFunction<[d: CellProps<T, X>]>;
     /** Allows passing a [track sizing function](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns#values) for use in the grid. */
     width?: string;
     /**
@@ -67,7 +82,7 @@ export type TableSort = [
 ];
 
 /** A record of table cell definitions. */
-export type TableCells<T> = Record<string, TableCell<T>>;
+export type TableCells<T, X = {}> = Record<string, TableCell<T, X>>;
 
 /** @internal */
 export type NamedCell = [name: string, cell: TableCell<unknown>];

@@ -17,7 +17,7 @@ export class TableDetailHeader {
     /** Which cell to place in the top right as a list of actions. */
     @Prop() actionsCell: string = 'actions';
     /** A record of table cell definitions. */
-    @Prop() cells!: TableCells<any>;
+    @Prop() cells!: TableCells<any, any>;
 
     private autoExtract = (name: string) => {
         const value = this.data?.[name];
