@@ -14,7 +14,7 @@ export class TableDetail {
     /** The data to render. */
     @Prop() data!: any;
     /** A record of table cell definitions. */
-    @Prop() cells!: TableCells<any>;
+    @Prop() cells!: TableCells<any, any>;
     /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: Array<string>;
 
@@ -40,17 +40,23 @@ export class TableDetail {
             <Host>
                 <dl>
                     {columns.map((name) => {
-                        const { title, variant, cell } = this.getCell(name);
+                        const {
+                            title,
+                            variant,
+                            cell,
+                            align = 'start',
+                        } = this.getCell(name);
                         const variants =
                             typeof variant === 'string'
                                 ? [variant]
                                 : variant ?? [];
+
                         return (
                             <div
                                 class={{
                                     cell: true,
                                     full_width: variants.includes('full-width'),
-                                    centered: variants.includes('centered'),
+                                    [align]: align !== 'start',
                                 }}
                             >
                                 {this.renderHeader(title)}

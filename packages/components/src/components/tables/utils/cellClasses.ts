@@ -8,13 +8,13 @@ interface CellPosition {
 }
 
 export const cellClasses = (
-    { variant, class: rawClasses }: TableCell<unknown>,
+    cell: TableCell<unknown>,
     data: unknown,
     focusCell: boolean,
     { groupIndex, cellIndex, groupCount, cellCount }: CellPosition,
 ) => {
     const classes =
-        typeof rawClasses === 'function' ? rawClasses(data) : rawClasses;
+        typeof cell.class === 'function' ? cell.class(data) : cell.class;
     const extraClasses = !classes
         ? {}
         : typeof classes === 'string'
@@ -26,17 +26,20 @@ export const cellClasses = (
         group_first: groupIndex !== 0 && cellIndex === 0,
         group_last:
             groupIndex !== groupCount - 1 && cellIndex === cellCount - 1,
-        ...variantClasses(variant),
+        ...variantClasses(cell),
         ...extraClasses,
     };
 };
 
-export const variantClasses = (variant: TableCell<unknown>['variant']) => {
+export const variantClasses = ({
+    variant,
+    align = 'start',
+}: TableCell<unknown>) => {
     const variants = typeof variant === 'string' ? [variant] : variant ?? [];
     return {
         no_pad: variants.includes('no-pad'),
         borderless: variants.includes('borderless'),
-        centered: variants.includes('centered'),
         full_width: variants.includes('full-width'),
+        [align]: align !== 'start',
     };
 };

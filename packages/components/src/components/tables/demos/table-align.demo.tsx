@@ -1,9 +1,9 @@
 import { Component, h, State } from '@stencil/core';
 import type { TableCells } from '../types';
 
-/** Basic table cell variant demo. */
+/** Basic table cell align demo. */
 @Component({
-    tag: 'es-table-variants',
+    tag: 'es-table-align',
     styleUrl: './table-basic.css',
     shadow: true,
 })
@@ -29,19 +29,12 @@ export class TableVariant {
                     rowCount={4}
                     getCellData={() => 'hello'}
                     onClickRow={() => (this.mode = 'detail')}
-                    columns={['default', 'no-pad', 'borderless', 'exclude']}
                 />
             );
         }
 
         if (this.mode === 'detail') {
-            return (
-                <es-table-detail
-                    cells={this.cells}
-                    data={''}
-                    columns={['default', 'no-pad', 'full-width', 'exclude']}
-                />
-            );
+            return <es-table-detail cells={this.cells} data={''} />;
         }
     }
 
@@ -51,30 +44,20 @@ export class TableVariant {
             cell: () => 'default',
             variant: 'default',
         },
-        'no-pad': {
-            title: 'no-pad',
-            cell: () => 'no-pad',
-            variant: 'no-pad',
+        start: {
+            title: 'start',
+            cell: () => 'start',
+            align: 'start',
         },
-        borderless: {
-            title: 'borderless',
-            cell: () => 'borderless',
-            variant: 'borderless',
+        center: {
+            title: 'center',
+            cell: () => 'center',
+            align: 'center',
         },
-        'full-width': {
-            title: 'full-width',
-            cell: () => 'full-width',
-            variant: 'full-width',
-        },
-        'full-width,no-pad': {
-            title: 'full-width and no-pad',
-            cell: () => 'full-width and no-pad',
-            variant: ['full-width', 'no-pad'],
-        },
-        exclude: {
-            title: 'exclude',
-            cell: () => 'exclude',
-            variant: 'exclude',
+        end: {
+            title: 'end',
+            cell: () => 'end',
+            align: 'end',
         },
     };
 }

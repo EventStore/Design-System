@@ -52,12 +52,12 @@ export default () => (
 
 ## Properties
 
-| Property             | Attribute    | Description                                                                             | Type                               | Default     |
-| -------------------- | ------------ | --------------------------------------------------------------------------------------- | ---------------------------------- | ----------- |
-| `cells` _(required)_ | --           | A record of table cell definitions.                                                     | `{ [x: string]: TableCell<any>; }` | `undefined` |
-| `columns`            | --           | The order and keys of the cells to be rendered. If omitted, all cells will be rendered. | `string[] \| undefined`            | `undefined` |
-| `data` _(required)_  | `data`       | The data to render.                                                                     | `any`                              | `undefined` |
-| `identifier`         | `identifier` | Passed to cell renderer as `parent`.                                                    | `string`                           | `'detail'`  |
+| Property             | Attribute    | Description                                                                             | Type                                    | Default     |
+| -------------------- | ------------ | --------------------------------------------------------------------------------------- | --------------------------------------- | ----------- |
+| `cells` _(required)_ | --           | A record of table cell definitions.                                                     | `{ [x: string]: TableCell<any, any>; }` | `undefined` |
+| `columns`            | --           | The order and keys of the cells to be rendered. If omitted, all cells will be rendered. | `string[] \| undefined`                 | `undefined` |
+| `data` _(required)_  | `data`       | The data to render.                                                                     | `any`                                   | `undefined` |
+| `identifier`         | `identifier` | Passed to cell renderer as `parent`.                                                    | `string`                                | `'detail'`  |
 
 
 ----------------------------------------------

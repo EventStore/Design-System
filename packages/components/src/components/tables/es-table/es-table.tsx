@@ -32,7 +32,7 @@ export class Table {
     /** Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns. */
     @Prop() getCellData: (key: string) => any = (d) => d;
     /** A record of table cell definitions. */
-    @Prop() cells!: TableCells<any>;
+    @Prop() cells!: TableCells<any, any>;
     /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: string[];
     /** An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.  */
@@ -44,11 +44,14 @@ export class Table {
     /** A function to calculate the class or classes of the row from the cellData. */
     @Prop() rowClass: (
         row: any,
+        key: string,
     ) => Record<string, boolean> | string | undefined = () => undefined;
     /** Allows rendering a node after the row. */
     @Prop() renderExpansion: RenderFunction<[key: string]> = () => null;
     /** How the table is sorted */
     @Prop() sort?: TableSort;
+    /** Pass extra props to cells */
+    @Prop() extraCellProps?: (key: string, data: any) => Record<string, any>;
 
     /** Triggered whenever a row is clicked. */
     @Event() clickRow!: EventEmitter<ClickRow<any>>;
@@ -85,7 +88,7 @@ export class Table {
                     role={'row'}
                     aria-rowindex={index}
                     key={key}
-                    class={this.rowClass(data)}
+                    class={this.rowClass(data, key)}
                     onClick={this.emitRowClick({
                         index,
                         key,
@@ -103,7 +106,7 @@ export class Table {
                 role={'row'}
                 aria-rowindex={index}
                 key={key}
-                class={this.rowClass(data)}
+                class={this.rowClass(data, key)}
                 onClick={this.emitRowClick({
                     index,
                     key,
@@ -146,6 +149,7 @@ export class Table {
                     >
                         {cell.cell
                             ? cell.cell(h, {
+                                  ...(this.extraCellProps?.(key, data) ?? {}),
                                   key,
                                   data,
                                   parent: this.identifier,

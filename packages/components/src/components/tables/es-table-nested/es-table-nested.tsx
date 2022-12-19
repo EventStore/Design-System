@@ -9,7 +9,7 @@ import {
 } from '@stencil/core';
 import { ICON_NAMESPACE } from '../../../icons/namespace';
 import type { RenderFunction } from '../../../types';
-import type { TableCells } from '../types';
+import type { ClickRow, NestedTableExtraProps, TableCells } from '../types';
 
 /** Create a nested table from data. */
 @Component({
@@ -18,6 +18,11 @@ import type { TableCells } from '../types';
     shadow: false,
 })
 export class TableNested {
+    /** Do not render header. */
+    @Prop() headless: boolean = false;
+    /** Header sticks to scroll parent. */
+    @Prop() stickyHeader: boolean = false;
+
     /** Passed to cell renderer as `parent`. */
     @Prop() outerIdentifier: string = 'table';
     /** Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns. */
@@ -25,11 +30,11 @@ export class TableNested {
     /** A record of table cell definitions.Some built in cells are cells are available for use:
      * - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell.
      * - `--no-pad`: A blank placeholder cell, for aligning with the parent cell.
-     * - `expander`: The expander button.
+     * - `--expander`: The expander button.
      */
-    @Prop() cells!: TableCells<any>;
+    @Prop() cells!: TableCells<any, any>;
     /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
-    @Prop() columns?: string[];
+    @Prop() columns?: string[] = Object.keys(this.cells);
     /** An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.  */
     @Prop() rows!: any[];
     /** A function to calculate a href from the cell data. */
@@ -39,7 +44,12 @@ export class TableNested {
     /** A function to calculate the class or classes of the row from the cellData. */
     @Prop() rowClass: (
         row: any,
+        key: string,
     ) => Record<string, boolean> | string | undefined = () => undefined;
+    /** If clicking a row should expand it. */
+    @Prop() toggleRowOnClick: boolean = false;
+    /** Pass extra props to cells */
+    @Prop() extraCellProps?: (key: string, data: any) => Record<string, any>;
 
     /** Passed to cell renderer as `parent`. */
     @Prop() nestedIdentifier: string = 'nested-table';
@@ -87,7 +97,7 @@ export class TableNested {
         const canExpandMore = !nestedActive && this.canExpandMore(key, count);
 
         return (
-            <Fragment>
+            <>
                 <es-table
                     headless
                     class={{ nested: true, can_expand_more: canExpandMore }}
@@ -104,7 +114,7 @@ export class TableNested {
                             : this.getNestedRows?.(key, count) ?? []
                     }
                     renderExpansion={this.renderExpansion(depth + 1)}
-                    rowClass={this.rowClass}
+                    rowClass={this.rowClassWithDefaults}
                 />
                 {canExpandMore && (
                     <es-button
@@ -115,13 +125,15 @@ export class TableNested {
                         {`Show next ${this.expandBy} rows`}
                     </es-button>
                 )}
-            </Fragment>
+            </>
         );
     };
 
     render() {
         return (
             <es-table
+                stickyHeader={this.stickyHeader}
+                headless={this.headless}
                 rowTakesFocus={this.rowTakesFocus}
                 identifier={this.outerIdentifier}
                 getCellData={this.getCellData}
@@ -129,16 +141,26 @@ export class TableNested {
                 columns={this.columns}
                 rows={this.rows}
                 renderExpansion={this.renderExpansion(0)}
-                rowClass={this.rowClass}
+                rowClass={this.rowClassWithDefaults}
+                onClickRow={this.toggleIfRequested}
+                extraCellProps={this.nestedExtraCellProps}
             />
         );
     }
 
-    private toggleExpansion = (key: string, data: any) => async (
-        e: MouseEvent,
-    ) => {
-        e.stopPropagation();
+    private nestedExtraCellProps = (
+        key: string,
+        data: any,
+    ): NestedTableExtraProps => ({
+        canExpand: this.canExpand(key, data),
+        canExpandMore: this.canExpandMore(key, data),
+        expanded: this.expanded.has(key),
+        loading: this.loading.has(key),
+        toggleExpansion: () => this.toggleExpansion(key, data),
+        ...(this.extraCellProps?.(key, data) ?? {}),
+    });
 
+    private toggleExpansion = async (key: string, data: any) => {
         if (this.loading.has(key)) return;
 
         if (this.expanded.has(key)) {
@@ -165,6 +187,33 @@ export class TableNested {
         this.expanded = new Map(this.expanded);
     };
 
+    private rowClassWithDefaults = (data: any, key: string) => {
+        if (!this.canExpand(key, data)) return this.rowClass?.(data, key);
+
+        const classes = this.rowClass?.(data, key);
+        const extraClasses = !classes
+            ? {}
+            : typeof classes === 'string'
+            ? { [classes]: true }
+            : classes;
+
+        return {
+            can_expand: true,
+            can_expand_more: this.canExpandMore(
+                key,
+                this.expanded.get(key) ?? this.expandBy,
+            ),
+            expanded: this.expanded.has(key),
+            click_to_toggle: this.toggleRowOnClick,
+            ...extraClasses,
+        };
+    };
+
+    private toggleIfRequested = (e: CustomEvent<ClickRow<any>>) => {
+        if (!this.toggleRowOnClick) return;
+        return this.toggleExpansion(e.detail.key, e.detail.data);
+    };
+
     private expandMore = (key: string, currentCount: number) => async (
         e: MouseEvent,
     ) => {
@@ -174,7 +223,10 @@ export class TableNested {
         this.expanded = new Map(this.expanded);
     };
 
-    private cellsWithExpander = (): TableCells<unknown> => ({
+    private cellsWithExpander = (): TableCells<
+        unknown,
+        NestedTableExtraProps
+    > => ({
         '--': {
             title: '',
             variant: 'borderless',
@@ -187,26 +239,26 @@ export class TableNested {
             title: '',
             variant: 'no-pad',
         },
-        expander: {
+        '--expander': {
             title: '',
             width: '50px',
             variant: 'no-pad',
-            cell: (h, { data, key }) => {
-                if (!this.canExpand(key, data)) return null;
+            cell: (h, { canExpand, loading, expanded, toggleExpansion }) => {
+                if (!canExpand) return null;
                 return (
                     <es-button
                         class={'expander'}
                         variant={'minimal'}
-                        onClick={this.toggleExpansion(key, data)}
+                        onClick={toggleExpansion}
                     >
                         <es-icon
                             size={18}
                             icon={
-                                this.loading.has(key)
+                                loading
                                     ? [ICON_NAMESPACE, 'spinner']
                                     : [ICON_NAMESPACE, 'chevron']
                             }
-                            angle={this.expanded.has(key) ? 180 : 0}
+                            angle={expanded ? 180 : 0}
                         />
                     </es-button>
                 );

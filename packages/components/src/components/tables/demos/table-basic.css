@@ -21,5 +21,20 @@
 }
 
 es-table {
-    --sticky-top: 10px;
+    --sticky-top: 0px;
+}
+
+.toggle_theme {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    min-width: 200px;
+
+    &::part(button) {
+        text-transform: capitalize;
+    }
+}
+
+.expand_icon {
+    margin-left: 20px;
 }

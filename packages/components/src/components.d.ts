@@ -347,11 +347,15 @@ export namespace Components {
         /**
           * A record of table cell definitions.
          */
-        "cells": TableCells<any>;
+        "cells": TableCells<any, any>;
         /**
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
         "columns"?: string[];
+        /**
+          * Pass extra props to cells
+         */
+        "extraCellProps"?: (key: string, data: any) => Record<string, any>;
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
@@ -377,6 +381,7 @@ export namespace Components {
          */
         "rowClass": (
         row: any,
+        key: string,
     ) => Record<string, boolean> | string | undefined;
         /**
           * If rows should be allowed to take focus
@@ -399,7 +404,7 @@ export namespace Components {
         /**
           * A record of table cell definitions.
          */
-        "cells": TableCells<any>;
+        "cells": TableCells<any, any>;
         /**
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
@@ -421,7 +426,7 @@ export namespace Components {
         /**
           * A record of table cell definitions.
          */
-        "cells": TableCells<any>;
+        "cells": TableCells<any, any>;
         /**
           * The data to render.
          */
@@ -449,9 +454,9 @@ export namespace Components {
          */
         "canExpandMore": (key: string, count: number) => boolean;
         /**
-          * A record of table cell definitions.Some built in cells are cells are available for use: - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell. - `--no-pad`: A blank placeholder cell, for aligning with the parent cell. - `expander`: The expander button.
+          * A record of table cell definitions.Some built in cells are cells are available for use: - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell. - `--no-pad`: A blank placeholder cell, for aligning with the parent cell. - `--expander`: The expander button.
          */
-        "cells": TableCells<any>;
+        "cells": TableCells<any, any>;
         /**
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
@@ -460,6 +465,10 @@ export namespace Components {
           * Number number of rows to display in expansion
          */
         "expandBy": number;
+        /**
+          * Pass extra props to cells
+         */
+        "extraCellProps"?: (key: string, data: any) => Record<string, any>;
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
@@ -472,6 +481,10 @@ export namespace Components {
           * Sync function for extracting a list of rows for the nested table
          */
         "getNestedRows"?: (key: string, count: number) => any[] | undefined;
+        /**
+          * Do not render header.
+         */
+        "headless": boolean;
         /**
           * A function to calculate a href from the cell data.
          */
@@ -501,6 +514,7 @@ export namespace Components {
          */
         "rowClass": (
         row: any,
+        key: string,
     ) => Record<string, boolean> | string | undefined;
         /**
           * If rows should be allowed to take focus
@@ -510,6 +524,14 @@ export namespace Components {
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
         "rows": any[];
+        /**
+          * Header sticks to scroll parent.
+         */
+        "stickyHeader": boolean;
+        /**
+          * If clicking a row should expand it.
+         */
+        "toggleRowOnClick": boolean;
     }
     interface EsTableVirtualized {
         /**
@@ -527,11 +549,15 @@ export namespace Components {
         /**
           * A record of table cell definitions.
          */
-        "cells": TableCells<any>;
+        "cells": TableCells<any, any>;
         /**
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
         "columns"?: string[];
+        /**
+          * Pass extra props to cells
+         */
+        "extraCellProps"?: (key: string, data: any) => Record<string, any>;
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
@@ -1289,11 +1315,15 @@ declare namespace LocalJSX {
         /**
           * A record of table cell definitions.
          */
-        "cells": TableCells<any>;
+        "cells": TableCells<any, any>;
         /**
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
         "columns"?: string[];
+        /**
+          * Pass extra props to cells
+         */
+        "extraCellProps"?: (key: string, data: any) => Record<string, any>;
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
@@ -1327,6 +1357,7 @@ declare namespace LocalJSX {
          */
         "rowClass"?: (
         row: any,
+        key: string,
     ) => Record<string, boolean> | string | undefined;
         /**
           * If rows should be allowed to take focus
@@ -1349,7 +1380,7 @@ declare namespace LocalJSX {
         /**
           * A record of table cell definitions.
          */
-        "cells": TableCells<any>;
+        "cells": TableCells<any, any>;
         /**
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
@@ -1371,7 +1402,7 @@ declare namespace LocalJSX {
         /**
           * A record of table cell definitions.
          */
-        "cells": TableCells<any>;
+        "cells": TableCells<any, any>;
         /**
           * The data to render.
          */
@@ -1399,9 +1430,9 @@ declare namespace LocalJSX {
          */
         "canExpandMore"?: (key: string, count: number) => boolean;
         /**
-          * A record of table cell definitions.Some built in cells are cells are available for use: - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell. - `--no-pad`: A blank placeholder cell, for aligning with the parent cell. - `expander`: The expander button.
+          * A record of table cell definitions.Some built in cells are cells are available for use: - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell. - `--no-pad`: A blank placeholder cell, for aligning with the parent cell. - `--expander`: The expander button.
          */
-        "cells": TableCells<any>;
+        "cells": TableCells<any, any>;
         /**
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
@@ -1410,6 +1441,10 @@ declare namespace LocalJSX {
           * Number number of rows to display in expansion
          */
         "expandBy"?: number;
+        /**
+          * Pass extra props to cells
+         */
+        "extraCellProps"?: (key: string, data: any) => Record<string, any>;
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
@@ -1422,6 +1457,10 @@ declare namespace LocalJSX {
           * Sync function for extracting a list of rows for the nested table
          */
         "getNestedRows"?: (key: string, count: number) => any[] | undefined;
+        /**
+          * Do not render header.
+         */
+        "headless"?: boolean;
         /**
           * A function to calculate a href from the cell data.
          */
@@ -1459,6 +1498,7 @@ declare namespace LocalJSX {
          */
         "rowClass"?: (
         row: any,
+        key: string,
     ) => Record<string, boolean> | string | undefined;
         /**
           * If rows should be allowed to take focus
@@ -1468,6 +1508,14 @@ declare namespace LocalJSX {
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
         "rows": any[];
+        /**
+          * Header sticks to scroll parent.
+         */
+        "stickyHeader"?: boolean;
+        /**
+          * If clicking a row should expand it.
+         */
+        "toggleRowOnClick"?: boolean;
     }
     interface EsTableVirtualized {
         /**
@@ -1485,11 +1533,15 @@ declare namespace LocalJSX {
         /**
           * A record of table cell definitions.
          */
-        "cells": TableCells<any>;
+        "cells": TableCells<any, any>;
         /**
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
         "columns"?: string[];
+        /**
+          * Pass extra props to cells
+         */
+        "extraCellProps"?: (key: string, data: any) => Record<string, any>;
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */

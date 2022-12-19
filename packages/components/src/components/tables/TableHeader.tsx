@@ -29,10 +29,11 @@ export const TableHeader: FunctionalComponent<TableHeaderProps> = ({
     const grouped = columnGroups.some(([g]) => g != null);
 
     const renderCellHeader = (
-        [name, { title, sortable, variant }]: CellTuple,
+        [name, cell]: CellTuple,
         classes: Record<string, boolean> = {},
         props = {},
     ) => {
+        const { title, sortable, variant } = cell;
         if (variantMatches(variant, 'full-width')) return;
         if (sortable) {
             return (
@@ -41,7 +42,7 @@ export const TableHeader: FunctionalComponent<TableHeaderProps> = ({
                     aria-sort={sortKey === name ? order : 'none'}
                     variant={'minimal'}
                     onClick={() => clickSort.emit(name)}
-                    class={{ ...classes, ...variantClasses(variant) }}
+                    class={{ ...classes, ...variantClasses(cell) }}
                     {...props}
                 >
                     {title ?? ''}
@@ -61,7 +62,7 @@ export const TableHeader: FunctionalComponent<TableHeaderProps> = ({
             <div
                 role={'columnheader'}
                 aria-sort={sortKey === name ? order : 'none'}
-                class={{ ...classes, ...variantClasses(variant) }}
+                class={{ ...classes, ...variantClasses(cell) }}
                 {...props}
             >
                 {title ?? ''}

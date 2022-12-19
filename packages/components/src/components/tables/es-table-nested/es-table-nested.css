@@ -1,24 +1,24 @@
 es-table-nested {
+    --expanded-color: var(--color-success-alt);
+    --expanded-color-alt: var(--color-success);
+    --expanded-color-contrast: var(--color-success-alt-contrast);
+    --expanded-color-border: var(--color-background);
+
     & es-table.nested {
         display: contents;
 
-        & :where([role='rowgroup']) {
-            --row-color: inherit;
-            --border-bottom-color: var(--color-primary-extra-light);
+        & :where([role='cell']) {
+            --row-color: var(--expanded-color);
+            --border-group-color: var(--expanded-color-border);
+            color: var(--expanded-color-contrast);
 
             &:first-child {
-                --border-top-color: var(--color-primary-extra-light);
-
-                & .borderless {
-                    border-top: 1px solid var(--border-top-color);
-                }
+                padding-left: 39px;
             }
         }
 
-        &:not(.can_expand_more)
-            :where([role='rowgroup']):last-child
-            .borderless {
-            border-bottom: 1px solid var(--border-bottom-color);
+        & :where([role='rowgroup']):last-child {
+            --border-bottom-color: var(--expanded-color-border);
         }
     }
 
@@ -36,5 +36,33 @@ es-table-nested {
         border-bottom: 1px solid var(--color-primary-extra-light);
 
         --current-color: var(--color-primary-dark);
+    }
+
+    & :where([role='row'].can_expand) {
+        font-weight: bold;
+        transition: --row-color ease 1000ms;
+    }
+
+    & :where([role='row'].click_to_toggle) {
+        cursor: pointer;
+    }
+
+    & :where([role='row'].expanded) {
+        --row-color: var(--expanded-color);
+        --border-group-color: var(--expanded-color-border);
+        color: var(--expanded-color-contrast);
+
+        &::after {
+            display: block;
+            content: '';
+            grid-column: 1 / -1;
+            border-bottom: 2px dashed var(--expanded-color-alt);
+            background-color: var(--expanded-color);
+            height: 0;
+        }
+
+        & > :where([role='cell']) {
+            --border-top-color: var(--color-background);
+        }
     }
 }
