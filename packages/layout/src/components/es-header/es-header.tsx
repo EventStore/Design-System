@@ -14,6 +14,7 @@ import { headerUnderHeight } from '../../utils/LayoutVar';
  * @part center - The center of the header.
  * @part right - The right of the header.
  * @part under - Underneath the header.
+ * @part backdrop - the backdrop container
  */
 @Component({
     tag: 'es-header',
@@ -52,7 +53,7 @@ export class Header {
                 <div class={'under'} part={'under'}>
                     <slot name={'under'} onSlotchange={this.underSlotChange} />
                 </div>
-                <div class={'backdrop'}>
+                <div class={'backdrop'} part={'backdrop'}>
                     <slot name={'backdrop'} />
                 </div>
             </Host>

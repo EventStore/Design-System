@@ -54,13 +54,14 @@ export default () => (
 
 ## Shadow Parts
 
-| Part       | Description                 |
-| ---------- | --------------------------- |
-| `"center"` | The center of the header.   |
-| `"header"` | The wrapping header element |
-| `"left"`   | The left of the header.     |
-| `"right"`  | The right of the header.    |
-| `"under"`  | Underneath the header.      |
+| Part         | Description                 |
+| ------------ | --------------------------- |
+| `"backdrop"` | the backdrop container      |
+| `"center"`   | The center of the header.   |
+| `"header"`   | The wrapping header element |
+| `"left"`     | The left of the header.     |
+| `"right"`    | The right of the header.    |
+| `"under"`    | Underneath the header.      |
 
 
 ## Dependencies
