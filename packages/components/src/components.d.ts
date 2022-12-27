@@ -593,11 +593,11 @@ export namespace Components {
         /**
           * Display in a row after the last row
          */
-        "renderAfter": RenderFunction;
+        "renderAfter"?: RenderFunction;
         /**
           * Display in a row before the first row
          */
-        "renderBefore": RenderFunction;
+        "renderBefore"?: RenderFunction;
         /**
           * A function to calculate the class or classes of the row from the cellData.
          */

@@ -57,9 +57,9 @@ export class Table {
     /** The total number of rows */
     @Prop() rowCount!: number;
     /** Display in a row before the first row */
-    @Prop() renderBefore: RenderFunction = () => null;
+    @Prop() renderBefore?: RenderFunction;
     /** Display in a row after the last row */
-    @Prop() renderAfter: RenderFunction = () => null;
+    @Prop() renderAfter?: RenderFunction;
     /** The size of the window to render */
     @Prop() windowSize: number = 100;
     /** Groups rows into blocks */
@@ -352,7 +352,7 @@ export class Table {
                         class={'before'}
                         style={{ height: `${this.beforeHeight}px` }}
                     >
-                        {this.renderBefore(h)}
+                        {this.renderBefore?.(h)}
                     </div>
                     {Array.from(
                         {
@@ -371,7 +371,7 @@ export class Table {
                         class={'after'}
                         style={{ height: `${this.afterHeight}px` }}
                     >
-                        {this.renderAfter(h)}
+                        {this.renderAfter?.(h)}
                     </div>
                 </div>
             </Host>
