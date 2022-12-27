@@ -138,8 +138,8 @@
     display: contents;
 
     --row-color: var(--color-background);
-    --border-top-color: transparent;
-    --border-bottom-color: transparent;
+    --border-top-color: var(--border-top-color, transparent);
+    --border-bottom-color: var(--border-bottom-color, transparent);
     --border-group-color: var(--color-shade-30);
 
     &.highlight [role='cell'] {
@@ -160,6 +160,11 @@
             opacity: 0.2;
         }
     }
+}
+
+:where(es-table, es-table-virtualized)[high-contrast]
+    :where([role='rowgroup']) {
+    --border-bottom-color: var(--color-shade-30);
 }
 
 :where(es-table, es-table-virtualized):not([high-contrast]) .odd {

@@ -1,24 +1,46 @@
 es-table-nested {
-    --expanded-color: var(--color-success-alt);
-    --expanded-color-alt: var(--color-success);
-    --expanded-color-contrast: var(--color-success-alt-contrast);
-    --expanded-color-border: var(--color-background);
-
     & es-table.nested {
         display: contents;
 
-        & :where([role='cell']) {
-            --row-color: var(--expanded-color);
-            --border-group-color: var(--expanded-color-border);
-            color: var(--expanded-color-contrast);
+        & .odd,
+        & :where([role='rowgroup']) {
+            --row-color: inherit;
+        }
 
-            &:first-child {
-                padding-left: 39px;
+        & :where([role='cell']) {
+            --border-bottom-color: var(--color-shade-30);
+
+            &:first-child:not(.borderless) {
+                padding-left: 42px;
+                position: relative;
+                overflow: visible;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background-color: var(--row-color);
+                    border-right: 2px solid var(--color-secondary);
+
+                    width: 20px;
+                    left: 0;
+                    top: -1px;
+                    bottom: -1px;
+                }
             }
         }
 
-        & :where([role='rowgroup']):last-child {
-            --border-bottom-color: var(--expanded-color-border);
+        & .borderless + .group_first {
+            overflow: visible;
+            --border-group-color: var(--color-secondary);
+
+            &::before {
+                content: '';
+                position: absolute;
+                border-left: 2px solid var(--border-group-color);
+                left: -2px;
+                top: -1px;
+                bottom: -1px;
+            }
         }
     }
 
@@ -48,21 +70,6 @@ es-table-nested {
     }
 
     & :where([role='row'].expanded) {
-        --row-color: var(--expanded-color);
-        --border-group-color: var(--expanded-color-border);
-        color: var(--expanded-color-contrast);
-
-        &::after {
-            display: block;
-            content: '';
-            grid-column: 1 / -1;
-            border-bottom: 2px dashed var(--expanded-color-alt);
-            background-color: var(--expanded-color);
-            height: 0;
-        }
-
-        & > :where([role='cell']) {
-            --border-top-color: var(--color-background);
-        }
+        --border-bottom-color: var(--color-shade-30);
     }
 }
