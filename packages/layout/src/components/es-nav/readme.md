@@ -211,10 +211,6 @@ preview-usage-location {
 
 ## Dependencies
 
-### Used by
-
- - dev-root
-
 ### Depends on
 
 - es-nav-node-0
@@ -228,7 +224,6 @@ graph TD;
   es-nav-node-1 --> es-nav-node-2
   es-nav-node-1 --> es-icon
   es-nav-node-2 --> es-icon
-  dev-root --> es-nav
   style es-nav fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

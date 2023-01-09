@@ -48,19 +48,6 @@ export default () => (
 | `"title"`   | The title of the panel |
 
 
-## Dependencies
-
-### Used by
-
- - dev-root
-
-### Graph
-```mermaid
-graph TD;
-  dev-root --> es-panel-header
-  style es-panel-header fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 

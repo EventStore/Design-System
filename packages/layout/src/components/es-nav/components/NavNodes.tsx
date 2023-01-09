@@ -65,7 +65,7 @@ interface LeafNodeProps extends NavLeafNode {}
 
 export const LeafNode: FunctionalComponent<LeafNodeProps> = (node) => (
     <Host role={'treeitem'} class={'leaf_node'}>
-        <Link {...node} exact class={'node'}>
+        <Link {...node} class={'node'}>
             {node.title}
         </Link>
     </Host>

@@ -133,10 +133,6 @@ Type: `Promise<boolean>`
 
 ## Dependencies
 
-### Used by
-
- - dev-root
-
 ### Depends on
 
 - es-counter
@@ -150,7 +146,6 @@ graph TD;
   es-layout-link --> es-badge
   es-layout-link --> es-icon
   es-badge --> es-counter
-  dev-root --> es-layout-link
   style es-layout-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -12,8 +12,6 @@ import { IconDescription } from "@eventstore-ui/components";
 import { LoadingBarStatus } from "./components/es-loading-bar/types";
 import { NavNode, NavTree } from "./components/es-nav/types";
 export namespace Components {
-    interface DevRoot {
-    }
     interface EsBreadcrumb {
         /**
           * The breadcrumbs to the current page.
@@ -221,12 +219,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLDevRootElement extends Components.DevRoot, HTMLStencilElement {
-    }
-    var HTMLDevRootElement: {
-        prototype: HTMLDevRootElement;
-        new (): HTMLDevRootElement;
-    };
     interface HTMLEsBreadcrumbElement extends Components.EsBreadcrumb, HTMLStencilElement {
     }
     var HTMLEsBreadcrumbElement: {
@@ -354,7 +346,6 @@ declare global {
         new (): HTMLEsToolbarElement;
     };
     interface HTMLElementTagNameMap {
-        "dev-root": HTMLDevRootElement;
         "es-breadcrumb": HTMLEsBreadcrumbElement;
         "es-display-error": HTMLEsDisplayErrorElement;
         "es-header": HTMLEsHeaderElement;
@@ -379,8 +370,6 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface DevRoot {
-    }
     interface EsBreadcrumb {
         /**
           * The breadcrumbs to the current page.
@@ -575,7 +564,6 @@ declare namespace LocalJSX {
     interface EsToolbar {
     }
     interface IntrinsicElements {
-        "dev-root": DevRoot;
         "es-breadcrumb": EsBreadcrumb;
         "es-display-error": EsDisplayError;
         "es-header": EsHeader;
@@ -603,7 +591,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "dev-root": LocalJSX.DevRoot & JSXBase.HTMLAttributes<HTMLDevRootElement>;
             "es-breadcrumb": LocalJSX.EsBreadcrumb & JSXBase.HTMLAttributes<HTMLEsBreadcrumbElement>;
             "es-display-error": LocalJSX.EsDisplayError & JSXBase.HTMLAttributes<HTMLEsDisplayErrorElement>;
             "es-header": LocalJSX.EsHeader & JSXBase.HTMLAttributes<HTMLEsHeaderElement>;

@@ -106,7 +106,6 @@ export default () => (
 
 ### Used by
 
- - dev-root
  - [es-theme-dropdown](../es-theme-dropdown)
 
 ### Depends on
@@ -128,7 +127,6 @@ graph TD;
   es-badge --> es-counter
   es-popover --> es-popper
   es-popover --> es-popper-inner
-  dev-root --> es-header-dropdown
   es-theme-dropdown --> es-header-dropdown
   style es-header-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```

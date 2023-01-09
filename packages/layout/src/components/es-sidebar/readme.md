@@ -35,19 +35,6 @@ export default () => (
 
 
 
-## Dependencies
-
-### Used by
-
- - dev-root
-
-### Graph
-```mermaid
-graph TD;
-  dev-root --> es-sidebar
-  style es-sidebar fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 

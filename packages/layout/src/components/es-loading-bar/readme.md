@@ -66,19 +66,6 @@ Type: `Promise<void>`
 | `"bar"` | The internal bar. |
 
 
-## Dependencies
-
-### Used by
-
- - dev-root
-
-### Graph
-```mermaid
-graph TD;
-  dev-root --> es-loading-bar
-  style es-loading-bar fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 

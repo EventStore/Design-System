@@ -50,10 +50,6 @@ export default () => (
 
 ## Dependencies
 
-### Used by
-
- - dev-root
-
 ### Depends on
 
 - es-icon
@@ -62,7 +58,6 @@ export default () => (
 ```mermaid
 graph TD;
   es-layout-section --> es-icon
-  dev-root --> es-layout-section
   style es-layout-section fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -19,6 +19,8 @@ export interface NavLeafNode extends NavNodeBase {
     external?: boolean;
     /** The match string to show the node as active. (Defaults to the url.) */
     match?: string;
+    /** If the active match should be exact. (defaults to false.) */
+    exact?: boolean;
 }
 
 /** A single node of the navigation tree. */
