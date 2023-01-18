@@ -29,10 +29,6 @@ export default () => (
 
 ## Dependencies
 
-### Used by
-
- - dev-root
-
 ### Depends on
 
 - es-icon
@@ -41,7 +37,6 @@ export default () => (
 ```mermaid
 graph TD;
   es-panel --> es-icon
-  dev-root --> es-panel
   style es-panel fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -275,6 +275,14 @@ export class DevRoot {
                                     <div>{'Welcome to somewhere'}</div>
                                 </Page>
                             </Route>
+                            <Route url={'/something'}>
+                                <Page pageTitle={'something'}>
+                                    <div>{'Welcome to something'}</div>
+                                    <es-button-link url={'/something/deeper'}>
+                                        {'Go Deeper'}
+                                    </es-button-link>
+                                </Page>
+                            </Route>
                             <Route>
                                 <Page pageTitle={'404'}>
                                     <div>{'404'}</div>

@@ -66,10 +66,6 @@ export default () => (
 
 ## Dependencies
 
-### Used by
-
- - dev-root
-
 ### Depends on
 
 - [es-logo](../es-logo)
@@ -78,7 +74,6 @@ export default () => (
 ```mermaid
 graph TD;
   es-header --> es-logo
-  dev-root --> es-header
   style es-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

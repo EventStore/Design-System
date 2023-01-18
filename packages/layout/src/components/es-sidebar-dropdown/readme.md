@@ -86,10 +86,6 @@ export default () => (
 
 ## Dependencies
 
-### Used by
-
- - dev-root
-
 ### Depends on
 
 - es-button
@@ -104,7 +100,6 @@ graph TD;
   es-sidebar-dropdown --> es-popover
   es-popover --> es-popper
   es-popover --> es-popper-inner
-  dev-root --> es-sidebar-dropdown
   style es-sidebar-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

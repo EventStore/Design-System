@@ -39,10 +39,6 @@ export default () => (
 
 ## Dependencies
 
-### Used by
-
- - dev-root
-
 ### Depends on
 
 - [es-header-dropdown](../es-header-dropdown)
@@ -61,7 +57,6 @@ graph TD;
   es-badge --> es-counter
   es-popover --> es-popper
   es-popover --> es-popper-inner
-  dev-root --> es-theme-dropdown
   style es-theme-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
