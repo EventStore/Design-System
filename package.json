@@ -13,19 +13,23 @@
     ],
     "prettier": "@eventstore-ui/configs/prettier",
     "scripts": {
-        "build": "yarn workspaces foreach -vpi --topological-dev --no-private run build",
-        "docs": "run-s docs:generate docs:build",
-        "docs:generate": "yarn workspaces foreach -vpi --topological-dev --no-private run docs",
-        "docs:build": "yarn workspace @eventstore-ui/docs run build",
-        "docs:dev": "yarn workspace @eventstore-ui/docs run dev",
-        "docs:serve": "yarn workspace @eventstore-ui/docs serve",
-        "test": "yarn workspaces foreach -v --exclude @eventstore-ui/docs run test",
-        "lint": "yarn workspaces foreach -v run lint",
+        "build": "nx run-many --target=build --exclude=\"docs,*-demo\"",
+        "lint": "nx run-many --target=lint",
+        "test": "nx run-many --target=test",
+        "dev": "nx run dev --project=${0}",
+        "docs": "nx run docs:build",
+        "docs:serve": "nx run docs:serve",
         "bump": "yarn workspaces foreach --no-private version"
     },
     "devDependencies": {
         "@eventstore-ui/configs": "workspace:*",
-        "npm-run-all": "^4.1.5"
+        "@typescript-eslint/eslint-plugin": "^5.6.0",
+        "@typescript-eslint/parser": "^5.6.0",
+        "eslint": "^8.4.0",
+        "npm-run-all": "^4.1.5",
+        "nx": "15.5.1",
+        "prettier": "^2.2.1",
+        "typescript": "4.5.5"
     },
     "packageManager": "yarn@3.1.0"
 }

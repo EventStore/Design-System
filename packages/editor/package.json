@@ -50,6 +50,23 @@
         "test.watch": "stencil test --spec --e2e --watchAll",
         "lint": "yarn g:lint"
     },
+    "nx": {
+        "targets": {
+            "build": {
+                "outputs": [
+                    "{projectRoot}/dist",
+                    "{projectRoot}/workers",
+                    "{projectRoot}/*.js",
+                    "{projectRoot}/*.d.ts"
+                ]
+            },
+            "docs": {
+                "outputs": [
+                    "{workspaceRoot}/documentation/generated/editor.*"
+                ]
+            }
+        }
+    },
     "dependencies": {
         "monaco-editor": "^0.22.3"
     },

@@ -18,9 +18,17 @@
         "dev:docs": "stencil build --dev --watch --serve",
         "prod": "stencil build --watch --serve",
         "serve": "serve ./www",
-        "test": "stencil test --spec --e2e --passWithNoTests",
-        "test.watch": "stencil test --spec --e2e --watchAll",
         "icon": "icon --dir ./src/icons"
+    },
+    "nx": {
+        "targets": {
+            "build": {
+                "dependsOn": [
+                    "^build",
+                    "^docs"
+                ]
+            }
+        }
     },
     "dependencies": {
         "@eventstore-ui/components": "workspace:*",

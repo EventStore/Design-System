@@ -32,6 +32,21 @@
         "lint": "yarn g:lint",
         "icon": "icon --dir=./src/icons"
     },
+    "nx": {
+        "targets": {
+            "build": {
+                "outputs": [
+                    "{projectRoot}/css",
+                    "{projectRoot}/dist"
+                ]
+            },
+            "docs": {
+                "outputs": [
+                    "{workspaceRoot}/documentation/generated/layout.*"
+                ]
+            }
+        }
+    },
     "peerDependencies": {
         "@eventstore-ui/components": "0.1.x",
         "@eventstore-ui/illustrations": "0.1.x",

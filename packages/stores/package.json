@@ -25,6 +25,13 @@
         "test.watch": "stencil test --spec --watchAll",
         "lint": "yarn g:lint"
     },
+    "targets": {
+        "docs": {
+            "outputs": [
+                "{workspaceRoot}/documentation/generated/stores.*"
+            ]
+        }
+    },
     "peerDependencies": {
         "@eventstore-ui/utils": "0.1.x"
     },

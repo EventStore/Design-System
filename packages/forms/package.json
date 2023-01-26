@@ -25,6 +25,15 @@
         "test.watch": "stencil test --spec --watchAll",
         "lint": "yarn g:lint"
     },
+    "nx": {
+        "targets": {
+            "docs": {
+                "outputs": [
+                    "{workspaceRoot}/documentation/generated/forms.*"
+                ]
+            }
+        }
+    },
     "peerDependencies": {
         "@eventstore-ui/components": "0.1.x",
         "@eventstore-ui/stores": "0.1.x",
