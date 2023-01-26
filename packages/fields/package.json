@@ -31,6 +31,15 @@
         "lint": "yarn g:lint",
         "icon": "icon --dir=./src/icons"
     },
+    "nx": {
+        "targets": {
+            "docs": {
+                "outputs": [
+                    "{workspaceRoot}/documentation/generated/fields.*"
+                ]
+            }
+        }
+    },
     "peerDependencies": {
         "@eventstore-ui/components": "0.1.x",
         "@eventstore-ui/theme": "0.1.x",

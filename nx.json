@@ -1,0 +1,24 @@
+{
+    "npmScope": "eventstore-ui",
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "nx/tasks-runners/default",
+            "options": {
+                "cacheableOperations": ["build", "docs", "test", "lint"]
+            }
+        }
+    },
+    "targetDefaults": {
+        "build": {
+            "dependsOn": ["^build"],
+            "outputs": ["{projectRoot}/dist"]
+        },
+        "dev": {
+            "dependsOn": ["^build"]
+        },
+        "docs": {
+            "dependsOn": ["^build"]
+        }
+    },
+    "defaultBase": "main"
+}

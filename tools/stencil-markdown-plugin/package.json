@@ -23,6 +23,22 @@
         "test": "jest --passWithNoTests",
         "lint": "yarn g:lint"
     },
+    "nx": {
+        "targets": {
+            "build": {
+                "outputs": [
+                    "{projectRoot}/dist",
+                    "{projectRoot}/plugin.js",
+                    "{projectRoot}/plugin.d.ts"
+                ]
+            },
+            "docs": {
+                "outputs": [
+                    "{workspaceRoot}/documentation/generated/stencil-markdown-plugin.*"
+                ]
+            }
+        }
+    },
     "peerDependencies": {
         "@stencil/core": "2.x"
     },

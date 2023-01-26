@@ -31,6 +31,15 @@
         "lint": "yarn g:lint",
         "icon": "icon --dir=./src/icons"
     },
+    "nx": {
+        "targets": {
+            "docs": {
+                "outputs": [
+                    "{workspaceRoot}/documentation/generated/components.*"
+                ]
+            }
+        }
+    },
     "dependencies": {
         "@floating-ui/dom": "0.4.1"
     },

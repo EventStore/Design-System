@@ -3,11 +3,6 @@
     "version": "0.1.0-alpha.17",
     "description": "Assets for use with the Event Store Design System",
     "license": "Apache-2.0",
-    "scripts": {
-        "build": "echo \"Nothing to do\"",
-        "test": "echo \"Nothing to test\"",
-        "lint": "echo \"Nothing to lint\""
-    },
     "files": [
         "assets/",
         "font-face.css",
