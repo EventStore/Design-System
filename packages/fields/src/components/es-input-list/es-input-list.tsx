@@ -8,6 +8,7 @@ import {
     EventEmitter,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
+import { focusFirst } from '@eventstore-ui/utils';
 
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import type {
@@ -58,8 +59,14 @@ export class InputList {
             onFieldchange={this.onFieldChange(i)}
             messages={this.messages?.children?.[i]}
             value={v}
+            ref={this.captureInput(i)}
+            onEnter={this.onAdd}
         >
-            <es-button variant={'minimal'} onClick={this.onDelete(i)}>
+            <es-button
+                class={'delete_row'}
+                variant={'minimal'}
+                onClick={this.onDelete(i)}
+            >
                 <es-icon icon={this.deleteIcon} size={20} />
             </es-button>
         </es-input>
@@ -94,11 +101,18 @@ export class InputList {
         );
     }
 
+    private expectFocus?: number;
     private onAdd = () => {
-        this.fieldchange.emit({
-            name: this.name,
-            value: [...this.value, ''],
-        });
+        if (this.value.at(-1) === '') {
+            const ref = this.inputRefs.get(this.value.length - 1);
+            if (ref) focusFirst(ref);
+        } else {
+            this.expectFocus = this.value.length;
+            this.fieldchange.emit({
+                name: this.name,
+                value: [...this.value, ''],
+            });
+        }
     };
 
     private onFieldChange = (i: number) => (e: FieldChangeEvent<string>) => {
@@ -117,7 +131,26 @@ export class InputList {
     private onDelete = (i: number) => () => {
         this.fieldchange.emit({
             name: this.name,
-            value: [...this.value.slice(0, i), ...this.value.slice(i + 1)],
+            value:
+                this.value.length === 1
+                    ? ['']
+                    : [...this.value.slice(0, i), ...this.value.slice(i + 1)],
         });
     };
+
+    private inputRefs = new Map<number, HTMLEsInputElement>();
+    private captureInput = (i: number) => (r?: HTMLEsInputElement) => {
+        if (r) {
+            this.inputRefs.set(i, r);
+        } else {
+            this.inputRefs.delete(i);
+        }
+    };
+
+    componentDidRender() {
+        if (this.expectFocus == null) return;
+        const ref = this.inputRefs.get(this.expectFocus);
+        if (ref) focusFirst(ref);
+        delete this.expectFocus;
+    }
 }
