@@ -72,7 +72,9 @@ export const createValidatedForm = <T extends object>(
         index?: number,
     ) => {
         if (!messages[key]) {
-            logger.warn(`Unknown key "${key}" passed to validation failure`);
+            logger.warn(
+                `Unknown key "${String(key)}" passed to validation failure`,
+            );
             return;
         }
 
@@ -203,7 +205,7 @@ export const createValidatedForm = <T extends object>(
         const { name, value } = e.detail;
 
         if (!fields.has(name)) {
-            logger.warn(`Unknown event "${name}" passed to listen`);
+            logger.warn(`Unknown event "${String(name)}" passed to listen`);
             return;
         }
 
@@ -508,7 +510,9 @@ export const createValidatedForm = <T extends object>(
                 const field = fields.get(key);
 
                 if (!field) {
-                    logger.warn(`Unknown key "${key}" passed to extend`);
+                    logger.warn(
+                        `Unknown key "${String(key)}" passed to extend`,
+                    );
                     continue;
                 }
 

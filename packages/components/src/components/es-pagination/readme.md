@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Page navigation with ability to jump to first and last pages with `pageCount` is provided.
+
 ## Usage
 
 ### Example

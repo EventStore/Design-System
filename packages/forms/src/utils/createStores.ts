@@ -89,7 +89,7 @@ export const createStores = <T>(
 
     return {
         children,
-        dataStore: createStore<T>(initialValues as any),
+        dataStore: createStore(initialValues as any),
         messageStore: createStore<MessageStore<T>>(messages as any),
         state: createStore<ValidatedFormState>(defaultState),
         fields: fields as any,

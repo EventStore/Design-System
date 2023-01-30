@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A header for `es-panel`.
+
 ## Usage
 
 ### Example

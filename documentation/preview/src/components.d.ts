@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { LocationSegments, Router } from "@eventstore-ui/router";
+export { LocationSegments, Router } from "@eventstore-ui/router";
 export namespace Components {
     interface PreviewUsageLocation {
         "location"?: LocationSegments;

@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Displays a grey block to placehold loading text.
+
 ## Usage
 
 ### Example

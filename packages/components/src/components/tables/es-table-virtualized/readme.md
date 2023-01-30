@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Create a virtualized table from data.
+
 ## Properties
 
 | Property                   | Attribute         | Description                                                                                                             | Type                                                                                       | Default               |

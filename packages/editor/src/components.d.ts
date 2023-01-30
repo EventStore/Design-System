@@ -6,7 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { editor } from "monaco-editor";
+export { editor } from "monaco-editor";
 export namespace Components {
+    /**
+     * Monaco editor wrapped in a web component. Handles re-layout on container resize
+     */
     interface EsEditor {
         /**
           * An optional callback for getting a reference to the editor, for external control.
@@ -19,6 +23,9 @@ export namespace Components {
     }
 }
 declare global {
+    /**
+     * Monaco editor wrapped in a web component. Handles re-layout on container resize
+     */
     interface HTMLEsEditorElement extends Components.EsEditor, HTMLStencilElement {
     }
     var HTMLEsEditorElement: {
@@ -30,6 +37,9 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    /**
+     * Monaco editor wrapped in a web component. Handles re-layout on container resize
+     */
     interface EsEditor {
         /**
           * An optional callback for getting a reference to the editor, for external control.
@@ -48,6 +58,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            /**
+             * Monaco editor wrapped in a web component. Handles re-layout on container resize
+             */
             "es-editor": LocalJSX.EsEditor & JSXBase.HTMLAttributes<HTMLEsEditorElement>;
         }
     }

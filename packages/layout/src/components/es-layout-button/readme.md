@@ -3,6 +3,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A button for the sidebar, sidebar-dropdown, and header-dropdown.
+
 ## Usage
 
 ### Example

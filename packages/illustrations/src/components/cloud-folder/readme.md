@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Displays Cloud Folder illustration.
+
 ## Usage
 
 ### Example

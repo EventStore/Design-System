@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A default header for [`es-table-detail`](/components/components/es-table-detail).
+
 ## Usage
 
 ### Example

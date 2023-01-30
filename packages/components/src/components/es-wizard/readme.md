@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A multi step wizard. Each step can be targeted via a slot.
+
 ## Usage
 
 ### Example

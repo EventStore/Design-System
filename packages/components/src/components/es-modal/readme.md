@@ -3,6 +3,12 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A pop up modal for overlaying information, warnings and confirmations.
+Traps focus within the modal, and returns focus to previous location when closed.
+Pair with an [`es-portal`](/components/components/es-portal) to open and close.
+
 ## Usage
 
 ### Example

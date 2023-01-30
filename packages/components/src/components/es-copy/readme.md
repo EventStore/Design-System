@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Copies the text passed as a child when clicked.
+
 ## Usage
 
 ### Example

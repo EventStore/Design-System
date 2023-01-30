@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A theme picker dropdown for the header
+
 ## Usage
 
 ### Example

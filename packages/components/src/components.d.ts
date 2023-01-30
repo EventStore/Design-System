@@ -22,7 +22,27 @@ import { ClickRow, JumpOptions, LoadWindow, TableCells, TableSort } from "./comp
 import { Tab } from "./components/es-tabs/types";
 import { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
 import { WizardPage } from "./components/es-wizard/types";
+export { AccordianSection } from "./components/es-accordian/types";
+export { RenderFunction } from "./types";
+export { BadgeVariant } from "./components/es-badge/es-badge";
+export { ButtonVariant } from "./components/buttons/types";
+export { EsCalloutVariant } from "./components/es-callout/es-callout";
+export { IconDescription } from "./components/es-icon/types";
+export { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
+export { CounterColor, CounterVariant } from "./components/es-counter/es-counter";
+export { PageChangeEventType } from "./components/es-pagination/types";
+export { Constrain } from "./components/es-popover/es-popover";
+export { Placement } from "@floating-ui/dom";
+export { Checkpoint } from "./components/es-progression/es-progression";
+export { Status } from "./components/es-status/es-status";
+export { ClickRow, JumpOptions, LoadWindow, TableCells, TableSort } from "./components/tables/types";
+export { Tab } from "./components/es-tabs/types";
+export { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
+export { WizardPage } from "./components/es-wizard/types";
 export namespace Components {
+    /**
+     * Optionally collapsible sectioned view. Each section can be targeted via a part.
+     */
     interface EsAccordian {
         /**
           * An array of sections to display.
@@ -39,6 +59,9 @@ export namespace Components {
         "renderNode": (node: RenderFunction) => Promise<void>;
         "showBackdrop": boolean;
     }
+    /**
+     * Display a counter or dot beside a component to indicate action being required.
+     */
     interface EsBadge {
         /**
           * Choose the color variant of the badge
@@ -61,6 +84,9 @@ export namespace Components {
          */
         "variant": BadgeVariant;
     }
+    /**
+     * A button.
+     */
     interface EsButton {
         /**
           * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
@@ -75,6 +101,9 @@ export namespace Components {
          */
         "variant": ButtonVariant;
     }
+    /**
+     * Anchor link version of es-button, wraps a `Link` from `@eventstore-ui/router`.
+     */
     interface EsButtonLink {
         /**
           * Class for the contained anchor element
@@ -121,6 +150,9 @@ export namespace Components {
          */
         "variant": ButtonVariant;
     }
+    /**
+     * Calls out a piece of information.
+     */
     interface EsCallout {
         /**
           * Heading text.
@@ -135,12 +167,18 @@ export namespace Components {
          */
         "variant": EsCalloutVariant;
     }
+    /**
+     * Copies the text passed as a child when clicked.
+     */
     interface EsCopy {
         /**
           * Manually triggers the copy of the inner text.
          */
         "copy": () => Promise<void>;
     }
+    /**
+     * Display a banner with text in the corner.
+     */
     interface EsCornerBanner {
         /**
           * Which styling variant to use.
@@ -155,6 +193,9 @@ export namespace Components {
          */
         "y": 'top' | 'bottom';
     }
+    /**
+     * A pill display of an number, that pulses on change. Caps out at 999.
+     */
     interface EsCounter {
         /**
           * Choose the color variant of the counter
@@ -173,6 +214,10 @@ export namespace Components {
          */
         "variant": CounterVariant;
     }
+    /**
+     * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
+     * See [IconStore](/components/variables/iconStore) for details on how to load icons.
+     */
     interface EsIcon {
         /**
           * Rotate the icon to a speciied angle.
@@ -199,8 +244,14 @@ export namespace Components {
          */
         "spinEnd": () => Promise<void>;
     }
+    /**
+     * Display a row of five pulsing dots, to indicate loading.
+     */
     interface EsLoadingDots {
     }
+    /**
+     * Displays a grey block to placehold loading text.
+     */
     interface EsLoadingText {
         /**
           * The expected loaded text length.
@@ -211,6 +262,11 @@ export namespace Components {
          */
         "variance"?: number;
     }
+    /**
+     * A pop up modal for overlaying information, warnings and confirmations.
+     * Traps focus within the modal, and returns focus to previous location when closed.
+     * Pair with an [`es-portal`](/components/components/es-portal) to open and close.
+     */
     interface EsModal {
         /**
           * If the modal should have a footer.
@@ -221,6 +277,9 @@ export namespace Components {
          */
         "header": boolean;
     }
+    /**
+     * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
+     */
     interface EsPagination {
         /**
           * Current Page.
@@ -231,6 +290,9 @@ export namespace Components {
          */
         "pageCount"?: number;
     }
+    /**
+     * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
+     */
     interface EsPopover {
         /**
           * If the popover should render an arrow.
@@ -312,6 +374,9 @@ export namespace Components {
     }
     interface EsPopperInner {
     }
+    /**
+     * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
+     */
     interface EsPortal {
         "attachElement": () => Promise<void>;
         /**
@@ -336,6 +401,9 @@ export namespace Components {
          */
         "target": string;
     }
+    /**
+     * A wizard progression bar.
+     */
     interface EsProgression {
         /**
           * A list of checkpoints to display.
@@ -346,11 +414,17 @@ export namespace Components {
          */
         "location": string;
     }
+    /**
+     * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
+     */
     interface EsResizeObserver {
     }
     interface EsStatus {
         "status": Status;
     }
+    /**
+     * Create a table from data.
+     */
     interface EsTable {
         /**
           * A record of table cell definitions.
@@ -408,6 +482,9 @@ export namespace Components {
          */
         "stickyHeader": boolean;
     }
+    /**
+     * Render a single row data as a grid of information.
+     */
     interface EsTableDetail {
         /**
           * A record of table cell definitions.
@@ -426,6 +503,9 @@ export namespace Components {
          */
         "identifier": string;
     }
+    /**
+     * A default header for [`es-table-detail`](/components/components/es-table-detail).
+     */
     interface EsTableDetailHeader {
         /**
           * Which cell to place in the top right as a list of actions.
@@ -448,6 +528,9 @@ export namespace Components {
          */
         "titleCell": string;
     }
+    /**
+     * Create a nested table from data.
+     */
     interface EsTableNested {
         /**
           * A path to a the currently active row, to auto expand its parent and show it as selected.
@@ -549,6 +632,9 @@ export namespace Components {
          */
         "toggleRowOnClick": boolean;
     }
+    /**
+     * Create a virtualized table from data.
+     */
     interface EsTableVirtualized {
         /**
           * The height (in pixels) of the after
@@ -651,6 +737,9 @@ export namespace Components {
          */
         "windowSize": number;
     }
+    /**
+     * A tabbed panel. Each panel can be targeted via a slot.
+     */
     interface EsTabs {
         /**
           * The currently active panel. By default it will take from the passed activeParam, or the first tab.
@@ -665,6 +754,9 @@ export namespace Components {
          */
         "tabs": Tab[];
     }
+    /**
+     * A button with an icon that displays the state of a async action on click.
+     */
     interface EsThinkingButton {
         /**
           * The async action to be called on click.
@@ -708,6 +800,9 @@ export namespace Components {
     interface EsToaster {
         "popToast": (level: ToastLevel | undefined, { message, title, duration, icon, onClick, }: ToastOptions) => Promise<() => void>;
     }
+    /**
+     * A multi step wizard. Each step can be targeted via a slot.
+     */
     interface EsWizard {
         /**
           * The currently active page
@@ -772,6 +867,9 @@ export interface EsTabsCustomEvent<T> extends CustomEvent<T> {
     target: HTMLEsTabsElement;
 }
 declare global {
+    /**
+     * Optionally collapsible sectioned view. Each section can be targeted via a part.
+     */
     interface HTMLEsAccordianElement extends Components.EsAccordian, HTMLStencilElement {
     }
     var HTMLEsAccordianElement: {
@@ -784,78 +882,120 @@ declare global {
         prototype: HTMLEsBackdropElement;
         new (): HTMLEsBackdropElement;
     };
+    /**
+     * Display a counter or dot beside a component to indicate action being required.
+     */
     interface HTMLEsBadgeElement extends Components.EsBadge, HTMLStencilElement {
     }
     var HTMLEsBadgeElement: {
         prototype: HTMLEsBadgeElement;
         new (): HTMLEsBadgeElement;
     };
+    /**
+     * A button.
+     */
     interface HTMLEsButtonElement extends Components.EsButton, HTMLStencilElement {
     }
     var HTMLEsButtonElement: {
         prototype: HTMLEsButtonElement;
         new (): HTMLEsButtonElement;
     };
+    /**
+     * Anchor link version of es-button, wraps a `Link` from `@eventstore-ui/router`.
+     */
     interface HTMLEsButtonLinkElement extends Components.EsButtonLink, HTMLStencilElement {
     }
     var HTMLEsButtonLinkElement: {
         prototype: HTMLEsButtonLinkElement;
         new (): HTMLEsButtonLinkElement;
     };
+    /**
+     * Calls out a piece of information.
+     */
     interface HTMLEsCalloutElement extends Components.EsCallout, HTMLStencilElement {
     }
     var HTMLEsCalloutElement: {
         prototype: HTMLEsCalloutElement;
         new (): HTMLEsCalloutElement;
     };
+    /**
+     * Copies the text passed as a child when clicked.
+     */
     interface HTMLEsCopyElement extends Components.EsCopy, HTMLStencilElement {
     }
     var HTMLEsCopyElement: {
         prototype: HTMLEsCopyElement;
         new (): HTMLEsCopyElement;
     };
+    /**
+     * Display a banner with text in the corner.
+     */
     interface HTMLEsCornerBannerElement extends Components.EsCornerBanner, HTMLStencilElement {
     }
     var HTMLEsCornerBannerElement: {
         prototype: HTMLEsCornerBannerElement;
         new (): HTMLEsCornerBannerElement;
     };
+    /**
+     * A pill display of an number, that pulses on change. Caps out at 999.
+     */
     interface HTMLEsCounterElement extends Components.EsCounter, HTMLStencilElement {
     }
     var HTMLEsCounterElement: {
         prototype: HTMLEsCounterElement;
         new (): HTMLEsCounterElement;
     };
+    /**
+     * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
+     * See [IconStore](/components/variables/iconStore) for details on how to load icons.
+     */
     interface HTMLEsIconElement extends Components.EsIcon, HTMLStencilElement {
     }
     var HTMLEsIconElement: {
         prototype: HTMLEsIconElement;
         new (): HTMLEsIconElement;
     };
+    /**
+     * Display a row of five pulsing dots, to indicate loading.
+     */
     interface HTMLEsLoadingDotsElement extends Components.EsLoadingDots, HTMLStencilElement {
     }
     var HTMLEsLoadingDotsElement: {
         prototype: HTMLEsLoadingDotsElement;
         new (): HTMLEsLoadingDotsElement;
     };
+    /**
+     * Displays a grey block to placehold loading text.
+     */
     interface HTMLEsLoadingTextElement extends Components.EsLoadingText, HTMLStencilElement {
     }
     var HTMLEsLoadingTextElement: {
         prototype: HTMLEsLoadingTextElement;
         new (): HTMLEsLoadingTextElement;
     };
+    /**
+     * A pop up modal for overlaying information, warnings and confirmations.
+     * Traps focus within the modal, and returns focus to previous location when closed.
+     * Pair with an [`es-portal`](/components/components/es-portal) to open and close.
+     */
     interface HTMLEsModalElement extends Components.EsModal, HTMLStencilElement {
     }
     var HTMLEsModalElement: {
         prototype: HTMLEsModalElement;
         new (): HTMLEsModalElement;
     };
+    /**
+     * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
+     */
     interface HTMLEsPaginationElement extends Components.EsPagination, HTMLStencilElement {
     }
     var HTMLEsPaginationElement: {
         prototype: HTMLEsPaginationElement;
         new (): HTMLEsPaginationElement;
     };
+    /**
+     * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
+     */
     interface HTMLEsPopoverElement extends Components.EsPopover, HTMLStencilElement {
     }
     var HTMLEsPopoverElement: {
@@ -874,18 +1014,27 @@ declare global {
         prototype: HTMLEsPopperInnerElement;
         new (): HTMLEsPopperInnerElement;
     };
+    /**
+     * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
+     */
     interface HTMLEsPortalElement extends Components.EsPortal, HTMLStencilElement {
     }
     var HTMLEsPortalElement: {
         prototype: HTMLEsPortalElement;
         new (): HTMLEsPortalElement;
     };
+    /**
+     * A wizard progression bar.
+     */
     interface HTMLEsProgressionElement extends Components.EsProgression, HTMLStencilElement {
     }
     var HTMLEsProgressionElement: {
         prototype: HTMLEsProgressionElement;
         new (): HTMLEsProgressionElement;
     };
+    /**
+     * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
+     */
     interface HTMLEsResizeObserverElement extends Components.EsResizeObserver, HTMLStencilElement {
     }
     var HTMLEsResizeObserverElement: {
@@ -898,42 +1047,63 @@ declare global {
         prototype: HTMLEsStatusElement;
         new (): HTMLEsStatusElement;
     };
+    /**
+     * Create a table from data.
+     */
     interface HTMLEsTableElement extends Components.EsTable, HTMLStencilElement {
     }
     var HTMLEsTableElement: {
         prototype: HTMLEsTableElement;
         new (): HTMLEsTableElement;
     };
+    /**
+     * Render a single row data as a grid of information.
+     */
     interface HTMLEsTableDetailElement extends Components.EsTableDetail, HTMLStencilElement {
     }
     var HTMLEsTableDetailElement: {
         prototype: HTMLEsTableDetailElement;
         new (): HTMLEsTableDetailElement;
     };
+    /**
+     * A default header for [`es-table-detail`](/components/components/es-table-detail).
+     */
     interface HTMLEsTableDetailHeaderElement extends Components.EsTableDetailHeader, HTMLStencilElement {
     }
     var HTMLEsTableDetailHeaderElement: {
         prototype: HTMLEsTableDetailHeaderElement;
         new (): HTMLEsTableDetailHeaderElement;
     };
+    /**
+     * Create a nested table from data.
+     */
     interface HTMLEsTableNestedElement extends Components.EsTableNested, HTMLStencilElement {
     }
     var HTMLEsTableNestedElement: {
         prototype: HTMLEsTableNestedElement;
         new (): HTMLEsTableNestedElement;
     };
+    /**
+     * Create a virtualized table from data.
+     */
     interface HTMLEsTableVirtualizedElement extends Components.EsTableVirtualized, HTMLStencilElement {
     }
     var HTMLEsTableVirtualizedElement: {
         prototype: HTMLEsTableVirtualizedElement;
         new (): HTMLEsTableVirtualizedElement;
     };
+    /**
+     * A tabbed panel. Each panel can be targeted via a slot.
+     */
     interface HTMLEsTabsElement extends Components.EsTabs, HTMLStencilElement {
     }
     var HTMLEsTabsElement: {
         prototype: HTMLEsTabsElement;
         new (): HTMLEsTabsElement;
     };
+    /**
+     * A button with an icon that displays the state of a async action on click.
+     */
     interface HTMLEsThinkingButtonElement extends Components.EsThinkingButton, HTMLStencilElement {
     }
     var HTMLEsThinkingButtonElement: {
@@ -952,6 +1122,9 @@ declare global {
         prototype: HTMLEsToasterElement;
         new (): HTMLEsToasterElement;
     };
+    /**
+     * A multi step wizard. Each step can be targeted via a slot.
+     */
     interface HTMLEsWizardElement extends Components.EsWizard, HTMLStencilElement {
     }
     var HTMLEsWizardElement: {
@@ -993,6 +1166,9 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    /**
+     * Optionally collapsible sectioned view. Each section can be targeted via a part.
+     */
     interface EsAccordian {
         /**
           * An array of sections to display.
@@ -1009,6 +1185,9 @@ declare namespace LocalJSX {
         "preventOverscroll"?: boolean;
         "showBackdrop"?: boolean;
     }
+    /**
+     * Display a counter or dot beside a component to indicate action being required.
+     */
     interface EsBadge {
         /**
           * Choose the color variant of the badge
@@ -1031,6 +1210,9 @@ declare namespace LocalJSX {
          */
         "variant"?: BadgeVariant;
     }
+    /**
+     * A button.
+     */
     interface EsButton {
         /**
           * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
@@ -1045,6 +1227,9 @@ declare namespace LocalJSX {
          */
         "variant"?: ButtonVariant;
     }
+    /**
+     * Anchor link version of es-button, wraps a `Link` from `@eventstore-ui/router`.
+     */
     interface EsButtonLink {
         /**
           * Class for the contained anchor element
@@ -1091,6 +1276,9 @@ declare namespace LocalJSX {
          */
         "variant"?: ButtonVariant;
     }
+    /**
+     * Calls out a piece of information.
+     */
     interface EsCallout {
         /**
           * Heading text.
@@ -1105,8 +1293,14 @@ declare namespace LocalJSX {
          */
         "variant"?: EsCalloutVariant;
     }
+    /**
+     * Copies the text passed as a child when clicked.
+     */
     interface EsCopy {
     }
+    /**
+     * Display a banner with text in the corner.
+     */
     interface EsCornerBanner {
         /**
           * Which styling variant to use.
@@ -1121,6 +1315,9 @@ declare namespace LocalJSX {
          */
         "y"?: 'top' | 'bottom';
     }
+    /**
+     * A pill display of an number, that pulses on change. Caps out at 999.
+     */
     interface EsCounter {
         /**
           * Choose the color variant of the counter
@@ -1139,6 +1336,10 @@ declare namespace LocalJSX {
          */
         "variant"?: CounterVariant;
     }
+    /**
+     * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
+     * See [IconStore](/components/variables/iconStore) for details on how to load icons.
+     */
     interface EsIcon {
         /**
           * Rotate the icon to a speciied angle.
@@ -1161,8 +1362,14 @@ declare namespace LocalJSX {
          */
         "spinDirection"?: 'clockwise' | 'antiClockwise';
     }
+    /**
+     * Display a row of five pulsing dots, to indicate loading.
+     */
     interface EsLoadingDots {
     }
+    /**
+     * Displays a grey block to placehold loading text.
+     */
     interface EsLoadingText {
         /**
           * The expected loaded text length.
@@ -1173,6 +1380,11 @@ declare namespace LocalJSX {
          */
         "variance"?: number;
     }
+    /**
+     * A pop up modal for overlaying information, warnings and confirmations.
+     * Traps focus within the modal, and returns focus to previous location when closed.
+     * Pair with an [`es-portal`](/components/components/es-portal) to open and close.
+     */
     interface EsModal {
         /**
           * If the modal should have a footer.
@@ -1187,6 +1399,9 @@ declare namespace LocalJSX {
          */
         "onRequestClose"?: (event: EsModalCustomEvent<void>) => void;
     }
+    /**
+     * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
+     */
     interface EsPagination {
         /**
           * Current Page.
@@ -1201,6 +1416,9 @@ declare namespace LocalJSX {
          */
         "pageCount"?: number;
     }
+    /**
+     * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
+     */
     interface EsPopover {
         /**
           * If the popover should render an arrow.
@@ -1286,6 +1504,9 @@ declare namespace LocalJSX {
     }
     interface EsPopperInner {
     }
+    /**
+     * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
+     */
     interface EsPortal {
         /**
           * If the portal should overlay a backdrop, to prevent external clicks.
@@ -1312,6 +1533,9 @@ declare namespace LocalJSX {
          */
         "target"?: string;
     }
+    /**
+     * A wizard progression bar.
+     */
     interface EsProgression {
         /**
           * A list of checkpoints to display.
@@ -1326,6 +1550,9 @@ declare namespace LocalJSX {
          */
         "onProgressionRequest"?: (event: EsProgressionCustomEvent<string>) => void;
     }
+    /**
+     * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
+     */
     interface EsResizeObserver {
         /**
           * Triggered when the size of the element changes.
@@ -1335,6 +1562,9 @@ declare namespace LocalJSX {
     interface EsStatus {
         "status": Status;
     }
+    /**
+     * Create a table from data.
+     */
     interface EsTable {
         /**
           * A record of table cell definitions.
@@ -1400,6 +1630,9 @@ declare namespace LocalJSX {
          */
         "stickyHeader"?: boolean;
     }
+    /**
+     * Render a single row data as a grid of information.
+     */
     interface EsTableDetail {
         /**
           * A record of table cell definitions.
@@ -1418,6 +1651,9 @@ declare namespace LocalJSX {
          */
         "identifier"?: string;
     }
+    /**
+     * A default header for [`es-table-detail`](/components/components/es-table-detail).
+     */
     interface EsTableDetailHeader {
         /**
           * Which cell to place in the top right as a list of actions.
@@ -1440,6 +1676,9 @@ declare namespace LocalJSX {
          */
         "titleCell"?: string;
     }
+    /**
+     * Create a nested table from data.
+     */
     interface EsTableNested {
         /**
           * A path to a the currently active row, to auto expand its parent and show it as selected.
@@ -1549,6 +1788,9 @@ declare namespace LocalJSX {
          */
         "toggleRowOnClick"?: boolean;
     }
+    /**
+     * Create a virtualized table from data.
+     */
     interface EsTableVirtualized {
         /**
           * The height (in pixels) of the after
@@ -1667,6 +1909,9 @@ declare namespace LocalJSX {
          */
         "windowSize"?: number;
     }
+    /**
+     * A tabbed panel. Each panel can be targeted via a slot.
+     */
     interface EsTabs {
         /**
           * The currently active panel. By default it will take from the passed activeParam, or the first tab.
@@ -1685,6 +1930,9 @@ declare namespace LocalJSX {
          */
         "tabs": Tab[];
     }
+    /**
+     * A button with an icon that displays the state of a async action on click.
+     */
     interface EsThinkingButton {
         /**
           * The async action to be called on click.
@@ -1726,6 +1974,9 @@ declare namespace LocalJSX {
     }
     interface EsToaster {
     }
+    /**
+     * A multi step wizard. Each step can be targeted via a slot.
+     */
     interface EsWizard {
         /**
           * The currently active page
@@ -1778,36 +2029,114 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            /**
+             * Optionally collapsible sectioned view. Each section can be targeted via a part.
+             */
             "es-accordian": LocalJSX.EsAccordian & JSXBase.HTMLAttributes<HTMLEsAccordianElement>;
             "es-backdrop": LocalJSX.EsBackdrop & JSXBase.HTMLAttributes<HTMLEsBackdropElement>;
+            /**
+             * Display a counter or dot beside a component to indicate action being required.
+             */
             "es-badge": LocalJSX.EsBadge & JSXBase.HTMLAttributes<HTMLEsBadgeElement>;
+            /**
+             * A button.
+             */
             "es-button": LocalJSX.EsButton & JSXBase.HTMLAttributes<HTMLEsButtonElement>;
+            /**
+             * Anchor link version of es-button, wraps a `Link` from `@eventstore-ui/router`.
+             */
             "es-button-link": LocalJSX.EsButtonLink & JSXBase.HTMLAttributes<HTMLEsButtonLinkElement>;
+            /**
+             * Calls out a piece of information.
+             */
             "es-callout": LocalJSX.EsCallout & JSXBase.HTMLAttributes<HTMLEsCalloutElement>;
+            /**
+             * Copies the text passed as a child when clicked.
+             */
             "es-copy": LocalJSX.EsCopy & JSXBase.HTMLAttributes<HTMLEsCopyElement>;
+            /**
+             * Display a banner with text in the corner.
+             */
             "es-corner-banner": LocalJSX.EsCornerBanner & JSXBase.HTMLAttributes<HTMLEsCornerBannerElement>;
+            /**
+             * A pill display of an number, that pulses on change. Caps out at 999.
+             */
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
+            /**
+             * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
+             * See [IconStore](/components/variables/iconStore) for details on how to load icons.
+             */
             "es-icon": LocalJSX.EsIcon & JSXBase.HTMLAttributes<HTMLEsIconElement>;
+            /**
+             * Display a row of five pulsing dots, to indicate loading.
+             */
             "es-loading-dots": LocalJSX.EsLoadingDots & JSXBase.HTMLAttributes<HTMLEsLoadingDotsElement>;
+            /**
+             * Displays a grey block to placehold loading text.
+             */
             "es-loading-text": LocalJSX.EsLoadingText & JSXBase.HTMLAttributes<HTMLEsLoadingTextElement>;
+            /**
+             * A pop up modal for overlaying information, warnings and confirmations.
+             * Traps focus within the modal, and returns focus to previous location when closed.
+             * Pair with an [`es-portal`](/components/components/es-portal) to open and close.
+             */
             "es-modal": LocalJSX.EsModal & JSXBase.HTMLAttributes<HTMLEsModalElement>;
+            /**
+             * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
+             */
             "es-pagination": LocalJSX.EsPagination & JSXBase.HTMLAttributes<HTMLEsPaginationElement>;
+            /**
+             * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
+             */
             "es-popover": LocalJSX.EsPopover & JSXBase.HTMLAttributes<HTMLEsPopoverElement>;
             "es-popper": LocalJSX.EsPopper & JSXBase.HTMLAttributes<HTMLEsPopperElement>;
             "es-popper-inner": LocalJSX.EsPopperInner & JSXBase.HTMLAttributes<HTMLEsPopperInnerElement>;
+            /**
+             * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
+             */
             "es-portal": LocalJSX.EsPortal & JSXBase.HTMLAttributes<HTMLEsPortalElement>;
+            /**
+             * A wizard progression bar.
+             */
             "es-progression": LocalJSX.EsProgression & JSXBase.HTMLAttributes<HTMLEsProgressionElement>;
+            /**
+             * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
+             */
             "es-resize-observer": LocalJSX.EsResizeObserver & JSXBase.HTMLAttributes<HTMLEsResizeObserverElement>;
             "es-status": LocalJSX.EsStatus & JSXBase.HTMLAttributes<HTMLEsStatusElement>;
+            /**
+             * Create a table from data.
+             */
             "es-table": LocalJSX.EsTable & JSXBase.HTMLAttributes<HTMLEsTableElement>;
+            /**
+             * Render a single row data as a grid of information.
+             */
             "es-table-detail": LocalJSX.EsTableDetail & JSXBase.HTMLAttributes<HTMLEsTableDetailElement>;
+            /**
+             * A default header for [`es-table-detail`](/components/components/es-table-detail).
+             */
             "es-table-detail-header": LocalJSX.EsTableDetailHeader & JSXBase.HTMLAttributes<HTMLEsTableDetailHeaderElement>;
+            /**
+             * Create a nested table from data.
+             */
             "es-table-nested": LocalJSX.EsTableNested & JSXBase.HTMLAttributes<HTMLEsTableNestedElement>;
+            /**
+             * Create a virtualized table from data.
+             */
             "es-table-virtualized": LocalJSX.EsTableVirtualized & JSXBase.HTMLAttributes<HTMLEsTableVirtualizedElement>;
+            /**
+             * A tabbed panel. Each panel can be targeted via a slot.
+             */
             "es-tabs": LocalJSX.EsTabs & JSXBase.HTMLAttributes<HTMLEsTabsElement>;
+            /**
+             * A button with an icon that displays the state of a async action on click.
+             */
             "es-thinking-button": LocalJSX.EsThinkingButton & JSXBase.HTMLAttributes<HTMLEsThinkingButtonElement>;
             "es-toast": LocalJSX.EsToast & JSXBase.HTMLAttributes<HTMLEsToastElement>;
             "es-toaster": LocalJSX.EsToaster & JSXBase.HTMLAttributes<HTMLEsToasterElement>;
+            /**
+             * A multi step wizard. Each step can be targeted via a slot.
+             */
             "es-wizard": LocalJSX.EsWizard & JSXBase.HTMLAttributes<HTMLEsWizardElement>;
         }
     }

@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Displays Role illustration.
+
 ## Usage
 
 ### Example

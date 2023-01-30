@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Anchor link version of es-button, wraps a `Link` from `@eventstore-ui/router`.
+
 ## Usage
 
 ### Example

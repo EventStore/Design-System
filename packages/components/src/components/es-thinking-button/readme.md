@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A button with an icon that displays the state of a async action on click.
+
 ## Usage
 
 ### Example

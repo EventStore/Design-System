@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Displays Pending Member illustration.
+
 ## Usage
 
 ### Example

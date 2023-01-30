@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A tabbed panel. Each panel can be targeted via a slot.
+
 ## Usage
 
 ### Example

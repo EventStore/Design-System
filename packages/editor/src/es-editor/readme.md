@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Monaco editor wrapped in a web component. Handles re-layout on container resize
+
 ## Usage
 
 ### Example

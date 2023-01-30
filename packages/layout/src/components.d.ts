@@ -11,7 +11,16 @@ import { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/typ
 import { IconDescription } from "@eventstore-ui/components";
 import { LoadingBarStatus } from "./components/es-loading-bar/types";
 import { NavNode, NavTree } from "./components/es-nav/types";
+export { Crumb } from "./components/es-breadcrumb/types";
+export { DisplayErrorVariant } from "./components/es-display-error/types";
+export { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/types";
+export { IconDescription } from "@eventstore-ui/components";
+export { LoadingBarStatus } from "./components/es-loading-bar/types";
+export { NavNode, NavTree } from "./components/es-nav/types";
 export namespace Components {
+    /**
+     * A list of breadcrumbs to the current page
+     */
     interface EsBreadcrumb {
         /**
           * The breadcrumbs to the current page.
@@ -22,6 +31,9 @@ export namespace Components {
          */
         "noValidate": boolean;
     }
+    /**
+     * Display an error to the user, with title and detail. Will automatically extract from HTTPError.
+     */
     interface EsDisplayError {
         /**
           * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore-ui/utils` the details title and description will be shown.
@@ -32,8 +44,14 @@ export namespace Components {
          */
         "variant": DisplayErrorVariant;
     }
+    /**
+     * A site header for applications.
+     */
     interface EsHeader {
     }
+    /**
+     * A dropdown for the header.
+     */
     interface EsHeaderDropdown {
         /**
           * Display a dot on the icon, to attract attention to the button.
@@ -68,6 +86,9 @@ export namespace Components {
          */
         "variant": HeaderDropdownButtonVariant;
     }
+    /**
+     * A button for the sidebar, sidebar-dropdown, and header-dropdown.
+     */
     interface EsLayoutButton {
         /**
           * If the button should display as active
@@ -106,6 +127,9 @@ export namespace Components {
          */
         "priority": number;
     }
+    /**
+     * A link for the sidebar, sidebar-dropdown, and header-dropdown.
+     */
     interface EsLayoutLink {
         /**
           * Display a dot on the icon, to attract attention to the link.
@@ -164,6 +188,9 @@ export namespace Components {
          */
         "url"?: string;
     }
+    /**
+     * A section with an optional title for containing layout-links
+     */
     interface EsLayoutSection {
         /**
           * If the section is collapsable
@@ -178,6 +205,11 @@ export namespace Components {
          */
         "sectionTitle"?: string;
     }
+    /**
+     * An animated loading bar, with coloured states.
+     * The bar can be externally controlled via the `setProgress` util.
+     * Add a bar named `page` for automatic control from `Page`.
+     */
     interface EsLoadingBar {
         /**
           * The bar's name, for use in `setProgress`
@@ -188,6 +220,9 @@ export namespace Components {
          */
         "progress": (completion: number, status?: LoadingBarStatus) => Promise<void>;
     }
+    /**
+     * The Event Store logo.
+     */
     interface EsLogo {
         /**
           * Height to constrain by.
@@ -198,6 +233,9 @@ export namespace Components {
          */
         "width": number;
     }
+    /**
+     * Constructs a navigation from a NavTree.
+     */
     interface EsNav {
         /**
           * The `NavTree` data structure that the navigation menu will be built from..
@@ -217,14 +255,29 @@ export namespace Components {
     interface EsNavNode2 {
         "node": NavNode;
     }
+    /**
+     * Standard page title
+     */
     interface EsPageTitle {
     }
+    /**
+     * A panel. Automatically sets `--layout-panel-height` based on it's height, and when resized.
+     */
     interface EsPanel {
     }
+    /**
+     * A header for `es-panel`.
+     */
     interface EsPanelHeader {
     }
+    /**
+     * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
+     */
     interface EsSidebar {
     }
+    /**
+     * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `es-layout-link` or `es-layout-button`.
+     */
     interface EsSidebarDropdown {
         /**
           * The icon to display if no nested es-layout-link or es-layout-button is active
@@ -235,6 +288,9 @@ export namespace Components {
          */
         "defaultTitle": string;
     }
+    /**
+     * A theme picker dropdown for the header
+     */
     interface EsThemeDropdown {
         /**
           * Which styling variant to use.
@@ -243,6 +299,9 @@ export namespace Components {
     }
     interface EsThemePicker {
     }
+    /**
+     * Placed in the toolbar area of the layout. Automatically sets `--layout-toolbar-width` based on it's own width.
+     */
     interface EsToolbar {
     }
 }
@@ -251,60 +310,92 @@ export interface EsLayoutButtonCustomEvent<T> extends CustomEvent<T> {
     target: HTMLEsLayoutButtonElement;
 }
 declare global {
+    /**
+     * A list of breadcrumbs to the current page
+     */
     interface HTMLEsBreadcrumbElement extends Components.EsBreadcrumb, HTMLStencilElement {
     }
     var HTMLEsBreadcrumbElement: {
         prototype: HTMLEsBreadcrumbElement;
         new (): HTMLEsBreadcrumbElement;
     };
+    /**
+     * Display an error to the user, with title and detail. Will automatically extract from HTTPError.
+     */
     interface HTMLEsDisplayErrorElement extends Components.EsDisplayError, HTMLStencilElement {
     }
     var HTMLEsDisplayErrorElement: {
         prototype: HTMLEsDisplayErrorElement;
         new (): HTMLEsDisplayErrorElement;
     };
+    /**
+     * A site header for applications.
+     */
     interface HTMLEsHeaderElement extends Components.EsHeader, HTMLStencilElement {
     }
     var HTMLEsHeaderElement: {
         prototype: HTMLEsHeaderElement;
         new (): HTMLEsHeaderElement;
     };
+    /**
+     * A dropdown for the header.
+     */
     interface HTMLEsHeaderDropdownElement extends Components.EsHeaderDropdown, HTMLStencilElement {
     }
     var HTMLEsHeaderDropdownElement: {
         prototype: HTMLEsHeaderDropdownElement;
         new (): HTMLEsHeaderDropdownElement;
     };
+    /**
+     * A button for the sidebar, sidebar-dropdown, and header-dropdown.
+     */
     interface HTMLEsLayoutButtonElement extends Components.EsLayoutButton, HTMLStencilElement {
     }
     var HTMLEsLayoutButtonElement: {
         prototype: HTMLEsLayoutButtonElement;
         new (): HTMLEsLayoutButtonElement;
     };
+    /**
+     * A link for the sidebar, sidebar-dropdown, and header-dropdown.
+     */
     interface HTMLEsLayoutLinkElement extends Components.EsLayoutLink, HTMLStencilElement {
     }
     var HTMLEsLayoutLinkElement: {
         prototype: HTMLEsLayoutLinkElement;
         new (): HTMLEsLayoutLinkElement;
     };
+    /**
+     * A section with an optional title for containing layout-links
+     */
     interface HTMLEsLayoutSectionElement extends Components.EsLayoutSection, HTMLStencilElement {
     }
     var HTMLEsLayoutSectionElement: {
         prototype: HTMLEsLayoutSectionElement;
         new (): HTMLEsLayoutSectionElement;
     };
+    /**
+     * An animated loading bar, with coloured states.
+     * The bar can be externally controlled via the `setProgress` util.
+     * Add a bar named `page` for automatic control from `Page`.
+     */
     interface HTMLEsLoadingBarElement extends Components.EsLoadingBar, HTMLStencilElement {
     }
     var HTMLEsLoadingBarElement: {
         prototype: HTMLEsLoadingBarElement;
         new (): HTMLEsLoadingBarElement;
     };
+    /**
+     * The Event Store logo.
+     */
     interface HTMLEsLogoElement extends Components.EsLogo, HTMLStencilElement {
     }
     var HTMLEsLogoElement: {
         prototype: HTMLEsLogoElement;
         new (): HTMLEsLogoElement;
     };
+    /**
+     * Constructs a navigation from a NavTree.
+     */
     interface HTMLEsNavElement extends Components.EsNav, HTMLStencilElement {
     }
     var HTMLEsNavElement: {
@@ -329,36 +420,54 @@ declare global {
         prototype: HTMLEsNavNode2Element;
         new (): HTMLEsNavNode2Element;
     };
+    /**
+     * Standard page title
+     */
     interface HTMLEsPageTitleElement extends Components.EsPageTitle, HTMLStencilElement {
     }
     var HTMLEsPageTitleElement: {
         prototype: HTMLEsPageTitleElement;
         new (): HTMLEsPageTitleElement;
     };
+    /**
+     * A panel. Automatically sets `--layout-panel-height` based on it's height, and when resized.
+     */
     interface HTMLEsPanelElement extends Components.EsPanel, HTMLStencilElement {
     }
     var HTMLEsPanelElement: {
         prototype: HTMLEsPanelElement;
         new (): HTMLEsPanelElement;
     };
+    /**
+     * A header for `es-panel`.
+     */
     interface HTMLEsPanelHeaderElement extends Components.EsPanelHeader, HTMLStencilElement {
     }
     var HTMLEsPanelHeaderElement: {
         prototype: HTMLEsPanelHeaderElement;
         new (): HTMLEsPanelHeaderElement;
     };
+    /**
+     * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
+     */
     interface HTMLEsSidebarElement extends Components.EsSidebar, HTMLStencilElement {
     }
     var HTMLEsSidebarElement: {
         prototype: HTMLEsSidebarElement;
         new (): HTMLEsSidebarElement;
     };
+    /**
+     * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `es-layout-link` or `es-layout-button`.
+     */
     interface HTMLEsSidebarDropdownElement extends Components.EsSidebarDropdown, HTMLStencilElement {
     }
     var HTMLEsSidebarDropdownElement: {
         prototype: HTMLEsSidebarDropdownElement;
         new (): HTMLEsSidebarDropdownElement;
     };
+    /**
+     * A theme picker dropdown for the header
+     */
     interface HTMLEsThemeDropdownElement extends Components.EsThemeDropdown, HTMLStencilElement {
     }
     var HTMLEsThemeDropdownElement: {
@@ -371,6 +480,9 @@ declare global {
         prototype: HTMLEsThemePickerElement;
         new (): HTMLEsThemePickerElement;
     };
+    /**
+     * Placed in the toolbar area of the layout. Automatically sets `--layout-toolbar-width` based on it's own width.
+     */
     interface HTMLEsToolbarElement extends Components.EsToolbar, HTMLStencilElement {
     }
     var HTMLEsToolbarElement: {
@@ -402,6 +514,9 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    /**
+     * A list of breadcrumbs to the current page
+     */
     interface EsBreadcrumb {
         /**
           * The breadcrumbs to the current page.
@@ -412,6 +527,9 @@ declare namespace LocalJSX {
          */
         "noValidate"?: boolean;
     }
+    /**
+     * Display an error to the user, with title and detail. Will automatically extract from HTTPError.
+     */
     interface EsDisplayError {
         /**
           * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore-ui/utils` the details title and description will be shown.
@@ -422,8 +540,14 @@ declare namespace LocalJSX {
          */
         "variant"?: DisplayErrorVariant;
     }
+    /**
+     * A site header for applications.
+     */
     interface EsHeader {
     }
+    /**
+     * A dropdown for the header.
+     */
     interface EsHeaderDropdown {
         /**
           * Display a dot on the icon, to attract attention to the button.
@@ -458,6 +582,9 @@ declare namespace LocalJSX {
          */
         "variant"?: HeaderDropdownButtonVariant;
     }
+    /**
+     * A button for the sidebar, sidebar-dropdown, and header-dropdown.
+     */
     interface EsLayoutButton {
         /**
           * If the button should display as active
@@ -496,6 +623,9 @@ declare namespace LocalJSX {
          */
         "priority"?: number;
     }
+    /**
+     * A link for the sidebar, sidebar-dropdown, and header-dropdown.
+     */
     interface EsLayoutLink {
         /**
           * Display a dot on the icon, to attract attention to the link.
@@ -550,6 +680,9 @@ declare namespace LocalJSX {
          */
         "url"?: string;
     }
+    /**
+     * A section with an optional title for containing layout-links
+     */
     interface EsLayoutSection {
         /**
           * If the section is collapsable
@@ -564,12 +697,20 @@ declare namespace LocalJSX {
          */
         "sectionTitle"?: string;
     }
+    /**
+     * An animated loading bar, with coloured states.
+     * The bar can be externally controlled via the `setProgress` util.
+     * Add a bar named `page` for automatic control from `Page`.
+     */
     interface EsLoadingBar {
         /**
           * The bar's name, for use in `setProgress`
          */
         "name": string;
     }
+    /**
+     * The Event Store logo.
+     */
     interface EsLogo {
         /**
           * Height to constrain by.
@@ -580,6 +721,9 @@ declare namespace LocalJSX {
          */
         "width"?: number;
     }
+    /**
+     * Constructs a navigation from a NavTree.
+     */
     interface EsNav {
         /**
           * The `NavTree` data structure that the navigation menu will be built from..
@@ -599,14 +743,29 @@ declare namespace LocalJSX {
     interface EsNavNode2 {
         "node": NavNode;
     }
+    /**
+     * Standard page title
+     */
     interface EsPageTitle {
     }
+    /**
+     * A panel. Automatically sets `--layout-panel-height` based on it's height, and when resized.
+     */
     interface EsPanel {
     }
+    /**
+     * A header for `es-panel`.
+     */
     interface EsPanelHeader {
     }
+    /**
+     * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
+     */
     interface EsSidebar {
     }
+    /**
+     * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `es-layout-link` or `es-layout-button`.
+     */
     interface EsSidebarDropdown {
         /**
           * The icon to display if no nested es-layout-link or es-layout-button is active
@@ -617,6 +776,9 @@ declare namespace LocalJSX {
          */
         "defaultTitle": string;
     }
+    /**
+     * A theme picker dropdown for the header
+     */
     interface EsThemeDropdown {
         /**
           * Which styling variant to use.
@@ -625,6 +787,9 @@ declare namespace LocalJSX {
     }
     interface EsThemePicker {
     }
+    /**
+     * Placed in the toolbar area of the layout. Automatically sets `--layout-toolbar-width` based on it's own width.
+     */
     interface EsToolbar {
     }
     interface IntrinsicElements {
@@ -655,26 +820,79 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            /**
+             * A list of breadcrumbs to the current page
+             */
             "es-breadcrumb": LocalJSX.EsBreadcrumb & JSXBase.HTMLAttributes<HTMLEsBreadcrumbElement>;
+            /**
+             * Display an error to the user, with title and detail. Will automatically extract from HTTPError.
+             */
             "es-display-error": LocalJSX.EsDisplayError & JSXBase.HTMLAttributes<HTMLEsDisplayErrorElement>;
+            /**
+             * A site header for applications.
+             */
             "es-header": LocalJSX.EsHeader & JSXBase.HTMLAttributes<HTMLEsHeaderElement>;
+            /**
+             * A dropdown for the header.
+             */
             "es-header-dropdown": LocalJSX.EsHeaderDropdown & JSXBase.HTMLAttributes<HTMLEsHeaderDropdownElement>;
+            /**
+             * A button for the sidebar, sidebar-dropdown, and header-dropdown.
+             */
             "es-layout-button": LocalJSX.EsLayoutButton & JSXBase.HTMLAttributes<HTMLEsLayoutButtonElement>;
+            /**
+             * A link for the sidebar, sidebar-dropdown, and header-dropdown.
+             */
             "es-layout-link": LocalJSX.EsLayoutLink & JSXBase.HTMLAttributes<HTMLEsLayoutLinkElement>;
+            /**
+             * A section with an optional title for containing layout-links
+             */
             "es-layout-section": LocalJSX.EsLayoutSection & JSXBase.HTMLAttributes<HTMLEsLayoutSectionElement>;
+            /**
+             * An animated loading bar, with coloured states.
+             * The bar can be externally controlled via the `setProgress` util.
+             * Add a bar named `page` for automatic control from `Page`.
+             */
             "es-loading-bar": LocalJSX.EsLoadingBar & JSXBase.HTMLAttributes<HTMLEsLoadingBarElement>;
+            /**
+             * The Event Store logo.
+             */
             "es-logo": LocalJSX.EsLogo & JSXBase.HTMLAttributes<HTMLEsLogoElement>;
+            /**
+             * Constructs a navigation from a NavTree.
+             */
             "es-nav": LocalJSX.EsNav & JSXBase.HTMLAttributes<HTMLEsNavElement>;
             "es-nav-node-0": LocalJSX.EsNavNode0 & JSXBase.HTMLAttributes<HTMLEsNavNode0Element>;
             "es-nav-node-1": LocalJSX.EsNavNode1 & JSXBase.HTMLAttributes<HTMLEsNavNode1Element>;
             "es-nav-node-2": LocalJSX.EsNavNode2 & JSXBase.HTMLAttributes<HTMLEsNavNode2Element>;
+            /**
+             * Standard page title
+             */
             "es-page-title": LocalJSX.EsPageTitle & JSXBase.HTMLAttributes<HTMLEsPageTitleElement>;
+            /**
+             * A panel. Automatically sets `--layout-panel-height` based on it's height, and when resized.
+             */
             "es-panel": LocalJSX.EsPanel & JSXBase.HTMLAttributes<HTMLEsPanelElement>;
+            /**
+             * A header for `es-panel`.
+             */
             "es-panel-header": LocalJSX.EsPanelHeader & JSXBase.HTMLAttributes<HTMLEsPanelHeaderElement>;
+            /**
+             * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
+             */
             "es-sidebar": LocalJSX.EsSidebar & JSXBase.HTMLAttributes<HTMLEsSidebarElement>;
+            /**
+             * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `es-layout-link` or `es-layout-button`.
+             */
             "es-sidebar-dropdown": LocalJSX.EsSidebarDropdown & JSXBase.HTMLAttributes<HTMLEsSidebarDropdownElement>;
+            /**
+             * A theme picker dropdown for the header
+             */
             "es-theme-dropdown": LocalJSX.EsThemeDropdown & JSXBase.HTMLAttributes<HTMLEsThemeDropdownElement>;
             "es-theme-picker": LocalJSX.EsThemePicker & JSXBase.HTMLAttributes<HTMLEsThemePickerElement>;
+            /**
+             * Placed in the toolbar area of the layout. Automatically sets `--layout-toolbar-width` based on it's own width.
+             */
             "es-toolbar": LocalJSX.EsToolbar & JSXBase.HTMLAttributes<HTMLEsToolbarElement>;
         }
     }

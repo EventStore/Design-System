@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Constructs a navigation from a NavTree.
+
 ## Usage
 
 ### Example

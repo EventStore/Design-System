@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Display an error to the user, with title and detail. Will automatically extract from HTTPError.
+
 ## Usage
 
 ### Example

@@ -11,7 +11,16 @@ import { MaskOptions } from "./components/es-input/types";
 import { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
 import { RadioCardGroupOption, RenderCard } from "./components/es-radio-card-group/types";
 import { RenderSelectValue } from "./components/es-select/types";
+export { IconDescription } from "@eventstore-ui/components";
+export { FieldChange, RenderFunction, ValidationMessages } from "./types";
+export { MaskOptions } from "./components/es-input/types";
+export { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
+export { RadioCardGroupOption, RenderCard } from "./components/es-radio-card-group/types";
+export { RenderSelectValue } from "./components/es-select/types";
 export namespace Components {
+    /**
+     * A checkbox component
+     */
     interface EsCheckbox {
         /**
           * If the field is disabled.
@@ -38,6 +47,9 @@ export namespace Components {
          */
         "value": boolean;
     }
+    /**
+     * An optionally masked text input.
+     */
     interface EsInput {
         /**
           * If the field is disabled.
@@ -80,6 +92,9 @@ export namespace Components {
          */
         "value": string;
     }
+    /**
+     * A list creator input.
+     */
     interface EsInputList {
         /**
           * Icon for the add item button.
@@ -118,6 +133,9 @@ export namespace Components {
          */
         "value": string[];
     }
+    /**
+     * A list creator input.
+     */
     interface EsListCreator {
         /**
           * The icon to display next to the field
@@ -164,6 +182,9 @@ export namespace Components {
          */
         "value": string[];
     }
+    /**
+     * An extra large input.
+     */
     interface EsMegaInput {
         /**
           * If the field is disabled.
@@ -202,6 +223,9 @@ export namespace Components {
          */
         "value": string;
     }
+    /**
+     * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+     */
     interface EsNumberInput {
         /**
           * If the field is disabled.
@@ -244,6 +268,9 @@ export namespace Components {
          */
         "value": string;
     }
+    /**
+     * A card based single select input.
+     */
     interface EsRadioCardGroup {
         /**
           * Group the cards by a key.
@@ -282,6 +309,9 @@ export namespace Components {
          */
         "value": string | null;
     }
+    /**
+     * A searchable select dropdown.
+     */
     interface EsSelect {
         /**
           * Icon to use as a chevron.
@@ -340,6 +370,9 @@ export namespace Components {
          */
         "value": string | null;
     }
+    /**
+     * A switchable switch.
+     */
     interface EsSwitch {
         /**
           * Icon to display when switch is on in high contrast mode.
@@ -382,6 +415,9 @@ export namespace Components {
          */
         "value": boolean;
     }
+    /**
+     * A textarea field.
+     */
     interface EsTextarea {
         /**
           * If the field is disabled.
@@ -433,6 +469,9 @@ export namespace Components {
         "value": string[];
         "zIndex": number;
     }
+    /**
+     * Display messages under fields.
+     */
     interface EsValidationMessages {
         /**
           * Icon to diplay next to errors. (if `showIcons` or high contrast)
@@ -501,60 +540,90 @@ export interface EsTypeaheadCustomEvent<T> extends CustomEvent<T> {
     target: HTMLEsTypeaheadElement;
 }
 declare global {
+    /**
+     * A checkbox component
+     */
     interface HTMLEsCheckboxElement extends Components.EsCheckbox, HTMLStencilElement {
     }
     var HTMLEsCheckboxElement: {
         prototype: HTMLEsCheckboxElement;
         new (): HTMLEsCheckboxElement;
     };
+    /**
+     * An optionally masked text input.
+     */
     interface HTMLEsInputElement extends Components.EsInput, HTMLStencilElement {
     }
     var HTMLEsInputElement: {
         prototype: HTMLEsInputElement;
         new (): HTMLEsInputElement;
     };
+    /**
+     * A list creator input.
+     */
     interface HTMLEsInputListElement extends Components.EsInputList, HTMLStencilElement {
     }
     var HTMLEsInputListElement: {
         prototype: HTMLEsInputListElement;
         new (): HTMLEsInputListElement;
     };
+    /**
+     * A list creator input.
+     */
     interface HTMLEsListCreatorElement extends Components.EsListCreator, HTMLStencilElement {
     }
     var HTMLEsListCreatorElement: {
         prototype: HTMLEsListCreatorElement;
         new (): HTMLEsListCreatorElement;
     };
+    /**
+     * An extra large input.
+     */
     interface HTMLEsMegaInputElement extends Components.EsMegaInput, HTMLStencilElement {
     }
     var HTMLEsMegaInputElement: {
         prototype: HTMLEsMegaInputElement;
         new (): HTMLEsMegaInputElement;
     };
+    /**
+     * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+     */
     interface HTMLEsNumberInputElement extends Components.EsNumberInput, HTMLStencilElement {
     }
     var HTMLEsNumberInputElement: {
         prototype: HTMLEsNumberInputElement;
         new (): HTMLEsNumberInputElement;
     };
+    /**
+     * A card based single select input.
+     */
     interface HTMLEsRadioCardGroupElement extends Components.EsRadioCardGroup, HTMLStencilElement {
     }
     var HTMLEsRadioCardGroupElement: {
         prototype: HTMLEsRadioCardGroupElement;
         new (): HTMLEsRadioCardGroupElement;
     };
+    /**
+     * A searchable select dropdown.
+     */
     interface HTMLEsSelectElement extends Components.EsSelect, HTMLStencilElement {
     }
     var HTMLEsSelectElement: {
         prototype: HTMLEsSelectElement;
         new (): HTMLEsSelectElement;
     };
+    /**
+     * A switchable switch.
+     */
     interface HTMLEsSwitchElement extends Components.EsSwitch, HTMLStencilElement {
     }
     var HTMLEsSwitchElement: {
         prototype: HTMLEsSwitchElement;
         new (): HTMLEsSwitchElement;
     };
+    /**
+     * A textarea field.
+     */
     interface HTMLEsTextareaElement extends Components.EsTextarea, HTMLStencilElement {
     }
     var HTMLEsTextareaElement: {
@@ -567,6 +636,9 @@ declare global {
         prototype: HTMLEsTypeaheadElement;
         new (): HTMLEsTypeaheadElement;
     };
+    /**
+     * Display messages under fields.
+     */
     interface HTMLEsValidationMessagesElement extends Components.EsValidationMessages, HTMLStencilElement {
     }
     var HTMLEsValidationMessagesElement: {
@@ -589,6 +661,9 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    /**
+     * A checkbox component
+     */
     interface EsCheckbox {
         /**
           * If the field is disabled.
@@ -619,6 +694,9 @@ declare namespace LocalJSX {
          */
         "value": boolean;
     }
+    /**
+     * An optionally masked text input.
+     */
     interface EsInput {
         /**
           * If the field is disabled.
@@ -669,6 +747,9 @@ declare namespace LocalJSX {
          */
         "value": string;
     }
+    /**
+     * A list creator input.
+     */
     interface EsInputList {
         /**
           * Icon for the add item button.
@@ -711,6 +792,9 @@ declare namespace LocalJSX {
          */
         "value": string[];
     }
+    /**
+     * A list creator input.
+     */
     interface EsListCreator {
         /**
           * The icon to display next to the field
@@ -761,6 +845,9 @@ declare namespace LocalJSX {
          */
         "value": string[];
     }
+    /**
+     * An extra large input.
+     */
     interface EsMegaInput {
         /**
           * If the field is disabled.
@@ -807,6 +894,9 @@ declare namespace LocalJSX {
          */
         "value": string;
     }
+    /**
+     * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+     */
     interface EsNumberInput {
         /**
           * If the field is disabled.
@@ -857,6 +947,9 @@ declare namespace LocalJSX {
          */
         "value": string;
     }
+    /**
+     * A card based single select input.
+     */
     interface EsRadioCardGroup {
         /**
           * Group the cards by a key.
@@ -899,6 +992,9 @@ declare namespace LocalJSX {
          */
         "value": string | null;
     }
+    /**
+     * A searchable select dropdown.
+     */
     interface EsSelect {
         /**
           * Icon to use as a chevron.
@@ -961,6 +1057,9 @@ declare namespace LocalJSX {
          */
         "value": string | null;
     }
+    /**
+     * A switchable switch.
+     */
     interface EsSwitch {
         /**
           * Icon to display when switch is on in high contrast mode.
@@ -1003,6 +1102,9 @@ declare namespace LocalJSX {
          */
         "value": boolean;
     }
+    /**
+     * A textarea field.
+     */
     interface EsTextarea {
         /**
           * If the field is disabled.
@@ -1060,6 +1162,9 @@ declare namespace LocalJSX {
         "value": string[];
         "zIndex"?: number;
     }
+    /**
+     * Display messages under fields.
+     */
     interface EsValidationMessages {
         /**
           * Icon to diplay next to errors. (if `showIcons` or high contrast)
@@ -1101,17 +1206,50 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            /**
+             * A checkbox component
+             */
             "es-checkbox": LocalJSX.EsCheckbox & JSXBase.HTMLAttributes<HTMLEsCheckboxElement>;
+            /**
+             * An optionally masked text input.
+             */
             "es-input": LocalJSX.EsInput & JSXBase.HTMLAttributes<HTMLEsInputElement>;
+            /**
+             * A list creator input.
+             */
             "es-input-list": LocalJSX.EsInputList & JSXBase.HTMLAttributes<HTMLEsInputListElement>;
+            /**
+             * A list creator input.
+             */
             "es-list-creator": LocalJSX.EsListCreator & JSXBase.HTMLAttributes<HTMLEsListCreatorElement>;
+            /**
+             * An extra large input.
+             */
             "es-mega-input": LocalJSX.EsMegaInput & JSXBase.HTMLAttributes<HTMLEsMegaInputElement>;
+            /**
+             * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+             */
             "es-number-input": LocalJSX.EsNumberInput & JSXBase.HTMLAttributes<HTMLEsNumberInputElement>;
+            /**
+             * A card based single select input.
+             */
             "es-radio-card-group": LocalJSX.EsRadioCardGroup & JSXBase.HTMLAttributes<HTMLEsRadioCardGroupElement>;
+            /**
+             * A searchable select dropdown.
+             */
             "es-select": LocalJSX.EsSelect & JSXBase.HTMLAttributes<HTMLEsSelectElement>;
+            /**
+             * A switchable switch.
+             */
             "es-switch": LocalJSX.EsSwitch & JSXBase.HTMLAttributes<HTMLEsSwitchElement>;
+            /**
+             * A textarea field.
+             */
             "es-textarea": LocalJSX.EsTextarea & JSXBase.HTMLAttributes<HTMLEsTextareaElement>;
             "es-typeahead": LocalJSX.EsTypeahead & JSXBase.HTMLAttributes<HTMLEsTypeaheadElement>;
+            /**
+             * Display messages under fields.
+             */
             "es-validation-messages": LocalJSX.EsValidationMessages & JSXBase.HTMLAttributes<HTMLEsValidationMessagesElement>;
         }
     }

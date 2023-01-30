@@ -3,6 +3,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Placed in the toolbar area of the layout. Automatically sets `--layout-toolbar-width` based on it's own width.
+
 ## Usage
 
 ### Example
