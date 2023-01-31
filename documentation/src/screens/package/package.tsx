@@ -2,7 +2,6 @@ import { Redirect, Route, Switch } from '@eventstore-ui/router';
 import { Component, h, Prop } from '@stencil/core';
 import { Host, Watch } from '@stencil/core/internal';
 import { sitemap } from 'sitemap';
-import { ReflectionKind } from 'utils/typedoc/reflectionKind';
 import { isFunctionalComponentDeclaration } from 'utils/typedoc/declaration';
 import { Anchor, extractAnchors } from 'utils/extractAnchors';
 import type { SomeReflection } from 'utils/typedoc/types';
@@ -198,7 +197,7 @@ export class DocsPackage {
     }
 
     private extractKinds = (
-        kinds: number[],
+        kinds: string[],
         check: (d: SomeReflection) => boolean = () => true,
     ) => () => {
         const lib = sitemap.libs[this.slug];
@@ -207,14 +206,14 @@ export class DocsPackage {
         if (!project.groups) return;
 
         const modules = project.groups
-            .filter((group) => group.kind === (ReflectionKind.Module as number))
+            .filter((group) => group.title === 'Modules')
             .flatMap((group: any) => group.children ?? [])
             .flatMap(
                 (id) => (lookup.get(id)! as DeclarationReflection).groups!,
             );
 
         const names = [...project.groups, ...modules]
-            .filter((group) => kinds.includes(group.kind))
+            .filter((group) => kinds.includes(group.title))
             .flatMap((group: any) => group.children ?? [])
             .map((id) => lookup.get(id)!)
             .filter((item) => !item.flags.isExternal)
@@ -229,25 +228,15 @@ export class DocsPackage {
         `${sources?.[0].fileName ?? ''}${name}`;
 
     private extractUtils = this.extractKinds(
-        [
-            ReflectionKind.Variable,
-            ReflectionKind.Function,
-            ReflectionKind.Class,
-        ],
+        ['Variables', 'Functions', 'Classes'],
         (d) => !isFunctionalComponentDeclaration(d),
     );
     private extractFunctionalComponents = this.extractKinds(
-        [ReflectionKind.Function],
+        ['Functions'],
         (d) => isFunctionalComponentDeclaration(d),
     );
     private extractTypes = this.extractKinds(
-        [
-            ReflectionKind.Interface,
-            ReflectionKind.TypeLiteral,
-            ReflectionKind.TypeParameter,
-            ReflectionKind.TypeAlias,
-        ],
-        (item) =>
-            !item.comment?.tags?.some(({ tagName }) => tagName === 'props'),
+        ['Interfaces', 'Type Literals', 'Type Parameters', 'Type Aliases'],
+        (item) => !item.comment?.blockTags?.some(({ tag }) => tag === '@props'),
     );
 }

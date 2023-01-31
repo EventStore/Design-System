@@ -3057,6 +3057,7 @@ __metadata:
     "@eventstore-ui/configs": "workspace:*"
     "@eventstore-ui/editor": "workspace:*"
     "@eventstore-ui/fields": "workspace:*"
+    "@eventstore-ui/forms": "workspace:*"
     "@eventstore-ui/icon-manager": "workspace:*"
     "@eventstore-ui/illustrations": "workspace:*"
     "@eventstore-ui/layout": "workspace:*"
@@ -3078,9 +3079,7 @@ __metadata:
     postcss-preset-env: 6.7.0
     prettier: 2.2.1
     puppeteer: ^19.5.0
-    rollup: 2.33.1
-    rollup-plugin-node-polyfills: 0.2.1
-    rollup-plugin-require-context: 0.0.2
+    rollup: ^2.52.7
     rollup-plugin-string: 3.0.0
     serve: 14.0.1
     typedoc: 0.23.24
@@ -3102,7 +3101,7 @@ __metadata:
     monaco-editor: ^0.22.3
     npm-run-all: ^4.1.5
     puppeteer: ^19.5.0
-    rollup: 2.33.1
+    rollup: ^2.52.7
     typedoc: 0.23.24
     typescript: 4.9.4
   peerDependencies:
@@ -3247,7 +3246,7 @@ __metadata:
     "@types/node": ^18.11.18
     jest: ^27.4.5
     npm-run-all: ^4.1.5
-    rollup: ^2.18.2
+    rollup: ^2.52.7
     typedoc: 0.23.24
     typescript: 4.9.4
     unist-util-visit: ^2.0.3
@@ -3310,7 +3309,7 @@ __metadata:
     babel-jest: ^27.5.1
     jest: ^27.4.5
     npm-run-all: ^4.1.5
-    rollup: 2.33.1
+    rollup: ^2.52.7
     typedoc: 0.23.24
     typescript: 4.9.4
   languageName: unknown
@@ -6580,7 +6579,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@npm:^2.3.2, fsevents@npm:~2.1.2, fsevents@npm:~2.3.2":
+"fsevents@npm:^2.3.2, fsevents@npm:~2.3.2":
   version: 2.3.2
   resolution: "fsevents@npm:2.3.2"
   dependencies:
@@ -6590,7 +6589,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@^2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.1.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
+"fsevents@patch:fsevents@^2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
   resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
   dependencies:
@@ -8498,7 +8497,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:0.25.7, magic-string@npm:^0.25.0, magic-string@npm:^0.25.3":
+"magic-string@npm:0.25.7, magic-string@npm:^0.25.0":
   version: 0.25.7
   resolution: "magic-string@npm:0.25.7"
   dependencies:
@@ -10461,35 +10460,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-inject@npm:^3.0.0":
-  version: 3.0.2
-  resolution: "rollup-plugin-inject@npm:3.0.2"
-  dependencies:
-    estree-walker: ^0.6.1
-    magic-string: ^0.25.3
-    rollup-pluginutils: ^2.8.1
-  checksum: a014972c80fe34b8c8154056fa2533a8440066a31de831e3793fc21b15d108d92c22d8f7f472397bd5783d7c5e04d8cbf112fb72c5a26e997726e4eb090edad1
-  languageName: node
-  linkType: hard
-
-"rollup-plugin-node-polyfills@npm:0.2.1":
-  version: 0.2.1
-  resolution: "rollup-plugin-node-polyfills@npm:0.2.1"
-  dependencies:
-    rollup-plugin-inject: ^3.0.0
-  checksum: e84645212c443aca3cfae2ba69f01c6d8c5c250f0bf651416b69a4572b60aae9da7cdd687de3ab9b903f7a1ab96b06b71f0c4927d1b02a37485360d2b563937b
-  languageName: node
-  linkType: hard
-
-"rollup-plugin-require-context@npm:0.0.2":
-  version: 0.0.2
-  resolution: "rollup-plugin-require-context@npm:0.0.2"
-  dependencies:
-    rollup-pluginutils: ^2.0.1
-  checksum: 321acdb5222af55341753beadb61a5f6235ebd50a09c10741bef8df96b6eb3354356b8220bda7dfdf663a936ac7d316db1e9e30c51309d05a24cb9a78df0d8af
-  languageName: node
-  linkType: hard
-
 "rollup-plugin-string@npm:3.0.0":
   version: 3.0.0
   resolution: "rollup-plugin-string@npm:3.0.0"
@@ -10513,7 +10483,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-pluginutils@npm:^2.0.1, rollup-pluginutils@npm:^2.4.1, rollup-pluginutils@npm:^2.8.1":
+"rollup-pluginutils@npm:^2.4.1":
   version: 2.8.2
   resolution: "rollup-pluginutils@npm:2.8.2"
   dependencies:
@@ -10522,37 +10492,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:2.33.1":
-  version: 2.33.1
-  resolution: "rollup@npm:2.33.1"
-  dependencies:
-    fsevents: ~2.1.2
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    rollup: dist/bin/rollup
-  checksum: b9c869bd24cb02d950b8665af6ba592219c68787227bb856ba54753181b1e150f2c96d27f8911dced051c5a0d6fc22dc51a782e98dec64e31dcf7096dc67ff1c
-  languageName: node
-  linkType: hard
-
-"rollup@npm:^2.18.2":
-  version: 2.23.0
-  resolution: "rollup@npm:2.23.0"
-  dependencies:
-    fsevents: ~2.1.2
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    rollup: dist/bin/rollup
-  checksum: a65b796ec98c4feae96973ab7702edf8b2043d7252dbfc619f2cc4a563e934725a4b9df13a9399fb375130b9a0bf587cd6a9db6736bee8df4ee41c2933946647
-  languageName: node
-  linkType: hard
-
-"rollup@npm:^2.43.1":
-  version: 2.77.2
-  resolution: "rollup@npm:2.77.2"
+"rollup@npm:^2.43.1, rollup@npm:^2.52.7":
+  version: 2.79.1
+  resolution: "rollup@npm:2.79.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -10560,21 +10502,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 5a84fb98a6f858906bceba091430442f6c1f362b07c5fa9123b708f87e39f52640e34a189cd9a1776ceae61300055c78ba648205fa03188451539ebeb19797df
-  languageName: node
-  linkType: hard
-
-"rollup@npm:^2.52.7":
-  version: 2.52.7
-  resolution: "rollup@npm:2.52.7"
-  dependencies:
-    fsevents: ~2.3.2
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    rollup: dist/bin/rollup
-  checksum: 92629c518c234f5f02249ed225fdb8c0bc25039ee91e3713107bf3b859344b81d986cbad71d793b6a973d852a495c2e5352c9d628eae992818036c0b45ea843c
+  checksum: 6a2bf167b3587d4df709b37d149ad0300692cc5deb510f89ac7bdc77c8738c9546ae3de9322b0968e1ed2b0e984571f5f55aae28fa7de4cfcb1bc5402a4e2be6
   languageName: node
   linkType: hard
 

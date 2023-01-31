@@ -45,6 +45,5 @@ export const isObjectLiteral = (d: D) =>
     (d.kind as any) === ReflectionKind.ObjectLiteral;
 export const isTypeAlias = (d: D): d is DeclarationReflection =>
     (d.kind as any) === ReflectionKind.TypeAlias;
-export const isEvent = (d: D) => (d.kind as any) === ReflectionKind.Event;
 export const isReference = (d: D) =>
     (d.kind as any) === ReflectionKind.Reference;
