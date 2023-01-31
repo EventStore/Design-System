@@ -3138,11 +3138,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/forms@workspace:packages/forms"
   dependencies:
+    "@babel/core": ^7.12.10
+    "@babel/preset-env": ^7.12.11
+    "@babel/preset-typescript": ^7.12.7
     "@eventstore-ui/components": "workspace:*"
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": 3.0.0
     "@types/jest": ^27.0.3
+    babel-jest: ^27.5.1
     jest: ^27.4.5
     npm-run-all: ^4.1.5
     rollup: ^2.52.7
@@ -3225,10 +3229,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/router@workspace:packages/router"
   dependencies:
+    "@babel/core": ^7.12.10
+    "@babel/preset-env": ^7.12.11
+    "@babel/preset-typescript": ^7.12.7
     "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": 3.0.0
     "@types/jest": ^27.0.3
+    babel-jest: ^27.5.1
     jest: ^27.4.5
+    rollup: ^2.52.7
     typedoc: 0.23.24
     typescript: 4.9.4
   peerDependencies:
@@ -3259,9 +3268,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/stores@workspace:packages/stores"
   dependencies:
+    "@babel/core": ^7.12.10
+    "@babel/preset-env": ^7.12.11
+    "@babel/preset-typescript": ^7.12.7
     "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": 3.0.0
     "@types/jest": ^27.0.3
+    babel-jest: ^27.5.1
     jest: ^27.4.5
     npm-run-all: ^4.1.5
     rollup: ^2.52.7
@@ -3276,9 +3289,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/theme@workspace:packages/theme"
   dependencies:
+    "@babel/core": ^7.12.10
+    "@babel/preset-env": ^7.12.11
+    "@babel/preset-typescript": ^7.12.7
     "@eventstore-ui/utils": "workspace:*"
     "@stencil/core": 3.0.0
+    babel-jest: ^27.5.1
     jest: ^27.4.5
+    rollup: ^2.52.7
     typedoc: 0.23.24
     typescript: 4.9.4
   peerDependencies:
