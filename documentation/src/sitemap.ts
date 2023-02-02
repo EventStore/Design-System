@@ -5,68 +5,25 @@ export const sitemap = expandSitemap([
     {
         title: 'Web Components',
         children: [
-            {
-                title: 'Components',
-                filePath: './packages/components',
-            },
-            {
-                title: 'Layout',
-                filePath: './packages/layout',
-            },
-            {
-                title: 'Fields',
-                filePath: './packages/fields',
-            },
-            {
-                title: 'Router',
-                filePath: './packages/router',
-            },
-            {
-                title: 'Editor',
-                filePath: './packages/editor',
-            },
-            {
-                title: 'Illustrations',
-                filePath: './packages/illustrations',
-            },
+            'Components',
+            'Layout',
+            'Fields',
+            'Router',
+            'Editor',
+            'Illustrations',
         ],
     },
     {
         title: 'Libraries',
-        children: [
-            {
-                title: 'Utils',
-                filePath: './packages/utils',
-            },
-            {
-                title: 'Stores',
-                filePath: './packages/stores',
-            },
-            {
-                title: 'Theme',
-                filePath: './packages/theme',
-            },
-            {
-                title: 'Forms',
-                filePath: './packages/forms',
-            },
-        ],
+        children: ['Utils', 'Stores', 'Theme', 'Forms'],
     },
     {
         title: 'Tools',
         children: [
-            {
-                title: 'Configs',
-                filePath: './tools/configs',
-            },
-            {
-                title: 'Icon Manager',
-                filePath: './tools/icon-manager',
-            },
-            {
-                title: 'Stencil Markdown Plugin',
-                filePath: './tools/stencil-markdown-plugin',
-            },
+            'Configs',
+            'Assets',
+            'Icon Manager',
+            'Stencil Markdown Plugin',
         ],
     },
 ]);
