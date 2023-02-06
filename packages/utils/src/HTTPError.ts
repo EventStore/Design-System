@@ -32,6 +32,10 @@ export class HTTPError extends Error {
         return error instanceof Error && ERROR_KEY in error;
     }
 
+    static fromDetails(details: HTTPProblemDetails): HTTPError {
+        return new HTTPError(new Response(), async () => details);
+    }
+
     protected [ERROR_KEY] = true;
 
     /** The status code of the HTTP response. */
