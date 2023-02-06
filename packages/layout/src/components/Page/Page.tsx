@@ -8,10 +8,10 @@ import {
 import { PageTitle } from '@eventstore-ui/router';
 import { setProgress } from '../es-loading-bar/utils/setProgress';
 
-export type PageState = 'loading' | 'ready' | Error;
+export type PageState = 'loading' | 'ready' | ['error', unknown];
 
 export interface ErrorStateProps {
-    error: Error;
+    error: unknown;
 }
 
 export interface PageProps {
@@ -101,7 +101,7 @@ const PageBody: FunctionalComponent<PageProps> = (
 ) => {
     updateState(progressBarId, state);
     if (state === 'loading') return <LoadingState />;
-    if (state instanceof Error) return <ErrorState error={state} />;
+    if (Array.isArray(state)) return <ErrorState error={state[1]} />;
     if (empty) return <EmptyState />;
     return (
         <>

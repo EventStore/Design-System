@@ -94,7 +94,7 @@ export class DevRoot {
                     <Route url={'/error'}>
                         <Page
                             pageTitle={'Error Test'}
-                            state={new Error('Oh no!')}
+                            state={['error', new Error('Oh no!')]}
                         >
                             <div>{'hello'}</div>
                         </Page>
