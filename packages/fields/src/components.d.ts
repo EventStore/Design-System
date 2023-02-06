@@ -9,9 +9,8 @@ import { IconDescription } from "@eventstore-ui/components";
 import { FieldChange, RenderFunction, ValidationMessages } from "./types";
 import { MaskOptions } from "./components/es-input/types";
 import { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
-import { RadioCardGroupOption } from "./components/es-radio-card-group/types";
-import { RenderCard } from "./components/es-radio-card-group/es-radio-card-group";
-import { RenderSelectValue } from "./components/es-select/es-select";
+import { RadioCardGroupOption, RenderCard } from "./components/es-radio-card-group/types";
+import { RenderSelectValue } from "./components/es-select/types";
 export namespace Components {
     interface EsCheckbox {
         /**
@@ -331,11 +330,11 @@ export namespace Components {
         /**
           * Overwrite the default option renderer.
          */
-        "renderOption"?: RenderTypeaheadOption;
+        "renderOption"?: RenderTypeaheadOption<any>;
         /**
           * Overwrite the default value renderer.
          */
-        "renderValue": RenderSelectValue;
+        "renderValue": RenderSelectValue<any>;
         /**
           * The current value of the field.
          */
@@ -951,11 +950,11 @@ declare namespace LocalJSX {
         /**
           * Overwrite the default option renderer.
          */
-        "renderOption"?: RenderTypeaheadOption;
+        "renderOption"?: RenderTypeaheadOption<any>;
         /**
           * Overwrite the default value renderer.
          */
-        "renderValue"?: RenderSelectValue;
+        "renderValue"?: RenderSelectValue<any>;
         /**
           * The current value of the field.
          */

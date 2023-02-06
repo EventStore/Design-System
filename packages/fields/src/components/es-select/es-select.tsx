@@ -12,7 +12,6 @@ import type {
     ValidationMessages,
     FieldChangeEvent,
     FieldChange,
-    RenderFunction,
 } from '../../types';
 import { Field } from '../Field/Field';
 import type {
@@ -22,15 +21,7 @@ import type {
     RenderTypeaheadOption,
 } from '../es-typeahead/types';
 import { ICON_NAMESPACE } from '../../icons/namespace';
-
-export type RenderSelectValue = RenderFunction<
-    [
-        /** The option currently selected */
-        value: TypeaheadOption | undefined,
-        /** The ID of the option currently selected */
-        rawValue: string,
-    ]
->;
+import type { RenderSelectValue } from './types';
 
 /**
  * A searchable select dropdown.
@@ -58,9 +49,9 @@ export class EsSelect {
     /** A list of options to choose from. */
     @Prop() options!: TypeaheadOption[];
     /** Overwrite the default option renderer. */
-    @Prop() renderOption?: RenderTypeaheadOption;
+    @Prop() renderOption?: RenderTypeaheadOption<any>;
     /** Overwrite the default value renderer. */
-    @Prop() renderValue: RenderSelectValue = (_, o, v) => o?.name ?? v;
+    @Prop() renderValue: RenderSelectValue<any> = (_, o, v) => o?.name ?? v;
     /** Pass a custom search filter function */
     @Prop() optionFilter?: OptionFilter;
     /** The placeholder for the input. */
