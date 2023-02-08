@@ -1,7 +1,7 @@
 import { Link } from '@eventstore-ui/router';
 import { theme } from '@eventstore-ui/theme';
 import { Component, h, Host, State } from '@stencil/core';
-import { headerUnderHeight } from '../../utils/LayoutVar';
+import { bannerHeight, headerUnderHeight } from '../../utils/LayoutVar';
 /**
  * A site header for applications.
  * @slot left - The left of the header. By default shows an eventstore logo, linking to '/'.
@@ -23,8 +23,18 @@ import { headerUnderHeight } from '../../utils/LayoutVar';
 })
 export class Header {
     @State() under: boolean = false;
+    @State() backdrop: boolean = false;
+    @State() banner: boolean = false;
+
+    private unsubscribe?: () => void;
+
+    componentWillLoad() {
+        // eslint-disable-next-line no-console
+        this.unsubscribe = bannerHeight.observe(this.bannerChange);
+    }
 
     disconnectedCallback() {
+        this.unsubscribe?.();
         headerUnderHeight.reset();
     }
 
@@ -33,7 +43,11 @@ export class Header {
             <Host
                 dark={theme.isDark()}
                 high-contrast={theme.isHighContrast()}
-                class={{ has_under: this.under }}
+                class={{
+                    has_under: this.under,
+                    has_backdrop: this.backdrop,
+                    has_banner: this.banner,
+                }}
             >
                 <header part={'header'}>
                     <div class={'left'} part={'left'}>
@@ -54,7 +68,10 @@ export class Header {
                     <slot name={'under'} onSlotchange={this.underSlotChange} />
                 </div>
                 <div class={'backdrop'} part={'backdrop'}>
-                    <slot name={'backdrop'} />
+                    <slot
+                        name={'backdrop'}
+                        onSlotchange={this.backdropSlotChange}
+                    />
                 </div>
             </Host>
         );
@@ -71,5 +88,15 @@ export class Header {
 
         headerUnderHeight.set(totalHeight);
         this.under = totalHeight !== 0;
+    };
+
+    private backdropSlotChange = (e: Event) => {
+        if (!e.target) return;
+        const target = e.target as HTMLSlotElement;
+        this.backdrop = target.assignedElements().length !== 0;
+    };
+
+    private bannerChange = (val: number) => {
+        this.banner = val > 0;
     };
 }

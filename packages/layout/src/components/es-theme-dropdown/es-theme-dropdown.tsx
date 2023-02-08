@@ -1,8 +1,9 @@
-import { Component, h, Host, State } from '@stencil/core';
+import { Component, h, Prop, State } from '@stencil/core';
 import { theme } from '@eventstore-ui/theme';
 import type { IconDescription } from '@eventstore-ui/components';
 
 import { ICON_NAMESPACE } from '../../icons/namespace';
+import type { HeaderDropdownButtonVariant } from '../es-header-dropdown/types';
 
 /** A theme picker dropdown for the header */
 @Component({
@@ -11,15 +12,20 @@ import { ICON_NAMESPACE } from '../../icons/namespace';
     shadow: true,
 })
 export class ThemePicker {
+    /** Which styling variant to use. */
+    @Prop() variant: HeaderDropdownButtonVariant = 'default';
+
     @State() dropdownOpen: boolean = false;
 
     render() {
         return (
-            <Host>
-                <es-header-dropdown icon={this.activeIcon()} caret={false}>
-                    <es-theme-picker />
-                </es-header-dropdown>
-            </Host>
+            <es-header-dropdown
+                icon={this.activeIcon()}
+                caret={false}
+                variant={this.variant}
+            >
+                <es-theme-picker />
+            </es-header-dropdown>
         );
     }
 

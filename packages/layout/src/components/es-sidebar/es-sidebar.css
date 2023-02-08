@@ -5,6 +5,8 @@
 
 :host {
     grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: var(--layout-body-top);
     width: 260px;

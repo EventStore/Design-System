@@ -7,6 +7,7 @@ import {
     Element,
     Event,
     EventEmitter,
+    Listen,
 } from '@stencil/core';
 import {
     arrow,
@@ -48,6 +49,10 @@ export class Popover {
     @Prop({ attribute: 'trap-focus' }) trapFocus: boolean = false;
     /** If the popover should request to close when focus is lost */
     @Prop() closeOnBlur: boolean = false;
+    /** If the popover should request to close when clicked outside */
+    @Prop() closeOnClickOutside: boolean = false;
+    /** If the popover should request to close when esc is pressed */
+    @Prop() closeOnEsc: boolean = false;
 
     /** Pass an element to attach the popover to. (Defaults to the parent element.) */
     @Prop() attachTo?: HTMLElement;
@@ -127,6 +132,24 @@ export class Popover {
         } else {
             this.closePopper();
         }
+    }
+
+    @Listen('click', { target: 'document', capture: true }) onClickOutside(
+        e: MouseEvent,
+    ) {
+        if (!this.closeOnClickOutside) return;
+        if (!this.open || !this.popperInner) return;
+        const path = e.composedPath();
+        if (path.includes(this.host) || path.includes(this.popperInner)) return;
+        this.requestClose.emit();
+    }
+
+    @Listen('keydown', { target: 'document', capture: true }) onEscPress(
+        e: KeyboardEvent,
+    ) {
+        if (!this.closeOnEsc) return;
+        if (e.key !== 'Escape' || e.altKey || e.ctrlKey || e.metaKey) return;
+        this.requestClose.emit();
     }
 
     render() {

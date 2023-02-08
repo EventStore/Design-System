@@ -1,10 +1,52 @@
+import { logger } from './logger';
+
+const LAYOUT_OBSERVER = Symbol.for('es-layout-observer');
+const LAYOUT_OBSERVERS = Symbol.for('es-layout-observers');
+
+type Observer = [varName: string, fn: (val: string) => void];
+
+declare global {
+    interface Window {
+        [LAYOUT_OBSERVER]?: MutationObserver;
+        [LAYOUT_OBSERVERS]?: Set<Observer>;
+    }
+}
+
+window[LAYOUT_OBSERVERS] = window[LAYOUT_OBSERVERS] ?? new Set<Observer>();
+window[LAYOUT_OBSERVER] =
+    window[LAYOUT_OBSERVER] ??
+    (() => {
+        const layoutObserver = new MutationObserver((mutations) => {
+            for (const mutation of mutations) {
+                const target = mutation.target as HTMLElement;
+
+                for (const [varName, fn] of window[LAYOUT_OBSERVERS]!) {
+                    const val = target.style.getPropertyValue(varName);
+                    fn(val);
+                }
+            }
+        });
+
+        layoutObserver.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['style'],
+        });
+
+        return layoutObserver;
+    })();
+
+export type VarObserver = (val: number) => void;
+
 export class CssVar {
     private name: string;
     private default: string;
 
+    private observers = new Set<VarObserver>();
+
     constructor(name: string, defaults: CSSStyleDeclaration) {
         this.name = name;
         this.default = defaults.getPropertyValue(name);
+        window[LAYOUT_OBSERVERS]!.add([name, this.onChange]);
     }
 
     public set = (to: number) => {
@@ -13,6 +55,27 @@ export class CssVar {
 
     public reset = () => {
         document.documentElement.style.setProperty(this.name, this.default);
+    };
+
+    public observe = (fn: VarObserver) => {
+        this.observers.add(fn);
+        return () => {
+            this.observers.delete(fn);
+        };
+    };
+
+    private lastSeen?: string;
+    private onChange = (val: string) => {
+        if (val === this.lastSeen) return;
+        this.lastSeen = val;
+        const n = parseFloat(val || '0');
+        for (const fn of this.observers) {
+            try {
+                fn(n);
+            } catch (error) {
+                logger.error(error);
+            }
+        }
     };
 }
 

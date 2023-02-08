@@ -98,17 +98,21 @@ export default () => (
 
 ## Properties
 
-| Property      | Attribute      | Description                                                  | Type                                                                 | Default     |
-| ------------- | -------------- | ------------------------------------------------------------ | -------------------------------------------------------------------- | ----------- |
-| `alertLevel`  | `alert-level`  | Display a dot on the icon, to attract attention to the link. | `"error" \| "okay" \| "warning" \| undefined`                        | `undefined` |
-| `count`       | `count`        | Display a counter in place of the icon.                      | `number \| undefined`                                                | `undefined` |
-| `disabled`    | `disabled`     | If the link should be disabled.                              | `boolean`                                                            | `false`     |
-| `icon`        | `icon`         | Display an icon on the left.                                 | `[namespace: string \| symbol, name: string] \| string \| undefined` | `undefined` |
-| `level`       | `level`        | Apply an indent to the left of the link, for basic nesting.  | `number \| undefined`                                                | `undefined` |
-| `matchExact`  | `match-exact`  | Use exact url matching for active.                           | `boolean \| undefined`                                               | `undefined` |
-| `matchStrict` | `match-strict` | Use strict url matching for active.                          | `boolean \| undefined`                                               | `undefined` |
-| `matchUrl`    | `match-url`    | When to display as active. Uses the `url` by default.        | `string \| undefined`                                                | `undefined` |
-| `url`         | `url`          | Where to link to.                                            | `string \| undefined`                                                | `undefined` |
+| Property       | Attribute       | Description                                                                        | Type                                                                 | Default     |
+| -------------- | --------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------- |
+| `alertLevel`   | `alert-level`   | Display a dot on the icon, to attract attention to the link.                       | `"error" \| "okay" \| "warning" \| undefined`                        | `undefined` |
+| `count`        | `count`         | Display a counter in place of the icon.                                            | `number \| undefined`                                                | `undefined` |
+| `disabled`     | `disabled`      | If the link should be disabled.                                                    | `boolean`                                                            | `false`     |
+| `external`     | `external`      | If the link is external                                                            | `boolean \| undefined`                                               | `undefined` |
+| `forceRefresh` | `force-refresh` | If the Link should break out of the router, and force a page load                  | `boolean \| undefined`                                               | `undefined` |
+| `icon`         | `icon`          | Display an icon on the left.                                                       | `[namespace: string \| symbol, name: string] \| string \| undefined` | `undefined` |
+| `level`        | `level`         | Apply an indent to the left of the link, for basic nesting.                        | `number \| undefined`                                                | `undefined` |
+| `matchExact`   | `match-exact`   | Use exact url matching for active.                                                 | `boolean \| undefined`                                               | `undefined` |
+| `matchStrict`  | `match-strict`  | Use strict url matching for active.                                                | `boolean \| undefined`                                               | `undefined` |
+| `matchUrl`     | `match-url`     | When to display as active. Uses the `url` by default.                              | `string \| undefined`                                                | `undefined` |
+| `priority`     | `priority`      | When deciding the active child, if multiple are active, the highest priority wins. | `number`                                                             | `0`         |
+| `target`       | `target`        | Target for link (eg: target="_blank")                                              | `string \| undefined`                                                | `undefined` |
+| `url`          | `url`           | Where to link to.                                                                  | `string \| undefined`                                                | `undefined` |
 
 
 ## Methods
@@ -126,9 +130,10 @@ Type: `Promise<boolean>`
 
 ## Shadow Parts
 
-| Part     | Description       |
-| -------- | ----------------- |
-| `"link"` | The link element. |
+| Part        | Description         |
+| ----------- | ------------------- |
+| `"counter"` | The counter element |
+| `"link"`    | The link element.   |
 
 
 ## Dependencies

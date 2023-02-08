@@ -1,4 +1,12 @@
-import { Component, h, Listen, Method, Prop } from '@stencil/core';
+import {
+    Component,
+    h,
+    Listen,
+    Method,
+    Prop,
+    Event,
+    EventEmitter,
+} from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
 
 /**
@@ -23,6 +31,14 @@ export class LayoutButton {
     @Prop() alertLevel?: HTMLEsBadgeElement['color'];
     /** Display a counter in place of the icon. */
     @Prop() count?: number;
+    /** If the parent popup should close when clicked. */
+    @Prop() closeOnClick: boolean = false;
+
+    /** When deciding the active child, if multiple are active, the highest priority wins. */
+    @Prop() priority: number = 0;
+
+    /** Triggers the parent popup to close. */
+    @Event() requestClose!: EventEmitter;
 
     /** If the button is currently active */
     @Method()
@@ -35,6 +51,10 @@ export class LayoutButton {
             e.preventDefault();
             e.stopPropagation();
             return false;
+        }
+
+        if (this.closeOnClick) {
+            this.requestClose.emit();
         }
     }
 

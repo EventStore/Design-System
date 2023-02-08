@@ -102,6 +102,13 @@ export default () => (
 | `variant`    | `variant`     | Which styling variant to use.                                  | `"default" \| "highlight"`                                           | `'default'` |
 
 
+## Shadow Parts
+
+| Part        | Description |
+| ----------- | ----------- |
+| `"counter"` | the counter |
+
+
 ## Dependencies
 
 ### Used by
