@@ -85,7 +85,7 @@ export default () => (
 | `failedIcon`               | `failed-icon`   | The icon to display when the action errored out.                                                                | `[namespace: string \| symbol, name: string] \| string`                             | `[ICON_NAMESPACE, 'error']`   |
 | `text`                     | `text`          | Optional text of the button                                                                                     | `string \| undefined`                                                               | `undefined`                   |
 | `thinkingIcon`             | `thinking-icon` | The icon to display when we are awaiting the action.                                                            | `[namespace: string \| symbol, name: string] \| string`                             | `[ICON_NAMESPACE, 'spinner']` |
-| `variant`                  | `variant`       | Which styling variant to use.                                                                                   | `"cancel" \| "default" \| "delete" \| "filled" \| "link" \| "minimal" \| "outline"` | `'minimal'`                   |
+| `variant`                  | `variant`       | Which styling variant to use.                                                                                   | `"cancel" \| "default" \| "delete" \| "filled" \| "link" \| "minimal" \| "outline"` | `'default'`                   |
 
 
 ## Dependencies

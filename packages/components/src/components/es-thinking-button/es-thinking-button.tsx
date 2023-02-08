@@ -16,7 +16,7 @@ export class YThinkingButton {
     /** Optional text of the button */
     @Prop() text?: string;
     /** Which styling variant to use. */
-    @Prop() variant: HTMLEsButtonElement['variant'] = 'minimal';
+    @Prop() variant: HTMLEsButtonElement['variant'] = 'default';
     /** If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused. */
     @Prop() disabled?: boolean;
 
