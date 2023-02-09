@@ -448,7 +448,11 @@ export namespace Components {
         /**
           * Function to decide if a row can take expand, to show a nested table.
          */
-        "canExpand": (key: string, data: any) => boolean;
+        "canExpand": (
+        key: string,
+        data: any,
+        depth: number,
+    ) => boolean;
         /**
           * Function to decide if a row can expand more, to show more rows in the nested table.
          */
@@ -461,6 +465,10 @@ export namespace Components {
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
         "columns"?: string[];
+        /**
+          * Number of rows to be expanded by default
+         */
+        "defaultExpanded"?: (key: string, depth: number) => number;
         /**
           * Number number of rows to display in expansion
          */
@@ -1424,7 +1432,11 @@ declare namespace LocalJSX {
         /**
           * Function to decide if a row can take expand, to show a nested table.
          */
-        "canExpand"?: (key: string, data: any) => boolean;
+        "canExpand"?: (
+        key: string,
+        data: any,
+        depth: number,
+    ) => boolean;
         /**
           * Function to decide if a row can expand more, to show more rows in the nested table.
          */
@@ -1437,6 +1449,10 @@ declare namespace LocalJSX {
           * The order and keys of the cells to be rendered. If omitted, all cells will be rendered.
          */
         "columns"?: string[];
+        /**
+          * Number of rows to be expanded by default
+         */
+        "defaultExpanded"?: (key: string, depth: number) => number;
         /**
           * Number number of rows to display in expansion
          */
