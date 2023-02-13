@@ -2,57 +2,120 @@ import type { JsonDocs } from '@stencil/core/internal';
 import type { ProjectReflection } from 'typedoc';
 import type { PackageJson } from '.';
 
-interface RequireContext<T> {
-    (path: string): T;
-    keys: () => string[];
-}
+import componentsPackageJson from '@eventstore-ui/components/package.json';
+import componentsReadme from '@eventstore-ui/components/readme.md';
+import componentsStencilDocs from '../../../generated/components.stencil.json';
+import componentsTypeDocs from '../../../generated/components.typedoc.json';
 
-declare global {
-    interface NodeRequire {
-        context<T>(
-            base: string,
-            useSubdirectories: boolean,
-            regexp: RegExp,
-        ): RequireContext<T>;
-    }
-}
+import configsPackageJson from '@eventstore-ui/configs/package.json';
+import configsReadme from '@eventstore-ui/configs/readme.md';
 
-export const requireReadme = require.context<string>(
-    '../../../../',
-    true,
-    /^((?!node_modules).)*\/readme\.md$/,
-);
+import editorPackageJson from '@eventstore-ui/editor/package.json';
+import editorReadme from '@eventstore-ui/editor/readme.md';
+import editorStencilDocs from '../../../generated/editor.stencil.json';
+import editorTypeDocs from '../../../generated/editor.typedoc.json';
 
-export const requirePackageJson = require.context<PackageJson>(
-    '../../../../',
-    true,
-    /^((?!node_modules|dist).)*\/package\.json$/,
-);
+import fieldsPackageJson from '@eventstore-ui/fields/package.json';
+import fieldsReadme from '@eventstore-ui/fields/readme.md';
+import fieldsStencilDocs from '../../../generated/fields.stencil.json';
+import fieldsTypeDocs from '../../../generated/fields.typedoc.json';
 
-const requireStencilDocs = require.context<JsonDocs>(
-    '../../../generated',
-    true,
-    /.*\.stencil\.json$/,
-);
+import formsPackageJson from '@eventstore-ui/forms/package.json';
+import formsReadme from '@eventstore-ui/forms/readme.md';
+import formsTypeDocs from '../../../generated/forms.typedoc.json';
 
-export const optionallyRequireStencilDocs = (slug: string) => {
-    try {
-        return requireStencilDocs(`./${slug}.stencil.json`);
-    } catch (error) {
-        return undefined;
-    }
+import iconManagerPackageJson from '@eventstore-ui/icon-manager/package.json';
+import iconManagerReadme from '@eventstore-ui/icon-manager/readme.md';
+
+import illustrationsPackageJson from '@eventstore-ui/illustrations/package.json';
+import illustrationsReadme from '@eventstore-ui/illustrations/readme.md';
+import illustrationsStencilDocs from '../../../generated/illustrations.stencil.json';
+import illustrationsTypeDocs from '../../../generated/illustrations.typedoc.json';
+
+import layoutPackageJson from '@eventstore-ui/layout/package.json';
+import layoutReadme from '@eventstore-ui/layout/readme.md';
+import layoutStencilDocs from '../../../generated/layout.stencil.json';
+import layoutTypeDocs from '../../../generated/layout.typedoc.json';
+
+import routerPackageJson from '@eventstore-ui/router/package.json';
+import routerReadme from '@eventstore-ui/router/readme.md';
+import routerTypeDocs from '../../../generated/router.typedoc.json';
+
+import stencilMarkdownPluginPackageJson from '@eventstore-ui/stencil-markdown-plugin/package.json';
+import stencilMarkdownPluginReadme from '@eventstore-ui/stencil-markdown-plugin/readme.md';
+
+import storesPackageJson from '@eventstore-ui/stores/package.json';
+import storesReadme from '@eventstore-ui/stores/readme.md';
+import storesTypeDocs from '../../../generated/stores.typedoc.json';
+
+import themePackageJson from '@eventstore-ui/theme/package.json';
+import themeReadme from '@eventstore-ui/theme/readme.md';
+import themeTypeDocs from '../../../generated/theme.typedoc.json';
+
+import utilsPackageJson from '@eventstore-ui/utils/package.json';
+import utilsReadme from '@eventstore-ui/utils/readme.md';
+import utilsTypeDocs from '../../../generated/utils.typedoc.json';
+
+const packageJsons: Record<string, PackageJson> = {
+    components: componentsPackageJson,
+    configs: configsPackageJson,
+    editor: editorPackageJson,
+    fields: fieldsPackageJson,
+    forms: formsPackageJson,
+    illustrations: illustrationsPackageJson,
+    'icon-manager': iconManagerPackageJson,
+    layout: layoutPackageJson,
+    router: routerPackageJson,
+    'stencil-markdown-plugin': stencilMarkdownPluginPackageJson,
+    stores: storesPackageJson,
+    theme: themePackageJson,
+    utils: utilsPackageJson,
+} as any;
+
+const readmes: Record<string, string> = {
+    components: componentsReadme,
+    configs: configsReadme,
+    editor: editorReadme,
+    fields: fieldsReadme,
+    forms: formsReadme,
+    illustrations: illustrationsReadme,
+    'icon-manager': iconManagerReadme,
+    layout: layoutReadme,
+    router: routerReadme,
+    'stencil-markdown-plugin': stencilMarkdownPluginReadme,
+    stores: storesReadme,
+    theme: themeReadme,
+    utils: utilsReadme,
+} as any;
+
+const stencilDocs: Record<string, JsonDocs> = {
+    components: componentsStencilDocs,
+    editor: editorStencilDocs,
+    fields: fieldsStencilDocs,
+    illustrations: illustrationsStencilDocs,
+    layout: layoutStencilDocs,
+} as any;
+
+const typeDocs: Record<string, ProjectReflection> = {
+    components: componentsTypeDocs,
+    editor: editorTypeDocs,
+    fields: fieldsTypeDocs,
+    forms: formsTypeDocs,
+    illustrations: illustrationsTypeDocs,
+    layout: layoutTypeDocs,
+    router: routerTypeDocs,
+    stores: storesTypeDocs,
+    theme: themeTypeDocs,
+    utils: utilsTypeDocs,
+} as any;
+
+export const getPackageJson = (slug: string) => {
+    if (packageJsons[slug]) return packageJsons[slug];
+    throw `No package.json imported for ${slug}`;
 };
-
-const requireTypeDocs = require.context<ProjectReflection>(
-    '../../../generated',
-    true,
-    /.*\.typedoc\.json$/,
-);
-
-export const optionallyRequireTypeDocs = (slug: string) => {
-    try {
-        return requireTypeDocs(`./${slug}.typedoc.json`);
-    } catch (error) {
-        return undefined;
-    }
+export const getReadme = (slug: string) => {
+    if (readmes[slug]) return readmes[slug];
+    throw `No readme imported for ${slug}`;
 };
+export const optionallyGetStencilDocs = (slug: string) => stencilDocs[slug];
+export const optionallyGetTypedocs = (slug: string) => typeDocs[slug];

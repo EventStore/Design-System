@@ -2,12 +2,11 @@ import type { JsonDocs } from '@stencil/core/internal';
 import type { ProjectReflection } from 'typedoc';
 import { createTypedocLookup, TypedocLookup } from './createTypedocLookup';
 import { fixTagNames } from './fixTagName';
-
 import {
-    optionallyRequireStencilDocs,
-    optionallyRequireTypeDocs,
-    requirePackageJson,
-    requireReadme,
+    getPackageJson,
+    getReadme,
+    optionallyGetStencilDocs,
+    optionallyGetTypedocs,
 } from './requires';
 
 export interface SectionDefinition {
@@ -103,9 +102,9 @@ export const expandSitemap = (siteDefinition: SectionDefinition[]): Sitemap => {
 };
 
 const expandLib = ({ title, filePath }: LibDefinition): Lib => {
-    const project = fixTagNames(optionallyRequireTypeDocs(slugize(title)));
-    const packageJson = requirePackageJson(`${filePath}/package.json`);
     const slug = slugize(title);
+    const project = fixTagNames(optionallyGetTypedocs(slug));
+    const packageJson = getPackageJson(slug);
 
     return {
         title,
@@ -116,8 +115,8 @@ const expandLib = ({ title, filePath }: LibDefinition): Lib => {
         typeDocs: project
             ? { project, lookup: createTypedocLookup(project) }
             : undefined,
-        stencilDocs: optionallyRequireStencilDocs(slug),
-        readme: requireReadme(`${filePath}/readme.md`),
+        stencilDocs: optionallyGetStencilDocs(slug),
+        readme: getReadme(slug),
     };
 };
 

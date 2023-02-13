@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A pill display of an number, that pulses on change. Caps out at 999.
+
 ## Usage
 
 ### Example

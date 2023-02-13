@@ -5,6 +5,11 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
+See [IconStore](/components/variables/iconStore) for details on how to load icons.
+
 ## Usage
 
 ### Example

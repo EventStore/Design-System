@@ -7,7 +7,7 @@ import { findAllReferences } from 'utils/typedoc/findAllReferences';
 import { isVariable } from 'utils/typedoc/reflectionKind';
 import { isReferenceType } from 'utils/typedoc/someType';
 import { extractUsage } from 'utils/extractUsage';
-import { extractAbstract, extractBodyText } from 'utils/extractText';
+import { extractText } from 'utils/extractText';
 import type { SomeReflection } from 'utils/typedoc/types';
 
 @Component({
@@ -52,7 +52,7 @@ export class UtilDocs {
                     },
                 ]}
             >
-                <docs-markdown class={'intro'} md={extractAbstract(this.doc)} />
+                <docs-markdown class={'intro'} md={extractText(this.doc)} />
 
                 {Object.entries(extractUsage(this.doc)).map(
                     ([uname, usage]) => (
@@ -68,17 +68,15 @@ export class UtilDocs {
                     declaration={this.instanceOf ?? this.doc}
                 />
 
-                <docs-markdown class={'body'} md={extractBodyText(this.doc)} />
-
                 {this.references.map((doc) => (
                     <div key={doc.name} id={doc.name}>
                         <h2>{doc.name}</h2>
                         <docs-markdown
                             class={'intro'}
                             md={
-                                doc.comment?.text ??
-                                doc.comment?.shortText ??
-                                ''
+                                doc.comment?.summary
+                                    .map(({ text }) => text)
+                                    .join('') ?? ''
                             }
                         />
                         <docs-type-documentation declaration={doc} />

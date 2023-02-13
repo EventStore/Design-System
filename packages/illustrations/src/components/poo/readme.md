@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Displays Poo illustration.
+
 ## Usage
 
 ### Example

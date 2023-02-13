@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A checkbox component
+
 ## Usage
 
 ### Example

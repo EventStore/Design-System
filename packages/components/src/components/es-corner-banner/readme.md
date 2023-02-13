@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Display a banner with text in the corner.
+
 ## Usage
 
 ### Example

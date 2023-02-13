@@ -63,9 +63,9 @@ export class ComponentDocs {
                         <docs-markdown
                             class={'intro'}
                             md={
-                                doc.comment?.text ??
-                                doc.comment?.shortText ??
-                                ''
+                                doc.comment?.summary
+                                    .map(({ text }) => text)
+                                    .join('') ?? ''
                             }
                         />
                         <docs-type-documentation declaration={doc} />

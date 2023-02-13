@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A searchable select dropdown.
+
 ## Usage
 
 ### Example

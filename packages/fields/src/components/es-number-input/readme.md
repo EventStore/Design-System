@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+
 ## Usage
 
 ### Example

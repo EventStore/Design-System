@@ -6,8 +6,8 @@ import type { SomeReflection } from 'utils/typedoc/types';
 export const ClassTable: FunctionalComponent<{
     declaration: DeclarationReflection;
 }> = ({ declaration }) => {
-    const props = !!declaration.comment?.tags?.find(
-        (tag) => tag.tagName === 'props' || tag.tagName === 'options',
+    const props = !!declaration.comment?.blockTags?.find(
+        (tag) => tag.tag === '@props' || tag.tag === '@options',
     );
 
     return (
@@ -36,7 +36,7 @@ const expandAndFilterSignatures = (declarations: SomeReflection[]) =>
         )
         .filter(
             (d) =>
-                !d.comment?.tags?.find(({ tagName }) => tagName === 'internal'),
+                !d.comment?.blockTags?.find(({ tag }) => tag === '@internal'),
         );
 
 const cells: TableCells<DeclarationReflection> = {
@@ -46,8 +46,8 @@ const cells: TableCells<DeclarationReflection> = {
             <docs-type
                 string={name}
                 depreciated={
-                    !!comment?.tags?.find(
-                        ({ tagName }) => tagName === 'depreciated',
+                    !!comment?.blockTags?.find(
+                        ({ tag }) => tag === '@depreciated',
                     )
                 }
             />
@@ -57,8 +57,8 @@ const cells: TableCells<DeclarationReflection> = {
     docs: {
         title: 'Description',
         cell: (h, { data: { comment } }) => {
-            const deprecation = comment?.tags?.find(
-                ({ tagName }) => tagName === 'depreciated',
+            const deprecation = comment?.blockTags?.find(
+                ({ tag }) => tag === '@depreciated',
             );
 
             return (
@@ -67,10 +67,19 @@ const cells: TableCells<DeclarationReflection> = {
                         class={{
                             depreciated: !!deprecation,
                         }}
-                        md={comment?.text ?? comment?.shortText ?? ''}
+                        md={
+                            comment?.summary.map(({ text }) => text).join('') ??
+                            ''
+                        }
                     />
                     {deprecation && (
-                        <docs-markdown md={deprecation.text ?? ''} />
+                        <docs-markdown
+                            md={
+                                deprecation.content
+                                    .map(({ text }) => text)
+                                    .join('') ?? ''
+                            }
+                        />
                     )}
                 </>
             );

@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Displays Rain Cloud illustration.
+
 ## Usage
 
 ### Example

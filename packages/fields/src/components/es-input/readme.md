@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+An optionally masked text input.
+
 ## Usage
 
 ### Example

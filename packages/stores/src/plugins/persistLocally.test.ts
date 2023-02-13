@@ -1,6 +1,9 @@
 import '../utils/initialize';
 import { persistLocally } from './persistLocally';
 import { createStore } from '../stores/createStore';
+
+jest.useRealTimers();
+
 interface FakeStorageEventInit {
     key: string;
     storageArea: Storage;
@@ -61,15 +64,16 @@ const bigIntJSONParser = {
 
 describe('persistLocally', () => {
     test('should persist data to browser storage', async () => {
-        const setItem = jest.spyOn(localStorage, 'setItem');
+        jest.spyOn(Storage.prototype, 'setItem');
 
+        const STORAGE_KEY = 'persist';
         const store = createStore<TestData>({
             foo: 'hello',
             bar: false,
         });
 
         store.use(
-            persistLocally('test', {
+            persistLocally(STORAGE_KEY, {
                 keys: ['foo', 'bar'],
                 storage: localStorage,
             }),
@@ -80,29 +84,30 @@ describe('persistLocally', () => {
 
         await new Promise((r) => setTimeout(r, 0));
 
-        expect(setItem).toBeCalledTimes(1);
+        expect(localStorage.setItem).toBeCalledTimes(1);
 
         store.set('foo', 'bella');
         store.set('bar', false);
 
         await new Promise((r) => setTimeout(r, 0));
 
-        expect(setItem).toBeCalledTimes(2);
+        expect(localStorage.setItem).toBeCalledTimes(2);
     });
 
     test('should initialise store from browser storage', async () => {
+        const STORAGE_KEY = 'initialise';
         const store = createStore<TestData>({
             foo: '',
             bar: false,
         });
 
         localStorageOperations.setItem(
-            'test',
+            STORAGE_KEY,
             JSON.stringify({ foo: 'hello', bar: true }),
         );
 
         store.use(
-            persistLocally('test', {
+            persistLocally(STORAGE_KEY, {
                 keys: ['foo', 'bar'],
                 storage: localStorage,
             }),
@@ -113,20 +118,21 @@ describe('persistLocally', () => {
     });
 
     test('should replicate browser storage to store', async () => {
+        const STORAGE_KEY = 'replicate';
         const store = createStore<TestData>({
             foo: 'hello',
             bar: false,
         });
 
         store.use(
-            persistLocally('test', {
+            persistLocally(STORAGE_KEY, {
                 keys: ['foo', 'bar'],
                 storage: localStorage,
             }),
         );
 
         localStorageOperations.setItem(
-            'test',
+            STORAGE_KEY,
             JSON.stringify({ foo: 'hola', bar: true }),
         );
 
@@ -135,26 +141,28 @@ describe('persistLocally', () => {
     });
 
     test('should back all keys by default', async () => {
+        const STORAGE_KEY = 'back_all_keys';
         const store = createStore<TestData>({
             foo: 'hello',
             bar: true,
         });
 
         store.use(
-            persistLocally('test', {
+            persistLocally(STORAGE_KEY, {
                 storage: localStorage,
             }),
         );
 
         await new Promise((r) => setTimeout(r, 0));
 
-        const obj = JSON.parse(localStorage.getItem('test')!);
+        const obj = JSON.parse(localStorage.getItem(STORAGE_KEY)!);
 
         expect(obj.foo).toBe('hello');
         expect(obj.bar).toBe(true);
     });
 
     test('should only back specified keys', async () => {
+        const STORAGE_KEY = 'back_specific_keys';
         const store = createStore<TestDataAlt>({
             str: 'hello',
             bool: true,
@@ -162,7 +170,7 @@ describe('persistLocally', () => {
         });
 
         store.use(
-            persistLocally('test', {
+            persistLocally(STORAGE_KEY, {
                 storage: localStorage,
                 keys: ['str', 'num'],
             }),
@@ -170,7 +178,7 @@ describe('persistLocally', () => {
 
         await new Promise((r) => setTimeout(r, 0));
 
-        const obj: TestDataAlt = JSON.parse(localStorage.getItem('test')!);
+        const obj: TestDataAlt = JSON.parse(localStorage.getItem(STORAGE_KEY)!);
 
         expect(obj.str).toBe('hello');
         expect(obj.num).toBe(1337);
@@ -179,13 +187,14 @@ describe('persistLocally', () => {
     });
 
     test('should stay consistent across multiple tabs', async () => {
+        const STORAGE_KEY = 'many_tabs';
         const store1 = createStore<TestData>({
             foo: 'hello from store1',
             bar: true,
         });
 
         store1.use(
-            persistLocally('test', {
+            persistLocally(STORAGE_KEY, {
                 storage: localStorage,
             }),
         );
@@ -198,7 +207,7 @@ describe('persistLocally', () => {
         });
 
         store2.use(
-            persistLocally('test', {
+            persistLocally(STORAGE_KEY, {
                 storage: localStorage,
             }),
         );
@@ -210,7 +219,7 @@ describe('persistLocally', () => {
         await new Promise((r) => setTimeout(r, 0));
         globalThis.dispatchEvent(
             new FakeStorageEvent({
-                key: 'test',
+                key: STORAGE_KEY,
                 storageArea: localStorage,
             }),
         );
@@ -219,6 +228,7 @@ describe('persistLocally', () => {
     });
 
     test('should support custom serialiser/deserialisers', async () => {
+        const STORAGE_KEY = 'custom serialiser/deserialisers';
         const data: TestDataAlt = {
             bigInt: BigInt(9007199254740991),
         };
@@ -231,7 +241,7 @@ describe('persistLocally', () => {
 
         const store = createStore<TestDataAlt>(data);
         store.use(
-            persistLocally('test', {
+            persistLocally(STORAGE_KEY, {
                 storage: localStorage,
                 serialize: bigIntJSONParser.serialise,
                 deserialize: bigIntJSONParser.deserialize,
@@ -239,13 +249,13 @@ describe('persistLocally', () => {
         );
 
         await new Promise((r) => setTimeout(r, 0));
-        expect(localStorage.getItem('test')).toBe(
+        expect(localStorage.getItem(STORAGE_KEY)).toBe(
             '{"bigInt":"9007199254740991n"}',
         );
 
         const store2 = createStore<TestDataAlt>(data);
         store.use(
-            persistLocally('test', {
+            persistLocally(STORAGE_KEY, {
                 storage: localStorage,
                 serialize: bigIntJSONParser.serialise,
                 deserialize: bigIntJSONParser.deserialize,

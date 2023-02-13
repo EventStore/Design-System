@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Displays Issues illustration.
+
 ## Usage
 
 ### Example

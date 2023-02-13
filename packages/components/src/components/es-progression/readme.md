@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A wizard progression bar.
+
 ## Usage
 
 ### Example

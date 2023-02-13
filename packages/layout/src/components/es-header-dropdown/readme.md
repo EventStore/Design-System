@@ -3,6 +3,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A dropdown for the header.
+
 ## Usage
 
 ### Example

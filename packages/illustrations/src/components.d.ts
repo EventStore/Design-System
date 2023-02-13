@@ -6,186 +6,324 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    /**
+     * Displays Backups illustration.
+     */
     interface EsIllustrationBackups {
     }
+    /**
+     * Displays Building Orgs illustration.
+     */
     interface EsIllustrationBuildingOrgs {
     }
+    /**
+     * Displays Cloud Folder illustration.
+     */
     interface EsIllustrationCloudFolder {
     }
+    /**
+     * Displays Cluster illustration.
+     */
     interface EsIllustrationCluster {
     }
+    /**
+     * Displays Es Database illustration.
+     */
     interface EsIllustrationEsDatabase {
     }
+    /**
+     * Displays Event illustration.
+     */
     interface EsIllustrationEvent {
     }
+    /**
+     * Displays Group illustration.
+     */
     interface EsIllustrationGroup {
     }
+    /**
+     * Displays Harddrive illustration.
+     */
     interface EsIllustrationHarddrive {
     }
+    /**
+     * Displays Integration illustration.
+     */
     interface EsIllustrationIntegration {
     }
+    /**
+     * Displays Issues illustration.
+     */
     interface EsIllustrationIssues {
     }
+    /**
+     * Displays Laptop illustration.
+     */
     interface EsIllustrationLaptop {
     }
+    /**
+     * Displays Network illustration.
+     */
     interface EsIllustrationNetwork {
     }
+    /**
+     * Displays Notifications illustration.
+     */
     interface EsIllustrationNotifications {
     }
+    /**
+     * Displays Peering illustration.
+     */
     interface EsIllustrationPeering {
     }
+    /**
+     * Displays Pending Member illustration.
+     */
     interface EsIllustrationPendingMember {
     }
+    /**
+     * Displays Policy illustration.
+     */
     interface EsIllustrationPolicy {
     }
+    /**
+     * Displays Poo illustration.
+     */
     interface EsIllustrationPoo {
     }
+    /**
+     * Displays Rain Cloud illustration.
+     */
     interface EsIllustrationRainCloud {
     }
+    /**
+     * Displays Role illustration.
+     */
     interface EsIllustrationRole {
     }
+    /**
+     * Displays Scheduled Backups illustration.
+     */
     interface EsIllustrationScheduledBackups {
     }
+    /**
+     * Displays Stream illustration.
+     */
     interface EsIllustrationStream {
     }
+    /**
+     * Displays Token illustration.
+     */
     interface EsIllustrationToken {
     }
+    /**
+     * Displays Welcome illustration.
+     */
     interface EsIllustrationWelcome {
     }
 }
 declare global {
+    /**
+     * Displays Backups illustration.
+     */
     interface HTMLEsIllustrationBackupsElement extends Components.EsIllustrationBackups, HTMLStencilElement {
     }
     var HTMLEsIllustrationBackupsElement: {
         prototype: HTMLEsIllustrationBackupsElement;
         new (): HTMLEsIllustrationBackupsElement;
     };
+    /**
+     * Displays Building Orgs illustration.
+     */
     interface HTMLEsIllustrationBuildingOrgsElement extends Components.EsIllustrationBuildingOrgs, HTMLStencilElement {
     }
     var HTMLEsIllustrationBuildingOrgsElement: {
         prototype: HTMLEsIllustrationBuildingOrgsElement;
         new (): HTMLEsIllustrationBuildingOrgsElement;
     };
+    /**
+     * Displays Cloud Folder illustration.
+     */
     interface HTMLEsIllustrationCloudFolderElement extends Components.EsIllustrationCloudFolder, HTMLStencilElement {
     }
     var HTMLEsIllustrationCloudFolderElement: {
         prototype: HTMLEsIllustrationCloudFolderElement;
         new (): HTMLEsIllustrationCloudFolderElement;
     };
+    /**
+     * Displays Cluster illustration.
+     */
     interface HTMLEsIllustrationClusterElement extends Components.EsIllustrationCluster, HTMLStencilElement {
     }
     var HTMLEsIllustrationClusterElement: {
         prototype: HTMLEsIllustrationClusterElement;
         new (): HTMLEsIllustrationClusterElement;
     };
+    /**
+     * Displays Es Database illustration.
+     */
     interface HTMLEsIllustrationEsDatabaseElement extends Components.EsIllustrationEsDatabase, HTMLStencilElement {
     }
     var HTMLEsIllustrationEsDatabaseElement: {
         prototype: HTMLEsIllustrationEsDatabaseElement;
         new (): HTMLEsIllustrationEsDatabaseElement;
     };
+    /**
+     * Displays Event illustration.
+     */
     interface HTMLEsIllustrationEventElement extends Components.EsIllustrationEvent, HTMLStencilElement {
     }
     var HTMLEsIllustrationEventElement: {
         prototype: HTMLEsIllustrationEventElement;
         new (): HTMLEsIllustrationEventElement;
     };
+    /**
+     * Displays Group illustration.
+     */
     interface HTMLEsIllustrationGroupElement extends Components.EsIllustrationGroup, HTMLStencilElement {
     }
     var HTMLEsIllustrationGroupElement: {
         prototype: HTMLEsIllustrationGroupElement;
         new (): HTMLEsIllustrationGroupElement;
     };
+    /**
+     * Displays Harddrive illustration.
+     */
     interface HTMLEsIllustrationHarddriveElement extends Components.EsIllustrationHarddrive, HTMLStencilElement {
     }
     var HTMLEsIllustrationHarddriveElement: {
         prototype: HTMLEsIllustrationHarddriveElement;
         new (): HTMLEsIllustrationHarddriveElement;
     };
+    /**
+     * Displays Integration illustration.
+     */
     interface HTMLEsIllustrationIntegrationElement extends Components.EsIllustrationIntegration, HTMLStencilElement {
     }
     var HTMLEsIllustrationIntegrationElement: {
         prototype: HTMLEsIllustrationIntegrationElement;
         new (): HTMLEsIllustrationIntegrationElement;
     };
+    /**
+     * Displays Issues illustration.
+     */
     interface HTMLEsIllustrationIssuesElement extends Components.EsIllustrationIssues, HTMLStencilElement {
     }
     var HTMLEsIllustrationIssuesElement: {
         prototype: HTMLEsIllustrationIssuesElement;
         new (): HTMLEsIllustrationIssuesElement;
     };
+    /**
+     * Displays Laptop illustration.
+     */
     interface HTMLEsIllustrationLaptopElement extends Components.EsIllustrationLaptop, HTMLStencilElement {
     }
     var HTMLEsIllustrationLaptopElement: {
         prototype: HTMLEsIllustrationLaptopElement;
         new (): HTMLEsIllustrationLaptopElement;
     };
+    /**
+     * Displays Network illustration.
+     */
     interface HTMLEsIllustrationNetworkElement extends Components.EsIllustrationNetwork, HTMLStencilElement {
     }
     var HTMLEsIllustrationNetworkElement: {
         prototype: HTMLEsIllustrationNetworkElement;
         new (): HTMLEsIllustrationNetworkElement;
     };
+    /**
+     * Displays Notifications illustration.
+     */
     interface HTMLEsIllustrationNotificationsElement extends Components.EsIllustrationNotifications, HTMLStencilElement {
     }
     var HTMLEsIllustrationNotificationsElement: {
         prototype: HTMLEsIllustrationNotificationsElement;
         new (): HTMLEsIllustrationNotificationsElement;
     };
+    /**
+     * Displays Peering illustration.
+     */
     interface HTMLEsIllustrationPeeringElement extends Components.EsIllustrationPeering, HTMLStencilElement {
     }
     var HTMLEsIllustrationPeeringElement: {
         prototype: HTMLEsIllustrationPeeringElement;
         new (): HTMLEsIllustrationPeeringElement;
     };
+    /**
+     * Displays Pending Member illustration.
+     */
     interface HTMLEsIllustrationPendingMemberElement extends Components.EsIllustrationPendingMember, HTMLStencilElement {
     }
     var HTMLEsIllustrationPendingMemberElement: {
         prototype: HTMLEsIllustrationPendingMemberElement;
         new (): HTMLEsIllustrationPendingMemberElement;
     };
+    /**
+     * Displays Policy illustration.
+     */
     interface HTMLEsIllustrationPolicyElement extends Components.EsIllustrationPolicy, HTMLStencilElement {
     }
     var HTMLEsIllustrationPolicyElement: {
         prototype: HTMLEsIllustrationPolicyElement;
         new (): HTMLEsIllustrationPolicyElement;
     };
+    /**
+     * Displays Poo illustration.
+     */
     interface HTMLEsIllustrationPooElement extends Components.EsIllustrationPoo, HTMLStencilElement {
     }
     var HTMLEsIllustrationPooElement: {
         prototype: HTMLEsIllustrationPooElement;
         new (): HTMLEsIllustrationPooElement;
     };
+    /**
+     * Displays Rain Cloud illustration.
+     */
     interface HTMLEsIllustrationRainCloudElement extends Components.EsIllustrationRainCloud, HTMLStencilElement {
     }
     var HTMLEsIllustrationRainCloudElement: {
         prototype: HTMLEsIllustrationRainCloudElement;
         new (): HTMLEsIllustrationRainCloudElement;
     };
+    /**
+     * Displays Role illustration.
+     */
     interface HTMLEsIllustrationRoleElement extends Components.EsIllustrationRole, HTMLStencilElement {
     }
     var HTMLEsIllustrationRoleElement: {
         prototype: HTMLEsIllustrationRoleElement;
         new (): HTMLEsIllustrationRoleElement;
     };
+    /**
+     * Displays Scheduled Backups illustration.
+     */
     interface HTMLEsIllustrationScheduledBackupsElement extends Components.EsIllustrationScheduledBackups, HTMLStencilElement {
     }
     var HTMLEsIllustrationScheduledBackupsElement: {
         prototype: HTMLEsIllustrationScheduledBackupsElement;
         new (): HTMLEsIllustrationScheduledBackupsElement;
     };
+    /**
+     * Displays Stream illustration.
+     */
     interface HTMLEsIllustrationStreamElement extends Components.EsIllustrationStream, HTMLStencilElement {
     }
     var HTMLEsIllustrationStreamElement: {
         prototype: HTMLEsIllustrationStreamElement;
         new (): HTMLEsIllustrationStreamElement;
     };
+    /**
+     * Displays Token illustration.
+     */
     interface HTMLEsIllustrationTokenElement extends Components.EsIllustrationToken, HTMLStencilElement {
     }
     var HTMLEsIllustrationTokenElement: {
         prototype: HTMLEsIllustrationTokenElement;
         new (): HTMLEsIllustrationTokenElement;
     };
+    /**
+     * Displays Welcome illustration.
+     */
     interface HTMLEsIllustrationWelcomeElement extends Components.EsIllustrationWelcome, HTMLStencilElement {
     }
     var HTMLEsIllustrationWelcomeElement: {
@@ -219,50 +357,119 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    /**
+     * Displays Backups illustration.
+     */
     interface EsIllustrationBackups {
     }
+    /**
+     * Displays Building Orgs illustration.
+     */
     interface EsIllustrationBuildingOrgs {
     }
+    /**
+     * Displays Cloud Folder illustration.
+     */
     interface EsIllustrationCloudFolder {
     }
+    /**
+     * Displays Cluster illustration.
+     */
     interface EsIllustrationCluster {
     }
+    /**
+     * Displays Es Database illustration.
+     */
     interface EsIllustrationEsDatabase {
     }
+    /**
+     * Displays Event illustration.
+     */
     interface EsIllustrationEvent {
     }
+    /**
+     * Displays Group illustration.
+     */
     interface EsIllustrationGroup {
     }
+    /**
+     * Displays Harddrive illustration.
+     */
     interface EsIllustrationHarddrive {
     }
+    /**
+     * Displays Integration illustration.
+     */
     interface EsIllustrationIntegration {
     }
+    /**
+     * Displays Issues illustration.
+     */
     interface EsIllustrationIssues {
     }
+    /**
+     * Displays Laptop illustration.
+     */
     interface EsIllustrationLaptop {
     }
+    /**
+     * Displays Network illustration.
+     */
     interface EsIllustrationNetwork {
     }
+    /**
+     * Displays Notifications illustration.
+     */
     interface EsIllustrationNotifications {
     }
+    /**
+     * Displays Peering illustration.
+     */
     interface EsIllustrationPeering {
     }
+    /**
+     * Displays Pending Member illustration.
+     */
     interface EsIllustrationPendingMember {
     }
+    /**
+     * Displays Policy illustration.
+     */
     interface EsIllustrationPolicy {
     }
+    /**
+     * Displays Poo illustration.
+     */
     interface EsIllustrationPoo {
     }
+    /**
+     * Displays Rain Cloud illustration.
+     */
     interface EsIllustrationRainCloud {
     }
+    /**
+     * Displays Role illustration.
+     */
     interface EsIllustrationRole {
     }
+    /**
+     * Displays Scheduled Backups illustration.
+     */
     interface EsIllustrationScheduledBackups {
     }
+    /**
+     * Displays Stream illustration.
+     */
     interface EsIllustrationStream {
     }
+    /**
+     * Displays Token illustration.
+     */
     interface EsIllustrationToken {
     }
+    /**
+     * Displays Welcome illustration.
+     */
     interface EsIllustrationWelcome {
     }
     interface IntrinsicElements {
@@ -295,28 +502,97 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            /**
+             * Displays Backups illustration.
+             */
             "es-illustration-backups": LocalJSX.EsIllustrationBackups & JSXBase.HTMLAttributes<HTMLEsIllustrationBackupsElement>;
+            /**
+             * Displays Building Orgs illustration.
+             */
             "es-illustration-building-orgs": LocalJSX.EsIllustrationBuildingOrgs & JSXBase.HTMLAttributes<HTMLEsIllustrationBuildingOrgsElement>;
+            /**
+             * Displays Cloud Folder illustration.
+             */
             "es-illustration-cloud-folder": LocalJSX.EsIllustrationCloudFolder & JSXBase.HTMLAttributes<HTMLEsIllustrationCloudFolderElement>;
+            /**
+             * Displays Cluster illustration.
+             */
             "es-illustration-cluster": LocalJSX.EsIllustrationCluster & JSXBase.HTMLAttributes<HTMLEsIllustrationClusterElement>;
+            /**
+             * Displays Es Database illustration.
+             */
             "es-illustration-es-database": LocalJSX.EsIllustrationEsDatabase & JSXBase.HTMLAttributes<HTMLEsIllustrationEsDatabaseElement>;
+            /**
+             * Displays Event illustration.
+             */
             "es-illustration-event": LocalJSX.EsIllustrationEvent & JSXBase.HTMLAttributes<HTMLEsIllustrationEventElement>;
+            /**
+             * Displays Group illustration.
+             */
             "es-illustration-group": LocalJSX.EsIllustrationGroup & JSXBase.HTMLAttributes<HTMLEsIllustrationGroupElement>;
+            /**
+             * Displays Harddrive illustration.
+             */
             "es-illustration-harddrive": LocalJSX.EsIllustrationHarddrive & JSXBase.HTMLAttributes<HTMLEsIllustrationHarddriveElement>;
+            /**
+             * Displays Integration illustration.
+             */
             "es-illustration-integration": LocalJSX.EsIllustrationIntegration & JSXBase.HTMLAttributes<HTMLEsIllustrationIntegrationElement>;
+            /**
+             * Displays Issues illustration.
+             */
             "es-illustration-issues": LocalJSX.EsIllustrationIssues & JSXBase.HTMLAttributes<HTMLEsIllustrationIssuesElement>;
+            /**
+             * Displays Laptop illustration.
+             */
             "es-illustration-laptop": LocalJSX.EsIllustrationLaptop & JSXBase.HTMLAttributes<HTMLEsIllustrationLaptopElement>;
+            /**
+             * Displays Network illustration.
+             */
             "es-illustration-network": LocalJSX.EsIllustrationNetwork & JSXBase.HTMLAttributes<HTMLEsIllustrationNetworkElement>;
+            /**
+             * Displays Notifications illustration.
+             */
             "es-illustration-notifications": LocalJSX.EsIllustrationNotifications & JSXBase.HTMLAttributes<HTMLEsIllustrationNotificationsElement>;
+            /**
+             * Displays Peering illustration.
+             */
             "es-illustration-peering": LocalJSX.EsIllustrationPeering & JSXBase.HTMLAttributes<HTMLEsIllustrationPeeringElement>;
+            /**
+             * Displays Pending Member illustration.
+             */
             "es-illustration-pending-member": LocalJSX.EsIllustrationPendingMember & JSXBase.HTMLAttributes<HTMLEsIllustrationPendingMemberElement>;
+            /**
+             * Displays Policy illustration.
+             */
             "es-illustration-policy": LocalJSX.EsIllustrationPolicy & JSXBase.HTMLAttributes<HTMLEsIllustrationPolicyElement>;
+            /**
+             * Displays Poo illustration.
+             */
             "es-illustration-poo": LocalJSX.EsIllustrationPoo & JSXBase.HTMLAttributes<HTMLEsIllustrationPooElement>;
+            /**
+             * Displays Rain Cloud illustration.
+             */
             "es-illustration-rain-cloud": LocalJSX.EsIllustrationRainCloud & JSXBase.HTMLAttributes<HTMLEsIllustrationRainCloudElement>;
+            /**
+             * Displays Role illustration.
+             */
             "es-illustration-role": LocalJSX.EsIllustrationRole & JSXBase.HTMLAttributes<HTMLEsIllustrationRoleElement>;
+            /**
+             * Displays Scheduled Backups illustration.
+             */
             "es-illustration-scheduled-backups": LocalJSX.EsIllustrationScheduledBackups & JSXBase.HTMLAttributes<HTMLEsIllustrationScheduledBackupsElement>;
+            /**
+             * Displays Stream illustration.
+             */
             "es-illustration-stream": LocalJSX.EsIllustrationStream & JSXBase.HTMLAttributes<HTMLEsIllustrationStreamElement>;
+            /**
+             * Displays Token illustration.
+             */
             "es-illustration-token": LocalJSX.EsIllustrationToken & JSXBase.HTMLAttributes<HTMLEsIllustrationTokenElement>;
+            /**
+             * Displays Welcome illustration.
+             */
             "es-illustration-welcome": LocalJSX.EsIllustrationWelcome & JSXBase.HTMLAttributes<HTMLEsIllustrationWelcomeElement>;
         }
     }

@@ -4,7 +4,7 @@ import { Page } from '@eventstore-ui/layout';
 
 import type { Lib } from 'sitemap';
 import { findAllReferences } from 'utils/typedoc/findAllReferences';
-import { extractAbstract } from 'utils/extractText';
+import { extractText } from 'utils/extractText';
 import { extractUsage } from 'utils/extractUsage';
 import type { SomeReflection } from 'utils/typedoc/types';
 
@@ -44,7 +44,7 @@ export class TypeDocs {
                     },
                 ]}
             >
-                <docs-markdown class={'intro'} md={extractAbstract(this.doc)} />
+                <docs-markdown class={'intro'} md={extractText(this.doc)} />
 
                 {Object.entries(extractUsage(this.doc)).map(
                     ([uname, usage]) => (
@@ -64,9 +64,9 @@ export class TypeDocs {
                         <docs-markdown
                             class={'intro'}
                             md={
-                                doc.comment?.text ??
-                                doc.comment?.shortText ??
-                                ''
+                                doc.comment?.summary
+                                    .map(({ text }) => text)
+                                    .join('') ?? ''
                             }
                         />
                         <docs-type-documentation declaration={doc} />

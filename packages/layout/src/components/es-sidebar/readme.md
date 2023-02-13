@@ -3,6 +3,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
+
 ## Usage
 
 ### Example

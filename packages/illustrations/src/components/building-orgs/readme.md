@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Displays Building Orgs illustration.
+
 ## Usage
 
 ### Example

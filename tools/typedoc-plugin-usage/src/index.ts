@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import { dirname, join, basename } from 'path';
+import { dirname, join } from 'path';
 
 import { Application, Converter, SignatureReflection, Context } from 'typedoc';
 
@@ -9,13 +9,15 @@ export const load = ({ converter }: Application) => {
 };
 
 function insertUsage(_context: Context, reflection: SignatureReflection) {
-    if (!reflection.comment?.hasTag('usage')) return;
+    const tags = reflection.comment?.getTags('@usage');
+    if (!tags || !tags.length) return;
     const [{ fileName }] = reflection.sources!;
-    for (const tag of reflection.comment.tags) {
-        if (tag.tagName !== 'usage') continue;
-        const fullPath = join(dirname(fileName), tag.text.trim());
+    for (const tag of tags) {
+        const tagIndex = tag.content.findIndex(({ kind }) => kind === 'text');
+        const path = tag.content.at(tagIndex)!.text.trim();
+        if (!path) continue;
+        const fullPath = join(dirname(fileName), path);
         const file = readFileSync(fullPath);
-        tag.paramName = basename(tag.text.trim()).split('.').shift()!;
-        tag.text = file.toString('utf-8');
+        tag.content.at(tagIndex)!.text = file.toString('utf-8');
     }
 }

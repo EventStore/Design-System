@@ -2,8 +2,6 @@ import { Config } from '@stencil/core';
 import { postcss } from '@stencil/postcss';
 import { assetsPath } from '@eventstore-ui/assets';
 import postcssPresetEnv from 'postcss-preset-env';
-import nodePolyfills from 'rollup-plugin-node-polyfills';
-import requireContext from 'rollup-plugin-require-context';
 
 import { string } from 'rollup-plugin-string';
 import { workerPath } from '@eventstore-ui/editor/configure';
@@ -38,12 +36,7 @@ export const config: Config = {
         {
             type: 'www',
             baseUrl: 'https://design-system.eventstore.com/',
-            serviceWorker: {
-                swSrc: './src/global/sw.js',
-                globPatterns: ['**/*.{js,css,woff,woff2}'],
-                // monaco is pretty chunky, but we still want to pre-cache it
-                maximumFileSizeToCacheInBytes: 3_000_000,
-            },
+            serviceWorker: false,
             copy: [
                 ...imports,
                 {
@@ -65,9 +58,6 @@ export const config: Config = {
             ],
         },
     ],
-    commonjs: {
-        include: undefined,
-    } as any,
     devServer: {
         openBrowser: false,
         reloadStrategy: 'pageReload',
@@ -88,8 +78,4 @@ export const config: Config = {
             ],
         }),
     ],
-    rollupPlugins: {
-        before: [requireContext({ include: ['**/*.ts', '**/*.tsx'] })],
-        after: [nodePolyfills()],
-    },
 };

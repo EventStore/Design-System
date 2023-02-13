@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A panel. Automatically sets `--layout-panel-height` based on it's height, and when resized.
+
 ## Usage
 
 ### Example

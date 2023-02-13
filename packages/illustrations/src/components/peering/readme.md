@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Displays Peering illustration.
+
 ## Usage
 
 ### Example

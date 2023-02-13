@@ -3,11 +3,11 @@ import type { SomeReflection } from './typedoc/types';
 
 export const extractUsage = (doc: SomeReflection): Record<string, string> =>
     [doc, ...((doc as DeclarationReflection).signatures ?? [])]
-        .flatMap((signatures) => signatures.comment?.tags)
+        .flatMap((signatures) => signatures.comment?.blockTags)
         .reduce<Record<string, string>>((acc, tag) => {
-            if (!tag || tag.tagName !== 'usage') return acc;
+            if (!tag || tag.tag !== '@usage') return acc;
             return {
                 ...acc,
-                [tag.paramName ?? doc.name]: tag.text,
+                [doc.name]: tag.content.map(({ text }) => text).join('') ?? '',
             };
         }, {}) ?? {};

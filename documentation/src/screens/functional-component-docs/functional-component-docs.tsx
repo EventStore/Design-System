@@ -5,11 +5,7 @@ import { Page } from '@eventstore-ui/layout';
 import type { Lib } from 'sitemap';
 import { findAllReferences } from 'utils/typedoc/findAllReferences';
 import { extractUsage } from 'utils/extractUsage';
-import {
-    extractAbstract,
-    extractBodyText,
-    extractFullText,
-} from 'utils/extractText';
+import { extractText } from 'utils/extractText';
 import { hasTag } from 'utils/typedoc/hasTag';
 import type { SomeReflection } from 'utils/typedoc/types';
 
@@ -53,8 +49,7 @@ export class FunctionalComponentDocs {
                     },
                 ]}
             >
-                <docs-markdown class={'intro'} md={extractAbstract(this.doc)} />
-                <docs-markdown class={'body'} md={extractBodyText(this.doc)} />
+                <docs-markdown class={'body'} md={extractText(this.doc)} />
 
                 {Object.entries(extractUsage(this.doc)).map(
                     ([uname, usage]) => (
@@ -69,10 +64,7 @@ export class FunctionalComponentDocs {
                 {this.references.map((doc) => (
                     <div key={doc.name} id={doc.name}>
                         <h2>{hasTag(doc, 'props') ? 'Props' : doc.name}</h2>
-                        <docs-markdown
-                            class={'intro'}
-                            md={extractFullText(doc)}
-                        />
+                        <docs-markdown class={'intro'} md={extractText(doc)} />
                         <docs-type-documentation declaration={doc} />
                     </div>
                 ))}

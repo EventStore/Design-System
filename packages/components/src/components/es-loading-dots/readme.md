@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Display a row of five pulsing dots, to indicate loading.
+
 ## Dependencies
 
 ### Depends on

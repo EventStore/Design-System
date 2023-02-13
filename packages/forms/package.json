@@ -21,8 +21,7 @@
         "build:rollup": "rollup -c rollup.config.js",
         "build:cleanup": "rm -rf ./build",
         "docs": "typedoc --logLevel Error --json ../../documentation/generated/forms.typedoc.json",
-        "test": "stencil test --spec",
-        "test.watch": "stencil test --spec --watchAll",
+        "test": "jest --testEnvironment jsdom --passWithNoTests",
         "lint": "yarn g:lint"
     },
     "nx": {
@@ -40,15 +39,32 @@
         "@eventstore-ui/utils": "0.1.x"
     },
     "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-typescript": "^7.12.7",
         "@eventstore-ui/components": "workspace:*",
         "@eventstore-ui/stores": "workspace:*",
         "@eventstore-ui/utils": "workspace:*",
-        "@stencil/core": "2.17.4",
+        "@stencil/core": "3.0.1",
         "@types/jest": "^27.0.3",
+        "babel-jest": "^27.5.1",
         "jest": "^27.4.5",
         "npm-run-all": "^4.1.5",
         "rollup": "^2.52.7",
-        "typedoc": "^0.22.13",
-        "typescript": "4.5.5"
+        "typedoc": "0.23.24",
+        "typescript": "4.9.4"
+    },
+    "babel": {
+        "presets": [
+            [
+                "@babel/preset-env",
+                {
+                    "targets": {
+                        "node": "current"
+                    }
+                }
+            ],
+            "@babel/preset-typescript"
+        ]
     }
 }

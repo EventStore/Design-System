@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The Event Store logo.
+
 ## Usage
 
 ### Example

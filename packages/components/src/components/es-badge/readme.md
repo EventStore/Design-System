@@ -3,6 +3,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Display a counter or dot beside a component to indicate action being required.
+
 ## Usage
 
 ### Example

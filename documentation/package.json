@@ -34,6 +34,7 @@
         "@eventstore-ui/components": "workspace:*",
         "@eventstore-ui/editor": "workspace:*",
         "@eventstore-ui/fields": "workspace:*",
+        "@eventstore-ui/forms": "workspace:*",
         "@eventstore-ui/illustrations": "workspace:*",
         "@eventstore-ui/layout": "workspace:*",
         "@eventstore-ui/router": "workspace:*",
@@ -45,13 +46,13 @@
         "markdown-it": "12.3.2",
         "markdown-it-anchor": "8.6.4",
         "prettier": "2.2.1",
-        "rollup": "2.33.1"
+        "rollup": "^2.52.7"
     },
     "devDependencies": {
         "@eventstore-ui/assets": "workspace:*",
         "@eventstore-ui/configs": "workspace:*",
         "@eventstore-ui/icon-manager": "workspace:*",
-        "@stencil/core": "2.17.4",
+        "@stencil/core": "3.0.1",
         "@stencil/postcss": "^2.1.0",
         "@types/jest": "^27.0.3",
         "@types/markdown-it": "12.0.3",
@@ -59,13 +60,11 @@
         "jest": "^27.4.5",
         "npm-run-all": "^4.1.5",
         "postcss-preset-env": "6.7.0",
-        "puppeteer": "10.4.0",
-        "rollup-plugin-node-polyfills": "0.2.1",
-        "rollup-plugin-require-context": "0.0.2",
+        "puppeteer": "^19.5.0",
         "rollup-plugin-string": "3.0.0",
         "serve": "14.0.1",
-        "typedoc": "^0.22.13",
-        "typescript": "4.5.5",
+        "typedoc": "0.23.24",
+        "typescript": "4.9.4",
         "workbox-build": "6.5.4"
     }
 }

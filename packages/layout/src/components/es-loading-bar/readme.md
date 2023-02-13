@@ -5,6 +5,12 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+An animated loading bar, with coloured states.
+The bar can be externally controlled via the `setProgress` util.
+Add a bar named `page` for automatic control from `Page`.
+
 ## Usage
 
 ### Example

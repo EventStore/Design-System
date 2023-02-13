@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Optionally collapsible sectioned view. Each section can be targeted via a part.
+
 ## Usage
 
 ### Example
