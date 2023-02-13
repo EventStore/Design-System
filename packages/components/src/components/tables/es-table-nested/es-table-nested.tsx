@@ -64,12 +64,18 @@ export class TableNested {
     /** If the nested rows should be allowed to take focus. */
     @Prop() nestedRowTakesFocus?: boolean;
     /** Function to decide if a row can take expand, to show a nested table. */
-    @Prop() canExpand: (key: string, data: any) => boolean = () => true;
+    @Prop() canExpand: (
+        key: string,
+        data: any,
+        depth: number,
+    ) => boolean = () => true;
     /** Function to decide if a row can expand more, to show more rows in the nested table. */
     @Prop() canExpandMore: (key: string, count: number) => boolean = () =>
         false;
     /** Number number of rows to display in expansion  */
     @Prop() expandBy: number = 10;
+    /** Number of rows to be expanded by default  */
+    @Prop() defaultExpanded?: (key: string, depth: number) => number;
 
     /** A path to a the currently active row, to auto expand its parent and show it as selected. */
     @Prop() activePath?: string[];
@@ -86,14 +92,16 @@ export class TableNested {
         h,
         key,
     ) => {
-        const expanded = this.expanded.has(key);
+        const defaultExpanded = this.defaultExpanded?.(key, depth) ?? 0;
+        const expanded = this.expanded.has(key) || defaultExpanded > 0;
         const nestedActive =
             !expanded && this.activePath && this.activePath[depth] === key
                 ? this.activePath[depth + 1]
                 : false;
         if (!expanded && !nestedActive) return null;
 
-        const count = this.expanded.get(key) ?? this.expandBy;
+        const count =
+            this.expanded.get(key) ?? defaultExpanded ?? this.expandBy;
         const canExpandMore = !nestedActive && this.canExpandMore(key, count);
 
         return (
@@ -114,7 +122,7 @@ export class TableNested {
                             : this.getNestedRows?.(key, count) ?? []
                     }
                     renderExpansion={this.renderExpansion(depth + 1)}
-                    rowClass={this.rowClassWithDefaults}
+                    rowClass={this.rowClassWithDefaults(depth + 1)}
                 />
                 {canExpandMore && (
                     <es-button
@@ -141,18 +149,18 @@ export class TableNested {
                 columns={this.columns}
                 rows={this.rows}
                 renderExpansion={this.renderExpansion(0)}
-                rowClass={this.rowClassWithDefaults}
+                rowClass={this.rowClassWithDefaults(0)}
                 onClickRow={this.toggleIfRequested}
-                extraCellProps={this.nestedExtraCellProps}
+                extraCellProps={this.nestedExtraCellProps(0)}
             />
         );
     }
 
-    private nestedExtraCellProps = (
+    private nestedExtraCellProps = (depth: number) => (
         key: string,
         data: any,
     ): NestedTableExtraProps => ({
-        canExpand: this.canExpand(key, data),
+        canExpand: this.canExpand(key, data, depth),
         canExpandMore: this.canExpandMore(key, data),
         expanded: this.expanded.has(key),
         loading: this.loading.has(key),
@@ -187,8 +195,13 @@ export class TableNested {
         this.expanded = new Map(this.expanded);
     };
 
-    private rowClassWithDefaults = (data: any, key: string) => {
-        if (!this.canExpand(key, data)) return this.rowClass?.(data, key);
+    private rowClassWithDefaults = (depth: number) => (
+        data: any,
+        key: string,
+    ) => {
+        if (!this.canExpand(key, data, depth)) {
+            return this.rowClass?.(data, key);
+        }
 
         const classes = this.rowClass?.(data, key);
         const extraClasses = !classes

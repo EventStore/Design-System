@@ -15,7 +15,7 @@ es-table-nested {
                 position: relative;
                 overflow: visible;
 
-                &::before {
+                &::after {
                     content: '';
                     position: absolute;
                     background-color: var(--row-color);
@@ -33,13 +33,19 @@ es-table-nested {
             overflow: visible;
             --border-group-color: var(--color-secondary);
 
-            &::before {
+            &::after {
                 content: '';
                 position: absolute;
                 border-left: 2px solid var(--border-group-color);
                 left: -2px;
                 top: -1px;
                 bottom: -1px;
+            }
+        }
+
+        & :where(.selectable) {
+            & [role='cell']:first-child:not(.borderless)::before {
+                right: calc(100% - 20px);
             }
         }
     }
