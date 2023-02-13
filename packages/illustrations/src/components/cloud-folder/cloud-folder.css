@@ -1,0 +1,58 @@
+:host([light]) {
+    & .cloud_folder_b {
+        fill: #bbdefb;
+    }
+    & .cloud_folder_b,
+    & .cloud_folder_h {
+        fill-rule: evenodd;
+    }
+    & .cloud_folder_d,
+    & .cloud_folder_h {
+        fill: #fff;
+    }
+    & .cloud_folder_i {
+        fill: #1a4e85;
+    }
+}
+:host([dark]) {
+    & .cloud_folder_st0 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #09264a;
+    }
+    & .cloud_folder_st1 {
+        fill: #ced4db;
+    }
+    & .cloud_folder_st2 {
+        fill: #ffffff;
+    }
+    & .cloud_folder_st3 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#cloud_folder_SVGID_1_);
+    }
+    & .cloud_folder_st4 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#cloud_folder_SVGID_00000090991604924969251800000012582062014691094416_);
+    }
+    & .cloud_folder_st5 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#cloud_folder_SVGID_00000084488391293091129810000018304048909156262276_);
+    }
+    & .cloud_folder_st6 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #ced4db;
+    }
+    & .cloud_folder_st7 {
+        fill: #09264a;
+    }
+    & .cloud_folder_st8 {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 14.4266;
+        stroke-miterlimit: 10;
+    }
+}

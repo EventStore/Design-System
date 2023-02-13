@@ -10,6 +10,8 @@ export namespace Components {
     }
     interface EsIllustrationBuildingOrgs {
     }
+    interface EsIllustrationCloudFolder {
+    }
     interface EsIllustrationCluster {
     }
     interface EsIllustrationEsDatabase {
@@ -63,6 +65,12 @@ declare global {
     var HTMLEsIllustrationBuildingOrgsElement: {
         prototype: HTMLEsIllustrationBuildingOrgsElement;
         new (): HTMLEsIllustrationBuildingOrgsElement;
+    };
+    interface HTMLEsIllustrationCloudFolderElement extends Components.EsIllustrationCloudFolder, HTMLStencilElement {
+    }
+    var HTMLEsIllustrationCloudFolderElement: {
+        prototype: HTMLEsIllustrationCloudFolderElement;
+        new (): HTMLEsIllustrationCloudFolderElement;
     };
     interface HTMLEsIllustrationClusterElement extends Components.EsIllustrationCluster, HTMLStencilElement {
     }
@@ -187,6 +195,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "es-illustration-backups": HTMLEsIllustrationBackupsElement;
         "es-illustration-building-orgs": HTMLEsIllustrationBuildingOrgsElement;
+        "es-illustration-cloud-folder": HTMLEsIllustrationCloudFolderElement;
         "es-illustration-cluster": HTMLEsIllustrationClusterElement;
         "es-illustration-es-database": HTMLEsIllustrationEsDatabaseElement;
         "es-illustration-event": HTMLEsIllustrationEventElement;
@@ -213,6 +222,8 @@ declare namespace LocalJSX {
     interface EsIllustrationBackups {
     }
     interface EsIllustrationBuildingOrgs {
+    }
+    interface EsIllustrationCloudFolder {
     }
     interface EsIllustrationCluster {
     }
@@ -257,6 +268,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "es-illustration-backups": EsIllustrationBackups;
         "es-illustration-building-orgs": EsIllustrationBuildingOrgs;
+        "es-illustration-cloud-folder": EsIllustrationCloudFolder;
         "es-illustration-cluster": EsIllustrationCluster;
         "es-illustration-es-database": EsIllustrationEsDatabase;
         "es-illustration-event": EsIllustrationEvent;
@@ -285,6 +297,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "es-illustration-backups": LocalJSX.EsIllustrationBackups & JSXBase.HTMLAttributes<HTMLEsIllustrationBackupsElement>;
             "es-illustration-building-orgs": LocalJSX.EsIllustrationBuildingOrgs & JSXBase.HTMLAttributes<HTMLEsIllustrationBuildingOrgsElement>;
+            "es-illustration-cloud-folder": LocalJSX.EsIllustrationCloudFolder & JSXBase.HTMLAttributes<HTMLEsIllustrationCloudFolderElement>;
             "es-illustration-cluster": LocalJSX.EsIllustrationCluster & JSXBase.HTMLAttributes<HTMLEsIllustrationClusterElement>;
             "es-illustration-es-database": LocalJSX.EsIllustrationEsDatabase & JSXBase.HTMLAttributes<HTMLEsIllustrationEsDatabaseElement>;
             "es-illustration-event": LocalJSX.EsIllustrationEvent & JSXBase.HTMLAttributes<HTMLEsIllustrationEventElement>;
