@@ -177,6 +177,12 @@
     --border-color: transparent;
     --border-width: 0px;
     --border-radius: 0px;
+    --height: auto;
+    font-size: inherit;
+}
+:host([variant='link']) button,
+:host([variant='link']) a {
+    padding: 0;
 }
 :host([variant='link']:not([disabled]):hover) {
     --text-decoration: underline;
