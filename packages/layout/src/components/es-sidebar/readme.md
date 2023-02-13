@@ -35,6 +35,20 @@ export default () => (
 
 
 
+## Slots
+
+| Slot      | Description      |
+| --------- | ---------------- |
+| `"after"` | After the aside. |
+
+
+## Shadow Parts
+
+| Part      | Description         |
+| --------- | ------------------- |
+| `"aside"` | The internal aside. |
+
+
 ----------------------------------------------
 
 

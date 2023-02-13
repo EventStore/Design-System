@@ -54,11 +54,11 @@ export default () =>
 
 ## CSS Custom Properties
 
-| Name                    | Description                                                                                  |
-| ----------------------- | -------------------------------------------------------------------------------------------- |
-| `--background-color`    | Defaults to --color-secondary. The foreground color. Named to imherit colors from es-button. |
-| `--text-color`          | Defaults to --color-text. The background color. Named to imherit colors from es-button.      |
-| `--transition-duration` | Duration of the pulse. Defaults to 300ms.                                                    |
+| Name                         | Description                                                                                                    |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `--counter-background-color` | The background color. Defaults to --foreground-color. Inverts the parent foreground / background relationship. |
+| `--counter-foreground-color` | The foreground color. Defaults to --background-color. Inverts the parent foreground / background relationship. |
+| `--transition-duration`      | Duration of the pulse. Defaults to 300ms.                                                                      |
 
 
 ## Dependencies

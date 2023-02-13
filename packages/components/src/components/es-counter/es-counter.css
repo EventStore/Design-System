@@ -1,13 +1,15 @@
 /**
  * @prop --transition-duration: Duration of the pulse. Defaults to 300ms.
- * @prop --text-color: Defaults to --color-text. The background color. Named to imherit colors from es-button.
- * @prop --background-color: Defaults to --color-secondary. The foreground color. Named to imherit colors from es-button.
+ * @prop --counter-background-color: The background color. Defaults to --foreground-color. Inverts the parent foreground / background relationship.
+ * @prop --counter-foreground-color: The foreground color. Defaults to --background-color. Inverts the parent foreground / background relationship.
  */
 
 :host {
     --transition-duration: 300ms;
-    --text-color: var(--color-text);
-    --background-color: var(--color-background);
+    --background-color: inherit;
+    --foreground-color: inherit;
+    --counter-background-color: var(--foreground-color);
+    --counter-foreground-color: var(--background-color);
 
     display: flex;
     align-items: center;
@@ -19,8 +21,8 @@
     transform: scale(1);
 
     & rect {
-        fill: var(--text-color);
-        stroke: var(--text-color);
+        fill: var(--counter-background-color);
+        stroke: var(--counter-background-color);
         stroke-width: 2;
 
         transition-duration: var(--transition-duration);
@@ -31,7 +33,7 @@
     & text {
         font-size: 13px;
         font-weight: 700;
-        fill: var(--background-color);
+        fill: var(--counter-foreground-color);
 
         transition-duration: var(--transition-duration);
         transition-property: fill;
@@ -40,18 +42,18 @@
 }
 
 :host(.okay) {
-    --text-color: var(--color-info);
-    --background-color: var(--color-info-contrast);
+    --counter-background-color: var(--color-info);
+    --counter-foreground-color: var(--color-info-contrast);
 }
 
 :host(.warning) {
-    --text-color: var(--color-warning);
-    --background-color: var(--color-warning-contrast);
+    --counter-background-color: var(--color-warning);
+    --counter-foreground-color: var(--color-warning-contrast);
 }
 
 :host(.error) {
-    --text-color: var(--color-error);
-    --background-color: var(--color-error-contrast);
+    --counter-background-color: var(--color-error);
+    --counter-foreground-color: var(--color-error-contrast);
 }
 
 :host(.pulse) {
@@ -67,7 +69,7 @@
 
     & text {
         font-weight: 600;
-        fill: var(--text-color);
+        fill: var(--counter-background-color);
     }
 }
 
@@ -81,6 +83,6 @@
 
     & text {
         font-weight: 600;
-        fill: var(--text-color);
+        fill: var(--counter-background-color);
     }
 }

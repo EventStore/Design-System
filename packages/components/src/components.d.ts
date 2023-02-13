@@ -253,6 +253,14 @@ export namespace Components {
          */
         "closeOnBlur": boolean;
         /**
+          * If the popover should request to close when clicked outside
+         */
+        "closeOnClickOutside": boolean;
+        /**
+          * If the popover should request to close when esc is pressed
+         */
+        "closeOnEsc": boolean;
+        /**
           * Constrain the size of the popover inner to the size of the window.
          */
         "constrain": Constrain;
@@ -1206,6 +1214,14 @@ declare namespace LocalJSX {
           * If the popover should request to close when focus is lost
          */
         "closeOnBlur"?: boolean;
+        /**
+          * If the popover should request to close when clicked outside
+         */
+        "closeOnClickOutside"?: boolean;
+        /**
+          * If the popover should request to close when esc is pressed
+         */
+        "closeOnEsc"?: boolean;
         /**
           * Constrain the size of the popover inner to the size of the window.
          */

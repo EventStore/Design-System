@@ -5,7 +5,6 @@
 
 :host {
     display: block;
-    margin: 0px 18px;
     --primary-color: var(--color-layout-base);
     --secondary-color: var(--color-layout-contrast);
     --tertiary-color: var(--color-layout-shade-60);

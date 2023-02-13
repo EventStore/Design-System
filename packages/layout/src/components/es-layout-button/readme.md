@@ -108,14 +108,23 @@ export default () => (
 
 ## Properties
 
-| Property     | Attribute     | Description                                                    | Type                                                                 | Default     |
-| ------------ | ------------- | -------------------------------------------------------------- | -------------------------------------------------------------------- | ----------- |
-| `active`     | `active`      | If the button should display as active                         | `boolean`                                                            | `false`     |
-| `alertLevel` | `alert-level` | Display a dot on the icon, to attract attention to the button. | `"error" \| "okay" \| "warning" \| undefined`                        | `undefined` |
-| `count`      | `count`       | Display a counter in place of the icon.                        | `number \| undefined`                                                | `undefined` |
-| `disabled`   | `disabled`    | If the button should be disabled.                              | `boolean`                                                            | `false`     |
-| `icon`       | `icon`        | Display an icon on the left.                                   | `[namespace: string \| symbol, name: string] \| string \| undefined` | `undefined` |
-| `level`      | `level`       | Apply an indent to the left of the button, for basic nesting.  | `number \| undefined`                                                | `undefined` |
+| Property       | Attribute        | Description                                                                        | Type                                                                 | Default     |
+| -------------- | ---------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------- |
+| `active`       | `active`         | If the button should display as active                                             | `boolean`                                                            | `false`     |
+| `alertLevel`   | `alert-level`    | Display a dot on the icon, to attract attention to the button.                     | `"error" \| "okay" \| "warning" \| undefined`                        | `undefined` |
+| `closeOnClick` | `close-on-click` | If the parent popup should close when clicked.                                     | `boolean`                                                            | `false`     |
+| `count`        | `count`          | Display a counter in place of the icon.                                            | `number \| undefined`                                                | `undefined` |
+| `disabled`     | `disabled`       | If the button should be disabled.                                                  | `boolean`                                                            | `false`     |
+| `icon`         | `icon`           | Display an icon on the left.                                                       | `[namespace: string \| symbol, name: string] \| string \| undefined` | `undefined` |
+| `level`        | `level`          | Apply an indent to the left of the button, for basic nesting.                      | `number \| undefined`                                                | `undefined` |
+| `priority`     | `priority`       | When deciding the active child, if multiple are active, the highest priority wins. | `number`                                                             | `0`         |
+
+
+## Events
+
+| Event          | Description                         | Type               |
+| -------------- | ----------------------------------- | ------------------ |
+| `requestClose` | Triggers the parent popup to close. | `CustomEvent<any>` |
 
 
 ## Methods

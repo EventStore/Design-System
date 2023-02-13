@@ -8,6 +8,7 @@ import type { HeaderDropdownButtonVariant } from './types';
 
 /**
  * A dropdown for the header.
+ * @part counter - the counter
  */
 @Component({
     tag: 'es-header-dropdown',
@@ -67,6 +68,7 @@ export class HeaderDropdown {
                             variant={'filled'}
                             color={this.alertLevel}
                             slot={!this.buttonText ? undefined : 'before'}
+                            part={'counter'}
                         />
                     ) : (
                         !!this.icon && (
@@ -93,7 +95,9 @@ export class HeaderDropdown {
                 <es-popover
                     arrow
                     trapFocus
+                    closeOnEsc
                     closeOnBlur
+                    closeOnClickOutside
                     open={this.dropdownOpen}
                     onRequestClose={this.closeDropdown}
                     popperClass={theme.isHighContrast() ? 'high-contrast' : ''}

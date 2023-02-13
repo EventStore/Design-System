@@ -30,15 +30,25 @@ export class SidebarDropdown {
         HTMLEsLayoutLinkElement | HTMLEsLayoutButtonElement
     > = [];
 
+    private observer!: MutationObserver;
+
     componentWillLoad() {
         this.unsubscribe = router.history.listen(() => {
             this.setActive();
             this.dropdownOpen = false;
         });
+        this.observer = new MutationObserver(this.onSubtreeModification);
+        this.observer.observe(this.host, {
+            childList: true,
+            attributes: false,
+            subtree: true,
+        });
+        this.onSubtreeModification();
     }
 
     disconnectedCallback() {
         this.unsubscribe?.();
+        this.observer?.disconnect();
     }
 
     render() {
@@ -70,7 +80,9 @@ export class SidebarDropdown {
                 <es-popover
                     arrow
                     trapFocus
+                    closeOnEsc
                     closeOnBlur
+                    closeOnClickOutside
                     open={this.dropdownOpen}
                     onRequestClose={this.closeDropdown}
                     popperClass={theme.isHighContrast() ? 'high-contrast' : ''}
@@ -78,7 +90,7 @@ export class SidebarDropdown {
                     autoSize={'width'}
                     offset={14}
                 >
-                    <slot onSlotchange={this.slotChange} />
+                    <slot />
                 </es-popover>
             </Host>
         );
@@ -94,20 +106,16 @@ export class SidebarDropdown {
         this.dropdownOpen = false;
     };
 
-    private slotChange = (e: Event) => {
+    private onSubtreeModification = () => {
         if (this.dropdownOpen) return;
 
-        const slot = e.target as HTMLSlotElement;
-        if (!slot) return;
-
-        const links: HTMLEsLayoutLinkElement[] = [];
-
-        for (const element of slot.assignedElements()) {
-            const childLinks = element.querySelectorAll<
+        const links = Array.from(
+            this.host.querySelectorAll<
                 HTMLEsLayoutLinkElement | HTMLEsLayoutButtonElement
-            >('es-layout-link,es-layout-button');
-            links.push(...Array.from(childLinks));
-        }
+            >('es-layout-link,es-layout-button'),
+        );
+
+        links.sort((a, b) => b.priority - a.priority);
 
         this.links = links;
 

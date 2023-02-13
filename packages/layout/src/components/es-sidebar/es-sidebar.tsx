@@ -1,8 +1,10 @@
-import { Component, h, Element, Build } from '@stencil/core';
+import { Component, h, Element, Build, Host } from '@stencil/core';
 import { sidebarWidth } from '../../utils/LayoutVar';
 
 /**
  * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
+ * @slot after - After the aside.
+ * @part aside - The internal aside.
  */
 @Component({
     tag: 'es-sidebar',
@@ -37,9 +39,12 @@ export class Sidebar {
 
     render() {
         return (
-            <aside>
-                <slot />
-            </aside>
+            <Host>
+                <aside part={'aside'}>
+                    <slot />
+                </aside>
+                <slot name={'after'} />
+            </Host>
         );
     }
 }

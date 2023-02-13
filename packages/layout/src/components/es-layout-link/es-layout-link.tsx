@@ -5,6 +5,7 @@ import type { IconDescription } from '@eventstore-ui/components';
 /**
  * A link for the sidebar, sidebar-dropdown, and header-dropdown.
  * @part link - The link element.
+ * @part counter - The counter element
  */
 @Component({
     tag: 'es-layout-link',
@@ -20,6 +21,12 @@ export class LayoutLink {
     @Prop() matchExact?: boolean;
     /** Use strict url matching for active. */
     @Prop() matchStrict?: boolean;
+    /** If the link is external */
+    @Prop() external?: boolean;
+    /** If the Link should break out of the router, and force a page load */
+    @Prop() forceRefresh?: boolean;
+    /** Target for link (eg: target="_blank") */
+    @Prop() target?: string;
 
     /** Display an icon on the left. */
     @Prop() icon?: IconDescription;
@@ -31,6 +38,9 @@ export class LayoutLink {
     @Prop() alertLevel?: HTMLEsBadgeElement['color'];
     /** Display a counter in place of the icon. */
     @Prop() count?: number;
+
+    /** When deciding the active child, if multiple are active, the highest priority wins. */
+    @Prop() priority: number = 0;
 
     /** If the link is currently active */
     @Method()
@@ -52,15 +62,20 @@ export class LayoutLink {
                 urlMatch={this.matchUrl}
                 strict={this.matchStrict}
                 exact={this.matchExact}
-                class={`${this.disabled ? 'disabled' : ''}`}
+                class={this.disabled ? 'disabled' : ''}
                 aria-disabled={this.disabled}
                 part={'link'}
+                target={this.target ?? this.external ? '_blank' : undefined}
+                rel={this.external ? 'noopener' : undefined}
+                external={this.external}
+                forceRefresh={this.forceRefresh}
             >
                 {this.count != null ? (
                     <es-counter
                         count={this.count}
                         variant={'filled'}
                         color={this.alertLevel}
+                        part={'counter'}
                     />
                 ) : (
                     !!this.icon && (

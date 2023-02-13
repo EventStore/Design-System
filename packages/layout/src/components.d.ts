@@ -78,6 +78,10 @@ export namespace Components {
          */
         "alertLevel"?: HTMLEsBadgeElement['color'];
         /**
+          * If the parent popup should close when clicked.
+         */
+        "closeOnClick": boolean;
+        /**
           * Display a counter in place of the icon.
          */
         "count"?: number;
@@ -97,6 +101,10 @@ export namespace Components {
           * Apply an indent to the left of the button, for basic nesting.
          */
         "level"?: number;
+        /**
+          * When deciding the active child, if multiple are active, the highest priority wins.
+         */
+        "priority": number;
     }
     interface EsLayoutLink {
         /**
@@ -111,6 +119,14 @@ export namespace Components {
           * If the link should be disabled.
          */
         "disabled": boolean;
+        /**
+          * If the link is external
+         */
+        "external"?: boolean;
+        /**
+          * If the Link should break out of the router, and force a page load
+         */
+        "forceRefresh"?: boolean;
         /**
           * Display an icon on the left.
          */
@@ -135,6 +151,14 @@ export namespace Components {
           * When to display as active. Uses the `url` by default.
          */
         "matchUrl"?: string;
+        /**
+          * When deciding the active child, if multiple are active, the highest priority wins.
+         */
+        "priority": number;
+        /**
+          * Target for link (eg: target="_blank")
+         */
+        "target"?: string;
         /**
           * Where to link to.
          */
@@ -212,11 +236,19 @@ export namespace Components {
         "defaultTitle": string;
     }
     interface EsThemeDropdown {
+        /**
+          * Which styling variant to use.
+         */
+        "variant": HeaderDropdownButtonVariant;
     }
     interface EsThemePicker {
     }
     interface EsToolbar {
     }
+}
+export interface EsLayoutButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsLayoutButtonElement;
 }
 declare global {
     interface HTMLEsBreadcrumbElement extends Components.EsBreadcrumb, HTMLStencilElement {
@@ -436,6 +468,10 @@ declare namespace LocalJSX {
          */
         "alertLevel"?: HTMLEsBadgeElement['color'];
         /**
+          * If the parent popup should close when clicked.
+         */
+        "closeOnClick"?: boolean;
+        /**
           * Display a counter in place of the icon.
          */
         "count"?: number;
@@ -451,6 +487,14 @@ declare namespace LocalJSX {
           * Apply an indent to the left of the button, for basic nesting.
          */
         "level"?: number;
+        /**
+          * Triggers the parent popup to close.
+         */
+        "onRequestClose"?: (event: EsLayoutButtonCustomEvent<any>) => void;
+        /**
+          * When deciding the active child, if multiple are active, the highest priority wins.
+         */
+        "priority"?: number;
     }
     interface EsLayoutLink {
         /**
@@ -465,6 +509,14 @@ declare namespace LocalJSX {
           * If the link should be disabled.
          */
         "disabled"?: boolean;
+        /**
+          * If the link is external
+         */
+        "external"?: boolean;
+        /**
+          * If the Link should break out of the router, and force a page load
+         */
+        "forceRefresh"?: boolean;
         /**
           * Display an icon on the left.
          */
@@ -485,6 +537,14 @@ declare namespace LocalJSX {
           * When to display as active. Uses the `url` by default.
          */
         "matchUrl"?: string;
+        /**
+          * When deciding the active child, if multiple are active, the highest priority wins.
+         */
+        "priority"?: number;
+        /**
+          * Target for link (eg: target="_blank")
+         */
+        "target"?: string;
         /**
           * Where to link to.
          */
@@ -558,6 +618,10 @@ declare namespace LocalJSX {
         "defaultTitle": string;
     }
     interface EsThemeDropdown {
+        /**
+          * Which styling variant to use.
+         */
+        "variant"?: HeaderDropdownButtonVariant;
     }
     interface EsThemePicker {
     }
