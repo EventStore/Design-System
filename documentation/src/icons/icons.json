@@ -6,6 +6,12 @@
             "component": "Arrow",
             "path": "./components/Arrow.tsx"
         },
+        "assets": {
+            "name": "assets",
+            "component": "Assets",
+            "path": "./components/Assets.tsx",
+            "aliases": ["@eventstore-ui/assets"]
+        },
         "backups": {
             "name": "backups",
             "component": "Backups",

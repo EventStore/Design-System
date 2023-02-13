@@ -2,6 +2,9 @@ import type { JsonDocs } from '@stencil/core/internal';
 import type { ProjectReflection } from 'typedoc';
 import type { PackageJson } from '.';
 
+import assetsPackageJson from '@eventstore-ui/assets/package.json';
+import assetsReadme from '@eventstore-ui/assets/readme.md';
+
 import componentsPackageJson from '@eventstore-ui/components/package.json';
 import componentsReadme from '@eventstore-ui/components/readme.md';
 import componentsStencilDocs from '../../../generated/components.stencil.json';
@@ -57,6 +60,7 @@ import utilsReadme from '@eventstore-ui/utils/readme.md';
 import utilsTypeDocs from '../../../generated/utils.typedoc.json';
 
 const packageJsons: Record<string, PackageJson> = {
+    assets: assetsPackageJson,
     components: componentsPackageJson,
     configs: configsPackageJson,
     editor: editorPackageJson,
@@ -73,6 +77,7 @@ const packageJsons: Record<string, PackageJson> = {
 } as any;
 
 const readmes: Record<string, string> = {
+    assets: assetsReadme,
     components: componentsReadme,
     configs: configsReadme,
     editor: editorReadme,

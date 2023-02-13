@@ -4,6 +4,12 @@ iconStore.addIcons({
     get arrow() {
         return import('./components/Arrow').then(({ Arrow }) => Arrow);
     },
+    get assets() {
+        return import('./components/Assets').then(({ Assets }) => Assets);
+    },
+    get '@eventstore-ui/assets'() {
+        return this['assets'];
+    },
     get backups() {
         return import('./components/Backups').then(({ Backups }) => Backups);
     },
