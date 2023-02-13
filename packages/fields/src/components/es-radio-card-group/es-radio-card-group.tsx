@@ -10,21 +10,8 @@ import {
 import type { IconDescription } from '@eventstore-ui/components';
 
 import { ICON_NAMESPACE } from '../../icons/namespace';
-import type {
-    FieldChange,
-    RenderFunction,
-    ValidationMessages,
-} from '../../types';
-import type { RadioCardGroupOption } from './types';
-
-export type RenderCard<T extends RadioCardGroupOption> = RenderFunction<
-    [
-        /** The option to be rendered */
-        option: T,
-        /** If the option is currently selected */
-        active: boolean,
-    ]
->;
+import type { FieldChange, ValidationMessages } from '../../types';
+import type { RadioCardGroupOption, RenderCard } from './types';
 
 /**
  * A card based single select input.
