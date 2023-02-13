@@ -45,7 +45,7 @@
         "@eventstore-ui/components": "workspace:*",
         "@eventstore-ui/stores": "workspace:*",
         "@eventstore-ui/utils": "workspace:*",
-        "@stencil/core": "3.0.0",
+        "@stencil/core": "3.0.1",
         "@types/jest": "^27.0.3",
         "babel-jest": "^27.5.1",
         "jest": "^27.4.5",

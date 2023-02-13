@@ -23,6 +23,6 @@
         "@eventstore-ui/assets": "workspace:*",
         "@eventstore-ui/configs": "workspace:*",
         "@eventstore-ui/icon-manager": "workspace:*",
-        "@stencil/core": "3.0.0"
+        "@stencil/core": "3.0.1"
     }
 }
