@@ -24,6 +24,10 @@ export type {
     IconDescription,
     NamespacedIcon,
 } from './components/es-icon/types';
+export type {
+    CounterColor,
+    CounterVariant,
+} from './components/es-counter/types';
 
 export { toast } from './utils/toast';
 export { iconStore } from './utils/iconStore';

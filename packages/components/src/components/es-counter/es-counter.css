@@ -8,8 +8,11 @@
     --transition-duration: 300ms;
     --background-color: inherit;
     --foreground-color: inherit;
-    --counter-background-color: var(--foreground-color);
-    --counter-foreground-color: var(--background-color);
+    --counter-background-color: var(--foreground-color, var(--color-contrast));
+    --counter-foreground-color: var(
+        --background-color,
+        var(--color-background)
+    );
 
     display: flex;
     align-items: center;

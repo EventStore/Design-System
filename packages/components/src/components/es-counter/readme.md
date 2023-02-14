@@ -25,7 +25,7 @@ setInterval(() => {
 }, 10);
 
 const variant = ['filled', 'outline', 'minimal'];
-const variants = Array.from({ length: 144 }, (_, i) => variant[random(3)]);
+const variants = Array.from({ length: 144 }, (_, i) => variant[random(2)]);
 
 export default () =>
     variants.map((v, i) => <es-counter key={i} count={state[i]} variant={v} />);
@@ -40,7 +40,6 @@ export default () =>
     justify-items: center;
     justify-content: center;
     align-content: center;
-    --background-color: white;
 }
 ```
 
