@@ -1,7 +1,5 @@
 import { Component, h, Prop, Host, Watch, State } from '@stencil/core';
-
-export type CounterVariant = 'filled' | 'outline' | 'minimal';
-export type CounterColor = 'error' | 'warning' | 'okay';
+import type { CounterVariant, CounterColor } from './types';
 
 /** A pill display of an number, that pulses on change. Caps out at 999. */
 @Component({
