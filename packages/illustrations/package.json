@@ -39,7 +39,7 @@
         }
     },
     "peerDependencies": {
-        "@eventstore-ui/theme": "0.1.x"
+        "@eventstore-ui/theme": "0.1"
     },
     "devDependencies": {
         "@eventstore-ui/theme": "workspace:*",

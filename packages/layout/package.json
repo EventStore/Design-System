@@ -48,11 +48,11 @@
         }
     },
     "peerDependencies": {
-        "@eventstore-ui/components": "0.1.x",
-        "@eventstore-ui/illustrations": "0.1.x",
-        "@eventstore-ui/router": "0.1.x",
-        "@eventstore-ui/theme": "0.1.x",
-        "@eventstore-ui/utils": "0.1.x"
+        "@eventstore-ui/components": "0.1",
+        "@eventstore-ui/illustrations": "0.1",
+        "@eventstore-ui/router": "0.1",
+        "@eventstore-ui/theme": "0.1",
+        "@eventstore-ui/utils": "0.1"
     },
     "devDependencies": {
         "@eventstore-ui/components": "workspace:*",
