@@ -71,9 +71,9 @@
         "monaco-editor": "^0.22.3"
     },
     "peerDependencies": {
-        "@eventstore-ui/components": "0.1.x",
-        "@eventstore-ui/theme": "0.1.x",
-        "@eventstore-ui/utils": "0.1.x"
+        "@eventstore-ui/components": "0.1",
+        "@eventstore-ui/theme": "0.1",
+        "@eventstore-ui/utils": "0.1"
     },
     "devDependencies": {
         "@eventstore-ui/components": "workspace:*",
