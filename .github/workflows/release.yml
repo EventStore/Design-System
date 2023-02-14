@@ -36,7 +36,8 @@ jobs:
             - name: Build
               run: yarn build
 
+            - name: Set access token
+              run: yarn config set npmAuthToken "${{ secrets.NPM_AUTH_TOKEN }}"
+
             - name: publish to npm
-              env:
-                  NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
               run: yarn workspaces foreach -v --no-private npm publish --access public
