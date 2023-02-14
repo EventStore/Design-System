@@ -41,6 +41,9 @@ jobs:
             - name: Lint
               run: yarn lint
 
+            - name: Dependencies are deduped
+              run: yarn dedupe --check
+
             - name: All generated code is commited
               run: |
                   git checkout ./.yarn
