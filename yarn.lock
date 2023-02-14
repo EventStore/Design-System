@@ -1673,7 +1673,7 @@ __metadata:
     typescript: 4.9.4
     unist-util-visit: ^2.0.3
   peerDependencies:
-    "@stencil/core": 2.x
+    "@stencil/core": "> 2.x"
   languageName: unknown
   linkType: soft
 
