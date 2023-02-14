@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/layout",
-    "version": "0.1.0-alpha.17",
+    "version": "0.1.0-rc.1",
     "description": "Page layout components for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
