@@ -1,4 +1,4 @@
-import type { ThemeKey } from './themes';
+import type { BaseThemeKey } from './themes';
 
 export type Color = string;
 export type Colors = Record<string, Color>;
@@ -117,7 +117,7 @@ export interface Theme {
     /** Sets the theme to the passed theme name. Pass `'auto'` to choose based off of system settings. */
     select(theme: string): void;
     /** Returns a theme name based off of system settings. */
-    autoThemeName(): ThemeKey;
+    autoThemeName(): BaseThemeKey;
     /** Call during render to re-render a component on theme change.  */
     registerInterest(): void;
     /** Register a callback to call when the theme changes. */

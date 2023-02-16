@@ -1,6 +1,6 @@
 import './theme';
 
 export { theme } from './theme';
-export { addChildTheme } from './themes';
+export { addChildTheme, addCustomTheme } from './themes';
 
-export type { Theme, ThemeListener } from './types';
+export type { Theme, ThemeListener, ThemeDefinition } from './types';

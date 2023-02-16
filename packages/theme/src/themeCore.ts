@@ -6,7 +6,7 @@ import type {
     ThemeDefinition,
     ThemeListener,
 } from './types';
-import { loadTheme, ThemeKey } from './themes';
+import { loadTheme, BaseThemeKey } from './themes';
 
 declare global {
     interface Window {
@@ -76,7 +76,7 @@ class ThemeCore {
         }
     };
 
-    public autoThemeName = (): ThemeKey => {
+    public autoThemeName = (): BaseThemeKey => {
         const dark = this.dark.matches;
         const highContrast = this.highContrast.matches;
 
