@@ -6,8 +6,10 @@ import {
     Prop,
     Event,
     EventEmitter,
+    Host,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
+import { theme } from '@eventstore-ui/theme';
 
 /**
  * A button for the sidebar, sidebar-dropdown, and header-dropdown.
@@ -60,32 +62,34 @@ export class LayoutButton {
 
     render() {
         return (
-            <button
-                class={{ disabled: this.disabled, active: this.active }}
-                aria-disabled={this.disabled}
-                part={'button'}
-            >
-                {this.count != null ? (
-                    <es-counter
-                        count={this.count}
-                        variant={'filled'}
-                        color={this.alertLevel}
-                    />
-                ) : (
-                    !!this.icon && (
-                        <es-badge
-                            count={this.alertLevel ? 1 : 0}
-                            variant={'dot'}
+            <Host high-contrast={theme.isHighContrast()}>
+                <button
+                    class={{ disabled: this.disabled, active: this.active }}
+                    aria-disabled={this.disabled}
+                    part={'button'}
+                >
+                    {this.count != null ? (
+                        <es-counter
+                            count={this.count}
+                            variant={'filled'}
                             color={this.alertLevel}
-                        >
-                            <es-icon icon={this.icon} />
-                        </es-badge>
-                    )
-                )}
-                <span class="inner">
-                    <slot />
-                </span>
-            </button>
+                        />
+                    ) : (
+                        !!this.icon && (
+                            <es-badge
+                                count={this.alertLevel ? 1 : 0}
+                                variant={'dot'}
+                                color={this.alertLevel}
+                            >
+                                <es-icon icon={this.icon} />
+                            </es-badge>
+                        )
+                    )}
+                    <span class="inner">
+                        <slot />
+                    </span>
+                </button>
+            </Host>
         );
     }
 }
