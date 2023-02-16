@@ -24,6 +24,10 @@
     padding-left: calc(var(--blob-size) * 3);
 }
 
+:host([high-contrast]) :matches(.disabled) {
+    text-decoration: line-through;
+}
+
 a,
 button {
     padding: 10px;

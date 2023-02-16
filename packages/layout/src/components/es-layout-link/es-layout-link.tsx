@@ -1,6 +1,7 @@
-import { Component, h, Method, Prop } from '@stencil/core';
+import { Component, h, Host, Method, Prop } from '@stencil/core';
 import { Link, router } from '@eventstore-ui/router';
 import type { IconDescription } from '@eventstore-ui/components';
+import { theme } from '@eventstore-ui/theme';
 
 /**
  * A link for the sidebar, sidebar-dropdown, and header-dropdown.
@@ -57,41 +58,43 @@ export class LayoutLink {
 
     render() {
         return (
-            <Link
-                url={this.disabled ? undefined : this.url}
-                urlMatch={this.matchUrl}
-                strict={this.matchStrict}
-                exact={this.matchExact}
-                class={this.disabled ? 'disabled' : ''}
-                aria-disabled={this.disabled}
-                part={'link'}
-                target={this.target ?? this.external ? '_blank' : undefined}
-                rel={this.external ? 'noopener' : undefined}
-                external={this.external}
-                forceRefresh={this.forceRefresh}
-            >
-                {this.count != null ? (
-                    <es-counter
-                        count={this.count}
-                        variant={'filled'}
-                        color={this.alertLevel}
-                        part={'counter'}
-                    />
-                ) : (
-                    !!this.icon && (
-                        <es-badge
-                            count={this.alertLevel ? 1 : 0}
-                            variant={'dot'}
+            <Host high-contrast={theme.isHighContrast()}>
+                <Link
+                    url={this.disabled ? undefined : this.url}
+                    urlMatch={this.matchUrl}
+                    strict={this.matchStrict}
+                    exact={this.matchExact}
+                    class={this.disabled ? 'disabled' : ''}
+                    aria-disabled={this.disabled}
+                    part={'link'}
+                    target={this.target ?? this.external ? '_blank' : undefined}
+                    rel={this.external ? 'noopener' : undefined}
+                    external={this.external}
+                    forceRefresh={this.forceRefresh}
+                >
+                    {this.count != null ? (
+                        <es-counter
+                            count={this.count}
+                            variant={'filled'}
                             color={this.alertLevel}
-                        >
-                            <es-icon icon={this.icon} />
-                        </es-badge>
-                    )
-                )}
-                <span class="inner">
-                    <slot />
-                </span>
-            </Link>
+                            part={'counter'}
+                        />
+                    ) : (
+                        !!this.icon && (
+                            <es-badge
+                                count={this.alertLevel ? 1 : 0}
+                                variant={'dot'}
+                                color={this.alertLevel}
+                            >
+                                <es-icon icon={this.icon} />
+                            </es-badge>
+                        )
+                    )}
+                    <span class="inner">
+                        <slot />
+                    </span>
+                </Link>
+            </Host>
         );
     }
 }
