@@ -4,7 +4,6 @@
     background-color: var(--color-layout-shade-20);
     color: var(--color-layout-contrast);
     width: 260px;
-    height: 281px;
 }
 
 h1 {
@@ -18,8 +17,7 @@ form {
     margin: 0px;
     grid-template-columns: repeat(auto-fill, 100px);
     gap: 20px;
-    width: 220px;
-    height: 208px;
+    width: 100%;
 }
 
 .auto + label {
