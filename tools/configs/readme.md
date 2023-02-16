@@ -4,7 +4,13 @@ Configs for the Event Store design system
 
 ## Eslint
 
-Includes all required dependencies for [eslint](https://eslint.org/). Hook up the config by createing a `.eslint.js` file in the root of your project:
+Install required dependencies for [eslint](https://eslint.org/).
+
+```shell
+yarn add --dev eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
+```
+
+Hook up the config by createing a `.eslint.js` file in the root of your project:
 
 `.eslint.js`
 
@@ -14,7 +20,13 @@ module.exports = require('@eventstore-ui/configs/eslint');
 
 ## Prettier
 
-Includes all required dependencies for [prettier](https://prettier.io/). Hook up the config adding the following to your `package.json`:
+Includes all required dependencies for [prettier](https://prettier.io/).
+
+```shell
+yarn add --dev prettier
+```
+
+Hook up the config adding the following to your `package.json`:
 
 `package.json`
 
