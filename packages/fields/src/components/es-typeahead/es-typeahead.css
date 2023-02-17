@@ -127,6 +127,15 @@ es-typeahead {
     }
 }
 
+/* 
+    Safari gets confused if a button's child is a component,
+    So we disable the pointer events on a button's child to ensure
+    that the click comes from the button.
+*/
+.option > * {
+    pointer-events: none;
+}
+
 .list[high-contrast] .option {
     &:hover {
         --background-color: transparent;
