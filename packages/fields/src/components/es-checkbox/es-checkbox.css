@@ -29,7 +29,7 @@
 .checkbox {
     grid-column-start: input;
     grid-column-end: input;
-    color: var(--color-shade-30);
+    color: transparent;
 
     border-width: 1px;
     border-style: solid;
