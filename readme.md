@@ -30,17 +30,18 @@ Build packages in the repo:
 yarn build
 ```
 
-Generate documentation:
+## Common commands
 
-```sh
-yarn docs:generate
-```
-
-Run the docs
-
-```sh
-yarn docs:dev
-```
+| Description                  | Command                           | Example                   |
+| :--------------------------- | :-------------------------------- | :------------------------ |
+| Build all                    | `yarn build`                      |                           |
+| Develop package              | `yarn dev {project}`              | `yarn dev layout`         |
+| Build Docs                   | `yarn docs`                       |                           |
+| Serve built Docs             | `yarn docs:serve`                 |                           |
+| Develop Docs                 | `yarn dev docs`                   |                           |
+| Lint all                     | `yarn lint`                       |                           |
+| Test all                     | `yarn test`                       |                           |
+| Run a command in a workspace | `yarn nx run {project}:{command}` | `yarn nx run layout:icon` |
 
 [nodejs]: https://nodejs.org/en/
 [yarn]: https://yarnpkg.com/
