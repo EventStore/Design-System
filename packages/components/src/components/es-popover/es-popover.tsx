@@ -134,9 +134,7 @@ export class Popover {
         }
     }
 
-    @Listen('click', { target: 'document', capture: true }) onClickOutside(
-        e: MouseEvent,
-    ) {
+    @Listen('click', { target: 'document' }) onClickOutside(e: MouseEvent) {
         if (!this.closeOnClickOutside) return;
         if (!this.open || !this.popperInner) return;
         const path = e.composedPath();
