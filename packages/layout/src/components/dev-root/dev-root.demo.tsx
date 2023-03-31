@@ -207,6 +207,78 @@ export class DevRoot {
                                 >
                                     {'Go somewhere'}
                                 </es-layout-link>
+                                <es-layout-link
+                                    matchExact
+                                    url={'/'}
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
+                                >
+                                    {'Hello!'}
+                                </es-layout-link>
+                                <es-layout-button
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
+                                >
+                                    {'Go somewhere'}
+                                </es-layout-button>
+                                <es-layout-link
+                                    url={'/somewhere'}
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
+                                >
+                                    {'Go somewhere'}
+                                </es-layout-link>
+                                <es-layout-link
+                                    matchExact
+                                    url={'/'}
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
+                                >
+                                    {'Hello!'}
+                                </es-layout-link>
+                                <es-layout-button
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
+                                >
+                                    {'Go somewhere'}
+                                </es-layout-button>
+                                <es-layout-link
+                                    url={'/somewhere'}
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
+                                >
+                                    {'Go somewhere'}
+                                </es-layout-link>
+                                <es-layout-link
+                                    matchExact
+                                    url={'/'}
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
+                                >
+                                    {'Hello!'}
+                                </es-layout-link>
+                                <es-layout-button
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
+                                >
+                                    {'Go somewhere'}
+                                </es-layout-button>
+                                <es-layout-link
+                                    url={'/somewhere'}
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
+                                >
+                                    {'Go somewhere'}
+                                </es-layout-link>
+                                <es-layout-link
+                                    matchExact
+                                    url={'/'}
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
+                                >
+                                    {'Hello!'}
+                                </es-layout-link>
+                                <es-layout-button
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
+                                >
+                                    {'Go somewhere'}
+                                </es-layout-button>
+                                <es-layout-link
+                                    url={'/somewhere'}
+                                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
+                                >
+                                    {'Go somewhere'}
+                                </es-layout-link>
                             </es-layout-section>
                         </es-sidebar>
                         <Switch>

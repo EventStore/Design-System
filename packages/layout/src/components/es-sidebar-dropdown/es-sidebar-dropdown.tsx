@@ -97,13 +97,16 @@ export class SidebarDropdown {
     }
 
     private toggleDropdown = (e: MouseEvent) => {
+        console.log('in toggle func');
         e.stopPropagation();
-        this.dropdownOpen = !this.dropdownOpen;
+        this.dropdownOpen = true;
+        if (e.detail) this.closeDropdown(e);
     };
 
     private closeDropdown = (e: CustomEvent | MouseEvent) => {
+        console.log('in close func', e);
         e.stopPropagation();
-        this.dropdownOpen = false;
+        if (e.detail === 'blur' || e.detail === 1) this.dropdownOpen = false;
     };
 
     private onSubtreeModification = () => {

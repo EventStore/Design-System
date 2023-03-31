@@ -18,6 +18,8 @@ export { IconDescription } from "@eventstore-ui/components";
 export { LoadingBarStatus } from "./components/es-loading-bar/types";
 export { NavNode, NavTree } from "./components/es-nav/types";
 export namespace Components {
+    interface DevRoot {
+    }
     /**
      * A list of breadcrumbs to the current page
      */
@@ -310,6 +312,12 @@ export interface EsLayoutButtonCustomEvent<T> extends CustomEvent<T> {
     target: HTMLEsLayoutButtonElement;
 }
 declare global {
+    interface HTMLDevRootElement extends Components.DevRoot, HTMLStencilElement {
+    }
+    var HTMLDevRootElement: {
+        prototype: HTMLDevRootElement;
+        new (): HTMLDevRootElement;
+    };
     /**
      * A list of breadcrumbs to the current page
      */
@@ -490,6 +498,7 @@ declare global {
         new (): HTMLEsToolbarElement;
     };
     interface HTMLElementTagNameMap {
+        "dev-root": HTMLDevRootElement;
         "es-breadcrumb": HTMLEsBreadcrumbElement;
         "es-display-error": HTMLEsDisplayErrorElement;
         "es-header": HTMLEsHeaderElement;
@@ -514,6 +523,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface DevRoot {
+    }
     /**
      * A list of breadcrumbs to the current page
      */
@@ -793,6 +804,7 @@ declare namespace LocalJSX {
     interface EsToolbar {
     }
     interface IntrinsicElements {
+        "dev-root": DevRoot;
         "es-breadcrumb": EsBreadcrumb;
         "es-display-error": EsDisplayError;
         "es-header": EsHeader;
@@ -820,6 +832,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "dev-root": LocalJSX.DevRoot & JSXBase.HTMLAttributes<HTMLDevRootElement>;
             /**
              * A list of breadcrumbs to the current page
              */
