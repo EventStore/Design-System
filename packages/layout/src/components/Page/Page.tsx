@@ -7,6 +7,7 @@ import {
 } from '@stencil/core';
 import { PageTitle } from '@eventstore-ui/router';
 import { setProgress } from '../es-loading-bar/utils/setProgress';
+import { PageView } from '../PageView/PageView';
 
 export type PageState = 'loading' | 'ready' | ['error', unknown];
 
@@ -100,6 +101,7 @@ const PageBody: FunctionalComponent<PageProps> = (
     children,
 ) => {
     updateState(progressBarId, state);
+
     if (state === 'loading') return <LoadingState />;
     if (Array.isArray(state)) return <ErrorState error={state[1]} />;
     if (empty) return <EmptyState />;
@@ -134,5 +136,6 @@ export const Page: FunctionalComponent<PageProps> = (props, children) => (
             {props.crumbs && <es-breadcrumb crumbs={props.crumbs} />}
             <PageBody {...props}>{children}</PageBody>
         </main>
+        <PageView title={props.pageTitle} />
     </>
 );
