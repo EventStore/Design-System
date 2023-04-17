@@ -14,13 +14,11 @@
 main {
     display: flex;
     flex-direction: column;
-    grid-row-start: body;
-    grid-row-end: body;
-    grid-column-start: body;
-    grid-column-end: body;
+    grid-area: body;
     margin: 0 auto;
     width: 100%;
     max-width: var(--layout-content-max-width);
+    min-height: var(--layout-min-body-height);
     height: 100%;
     padding: 30px 40px;
 }

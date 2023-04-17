@@ -11,7 +11,7 @@
     grid-area: panel;
     position: fixed;
     z-index: 1000;
-    bottom: 0;
+    bottom: var(--layout-site-bottom);
     left: var(--layout-sidebar-width);
     right: 0;
     height: var(--layout-panel-height);
