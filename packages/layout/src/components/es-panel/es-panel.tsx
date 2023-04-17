@@ -1,6 +1,14 @@
-import { Component, h, Host, State, Watch, Listen } from '@stencil/core';
+import {
+    Component,
+    h,
+    Host,
+    State,
+    Watch,
+    Listen,
+    Element,
+} from '@stencil/core';
 import { ICON_NAMESPACE } from '../../icons/namespace';
-import { panelHeight } from '../../utils/LayoutVar';
+import { cookieHeight, panelHeight } from '../../utils/LayoutVar';
 
 const LS_KEY = 'es-panel-height';
 
@@ -14,6 +22,8 @@ const LS_KEY = 'es-panel-height';
     shadow: true,
 })
 export class Panel {
+    @Element() host!: HTMLEsPanelElement;
+
     @State() height: number = 340;
     @State() dragging: boolean = false;
 
@@ -82,6 +92,8 @@ export class Panel {
 
     private move = (e: MouseEvent) => {
         e.preventDefault();
-        this.height = this.clamp(window.innerHeight - e.clientY);
+        this.height = this.clamp(
+            window.innerHeight - e.clientY - cookieHeight.value,
+        );
     };
 }

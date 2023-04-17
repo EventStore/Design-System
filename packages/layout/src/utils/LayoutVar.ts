@@ -57,6 +57,13 @@ export class CssVar {
         document.documentElement.style.setProperty(this.name, this.default);
     };
 
+    get value(): number {
+        const val = getComputedStyle(document.documentElement).getPropertyValue(
+            this.name,
+        );
+        return parseFloat(val || '0');
+    }
+
     public observe = (fn: VarObserver) => {
         this.observers.add(fn);
         return () => {
@@ -104,3 +111,6 @@ export const toolbarWidth = new CssVar('--layout-toolbar-width', defaults);
 
 /** Control the --layout-panel-height css var. */
 export const panelHeight = new CssVar('--layout-panel-height', defaults);
+
+/** Control the --layout-cookie-height css var. */
+export const cookieHeight = new CssVar('--layout-cookie-height', defaults);
