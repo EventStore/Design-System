@@ -2,6 +2,8 @@ export {
     ConditionalRedirect,
     ConditionalRedirectProps,
 } from './components/ConditionalRedirect';
+
+export { Action, ActionProps } from './components/Action';
 export { Link, LinkProps } from './components/Link';
 export { PageTitle, PageTitleProps } from './components/PageTitle';
 export { Redirect, RedirectProps } from './components/Redirect';
