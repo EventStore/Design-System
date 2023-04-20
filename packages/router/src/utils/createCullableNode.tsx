@@ -4,8 +4,6 @@ type CullNode = () => void;
 
 const CULLABLE = 'cullable';
 
-let key = 0;
-
 export const createCullableNode = (
     cullNode: CullNode,
     utils: FunctionalUtilities,
@@ -17,7 +15,6 @@ export const createCullableNode = (
             ...node.vattrs,
             cull: cullNode,
         },
-        vkey: `CULLABLE-${key++}`,
         vtext: '\n',
         vname: CULLABLE,
     }));
