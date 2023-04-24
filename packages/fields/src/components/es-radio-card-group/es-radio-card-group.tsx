@@ -67,20 +67,20 @@ export class RadioCardGroup {
                         )}
                         <div class={'group-inner'}>
                             {group.map((option) => {
-                                const active = option.id === this.value;
+                                const active = option.value === this.value;
                                 return (
                                     <label
                                         class={{
                                             active,
                                             disabled: !!option.disabled,
                                         }}
-                                        htmlFor={`${this.name}-${option.id}`}
+                                        htmlFor={`${this.name}-${option.value}`}
                                     >
                                         <input
                                             type={'radio'}
-                                            id={`${this.name}-${option.id}`}
+                                            id={`${this.name}-${option.value}`}
                                             name={this.name}
-                                            value={option.id}
+                                            value={option.value}
                                             checked={active}
                                             onChange={this.handleChange}
                                             disabled={option.disabled}
