@@ -2,8 +2,8 @@ import type { RenderFunction } from '../../types';
 
 /** An option to be selected */
 export interface RadioCardGroupOption {
-    /** The id of the option, to be used as its value. */
-    id: string;
+    /** The string to be used as a value. */
+    value: string;
     /** A name to display. */
     name: string;
     /** A longer description to be displayed. */
