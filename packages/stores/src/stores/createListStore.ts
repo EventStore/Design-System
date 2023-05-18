@@ -1,5 +1,6 @@
 import { $data } from '../symbols';
 import { createStore } from './createStore';
+import type { Plugin } from '../types';
 
 /** A store for holding a list of objects. */
 export interface ListStore<T extends object> {
@@ -52,6 +53,8 @@ export interface ListStore<T extends object> {
      * internal access to data
      */
     readonly [$data]: Readonly<Map<string, T>>;
+    /** Registers a subscription that will be called whenever the user gets, sets, or resets a value. */
+    use(...plugins: Plugin<T>[]): () => void;
 }
 
 /** Create a new list store with the given initial state. */
@@ -67,6 +70,43 @@ export const createListStore = <T extends object>(
             return true;
         }
         return false;
+    };
+
+    const use = (...subscriptions: Plugin<T>[]): (() => void) => {
+        const unsubscribes = subscriptions.reduce<Array<() => void>>(
+            (acc, plugin) => {
+                const subscription = plugin(store);
+
+                if (subscription.delete) {
+                    acc.push(on('delete', subscription.delete));
+                }
+                if (subscription.dispose) {
+                    acc.push(on('dispose', subscription.dispose));
+                }
+                if (subscription.get) {
+                    acc.push(on('get', subscription.get));
+                }
+                if (subscription.insert) {
+                    acc.push(on('insert', subscription.insert));
+                }
+                if (subscription.keys) {
+                    acc.push(on('keys', subscription.keys));
+                }
+                if (subscription.reset) {
+                    acc.push(on('reset', subscription.reset));
+                }
+                if (subscription.set) {
+                    acc.push(on('set', subscription.set));
+                }
+
+                return acc;
+            },
+            [],
+        );
+
+        return () => {
+            unsubscribes.forEach((fn) => fn());
+        };
     };
 
     return {
@@ -143,5 +183,6 @@ export const createListStore = <T extends object>(
         values: () => Object.values(state),
         [Symbol.iterator]: () => Object.entries(state),
         [$data]: store[$data],
+        use,
     };
 };
