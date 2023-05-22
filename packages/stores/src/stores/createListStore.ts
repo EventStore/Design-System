@@ -1,6 +1,6 @@
 import { $data } from '../symbols';
 import { createStore } from './createStore';
-import type { Plugin } from '../types';
+import type { ListStorePlugin } from '../types';
 
 /** A store for holding a list of objects. */
 export interface ListStore<T extends object> {
@@ -54,7 +54,7 @@ export interface ListStore<T extends object> {
      */
     readonly [$data]: Readonly<Map<string, T>>;
     /** Registers a subscription that will be called whenever the user gets, sets, or resets a value. */
-    use(...plugins: Plugin<T>[]): () => void;
+    use(...plugins: ListStorePlugin<T>[]): () => void;
 }
 
 /** Create a new list store with the given initial state. */
@@ -72,7 +72,7 @@ export const createListStore = <T extends object>(
         return false;
     };
 
-    const use = (...subscriptions: Plugin<T>[]): (() => void) => {
+    const use = (...subscriptions: ListStorePlugin<T>[]): (() => void) => {
         const unsubscribes = subscriptions.reduce<Array<() => void>>(
             (acc, plugin) => {
                 const subscription = plugin(store);

@@ -43,6 +43,9 @@ export interface OnChangeHandler<StoreType> {
 }
 
 export type Plugin<T> = (store: Store<T>) => Subscription<T>;
+export type ListStorePlugin<T> = (
+    store: Store<Record<string, T>>,
+) => Subscription<T>;
 
 /** An interface for creating subscriptions on the store. */
 export interface Subscription<StoreType> {

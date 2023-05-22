@@ -9,7 +9,9 @@ export {
 
 export {
     persistLocally,
+    persistListLocally,
     PersistLocallyOptions,
+    PersistListLocallyOptions,
 } from './plugins/persistLocally';
 
 export type { Plugin, Subscription } from './types';
