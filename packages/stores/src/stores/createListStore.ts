@@ -1,10 +1,13 @@
 import { $data } from '../symbols';
 import { createStore } from './createStore';
+import type { Plugin } from '../types';
 
 /** A store for holding a list of objects. */
 export interface ListStore<T extends object> {
     /** Reset the store to initial state. */
     reset: () => void;
+    /** Registers a subscription that will be called whenever the user gets, sets, or resets a value. */
+    use(...plugins: Plugin<Record<string, T>>[]): () => void;
     /** The internal state of the store. */
     readonly state: Record<string, T>;
     /** Delete an entry from the list. */
@@ -141,6 +144,7 @@ export const createListStore = <T extends object>(
             return false;
         },
         values: () => Object.values(state),
+        use: store.use,
         [Symbol.iterator]: () => Object.entries(state),
         [$data]: store[$data],
     };

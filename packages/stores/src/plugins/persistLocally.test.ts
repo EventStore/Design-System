@@ -1,6 +1,7 @@
 import '../utils/initialize';
 import { persistLocally } from './persistLocally';
 import { createStore } from '../stores/createStore';
+import { createListStore } from '../stores/createListStore';
 
 jest.useRealTimers();
 
@@ -63,206 +64,443 @@ const bigIntJSONParser = {
 };
 
 describe('persistLocally', () => {
-    test('should persist data to browser storage', async () => {
-        jest.spyOn(Storage.prototype, 'setItem');
+    afterEach(() => {
+        (localStorage.setItem as any).mockClear();
+    });
+    describe('store', () => {
+        test('should persist data to browser storage', async () => {
+            jest.spyOn(Storage.prototype, 'setItem');
 
-        const STORAGE_KEY = 'persist';
-        const store = createStore<TestData>({
-            foo: 'hello',
-            bar: false,
+            const STORAGE_KEY = 'persist';
+            const store = createStore<TestData>({
+                foo: 'hello',
+                bar: false,
+            });
+
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    keys: ['foo', 'bar'],
+                    storage: localStorage,
+                }),
+            );
+
+            store.set('foo', 'ciao');
+            store.set('bar', true);
+
+            await new Promise((r) => setTimeout(r, 0));
+
+            expect(localStorage.setItem).toBeCalledTimes(1);
+
+            store.set('foo', 'bella');
+            store.set('bar', false);
+
+            await new Promise((r) => setTimeout(r, 0));
+
+            expect(localStorage.setItem).toBeCalledTimes(2);
         });
 
-        store.use(
-            persistLocally(STORAGE_KEY, {
-                keys: ['foo', 'bar'],
-                storage: localStorage,
-            }),
-        );
+        test('should initialise store from browser storage', async () => {
+            const STORAGE_KEY = 'initialise';
+            const store = createStore<TestData>({
+                foo: '',
+                bar: false,
+            });
 
-        store.set('foo', 'ciao');
-        store.set('bar', true);
+            localStorageOperations.setItem(
+                STORAGE_KEY,
+                JSON.stringify({ foo: 'hello', bar: true }),
+            );
 
-        await new Promise((r) => setTimeout(r, 0));
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    keys: ['foo', 'bar'],
+                    storage: localStorage,
+                }),
+            );
 
-        expect(localStorage.setItem).toBeCalledTimes(1);
+            expect(store.state.foo).toBe('hello');
+            expect(store.state.bar).toBe(true);
+        });
 
-        store.set('foo', 'bella');
-        store.set('bar', false);
+        test('should replicate browser storage to store', async () => {
+            const STORAGE_KEY = 'replicate';
+            const store = createStore<TestData>({
+                foo: 'hello',
+                bar: false,
+            });
 
-        await new Promise((r) => setTimeout(r, 0));
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    keys: ['foo', 'bar'],
+                    storage: localStorage,
+                }),
+            );
 
-        expect(localStorage.setItem).toBeCalledTimes(2);
+            localStorageOperations.setItem(
+                STORAGE_KEY,
+                JSON.stringify({ foo: 'hola', bar: true }),
+            );
+
+            expect(store.state.foo).toBe('hola');
+            expect(store.state.bar).toBe(true);
+        });
+
+        test('should back all keys by default', async () => {
+            const STORAGE_KEY = 'back_all_keys';
+            const store = createStore<TestData>({
+                foo: 'hello',
+                bar: true,
+            });
+
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                }),
+            );
+
+            await new Promise((r) => setTimeout(r, 0));
+
+            const obj = JSON.parse(localStorage.getItem(STORAGE_KEY)!);
+
+            expect(obj.foo).toBe('hello');
+            expect(obj.bar).toBe(true);
+        });
+
+        test('should only back specified keys', async () => {
+            const STORAGE_KEY = 'back_specific_keys';
+            const store = createStore<TestDataAlt>({
+                str: 'hello',
+                bool: true,
+                num: 1337,
+            });
+
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                    keys: ['str', 'num'],
+                }),
+            );
+
+            await new Promise((r) => setTimeout(r, 0));
+
+            const obj: TestDataAlt = JSON.parse(
+                localStorage.getItem(STORAGE_KEY)!,
+            );
+
+            expect(obj.str).toBe('hello');
+            expect(obj.num).toBe(1337);
+            expect(obj.bool).toBeUndefined();
+            expect(obj.bigInt).toBeUndefined();
+        });
+
+        test('should stay consistent across multiple tabs', async () => {
+            const STORAGE_KEY = 'many_tabs';
+            const store1 = createStore<TestData>({
+                foo: 'hello from store1',
+                bar: true,
+            });
+
+            store1.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                }),
+            );
+
+            await new Promise((r) => setTimeout(r, 0));
+
+            const store2 = createStore<TestData>({
+                foo: 'hello from store2',
+                bar: false,
+            });
+
+            store2.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                }),
+            );
+
+            expect(store2.state.foo).toBe('hello from store1');
+
+            store1.set('foo', 'bla');
+
+            await new Promise((r) => setTimeout(r, 0));
+            globalThis.dispatchEvent(
+                new FakeStorageEvent({
+                    key: STORAGE_KEY,
+                    storageArea: localStorage,
+                }),
+            );
+
+            expect(store2.state.foo).toBe('bla');
+        });
+
+        test('should support custom serialiser/deserialisers', async () => {
+            const STORAGE_KEY = 'custom serialiser/deserialisers';
+            const data: TestDataAlt = {
+                bigInt: BigInt(9007199254740991),
+            };
+
+            const s = bigIntJSONParser.serialise(data);
+            expect(s).toBe('{"bigInt":"9007199254740991n"}');
+
+            const d: TestDataAlt = bigIntJSONParser.deserialize(s);
+            expect(typeof d.bigInt).toBe('bigint');
+
+            const store = createStore<TestDataAlt>(data);
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                    serialize: bigIntJSONParser.serialise,
+                    deserialize: bigIntJSONParser.deserialize,
+                }),
+            );
+
+            await new Promise((r) => setTimeout(r, 0));
+            expect(localStorage.getItem(STORAGE_KEY)).toBe(
+                '{"bigInt":"9007199254740991n"}',
+            );
+
+            const store2 = createStore<TestDataAlt>(data);
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                    serialize: bigIntJSONParser.serialise,
+                    deserialize: bigIntJSONParser.deserialize,
+                }),
+            );
+
+            expect(typeof store2.state.bigInt).toBe('bigint');
+            expect(store2.state.bigInt).toBe(BigInt(9007199254740991));
+        });
     });
 
-    test('should initialise store from browser storage', async () => {
-        const STORAGE_KEY = 'initialise';
-        const store = createStore<TestData>({
-            foo: '',
-            bar: false,
+    describe('list store', () => {
+        test('should persist data to browser storage', async () => {
+            jest.spyOn(Storage.prototype, 'setItem');
+
+            const STORAGE_KEY = 'persist_list';
+            const store = createListStore<TestData>({
+                item1: {
+                    foo: 'hello',
+                    bar: false,
+                },
+            });
+
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                }),
+            );
+
+            store.update('item1', (item) => {
+                return {
+                    ...item,
+                    foo: 'ciao',
+                    bar: true,
+                };
+            });
+
+            await new Promise((r) => setTimeout(r, 0));
+
+            expect(localStorage.setItem).toBeCalledTimes(1);
+
+            store.update('item1', (item) => {
+                return {
+                    ...item,
+                    foo: 'bella',
+                    bar: false,
+                };
+            });
+
+            await new Promise((r) => setTimeout(r, 0));
+
+            expect(localStorage.setItem).toBeCalledTimes(2);
         });
 
-        localStorageOperations.setItem(
-            STORAGE_KEY,
-            JSON.stringify({ foo: 'hello', bar: true }),
-        );
+        test('should initialise store from browser storage', async () => {
+            const STORAGE_KEY = 'initialise_list';
+            const store = createListStore<TestData>({
+                item1: {
+                    foo: '',
+                    bar: false,
+                },
+            });
 
-        store.use(
-            persistLocally(STORAGE_KEY, {
-                keys: ['foo', 'bar'],
-                storage: localStorage,
-            }),
-        );
+            localStorageOperations.setItem(
+                STORAGE_KEY,
+                JSON.stringify({ item1: { foo: 'hello', bar: true } }),
+            );
 
-        expect(store.state.foo).toBe('hello');
-        expect(store.state.bar).toBe(true);
-    });
-
-    test('should replicate browser storage to store', async () => {
-        const STORAGE_KEY = 'replicate';
-        const store = createStore<TestData>({
-            foo: 'hello',
-            bar: false,
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                }),
+            );
+            expect(store.state.item1.foo).toBe('hello');
+            expect(store.state.item1.bar).toBe(true);
         });
 
-        store.use(
-            persistLocally(STORAGE_KEY, {
-                keys: ['foo', 'bar'],
-                storage: localStorage,
-            }),
-        );
+        test('should replicate browser storage to store', async () => {
+            const STORAGE_KEY = 'replicate_list';
+            const store = createListStore<TestData>({
+                item1: {
+                    foo: 'hello',
+                    bar: false,
+                },
+            });
 
-        localStorageOperations.setItem(
-            STORAGE_KEY,
-            JSON.stringify({ foo: 'hola', bar: true }),
-        );
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                }),
+            );
 
-        expect(store.state.foo).toBe('hola');
-        expect(store.state.bar).toBe(true);
-    });
+            localStorageOperations.setItem(
+                STORAGE_KEY,
+                JSON.stringify({ item1: { foo: 'hola', bar: true } }),
+            );
 
-    test('should back all keys by default', async () => {
-        const STORAGE_KEY = 'back_all_keys';
-        const store = createStore<TestData>({
-            foo: 'hello',
-            bar: true,
+            expect(store.state.item1.foo).toBe('hola');
+            expect(store.state.item1.bar).toBe(true);
         });
 
-        store.use(
-            persistLocally(STORAGE_KEY, {
-                storage: localStorage,
-            }),
-        );
+        test('should back all keys by default', async () => {
+            const STORAGE_KEY = 'back_all_liststore_keys_list';
+            const store = createListStore<TestData>({
+                item1: {
+                    foo: 'hello',
+                    bar: true,
+                },
+            });
 
-        await new Promise((r) => setTimeout(r, 0));
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                }),
+            );
 
-        const obj = JSON.parse(localStorage.getItem(STORAGE_KEY)!);
+            await new Promise((r) => setTimeout(r, 0));
 
-        expect(obj.foo).toBe('hello');
-        expect(obj.bar).toBe(true);
-    });
+            const obj = JSON.parse(localStorage.getItem(STORAGE_KEY)!);
 
-    test('should only back specified keys', async () => {
-        const STORAGE_KEY = 'back_specific_keys';
-        const store = createStore<TestDataAlt>({
-            str: 'hello',
-            bool: true,
-            num: 1337,
+            expect(obj.item1.foo).toBe('hello');
+            expect(obj.item1.bar).toBe(true);
         });
 
-        store.use(
-            persistLocally(STORAGE_KEY, {
-                storage: localStorage,
-                keys: ['str', 'num'],
-            }),
-        );
+        test('should only back specified keys', async () => {
+            const STORAGE_KEY = 'back_specific_keys_list';
+            const store = createListStore<TestDataAlt>({
+                item1: {
+                    str: 'hello',
+                    bool: true,
+                    num: 1337,
+                },
+            });
 
-        await new Promise((r) => setTimeout(r, 0));
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                }),
+            );
 
-        const obj: TestDataAlt = JSON.parse(localStorage.getItem(STORAGE_KEY)!);
+            await new Promise((r) => setTimeout(r, 0));
 
-        expect(obj.str).toBe('hello');
-        expect(obj.num).toBe(1337);
-        expect(obj.bool).toBeUndefined();
-        expect(obj.bigInt).toBeUndefined();
-    });
+            const obj: Record<string, TestDataAlt> = JSON.parse(
+                localStorage.getItem(STORAGE_KEY)!,
+            );
 
-    test('should stay consistent across multiple tabs', async () => {
-        const STORAGE_KEY = 'many_tabs';
-        const store1 = createStore<TestData>({
-            foo: 'hello from store1',
-            bar: true,
+            expect(obj.item1.str).toBe('hello');
+            expect(obj.item1.num).toBe(1337);
+            expect(obj.item1.bool).toBe(true);
+            expect(obj.item1.bigInt).toBeUndefined();
         });
 
-        store1.use(
-            persistLocally(STORAGE_KEY, {
-                storage: localStorage,
-            }),
-        );
+        test('should stay consistent across multiple tabs', async () => {
+            const STORAGE_KEY = 'many_tabs_list';
+            const store1 = createListStore<TestData>({
+                item1: {
+                    foo: 'hello from store1',
+                    bar: false,
+                },
+            });
 
-        await new Promise((r) => setTimeout(r, 0));
+            store1.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                }),
+            );
 
-        const store2 = createStore<TestData>({
-            foo: 'hello from store2',
-            bar: false,
+            await new Promise((r) => setTimeout(r, 0));
+
+            const store2 = createListStore<TestData>({
+                item1: {
+                    foo: 'hello from store 2',
+                    bar: false,
+                },
+            });
+
+            store2.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                }),
+            );
+            expect(store2.state.item1.foo).toBe('hello from store1');
+
+            store1.update('item1', (item) => {
+                return {
+                    ...item,
+                    foo: 'bla',
+                };
+            });
+
+            await new Promise((r) => setTimeout(r, 0));
+            globalThis.dispatchEvent(
+                new FakeStorageEvent({
+                    key: STORAGE_KEY,
+                    storageArea: localStorage,
+                }),
+            );
+
+            expect(store2.state.item1.foo).toBe('bla');
         });
 
-        store2.use(
-            persistLocally(STORAGE_KEY, {
-                storage: localStorage,
-            }),
-        );
+        test('should support custom serialiser/deserialisers', async () => {
+            const STORAGE_KEY = 'custom serialiser/deserialisers list';
+            const data: TestDataAlt = {
+                bigInt: BigInt(9007199254740991),
+            };
 
-        expect(store2.state.foo).toBe('hello from store1');
+            const s = bigIntJSONParser.serialise(data);
+            expect(s).toBe('{"bigInt":"9007199254740991n"}');
 
-        store1.set('foo', 'bla');
+            const d: TestDataAlt = bigIntJSONParser.deserialize(s);
+            expect(typeof d.bigInt).toBe('bigint');
 
-        await new Promise((r) => setTimeout(r, 0));
-        globalThis.dispatchEvent(
-            new FakeStorageEvent({
-                key: STORAGE_KEY,
-                storageArea: localStorage,
-            }),
-        );
+            const store = createListStore<TestDataAlt>({ item1: data });
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                    serialize: bigIntJSONParser.serialise,
+                    deserialize: bigIntJSONParser.deserialize,
+                }),
+            );
 
-        expect(store2.state.foo).toBe('bla');
-    });
+            await new Promise((r) => setTimeout(r, 0));
+            expect(localStorage.getItem(STORAGE_KEY)).toBe(
+                '{"item1":{"bigInt":"9007199254740991n"}}',
+            );
 
-    test('should support custom serialiser/deserialisers', async () => {
-        const STORAGE_KEY = 'custom serialiser/deserialisers';
-        const data: TestDataAlt = {
-            bigInt: BigInt(9007199254740991),
-        };
+            const store2 = createListStore<TestDataAlt>({ item2: data });
+            store.use(
+                persistLocally(STORAGE_KEY, {
+                    storage: localStorage,
+                    serialize: bigIntJSONParser.serialise,
+                    deserialize: bigIntJSONParser.deserialize,
+                }),
+            );
 
-        const s = bigIntJSONParser.serialise(data);
-        expect(s).toBe('{"bigInt":"9007199254740991n"}');
-
-        const d: TestDataAlt = bigIntJSONParser.deserialize(s);
-        expect(typeof d.bigInt).toBe('bigint');
-
-        const store = createStore<TestDataAlt>(data);
-        store.use(
-            persistLocally(STORAGE_KEY, {
-                storage: localStorage,
-                serialize: bigIntJSONParser.serialise,
-                deserialize: bigIntJSONParser.deserialize,
-            }),
-        );
-
-        await new Promise((r) => setTimeout(r, 0));
-        expect(localStorage.getItem(STORAGE_KEY)).toBe(
-            '{"bigInt":"9007199254740991n"}',
-        );
-
-        const store2 = createStore<TestDataAlt>(data);
-        store.use(
-            persistLocally(STORAGE_KEY, {
-                storage: localStorage,
-                serialize: bigIntJSONParser.serialise,
-                deserialize: bigIntJSONParser.deserialize,
-            }),
-        );
-
-        expect(typeof store2.state.bigInt).toBe('bigint');
-        expect(store2.state.bigInt).toBe(BigInt(9007199254740991));
+            expect(typeof store2.state.item2.bigInt).toBe('bigint');
+            expect(store2.state.item2.bigInt).toBe(BigInt(9007199254740991));
+        });
     });
 });
