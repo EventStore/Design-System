@@ -52,6 +52,7 @@ export default () => (
  - [es-number-input](../es-number-input)
  - [es-radio-card-group](../es-radio-card-group)
  - [es-select](../es-select)
+ - [es-switch-field](../es-switch-field)
  - [es-textarea](../es-textarea)
 
 ### Depends on
@@ -69,6 +70,7 @@ graph TD;
   es-number-input --> es-validation-messages
   es-radio-card-group --> es-validation-messages
   es-select --> es-validation-messages
+  es-switch-field --> es-validation-messages
   es-textarea --> es-validation-messages
   style es-validation-messages fill:#f9f,stroke:#333,stroke-width:4px
 ```

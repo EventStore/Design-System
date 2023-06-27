@@ -6,7 +6,7 @@ export const Field: FunctionalComponent<FieldProps> = (
     { label, messages, invalid = false },
     children,
 ) => (
-    <label class={{ field: true, invalid }}>
+    <label class={{ field: true, invalid }} part={'field'}>
         <span class={'label'} part={'label'}>
             {label}
         </span>
