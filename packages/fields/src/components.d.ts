@@ -416,6 +416,59 @@ export namespace Components {
         "value": boolean;
     }
     /**
+     * A switchable switch field.
+     */
+    interface EsSwitchField {
+        /**
+          * Icon to display when switch is on in high contrast mode.
+         */
+        "activeIcon"?: IconDescription;
+        /**
+          * Text to display when switch is on in high contrast mode.
+         */
+        "activeText"?: string;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Icon to display when switch is off in high contrast mode.
+         */
+        "inactiveIcon"?: IconDescription;
+        /**
+          * Text to display when switch is off in high contrast mode.
+         */
+        "inactiveText"?: string;
+        /**
+          * If the field is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The validation messages of the field
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * Allows you to pause interaction with the input while an operation completes.
+         */
+        "setPending": (pending: boolean) => Promise<void>;
+        /**
+          * The current value of the field.
+         */
+        "value": boolean;
+    }
+    /**
      * A textarea field.
      */
     interface EsTextarea {
@@ -531,6 +584,10 @@ export interface EsSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEsSwitchElement;
 }
+export interface EsSwitchFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsSwitchFieldElement;
+}
 export interface EsTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEsTextareaElement;
@@ -622,6 +679,15 @@ declare global {
         new (): HTMLEsSwitchElement;
     };
     /**
+     * A switchable switch field.
+     */
+    interface HTMLEsSwitchFieldElement extends Components.EsSwitchField, HTMLStencilElement {
+    }
+    var HTMLEsSwitchFieldElement: {
+        prototype: HTMLEsSwitchFieldElement;
+        new (): HTMLEsSwitchFieldElement;
+    };
+    /**
      * A textarea field.
      */
     interface HTMLEsTextareaElement extends Components.EsTextarea, HTMLStencilElement {
@@ -655,6 +721,7 @@ declare global {
         "es-radio-card-group": HTMLEsRadioCardGroupElement;
         "es-select": HTMLEsSelectElement;
         "es-switch": HTMLEsSwitchElement;
+        "es-switch-field": HTMLEsSwitchFieldElement;
         "es-textarea": HTMLEsTextareaElement;
         "es-typeahead": HTMLEsTypeaheadElement;
         "es-validation-messages": HTMLEsValidationMessagesElement;
@@ -1103,6 +1170,59 @@ declare namespace LocalJSX {
         "value": boolean;
     }
     /**
+     * A switchable switch field.
+     */
+    interface EsSwitchField {
+        /**
+          * Icon to display when switch is on in high contrast mode.
+         */
+        "activeIcon"?: IconDescription;
+        /**
+          * Text to display when switch is on in high contrast mode.
+         */
+        "activeText"?: string;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Icon to display when switch is off in high contrast mode.
+         */
+        "inactiveIcon"?: IconDescription;
+        /**
+          * Text to display when switch is off in high contrast mode.
+         */
+        "inactiveText"?: string;
+        /**
+          * If the field is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The validation messages of the field
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: EsSwitchFieldCustomEvent<FieldChange<boolean>>) => void;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
+        "value": boolean;
+    }
+    /**
      * A textarea field.
      */
     interface EsTextarea {
@@ -1197,6 +1317,7 @@ declare namespace LocalJSX {
         "es-radio-card-group": EsRadioCardGroup;
         "es-select": EsSelect;
         "es-switch": EsSwitch;
+        "es-switch-field": EsSwitchField;
         "es-textarea": EsTextarea;
         "es-typeahead": EsTypeahead;
         "es-validation-messages": EsValidationMessages;
@@ -1242,6 +1363,10 @@ declare module "@stencil/core" {
              * A switchable switch.
              */
             "es-switch": LocalJSX.EsSwitch & JSXBase.HTMLAttributes<HTMLEsSwitchElement>;
+            /**
+             * A switchable switch field.
+             */
+            "es-switch-field": LocalJSX.EsSwitchField & JSXBase.HTMLAttributes<HTMLEsSwitchFieldElement>;
             /**
              * A textarea field.
              */

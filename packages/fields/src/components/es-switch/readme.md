@@ -79,6 +79,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [es-switch-field](../es-switch-field)
+
 ### Depends on
 
 - es-icon
@@ -87,6 +91,7 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   es-switch --> es-icon
+  es-switch-field --> es-switch
   style es-switch fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
