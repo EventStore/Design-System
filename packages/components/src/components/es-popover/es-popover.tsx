@@ -11,6 +11,7 @@ import {
 } from '@stencil/core';
 import {
     arrow,
+    autoUpdate,
     computePosition,
     flip,
     offset,
@@ -83,6 +84,7 @@ export class Popover {
     private popperShadow?: HTMLEsPopperInnerElement;
     private popperInner?: HTMLDivElement;
     private popperArrow?: HTMLDivElement;
+    private autoUpdateCleanup?: () => void;
 
     componentDidLoad() {
         this.connected = true;
@@ -297,24 +299,23 @@ export class Popover {
 
         await popper.loaded();
         await this.positionPopper();
+
+        this.autoUpdateCleanup = autoUpdate(
+            this.attachTo ?? this.getParentNode()!,
+            this.popperShadow!,
+            () => this.positionPopper(),
+        );
+
         this.attachDocumentListeners();
         setTimeout(this.enterPopper, 50);
     };
 
     private attachDocumentListeners = () => {
         this.detachAllowFocus = allowFocus(this.popperInner!);
-        window.addEventListener('scroll', this.positionPopper, {
-            passive: true,
-        });
-        window.addEventListener('resize', this.positionPopper, {
-            passive: true,
-        });
     };
 
     private detachDocumentListeners = () => {
         this.detachAllowFocus?.();
-        window.removeEventListener('scroll', this.positionPopper);
-        window.removeEventListener('resize', this.positionPopper);
     };
 
     private positionPopper = async () => {
@@ -429,6 +430,8 @@ export class Popover {
         this.popperInner = undefined;
         this.popperArrow = undefined;
         this.attached = false;
+        this.autoUpdateCleanup?.();
+        this.autoUpdateCleanup = undefined;
     };
 
     private bubbleRequestClose = (e: any) => {
