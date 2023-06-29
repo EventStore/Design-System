@@ -80,10 +80,10 @@ export const createStore = <T extends { [key: string]: any }>(
                 cb(newValue);
             }
         });
-        const unReset = on('reset', () => cb(defaultState?.[propName] as any));
+        const unReset = on('reset', () => cb(backingMap.get(propName)));
         const unDelete = on('delete', (key) => {
             if (propName === key) {
-                cb(defaultState?.[propName] as any);
+                cb(backingMap.get(propName));
             }
         });
         return () => {

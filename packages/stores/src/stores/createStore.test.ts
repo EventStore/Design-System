@@ -222,11 +222,15 @@ test('default change detector', () => {
 test('default change detector for delete', () => {
     const store = createStore({
         str: 'hola',
+        num: 0,
     });
     const DEL = jest.fn();
     store.onChange('str', DEL);
+    store.delete('num');
+    expect(DEL).toBeCalledTimes(0);
     store.delete('str');
-    expect(DEL).toBeCalledWith('hola');
+    expect(DEL).toBeCalledTimes(1);
+    expect(DEL).toBeCalledWith(undefined);
 });
 
 test('custom change detector, values', () => {
