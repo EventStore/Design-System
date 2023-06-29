@@ -300,22 +300,23 @@ export class Popover {
         await popper.loaded();
         await this.positionPopper();
 
-        this.autoUpdateCleanup = autoUpdate(
-            this.attachTo ?? this.getParentNode()!,
-            this.popperShadow!,
-            () => this.positionPopper(),
-        );
-
         this.attachDocumentListeners();
         setTimeout(this.enterPopper, 50);
     };
 
     private attachDocumentListeners = () => {
         this.detachAllowFocus = allowFocus(this.popperInner!);
+        this.autoUpdateCleanup = autoUpdate(
+            this.attachTo ?? this.getParentNode()!,
+            this.popperShadow!,
+            () => this.positionPopper(),
+        );
     };
 
     private detachDocumentListeners = () => {
         this.detachAllowFocus?.();
+        this.autoUpdateCleanup?.();
+        this.autoUpdateCleanup = undefined;
     };
 
     private positionPopper = async () => {
@@ -430,8 +431,6 @@ export class Popover {
         this.popperInner = undefined;
         this.popperArrow = undefined;
         this.attached = false;
-        this.autoUpdateCleanup?.();
-        this.autoUpdateCleanup = undefined;
     };
 
     private bubbleRequestClose = (e: any) => {
