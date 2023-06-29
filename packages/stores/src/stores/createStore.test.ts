@@ -219,6 +219,20 @@ test('default change detector', () => {
     expect(SET).toBeCalledWith('str', 'hola2', 'hola');
 });
 
+test('default change detector for delete', () => {
+    const store = createStore({
+        str: 'hola',
+        num: 0,
+    });
+    const DEL = jest.fn();
+    store.onChange('str', DEL);
+    store.delete('num');
+    expect(DEL).toBeCalledTimes(0);
+    store.delete('str');
+    expect(DEL).toBeCalledTimes(1);
+    expect(DEL).toBeCalledWith(undefined);
+});
+
 test('custom change detector, values', () => {
     const comparer = jest.fn((a, b) => a !== b);
     const store = createStore(

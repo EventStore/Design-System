@@ -3,7 +3,7 @@ import { createStore } from './createStore';
 import type { Plugin } from '../types';
 
 /** A store for holding a list of objects. */
-export interface ListStore<T extends object> {
+export interface ListStore<T> {
     /** Reset the store to initial state. */
     reset: () => void;
     /** Registers a subscription that will be called whenever the user gets, sets, or resets a value. */
@@ -58,7 +58,7 @@ export interface ListStore<T extends object> {
 }
 
 /** Create a new list store with the given initial state. */
-export const createListStore = <T extends object>(
+export const createListStore = <T>(
     initialState: Record<string, T> = {},
 ): ListStore<T> => {
     const store = createStore<Record<any, any>>(initialState);
@@ -105,9 +105,11 @@ export const createListStore = <T extends object>(
             const [cb] = args;
             const unSet = on('set', () => cb(state));
             const unReset = on('reset', () => cb(state));
+            const unDelete = on('delete', () => cb(state));
             return () => {
                 unSet();
                 unReset();
+                unDelete();
             };
         },
         get size() {
