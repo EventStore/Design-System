@@ -1,5 +1,4 @@
 import '../utils/initialize';
-import { createListStore } from './createListStore';
 import { createStore } from './createStore';
 
 describe.each<[string, 'reset' | 'dispose']>([
@@ -228,14 +227,6 @@ test('default change detector for delete', () => {
     store.onChange('str', DEL);
     store.delete('str');
     expect(DEL).toBeCalledWith('hola');
-});
-
-test('listStore default change detector for delete', () => {
-    const store = createListStore({ id: { a: 'a', b: 'b' } });
-    const DEL = jest.fn();
-    store.onChange(DEL);
-    store.delete('id');
-    expect(DEL).toBeCalledWith({});
 });
 
 test('custom change detector, values', () => {

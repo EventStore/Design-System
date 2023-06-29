@@ -105,7 +105,10 @@ export const createListStore = <T extends object>(
             const [cb] = args;
             const unSet = on('set', () => cb(state));
             const unReset = on('reset', () => cb(state));
-            const unDelete = on('delete', () => cb(state));
+            const unDelete = on('delete', (key) => {
+                if (typeof args[0] === 'string' && key !== args[0]) return;
+                cb(undefined);
+            });
             return () => {
                 unSet();
                 unReset();

@@ -81,9 +81,11 @@ export const createStore = <T extends { [key: string]: any }>(
             }
         });
         const unReset = on('reset', () => cb(defaultState?.[propName] as any));
-        const unDelete = on('delete', () =>
-            cb(defaultState?.[propName] as any),
-        );
+        const unDelete = on('delete', (key) => {
+            if (propName === key) {
+                cb(defaultState?.[propName] as any);
+            }
+        });
         return () => {
             unSet();
             unReset();
