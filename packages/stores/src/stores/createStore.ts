@@ -2,10 +2,35 @@ import type { OnHandler, OnChangeHandler, Handlers, Plugin } from '../types';
 import { stencilPlugin } from '../plugins/stencil';
 import { $data } from '../symbols';
 
+/*                 +-------------------+
+                   |       Store       |
+                   |    (Public API)   |
+                   +---------+---------+
+                             | uses
++-------------------------------v-------------------------+
+|                       createStore                       |
+|            (creates and controls internal states)       |
++--------+--------------------+-------------------+-------+
+         | uses               | uses              | uses
++--------v--------+   +-------v------+    +-------v-------+
+|   backingMap    |   |    state     |    |   handlers    |
+| (Stores data)   |   | (Proxy to    |    | (Handles      |
+|                 |   |  backingMap) |    |       events) |
++-----------------+   +-------+------+    +-------+-------+
+                              | triggers         | triggered by
++-----------------+           |                  |
+|       use       | <----------------------------+
+| (Registers      |                              
+|   plugins and   |                     +-----------------+
+|   ties plugin   |                     |     Plugins     |
+|   methods to    |-------------------> | (Extend Store's |
+|       handlers) |      registers      |  functionality) |   
++-----------------+                     +-----------------+  */
+
 /** A basic key value store. */
 export interface Store<T> {
     /** Proxied object that will detect dependencies and call the subscriptions and computed properties. */
-    readonly state: T;
+    state: T;
     /** Check if store has key */
     has<K extends keyof T>(key: K): boolean;
     /** Get value for key in store. */
@@ -175,7 +200,28 @@ export const createStore = <T extends { [key: string]: any }>(
     });
 
     const store: Store<T> = {
-        state,
+        get state() {
+            return state;
+        },
+        set state(value) {
+            if (value === null || typeof value !== 'object') {
+                throw new TypeError(`Expected object, null, or undefined, got ${typeof value}`);
+            }
+            
+            const newProps = new Set<keyof T>(Object.keys(state));
+
+            // Set new properties in the state object
+            newProps.forEach(prop => {
+                state[prop] = value[prop];
+            });
+
+            // Remove properties that no longer exist
+            Object.keys(state).forEach((prop) => {
+                if (!newProps.has(prop)) {
+                    delete state[prop];
+                }
+            });
+        },
         has: (key) => backingMap.has(key),
         get: (key) => state[key],
         set: (key, value) => (state[key] = value),
