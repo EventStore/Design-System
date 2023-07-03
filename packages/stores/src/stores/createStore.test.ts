@@ -505,7 +505,6 @@ describe('use subscriptions', () => {
     });
 });
 
-
 type State = Partial<{
     hola: string;
     name: string;
@@ -549,8 +548,14 @@ describe('store', () => {
             name: 'John',
         });
 
-        expect(() => { store.state = undefined as unknown as State }).toThrow(TypeError);
-        expect(() => { store.state = null as unknown as State }).toThrow(TypeError);
-        expect(() => { store.state = 'hello world' as State }).toThrow(TypeError);
+        expect(() => {
+            store.state = (undefined as unknown) as State;
+        }).toThrow(TypeError);
+        expect(() => {
+            store.state = (null as unknown) as State;
+        }).toThrow(TypeError);
+        expect(() => {
+            store.state = 'hello world' as State;
+        }).toThrow(TypeError);
     });
 });
