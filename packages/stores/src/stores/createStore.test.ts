@@ -504,3 +504,53 @@ describe('use subscriptions', () => {
         expect(subscription2.dispose).not.toHaveBeenCalled();
     });
 });
+
+
+type State = Partial<{
+    hola: string;
+    name: string;
+}>;
+
+describe('store', () => {
+    test('allows an object to be assigned', () => {
+        const store = createStore<State>({
+            hola: 'hello',
+            name: 'John',
+        });
+
+        const newState = {
+            hola: 'hola',
+            name: 'Sergio',
+        };
+
+        // assign newState to store.state
+        store.state = newState;
+
+        expect(store.state).toEqual(newState);
+    });
+
+    test('allows an empty object to be assigned', () => {
+        const store = createStore<State>({
+            hola: 'hello',
+            name: 'John',
+        });
+
+        const newState = {};
+
+        // assign newState to store.state
+        store.state = newState;
+
+        expect(store.state).toEqual(newState);
+    });
+
+    test('throws an error if a non-object is assigned', () => {
+        const store = createStore<State>({
+            hola: 'hello',
+            name: 'John',
+        });
+
+        expect(() => { store.state = undefined as unknown as State }).toThrow(TypeError);
+        expect(() => { store.state = null as unknown as State }).toThrow(TypeError);
+        expect(() => { store.state = 'hello world' as State }).toThrow(TypeError);
+    });
+});
