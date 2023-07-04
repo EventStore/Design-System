@@ -208,7 +208,7 @@ export const createStore = <T extends { [key: string]: any }>(
                 throw new TypeError(`Expected object, got ${typeof value}`);
             }
 
-            const newProps = new Set<keyof T>(Object.keys(state));
+            const newProps = new Set<keyof T>(Object.keys(value));
 
             // Set new properties in the state object
             newProps.forEach((prop) => {
