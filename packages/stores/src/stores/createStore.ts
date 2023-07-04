@@ -206,7 +206,7 @@ export const createStore = <T extends { [key: string]: any }>(
         set state(value) {
             if (value === null || typeof value !== 'object') {
                 throw new TypeError(
-                    `Expected object, null, or undefined, got ${typeof value}`,
+                    `Expected object, got ${typeof value}`,
                 );
             }
 
