@@ -508,9 +508,10 @@ describe('use subscriptions', () => {
 type State = Partial<{
     hola: string;
     name: string;
+    message: string;
 }>;
 
-describe('store', () => {
+describe('assignment of state with object', () => {
     test('allows an object to be assigned', () => {
         const store = createStore<State>({
             hola: 'hello',
@@ -557,5 +558,32 @@ describe('store', () => {
         expect(() => {
             store.state = 'hello world' as State;
         }).toThrow(TypeError);
+    });
+
+    test('subscriptions are properly triggered on state changes', () => {
+        const store = createStore<State>({
+            hola: 'hello',
+            name: 'John',
+        });
+
+        const subscription = {
+            set: jest.fn(),
+            insert: jest.fn(),
+            delete: jest.fn(),
+        };
+
+        // Register callbacks
+        store.on('set', subscription.set);
+        store.on('insert', subscription.insert);
+        store.on('delete', subscription.delete);
+
+        store.state = {
+            name: 'Peter',
+            message: '🔔',
+        };
+
+        expect(subscription.set).toHaveBeenCalledWith('name', 'Peter', 'John');
+        expect(subscription.delete).toHaveBeenCalledWith('hola');
+        expect(subscription.insert).toHaveBeenCalledWith('message', '🔔');
     });
 });
