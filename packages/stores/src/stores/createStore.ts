@@ -10,13 +10,13 @@ import { $data } from '../symbols';
 +-------------------------------v-------------------------+
 |                       createStore                       |
 |            (creates and controls internal states)       |
-+--------+--------------------+-------------------+-------+
-         | uses               | uses              | uses
-+--------v--------+   +-------v------+    +-------v-------+
++--------+--------------------+------------------+--------+
+         | uses               | uses             | uses
++--------v--------+   +-------v------+    +------v--------+
 |   backingMap    |   |    state     |    |   handlers    |
 | (Stores data)   |   | (Proxy to    |    | (Handles      |
 |                 |   |  backingMap) |    |       events) |
-+-----------------+   +-------+------+    +-------+-------+
++-----------------+   +-------+------+    +------+--------+
                               | triggers         | triggered by
 +-----------------+           |                  |
 |       use       | <----------------------------+
@@ -205,9 +205,7 @@ export const createStore = <T extends { [key: string]: any }>(
         },
         set state(value) {
             if (value === null || typeof value !== 'object') {
-                throw new TypeError(
-                    `Expected object, got ${typeof value}`,
-                );
+                throw new TypeError(`Expected object, got ${typeof value}`);
             }
 
             const newProps = new Set<keyof T>(Object.keys(state));
