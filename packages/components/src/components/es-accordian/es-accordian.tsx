@@ -6,8 +6,11 @@ import { ICON_NAMESPACE } from '../../icons/namespace';
 /**
  * Optionally collapsible sectioned view. Each section can be targeted via a part.
  * @slot [sectionName] - Slots are created based off of the names of the passed sections.
+ * @part section - Target the outer section.
+ * @part [sectionName] - Target the outer section by name.
  * @part section_header - Target the header of each section.
  * @part section_header_title - Target the header text of each section.
+ * @part section_header_icon - Target the collapse icon of each section (if collapseable).
  * @part section_content - Target the content wrapper of each section.
  * @part section_content_inner - Target the content of each section.
  */
@@ -73,6 +76,7 @@ export class Accordian {
                             <section
                                 key={name}
                                 id={name}
+                                part={`section ${name}`}
                                 class={{
                                     collapsed,
                                     [variant]: variant !== 'default',
@@ -110,6 +114,7 @@ export class Accordian {
                                         </h1>
                                         {collapsable && (
                                             <es-icon
+                                                part={'section_header_icon'}
                                                 icon={[
                                                     ICON_NAMESPACE,
                                                     'chevron',

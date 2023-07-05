@@ -72,12 +72,15 @@ export default () => (
 
 ## Shadow Parts
 
-| Part                      | Description                                 |
-| ------------------------- | ------------------------------------------- |
-| `"section_content"`       | Target the content wrapper of each section. |
-| `"section_content_inner"` | Target the content of each section.         |
-| `"section_header"`        | Target the header of each section.          |
-| `"section_header_title"`  | Target the header text of each section.     |
+| Part                      | Description                                                 |
+| ------------------------- | ----------------------------------------------------------- |
+| `"[sectionName]"`         | Target the outer section by name.                           |
+| `"section"`               | Target the outer section.                                   |
+| `"section_content"`       | Target the content wrapper of each section.                 |
+| `"section_content_inner"` | Target the content of each section.                         |
+| `"section_header"`        | Target the header of each section.                          |
+| `"section_header_icon"`   | Target the collapse icon of each section (if collapseable). |
+| `"section_header_title"`  | Target the header text of each section.                     |
 
 
 ## Dependencies
