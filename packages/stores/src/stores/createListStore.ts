@@ -1,6 +1,6 @@
 import { $data } from '../symbols';
 import { createStore } from './createStore';
-import type { Plugin } from '../types';
+import type { OnHandler, Plugin } from '../types';
 
 /** A store for holding a list of objects. */
 export interface ListStore<T> {
@@ -55,6 +55,10 @@ export interface ListStore<T> {
      * internal access to data
      */
     readonly [$data]: Readonly<Map<string, T>>;
+    /** subscribe to events within the store */
+    on: OnHandler<Record<string, T>>;
+    /** Resets the state to its original state and signals a dispose event to all the plugins. */
+    dispose(): void;
 }
 
 /** Create a new list store with the given initial state. */
@@ -147,6 +151,8 @@ export const createListStore = <T>(
         },
         values: () => Object.values(state),
         use: store.use,
+        on: store.on,
+        dispose: store.dispose,
         [Symbol.iterator]: () => Object.entries(state),
         [$data]: store[$data],
     };
