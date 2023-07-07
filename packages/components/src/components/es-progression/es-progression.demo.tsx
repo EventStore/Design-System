@@ -99,7 +99,7 @@ export class Counter {
             id: '2-2',
             title: 'Underwater',
             color() {
-                return 'pink';
+                return 'aquamarine';
             },
         },
         {

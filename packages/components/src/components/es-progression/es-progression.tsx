@@ -1,11 +1,4 @@
-import {
-    Component,
-    h,
-    Prop,
-    Event,
-    EventEmitter,
-    Fragment,
-} from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import type { IconDescription } from '../es-icon/types';
 import type { Checkpoint, CheckpointState } from './types';
@@ -69,7 +62,8 @@ export class Progression {
     }
 
     render() {
-        return this.transformedCheckpoints.map(
+        // Array is flattened so each child has a key.
+        return this.transformedCheckpoints.flatMap(
             (
                 {
                     id,
@@ -83,66 +77,63 @@ export class Progression {
                 i,
             ) => {
                 const next = this.transformedCheckpoints[i + 1];
-                return (
-                    <>
-                        <button
-                            key={id}
-                            type={'button'}
-                            part={`checkpoint ${state}`}
-                            class={state}
-                            disabled={disabled}
-                            tabindex={state === 'active' ? -1 : 0}
-                            onClick={() => this.progressionRequest.emit(id)}
-                            style={{
-                                '--checkpoint-color': color,
-                            }}
+                return [
+                    <button
+                        key={id}
+                        type={'button'}
+                        part={`checkpoint ${state}`}
+                        class={state}
+                        disabled={disabled}
+                        tabindex={state === 'active' ? -1 : 0}
+                        onClick={() => this.progressionRequest.emit(id)}
+                        style={{
+                            '--checkpoint-color': color,
+                        }}
+                    >
+                        <div class={'blob'} part={'blob'}>
+                            <es-icon
+                                part={'center'}
+                                class={{ center: true, custom: !!icon }}
+                                icon={icon ?? [ICON_NAMESPACE, 'circle']}
+                                size={16}
+                            />
+                        </div>
+                        {title}
+                    </button>,
+                    !!next && (
+                        <svg
+                            key={`${id}-${next.id}`}
+                            height={30}
+                            width={100}
+                            class={'connection'}
+                            part={'connection'}
                         >
-                            <div class={'blob'} part={'blob'}>
-                                <es-icon
-                                    part={'center'}
-                                    class={{ center: true, custom: !!icon }}
-                                    icon={icon ?? [ICON_NAMESPACE, 'circle']}
-                                    size={16}
-                                />
-                            </div>
-                            {title}
-                        </button>
-                        {!!next && (
-                            <svg
-                                height={30}
+                            <defs>
+                                <linearGradient id={`stroke_${id}-${next.id}`}>
+                                    <stop
+                                        offset="0%"
+                                        stop-color={
+                                            state === 'active'
+                                                ? inactiveColor
+                                                : color
+                                        }
+                                    />
+                                    <stop
+                                        offset="100%"
+                                        stop-color={next.color}
+                                    />
+                                </linearGradient>
+                            </defs>
+                            <rect
+                                x={0}
                                 width={100}
-                                class={'connection'}
-                                part={'connection'}
-                            >
-                                <defs>
-                                    <linearGradient
-                                        id={`stroke_${id}-${next.id}`}
-                                    >
-                                        <stop
-                                            offset="0%"
-                                            stop-color={
-                                                state === 'active'
-                                                    ? inactiveColor
-                                                    : color
-                                            }
-                                        />
-                                        <stop
-                                            offset="100%"
-                                            stop-color={next.color}
-                                        />
-                                    </linearGradient>
-                                </defs>
-                                <rect
-                                    x={0}
-                                    width={100}
-                                    y={13}
-                                    height={4}
-                                    fill={`url(#stroke_${id}-${next.id})`}
-                                />
-                            </svg>
-                        )}
-                    </>
-                );
+                                y={13}
+                                height={4}
+                                fill={`url(#stroke_${id}-${next.id})`}
+                            />
+                        </svg>
+                    ),
+                ];
             },
         );
     }
