@@ -13,6 +13,9 @@ iconStore.addIcons(ICON_NAMESPACE, {
             ({ ChevronDouble }) => ChevronDouble,
         );
     },
+    get circle() {
+        return import('./components/Circle').then(({ Circle }) => Circle);
+    },
     get close() {
         return import('./components/Close').then(({ Close }) => Close);
     },

@@ -16,7 +16,7 @@ import { CounterColor, CounterVariant } from "./components/es-counter/types";
 import { PageChangeEventType } from "./components/es-pagination/types";
 import { Constrain } from "./components/es-popover/es-popover";
 import { Placement } from "@floating-ui/dom";
-import { Checkpoint } from "./components/es-progression/es-progression";
+import { Checkpoint, CheckpointState } from "./components/es-progression/types";
 import { Status } from "./components/es-status/es-status";
 import { ClickRow, JumpOptions, LoadWindow, TableCells, TableSort } from "./components/tables/types";
 import { Tab } from "./components/es-tabs/types";
@@ -33,7 +33,7 @@ export { CounterColor, CounterVariant } from "./components/es-counter/types";
 export { PageChangeEventType } from "./components/es-pagination/types";
 export { Constrain } from "./components/es-popover/es-popover";
 export { Placement } from "@floating-ui/dom";
-export { Checkpoint } from "./components/es-progression/es-progression";
+export { Checkpoint, CheckpointState } from "./components/es-progression/types";
 export { Status } from "./components/es-status/es-status";
 export { ClickRow, JumpOptions, LoadWindow, TableCells, TableSort } from "./components/tables/types";
 export { Tab } from "./components/es-tabs/types";
@@ -409,6 +409,14 @@ export namespace Components {
           * A list of checkpoints to display.
          */
         "checkpoints": Checkpoint[];
+        /**
+          * Set custom colors for all checkpoints
+         */
+        "colors"?: Partial<Record<CheckpointState, string>>;
+        /**
+          * Set custom icons for all checkpoints
+         */
+        "icons"?: Partial<Record<CheckpointState, IconDescription>>;
         /**
           * The current active location.
          */
@@ -1541,6 +1549,14 @@ declare namespace LocalJSX {
           * A list of checkpoints to display.
          */
         "checkpoints": Checkpoint[];
+        /**
+          * Set custom colors for all checkpoints
+         */
+        "colors"?: Partial<Record<CheckpointState, string>>;
+        /**
+          * Set custom icons for all checkpoints
+         */
+        "icons"?: Partial<Record<CheckpointState, IconDescription>>;
         /**
           * The current active location.
          */
