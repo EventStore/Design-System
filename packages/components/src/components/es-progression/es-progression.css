@@ -22,24 +22,23 @@ button {
     cursor: pointer;
     outline: none;
     color: var(--color-text);
+    position: relative;
 
     & .blob {
-        margin-bottom: 18px;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        border: 2px solid var(--checkpoint-color);
+        color: var(--checkpoint-color);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     & .center {
-        transform-origin: 15px 15px;
         opacity: 0;
         transform: scale(0);
-        fill: var(--color-shade-30);
-        transition-property: all;
-        transition-duration: 500ms;
-        transition-timing-function: ease;
-    }
-
-    & .outline {
-        fill: transparent;
-        stroke: var(--color-shade-30);
         transition-property: all;
         transition-duration: 500ms;
         transition-timing-function: ease;
@@ -50,13 +49,6 @@ button {
         & .center {
             opacity: 1;
             transform: scale(0.5);
-            fill: var(--color-secondary-alt);
-        }
-    }
-
-    &.completed {
-        & .outline {
-            stroke: var(--color-secondary);
         }
     }
 
@@ -66,12 +58,12 @@ button {
         & .center {
             opacity: 1;
             transform: scale(1);
-            fill: var(--color-secondary);
         }
+    }
 
-        & .outline {
-            stroke: var(--color-secondary);
-        }
+    &.complete .center.custom {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -79,13 +71,14 @@ button {
     margin: 0 -30px;
 
     & line {
-        stroke: var(--color-shade-20);
         transition-property: stroke;
         transition-duration: 500ms;
         transition-timing-function: ease;
     }
+}
 
-    &.completed line {
-        stroke: var(--color-secondary);
-    }
+linearGradient stop {
+    transition-property: stop-color;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
 }

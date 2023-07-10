@@ -76,6 +76,7 @@ Type: `Promise<void>`
  - [es-loading-dots](../es-loading-dots)
  - [es-modal](../es-modal)
  - [es-pagination](../es-pagination)
+ - [es-progression](../es-progression)
  - es-status
  - [es-table](../tables/es-table)
  - [es-table-nested](../tables/es-table-nested)
@@ -92,6 +93,7 @@ graph TD;
   es-loading-dots --> es-icon
   es-modal --> es-icon
   es-pagination --> es-icon
+  es-progression --> es-icon
   es-status --> es-icon
   es-table --> es-icon
   es-table-nested --> es-icon

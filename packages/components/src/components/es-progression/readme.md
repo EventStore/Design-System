@@ -61,10 +61,12 @@ export default () => (
 
 ## Properties
 
-| Property                   | Attribute  | Description                       | Type           | Default     |
-| -------------------------- | ---------- | --------------------------------- | -------------- | ----------- |
-| `checkpoints` _(required)_ | --         | A list of checkpoints to display. | `Checkpoint[]` | `undefined` |
-| `location` _(required)_    | `location` | The current active location.      | `string`       | `undefined` |
+| Property                   | Attribute  | Description                           | Type                                                                                                                                        | Default     |
+| -------------------------- | ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `checkpoints` _(required)_ | --         | A list of checkpoints to display.     | `Checkpoint[]`                                                                                                                              | `undefined` |
+| `colors`                   | --         | Set custom colors for all checkpoints | `undefined \| { active?: string \| undefined; complete?: string \| undefined; inactive?: string \| undefined; }`                            | `undefined` |
+| `icons`                    | --         | Set custom icons for all checkpoints  | `undefined \| { active?: IconDescription \| undefined; complete?: IconDescription \| undefined; inactive?: IconDescription \| undefined; }` | `undefined` |
+| `location` _(required)_    | `location` | The current active location.          | `string`                                                                                                                                    | `undefined` |
 
 
 ## Events
@@ -73,6 +75,30 @@ export default () => (
 | -------------------- | ------------------------------------- | --------------------- |
 | `progressionRequest` | Emitted when a checkpoint is clicked. | `CustomEvent<string>` |
 
+
+## Shadow Parts
+
+| Part           | Description                                 |
+| -------------- | ------------------------------------------- |
+| `"[state]"`    | The current state of the checkpoint button. |
+| `"blob"`       | An indicator blob.                          |
+| `"center"`     | A central icon in the indicator blob.       |
+| `"checkpoint"` | A checkpoint button                         |
+| `"connection"` | A connection between two checkpoints.       |
+
+
+## Dependencies
+
+### Depends on
+
+- [es-icon](../es-icon)
+
+### Graph
+```mermaid
+graph TD;
+  es-progression --> es-icon
+  style es-progression fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

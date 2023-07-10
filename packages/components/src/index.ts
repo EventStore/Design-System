@@ -28,6 +28,10 @@ export type {
     CounterColor,
     CounterVariant,
 } from './components/es-counter/types';
+export type {
+    Checkpoint,
+    CheckpointState,
+} from './components/es-progression/types';
 
 export { toast } from './utils/toast';
 export { iconStore } from './utils/iconStore';

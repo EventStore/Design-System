@@ -1,12 +1,23 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
+import { ICON_NAMESPACE } from '../../icons/namespace';
+import type { IconDescription } from '../es-icon/types';
+import type { Checkpoint, CheckpointState } from './types';
 
-export interface Checkpoint {
-    id: string;
-    title: string;
-    disabled?: true;
+interface TransformedCheckpoint extends Omit<Checkpoint, 'color' | 'icon'> {
+    state: CheckpointState;
+    icon?: IconDescription;
+    color: string;
+    inactiveColor: string;
 }
 
-/** A wizard progression bar. */
+/**
+ * A wizard progression bar.
+ * @part checkpoint - A checkpoint button
+ * @part [state] - The current state of the checkpoint button.
+ * @part blob - An indicator blob.
+ * @part center - A central icon in the indicator blob.
+ * @part connection - A connection between two checkpoints.
+ */
 @Component({
     tag: 'es-progression',
     styleUrl: 'es-progression.css',
@@ -20,59 +31,105 @@ export class Progression {
     @Prop() checkpoints!: Checkpoint[];
     /** The current active location. */
     @Prop() location!: string;
+    /** Set custom colors for all checkpoints */
+    @Prop() colors?: Partial<Record<CheckpointState, string>>;
+    /** Set custom icons for all checkpoints */
+    @Prop() icons?: Partial<Record<CheckpointState, IconDescription>>;
 
-    render() {
+    private transformedCheckpoints: TransformedCheckpoint[] = [];
+
+    componentWillRender() {
         const activeIndex = this.checkpoints.findIndex(
             ({ id }) => id === this.location,
         );
+        this.transformedCheckpoints = this.checkpoints.map((checkpoint, i) => {
+            const active = checkpoint.id === this.location;
+            const completed = activeIndex > i;
+            const state = active
+                ? 'active'
+                : completed
+                ? 'complete'
+                : 'inactive';
 
-        return this.checkpoints.map(
-            ({ id, title, disabled = false }, i, { length }) => {
-                const active = id === this.location;
-                const last = i === length - 1;
-                const completed = activeIndex > i;
+            return {
+                ...checkpoint,
+                state,
+                icon: this.icon(checkpoint, state),
+                color: this.color(checkpoint, state),
+                inactiveColor: this.color(checkpoint, 'inactive'),
+            };
+        });
+    }
 
+    render() {
+        // Array is flattened so each child has a key.
+        return this.transformedCheckpoints.flatMap(
+            (
+                {
+                    id,
+                    title,
+                    disabled = false,
+                    color,
+                    inactiveColor,
+                    icon,
+                    state,
+                },
+                i,
+            ) => {
+                const next = this.transformedCheckpoints[i + 1];
                 return [
                     <button
                         key={id}
                         type={'button'}
-                        class={{ active, disabled, completed }}
+                        part={`checkpoint ${state}`}
+                        class={state}
                         disabled={disabled}
-                        tabindex={active ? -1 : 0}
+                        tabindex={state === 'active' ? -1 : 0}
                         onClick={() => this.progressionRequest.emit(id)}
+                        style={{
+                            '--checkpoint-color': color,
+                        }}
                     >
-                        <svg width={30} height={30} class={'blob'}>
-                            <g fill={'transparent'}>
-                                <circle
-                                    class={'center'}
-                                    cx={15}
-                                    cy={15}
-                                    r={8}
-                                />
-                                <circle
-                                    stroke-width={2}
-                                    class={'outline'}
-                                    cx={15}
-                                    cy={15}
-                                    r={14}
-                                />
-                            </g>
-                        </svg>
+                        <div class={'blob'} part={'blob'}>
+                            <es-icon
+                                part={'center'}
+                                class={{ center: true, custom: !!icon }}
+                                icon={icon ?? [ICON_NAMESPACE, 'circle']}
+                                size={16}
+                            />
+                        </div>
                         {title}
                     </button>,
-                    !last && (
+                    !!next && (
                         <svg
+                            key={`${id}-${next.id}`}
                             height={30}
                             width={100}
-                            class={{ connection: true, completed }}
+                            class={'connection'}
+                            part={'connection'}
                         >
-                            <line
-                                x1={0}
-                                x2={100}
-                                y1={15}
-                                y2={15}
-                                stroke={'transparent'}
-                                stroke-width={4}
+                            <defs>
+                                <linearGradient id={`stroke_${id}-${next.id}`}>
+                                    <stop
+                                        offset="0%"
+                                        stop-color={
+                                            state === 'active'
+                                                ? inactiveColor
+                                                : color
+                                        }
+                                    />
+                                    <stop
+                                        offset="100%"
+                                        stop-color={next.color}
+                                    />
+                                </linearGradient>
+                            </defs>
+                            <rect
+                                x={0}
+                                width={100}
+                                y={13}
+                                height={4}
+                                fill={`url(#stroke_${id}-${next.id})`}
                             />
                         </svg>
                     ),
@@ -80,4 +137,18 @@ export class Progression {
             },
         );
     }
+
+    private icon = (checkpoint: Checkpoint, state: CheckpointState) =>
+        checkpoint.icon?.(state) ?? this.icons?.[state];
+
+    private color = (checkpoint: Checkpoint, state: CheckpointState) =>
+        checkpoint.color?.(state) ??
+        this.colors?.[state] ??
+        this.defaultColors[state];
+
+    private defaultColors: Record<CheckpointState, string> = {
+        active: 'var(--color-secondary)',
+        complete: 'var(--color-secondary)',
+        inactive: 'var(--color-shade-30)',
+    };
 }

@@ -1,5 +1,5 @@
 {
-    "version": "0.1.3",
+    "version": "0.1.7",
     "namespace": "es-components",
     "iconStoreImportPath": "../utils/iconStore",
     "icons": {
@@ -17,6 +17,11 @@
             "name": "chevron-double",
             "component": "ChevronDouble",
             "path": "./components/ChevronDouble.tsx"
+        },
+        "circle": {
+            "name": "circle",
+            "component": "Circle",
+            "path": "./components/Circle.tsx"
         },
         "close": {
             "name": "close",
