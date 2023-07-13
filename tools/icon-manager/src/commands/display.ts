@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { createServer, RequestListener } from 'http';
+import { createServer, type RequestListener } from 'http';
 import { join, dirname, resolve, isAbsolute, extname, basename } from 'path';
 import { readFile, stat } from 'fs/promises';
 import { watch } from 'fs';
@@ -9,7 +9,10 @@ import { EventEmitter } from 'stream';
 
 import { JsxEmit, ModuleKind, ScriptTarget, transpileModule } from 'typescript';
 
-import { IndexFileDetails, readIndexFileDetails } from '../utils/indexFile';
+import {
+    type IndexFileDetails,
+    readIndexFileDetails,
+} from '../utils/indexFile';
 import { debounce } from '../utils/debounce';
 
 interface DisplayOptions {
@@ -94,9 +97,11 @@ interface IconsMeta {
 }
 type RequestHandler = (meta: IconsMeta) => RequestListener;
 
-const index: RequestHandler = ({ shouldWatch }) => async (_, res) => {
-    res.writeHead(200);
-    res.end(`
+const index: RequestHandler =
+    ({ shouldWatch }) =>
+    async (_, res) => {
+        res.writeHead(200);
+        res.end(`
     <!DOCTYPE html>
     <html dir="ltr" lang="en">
         <head>
@@ -168,14 +173,16 @@ const index: RequestHandler = ({ shouldWatch }) => async (_, res) => {
         
     </html>    
     `);
-};
+    };
 
-const iconDetails: RequestHandler = ({ indexFile }) => async (req, res) => {
-    try {
-        res.writeHead(200, {
-            'Content-Type': 'text/javascript; charset=utf-8',
-        });
-        res.end(`
+const iconDetails: RequestHandler =
+    ({ indexFile }) =>
+    async (_req, res) => {
+        try {
+            res.writeHead(200, {
+                'Content-Type': 'text/javascript; charset=utf-8',
+            });
+            res.end(`
             ${
                 indexFile.namespace
                     ? "import { ICON_NAMESPACE } from '/lib/icons/namespace'"
@@ -188,11 +195,11 @@ const iconDetails: RequestHandler = ({ indexFile }) => async (req, res) => {
                 Array.from(indexFile.indexMap, ([_, { name }]) => name),
             )};
         `);
-    } catch (error: any) {
-        res.writeHead(404);
-        res.end(error.toString());
-    }
-};
+        } catch (error: any) {
+            res.writeHead(404);
+            res.end(error.toString());
+        }
+    };
 
 const esComponentsDir = join(
     dirname(require.resolve('@eventstore-ui/components/package.json')),
@@ -253,36 +260,34 @@ const transpile = (
         '/lib/@eventstore-ui/components/es-components/index.esm.js',
     );
 };
-const icons: RequestHandler = ({
-    directory,
-    indexFile,
-}): RequestListener => async (req, res) => {
-    try {
-        const path = join(directory, req.url!.replace('/lib/icons', ''));
-        const tsPath = await findPath(path);
-        const file = await readFile(tsPath);
-        const transpiled = transpile(file.toString(), tsPath, indexFile);
-        res.writeHead(200, {
-            'Content-Type': 'text/javascript; charset=utf-8',
-        });
-        res.end(transpiled);
-    } catch (error: any) {
-        console.log(error);
-        res.writeHead(404);
-        res.end(error.toString());
-    }
-};
+const icons: RequestHandler =
+    ({ directory, indexFile }): RequestListener =>
+    async (req, res) => {
+        try {
+            const path = join(directory, req.url!.replace('/lib/icons', ''));
+            const tsPath = await findPath(path);
+            const file = await readFile(tsPath);
+            const transpiled = transpile(file.toString(), tsPath, indexFile);
+            res.writeHead(200, {
+                'Content-Type': 'text/javascript; charset=utf-8',
+            });
+            res.end(transpiled);
+        } catch (error: any) {
+            console.log(error);
+            res.writeHead(404);
+            res.end(error.toString());
+        }
+    };
 
-const hotReload: RequestHandler = ({ reload }): RequestListener => async (
-    _req,
-    res,
-) => {
-    try {
-        await new Promise((r) => reload.once('reload', r));
-        res.writeHead(200);
-        res.end('reload');
-    } catch (error: any) {
-        res.writeHead(404);
-        res.end(error.toString());
-    }
-};
+const hotReload: RequestHandler =
+    ({ reload }): RequestListener =>
+    async (_req, res) => {
+        try {
+            await new Promise((r) => reload.once('reload', r));
+            res.writeHead(200);
+            res.end('reload');
+        } catch (error: any) {
+            res.writeHead(404);
+            res.end(error.toString());
+        }
+    };

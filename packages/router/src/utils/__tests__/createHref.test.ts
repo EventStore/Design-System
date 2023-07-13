@@ -1,5 +1,5 @@
 import { createBrowserHistory } from '../createBrowserHistory';
-import { RouterHistory } from '../../types';
+import { type RouterHistory } from '../../types';
 
 describe('a browser history', () => {
     describe('with no basename', () => {

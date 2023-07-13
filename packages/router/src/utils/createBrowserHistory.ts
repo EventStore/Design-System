@@ -56,9 +56,8 @@ export const createBrowserHistory = (
     const globalLocation = win.location;
     const globalNavigator = win.navigator;
     const canUseHistory = supportsHistory(win);
-    const needsHashChangeListener = !supportsPopStateOnHashChange(
-        globalNavigator,
-    );
+    const needsHashChangeListener =
+        !supportsPopStateOnHashChange(globalNavigator);
     const scrollHistory = createScrollHistory(win);
 
     const forceRefresh =

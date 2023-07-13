@@ -1,4 +1,4 @@
-import { h, FunctionalComponent } from '@stencil/core';
+import { h, type FunctionalComponent } from '@stencil/core';
 import { INTERNAL_ROUTER } from '../utils/globals';
 import { Redirect } from './Redirect';
 import { Route } from './Route';
@@ -17,11 +17,9 @@ export interface ConditionalRedirectProps {
  * Redirect only if route matches.
  * @usage ./ConditionalRedirect.usage.md
  */
-export const ConditionalRedirect: FunctionalComponent<ConditionalRedirectProps> = ({
-    from,
-    to,
-    exact,
-}) => {
+export const ConditionalRedirect: FunctionalComponent<
+    ConditionalRedirectProps
+> = ({ from, to, exact }) => {
     if (!to) return null as any;
 
     return (

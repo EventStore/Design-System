@@ -39,5 +39,5 @@ export { ICON_NAMESPACE as ES_COMPONENTS_ICON_NAMESPACE } from './icons/namespac
 export { requestClose } from './components/es-popover/utils/requestClose';
 export {
     LoadingText,
-    LoadingTextProps,
+    type LoadingTextProps,
 } from './components/es-loading-text/LoadingText';

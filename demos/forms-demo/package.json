@@ -7,7 +7,8 @@
         "start": "stencil build --dev --watch --serve --no-open",
         "test": "stencil test --spec --passWithNoTests",
         "test.watch": "stencil test --spec --watchAll",
-        "lint": "yarn g:lint"
+        "lint": "yarn g:lint",
+        "fix": "yarn g:fix"
     },
     "dependencies": {
         "@eventstore-ui/components": "workspace:*",
@@ -23,6 +24,6 @@
         "@eventstore-ui/assets": "workspace:*",
         "@eventstore-ui/configs": "workspace:*",
         "@eventstore-ui/icon-manager": "workspace:*",
-        "@stencil/core": "3.0.1"
+        "@stencil/core": "4.0.1"
     }
 }

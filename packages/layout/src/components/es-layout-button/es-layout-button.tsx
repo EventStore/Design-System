@@ -5,7 +5,7 @@ import {
     Method,
     Prop,
     Event,
-    EventEmitter,
+    type EventEmitter,
     Host,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';

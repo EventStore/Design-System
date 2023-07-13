@@ -1,7 +1,9 @@
 dist
 www
 loader
+build
 documentation/generated
+!documentation/generated/stencil-private.d.ts
 
 *~
 *.sw[mnpcod]
@@ -26,3 +28,5 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
+
+

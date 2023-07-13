@@ -3,7 +3,7 @@ import {
     h,
     Prop,
     Event,
-    EventEmitter,
+    type EventEmitter,
     Method,
     State,
     Fragment,

@@ -1,5 +1,5 @@
 import type { TableCells } from '@eventstore-ui/components';
-import { h, FunctionalComponent } from '@stencil/core';
+import { h, type FunctionalComponent } from '@stencil/core';
 import type { DeclarationReflection } from 'typedoc';
 
 export const ObjectTable: FunctionalComponent<{

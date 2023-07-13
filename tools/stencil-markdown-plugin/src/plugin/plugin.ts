@@ -38,16 +38,17 @@ export interface Visitor {
     visitor: (node: JSXNode, index: number, parent?: Node) => void | 'skip';
 }
 
-const pluginFromVisitor = ({ test, visitor }: Visitor) => () => (
-    tree: Node,
-) => {
-    visit<JSXNode>(tree, test, (node, index, parent) => {
-        const reply = visitor(node, index, parent);
-        if (parent && reply === 'skip') {
-            parent.children.splice(index, 1);
-        }
-    });
-};
+const pluginFromVisitor =
+    ({ test, visitor }: Visitor) =>
+    () =>
+    (tree: Node) => {
+        visit<JSXNode>(tree, test, (node, index, parent) => {
+            const reply = visitor(node, index, parent);
+            if (parent && reply === 'skip') {
+                parent.children.splice(index, 1);
+            }
+        });
+    };
 
 const fixStyleTags = () => (tree: Node) => {
     visit(tree, 'jsx', (node: JSXNode) => {

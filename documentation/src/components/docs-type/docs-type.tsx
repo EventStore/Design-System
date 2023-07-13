@@ -1,4 +1,4 @@
-import { Component, h, Fragment, VNode, Prop } from '@stencil/core';
+import { Component, h, Fragment, type VNode, Prop } from '@stencil/core';
 import type { SignatureReflection, SomeType } from 'typedoc';
 import {
     isCallSignature,
@@ -260,24 +260,25 @@ export class DocsSomeType {
                     <span class={'new'}>{'new '}</span>
                     {signature.type && this.renderSomeType(signature.type)}
                     {'('}
-                    {signature.parameters && signature.parameters.length > 0 && (
-                        <span class={'params'}>
-                            {signature.parameters?.map((param) => (
-                                <span class={'param'} key={param.name}>
-                                    {param.name}
-                                    {param.defaultValue ? '?' : ''}
-                                    {': '}
-                                    {param.type
-                                        ? this.renderSomeType(param.type)
-                                        : 'any'}
-                                    {param.defaultValue &&
-                                    param.defaultValue !== '...'
-                                        ? ` = ${param.defaultValue}`
-                                        : ''}
-                                </span>
-                            ))}
-                        </span>
-                    )}
+                    {signature.parameters &&
+                        signature.parameters.length > 0 && (
+                            <span class={'params'}>
+                                {signature.parameters?.map((param) => (
+                                    <span class={'param'} key={param.name}>
+                                        {param.name}
+                                        {param.defaultValue ? '?' : ''}
+                                        {': '}
+                                        {param.type
+                                            ? this.renderSomeType(param.type)
+                                            : 'any'}
+                                        {param.defaultValue &&
+                                        param.defaultValue !== '...'
+                                            ? ` = ${param.defaultValue}`
+                                            : ''}
+                                    </span>
+                                ))}
+                            </span>
+                        )}
                     {')'}
                 </span>
             );
@@ -288,24 +289,25 @@ export class DocsSomeType {
             return (
                 <span class={'signature'}>
                     {'('}
-                    {signature.parameters && signature.parameters.length > 0 && (
-                        <span class={'params'}>
-                            {signature.parameters?.map((param) => (
-                                <span class={'param'} key={param.name}>
-                                    {param.name}
-                                    {param.defaultValue ? '?' : ''}
-                                    {': '}
-                                    {param.type
-                                        ? this.renderSomeType(param.type)
-                                        : 'any'}
-                                    {param.defaultValue &&
-                                    param.defaultValue !== '...'
-                                        ? ` = ${param.defaultValue}`
-                                        : ''}
-                                </span>
-                            ))}
-                        </span>
-                    )}
+                    {signature.parameters &&
+                        signature.parameters.length > 0 && (
+                            <span class={'params'}>
+                                {signature.parameters?.map((param) => (
+                                    <span class={'param'} key={param.name}>
+                                        {param.name}
+                                        {param.defaultValue ? '?' : ''}
+                                        {': '}
+                                        {param.type
+                                            ? this.renderSomeType(param.type)
+                                            : 'any'}
+                                        {param.defaultValue &&
+                                        param.defaultValue !== '...'
+                                            ? ` = ${param.defaultValue}`
+                                            : ''}
+                                    </span>
+                                ))}
+                            </span>
+                        )}
                     {') => '}
                     {declaration.type
                         ? this.renderSomeType(declaration.type)

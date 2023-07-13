@@ -1,13 +1,16 @@
-export {
-    ConditionalRedirect,
-    ConditionalRedirectProps,
-} from './components/ConditionalRedirect';
+export { ConditionalRedirect } from './components/ConditionalRedirect';
+export type { ConditionalRedirectProps } from './components/ConditionalRedirect';
 
-export { Action, ActionProps } from './components/Action';
-export { Link, LinkProps } from './components/Link';
-export { PageTitle, PageTitleProps } from './components/PageTitle';
-export { Redirect, RedirectProps } from './components/Redirect';
-export { Route, RouteProps } from './components/Route';
+export { Action } from './components/Action';
+export type { ActionProps } from './components/Action';
+export { Link } from './components/Link';
+export type { LinkProps } from './components/Link';
+export { PageTitle } from './components/PageTitle';
+export type { PageTitleProps } from './components/PageTitle';
+export { Redirect } from './components/Redirect';
+export type { RedirectProps } from './components/Redirect';
+export { Route } from './components/Route';
+export type { RouteProps } from './components/Route';
 export { Switch } from './components/Switch';
 
 export * from './types';

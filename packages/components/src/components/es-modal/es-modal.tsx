@@ -3,7 +3,7 @@ import {
     h,
     Host,
     Event,
-    EventEmitter,
+    type EventEmitter,
     Prop,
     getElement,
     Listen,

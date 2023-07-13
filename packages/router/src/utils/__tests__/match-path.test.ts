@@ -1,5 +1,5 @@
 import { matchPath } from '../match-path';
-import { MatchResults } from '../../types';
+import { type MatchResults } from '../../types';
 
 describe('matchPath', () => {
     describe('with path="/"', () => {

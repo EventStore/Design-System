@@ -70,13 +70,14 @@ export const parseQueryString = (query: string) => {
         return {};
     }
 
-    return (/^[?#]/.test(query) ? query.slice(1) : query)
-        .split('&')
-        .reduce((params, param) => {
+    return (/^[?#]/.test(query) ? query.slice(1) : query).split('&').reduce(
+        (params, param) => {
             const [key, value] = param.split('=');
             params[key] = value
                 ? decodeURIComponent(value.replace(/\+/g, ' '))
                 : '';
             return params;
-        }, {} as { [key: string]: any });
+        },
+        {} as { [key: string]: any },
+    );
 };

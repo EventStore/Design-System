@@ -18,13 +18,14 @@
         "build": "tsc --outDir ./dist --declaration",
         "dev": "tsc --outDir ./dist --declaration --watch",
         "test": "jest --passWithNoTests",
-        "lint": "yarn g:lint"
+        "lint": "yarn g:lint",
+        "fix": "yarn g:fix"
     },
     "prettier": "@eventstore-ui/configs/prettier",
     "dependencies": {
         "case-anything": "^2.1.10",
         "clipboardy": "^2.3.0",
-        "prettier": "^2.2.1",
+        "prettier": "^3.0.0",
         "semver": "^7.5.2",
         "svgo": "^2.8.0",
         "yargs": "^15.3.1"
@@ -34,6 +35,6 @@
         "@types/semver": "^7.3.9",
         "@types/svgo": "^2.6.3",
         "jest": "^27.4.5",
-        "typescript": "4.9.4"
+        "typescript": "5.1.6"
     }
 }

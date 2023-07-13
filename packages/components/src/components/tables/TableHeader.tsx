@@ -1,4 +1,9 @@
-import { EventEmitter, FunctionalComponent, h, Fragment } from '@stencil/core';
+import {
+    type EventEmitter,
+    type FunctionalComponent,
+    h,
+    Fragment,
+} from '@stencil/core';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import type { ColumnGroups, TableCell, TableSort } from './types';
 import { variantClasses } from './utils/cellClasses';

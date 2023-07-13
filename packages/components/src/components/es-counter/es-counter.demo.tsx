@@ -15,10 +15,13 @@ export class Counter {
     private quantity = 600;
 
     @State() counts = Array.from({ length: this.quantity }, () => random(800));
-    @State() variants = Array.from({ length: this.quantity }, (): [
-        variant: CounterVariant,
-        color: CounterColor,
-    ] => [this.variant[random(2)], this.colors[random(3)]]);
+    @State() variants = Array.from(
+        { length: this.quantity },
+        (): [variant: CounterVariant, color: CounterColor] => [
+            this.variant[random(2)],
+            this.colors[random(3)],
+        ],
+    );
 
     @State() btn0Count = random(800);
     @State() btn1Count = random(800);

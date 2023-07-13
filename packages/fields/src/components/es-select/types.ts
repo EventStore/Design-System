@@ -4,17 +4,15 @@ import type {
     TypeaheadOption,
 } from '../es-typeahead/types';
 
-export type RenderSelectValue<
-    T extends TypeaheadOption = TypeaheadOption
-> = RenderFunction<
-    [
-        /** The option currently selected */
-        value: T | undefined,
-        /** The ID of the option currently selected */
-        rawValue: string,
-    ]
->;
+export type RenderSelectValue<T extends TypeaheadOption = TypeaheadOption> =
+    RenderFunction<
+        [
+            /** The option currently selected */
+            value: T | undefined,
+            /** The ID of the option currently selected */
+            rawValue: string,
+        ]
+    >;
 
-export type RenderSelectOption<
-    T extends TypeaheadOption = TypeaheadOption
-> = RenderTypeaheadOption<T>;
+export type RenderSelectOption<T extends TypeaheadOption = TypeaheadOption> =
+    RenderTypeaheadOption<T>;

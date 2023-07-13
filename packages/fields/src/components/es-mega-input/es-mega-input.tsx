@@ -1,4 +1,4 @@
-import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Prop, Event, type EventEmitter } from '@stencil/core';
 import type { FieldChange, ValidationMessages } from '../../types';
 import { Field } from '../Field/Field';
 

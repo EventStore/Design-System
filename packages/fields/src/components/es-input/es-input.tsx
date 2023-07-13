@@ -1,5 +1,12 @@
-import { Component, h, Prop, Event, EventEmitter, Watch } from '@stencil/core';
-import iMask, { InputMask } from 'imask';
+import {
+    Component,
+    h,
+    Prop,
+    Event,
+    type EventEmitter,
+    Watch,
+} from '@stencil/core';
+import iMask, { type InputMask } from 'imask';
 import type { FieldChange, ValidationMessages } from '../../types';
 import { Field } from '../Field/Field';
 import type { MaskOptions } from './types';

@@ -60,7 +60,7 @@ export class ThemeControl implements Theme {
     private refreshElements = () => {
         for (const el of Array.from(this.interestedElements)) {
             // force update returns false if it fails but is typed wrong
-            const successfullyUpdated = (forceUpdate(el) as unknown) as boolean;
+            const successfullyUpdated = forceUpdate(el) as unknown as boolean;
 
             if (!successfullyUpdated) {
                 this.interestedElements.delete(el);

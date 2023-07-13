@@ -287,7 +287,7 @@ export const createValidatedForm = <T extends object>(
 
                     if ((rest as any).callOnEach) {
                         if (!Array.isArray(value)) continue;
-                        for (const [j, v] of value.entries()) {
+                        for (const [j, v] of (value as unknown[]).entries()) {
                             validationPromises.push(
                                 (async () => {
                                     const success = await validator(v, data);

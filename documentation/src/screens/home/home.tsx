@@ -16,9 +16,8 @@ export class DocsHome {
                         <h1>{title}</h1>
                         <div class={'nav_grid'}>
                             {children.map((slug) => {
-                                const { title, packageJson } = sitemap.libs[
-                                    slug
-                                ];
+                                const { title, packageJson } =
+                                    sitemap.libs[slug];
                                 return (
                                     <acticle
                                         key={title}

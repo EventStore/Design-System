@@ -1,4 +1,4 @@
-import { h, FunctionalComponent } from '@stencil/core';
+import { h, type FunctionalComponent } from '@stencil/core';
 import type { SomeType as TDSomeType } from 'typedoc';
 import { isReflectionType } from 'utils/typedoc/someType';
 import { DeclarationReflection } from './DeclarationReflection';

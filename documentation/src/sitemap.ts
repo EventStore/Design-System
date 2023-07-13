@@ -1,5 +1,5 @@
 import { expandSitemap } from 'utils/expandSitemap';
-export { Lib } from 'utils/expandSitemap';
+export type { Lib } from 'utils/expandSitemap';
 
 export const sitemap = expandSitemap([
     {

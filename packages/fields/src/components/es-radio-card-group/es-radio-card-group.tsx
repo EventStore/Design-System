@@ -3,7 +3,7 @@ import {
     h,
     Prop,
     Event,
-    EventEmitter,
+    type EventEmitter,
     Host,
     Fragment,
 } from '@stencil/core';

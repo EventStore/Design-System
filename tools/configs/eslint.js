@@ -44,6 +44,14 @@ module.exports = {
         '@typescript-eslint/no-empty-interface': 0,
         '@typescript-eslint/no-inferrable-types': 0,
         '@typescript-eslint/explicit-module-boundary-types': 0,
+        '@typescript-eslint/consistent-type-imports': [
+            'error',
+            {
+                prefer: 'type-imports',
+                disallowTypeAnnotations: true,
+                fixStyle: 'inline-type-imports',
+            },
+        ],
     },
     overrides: [
         {

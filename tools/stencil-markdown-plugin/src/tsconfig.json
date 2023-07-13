@@ -9,7 +9,7 @@
         "target": "es2018",
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "importsNotUsedAsValues": "error",
+        "verbatimModuleSyntax": true,
         "jsx": "react",
         "jsxFactory": "h"
     },

@@ -1,5 +1,5 @@
 import { Component, h, Prop } from '@stencil/core';
-import { Host, JsonDocsSlot } from '@stencil/core/internal';
+import { Host, type JsonDocsSlot } from '@stencil/core/internal';
 import type { TableCells } from '@eventstore-ui/components';
 
 @Component({

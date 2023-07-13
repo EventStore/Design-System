@@ -1,5 +1,5 @@
 import { $data } from '../symbols';
-import { createListStore, ListStore } from './createListStore';
+import { createListStore, type ListStore } from './createListStore';
 
 export type Group = Record<string, unknown>;
 export type IdList = string[];
@@ -93,7 +93,7 @@ export const createCorrelationStore = <T extends CorrelatableItem>(
         insert: (item) => {
             invalidateMemos();
             const correlationId =
-                ((item[correlateBy] as unknown) as string) ?? item.id;
+                (item[correlateBy] as unknown as string) ?? item.id;
             const itemIds = ids.get(correlationId) ?? [];
             items.set(item.id, item);
 

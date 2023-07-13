@@ -26,9 +26,8 @@ interface RequireContext<T> {
 }
 
 declare let require: any;
-const requireReadme: RequireContext<
-    FunctionalComponent<MDXLayoutProps>
-> = require.context('../../../', true, /^((?!node_modules).)*\/readme\.md$/);
+const requireReadme: RequireContext<FunctionalComponent<MDXLayoutProps>> =
+    require.context('../../../', true, /^((?!node_modules).)*\/readme\.md$/);
 
 const joinUrls = (...paths: string[]) => {
     const result = [];

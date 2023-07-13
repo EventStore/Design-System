@@ -5,11 +5,11 @@ import {
     Host,
     Event,
     Watch,
-    EventEmitter,
+    type EventEmitter,
     Element,
     State,
 } from '@stencil/core';
-import { searchParam, SearchParamTracker } from '@eventstore-ui/router';
+import { searchParam, type SearchParamTracker } from '@eventstore-ui/router';
 import { theme } from '@eventstore-ui/theme';
 
 import type { Tab } from './types';
@@ -172,9 +172,8 @@ export class EsTabs {
         const drawFame = (retry: number) => {
             cancelAnimationFrame(this.frame1);
             this.frame1 = requestAnimationFrame(() => {
-                const { width, paddingLeft, paddingRight } = getComputedStyle(
-                    tab,
-                );
+                const { width, paddingLeft, paddingRight } =
+                    getComputedStyle(tab);
                 const left = tab.offsetLeft;
                 const newWidth = `calc(${width} - ${paddingLeft} - ${paddingRight})`;
                 const transform = `translateX(calc(${left}px + ${paddingLeft}))`;

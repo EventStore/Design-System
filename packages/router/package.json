@@ -16,7 +16,8 @@
         "build": "tsc --outDir ./dist --declaration",
         "docs": "typedoc --logLevel Error --json ../../documentation/generated/router.typedoc.json",
         "test": "jest --testEnvironment jsdom --passWithNoTests",
-        "lint": "yarn g:lint"
+        "lint": "yarn g:lint",
+        "fix": "yarn g:fix"
     },
     "targets": {
         "docs": {
@@ -33,13 +34,13 @@
         "@babel/preset-env": "^7.12.11",
         "@babel/preset-typescript": "^7.12.7",
         "@eventstore-ui/utils": "workspace:*",
-        "@stencil/core": "3.0.1",
+        "@stencil/core": "4.0.1",
         "@types/jest": "^27.0.3",
         "babel-jest": "^27.5.1",
         "jest": "^27.4.5",
         "rollup": "^2.52.7",
-        "typedoc": "0.23.24",
-        "typescript": "4.9.4"
+        "typedoc": "0.24.8",
+        "typescript": "5.1.6"
     },
     "babel": {
         "presets": [

@@ -3,7 +3,7 @@ import {
     Prop,
     Element,
     Event,
-    EventEmitter,
+    type EventEmitter,
     Method,
 } from '@stencil/core';
 import type { RenderFunction } from '../../types';

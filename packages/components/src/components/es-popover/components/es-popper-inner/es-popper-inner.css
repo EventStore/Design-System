@@ -30,7 +30,9 @@
         position: absolute;
         background-color: var(--color-layout-highlight);
         border-radius: 50%;
-        transition: opacity 400ms ease, transform 400ms ease;
+        transition:
+            opacity 400ms ease,
+            transform 400ms ease;
         opacity: 0;
         transform: translateY(0px);
     }

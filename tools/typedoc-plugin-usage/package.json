@@ -19,7 +19,8 @@
     "scripts": {
         "build": "tsc --outDir ./dist --declaration",
         "dev": "tsc --outDir ./dist --declaration --watch",
-        "lint": "yarn g:lint"
+        "lint": "yarn g:lint",
+        "fix": "yarn g:fix"
     },
     "prettier": "@eventstore-ui/configs/prettier",
     "peerDependencies": {
@@ -27,7 +28,7 @@
     },
     "devDependencies": {
         "@types/node": "^18.11.18",
-        "typedoc": "0.23.24",
-        "typescript": "4.9.4"
+        "typedoc": "0.24.8",
+        "typescript": "5.1.6"
     }
 }

@@ -1,4 +1,4 @@
-import { h, VNode, FunctionalUtilities } from '@stencil/core';
+import { h, type VNode, type FunctionalUtilities } from '@stencil/core';
 
 type CullNode = () => void;
 

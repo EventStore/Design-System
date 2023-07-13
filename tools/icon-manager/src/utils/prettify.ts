@@ -1,5 +1,5 @@
 import { extname } from 'path';
-import { BuiltInParserName, resolveConfig, format } from 'prettier';
+import { type BuiltInParserName, resolveConfig, format } from 'prettier';
 
 const chooseParser = (destination: string): BuiltInParserName | undefined => {
     switch (extname(destination)) {

@@ -3,7 +3,7 @@ import { Component, h, Prop } from '@stencil/core';
 import { Host, Watch } from '@stencil/core/internal';
 import { sitemap } from 'sitemap';
 import { isFunctionalComponentDeclaration } from 'utils/typedoc/declaration';
-import { Anchor, extractAnchors } from 'utils/extractAnchors';
+import { type Anchor, extractAnchors } from 'utils/extractAnchors';
 import type { SomeReflection } from 'utils/typedoc/types';
 import type { DeclarationReflection } from 'typedoc';
 
@@ -54,11 +54,8 @@ export class DocsPackage {
                             {sitemap.sections.map(({ title, children }) => (
                                 <es-layout-section title={title}>
                                     {children.map((lib) => {
-                                        const {
-                                            title,
-                                            packageJson,
-                                            slug,
-                                        } = sitemap.libs[lib];
+                                        const { title, packageJson, slug } =
+                                            sitemap.libs[lib];
                                         return (
                                             <es-layout-link
                                                 url={`/${slug}`}
@@ -196,36 +193,41 @@ export class DocsPackage {
         );
     }
 
-    private extractKinds = (
-        kinds: string[],
-        check: (d: SomeReflection) => boolean = () => true,
-    ) => () => {
-        const lib = sitemap.libs[this.slug];
-        if (!lib?.typeDocs) return;
-        const { project, lookup } = lib.typeDocs;
-        if (!project.groups) return;
+    private extractKinds =
+        (kinds: string[], check: (d: SomeReflection) => boolean = () => true) =>
+        () => {
+            const lib = sitemap.libs[this.slug];
+            if (!lib?.typeDocs) return;
+            const { project, lookup } = lib.typeDocs;
+            if (!project.groups) return;
 
-        const modules = project.groups
-            .filter((group) => group.title === 'Modules')
-            .flatMap((group: any) => group.children ?? [])
-            .flatMap(
-                (id) => (lookup.get(id)! as DeclarationReflection).groups!,
-            );
+            const modules = project.groups
+                .filter((group) => group.title === 'Modules')
+                .flatMap((group: any) => group.children ?? [])
+                .flatMap(
+                    (id) => (lookup.get(id)! as DeclarationReflection).groups!,
+                );
 
-        const names = [...project.groups, ...modules]
-            .filter((group) => kinds.includes(group.title))
-            .flatMap((group: any) => group.children ?? [])
-            .map((id) => lookup.get(id)!)
-            .filter((item) => !item.flags.isExternal)
-            .filter(check)
-            .sort((a, b) => this.fileName(a).localeCompare(this.fileName(b)));
+            const names = [...project.groups, ...modules]
+                .filter((group) => kinds.includes(group.title))
+                .flatMap((group: any) => group.children ?? [])
+                .map((id) => lookup.get(id)!)
+                .filter((item) => !item.flags.isExternal)
+                .filter(check)
+                .sort((a, b) =>
+                    this.fileName(a).localeCompare(this.fileName(b)),
+                );
 
-        if (!names.length) return;
-        return names;
-    };
+            if (!names.length) return;
+            return names;
+        };
 
-    private fileName = ({ name, sources }: SomeReflection): string =>
-        `${sources?.[0].fileName ?? ''}${name}`;
+    private fileName = (reflection: SomeReflection): string =>
+        `${
+            'sources' in reflection
+                ? reflection.sources?.[0].fileName ?? ''
+                : ''
+        }${reflection.name}`;
 
     private extractUtils = this.extractKinds(
         ['Variables', 'Functions', 'Classes'],

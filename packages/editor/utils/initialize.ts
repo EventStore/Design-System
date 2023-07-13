@@ -1,4 +1,4 @@
-import { editor, Environment } from 'monaco-editor';
+import { editor, type Environment } from 'monaco-editor';
 import { theme } from '@eventstore-ui/theme';
 import {
     ES_DARK,

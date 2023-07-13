@@ -1,9 +1,9 @@
 import { h, Component, Prop } from '@stencil/core';
 import {
-    MatchResults,
+    type MatchResults,
     Route,
     router,
-    RouterHistory,
+    type RouterHistory,
 } from '@eventstore-ui/router';
 
 @Component({

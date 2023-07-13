@@ -547,11 +547,7 @@ export namespace Components {
         /**
           * Function to decide if a row can take expand, to show a nested table.
          */
-        "canExpand": (
-        key: string,
-        data: any,
-        depth: number,
-    ) => boolean;
+        "canExpand": (key: string, data: any, depth: number) => boolean;
         /**
           * Function to decide if a row can expand more, to show more rows in the nested table.
          */
@@ -1703,11 +1699,7 @@ declare namespace LocalJSX {
         /**
           * Function to decide if a row can take expand, to show a nested table.
          */
-        "canExpand"?: (
-        key: string,
-        data: any,
-        depth: number,
-    ) => boolean;
+        "canExpand"?: (key: string, data: any, depth: number) => boolean;
         /**
           * Function to decide if a row can expand more, to show more rows in the nested table.
          */

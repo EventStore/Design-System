@@ -1,5 +1,10 @@
 import type { h as jsxFactory, VNode } from '@stencil/core';
-import { wDKey, focusError, insertError, triggerValidation } from './symbols';
+import {
+    type wDKey,
+    type focusError,
+    type insertError,
+    type triggerValidation,
+} from './symbols';
 
 interface ChangeEventValue<T extends object, K extends keyof T> {
     name: K;
@@ -121,7 +126,7 @@ export interface Connector<T> {
     <
         K extends string & keyof T,
         K2 extends string & keyof T[K],
-        K3 extends string & keyof T[K][K2]
+        K3 extends string & keyof T[K][K2],
     >(
         key: K,
         key2: K2,
@@ -131,7 +136,7 @@ export interface Connector<T> {
         K extends string & keyof T,
         K2 extends string & keyof T[K],
         K3 extends string & keyof T[K][K2],
-        K4 extends string & keyof T[K][K2][K3]
+        K4 extends string & keyof T[K][K2][K3],
     >(
         key: K,
         key2: K2,

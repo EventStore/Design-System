@@ -1,4 +1,11 @@
-import { Component, h, Event, Prop, Host, EventEmitter } from '@stencil/core';
+import {
+    Component,
+    h,
+    Event,
+    Prop,
+    Host,
+    type EventEmitter,
+} from '@stencil/core';
 import { PageChangeEventType } from './types';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 

@@ -1,9 +1,9 @@
 import { join } from 'path';
 import { existsSync } from 'fs';
 
-import { Config as StencilConfig } from '@stencil/core';
+import { type Config as StencilConfig } from '@stencil/core';
 import { parseFlags } from '@stencil/core/cli';
-import { CopyTask } from '@stencil/core/internal';
+import { type CopyTask } from '@stencil/core/internal';
 import { postcss } from '@stencil/postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 
@@ -66,6 +66,7 @@ export const packageConfig = ({
             ? './tsconfig.build.json'
             : './tsconfig.json',
     buildDocs: flags.dev || undefined,
+    cacheDir: join(__dirname, '../../.stencil', config.namespace),
     plugins: [
         postcss({
             plugins: [
