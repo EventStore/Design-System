@@ -5,7 +5,7 @@ import {
     Element,
     Host,
     Event,
-    EventEmitter,
+    type EventEmitter,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
 import { focusFirst } from '@eventstore-ui/utils';

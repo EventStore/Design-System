@@ -1,9 +1,9 @@
 import {
     h,
-    FunctionalComponent,
-    FunctionalUtilities,
-    VNode,
-    ChildNode,
+    type FunctionalComponent,
+    type FunctionalUtilities,
+    type VNode,
+    type ChildNode,
 } from '@stencil/core';
 
 /** Map html element tags to a different tag or to FunctionalComponents */

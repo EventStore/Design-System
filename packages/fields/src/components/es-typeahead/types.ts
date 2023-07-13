@@ -22,8 +22,7 @@ export type RenderTypeaheadField = RenderFunction<
     [params: RenderTypeaheadFieldParams]
 >;
 
-export type RenderTypeaheadOption<
-    T extends TypeaheadOption = TypeaheadOption
-> = RenderFunction<[option: T, chosen: boolean]>;
+export type RenderTypeaheadOption<T extends TypeaheadOption = TypeaheadOption> =
+    RenderFunction<[option: T, chosen: boolean]>;
 
 export type OptionFilter = (filter: string, option: TypeaheadOption) => boolean;

@@ -6,7 +6,7 @@ import {
     Watch,
     Element,
     Event,
-    EventEmitter,
+    type EventEmitter,
     Listen,
 } from '@stencil/core';
 import {
@@ -15,7 +15,7 @@ import {
     computePosition,
     flip,
     offset,
-    Placement,
+    type Placement,
 } from '@floating-ui/dom';
 
 import { size } from '@floating-ui/core';
@@ -231,7 +231,8 @@ export class Popover {
             });
 
             if (assignedNodes.find(({ nodeName }) => nodeName === 'SLOT')) {
-                const grandParentShadow = parentShadow.host.parentNode?.getRootNode() as ShadowRoot;
+                const grandParentShadow =
+                    parentShadow.host.parentNode?.getRootNode() as ShadowRoot;
 
                 this.adoptStyleRules({
                     from: (grandParentShadow as any)?.adoptedStyleSheets,

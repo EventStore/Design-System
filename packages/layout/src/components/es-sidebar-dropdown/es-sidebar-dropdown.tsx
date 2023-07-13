@@ -26,9 +26,8 @@ export class SidebarDropdown {
     @State() activeIcon: IconDescription = this.defaultIcon;
 
     private unsubscribe?: () => void;
-    private links: Array<
-        HTMLEsLayoutLinkElement | HTMLEsLayoutButtonElement
-    > = [];
+    private links: Array<HTMLEsLayoutLinkElement | HTMLEsLayoutButtonElement> =
+        [];
 
     private observer!: MutationObserver;
 

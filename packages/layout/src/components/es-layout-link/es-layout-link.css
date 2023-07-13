@@ -55,7 +55,9 @@ button {
         top: 0;
         bottom: 0;
         margin: auto;
-        transition: transform 500ms ease, opacity 500ms ease;
+        transition:
+            transform 500ms ease,
+            opacity 500ms ease;
         opacity: 0;
     }
 

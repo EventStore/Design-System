@@ -3,7 +3,7 @@ export { debounce } from './debounce/debounce';
 export { rateLimit } from './debounce/rateLimit';
 export { extractOnly } from './extractOnly';
 export { findAssignedSlot } from './findAssignedSlot';
-export { HTTPError, HTTPProblemDetails } from './HTTPError';
+export { HTTPError, type HTTPProblemDetails } from './HTTPError';
 export { shadowMutationObserver } from './shadowMutationObserver';
 export * from './focus';
 export * from './pierce';

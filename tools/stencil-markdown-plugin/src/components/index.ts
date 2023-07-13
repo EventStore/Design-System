@@ -1,1 +1,1 @@
-export { MDXLayoutProps, MDXComponentMap } from './MDXLayout';
+export type { MDXLayoutProps, MDXComponentMap } from './MDXLayout';

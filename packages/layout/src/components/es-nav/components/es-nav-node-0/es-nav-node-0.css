@@ -21,7 +21,9 @@
         height: 24px;
         border-radius: 50%;
         margin: auto;
-        transition: transform 500ms ease, opacity 500ms ease;
+        transition:
+            transform 500ms ease,
+            opacity 500ms ease;
         opacity: 0;
         top: 100%;
         right: 0;

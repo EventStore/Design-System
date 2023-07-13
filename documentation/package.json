@@ -18,6 +18,8 @@
         "dev:docs": "stencil build --dev --watch --serve",
         "prod": "stencil build --watch --serve",
         "serve": "serve ./www",
+        "lint": "yarn g:lint",
+        "fix": "yarn g:fix",
         "icon": "icon --dir ./src/icons"
     },
     "nx": {
@@ -51,14 +53,14 @@
         "magic-string": "0.25.7",
         "markdown-it": "12.3.2",
         "markdown-it-anchor": "8.6.4",
-        "prettier": "2.2.1",
+        "prettier": "3.0.0",
         "rollup": "^2.52.7"
     },
     "devDependencies": {
         "@eventstore-ui/assets": "workspace:*",
         "@eventstore-ui/configs": "workspace:*",
         "@eventstore-ui/icon-manager": "workspace:*",
-        "@stencil/core": "3.0.1",
+        "@stencil/core": "4.0.1",
         "@stencil/postcss": "^2.1.0",
         "@types/jest": "^27.0.3",
         "@types/markdown-it": "12.0.3",
@@ -69,8 +71,8 @@
         "puppeteer": "^19.5.0",
         "rollup-plugin-string": "3.0.0",
         "serve": "14.0.1",
-        "typedoc": "0.23.24",
-        "typescript": "4.9.4",
+        "typedoc": "0.24.8",
+        "typescript": "5.1.6",
         "workbox-build": "6.5.4"
     }
 }

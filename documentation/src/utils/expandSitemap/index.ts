@@ -1,6 +1,6 @@
 import type { JsonDocs } from '@stencil/core/internal';
 import type { ProjectReflection } from 'typedoc';
-import { createTypedocLookup, TypedocLookup } from './createTypedocLookup';
+import { createTypedocLookup, type TypedocLookup } from './createTypedocLookup';
 import { fixTagNames } from './fixTagName';
 import {
     getPackageJson,

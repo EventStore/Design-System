@@ -1,4 +1,4 @@
-import { h, FunctionalComponent } from '@stencil/core';
+import { h, type FunctionalComponent } from '@stencil/core';
 
 export interface LoadingTextProps {
     /** The expected loaded text length. */

@@ -31,7 +31,10 @@ const resolveLookup = new Map<string, string>([
         '@stencil/core/internal/app-data',
         '/modules/@stencil/core/internal/app-data/index.js',
     ],
-    ['@eventstore-ui/components', '/modules/@eventstore-ui/components/index.js'],
+    [
+        '@eventstore-ui/components',
+        '/modules/@eventstore-ui/components/index.js',
+    ],
     ['@eventstore-ui/fields', '/modules/@eventstore-ui/fields/index.js'],
     ['@eventstore-ui/editor', '/modules/@eventstore-ui/editor/index.js'],
     ['@eventstore-ui/layout', '/modules/@eventstore-ui/layout/index.js'],

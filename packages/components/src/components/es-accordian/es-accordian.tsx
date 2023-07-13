@@ -215,21 +215,20 @@ export class Accordian {
         });
     };
 
-    private toggle = (name: string, collapsable: boolean) => (
-        e: MouseEvent,
-    ) => {
-        e.preventDefault();
+    private toggle =
+        (name: string, collapsable: boolean) => (e: MouseEvent) => {
+            e.preventDefault();
 
-        if (!collapsable) return;
+            if (!collapsable) return;
 
-        const expand = this.collapsed.has(name);
+            const expand = this.collapsed.has(name);
 
-        if (e.altKey) {
-            this.toggleAll(expand);
-        } else if (expand) {
-            this.expandSection(name);
-        } else {
-            this.collapseSection(name);
-        }
-    };
+            if (e.altKey) {
+                this.toggleAll(expand);
+            } else if (expand) {
+                this.expandSection(name);
+            } else {
+                this.collapseSection(name);
+            }
+        };
 }

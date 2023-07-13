@@ -201,8 +201,8 @@ export const isInIndex = async (
 
     if (indexFile.has(name)) return [true];
 
-    const aliased = Array.from(indexFile.values()).find(({ aliases }) =>
-        aliases?.includes(name),
+    const aliased = Array.from(indexFile.values()).find(
+        ({ aliases }) => aliases?.includes(name),
     );
 
     if (aliased) return [true, aliased.name];
@@ -242,8 +242,8 @@ export const addAliasToIndex = async (
         throw `Unable to alias ${name} as ${alias}, because ${alias} is an existing icon`;
     }
 
-    const existing = Array.from(indexMap.values()).find(({ aliases }) =>
-        aliases?.includes(alias),
+    const existing = Array.from(indexMap.values()).find(
+        ({ aliases }) => aliases?.includes(alias),
     );
 
     if (existing) {

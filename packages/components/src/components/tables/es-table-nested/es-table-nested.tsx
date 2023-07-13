@@ -3,7 +3,7 @@ import {
     h,
     Prop,
     Event,
-    EventEmitter,
+    type EventEmitter,
     State,
     Fragment,
 } from '@stencil/core';
@@ -64,11 +64,8 @@ export class TableNested {
     /** If the nested rows should be allowed to take focus. */
     @Prop() nestedRowTakesFocus?: boolean;
     /** Function to decide if a row can take expand, to show a nested table. */
-    @Prop() canExpand: (
-        key: string,
-        data: any,
-        depth: number,
-    ) => boolean = () => true;
+    @Prop() canExpand: (key: string, data: any, depth: number) => boolean =
+        () => true;
     /** Function to decide if a row can expand more, to show more rows in the nested table. */
     @Prop() canExpandMore: (key: string, count: number) => boolean = () =>
         false;
@@ -88,54 +85,54 @@ export class TableNested {
     /** Triggered whenever a row is expanded. */
     @Event() expansion!: EventEmitter<{ data: any; key: string }>;
 
-    renderExpansion = (depth: number): RenderFunction<[key: string]> => (
-        h,
-        key,
-    ) => {
-        const defaultExpanded = this.defaultExpanded?.(key, depth) ?? 0;
-        const expanded = this.expanded.has(key) || defaultExpanded > 0;
-        const nestedActive =
-            !expanded && this.activePath && this.activePath[depth] === key
-                ? this.activePath[depth + 1]
-                : false;
-        if (!expanded && !nestedActive) return null;
+    renderExpansion =
+        (depth: number): RenderFunction<[key: string]> =>
+        (h, key) => {
+            const defaultExpanded = this.defaultExpanded?.(key, depth) ?? 0;
+            const expanded = this.expanded.has(key) || defaultExpanded > 0;
+            const nestedActive =
+                !expanded && this.activePath && this.activePath[depth] === key
+                    ? this.activePath[depth + 1]
+                    : false;
+            if (!expanded && !nestedActive) return null;
 
-        const count =
-            this.expanded.get(key) ?? defaultExpanded ?? this.expandBy;
-        const canExpandMore = !nestedActive && this.canExpandMore(key, count);
+            const count =
+                this.expanded.get(key) ?? defaultExpanded ?? this.expandBy;
+            const canExpandMore =
+                !nestedActive && this.canExpandMore(key, count);
 
-        return (
-            <>
-                <es-table
-                    headless
-                    class={{ nested: true, can_expand_more: canExpandMore }}
-                    rowTakesFocus={
-                        this.nestedRowTakesFocus ?? this.rowTakesFocus
-                    }
-                    identifier={this.nestedIdentifier}
-                    getCellData={this.getNestedCellData ?? this.getCellData}
-                    cells={this.cellsWithExpander()}
-                    columns={this.nestedColumns ?? this.columns}
-                    rows={
-                        nestedActive
-                            ? [nestedActive]
-                            : this.getNestedRows?.(key, count) ?? []
-                    }
-                    renderExpansion={this.renderExpansion(depth + 1)}
-                    rowClass={this.rowClassWithDefaults(depth + 1)}
-                />
-                {canExpandMore && (
-                    <es-button
-                        class={'expand_more'}
-                        variant={'minimal'}
-                        onClick={this.expandMore(key, count)}
-                    >
-                        {`Show next ${this.expandBy} rows`}
-                    </es-button>
-                )}
-            </>
-        );
-    };
+            return (
+                <>
+                    <es-table
+                        headless
+                        class={{ nested: true, can_expand_more: canExpandMore }}
+                        rowTakesFocus={
+                            this.nestedRowTakesFocus ?? this.rowTakesFocus
+                        }
+                        identifier={this.nestedIdentifier}
+                        getCellData={this.getNestedCellData ?? this.getCellData}
+                        cells={this.cellsWithExpander()}
+                        columns={this.nestedColumns ?? this.columns}
+                        rows={
+                            nestedActive
+                                ? [nestedActive]
+                                : this.getNestedRows?.(key, count) ?? []
+                        }
+                        renderExpansion={this.renderExpansion(depth + 1)}
+                        rowClass={this.rowClassWithDefaults(depth + 1)}
+                    />
+                    {canExpandMore && (
+                        <es-button
+                            class={'expand_more'}
+                            variant={'minimal'}
+                            onClick={this.expandMore(key, count)}
+                        >
+                            {`Show next ${this.expandBy} rows`}
+                        </es-button>
+                    )}
+                </>
+            );
+        };
 
     render() {
         return (
@@ -156,17 +153,16 @@ export class TableNested {
         );
     }
 
-    private nestedExtraCellProps = (depth: number) => (
-        key: string,
-        data: any,
-    ): NestedTableExtraProps => ({
-        canExpand: this.canExpand(key, data, depth),
-        canExpandMore: this.canExpandMore(key, data),
-        expanded: this.expanded.has(key),
-        loading: this.loading.has(key),
-        toggleExpansion: () => this.toggleExpansion(key, data),
-        ...(this.extraCellProps?.(key, data) ?? {}),
-    });
+    private nestedExtraCellProps =
+        (depth: number) =>
+        (key: string, data: any): NestedTableExtraProps => ({
+            canExpand: this.canExpand(key, data, depth),
+            canExpandMore: this.canExpandMore(key, data),
+            expanded: this.expanded.has(key),
+            loading: this.loading.has(key),
+            toggleExpansion: () => this.toggleExpansion(key, data),
+            ...(this.extraCellProps?.(key, data) ?? {}),
+        });
 
     private toggleExpansion = async (key: string, data: any) => {
         if (this.loading.has(key)) return;
@@ -195,46 +191,43 @@ export class TableNested {
         this.expanded = new Map(this.expanded);
     };
 
-    private rowClassWithDefaults = (depth: number) => (
-        data: any,
-        key: string,
-    ) => {
-        if (!this.canExpand(key, data, depth)) {
-            return this.rowClass?.(data, key);
-        }
+    private rowClassWithDefaults =
+        (depth: number) => (data: any, key: string) => {
+            if (!this.canExpand(key, data, depth)) {
+                return this.rowClass?.(data, key);
+            }
 
-        const classes = this.rowClass?.(data, key);
-        const extraClasses = !classes
-            ? {}
-            : typeof classes === 'string'
-            ? { [classes]: true }
-            : classes;
+            const classes = this.rowClass?.(data, key);
+            const extraClasses = !classes
+                ? {}
+                : typeof classes === 'string'
+                ? { [classes]: true }
+                : classes;
 
-        return {
-            can_expand: true,
-            can_expand_more: this.canExpandMore(
-                key,
-                this.expanded.get(key) ?? this.expandBy,
-            ),
-            expanded: this.expanded.has(key),
-            click_to_toggle: this.toggleRowOnClick,
-            ...extraClasses,
+            return {
+                can_expand: true,
+                can_expand_more: this.canExpandMore(
+                    key,
+                    this.expanded.get(key) ?? this.expandBy,
+                ),
+                expanded: this.expanded.has(key),
+                click_to_toggle: this.toggleRowOnClick,
+                ...extraClasses,
+            };
         };
-    };
 
     private toggleIfRequested = (e: CustomEvent<ClickRow<any>>) => {
         if (!this.toggleRowOnClick) return;
         return this.toggleExpansion(e.detail.key, e.detail.data);
     };
 
-    private expandMore = (key: string, currentCount: number) => async (
-        e: MouseEvent,
-    ) => {
-        e.stopPropagation();
+    private expandMore =
+        (key: string, currentCount: number) => async (e: MouseEvent) => {
+            e.stopPropagation();
 
-        this.expanded.set(key, currentCount + this.expandBy);
-        this.expanded = new Map(this.expanded);
-    };
+            this.expanded.set(key, currentCount + this.expandBy);
+            this.expanded = new Map(this.expanded);
+        };
 
     private cellsWithExpander = (): TableCells<
         unknown,

@@ -1,4 +1,4 @@
-import { h, FunctionalComponent } from '@stencil/core';
+import { h, type FunctionalComponent } from '@stencil/core';
 import { Action } from '@eventstore-ui/router';
 import { dispatchPageViewEvent } from '../../utils/pageView';
 

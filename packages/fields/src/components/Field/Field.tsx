@@ -1,4 +1,4 @@
-import { h, FunctionalComponent } from '@stencil/core';
+import { h, type FunctionalComponent } from '@stencil/core';
 import type { FieldProps } from './types';
 
 /** Default layout for a Field. */

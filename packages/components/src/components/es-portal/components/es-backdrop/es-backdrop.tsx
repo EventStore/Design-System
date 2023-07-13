@@ -1,7 +1,7 @@
 import {
     Component,
     Event,
-    EventEmitter,
+    type EventEmitter,
     h,
     Host,
     Prop,

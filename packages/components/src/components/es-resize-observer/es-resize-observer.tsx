@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter } from '@stencil/core';
+import { Component, Element, Event, type EventEmitter } from '@stencil/core';
 
 /** Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions */
 @Component({

@@ -15,82 +15,85 @@ export type PersistLocallyOptions<T> = {
 };
 
 /** Persist store content to browser storage. */
-export const persistLocally = <T>(
-    storageKey: string,
-    {
-        serialize = JSON.stringify,
-        deserialize = JSON.parse,
-        storage = localStorage,
-        ...options
-    }: PersistLocallyOptions<T> = {},
-): Plugin<T> => (store: Store<T>) => {
-    const filterKeys = (data: Partial<T>): Partial<T> => {
-        if (!options.keys) return data;
-        return options.keys.reduce<Partial<T>>((acc, key) => {
-            acc[key] = data[key];
-            return acc;
-        }, {});
-    };
-    const readFromStorage = () => {
-        try {
-            const stored = storage.getItem(storageKey);
-            if (!stored) return;
-            const data = filterKeys(deserialize(stored));
-            const keys =
-                options.keys ??
-                new Set<keyof T>([
-                    ...(Object.keys(data) as Array<keyof T>),
-                    ...store.keys(),
-                ]);
-
-            for (const key of keys) {
-                if (key in data) {
-                    store.set(key, data[key]!);
-                } else {
-                    store.delete(key);
-                }
-            }
-        } catch (error) {
-            options.logger?.error(error);
-        }
-    };
-    let debounce: ReturnType<typeof setTimeout>;
-    const persistToStorage = () => {
-        clearTimeout(debounce);
-        debounce = setTimeout(() => {
+export const persistLocally =
+    <T>(
+        storageKey: string,
+        {
+            serialize = JSON.stringify,
+            deserialize = JSON.parse,
+            storage = localStorage,
+            keys,
+            logger,
+        }: PersistLocallyOptions<T> = {},
+    ): Plugin<T> =>
+    (store: Store<T>) => {
+        const filterKeys = (data: Partial<T>): Partial<T> => {
+            if (!keys) return data;
+            return keys.reduce<Partial<T>>((acc, key) => {
+                acc[key] = data[key];
+                return acc;
+            }, {});
+        };
+        const readFromStorage = () => {
             try {
-                const data = filterKeys(store.state);
-                storage.setItem(storageKey, serialize(data));
+                const stored = storage.getItem(storageKey);
+                if (!stored) return;
+                const data = filterKeys(deserialize(stored));
+                const keysToRead =
+                    keys ??
+                    new Set<keyof T>([
+                        ...(Object.keys(data) as Array<keyof T>),
+                        ...store.keys(),
+                    ]);
+
+                for (const key of keysToRead) {
+                    if (key in data) {
+                        store.set(key, data[key]!);
+                    } else {
+                        store.delete(key);
+                    }
+                }
             } catch (error) {
-                options.logger?.error(error);
+                logger?.error(error);
             }
-        });
+        };
+        let debounce: ReturnType<typeof setTimeout>;
+        const persistToStorage = () => {
+            clearTimeout(debounce);
+            debounce = setTimeout(() => {
+                try {
+                    const data = filterKeys(store.state);
+                    storage.setItem(storageKey, serialize(data));
+                } catch (error) {
+                    logger?.error(error);
+                }
+            });
+        };
+        if (!storage.getItem(storageKey)) {
+            persistToStorage();
+        } else {
+            readFromStorage();
+        }
+        globalThis.addEventListener(
+            'storage',
+            (event) => {
+                if (event.storageArea === storage && event.key === storageKey) {
+                    readFromStorage();
+                }
+            },
+            false,
+        );
+        return {
+            reset: () => {
+                persistToStorage();
+            },
+            set: (key) => {
+                if (keys && !keys.includes(key)) return;
+                persistToStorage();
+            },
+            delete: (key) => {
+                if (keys && !keys.includes(key)) return;
+                persistToStorage();
+            },
+        };
     };
-    if (!storage.getItem(storageKey)) {
-        persistToStorage();
-    } else {
-        readFromStorage();
-    }
-    globalThis.addEventListener(
-        'storage',
-        (event) => {
-            if (event.storageArea === storage && event.key === storageKey) {
-                readFromStorage();
-            }
-        },
-        false,
-    );
-    return {
-        reset: () => {
-            persistToStorage();
-        },
-        set: (key) => {
-            if (options.keys && !options.keys.includes(key)) return;
-            persistToStorage();
-        },
-        delete: (key) => {
-            if (options.keys && !options.keys.includes(key)) return;
-            persistToStorage();
-        },
-    };
-};

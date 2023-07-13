@@ -1,7 +1,12 @@
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 
-import { Application, Converter, SignatureReflection, Context } from 'typedoc';
+import {
+    type Application,
+    Converter,
+    type SignatureReflection,
+    type Context,
+} from 'typedoc';
 
 export const load = ({ converter }: Application) => {
     converter.on(Converter.EVENT_CREATE_DECLARATION, insertUsage);

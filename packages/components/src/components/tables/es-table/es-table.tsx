@@ -1,4 +1,11 @@
-import { Component, h, Prop, Host, Event, EventEmitter } from '@stencil/core';
+import {
+    Component,
+    h,
+    Prop,
+    Host,
+    Event,
+    type EventEmitter,
+} from '@stencil/core';
 import { Link, router } from '@eventstore-ui/router';
 import { theme } from '@eventstore-ui/theme';
 

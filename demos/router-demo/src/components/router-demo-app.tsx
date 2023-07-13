@@ -1,11 +1,17 @@
-import { h, Component, FunctionalComponent, Host, VNode } from '@stencil/core';
+import {
+    h,
+    Component,
+    type FunctionalComponent,
+    Host,
+    type VNode,
+} from '@stencil/core';
 import {
     Route,
     Redirect,
     Link,
     Switch,
     PageTitle,
-    RouteRenderProps,
+    type RouteRenderProps,
     router,
 } from '@eventstore-ui/router';
 

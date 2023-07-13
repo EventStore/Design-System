@@ -1,4 +1,4 @@
-import { optimize, OptimizedSvg, OptimizeOptions } from 'svgo';
+import { optimize, type OptimizedSvg, type OptimizeOptions } from 'svgo';
 
 const config: OptimizeOptions = {
     js2svg: {
@@ -78,9 +78,10 @@ const config: OptimizeOptions = {
                                 node.attributes.stroke === 'none' &&
                                 node.attributes.fill === 'none'
                             ) {
-                                parentNode.children = parentNode.children.filter(
-                                    (child: any) => child !== node,
-                                );
+                                parentNode.children =
+                                    parentNode.children.filter(
+                                        (child: any) => child !== node,
+                                    );
                             }
                         },
                     },

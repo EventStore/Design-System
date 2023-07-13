@@ -518,10 +518,18 @@ describe('valueEqual', () => {
 
     describe('objects with different constructors but the same properties', () => {
         class A {
-            constructor(public a: number, public b: number, public c: number) {}
+            constructor(
+                public a: number,
+                public b: number,
+                public c: number,
+            ) {}
         }
         class B {
-            constructor(public a: number, public b: number, public c: number) {}
+            constructor(
+                public a: number,
+                public b: number,
+                public c: number,
+            ) {}
         }
 
         it('returns true', () => {

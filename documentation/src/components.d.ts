@@ -6,12 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { JsonDocs, JsonDocsEvent, JsonDocsMethod, JsonDocsPart, JsonDocsProp, JsonDocsSlot, JsonDocsStyle } from "@stencil/core/internal";
-import { Lib } from "sitemap";
-import { SomeReflection } from "utils/typedoc/types";
+import { Lib } from "./sitemap";
+import { SomeReflection } from "./utils/typedoc/types";
 import { SomeType } from "typedoc";
 export { JsonDocs, JsonDocsEvent, JsonDocsMethod, JsonDocsPart, JsonDocsProp, JsonDocsSlot, JsonDocsStyle } from "@stencil/core/internal";
-export { Lib } from "sitemap";
-export { SomeReflection } from "utils/typedoc/types";
+export { Lib } from "./sitemap";
+export { SomeReflection } from "./utils/typedoc/types";
 export { SomeType } from "typedoc";
 export namespace Components {
     interface DocsBackground {

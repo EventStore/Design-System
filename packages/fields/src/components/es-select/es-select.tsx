@@ -3,7 +3,7 @@ import {
     h,
     Prop,
     Event,
-    EventEmitter,
+    type EventEmitter,
     Element,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';

@@ -1,4 +1,4 @@
-import { createStore, Store } from '@eventstore-ui/stores';
+import { createStore, type Store } from '@eventstore-ui/stores';
 import type {
     InternalValidatedFormOptions,
     InternalFieldOptions,

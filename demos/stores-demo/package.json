@@ -8,13 +8,14 @@
         "start": "stencil build --dev --watch --serve --no-open",
         "test": "stencil test --spec --passWithNoTests",
         "test.watch": "stencil test --spec --watchAll",
-        "lint": "yarn g:prettier"
+        "lint": "yarn g:lint",
+        "fix": "yarn g:fix"
     },
     "dependencies": {
         "@eventstore-ui/stores": "workspace:*",
         "@eventstore-ui/utils": "workspace:*"
     },
     "devDependencies": {
-        "@stencil/core": "3.0.1"
+        "@stencil/core": "4.0.1"
     }
 }

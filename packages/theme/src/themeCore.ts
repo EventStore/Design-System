@@ -6,7 +6,7 @@ import type {
     ThemeDefinition,
     ThemeListener,
 } from './types';
-import { loadTheme, BaseThemeKey } from './themes';
+import { loadTheme, type BaseThemeKey } from './themes';
 
 declare global {
     interface Window {
@@ -23,10 +23,10 @@ class ThemeCore {
     private highContrast: MediaQueryList;
 
     constructor() {
-        this.dark = window.matchMedia('(prefers-color-scheme: dark)');
+        this.dark = matchMedia('(prefers-color-scheme: dark)');
         this.dark?.addEventListener?.('change', this.updateTheme);
 
-        this.highContrast = window.matchMedia('(prefers-contrast: more)');
+        this.highContrast = matchMedia('(prefers-contrast: more)');
         this.highContrast?.addEventListener?.('change', this.updateTheme);
 
         if (window[THEME] == null) {

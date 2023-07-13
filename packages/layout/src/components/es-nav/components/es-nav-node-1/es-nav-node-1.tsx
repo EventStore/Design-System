@@ -57,7 +57,8 @@ export class EsNav_1 {
                 this.nav.style.height = '0px';
                 this.frame = requestAnimationFrame(() => {
                     if (!this.nav) return;
-                    const wrap = this.nav.firstElementChild?.getBoundingClientRect();
+                    const wrap =
+                        this.nav.firstElementChild?.getBoundingClientRect();
                     this.nav.style.height = wrap ? `${wrap.height}px` : 'auto';
                 });
                 break;

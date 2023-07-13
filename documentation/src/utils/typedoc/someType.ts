@@ -169,11 +169,11 @@ export const isUnknownType = (someType: Type): someType is UnknownType =>
 
 export const isNamedTupleMember = (
     someType: Type,
-): someType is NamedTupleMember => someType.type === 'named-tuple-member';
+): someType is NamedTupleMember => someType.type === 'namedTupleMember';
 
 export const isMappedType = (someType: Type): someType is MappedType =>
     someType.type === 'mapped';
 
 export const isTemplateLiteralType = (
     someType: Type,
-): someType is TemplateLiteralType => someType.type === 'template-literal';
+): someType is TemplateLiteralType => someType.type === 'templateLiteral';

@@ -1,4 +1,4 @@
-import { dirname, join, sep } from 'path';
+import { join } from 'path';
 import type {
     BuildCtx,
     OutputTargetCustom,
@@ -8,7 +8,7 @@ import type {
 } from '@stencil/core/internal';
 
 class DevMode implements OutputTargetCustom {
-    public type: 'custom' = 'custom';
+    public type = 'custom' as const;
     public name = 'dev-mode';
 
     async generator(

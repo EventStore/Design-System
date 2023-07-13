@@ -697,7 +697,9 @@
     top: 4px;
 }
 .monaco-list-type-filter.dragging {
-    transition: top 0.2s, left 0.2s;
+    transition:
+        top 0.2s,
+        left 0.2s;
 }
 .monaco-list-type-filter.ne {
     right: 4px;
@@ -764,7 +766,8 @@
 .hc-black .mac .monaco-mouse-cursor-text,
 .vs-dark.mac .monaco-mouse-cursor-text,
 .vs-dark .mac .monaco-mouse-cursor-text {
-    cursor: -webkit-image-set(
+    cursor:
+        -webkit-image-set(
                 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAL0lEQVQoz2NgCD3x//9/BhBYBWdhgFVAiVW4JBFKGIa4AqD0//9D3pt4I4tAdAMAHTQ/j5Zom30AAAAASUVORK5CYII=)
                     1x,
                 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAz0lEQVRIx2NgYGBY/R8I/vx5eelX3n82IJ9FxGf6tksvf/8FiTMQAcAGQMDvSwu09abffY8QYSAScNk45G198eX//yev73/4///701eh//kZSARckrNBRvz//+8+6ZohwCzjGNjdgQxkAg7B9WADeBjIBqtJCbhRA0YNoIkBSNmaPEMoNmA0FkYNoFKhapJ6FGyAH3nauaSmPfwI0v/3OukVi0CIZ+F25KrtYcx/CTIy0e+rC7R1Z4KMICVTQQ14feVXIbR695u14+Ir4gwAAD49E54wc1kWAAAAAElFTkSuQmCC)
@@ -868,12 +871,20 @@
     cursor: all-scroll;
     position: absolute;
 }
-.monaco-sash.horizontal.orthogonal-edge-north:not(.disabled).orthogonal-start:before,
-.monaco-sash.horizontal.orthogonal-edge-south:not(.disabled).orthogonal-end:after {
+.monaco-sash.horizontal.orthogonal-edge-north:not(
+        .disabled
+    ).orthogonal-start:before,
+.monaco-sash.horizontal.orthogonal-edge-south:not(
+        .disabled
+    ).orthogonal-end:after {
     cursor: nwse-resize;
 }
-.monaco-sash.horizontal.orthogonal-edge-north:not(.disabled).orthogonal-end:after,
-.monaco-sash.horizontal.orthogonal-edge-south:not(.disabled).orthogonal-start:before {
+.monaco-sash.horizontal.orthogonal-edge-north:not(
+        .disabled
+    ).orthogonal-end:after,
+.monaco-sash.horizontal.orthogonal-edge-south:not(
+        .disabled
+    ).orthogonal-start:before {
     cursor: nesw-resize;
 }
 .monaco-sash.orthogonal-start.vertical:before {
@@ -3176,8 +3187,16 @@
     color: #f38518;
 }
 .monaco-editor {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
-        HelveticaNeue-Light, system-ui, Ubuntu, Droid Sans, sans-serif;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        Segoe WPC,
+        Segoe UI,
+        HelveticaNeue-Light,
+        system-ui,
+        Ubuntu,
+        Droid Sans,
+        sans-serif;
     --monaco-monospace-font: 'SF Mono', Monaco, Menlo, Consolas, 'Ubuntu Mono',
         'Liberation Mono', 'DejaVu Sans Mono', 'Courier New', monospace;
 }

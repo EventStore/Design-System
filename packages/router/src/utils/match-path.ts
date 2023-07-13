@@ -1,4 +1,4 @@
-import { Key, Path, pathToRegexp } from './path-to-regex';
+import { type Key, type Path, pathToRegexp } from './path-to-regex';
 import type { MatchOptions, MatchResults } from '../types';
 import { valueEqual } from './location-utils';
 

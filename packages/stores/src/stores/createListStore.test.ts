@@ -110,61 +110,66 @@ describe.each<
 describe.each([
     ['proxy', (state, _set, prop, value) => (state[prop] = value)],
     ['set fn', (_state, set, prop, value) => set(prop, value)],
-] as [string, <T, K extends keyof T>(s: T, set: (prop: K, value: T[K]) => void, prop: K, value: T[K]) => void][])(
-    'set (%s)',
-    (_, setter) => {
-        test('sets the value for a property', () => {
-            const { set, state } = createListStore({
-                hola: 'hello',
-            });
-
-            setter(state, set, 'hola', 'ola');
-
-            expect(state.hola).toBe('ola');
+] as [
+    string,
+    <T, K extends keyof T>(
+        s: T,
+        set: (prop: K, value: T[K]) => void,
+        prop: K,
+        value: T[K],
+    ) => void,
+][])('set (%s)', (_, setter) => {
+    test('sets the value for a property', () => {
+        const { set, state } = createListStore({
+            hola: 'hello',
         });
 
-        test('calls on', () => {
-            const { set, on, state } = createListStore({
-                hola: 'hello',
-            });
-            const subscription = jest.fn();
-            on('set', subscription);
+        setter(state, set, 'hola', 'ola');
 
-            setter(state, set, 'hola', 'ola');
+        expect(state.hola).toBe('ola');
+    });
 
-            expect(subscription).toHaveBeenCalledWith('hola', 'ola', 'hello');
+    test('calls on', () => {
+        const { set, on, state } = createListStore({
+            hola: 'hello',
         });
+        const subscription = jest.fn();
+        on('set', subscription);
 
-        test('calls onChange', () => {
-            const { set, onChange, state } = createListStore({
-                hola: 'hello',
-            });
-            const subscription = jest.fn();
-            onChange('hola', subscription);
+        setter(state, set, 'hola', 'ola');
 
-            setter(state, set, 'hola', 'ola');
+        expect(subscription).toHaveBeenCalledWith('hola', 'ola', 'hello');
+    });
 
-            expect(subscription).toHaveBeenCalledWith('ola');
+    test('calls onChange', () => {
+        const { set, onChange, state } = createListStore({
+            hola: 'hello',
         });
+        const subscription = jest.fn();
+        onChange('hola', subscription);
 
-        test('enumerable keys', () => {
-            const { state } = createListStore<any>({});
-            expect(Object.keys(state)).toEqual([]);
-            state.hello = 'hola';
-            expect(Object.keys(state)).toEqual(['hello']);
-            expect(Object.getOwnPropertyNames(state)).toEqual(['hello']);
-            const copy = { ...state };
-            expect(copy).toEqual({ hello: 'hola' });
-        });
+        setter(state, set, 'hola', 'ola');
 
-        test('in operator', () => {
-            const { state } = createListStore<any>({});
-            expect('hello' in state).toBe(false);
-            state.hello = 'hola';
-            expect('hello' in state).toBe(true);
-        });
-    },
-);
+        expect(subscription).toHaveBeenCalledWith('ola');
+    });
+
+    test('enumerable keys', () => {
+        const { state } = createListStore<any>({});
+        expect(Object.keys(state)).toEqual([]);
+        state.hello = 'hola';
+        expect(Object.keys(state)).toEqual(['hello']);
+        expect(Object.getOwnPropertyNames(state)).toEqual(['hello']);
+        const copy = { ...state };
+        expect(copy).toEqual({ hello: 'hola' });
+    });
+
+    test('in operator', () => {
+        const { state } = createListStore<any>({});
+        expect('hello' in state).toBe(false);
+        state.hello = 'hola';
+        expect('hello' in state).toBe(true);
+    });
+});
 
 test('unregister events', () => {
     const { reset, state, on, onChange } = createListStore({

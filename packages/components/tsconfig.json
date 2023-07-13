@@ -11,7 +11,7 @@
         "target": "es2020",
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "importsNotUsedAsValues": "error",
+        "verbatimModuleSyntax": true,
         "jsx": "react",
         "jsxFactory": "h",
         "jsxFragmentFactory": "Fragment"

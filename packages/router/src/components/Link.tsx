@@ -1,4 +1,4 @@
-import { h, FunctionalComponent } from '@stencil/core';
+import { h, type FunctionalComponent } from '@stencil/core';
 import type { Path } from '../types';
 import { isModifiedEvent } from '../utils/dom-utils';
 import { getInternalRouter } from '../utils/getInternalRouter';

@@ -1,6 +1,6 @@
 import {
     h,
-    FunctionalComponent,
+    type FunctionalComponent,
     getRenderingRef,
     getElement,
     Fragment,
