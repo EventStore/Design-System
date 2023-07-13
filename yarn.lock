@@ -1704,11 +1704,13 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.6.0
     "@typescript-eslint/parser": ^5.6.0
     eslint: ^8.4.0
+    prettier: ^2.2.1
     typescript: 4.9.4
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^5.x
     "@typescript-eslint/parser": ^5.x
     eslint: ^8.x
+    prettier: ^2.x
   languageName: unknown
   linkType: soft
 
@@ -1832,6 +1834,7 @@ __metadata:
     case-anything: ^2.1.10
     clipboardy: ^2.3.0
     jest: ^27.4.5
+    prettier: ^2.2.1
     semver: ^7.5.2
     svgo: ^2.8.0
     typescript: 4.9.4
@@ -1850,6 +1853,7 @@ __metadata:
     case-anything: ^2.1.10
     jest: ^27.4.5
     npm-run-all: ^4.1.5
+    prettier: ^2.2.1
     puppeteer: ^19.5.0
     svgo: ^2.8.0
     typedoc: 0.23.24

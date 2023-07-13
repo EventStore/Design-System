@@ -19,7 +19,8 @@
         "dev": "nx run dev --project=${0}",
         "docs": "nx run docs:build",
         "docs:serve": "nx run docs:serve",
-        "bump": "yarn workspaces foreach --no-private version"
+        "bump": "yarn workspaces foreach --no-private version",
+        "changeset:add": "changeset"
     },
     "devDependencies": {
         "@changesets/changelog-github": "^0.4.8",
