@@ -45,9 +45,9 @@
         "@floating-ui/dom": "0.4.1"
     },
     "peerDependencies": {
-        "@eventstore-ui/router": "0.1",
-        "@eventstore-ui/theme": "0.1",
-        "@eventstore-ui/utils": "0.1"
+        "@eventstore-ui/router": "^0.1.0",
+        "@eventstore-ui/theme": "^0.1.0",
+        "@eventstore-ui/utils": "^0.1.0"
     },
     "devDependencies": {
         "@eventstore-ui/configs": "workspace:*",
