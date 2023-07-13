@@ -35,9 +35,9 @@
         }
     },
     "peerDependencies": {
-        "@eventstore-ui/components": "0.1",
-        "@eventstore-ui/stores": "0.1",
-        "@eventstore-ui/utils": "0.1"
+        "@eventstore-ui/components": "^0.1.0",
+        "@eventstore-ui/stores": "^0.1.0",
+        "@eventstore-ui/utils": "^0.1.0"
     },
     "devDependencies": {
         "@babel/core": "^7.12.10",
