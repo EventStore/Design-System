@@ -21,7 +21,6 @@
         "dev": "tsc --outDir ./dist --declaration --watch",
         "lint": "yarn g:lint"
     },
-    "prettier": "@eventstore-ui/configs/prettier",
     "peerDependencies": {
         "typedoc": ">=0.21.0"
     },
