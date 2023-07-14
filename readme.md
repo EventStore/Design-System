@@ -32,7 +32,6 @@ A changeset is a record of changes made to specific packages. Create one when yo
 
 1. Run `yarn log`
 2. Follow the prompts to describe your changes and pick the packages they affect. This selection helps determine which package versions need updates.
-This process generates a markdown changeset file in the .changeset directory. Each file outlines your changes and the affected packages.
 3. This process generates a markdown changeset file in the .changeset directory. Each file outlines your changes and the affected packages.
 4. Include the changeset file(s) in your commit. They're essential for the upcoming release process.
 5. If necessary, you can generate multiple changesets by running the command multiple times. Each run generates a new changeset file.
