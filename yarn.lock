@@ -1693,6 +1693,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@eventstore-ui/design-system-root@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@eventstore-ui/design-system-root@workspace:."
+  dependencies:
+    "@changesets/cli": ^2.26.2
+    "@eventstore-ui/configs": "workspace:*"
+    "@typescript-eslint/eslint-plugin": ^5.6.0
+    "@typescript-eslint/parser": ^5.6.0
+    eslint: ^8.4.0
+    npm-run-all: ^4.1.5
+    nx: 15.5.1
+    prettier: ^2.2.1
+    typescript: 4.9.4
+  languageName: unknown
+  linkType: soft
+
 "@eventstore-ui/docs@workspace:documentation":
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/docs@workspace:documentation"
@@ -9388,22 +9404,6 @@ __metadata:
   checksum: 6a2bf167b3587d4df709b37d149ad0300692cc5deb510f89ac7bdc77c8738c9546ae3de9322b0968e1ed2b0e984571f5f55aae28fa7de4cfcb1bc5402a4e2be6
   languageName: node
   linkType: hard
-
-"root-workspace-0b6124@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "root-workspace-0b6124@workspace:."
-  dependencies:
-    "@changesets/cli": ^2.26.2
-    "@eventstore-ui/configs": "workspace:*"
-    "@typescript-eslint/eslint-plugin": ^5.6.0
-    "@typescript-eslint/parser": ^5.6.0
-    eslint: ^8.4.0
-    npm-run-all: ^4.1.5
-    nx: 15.5.1
-    prettier: ^2.2.1
-    typescript: 4.9.4
-  languageName: unknown
-  linkType: soft
 
 "router-demo@workspace:demos/router-demo":
   version: 0.0.0-use.local
