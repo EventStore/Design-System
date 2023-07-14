@@ -1,12 +1,35 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@2.3.1/schema.json",
-  "changelog": ["@changesets/changelog-github", {"repo": "EventStore/Design-System"}],
-  "commit": false,
-  "fixed": [],
-  "linked": [],
-  "access": "public",
-  "baseBranch": "main",
-  "updateInternalDependencies": "patch",
-  "ignore": [],
-  "privatePackages": false
+    "$schema": "https://unpkg.com/@changesets/config@2.3.1/schema.json",
+    "changelog": [
+        "@changesets/changelog-github",
+        { "repo": "EventStore/Design-System" }
+    ],
+    "commit": false,
+    "fixed": [
+        [
+            "@eventstore-ui/design-system-root",
+            "@eventstore-ui/components",
+            "@eventstore-ui/editor",
+            "@eventstore-ui/fields",
+            "@eventstore-ui/forms",
+            "@eventstore-ui/illustrations",
+            "@eventstore-ui/layout",
+            "@eventstore-ui/router",
+            "@eventstore-ui/stores",
+            "@eventstore-ui/theme",
+            "@eventstore-ui/utils",
+            "@eventstore-ui/assets",
+            "@eventstore-ui/configs",
+            "@eventstore-ui/icon-manager",
+            "@eventstore-ui/stencil-markdown-plugin",
+            "@eventstore-ui/typedoc-plugin-usage"
+        ],
+        ["router-demo", "stores-demo", "@eventstore-ui/docs"]
+    ],
+    "linked": [],
+    "access": "public",
+    "baseBranch": "main",
+    "updateInternalDependencies": "patch",
+    "ignore": [],
+    "privatePackages": false
 }

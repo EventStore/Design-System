@@ -1,4 +1,5 @@
 {
+    "name": "@eventstore-ui/design-system-root",
     "private": true,
     "version": "0.1.8",
     "repository": {
