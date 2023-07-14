@@ -4,12 +4,9 @@
   "commit": false,
   "fixed": [],
   "linked": [],
-  "access": "restricted",
+  "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [],
-  "privatePackages": {
-    "version": true,
-    "tag": true
-  }
+  "privatePackages": false
 }

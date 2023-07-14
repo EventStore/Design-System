@@ -2,8 +2,8 @@ name: Release
 
 on:
     push:
-        tags:
-            - '*'
+        branches:
+            - main
 
 # Ensures only one workflow runs at a time per branch or tag
 # to avoid redundant operations or conflicts.
@@ -46,9 +46,6 @@ jobs:
             - name: Build
               run: yarn build
 
-            - name: Set access token
-              run: yarn config set npmAuthToken "${{ secrets.NPM_AUTH_TOKEN }}"
-
             # It uses the Changesets GitHub Action to automate versioning and releases.
             - name: Create Release Pull Request
               uses: changesets/action@v1
@@ -57,18 +54,15 @@ jobs:
                   # and update changelogs based on changesets, and include these changes in a new PR.
                   version: yarn changeset version
 
-                  # Executes the `changeset tag` command to create a new version tag for each updated
-                  # package. These tags will be included in the new PR and will be applied when the PR is merged.
-                  publish: yarn changeset tag
+                  # Executes the `changeset publish` command to create a new version tag for each updated
+                  # package and publish them to npm. These tags will be included in the new PR and will be applied when the PR is merged.
+                  publish: yarn changeset publish
 
                   # This will create GitHub releases for each published package.
                   # These releases will be created when the PR is merged and the new versions are published.
                   createGithubReleases: true
               env:
-                  # The GitHub token is used to authenticate with GitHub to 
+                  # The GitHub token is used to authenticate with GitHub to
                   # create pull requests and releases.
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-            - name: Publish to npm
-              run: yarn workspaces foreach -v --no-private npm publish --access public
+                  NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
