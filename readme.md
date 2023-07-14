@@ -24,7 +24,7 @@ yarn
 
 ## Managing changelogs
 
-We use [changesets](https://github.com/changesets/changesets) to help us prepare releases. It helps us update package versions and add notes to the `CHANGELOG.md`` for any package that's changed.
+We use [changesets](https://github.com/changesets/changesets) to help us prepare releases. It helps us update package versions and add notes to the `CHANGELOG.md` for any package that's changed.
 
 A changeset is a record of changes made to specific packages. Create one when you need to publish a change that affects a package or the release notes. Not all changes need a changeset, though. For example, if your changes don't affect a package or the release notes, you don't need a changeset.
 
