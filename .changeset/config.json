@@ -7,7 +7,6 @@
     "commit": false,
     "fixed": [
         [
-            "@eventstore-ui/design-system-root",
             "@eventstore-ui/components",
             "@eventstore-ui/editor",
             "@eventstore-ui/fields",
