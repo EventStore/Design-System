@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/fields",
-    "version": "0.1.9",
+    "version": "0.1.8",
     "description": "Forms and fields for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
@@ -41,9 +41,9 @@
         }
     },
     "peerDependencies": {
-        "@eventstore-ui/components": "0.1.9",
-        "@eventstore-ui/theme": "0.1.9",
-        "@eventstore-ui/utils": "0.1.9"
+        "@eventstore-ui/components": "0.1",
+        "@eventstore-ui/theme": "0.1",
+        "@eventstore-ui/utils": "0.1"
     },
     "dependencies": {
         "imask": "6.0.5"

@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/stores",
-    "version": "0.1.9",
+    "version": "0.1.8",
     "description": "Data stores for Stencil",
     "license": "Apache-2.0",
     "main": "dist/index.js",
@@ -32,7 +32,7 @@
         }
     },
     "peerDependencies": {
-        "@eventstore-ui/utils": "0.1.9"
+        "@eventstore-ui/utils": "0.1"
     },
     "devDependencies": {
         "@babel/core": "^7.12.10",
