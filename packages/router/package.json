@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/router",
-    "version": "0.1.8",
+    "version": "0.1.9",
     "description": "Router for Stencil",
     "license": "Apache-2.0",
     "main": "dist/index.js",
@@ -26,7 +26,7 @@
         }
     },
     "peerDependencies": {
-        "@eventstore-ui/utils": "0.1"
+        "@eventstore-ui/utils": "0.1.9"
     },
     "devDependencies": {
         "@babel/core": "^7.12.10",

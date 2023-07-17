@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/theme",
-    "version": "0.1.8",
+    "version": "0.1.9",
     "description": "Themes and theming utilities for Event Store Design System",
     "main": "dist/index.js",
     "repository": {
@@ -25,7 +25,7 @@
         }
     },
     "peerDependencies": {
-        "@eventstore-ui/utils": "0.1"
+        "@eventstore-ui/utils": "0.1.9"
     },
     "devDependencies": {
         "@babel/core": "^7.12.10",
