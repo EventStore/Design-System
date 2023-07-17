@@ -24,5 +24,6 @@
         "@eventstore-ui/configs": "workspace:*",
         "@eventstore-ui/icon-manager": "workspace:*",
         "@stencil/core": "3.0.1"
-    }
+    },
+    "version": null
 }

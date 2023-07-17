@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/illustrations",
-    "version": "0.1.8",
+    "version": "0.1.9",
     "description": "Illustrations for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
@@ -39,7 +39,7 @@
         }
     },
     "peerDependencies": {
-        "@eventstore-ui/theme": "0.1"
+        "@eventstore-ui/theme": "0.1.9"
     },
     "devDependencies": {
         "@eventstore-ui/theme": "workspace:*",
