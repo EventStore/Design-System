@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/icon-manager",
-    "version": "0.1.9",
+    "version": "0.1.8",
     "description": "Automated icon inclusion for Event Store design system",
     "license": "Apache-2.0",
     "bin": {

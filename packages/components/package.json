@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/components",
-    "version": "0.1.9",
+    "version": "0.1.8",
     "description": "Core components for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
@@ -44,9 +44,9 @@
         "@floating-ui/dom": "0.4.1"
     },
     "peerDependencies": {
-        "@eventstore-ui/router": "0.1.9",
-        "@eventstore-ui/theme": "0.1.9",
-        "@eventstore-ui/utils": "0.1.9"
+        "@eventstore-ui/router": "0.1",
+        "@eventstore-ui/theme": "0.1",
+        "@eventstore-ui/utils": "0.1"
     },
     "devDependencies": {
         "@eventstore-ui/configs": "workspace:*",
