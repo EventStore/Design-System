@@ -2,8 +2,7 @@ name: Release
 
 on:
     push:
-        branches:
-            - main
+        branches: [main]
 
 # Ensures only one workflow runs at a time per branch or tag
 # to avoid redundant operations or conflicts.

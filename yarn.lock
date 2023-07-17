@@ -1431,6 +1431,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@changesets/changelog-github@npm:^0.4.8":
+  version: 0.4.8
+  resolution: "@changesets/changelog-github@npm:0.4.8"
+  dependencies:
+    "@changesets/get-github-info": ^0.5.2
+    "@changesets/types": ^5.2.1
+    dotenv: ^8.1.0
+  checksum: 8a357cc08757e0eeca267ee05141f68bef936582abef8b78a5d30d99f5a86e41b7d3debba70992b73b2f57b0fc6201ec1cc3c65116930167ee3197b427b865c5
+  languageName: node
+  linkType: hard
+
 "@changesets/cli@npm:^2.26.2":
   version: 2.26.2
   resolution: "@changesets/cli@npm:2.26.2"
@@ -1508,6 +1519,16 @@ __metadata:
     fs-extra: ^7.0.1
     semver: ^7.5.3
   checksum: d2cbbc5041063b939899502d1b264a0d9edb655acefd7f6197883229156bb7cfd1ace642ae4a1f7f7b432f2c51429f5dc9851ff5a9ed47f1c0159916e66627a9
+  languageName: node
+  linkType: hard
+
+"@changesets/get-github-info@npm:^0.5.2":
+  version: 0.5.2
+  resolution: "@changesets/get-github-info@npm:0.5.2"
+  dependencies:
+    dataloader: ^1.4.0
+    node-fetch: ^2.5.0
+  checksum: 067e07eeaecdbedbd1c715513c4aa6206a941bd1d3af292d067792808c6fa6644caad2b35fba614a44892559c031c234df8028f8d2abd4cb2682d48080ef5df3
   languageName: node
   linkType: hard
 
@@ -4351,6 +4372,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dataloader@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "dataloader@npm:1.4.0"
+  checksum: e2c93d43afde68980efc0cd9ff48e9851116e27a9687f863e02b56d46f7e7868cc762cd6dcbaf4197e1ca850a03651510c165c2ae24b8e9843fd894002ad0e20
+  languageName: node
+  linkType: hard
+
 "debug@npm:2.6.9":
   version: 2.6.9
   resolution: "debug@npm:2.6.9"
@@ -4570,6 +4598,13 @@ __metadata:
     domelementtype: ^2.2.0
     domhandler: ^4.2.0
   checksum: abf7434315283e9aadc2a24bac0e00eab07ae4313b40cc239f89d84d7315ebdfd2fb1b5bf750a96bc1b4403d7237c7b2ebf60459be394d625ead4ca89b934391
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^8.1.0":
+  version: 8.6.0
+  resolution: "dotenv@npm:8.6.0"
+  checksum: 38e902c80b0666ab59e9310a3d24ed237029a7ce34d976796349765ac96b8d769f6df19090f1f471b77a25ca391971efde8a1ea63bb83111bd8bec8e5cc9b2cd
   languageName: node
   linkType: hard
 
@@ -7803,6 +7838,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-fetch@npm:^2.5.0":
+  version: 2.6.12
+  resolution: "node-fetch@npm:2.6.12"
+  dependencies:
+    whatwg-url: ^5.0.0
+  peerDependencies:
+    encoding: ^0.1.0
+  peerDependenciesMeta:
+    encoding:
+      optional: true
+  checksum: 3bc1655203d47ee8e313c0d96664b9673a3d4dd8002740318e9d27d14ef306693a4b2ef8d6525775056fd912a19e23f3ac0d7111ad8925877b7567b29a625592
+  languageName: node
+  linkType: hard
+
 "node-gyp-build@npm:^4.3.0":
   version: 4.6.0
   resolution: "node-gyp-build@npm:4.6.0"
@@ -9393,6 +9442,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@changesets/changelog-github": ^0.4.8
     "@changesets/cli": ^2.26.2
     "@eventstore-ui/configs": "workspace:*"
     "@typescript-eslint/eslint-plugin": ^5.6.0
@@ -10284,6 +10334,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tr46@npm:~0.0.3":
+  version: 0.0.3
+  resolution: "tr46@npm:0.0.3"
+  checksum: 726321c5eaf41b5002e17ffbd1fb7245999a073e8979085dacd47c4b4e8068ff5777142fc6726d6ca1fd2ff16921b48788b87225cbc57c72636f6efa8efbffe3
+  languageName: node
+  linkType: hard
+
 "trim-newlines@npm:^3.0.0":
   version: 3.0.1
   resolution: "trim-newlines@npm:3.0.1"
@@ -10902,6 +10959,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"webidl-conversions@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "webidl-conversions@npm:3.0.1"
+  checksum: c92a0a6ab95314bde9c32e1d0a6dfac83b578f8fa5f21e675bc2706ed6981bc26b7eb7e6a1fab158e5ce4adf9caa4a0aee49a52505d4d13c7be545f15021b17c
+  languageName: node
+  linkType: hard
+
 "webidl-conversions@npm:^4.0.2":
   version: 4.0.2
   resolution: "webidl-conversions@npm:4.0.2"
@@ -10936,6 +11000,16 @@ __metadata:
   version: 2.3.0
   resolution: "whatwg-mimetype@npm:2.3.0"
   checksum: 23eb885940bcbcca4ff841c40a78e9cbb893ec42743993a42bf7aed16085b048b44b06f3402018931687153550f9a32d259dfa524e4f03577ab898b6965e5383
+  languageName: node
+  linkType: hard
+
+"whatwg-url@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "whatwg-url@npm:5.0.0"
+  dependencies:
+    tr46: ~0.0.3
+    webidl-conversions: ^3.0.0
+  checksum: b8daed4ad3356cc4899048a15b2c143a9aed0dfae1f611ebd55073310c7b910f522ad75d727346ad64203d7e6c79ef25eafd465f4d12775ca44b90fa82ed9e2c
   languageName: node
   linkType: hard
 
