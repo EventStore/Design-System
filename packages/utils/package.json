@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/utils",
-    "version": "0.1.8",
+    "version": "0.1.9",
     "description": "Utilities for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.js",
