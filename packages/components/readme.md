@@ -25,3 +25,5 @@ import '@eventstore-ui/components';
 ```
 
 Then you can use the element anywhere in your JSX, html, templates etc.
+
+## Usage within a non-stencil project
