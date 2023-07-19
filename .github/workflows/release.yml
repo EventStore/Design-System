@@ -49,10 +49,6 @@ jobs:
             - name: Create Release Pull Request
               uses: changesets/action@v1
               with:
-                  # Executes the `changeset version` command. This will bump package versions
-                  # and update changelogs based on changesets, and include these changes in a new PR.
-                  version: yarn changeset version
-
                   # Executes the `changeset publish` command to create a new version tag for each updated
                   # package and publish them to npm. These tags will be included in the new PR and will be applied when the PR is merged.is merged.
                   publish: yarn changeset publish
