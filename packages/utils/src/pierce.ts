@@ -21,7 +21,7 @@ export function closest(el: Element, selector: string) {
     return null;
 }
 
-// Path: packages/utils/src/isShadowRoot.ts 1
+// Path: packages/utils/src/isShadowRoot.ts 133
 const isShadowRoot = (node: Node): node is ShadowRoot => {
     return node.nodeType === node.DOCUMENT_FRAGMENT_NODE;
 };
