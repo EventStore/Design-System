@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+:host {
+    display: block;
+    padding: 20px;
+    position: relative;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+:host(.loading) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    animation: fade-in 500ms ease-in-out;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

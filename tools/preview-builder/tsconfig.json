@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "lib": ["DOM", "DOM.Iterable", "es2021"],
+        "moduleResolution": "Node",
+        "module": "ES2020",
+        "target": "es2021",
+        "esModuleInterop": true,
+        "declaration": true,
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "outDir": "./dist"
+    },
+    "include": ["./src"]
+}

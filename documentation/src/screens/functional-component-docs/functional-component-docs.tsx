@@ -51,15 +51,13 @@ export class FunctionalComponentDocs {
             >
                 <docs-markdown class={'body'} md={extractText(this.doc)} />
 
-                {Object.entries(extractUsage(this.doc)).map(
-                    ([uname, usage]) => (
-                        <docs-usage
-                            key={uname}
-                            identifier={`${this.doc.name}-${uname}`}
-                            usage={usage}
-                        />
-                    ),
-                )}
+                {Object.entries(extractUsage(this.doc)).map(([name, usage]) => (
+                    <docs-usage
+                        key={name}
+                        identifier={`${this.doc.name}-${name}`}
+                        usage={usage}
+                    />
+                ))}
 
                 {this.references.map((doc) => (
                     <div key={doc.name} id={doc.name}>

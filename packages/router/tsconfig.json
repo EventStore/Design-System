@@ -17,6 +17,7 @@
     },
     "typedocOptions": {
         "name": "@eventstore-ui/router",
+        "plugin": ["@eventstore-ui/typedoc-plugin-usage"],
         "entryPoints": ["./src/index.ts"]
     },
     "include": ["src", "types/jsx.d.ts"],
