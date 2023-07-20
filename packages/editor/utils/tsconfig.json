@@ -3,6 +3,7 @@
     "include": [".", "../src/utils/codeThemes.ts"],
     "typedocOptions": {
         "name": "@eventstore-ui/editor",
+        "plugin": ["@eventstore-ui/typedoc-plugin-usage"],
         "entryPoints": ["./initialize.ts", "../src/utils/codeThemes.ts"]
     }
 }

@@ -5,49 +5,34 @@
 :host {
     display: flex;
     min-height: 500px;
+    width: 100%;
     position: relative;
 }
 
-:host(.no-preview) {
-    & es-tabs {
-        width: 100%;
-        margin-left: 0;
-    }
+:host(.no_preview) es-tabs {
+    width: 100%;
+    flex: 0 0 100%;
+    margin-left: 0;
 }
 
-:host(.no-code) {
-    & iframe,
-    & .building {
-        width: 100%;
-    }
+:host(.no_code) iframe {
+    width: 100%;
+    flex: 0 0 100%;
 }
 
 :host(.grow) {
     min-height: 0;
 }
 
-.building {
-    width: 50%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text);
-}
-
 iframe {
-    width: 50%;
     border: 0;
-
-    &.hidden {
-        visibility: hidden;
-    }
+    width: 50%;
+    flex: 0 0 50%;
 }
 
 es-tabs {
+    width: 50%;
+    flex: 0 0 50%;
     width: 50%;
     margin-left: 10px;
 }

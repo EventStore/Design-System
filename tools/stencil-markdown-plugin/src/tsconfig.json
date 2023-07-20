@@ -16,6 +16,7 @@
     "exclude": ["node_modules"],
     "typedocOptions": {
         "name": "@eventstore-ui/stencil-markdown-plugin",
+        "plugin": ["@eventstore-ui/typedoc-plugin-usage"],
         "entryPoints": [
             "./plugin/plugin.ts",
             "./components/index.ts",

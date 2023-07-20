@@ -9,10 +9,12 @@ import { JsonDocs, JsonDocsEvent, JsonDocsMethod, JsonDocsPart, JsonDocsProp, Js
 import { Lib } from "./sitemap";
 import { SomeReflection } from "./utils/typedoc/types";
 import { SomeType } from "typedoc";
+import { LocationSegments, Router } from "@eventstore-ui/router";
 export { JsonDocs, JsonDocsEvent, JsonDocsMethod, JsonDocsPart, JsonDocsProp, JsonDocsSlot, JsonDocsStyle } from "@stencil/core/internal";
 export { Lib } from "./sitemap";
 export { SomeReflection } from "./utils/typedoc/types";
 export { SomeType } from "typedoc";
+export { LocationSegments, Router } from "@eventstore-ui/router";
 export namespace Components {
     interface DocsBackground {
     }
@@ -75,6 +77,14 @@ export namespace Components {
     interface DocsUtilDocs {
         "doc": SomeReflection;
         "lib": Lib;
+    }
+    interface PreviewComponent {
+    }
+    interface PreviewUsageLocation {
+        "location"?: LocationSegments;
+        "router": Router;
+    }
+    interface WizardExample {
     }
 }
 declare global {
@@ -192,6 +202,24 @@ declare global {
         prototype: HTMLDocsUtilDocsElement;
         new (): HTMLDocsUtilDocsElement;
     };
+    interface HTMLPreviewComponentElement extends Components.PreviewComponent, HTMLStencilElement {
+    }
+    var HTMLPreviewComponentElement: {
+        prototype: HTMLPreviewComponentElement;
+        new (): HTMLPreviewComponentElement;
+    };
+    interface HTMLPreviewUsageLocationElement extends Components.PreviewUsageLocation, HTMLStencilElement {
+    }
+    var HTMLPreviewUsageLocationElement: {
+        prototype: HTMLPreviewUsageLocationElement;
+        new (): HTMLPreviewUsageLocationElement;
+    };
+    interface HTMLWizardExampleElement extends Components.WizardExample, HTMLStencilElement {
+    }
+    var HTMLWizardExampleElement: {
+        prototype: HTMLWizardExampleElement;
+        new (): HTMLWizardExampleElement;
+    };
     interface HTMLElementTagNameMap {
         "docs-background": HTMLDocsBackgroundElement;
         "docs-component-docs": HTMLDocsComponentDocsElement;
@@ -212,6 +240,9 @@ declare global {
         "docs-type-documentation": HTMLDocsTypeDocumentationElement;
         "docs-usage": HTMLDocsUsageElement;
         "docs-util-docs": HTMLDocsUtilDocsElement;
+        "preview-component": HTMLPreviewComponentElement;
+        "preview-usage-location": HTMLPreviewUsageLocationElement;
+        "wizard-example": HTMLWizardExampleElement;
     }
 }
 declare namespace LocalJSX {
@@ -277,6 +308,14 @@ declare namespace LocalJSX {
         "doc": SomeReflection;
         "lib": Lib;
     }
+    interface PreviewComponent {
+    }
+    interface PreviewUsageLocation {
+        "location"?: LocationSegments;
+        "router": Router;
+    }
+    interface WizardExample {
+    }
     interface IntrinsicElements {
         "docs-background": DocsBackground;
         "docs-component-docs": DocsComponentDocs;
@@ -297,6 +336,9 @@ declare namespace LocalJSX {
         "docs-type-documentation": DocsTypeDocumentation;
         "docs-usage": DocsUsage;
         "docs-util-docs": DocsUtilDocs;
+        "preview-component": PreviewComponent;
+        "preview-usage-location": PreviewUsageLocation;
+        "wizard-example": WizardExample;
     }
 }
 export { LocalJSX as JSX };
@@ -322,6 +364,9 @@ declare module "@stencil/core" {
             "docs-type-documentation": LocalJSX.DocsTypeDocumentation & JSXBase.HTMLAttributes<HTMLDocsTypeDocumentationElement>;
             "docs-usage": LocalJSX.DocsUsage & JSXBase.HTMLAttributes<HTMLDocsUsageElement>;
             "docs-util-docs": LocalJSX.DocsUtilDocs & JSXBase.HTMLAttributes<HTMLDocsUtilDocsElement>;
+            "preview-component": LocalJSX.PreviewComponent & JSXBase.HTMLAttributes<HTMLPreviewComponentElement>;
+            "preview-usage-location": LocalJSX.PreviewUsageLocation & JSXBase.HTMLAttributes<HTMLPreviewUsageLocationElement>;
+            "wizard-example": LocalJSX.WizardExample & JSXBase.HTMLAttributes<HTMLWizardExampleElement>;
         }
     }
 }

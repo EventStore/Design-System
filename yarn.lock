@@ -1488,6 +1488,7 @@ __metadata:
     "@eventstore-ui/icon-manager": "workspace:*"
     "@eventstore-ui/illustrations": "workspace:*"
     "@eventstore-ui/layout": "workspace:*"
+    "@eventstore-ui/preview-builder": "workspace:*"
     "@eventstore-ui/router": "workspace:*"
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/theme": "workspace:*"
@@ -1649,6 +1650,17 @@ __metadata:
     "@eventstore-ui/router": 0.1
     "@eventstore-ui/theme": 0.1
     "@eventstore-ui/utils": 0.1
+  languageName: unknown
+  linkType: soft
+
+"@eventstore-ui/preview-builder@workspace:*, @eventstore-ui/preview-builder@workspace:tools/preview-builder":
+  version: 0.0.0-use.local
+  resolution: "@eventstore-ui/preview-builder@workspace:tools/preview-builder"
+  dependencies:
+    "@types/node": ^18.11.18
+    typescript: 5.1.6
+  bin:
+    build-previews: ./dist/index.js
   languageName: unknown
   linkType: soft
 

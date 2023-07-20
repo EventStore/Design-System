@@ -1,0 +1,27 @@
+{
+    "name": "@eventstore-ui/preview-builder",
+    "version": "0.0.1",
+    "description": "Automated icon inclusion for Event Store design system",
+    "license": "Apache-2.0",
+    "private": true,
+    "bin": {
+        "build-previews": "./dist/index.js"
+    },
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:EventStore/Design-System.git",
+        "directory": "tools/preview-builder"
+    },
+    "scripts": {
+        "build": "tsc --outDir ./dist --declaration",
+        "test": "echo hello",
+        "lint": "yarn g:lint",
+        "fix": "yarn g:fix"
+    },
+    "prettier": "@eventstore-ui/configs/prettier",
+    "devDependencies": {
+        "@types/node": "^18.11.18",
+        "typescript": "5.1.6"
+    }
+}

@@ -32,6 +32,7 @@ export type {
     Checkpoint,
     CheckpointState,
 } from './components/es-progression/types';
+export type { ButtonVariant } from './components/buttons/types';
 
 export { toast } from './utils/toast';
 export { iconStore } from './utils/iconStore';
