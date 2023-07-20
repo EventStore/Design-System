@@ -28,7 +28,9 @@ export class DocsUsage {
         );
 
         this.options = options;
-        this.models = createModels(parts);
+        if (!Build.isServer) {
+            this.models = createModels(parts);
+        }
         this.tabs = Object.values(parts)
             .filter(({ hidden }) => !hidden)
             .map(({ fileName, title }) => ({
@@ -46,7 +48,7 @@ export class DocsUsage {
                     grow: !!this.options.grow,
                 }}
             >
-                {this.options.preview && (
+                {this.options.preview && !Build.isServer && (
                     <iframe
                         data-identifier={this.identifier}
                         src={'/preview'}
