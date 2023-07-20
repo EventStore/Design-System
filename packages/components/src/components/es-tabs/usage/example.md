@@ -1,5 +1,5 @@
 ```tsx
-import { Tab } from '@eventstore-ui/components';
+import type { Tab } from '@eventstore-ui/components';
 
 const tabs: Tab[] = [
     {
@@ -26,11 +26,19 @@ export default () => (
         <p slot={'tab-1'}>{'I am in tab 1'}</p>
         <p slot={'tab-2'}>{'Welcome to tab 2!'}</p>
         <p slot={'tab-3'}>{'Hello 👋. You have reached tab 3.'}</p>
-        <es-input slot={'tab-4'} value={'Hello'} label={'My Field'} />
+        <es-input
+            slot={'tab-4'}
+            value={'Hello'}
+            label={'My Field'}
+            name={'field'}
+            placeholder={'hello'}
+        />
         <es-input
             slot={'tab-4'}
             value={'Welcome to tab four'}
             label={'Our Field'}
+            name={'field-4'}
+            placeholder={'hello'}
         />
     </es-tabs>
 );

@@ -1,5 +1,5 @@
 <!-- no-code -->
-<!-- grow -->
+<!-- grow 1700 -->
 
 ```tsx
 const baseScheme = {
@@ -86,7 +86,7 @@ export default () => (
 
 ```css
 :host {
-    display: contents;
+    padding: 20px 0;
 }
 
 .group_name {

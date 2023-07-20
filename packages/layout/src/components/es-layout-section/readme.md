@@ -12,9 +12,6 @@ A section with an optional title for containing layout-links
 ### Example
 
 ```tsx
-import { Link } from '@eventstore-ui/router';
-import { randomIcon } from 'helpers';
-
 export default () => (
     <es-sidebar>
         <es-layout-section>

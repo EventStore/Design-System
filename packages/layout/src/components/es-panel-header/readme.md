@@ -1,7 +1,5 @@
 # es-panel-header
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -14,7 +12,7 @@ A header for `es-panel`.
 ### Example
 
 ```tsx
-import { randomIcon } from 'helpers';
+import { randomIcon } from 'utils/helpers';
 
 export default () => (
     <es-panel>

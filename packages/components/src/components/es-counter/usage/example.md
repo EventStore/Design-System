@@ -1,6 +1,6 @@
 ```tsx
 import { createStore } from '@eventstore-ui/stores';
-import { random } from 'helpers';
+import { random } from 'utils/helpers';
 
 const { state } = createStore(Array.from({ length: 144 }, () => random(800)));
 
@@ -9,8 +9,8 @@ setInterval(() => {
     state[key] += 1;
 }, 10);
 
-const variant = ['filled', 'outline', 'minimal'];
-const variants = Array.from({ length: 144 }, (_, i) => variant[random(2)]);
+const variant = ['filled', 'outline', 'minimal'] as const;
+const variants = Array.from({ length: 144 }, () => variant[random(2)]);
 
 export default () =>
     variants.map((v, i) => <es-counter key={i} count={state[i]} variant={v} />);

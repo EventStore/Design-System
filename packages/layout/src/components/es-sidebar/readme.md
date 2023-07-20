@@ -12,8 +12,7 @@ A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
 ### Example
 
 ```tsx
-import { Link } from '@eventstore-ui/router';
-import { randomIcon } from 'helpers';
+import { randomIcon } from 'utils/helpers';
 
 export default () => (
     <es-sidebar>

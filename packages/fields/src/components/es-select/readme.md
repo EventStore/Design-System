@@ -17,7 +17,7 @@ A searchable select dropdown.
 import { createValidatedForm } from '@eventstore-ui/forms';
 
 interface Example {
-    names: string | null;
+    name: string | null;
 }
 
 const form = createValidatedForm<Example>({

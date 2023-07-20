@@ -13,8 +13,8 @@ export default () => (
             label={''}
             value={token}
             inputProps={{
-                onFocus(e) {
-                    e.target.select();
+                onFocus(e: FocusEvent) {
+                    (e.target as HTMLInputElement).select();
                 },
             }}
         >
@@ -23,7 +23,7 @@ export default () => (
                 text={'Copy'}
                 action={(e) => {
                     e.preventDefault();
-                    navigator.clipboard.writeText(token);
+                    return navigator.clipboard.writeText(token);
                 }}
                 variant={'outline'}
                 color={'secondary'}

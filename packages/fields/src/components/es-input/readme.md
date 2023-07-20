@@ -50,6 +50,7 @@ export default () => (
         />
         <es-input
             label={'Account Id'}
+            placeholder={'Account Id'}
             onEnter={onEnter}
             mask={{
                 mask: '0000-0000-0000',

@@ -26,7 +26,7 @@ const form = createValidatedForm<Example>({
 
 export default () => (
     <>
-        <es-switch label={'Text'} {...form.connect('good')} />
+        <es-switch {...form.connect('good')} />
     </>
 );
 ```

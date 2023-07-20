@@ -1,5 +1,5 @@
 ```tsx
-import { randomIcon } from 'helpers';
+import { randomIcon } from 'utils/helpers';
 
 export default () => (
     <es-toolbar>

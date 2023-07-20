@@ -16,8 +16,8 @@ A multi step wizard. Each step can be targeted via a slot.
 ```tsx wizard-example.tsx
 import { h, Component, State, Fragment } from '@stencil/core';
 import { createValidatedForm } from '@eventstore-ui/forms';
-import { WizardPage, toast } from '@eventstore-ui/components';
-import { nextFrame } from 'helpers';
+import { type WizardPage, toast } from '@eventstore-ui/components';
+import { nextFrame } from 'utils/helpers';
 
 @Component({
     tag: 'wizard-example',
@@ -174,6 +174,23 @@ export class WizardExample {
             title: 'Billing Details',
         },
     ];
+}
+
+interface UserDetails {
+    fullName: string;
+    email: string;
+    message: string;
+}
+
+interface BillingDetails {
+    billingAddress: string;
+    billingCompanyName: string;
+    billingEmail: string;
+}
+
+interface ProvisioningRequest {
+    user: UserDetails;
+    billing: BillingDetails;
 }
 ```
 

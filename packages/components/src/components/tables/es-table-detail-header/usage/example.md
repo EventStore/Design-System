@@ -1,6 +1,6 @@
 ```tsx
-import { iconDetails, IconDetail } from 'helpers';
-import { TableCells, toast } from '@eventstore-ui/components';
+import type { TableCells } from '@eventstore-ui/components';
+import { iconDetails, type IconDetail } from 'utils/helpers';
 
 const tableCells: TableCells<IconDetail> = {
     name: {
@@ -23,7 +23,7 @@ const tableCells: TableCells<IconDetail> = {
         title: 'Usage',
         variant: 'full-width',
         cell: (h, { data: { name } }) => (
-            <pre style={{ margin: 0 }}>{`<es-icon icon={'${name}'} />`}</pre>
+            <pre style={{ margin: '0' }}>{`<es-icon icon={'${name}'} />`}</pre>
         ),
     },
 };

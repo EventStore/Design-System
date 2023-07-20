@@ -15,6 +15,7 @@ An extra large input.
 
 ```tsx
 import { createValidatedForm } from '@eventstore-ui/forms';
+import type { AccordianSection } from '@eventstore-ui/components';
 
 interface Example {
     text: string;
@@ -24,7 +25,7 @@ const form = createValidatedForm<Example>({
     text: '',
 });
 
-const sections = [
+const sections: AccordianSection[] = [
     {
         name: 'mega_example',
         title: '', // mega inputs are self labeled

@@ -1,7 +1,5 @@
 # es-icon
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -15,7 +13,7 @@ See [IconStore](/components/variables/iconStore) for details on how to load icon
 ### Example
 
 ```tsx
-import { icons } from 'helpers';
+import { icons } from 'utils/helpers';
 
 export default () =>
     icons.map((icon) => <es-icon key={icon} icon={icon} title={icon} />);

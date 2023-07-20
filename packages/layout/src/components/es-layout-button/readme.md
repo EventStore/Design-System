@@ -12,8 +12,7 @@ A button for the sidebar, sidebar-dropdown, and header-dropdown.
 ### Example
 
 ```tsx
-import { Link } from '@eventstore-ui/router';
-import { randomIcon } from 'helpers';
+import { randomIcon } from 'utils/helpers';
 
 export default () => (
     <es-sidebar>

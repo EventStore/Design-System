@@ -14,13 +14,15 @@ Display a banner with text in the corner.
 ### Example
 
 ```tsx
+const banners = [
+    ['error', 'top', 'left'],
+    ['warning', 'top', 'right'],
+    ['success', 'bottom', 'left'],
+    ['info', 'bottom', 'right'],
+] as const;
+
 export default () =>
-    [
-        ['error', 'top', 'left'],
-        ['warning', 'top', 'right'],
-        ['success', 'bottom', 'left'],
-        ['info', 'bottom', 'right'],
-    ].map(([variant, y, x]) => (
+    banners.map(([variant, y, x]) => (
         <div class={'card'}>
             <es-corner-banner variant={variant} y={y} x={x}>
                 {'Coming Soon'}

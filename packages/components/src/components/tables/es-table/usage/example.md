@@ -1,6 +1,10 @@
 ```tsx
-import { iconDetails, IconDetail } from 'helpers';
-import { TableCells, toast } from '@eventstore-ui/components';
+import {
+    toast,
+    type TableCells,
+    type ClickRowEvent,
+} from '@eventstore-ui/components';
+import { iconDetails, type IconDetail } from 'utils/helpers';
 
 const tableCells: TableCells<IconDetail> = {
     name: {
@@ -9,7 +13,7 @@ const tableCells: TableCells<IconDetail> = {
     usage: {
         title: 'Usage',
         cell: (h, { data: { name } }) => (
-            <pre style={{ margin: 0 }}>{`<es-icon icon={'${name}'} />`}</pre>
+            <pre style={{ margin: '0' }}>{`<es-icon icon={'${name}'} />`}</pre>
         ),
     },
     icon: {
@@ -19,8 +23,8 @@ const tableCells: TableCells<IconDetail> = {
     },
 };
 
-const onClickRow = (e: CustomEvent<IconDetail>) => {
-    const icon = e.detail;
+const onClickRow = (e: ClickRowEvent<IconDetail>) => {
+    const icon = e.detail.data;
     toast.success({
         title: 'Clicked row',
         message: `You clicked ${icon.name}.`,
