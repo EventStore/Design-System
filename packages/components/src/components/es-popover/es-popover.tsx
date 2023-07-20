@@ -177,7 +177,10 @@ export class Popover {
                         rule.cssText.replace('es-popper-inner', ':host'),
                         to.cssRules.length,
                     );
-                } else if (rule.selectorText !== ':host') {
+                } else if (
+                    !rule.selectorText ||
+                    !rule.selectorText.startsWith(':host')
+                ) {
                     to.insertRule(rule.cssText, to.cssRules.length);
                 }
             }

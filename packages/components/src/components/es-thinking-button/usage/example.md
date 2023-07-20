@@ -1,10 +1,10 @@
 ```tsx
-import { random, delay } from 'helpers';
 import { toast } from '@eventstore-ui/components';
+import { random, delay } from 'utils/helpers';
 
 type CoinToss = 'heads' | 'tails';
 
-const play = (user: Hand) => async () => {
+const play = (user: CoinToss) => async () => {
     toast.info({
         title: 'The coin is tossed!',
         message: `User calls ${user}.`,

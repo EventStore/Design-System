@@ -34,12 +34,6 @@ const form = createValidatedForm<Example>({
     },
 });
 
-const onEnter = () => {
-    form.submit((data) => {
-        console.log(data);
-    });
-};
-
 export default () => (
     <>
         <es-number-input

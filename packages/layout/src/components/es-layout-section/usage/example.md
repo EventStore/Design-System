@@ -1,7 +1,4 @@
 ```tsx
-import { Link } from '@eventstore-ui/router';
-import { randomIcon } from 'helpers';
-
 export default () => (
     <es-sidebar>
         <es-layout-section>

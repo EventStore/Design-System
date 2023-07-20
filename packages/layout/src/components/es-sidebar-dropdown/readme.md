@@ -12,8 +12,7 @@ A dropdown for the sidebar. Will automatically take the title and icon of the fi
 ### Example
 
 ```tsx
-import { Link } from '@eventstore-ui/router';
-import { randomIcon } from 'helpers';
+import { randomIcon } from 'utils/helpers';
 
 export default () => (
     <es-sidebar>

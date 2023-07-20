@@ -12,7 +12,7 @@ Placed in the toolbar area of the layout. Automatically sets `--layout-toolbar-w
 ### Example
 
 ```tsx
-import { randomIcon } from 'helpers';
+import { randomIcon } from 'utils/helpers';
 
 export default () => (
     <es-toolbar>

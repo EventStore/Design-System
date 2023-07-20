@@ -1,7 +1,5 @@
 # es-loading-bar
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -17,7 +15,7 @@ Add a bar named `page` for automatic control from `Page`.
 
 ```tsx
 import { setProgress } from '@eventstore-ui/layout';
-import { random } from 'helpers';
+import { random } from 'utils/helpers';
 
 const updateBarProgress = setProgress('example');
 

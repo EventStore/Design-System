@@ -1,5 +1,7 @@
 ```tsx
 import { createValidatedForm } from '@eventstore-ui/forms';
+import type { AccordianSection } from '@eventstore-ui/components';
+import type { RadioCardGroupOption } from '@eventstore-ui/fields';
 
 interface Example {
     best: string | null;
@@ -39,47 +41,47 @@ export default () => (
     </es-accordian>
 );
 
-const options = [
+const options: RadioCardGroupOption[] = [
     {
-        id: 'a',
+        value: 'a',
         name: 'The letter A',
         description: 'The first letter of the alphabet',
         group: 'Vowels',
     },
     {
-        id: 'b',
+        value: 'b',
         name: 'The letter B',
         description: 'The second letter of the alphabet',
         group: 'Consonants',
         disabled: true,
     },
     {
-        id: 'c',
+        value: 'c',
         name: 'The letter C',
         description: 'The third letter of the alphabet',
         group: 'Consonants',
     },
     {
-        id: 'd',
+        value: 'd',
         name: 'The letter D',
         description: 'A letter of the alphabet',
         group: 'Consonants',
     },
     {
-        id: 'e',
+        value: 'e',
         name: 'The letter E',
         description: 'A letter of the alphabet',
         group: 'Vowels',
     },
     {
-        id: 'f',
+        value: 'f',
         name: 'The letter F',
         description: 'A letter of the alphabet',
         group: 'Consonants',
     },
 ];
 
-const sections = [
+const sections: AccordianSection[] = [
     {
         name: 'option_one',
         title: 'Options 1',

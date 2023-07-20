@@ -13,13 +13,14 @@ Attaches a portaled popover, attached to the parent node. Can be used to create 
 
 ```tsx
 import { createStore } from '@eventstore-ui/stores';
+import type { FieldChangeEvent } from '@eventstore-ui/fields';
 
 interface PopoverStore {
     open: boolean;
     arrow: boolean;
-    autoSize: HTMLESPopoverElement['autoSize'];
-    constrain: HTMLESPopoverElement['constrain'];
-    placement: HTMLESPopoverElement['placement'];
+    autoSize: HTMLEsPopoverElement['autoSize'];
+    constrain: HTMLEsPopoverElement['constrain'];
+    placement: HTMLEsPopoverElement['placement'];
     offset: number;
 }
 
@@ -74,7 +75,7 @@ export default () => (
                 label={'offset'}
                 unit={'px'}
                 name={'offset'}
-                value={state.offset}
+                value={state.offset.toString()}
                 onFieldchange={fieldChange}
             />
         </div>
@@ -96,9 +97,10 @@ export default () => (
     </>
 );
 
-const fieldChange = (e) => {
+const fieldChange = (e: FieldChangeEvent<unknown>) => {
     const { name, value } = e.detail;
-    state[name] = value;
+    // dont do this
+    (state as any)[name] = value;
 };
 
 const constrainOptions = [
@@ -137,7 +139,7 @@ const placement = [
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 100vh;
 }
 
 .attachment {

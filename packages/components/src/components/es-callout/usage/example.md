@@ -1,10 +1,10 @@
 ```tsx
-import { randomIcon } from 'helpers';
+import { randomIcon } from 'utils/helpers';
 
 export default () => (
     <>
-        <es-callout variant={'tip'} heading={'Just the tip.'}>
-            {'And only for a minute mind.'}
+        <es-callout variant={'tip'} heading={'Daily tip.'}>
+            {"Don't forget to feed your cat."}
         </es-callout>
         <es-callout variant={'info'} heading={'For your information.'}>
             {'A cow-bison hybrid is called a beefalo.'}

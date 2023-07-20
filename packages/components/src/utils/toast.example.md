@@ -1,6 +1,6 @@
 ```tsx
 import { toast } from '@eventstore-ui/components';
-import { randomIcon } from 'helpers';
+import { randomIcon } from 'utils/helpers';
 
 const success = () =>
     toast.success({

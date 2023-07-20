@@ -12,11 +12,11 @@ Portals the passed node to a different part of the document. Note that portal do
 ### Example
 
 ```tsx
-import { FunctionalComponent } from '@stencil/core';
+import type { FunctionalComponent } from '@stencil/core';
 import { createStore } from '@eventstore-ui/stores';
 
 const { state } = createStore<{ open: boolean }>({
-    open: true,
+    open: false,
 });
 
 export default () => (
@@ -42,7 +42,9 @@ const requestClose = () => {
     state.open = false;
 };
 
-const ExampleModal: FunctionalComponent = ({ requestClose }) => (
+const ExampleModal: FunctionalComponent<{ requestClose: () => void }> = ({
+    requestClose,
+}) => (
     <>
         <style>
             {`

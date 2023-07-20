@@ -1,5 +1,5 @@
 ```tsx
-import { icons } from 'helpers';
+import { icons } from 'utils/helpers';
 
 export default () =>
     icons.map((icon) => <es-icon key={icon} icon={icon} title={icon} />);

@@ -1,5 +1,5 @@
 ```tsx
-import { PageChangeEventType } from '@eventstore-ui/components';
+import type { PageChangeEventType } from '@eventstore-ui/components';
 import { createStore } from '@eventstore-ui/stores';
 
 interface PageStore {

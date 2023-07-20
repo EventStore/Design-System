@@ -1,5 +1,7 @@
 ```tsx
-const sections = [
+import type { AccordianSection } from '@eventstore-ui/components';
+
+const sections: AccordianSection[] = [
     {
         name: 'section-1',
         title: 'Section 1',
@@ -33,7 +35,13 @@ export default () => (
         <p slot={'section-3'}>
             {'Hello 👋. You can alt-click to collapse or open all sections.'}
         </p>
-        <es-input slot={'section-4'} value={'hello'} label={'My Field'} />
+        <es-input
+            slot={'section-4'}
+            value={'hello'}
+            label={'My Field'}
+            name={'input'}
+            placeholder={'hello'}
+        />
     </es-accordian>
 );
 ```

@@ -14,7 +14,7 @@ Page navigation with ability to jump to first and last pages with `pageCount` is
 ### Example
 
 ```tsx
-import { PageChangeEventType } from '@eventstore-ui/components';
+import type { PageChangeEventType } from '@eventstore-ui/components';
 import { createStore } from '@eventstore-ui/stores';
 
 interface PageStore {
