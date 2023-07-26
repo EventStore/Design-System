@@ -58,7 +58,7 @@
         "@eventstore-ui/configs": "workspace:*",
         "@eventstore-ui/icon-manager": "workspace:*",
         "@eventstore-ui/preview-builder": "workspace:*",
-        "@stencil/core": "4.0.1",
+        "@stencil/core": "^4.0.2",
         "@stencil/postcss": "^2.1.0",
         "@types/jest": "^27.0.3",
         "@types/markdown-it": "12.0.3",
