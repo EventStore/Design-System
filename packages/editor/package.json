@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/editor",
-    "version": "0.1.8",
+    "version": "1.0.0",
     "description": "Monaco Editor for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
@@ -72,9 +72,9 @@
         "monaco-editor": "^0.22.3"
     },
     "peerDependencies": {
-        "@eventstore-ui/components": "^0.1.0",
-        "@eventstore-ui/theme": "^0.1.0",
-        "@eventstore-ui/utils": "^0.1.0"
+        "@eventstore-ui/components": "^1.0.0",
+        "@eventstore-ui/theme": "^1.0.0",
+        "@eventstore-ui/utils": "^1.0.0"
     },
     "devDependencies": {
         "@eventstore-ui/components": "workspace:*",
