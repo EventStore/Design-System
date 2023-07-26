@@ -36,8 +36,5 @@
         "prettier": "3.0.0",
         "typescript": "5.1.6"
     },
-    "packageManager": "yarn@3.1.0",
-    "resolutions": {
-        "@stencil/core@4.0.1": "patch:@stencil/core@npm:4.0.1#.yarn/patches/@stencil-core-npm-4.0.1-81248f31a7"
-    }
+    "packageManager": "yarn@3.1.0"
 }
