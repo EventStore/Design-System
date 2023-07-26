@@ -36,7 +36,6 @@ A changeset is a record of changes made to specific packages. Create one when yo
 4. Include the changeset file(s) in your commit. They're essential for the upcoming release process.
 5. If necessary, you can generate multiple changesets by running the command multiple times. Each run generates a new changeset file.
 6. When pull request are merged into `main` branch, the changesets tool will automatically batch these changesets together and open a pull request with updates to the changelogs and version bumps for the affected packages.
-7. To prevent conflicts, it's recommended to merge this changeset pull request before merging more changes into the `main` branch. 
 
 ## Build
 
