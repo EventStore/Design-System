@@ -97,9 +97,8 @@ const changelogFunctions = {
       };
     })();
 
-    const prefix = links.commit === null ? "" : links.commit;
-
-    return `\n\n-${prefix ? `${prefix} -` : ""} ${firstLine}\n${futureLines
+    const prefix = links.commit == null ? "" : `${links.commit} -`;
+    return `\n\n-${prefix} ${firstLine}\n${futureLines
       .map((l) => `  ${l}`)
       .join("\n")}`;
   },
