@@ -98,7 +98,7 @@ const changelogFunctions = {
     })();
 
     const prefix = links.commit == null ? "" : `${links.commit} -`;
-    return `\n\n-${prefix} ${firstLine}\n${futureLines
+    return `\n\n- ${prefix} ${firstLine}\n${futureLines
       .map((l) => `  ${l}`)
       .join("\n")}`;
   },
