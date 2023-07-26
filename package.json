@@ -1,6 +1,5 @@
 {
     "private": true,
-    "version": "0.1.8",
     "repository": {
         "type": "git",
         "url": "git@github.com:EventStore/Design-System.git"
@@ -20,7 +19,6 @@
         "dev": "nx run dev --project=${0}",
         "docs": "nx run docs:build",
         "docs:serve": "nx run docs:serve",
-        "bump": "yarn workspaces foreach --no-private version",
         "changelog": "changeset"
     },
     "devDependencies": {
