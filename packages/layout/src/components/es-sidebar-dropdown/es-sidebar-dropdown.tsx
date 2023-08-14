@@ -54,7 +54,6 @@ export class SidebarDropdown {
         return (
             <Host>
                 <es-button
-                    onMouseDown={(e) => e.preventDefault()}
                     onClick={this.toggleDropdown}
                     class={{ sidebar_button: true, open: this.dropdownOpen }}
                     variant={'minimal'}
@@ -95,13 +94,11 @@ export class SidebarDropdown {
         );
     }
 
-    private toggleDropdown = (e: MouseEvent) => {
-        e.stopPropagation();
+    private toggleDropdown = () => {
         this.dropdownOpen = !this.dropdownOpen;
     };
 
-    private closeDropdown = (e: CustomEvent | MouseEvent) => {
-        e.stopPropagation();
+    private closeDropdown = () => {
         this.dropdownOpen = false;
     };
 
