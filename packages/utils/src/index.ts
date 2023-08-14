@@ -9,3 +9,4 @@ export * from './focus';
 export * from './pierce';
 export * from './bigMath';
 export { downloadArrayBuffer } from './downloadArrayBuffer';
+export { getScrollParent } from './getScrollParent';
