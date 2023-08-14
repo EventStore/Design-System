@@ -209,10 +209,11 @@ export class EsTypeahead {
             const targetValue = (e.target as HTMLElement).getAttribute('value');
             if (!this.filteredOptions.find((o) => o.value === targetValue)) {
                 this.inputElement?.focus();
+                return;
             }
-        } else {
-            this.open = false;
         }
+
+        this.open = false;
     };
 
     private onKeyDown = (e: KeyboardEvent) => {
