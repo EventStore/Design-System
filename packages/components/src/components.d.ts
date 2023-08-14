@@ -323,6 +323,10 @@ export namespace Components {
          */
         "closeOnEsc": boolean;
         /**
+          * If the popover should request to close when the attachment element scrolls out of view
+         */
+        "closeOnScrollEscape": boolean;
+        /**
           * Constrain the size of the popover inner to the size of the window.
          */
         "constrain": Constrain;
@@ -330,6 +334,10 @@ export namespace Components {
           * An array of allowed placements or enable / disable
          */
         "flip"?: Placement[] | boolean;
+        /**
+          * If the popover should hide itself when the attachment element scrolls out of view
+         */
+        "hideOnScrollEscape": boolean;
         /**
           * The maximum height to constrain to.
          */
@@ -1453,6 +1461,10 @@ declare namespace LocalJSX {
          */
         "closeOnEsc"?: boolean;
         /**
+          * If the popover should request to close when the attachment element scrolls out of view
+         */
+        "closeOnScrollEscape"?: boolean;
+        /**
           * Constrain the size of the popover inner to the size of the window.
          */
         "constrain"?: Constrain;
@@ -1460,6 +1472,10 @@ declare namespace LocalJSX {
           * An array of allowed placements or enable / disable
          */
         "flip"?: Placement[] | boolean;
+        /**
+          * If the popover should hide itself when the attachment element scrolls out of view
+         */
+        "hideOnScrollEscape"?: boolean;
         /**
           * The maximum height to constrain to.
          */

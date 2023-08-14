@@ -14,11 +14,16 @@ import {
     computePosition,
     flip,
     offset,
+    hide,
     type Placement,
 } from '@floating-ui/dom';
 
 import { size } from '@floating-ui/core';
-import { allowFocus, shadowMutationObserver } from '@eventstore-ui/utils';
+import {
+    allowFocus,
+    shadowMutationObserver,
+    getScrollParent,
+} from '@eventstore-ui/utils';
 
 export type Constrain = 'none' | 'width' | 'height' | 'both';
 
@@ -53,6 +58,10 @@ export class Popover {
     @Prop() closeOnClickOutside: boolean = false;
     /** If the popover should request to close when esc is pressed */
     @Prop() closeOnEsc: boolean = false;
+    /** If the popover should request to close when the attachment element scrolls out of view */
+    @Prop() closeOnScrollEscape: boolean = false;
+    /** If the popover should hide itself when the attachment element scrolls out of view */
+    @Prop() hideOnScrollEscape: boolean = true;
 
     /** Pass an element to attach the popover to. (Defaults to the parent element.) */
     @Prop() attachTo?: HTMLElement;
@@ -79,6 +88,7 @@ export class Popover {
     private mutationObserver?: MutationObserver;
     private detachAllowFocus?: ReturnType<typeof allowFocus>;
     private portalledNodes: Array<[node: Node, placeholder: Node]> = [];
+    private scrollParent?: Element;
     private popper?: HTMLEsPopperElement;
     private popperShadow?: HTMLEsPopperInnerElement;
     private popperInner?: HTMLDivElement;
@@ -287,6 +297,8 @@ export class Popover {
             });
         }
 
+        const attachment = this.attachTo ?? this.getParentNode()!;
+        this.scrollParent = getScrollParent(attachment);
         this.popper = popper;
         this.popperShadow = popperShadow;
         this.popperInner = popperInner;
@@ -380,6 +392,14 @@ export class Popover {
                           }),
                       ]
                     : []),
+
+                ...(this.scrollParent
+                    ? [
+                          hide({
+                              boundary: this.scrollParent,
+                          }),
+                      ]
+                    : []),
             ],
         });
 
@@ -397,6 +417,21 @@ export class Popover {
                 right: '',
                 bottom: '',
             });
+        }
+
+        if (
+            this.closeOnScrollEscape &&
+            location.middlewareData.hide?.referenceHidden
+        ) {
+            this.requestClose.emit('scrollEscape');
+        }
+
+        if (this.hideOnScrollEscape) {
+            if (location.middlewareData.hide?.referenceHidden) {
+                this.popperShadow.classList.add('hidden');
+            } else {
+                this.popperShadow.classList.remove('hidden');
+            }
         }
     };
 
@@ -430,6 +465,7 @@ export class Popover {
         }
 
         this.portalledNodes = [];
+        delete this.scrollParent;
 
         this.popper.parentNode?.removeChild(this.popper);
         this.popper = undefined;
