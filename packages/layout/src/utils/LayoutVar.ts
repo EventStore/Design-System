@@ -24,6 +24,8 @@ window[LAYOUT_OBSERVER] =
                     const val = target.style.getPropertyValue(varName);
                     fn(val);
                 }
+
+                window.dispatchEvent(new CustomEvent('es-layout-change'));
             }
         });
 

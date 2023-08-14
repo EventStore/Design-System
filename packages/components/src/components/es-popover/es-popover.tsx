@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import {
     Component,
     Prop,
@@ -315,12 +314,14 @@ export class Popover {
             this.popperShadow!,
             () => this.positionPopper(),
         );
+        window.addEventListener('es-layout-change', this.positionPopper);
     };
 
     private detachDocumentListeners = () => {
         this.detachAllowFocus?.();
         this.autoUpdateCleanup?.();
         this.autoUpdateCleanup = undefined;
+        window.removeEventListener('es-layout-change', this.positionPopper);
     };
 
     private positionPopper = async () => {
