@@ -35,7 +35,7 @@ However, if you placed a popover inside a modal, it would appear behind it's par
 └──────────────┘
 ```
 
-In this case, you mould have to handle this yourself, and set the zindex manually.
+In this case, you would have to handle this yourself, and set the zindex manually.
 
 This update causes nested popovers and modals to stack their zindexes:
 
@@ -56,4 +56,4 @@ This update causes nested popovers and modals to stack their zindexes:
 
 This means that you don't need to keep track of z-indexes yourself, and allow you nest freely.
 
-It is also posible to manually increase the z-index stack by setting the css-var `--zindex-base`. This is useful for places where you have a z-index and may want a dropdown to appear, such as a header.
+It is also possible to manually increase the z-index stack by setting the css-var `--zindex-base`. This is useful for places where you have a z-index and may want a dropdown to appear, such as a header.
