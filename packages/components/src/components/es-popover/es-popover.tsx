@@ -209,9 +209,14 @@ export class Popover {
         const assignedNodes =
             this.host.shadowRoot!.querySelector('slot')?.assignedNodes() ?? [];
 
+        const zIndexBase = getComputedStyle(this.host).getPropertyValue(
+            '--zindex-base',
+        );
+
+        popper.style.setProperty('--zindex-base', zIndexBase);
         popper.style.opacity = '0';
         if (this.zIndex != null) {
-            popper.style.zIndex = `${this.zIndex}`;
+            popper.style.setProperty('--zindex-popover', `${this.zIndex}`);
         }
         popper.setAttribute('backdrop', `${this.backdrop}`);
         popper.setAttribute('trap-focus', `${this.trapFocus}`);

@@ -102,7 +102,6 @@ export class HeaderDropdown {
                     popperClass={theme.isHighContrast() ? 'high-contrast' : ''}
                     placement={'bottom-end'}
                     offset={12}
-                    zIndex={10000}
                 >
                     <slot />
                 </es-popover>

@@ -14,12 +14,17 @@
     top: 50%;
     transform: translateY(-50%);
     margin: auto;
-    z-index: var(--zindex-modal, 3100);
+    --zindex: calc(var(--zindex-base, 0) + var(--zindex-modal, 3100));
+    z-index: var(--zindex);
     pointer-events: all;
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
     overflow: hidden;
     display: flex;
     flex-direction: column;
+}
+
+::slotted(*) {
+    --zindex-base: var(--zindex);
 }
 
 .close {
