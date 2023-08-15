@@ -40,7 +40,6 @@ export class EsTypeahead {
     };
     @Prop() renderField!: RenderTypeaheadField;
     @Prop() renderOption: RenderTypeaheadOption = (_, { name }) => name;
-    @Prop() zIndex: number = 4000;
 
     @State() open: boolean = false;
     @State() filter: string = '';
@@ -148,7 +147,6 @@ export class EsTypeahead {
                         autoSize={'width'}
                         constrain={'height'}
                         maxHeight={300}
-                        zIndex={this.zIndex}
                     >
                         <div class={'list_sizer'}>
                             <ul

@@ -520,7 +520,6 @@ export namespace Components {
         "renderField": RenderTypeaheadField;
         "renderOption": RenderTypeaheadOption;
         "value": string[];
-        "zIndex": number;
     }
     /**
      * Display messages under fields.
@@ -1280,7 +1279,6 @@ declare namespace LocalJSX {
         "renderField": RenderTypeaheadField;
         "renderOption"?: RenderTypeaheadOption;
         "value": string[];
-        "zIndex"?: number;
     }
     /**
      * Display messages under fields.

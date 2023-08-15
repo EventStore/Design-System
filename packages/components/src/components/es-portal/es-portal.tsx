@@ -57,6 +57,10 @@ export class Portal {
             const backdrop = document.createElement('es-backdrop');
             backdrop.showBackdrop = this.backdrop;
             backdrop.preventOverscroll = this.preventOverscroll;
+            const zIndexBase = getComputedStyle(this.host).getPropertyValue(
+                '--zindex-base',
+            );
+            backdrop.style.setProperty('--zindex-base', zIndexBase);
             backdrop.style.opacity = '0';
 
             target.appendChild(backdrop);
