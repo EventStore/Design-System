@@ -1691,7 +1691,8 @@ __metadata:
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@floating-ui/dom": 0.4.1
-    "@stencil/core": ^4.0.2
+    "@stencil-community/postcss": ^2.2.0
+    "@stencil/core": ^4.0.5
     jest: ^27.4.5
     npm-run-all: ^4.1.5
     puppeteer: ^19.5.0
@@ -1739,8 +1740,8 @@ __metadata:
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": ^4.0.2
-    "@stencil/postcss": ^2.1.0
+    "@stencil-community/postcss": ^2.2.0
+    "@stencil/core": ^4.0.5
     "@types/jest": ^27.0.3
     "@types/markdown-it": 12.0.3
     eslint: ^8.4.0
@@ -1767,7 +1768,8 @@ __metadata:
     "@eventstore-ui/configs": "workspace:*"
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": ^4.0.2
+    "@stencil-community/postcss": ^2.2.0
+    "@stencil/core": ^4.0.5
     jest: ^27.4.5
     monaco-editor: ^0.22.3
     npm-run-all: ^4.1.5
@@ -1791,7 +1793,8 @@ __metadata:
     "@eventstore-ui/icon-manager": "workspace:*"
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": ^4.0.2
+    "@stencil-community/postcss": ^2.2.0
+    "@stencil/core": ^4.0.5
     imask: 6.0.5
     jest: ^27.4.5
     npm-run-all: ^4.1.5
@@ -1815,7 +1818,7 @@ __metadata:
     "@eventstore-ui/components": "workspace:*"
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": ^4.0.2
+    "@stencil/core": ^4.0.5
     "@types/jest": ^27.0.3
     babel-jest: ^27.5.1
     jest: ^27.4.5
@@ -1855,7 +1858,8 @@ __metadata:
   resolution: "@eventstore-ui/illustrations@workspace:packages/illustrations"
   dependencies:
     "@eventstore-ui/theme": "workspace:*"
-    "@stencil/core": ^4.0.2
+    "@stencil-community/postcss": ^2.2.0
+    "@stencil/core": ^4.0.5
     case-anything: ^2.1.10
     jest: ^27.4.5
     npm-run-all: ^4.1.5
@@ -1881,7 +1885,8 @@ __metadata:
     "@eventstore-ui/router": "workspace:*"
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": ^4.0.2
+    "@stencil-community/postcss": ^2.2.0
+    "@stencil/core": ^4.0.5
     jest: ^27.4.5
     npm-run-all: ^4.1.5
     puppeteer: ^19.5.0
@@ -1915,7 +1920,7 @@ __metadata:
     "@babel/preset-env": ^7.12.11
     "@babel/preset-typescript": ^7.12.7
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": ^4.0.2
+    "@stencil/core": ^4.0.5
     "@types/jest": ^27.0.3
     babel-jest: ^27.5.1
     jest: ^27.4.5
@@ -1933,7 +1938,7 @@ __metadata:
   dependencies:
     "@mdx-js/mdx": ^1.6.22
     "@rollup/pluginutils": ^3.1.0
-    "@stencil/core": ^4.0.2
+    "@stencil/core": ^4.0.5
     "@types/node": ^18.11.18
     jest: ^27.4.5
     npm-run-all: ^4.1.5
@@ -1954,7 +1959,7 @@ __metadata:
     "@babel/preset-env": ^7.12.11
     "@babel/preset-typescript": ^7.12.7
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": ^4.0.2
+    "@stencil/core": ^4.0.5
     "@types/jest": ^27.0.3
     babel-jest: ^27.5.1
     jest: ^27.4.5
@@ -1975,7 +1980,7 @@ __metadata:
     "@babel/preset-env": ^7.12.11
     "@babel/preset-typescript": ^7.12.7
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": ^4.0.2
+    "@stencil/core": ^4.0.5
     babel-jest: ^27.5.1
     jest: ^27.4.5
     rollup: ^2.52.7
@@ -2553,24 +2558,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "@stencil/core@npm:4.0.2"
-  bin:
-    stencil: bin/stencil
-  checksum: 0bdddf19713989704237d40d66c09cf2bc528e47f960fdadccd42ffea68703e34b14e548cfd56783a6f9abfd9b6307611651c190fd4e6e104850dfa75c257a5e
+"@stencil-community/postcss@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@stencil-community/postcss@npm:2.2.0"
+  dependencies:
+    postcss: ~8.4.27
+  peerDependencies:
+    "@stencil/core": ">=2.0.0 || >=3.0.0 || >=4.0.0"
+  checksum: c018ce9e022ad6d3acfa6fe0f1ee84bb263e2748c19bc92c136ae2a4ec815f0b906027600ee02c387bdb6b27039094763a85923d8050abdcbc80388488857fdc
   languageName: node
   linkType: hard
 
-"@stencil/postcss@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@stencil/postcss@npm:2.1.0"
-  dependencies:
-    autoprefixer: ^10.3.6
-    postcss: ~8.3.8
-  peerDependencies:
-    "@stencil/core": ">=2.0.0"
-  checksum: 05391c7096bae68b28ffca4b6359644aacea6069c91aad15ea064ad26b4ce600b033827e2d145bf96908edde936a9b0215254425f3a7627b2760e9b71e97153d
+"@stencil/core@npm:^4.0.5":
+  version: 4.0.5
+  resolution: "@stencil/core@npm:4.0.5"
+  bin:
+    stencil: bin/stencil
+  checksum: 83136cb2d001abad9d95254649c49df9a284cd403843378572952998cfa7207860efeba0b9db19258afcce4af3a8614edee25b3084ad708634a28137f98cc3bf
   languageName: node
   linkType: hard
 
@@ -3353,24 +3357,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.3.6":
-  version: 10.4.0
-  resolution: "autoprefixer@npm:10.4.0"
-  dependencies:
-    browserslist: ^4.17.5
-    caniuse-lite: ^1.0.30001272
-    fraction.js: ^4.1.1
-    normalize-range: ^0.1.2
-    picocolors: ^1.0.0
-    postcss-value-parser: ^4.1.0
-  peerDependencies:
-    postcss: ^8.1.0
-  bin:
-    autoprefixer: bin/autoprefixer
-  checksum: 7d511c64daeaa13c7888b40b0394cd891fab1852a1f60165330c9e49ab70ac29ad1e3386665d86361661cf2bbe90cea42b78ea73cb77b373ffe30a8f4973a955
-  languageName: node
-  linkType: hard
-
 "autoprefixer@npm:^9.6.1":
   version: 9.8.5
   resolution: "autoprefixer@npm:9.8.5"
@@ -3657,7 +3643,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.12.0, browserslist@npm:^4.17.5, browserslist@npm:^4.21.3, browserslist@npm:^4.6.4":
+"browserslist@npm:^4.12.0, browserslist@npm:^4.21.3, browserslist@npm:^4.6.4":
   version: 4.21.3
   resolution: "browserslist@npm:4.21.3"
   dependencies:
@@ -3800,10 +3786,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30000981, caniuse-lite@npm:^1.0.30001097, caniuse-lite@npm:^1.0.30001272, caniuse-lite@npm:^1.0.30001370":
-  version: 1.0.30001449
-  resolution: "caniuse-lite@npm:1.0.30001449"
-  checksum: f1b395f0a5495c1931c53f58441e0db79b8b0f8ef72bb6d241d13c49b05827630efe6793d540610e0a014d8fdda330dd42f981c82951bd4bdcf635480e1a0102
+"caniuse-lite@npm:^1.0.30000981, caniuse-lite@npm:^1.0.30001097, caniuse-lite@npm:^1.0.30001370":
+  version: 1.0.30001521
+  resolution: "caniuse-lite@npm:1.0.30001521"
+  checksum: be2a2b2cd3be03401887aaa31b89f3e7c6230289e6ef704e224268389cc136480fca502ac9e5001a65ff1e50459d3d95f8c4b2d39f878ab9843af3d6f372c8bb
   languageName: node
   linkType: hard
 
@@ -5393,16 +5379,9 @@ __metadata:
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": ^4.0.2
+    "@stencil/core": ^4.0.5
   languageName: unknown
   linkType: soft
-
-"fraction.js@npm:^4.1.1":
-  version: 4.1.2
-  resolution: "fraction.js@npm:4.1.2"
-  checksum: a67eff2b599cb6546b77ce9c913bd0cccd646e1a525c793ba4e0bf5a399fc403f379227fca83423a6ea79d01e35c2f2b0f141ffa1d09e41377041268a53fb150
-  languageName: node
-  linkType: hard
 
 "fs-constants@npm:^1.0.0":
   version: 1.0.0
@@ -7848,12 +7827,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.30":
-  version: 3.3.4
-  resolution: "nanoid@npm:3.3.4"
+"nanoid@npm:^3.3.6":
+  version: 3.3.6
+  resolution: "nanoid@npm:3.3.6"
   bin:
     nanoid: bin/nanoid.cjs
-  checksum: 2fddd6dee994b7676f008d3ffa4ab16035a754f4bb586c61df5a22cf8c8c94017aadd360368f47d653829e0569a92b129979152ff97af23a558331e47e37cd9c
+  checksum: 7d0eda657002738aa5206107bd0580aead6c95c460ef1bdd0b1a87a9c7ae6277ac2e9b945306aaa5b32c6dcb7feaf462d0f552e7f8b5718abfc6ead5c94a71b3
   languageName: node
   linkType: hard
 
@@ -8864,14 +8843,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:~8.3.8":
-  version: 8.3.11
-  resolution: "postcss@npm:8.3.11"
+"postcss@npm:~8.4.27":
+  version: 8.4.28
+  resolution: "postcss@npm:8.4.28"
   dependencies:
-    nanoid: ^3.1.30
+    nanoid: ^3.3.6
     picocolors: ^1.0.0
-    source-map-js: ^0.6.2
-  checksum: 1a230553d74c66aa9585c90781ed8ea75f19cefea405d2117b67fbeb24b5b5e0e17be2e0c5a07db31dd085643a13394127ab2222e940771b70498331bf20f35e
+    source-map-js: ^1.0.2
+  checksum: f605c24a36f7e400bad379735fbfc893ccb8d293ad6d419bb824db77cdcb69f43d614ef35f9f7091f32ca588d130ec60dbcf53b366e6bf88a8a64bbeb3c05f6d
   languageName: node
   linkType: hard
 
@@ -9533,7 +9512,7 @@ __metadata:
   resolution: "router-demo@workspace:demos/router-demo"
   dependencies:
     "@eventstore-ui/router": "workspace:*"
-    "@stencil/core": ^4.0.2
+    "@stencil/core": ^4.0.5
   languageName: unknown
   linkType: soft
 
@@ -9776,10 +9755,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-js@npm:^0.6.2":
-  version: 0.6.2
-  resolution: "source-map-js@npm:0.6.2"
-  checksum: 9c8151a29e00fd8d3ba87709fdf9a9ce48313d653f4a29a39b4ae53d346ac79e005de624796ff42eff55cbaf26d2e87f4466001ca87831d400d818c5cf146a0e
+"source-map-js@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "source-map-js@npm:1.0.2"
+  checksum: c049a7fc4deb9a7e9b481ae3d424cc793cb4845daa690bc5a05d428bf41bf231ced49b4cf0c9e77f9d42fdb3d20d6187619fc586605f5eabe995a316da8d377c
   languageName: node
   linkType: hard
 
@@ -9926,7 +9905,7 @@ __metadata:
   dependencies:
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": ^4.0.2
+    "@stencil/core": ^4.0.5
   languageName: unknown
   linkType: soft
 
