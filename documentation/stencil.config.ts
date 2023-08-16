@@ -1,5 +1,5 @@
 import type { Config } from '@stencil/core';
-import { postcss } from '@stencil/postcss';
+import { postcss } from '@stencil-community/postcss';
 import { assetsPath } from '@eventstore-ui/assets';
 import postcssPresetEnv from 'postcss-preset-env';
 

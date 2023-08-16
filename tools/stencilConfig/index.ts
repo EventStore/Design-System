@@ -4,7 +4,7 @@ import { existsSync } from 'fs';
 import { type Config as StencilConfig } from '@stencil/core';
 import { parseFlags } from '@stencil/core/cli';
 import { type CopyTask } from '@stencil/core/internal';
-import { postcss } from '@stencil/postcss';
+import { postcss } from '@stencil-community/postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 
 import { assetsPath } from '@eventstore-ui/assets';
