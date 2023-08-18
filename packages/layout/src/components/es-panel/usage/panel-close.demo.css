@@ -1,0 +1,50 @@
+@import url('../../../css/page.css');
+
+:host {
+    display: contents;
+}
+
+main {
+    background-color: #f1c0e8;
+}
+
+.header {
+    grid-area: header;
+    background-color: #fbf8cc;
+    color: var(--color-title-1);
+    padding: 16px;
+    font-size: 20px;
+}
+
+.collapsed {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    cursor: pointer;
+
+    &.cookie,
+    &.panel {
+        & es-icon {
+            transform: rotate(180deg);
+        }
+    }
+    &.toolbar {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+
+        & es-icon {
+            transform: rotate(90deg);
+        }
+    }
+    &.sidebar {
+        writing-mode: vertical-lr;
+        text-orientation: mixed;
+
+        & es-icon {
+            transform: rotate(-90deg);
+        }
+    }
+}

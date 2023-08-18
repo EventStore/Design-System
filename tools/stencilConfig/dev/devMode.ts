@@ -88,7 +88,7 @@ const buildIndex = ({ name, devComponents }: IndexBuilder) => `
                 .join(' ')}
         </ul>
         <script>
-        const tagname = document.location.pathname.replace('/', '');
+        const tagname = document.location.pathname.split("/").at(1);
 
         if (tagname != '') {
             const links = document.querySelector("ul.links").remove();
