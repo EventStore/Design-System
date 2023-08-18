@@ -1,0 +1,12 @@
+@import url('../placement.css');
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+:host {
+    display: block;
+    position: fixed;
+}

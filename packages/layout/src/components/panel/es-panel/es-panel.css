@@ -1,0 +1,131 @@
+@import url('../placement.css');
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+:host {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1000;
+    position: fixed;
+    box-sizing: border-box;
+    background-color: var(--color-background);
+    margin: auto;
+}
+
+:host([area='panel']) {
+    height: var(--layout-panel-height);
+}
+:host([area='cookie']) {
+    height: var(--layout-cookie-height);
+}
+:host([area='banner']) {
+    height: var(--layout-banner-height);
+}
+:host([area='sidebar']) {
+    width: var(--layout-sidebar-width);
+}
+:host([area='toolbar']) {
+    width: var(--layout-toolbar-width);
+}
+
+.handle {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-contrast);
+    z-index: 100;
+}
+
+.cursor_guard {
+    position: fixed;
+    top: -100vh;
+    bottom: -100vh;
+    left: -100vw;
+    right: -100vw;
+    z-index: 1000000;
+}
+
+/* Horizontal */
+:host([area='panel']),
+:host([area='cookie']),
+:host([area='banner']) {
+    & .handle {
+        left: 0;
+        right: 0;
+        height: 34px;
+        width: 100%;
+        cursor: row-resize;
+    }
+
+    & .cursor_guard {
+        cursor: row-resize;
+    }
+}
+
+/* Top */
+:host([area='panel']),
+:host([area='cookie']) {
+    & .handle {
+        top: 0;
+        border-top: 4px solid var(--color-shade-20);
+    }
+}
+
+/* Bottom */
+:host([area='banner']) {
+    & .handle {
+        bottom: 0;
+        border-bottom: 4px solid var(--color-shade-20);
+    }
+}
+
+/* Vertical */
+:host([area='sidebar']),
+:host([area='toolbar']) {
+    & .handle {
+        top: 0;
+        bottom: 0;
+        width: 34px;
+        height: 100%;
+        cursor: col-resize;
+
+        & es-icon {
+            transform: rotate(90deg);
+        }
+    }
+
+    & .cursor_guard {
+        cursor: col-resize;
+    }
+}
+
+/* Right */
+:host([area='sidebar']) {
+    & .handle {
+        right: 0;
+        border-right: 4px solid var(--color-shade-20);
+    }
+}
+
+/* Left */
+:host([area='toolbar']) {
+    & .handle {
+        left: 0;
+        border-left: 4px solid var(--color-shade-20);
+    }
+}
+
+[part='inner'] {
+    flex: 1 1 100%;
+    padding: 24px 40px 0 40px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

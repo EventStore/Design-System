@@ -11,14 +11,14 @@ import { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/typ
 import { IconDescription } from "@eventstore-ui/components";
 import { LoadingBarStatus } from "./components/es-loading-bar/types";
 import { NavNode, NavTree } from "./components/es-nav/types";
-import { ClosedMode, TargetableArea, TargetableEdge } from "./components/es-panel/types";
+import { ClosedMode, TargetableArea, TargetableEdge } from "./components/panel/types";
 export { Crumb } from "./components/es-breadcrumb/types";
 export { DisplayErrorVariant } from "./components/es-display-error/types";
 export { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/types";
 export { IconDescription } from "@eventstore-ui/components";
 export { LoadingBarStatus } from "./components/es-loading-bar/types";
 export { NavNode, NavTree } from "./components/es-nav/types";
-export { ClosedMode, TargetableArea, TargetableEdge } from "./components/es-panel/types";
+export { ClosedMode, TargetableArea, TargetableEdge } from "./components/panel/types";
 export namespace Components {
     /**
      * A list of breadcrumbs to the current page
@@ -331,6 +331,24 @@ export namespace Components {
         "defaultTitle": string;
     }
     /**
+     * A panel that takes the size of it's content.
+     * Automatically sets the relevant layout var based on it's size.
+     */
+    interface EsSizedPanel {
+        /**
+          * Where to place the panel.
+         */
+        "area": TargetableArea;
+        /**
+          * Where to end the panel, inclusive. Must be the opposite axis to the area.
+         */
+        "end"?: TargetableEdge;
+        /**
+          * Where to start the panel, inclusive. Must be the opposite axis to the area.
+         */
+        "start"?: TargetableEdge;
+    }
+    /**
      * A theme picker dropdown for the header
      */
     interface EsThemeDropdown {
@@ -508,6 +526,16 @@ declare global {
         new (): HTMLEsSidebarDropdownElement;
     };
     /**
+     * A panel that takes the size of it's content.
+     * Automatically sets the relevant layout var based on it's size.
+     */
+    interface HTMLEsSizedPanelElement extends Components.EsSizedPanel, HTMLStencilElement {
+    }
+    var HTMLEsSizedPanelElement: {
+        prototype: HTMLEsSizedPanelElement;
+        new (): HTMLEsSizedPanelElement;
+    };
+    /**
      * A theme picker dropdown for the header
      */
     interface HTMLEsThemeDropdownElement extends Components.EsThemeDropdown, HTMLStencilElement {
@@ -550,6 +578,7 @@ declare global {
         "es-panel-header": HTMLEsPanelHeaderElement;
         "es-sidebar": HTMLEsSidebarElement;
         "es-sidebar-dropdown": HTMLEsSidebarDropdownElement;
+        "es-sized-panel": HTMLEsSizedPanelElement;
         "es-theme-dropdown": HTMLEsThemeDropdownElement;
         "es-theme-picker": HTMLEsThemePickerElement;
         "es-toolbar": HTMLEsToolbarElement;
@@ -859,6 +888,24 @@ declare namespace LocalJSX {
         "defaultTitle": string;
     }
     /**
+     * A panel that takes the size of it's content.
+     * Automatically sets the relevant layout var based on it's size.
+     */
+    interface EsSizedPanel {
+        /**
+          * Where to place the panel.
+         */
+        "area"?: TargetableArea;
+        /**
+          * Where to end the panel, inclusive. Must be the opposite axis to the area.
+         */
+        "end"?: TargetableEdge;
+        /**
+          * Where to start the panel, inclusive. Must be the opposite axis to the area.
+         */
+        "start"?: TargetableEdge;
+    }
+    /**
      * A theme picker dropdown for the header
      */
     interface EsThemeDropdown {
@@ -893,6 +940,7 @@ declare namespace LocalJSX {
         "es-panel-header": EsPanelHeader;
         "es-sidebar": EsSidebar;
         "es-sidebar-dropdown": EsSidebarDropdown;
+        "es-sized-panel": EsSizedPanel;
         "es-theme-dropdown": EsThemeDropdown;
         "es-theme-picker": EsThemePicker;
         "es-toolbar": EsToolbar;
@@ -967,6 +1015,11 @@ declare module "@stencil/core" {
              * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `es-layout-link` or `es-layout-button`.
              */
             "es-sidebar-dropdown": LocalJSX.EsSidebarDropdown & JSXBase.HTMLAttributes<HTMLEsSidebarDropdownElement>;
+            /**
+             * A panel that takes the size of it's content.
+             * Automatically sets the relevant layout var based on it's size.
+             */
+            "es-sized-panel": LocalJSX.EsSizedPanel & JSXBase.HTMLAttributes<HTMLEsSizedPanelElement>;
             /**
              * A theme picker dropdown for the header
              */

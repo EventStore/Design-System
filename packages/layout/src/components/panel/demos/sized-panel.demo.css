@@ -1,0 +1,9 @@
+@import url('../../../css/page.css');
+
+:host {
+    display: contents;
+}
+
+es-sized-panel {
+    border: 2px solid #f25f8b;
+}
