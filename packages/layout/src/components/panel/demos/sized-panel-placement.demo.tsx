@@ -1,26 +1,19 @@
 import { Component, Host, h, State } from '@stencil/core';
 import { router } from '@eventstore-ui/router';
 
-import {
-    Page,
-    bannerHeight,
-    cookieHeight,
-    panelHeight,
-    sidebarWidth,
-    toolbarWidth,
-} from '../../../';
+import { Page } from '../../../../';
 
 import { areas } from './validPositions';
 
 /**
- * es-panel-placement
+ * es-sized-panel placemen demo
  */
 @Component({
-    tag: 'es-panel-placement-demo',
-    styleUrl: 'panel-placement.demo.css',
+    tag: 'es-sized-panel-placement-demo',
+    styleUrl: 'sized-panel-placement.demo.css',
     shadow: true,
 })
-export class PanelPlacementDemo {
+export class SizedPanelPlacementDemo {
     @State() auto = false;
 
     @State() areaIndex = 0;
@@ -29,11 +22,6 @@ export class PanelPlacementDemo {
 
     componentWillLoad() {
         router.init({ root: '/es-panel-placement-demo/' });
-        bannerHeight.set(200);
-        cookieHeight.set(200);
-        panelHeight.set(200);
-        sidebarWidth.set(200);
-        toolbarWidth.set(200);
     }
 
     disconnectedCallback() {
@@ -102,12 +90,13 @@ export class PanelPlacementDemo {
                         />
                     </label>
 
-                    <es-panel
-                        defaultSize={200}
-                        area={area}
-                        start={start}
-                        end={end}
-                    />
+                    <es-sized-panel area={area} start={start} end={end}>
+                        <img
+                            src={'https://picsum.photos/400/200'}
+                            height={200}
+                            width={400}
+                        />
+                    </es-sized-panel>
                 </Page>
                 <div class={'area panel'}>{'panel'}</div>
                 <div class={'area toolbar'}>{'toolbar'}</div>

@@ -1,7 +1,7 @@
 import { Component, Host, State, h } from '@stencil/core';
 import { router } from '@eventstore-ui/router';
 
-import { ES_LAYOUT_ICON_NAMESPACE, Page } from '../../../';
+import { ES_LAYOUT_ICON_NAMESPACE, Page } from '../../../../';
 import { areas } from './validPositions';
 
 /**

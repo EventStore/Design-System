@@ -8,7 +8,7 @@ import {
     Element,
     Prop,
 } from '@stencil/core';
-import { ICON_NAMESPACE } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../../icons/namespace';
 import {
     bannerHeight,
     cookieHeight,
@@ -17,13 +17,13 @@ import {
     panelHeight,
     sidebarWidth,
     toolbarWidth,
-} from '../../utils/LayoutVar';
+} from '../../../utils/LayoutVar';
 import type {
     ClosedMode,
     PanelMode,
     TargetableArea,
     TargetableEdge,
-} from './types';
+} from '../types';
 
 /**
  * A resizable panel. Automatically sets the relevant layout var based on it's size and when resized.
