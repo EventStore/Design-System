@@ -11,12 +11,14 @@ import { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/typ
 import { IconDescription } from "@eventstore-ui/components";
 import { LoadingBarStatus } from "./components/es-loading-bar/types";
 import { NavNode, NavTree } from "./components/es-nav/types";
+import { ClosedMode, TargetableArea, TargetableEdge } from "./components/es-panel/types";
 export { Crumb } from "./components/es-breadcrumb/types";
 export { DisplayErrorVariant } from "./components/es-display-error/types";
 export { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/types";
 export { IconDescription } from "@eventstore-ui/components";
 export { LoadingBarStatus } from "./components/es-loading-bar/types";
 export { NavNode, NavTree } from "./components/es-nav/types";
+export { ClosedMode, TargetableArea, TargetableEdge } from "./components/es-panel/types";
 export namespace Components {
     /**
      * A list of breadcrumbs to the current page
@@ -261,9 +263,49 @@ export namespace Components {
     interface EsPageTitle {
     }
     /**
-     * A panel. Automatically sets `--layout-panel-height` based on it's height, and when resized.
+     * A resizable panel. Automatically sets the relevant layout var based on it's size and when resized.
      */
     interface EsPanel {
+        /**
+          * Where to place the panel.
+         */
+        "area": TargetableArea;
+        /**
+          * When to snap the panel closed (if a closed mode is set).
+         */
+        "closeAt": number;
+        /**
+          * How the panel should respond to being closed.
+         */
+        "closedMode": ClosedMode;
+        /**
+          * How large the panel should be when closed.
+         */
+        "closedSize": number;
+        /**
+          * What size to default to.
+         */
+        "defaultSize": number;
+        /**
+          * Where to end the panel, inclusive. Must be the opposite axis to the area.
+         */
+        "end"?: TargetableEdge;
+        /**
+          * The minimum possible size to resize to.
+         */
+        "minimumSize": number;
+        /**
+          * If the last mode of the panel should be kept in local storage.
+         */
+        "rememberMode"?: string | false;
+        /**
+          * If the size of the panel should be kept in local storage.
+         */
+        "rememberSize"?: string | false;
+        /**
+          * Where to start the panel, inclusive. Must be the opposite axis to the area.
+         */
+        "start"?: TargetableEdge;
     }
     /**
      * A header for `es-panel`.
@@ -430,7 +472,7 @@ declare global {
         new (): HTMLEsPageTitleElement;
     };
     /**
-     * A panel. Automatically sets `--layout-panel-height` based on it's height, and when resized.
+     * A resizable panel. Automatically sets the relevant layout var based on it's size and when resized.
      */
     interface HTMLEsPanelElement extends Components.EsPanel, HTMLStencilElement {
     }
@@ -749,9 +791,49 @@ declare namespace LocalJSX {
     interface EsPageTitle {
     }
     /**
-     * A panel. Automatically sets `--layout-panel-height` based on it's height, and when resized.
+     * A resizable panel. Automatically sets the relevant layout var based on it's size and when resized.
      */
     interface EsPanel {
+        /**
+          * Where to place the panel.
+         */
+        "area"?: TargetableArea;
+        /**
+          * When to snap the panel closed (if a closed mode is set).
+         */
+        "closeAt"?: number;
+        /**
+          * How the panel should respond to being closed.
+         */
+        "closedMode"?: ClosedMode;
+        /**
+          * How large the panel should be when closed.
+         */
+        "closedSize"?: number;
+        /**
+          * What size to default to.
+         */
+        "defaultSize"?: number;
+        /**
+          * Where to end the panel, inclusive. Must be the opposite axis to the area.
+         */
+        "end"?: TargetableEdge;
+        /**
+          * The minimum possible size to resize to.
+         */
+        "minimumSize"?: number;
+        /**
+          * If the last mode of the panel should be kept in local storage.
+         */
+        "rememberMode"?: string | false;
+        /**
+          * If the size of the panel should be kept in local storage.
+         */
+        "rememberSize"?: string | false;
+        /**
+          * Where to start the panel, inclusive. Must be the opposite axis to the area.
+         */
+        "start"?: TargetableEdge;
     }
     /**
      * A header for `es-panel`.
@@ -870,7 +952,7 @@ declare module "@stencil/core" {
              */
             "es-page-title": LocalJSX.EsPageTitle & JSXBase.HTMLAttributes<HTMLEsPageTitleElement>;
             /**
-             * A panel. Automatically sets `--layout-panel-height` based on it's height, and when resized.
+             * A resizable panel. Automatically sets the relevant layout var based on it's size and when resized.
              */
             "es-panel": LocalJSX.EsPanel & JSXBase.HTMLAttributes<HTMLEsPanelElement>;
             /**

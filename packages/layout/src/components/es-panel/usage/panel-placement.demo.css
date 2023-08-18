@@ -1,0 +1,55 @@
+@import url('../../../css/page.css');
+
+:host {
+    display: contents;
+}
+
+main {
+    background-color: #f1c0e8;
+}
+
+.area {
+    color: var(--color-title-1);
+    padding: 16px;
+    font-size: 20px;
+
+    &.header {
+        grid-area: header;
+        background-color: #fbf8cc;
+    }
+    &.banner {
+        grid-area: banner;
+        background-color: #fde4cf;
+    }
+    &.sidebar {
+        grid-area: sidebar;
+        background-color: #ffcfd2;
+    }
+    &.panel {
+        grid-area: panel;
+        background-color: #cfbaf0;
+    }
+    &.toolbar {
+        grid-area: toolbar;
+        background-color: #a3c4f3;
+    }
+    &.cookie {
+        grid-area: cookie;
+        background-color: #90dbf4;
+    }
+}
+
+es-panel {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 12px solid #f25f8b;
+}
+
+label {
+    font-size: 20px;
+    padding: 2px;
+
+    & select {
+        font-size: 20px;
+        padding: 2px;
+    }
+}

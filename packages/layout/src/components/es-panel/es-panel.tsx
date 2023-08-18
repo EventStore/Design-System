@@ -6,15 +6,32 @@ import {
     Watch,
     Listen,
     Element,
+    Prop,
 } from '@stencil/core';
 import { ICON_NAMESPACE } from '../../icons/namespace';
-import { cookieHeight, panelHeight } from '../../utils/LayoutVar';
-
-const LS_KEY = 'es-panel-height';
+import {
+    bannerHeight,
+    cookieHeight,
+    headerHeight,
+    headerUnderHeight,
+    panelHeight,
+    sidebarWidth,
+    toolbarWidth,
+} from '../../utils/LayoutVar';
+import type {
+    ClosedMode,
+    PanelMode,
+    TargetableArea,
+    TargetableEdge,
+} from './types';
 
 /**
- * A panel. Automatically sets `--layout-panel-height` based on it's height, and when resized.
+ * A resizable panel. Automatically sets the relevant layout var based on it's size and when resized.
  * @part inner - The wrapping aside of the panel.
+ * @part handle - The grabbable handle
+ * @part handle inline - The handle while inline
+ * @part handle collapsed - The handle while collapsed
+ * @slot collapsed - Shown when the panel is collapsed
  */
 @Component({
     tag: 'es-panel',
@@ -24,61 +41,227 @@ const LS_KEY = 'es-panel-height';
 export class Panel {
     @Element() host!: HTMLEsPanelElement;
 
-    @State() height: number = 340;
+    /** Where to place the panel. */
+    @Prop({ reflect: true }) area: TargetableArea = 'panel';
+    /**
+     * Where to start the panel, inclusive.
+     * Must be the opposite axis to the area.
+     */
+    @Prop({ reflect: true }) start?: TargetableEdge;
+    /**
+     * Where to end the panel, inclusive.
+     * Must be the opposite axis to the area.
+     */
+    @Prop({ reflect: true }) end?: TargetableEdge;
+    /** If the size of the panel should be kept in local storage. */
+    @Prop() rememberSize?: string | false;
+    /** If the last mode of the panel should be kept in local storage. */
+    @Prop() rememberMode?: string | false;
+    /** How the panel should respond to being closed. */
+    @Prop() closedMode: ClosedMode = 'none';
+    /** When to snap the panel closed (if a closed mode is set). */
+    @Prop() closeAt: number = 100;
+    /** The minimum possible size to resize to. */
+    @Prop() minimumSize: number = 100;
+    /** What size to default to. */
+    @Prop() defaultSize: number = 200;
+    /** How large the panel should be when closed. */
+    @Prop() closedSize: number = 34;
+
+    @State() size: number = this.defaultSize;
     @State() dragging: boolean = false;
+    @State() mode: PanelMode = 'inline';
 
     componentWillLoad() {
-        const previousHeight = parseFloat(localStorage.getItem(LS_KEY)!);
-
-        if (!Number.isNaN(previousHeight)) {
-            this.height = this.clamp(previousHeight);
-        }
-
-        this.setHeight(this.height);
-    }
-
-    @Watch('height') setHeight(height: number) {
-        panelHeight.set(height);
-    }
-
-    @Listen('resize', { target: 'window' }) clampOnResize() {
-        const clamped = this.clamp(this.height);
-
-        if (clamped !== this.height) {
-            this.height = clamped;
-            this.savePanelHeight();
-        }
+        this.initialize();
     }
 
     disconnectedCallback() {
-        panelHeight.reset();
+        this.cssVar.reset();
     }
+
+    initialize = () => {
+        if (this.rememberSize !== false) {
+            const previousSize = parseFloat(
+                localStorage.getItem(this.localStorageSizeKey)!,
+            );
+
+            this.size = this.clamp(
+                !Number.isNaN(previousSize) ? previousSize : this.defaultSize,
+            );
+        } else {
+            this.size = this.clamp(this.defaultSize);
+        }
+
+        if (this.rememberMode !== false) {
+            const previousMode = localStorage.getItem(
+                this.localStorageModeKey,
+            ) as PanelMode;
+            this.mode =
+                previousMode === this.closedMode ? previousMode : 'inline';
+        } else {
+            this.mode = 'inline';
+        }
+
+        this.setSize();
+    };
+
+    @Watch('area')
+    reInit(_next: TargetableArea, prev: TargetableArea) {
+        this.getCssVar(prev).reset();
+        this.initialize();
+    }
+
+    @Watch('mode')
+    @Watch('size')
+    setSize() {
+        switch (this.mode) {
+            case 'inline':
+                this.cssVar.set(this.size);
+                break;
+            case 'collapsed':
+                this.cssVar.set(this.closedSize);
+                break;
+        }
+    }
+
+    @Listen('resize', { target: 'window' }) clampOnResize() {
+        const clamped = this.clamp(this.size);
+
+        if (clamped !== this.size) {
+            this.size = clamped;
+            this.savePanelSize();
+        }
+    }
+
+    renderHandle = () => (
+        <div
+            class={'handle'}
+            part={`handle ${this.mode}`}
+            onMouseDown={this.dragStart}
+            onClick={this.handleClick}
+            onDblClick={this.handleDoubleClick}
+        >
+            {this.mode === 'collapsed' ? (
+                <slot name={'collapsed'}>
+                    <es-icon icon={[ICON_NAMESPACE, 'grip-lines']} />
+                </slot>
+            ) : (
+                <es-icon icon={[ICON_NAMESPACE, 'grip-lines']} />
+            )}
+        </div>
+    );
 
     render() {
         return (
-            <Host>
-                <div class={'handle'} onMouseDown={this.dragStart}>
-                    <es-icon icon={[ICON_NAMESPACE, 'grip-lines']} />
-                </div>
-                <aside part={'inner'}>
-                    <slot />
-                </aside>
+            <Host mode={this.mode} style={{ '--panel-size': `${this.size}px` }}>
+                {this.renderHandle()}
+                {this.mode === 'inline' && (
+                    <aside part={'inner'}>
+                        <slot />
+                    </aside>
+                )}
                 {this.dragging && <div class={'cursor_guard'} />}
             </Host>
         );
     }
 
-    private savePanelHeight = () => {
-        localStorage.setItem(LS_KEY, `${this.height}`);
+    private savePanelSize = () => {
+        if (this.rememberSize === false) return;
+        localStorage.setItem(this.localStorageSizeKey, `${this.size}`);
     };
 
-    private clamp = (height: number) =>
-        Math.max(Math.min(height, window.innerHeight / 1.5), 100);
+    private get localStorageSizeKey() {
+        if (typeof this.rememberSize === 'string') {
+            return this.rememberSize;
+        }
+        return `es-panel-${this.area}-size`;
+    }
 
+    @Watch('mode')
+    savePanelMode() {
+        if (this.rememberMode === false) return;
+        localStorage.setItem(this.localStorageModeKey, this.mode);
+    }
+
+    private get localStorageModeKey() {
+        if (typeof this.rememberMode === 'string') {
+            return this.rememberMode;
+        }
+        return `es-panel-${this.area}-mode`;
+    }
+
+    private clamp = (requestedSize: number) => {
+        if (this.closedMode !== 'none' && requestedSize < this.closeAt) {
+            this.mode = this.closedMode;
+        } else {
+            this.mode = 'inline';
+        }
+
+        switch (this.area) {
+            case 'banner':
+            case 'panel':
+            case 'cookie': {
+                const availableSpace =
+                    Math.min(document.body.offsetHeight, innerHeight) -
+                    headerHeight.value -
+                    headerUnderHeight.value -
+                    bannerHeight.value -
+                    panelHeight.value -
+                    cookieHeight.value +
+                    this.cssVar.value -
+                    100;
+                return Math.max(
+                    Math.min(requestedSize, availableSpace),
+                    this.minimumSize,
+                );
+            }
+            case 'sidebar':
+            case 'toolbar': {
+                const availableSpace =
+                    Math.min(document.body.offsetWidth, innerWidth) -
+                    sidebarWidth.value -
+                    toolbarWidth.value +
+                    this.cssVar.value -
+                    400;
+                return Math.max(
+                    Math.min(requestedSize, availableSpace),
+                    this.minimumSize,
+                );
+            }
+        }
+    };
+
+    get cssVar() {
+        return this.getCssVar(this.area);
+    }
+
+    private getCssVar = (area: TargetableArea) => {
+        switch (area) {
+            case 'panel':
+                return panelHeight;
+            case 'cookie':
+                return cookieHeight;
+            case 'banner':
+                return bannerHeight;
+            case 'sidebar':
+                return sidebarWidth;
+            case 'toolbar':
+                return toolbarWidth;
+        }
+    };
+
+    private offset = 0;
     private dragStart = (e: MouseEvent) => {
         if (e.button !== 0) return;
+        // don't select text on double click
+        if (e.detail > 1) e.preventDefault();
 
-        this.dragging = true;
+        if (this.mode === 'inline') {
+            this.initialDragSize = this.size;
+        }
+
+        this.offset = this.calcSize(e.clientX, e.clientY) - this.cssVar.value;
         window.addEventListener('mousemove', this.move);
         window.addEventListener('mouseup', this.dragEnd);
     };
@@ -87,13 +270,46 @@ export class Panel {
         this.dragging = false;
         window.removeEventListener('mousemove', this.move);
         window.removeEventListener('mouseup', this.dragEnd);
-        this.savePanelHeight();
+
+        if (this.mode !== 'inline') {
+            this.closedAtSize = this.initialDragSize;
+        }
+
+        this.savePanelSize();
+    };
+
+    private calcSize = (x: number, y: number) => {
+        const { top, right, bottom, left } = this.host.getBoundingClientRect();
+        switch (this.area) {
+            case 'banner':
+                return y - top;
+            case 'panel':
+            case 'cookie':
+                return bottom - y;
+            case 'sidebar':
+                return x - left;
+            case 'toolbar':
+                return right - x;
+        }
     };
 
     private move = (e: MouseEvent) => {
         e.preventDefault();
-        this.height = this.clamp(
-            window.innerHeight - e.clientY - cookieHeight.value,
+        this.dragging = true;
+        this.size = this.clamp(
+            this.calcSize(e.clientX, e.clientY) - this.offset,
         );
+    };
+
+    private closedAtSize?: number;
+    private initialDragSize?: number;
+    private handleClick = () => {
+        if (this.mode === 'inline') return;
+        this.size = this.clamp(this.closedAtSize ?? this.defaultSize);
+        this.mode = 'inline';
+    };
+    private handleDoubleClick = () => {
+        if (this.closedMode === 'none') return;
+        this.mode = this.closedMode;
     };
 }

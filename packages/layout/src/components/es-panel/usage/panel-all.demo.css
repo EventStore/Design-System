@@ -1,0 +1,5 @@
+@import url('../../../css/page.css');
+
+:host {
+    display: contents;
+}

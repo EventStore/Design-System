@@ -8,34 +8,242 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    grid-area: panel;
-    position: fixed;
     z-index: 1000;
-    bottom: var(--layout-site-bottom);
-    left: var(--layout-sidebar-width);
-    right: 0;
-    height: var(--layout-panel-height);
-    max-width: var(--layout-panel-max-width);
-    margin: auto;
-    background-color: var(--color-background);
+    position: fixed;
     box-sizing: border-box;
+    background-color: var(--color-background);
+    margin: auto;
+}
+
+:host([area='panel']) {
+    grid-area: panel;
+    right: var(--layout-current-edge);
+    bottom: var(--layout-site-bottom);
+    left: calc(var(--layout-current-edge) + var(--layout-sidebar-width));
+    height: var(--layout-panel-height);
+}
+
+:host([area='cookie']) {
+    grid-area: cookie;
+    height: var(--layout-cookie-height);
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+:host([area='banner']) {
+    grid-area: banner;
+    top: var(--layout-header-height);
+    right: 0;
+    left: 0;
+    height: var(--layout-banner-height);
+}
+
+:host([area='sidebar']) {
+    grid-area: sidebar;
+    top: var(--layout-body-top);
+    left: var(--layout-current-edge);
+    bottom: var(--layout-site-bottom);
+    width: var(--layout-sidebar-width);
+}
+
+:host([area='toolbar']) {
+    grid-area: toolbar;
+    top: var(--layout-body-top);
+    bottom: var(--layout-body-bottom);
+    right: var(--layout-current-edge);
+    width: var(--layout-toolbar-width);
+}
+
+/* 
+    Horizontal starts 
+    Top to Bottom 
+*/
+:host([area='sidebar'][start='banner']),
+:host([area='toolbar'][start='banner']) {
+    top: var(--layout-header-height);
+}
+:host([area='sidebar'][start='body']),
+:host([area='toolbar'][start='body']) {
+    top: var(--layout-body-top);
+}
+:host([area='sidebar'][start='panel']),
+:host([area='toolbar'][start='panel']) {
+    top: calc(100vh - var(--layout-panel-height) - var(--layout-cookie-height));
+}
+:host([area='sidebar'][start='cookie']),
+:host([area='toolbar'][start='cookie']) {
+    top: calc(100vh - var(--layout-cookie-height));
+}
+
+/* 
+    Horizontal ends 
+    Top to Bottom 
+*/
+:host([area='sidebar'][end='banner']),
+:host([area='toolbar'][end='banner']) {
+    bottom: calc(
+        100vh - var(--layout-header-height) - var(--layout-banner-height)
+    );
+}
+:host([area='sidebar'][end='body']),
+:host([area='toolbar'][end='body']) {
+    bottom: calc(var(--layout-panel-height) + var(--layout-cookie-height));
+}
+:host([area='sidebar'][end='panel']),
+:host([area='toolbar'][end='panel']) {
+    bottom: var(--layout-cookie-height);
+}
+:host([area='sidebar'][end='cookie']),
+:host([area='toolbar'][end='cookie']) {
+    bottom: 0;
+}
+
+/* 
+    Vertical starts 
+    Left to right  
+*/
+:host([area='banner'][start='edge']),
+:host([area='panel'][start='edge']),
+:host([area='cookie'][start='edge']) {
+    left: 0;
+}
+
+:host([area='banner'][start='sidebar']),
+:host([area='panel'][start='sidebar']),
+:host([area='cookie'][start='sidebar']) {
+    left: var(--layout-current-edge);
+}
+
+:host([area='banner'][start='body']),
+:host([area='panel'][start='body']),
+:host([area='cookie'][start='body']) {
+    left: calc(var(--layout-current-edge) + var(--layout-sidebar-width));
+}
+
+:host([area='banner'][start='toolbar']),
+:host([area='panel'][start='toolbar']),
+:host([area='cookie'][start='toolbar']) {
+    left: calc(
+        100vw - var(--layout-current-edge) - var(--layout-toolbar-width)
+    );
+}
+
+/* 
+    Vertical ends 
+    Left to right  
+*/
+:host([area='banner'][end='sidebar']),
+:host([area='panel'][end='sidebar']),
+:host([area='cookie'][end='sidebar']) {
+    right: calc(
+        100vw - var(--layout-current-edge) - var(--layout-sidebar-width)
+    );
+}
+:host([area='banner'][end='body']),
+:host([area='panel'][end='body']),
+:host([area='cookie'][end='body']) {
+    right: calc(var(--layout-current-edge) + var(--layout-toolbar-width));
+}
+:host([area='banner'][end='toolbar']),
+:host([area='panel'][end='toolbar']),
+:host([area='cookie'][end='toolbar']) {
+    right: var(--layout-current-edge);
+}
+:host([area='banner'][end='edge']),
+:host([area='panel'][end='edge']),
+:host([area='cookie'][end='edge']) {
+    right: 0;
 }
 
 .handle {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 34px;
-    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    cursor: row-resize;
-    border-top: 4px solid var(--color-shade-20);
+
     color: var(--color-contrast);
     z-index: 100;
+}
+
+.cursor_guard {
+    position: fixed;
+    top: -100vh;
+    bottom: -100vh;
+    left: -100vw;
+    right: -100vw;
+    z-index: 1000000;
+}
+
+/* Horizontal */
+:host([area='panel']),
+:host([area='cookie']),
+:host([area='banner']) {
+    & .handle {
+        left: 0;
+        right: 0;
+        height: 34px;
+        width: 100%;
+        cursor: row-resize;
+    }
+
+    & .cursor_guard {
+        cursor: row-resize;
+    }
+}
+
+/* Top */
+:host([area='panel']),
+:host([area='cookie']) {
+    & .handle {
+        top: 0;
+        border-top: 4px solid var(--color-shade-20);
+    }
+}
+
+/* Bottom */
+:host([area='banner']) {
+    & .handle {
+        bottom: 0;
+        border-bottom: 4px solid var(--color-shade-20);
+    }
+}
+
+/* Vertical */
+:host([area='sidebar']),
+:host([area='toolbar']) {
+    & .handle {
+        top: 0;
+        bottom: 0;
+        width: 34px;
+        height: 100%;
+        cursor: col-resize;
+
+        & es-icon {
+            transform: rotate(90deg);
+        }
+    }
+
+    & .cursor_guard {
+        cursor: col-resize;
+    }
+}
+
+/* Right */
+:host([area='sidebar']) {
+    & .handle {
+        right: 0;
+        border-right: 4px solid var(--color-shade-20);
+    }
+}
+
+/* Left */
+:host([area='toolbar']) {
+    & .handle {
+        left: 0;
+        border-left: 4px solid var(--color-shade-20);
+    }
 }
 
 [part='inner'] {
@@ -43,14 +251,4 @@
     padding: 24px 40px 0 40px;
     overflow-x: hidden;
     overflow-y: auto;
-}
-
-.cursor_guard {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000000;
-    cursor: row-resize;
 }

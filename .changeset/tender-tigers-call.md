@@ -1,28 +1,12 @@
-# es-panel
+---
+'@eventstore-ui/layout': minor
+---
 
-<!-- Auto Generated Below -->
+`es-panel` can now be placed in any layout area, with a custom start and end position.
+You can also set a `closedMode`to allow the panel to collapse when dragged past the`closedSize`.
+It remains backwards compatible with previous usage.
 
-
-## Overview
-
-A resizable panel. Automatically sets the relevant layout var based on it's size and when resized.
-
-## Usage
-
-### Example
-
-```tsx
-export default () => (
-    <es-panel>
-        <es-panel-header>{'hello there'}</es-panel-header>
-        <p>{'I am a panel'}</p>
-    </es-panel>
-);
-```
-
-
-
-## Properties
+The following new props have been added:
 
 | Property       | Attribute       | Description                                                                 | Type                                                                                         | Default     |
 | -------------- | --------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------- |
@@ -36,38 +20,3 @@ export default () => (
 | `rememberMode` | `remember-mode` | If the last mode of the panel should be kept in local storage.              | `boolean \| string \| undefined`                                                             | `undefined` |
 | `rememberSize` | `remember-size` | If the size of the panel should be kept in local storage.                   | `boolean \| string \| undefined`                                                             | `undefined` |
 | `start`        | `start`         | Where to start the panel, inclusive. Must be the opposite axis to the area. | `"banner" \| "body" \| "cookie" \| "edge" \| "panel" \| "sidebar" \| "toolbar" \| undefined` | `undefined` |
-
-
-## Slots
-
-| Slot          | Description                       |
-| ------------- | --------------------------------- |
-| `"collapsed"` | Shown when the panel is collapsed |
-
-
-## Shadow Parts
-
-| Part                 | Description                      |
-| -------------------- | -------------------------------- |
-| `"handle"`           | The grabbable handle             |
-| `"handle collapsed"` | The handle while collapsed       |
-| `"handle inline"`    | The handle while inline          |
-| `"inner"`            | The wrapping aside of the panel. |
-
-
-## Dependencies
-
-### Depends on
-
-- es-icon
-
-### Graph
-```mermaid
-graph TD;
-  es-panel --> es-icon
-  style es-panel fill:#f9f,stroke:#333,stroke-width:4px
-```
-
-----------------------------------------------
-
-
