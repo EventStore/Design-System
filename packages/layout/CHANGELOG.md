@@ -1,5 +1,38 @@
 # @eventstore-ui/layout
 
+## 1.1.0
+
+### Minor Changes
+
+-   [`de39237`](https://github.com/EventStore/Design-System/commit/de39237bc8e89de0b79a910be20f1ccf7b06ca8e) - New component `es-sized-panel` has been added that can be placed in any layout area, with a custom start and end position. It will set the size of the corresponding area to its own size, much like how `es-sidebar` works.
+
+    The following props are available:
+
+    | Property | Attribute | Description                                                                 | Type                                                                                         | Default     |
+    | -------- | --------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------- |
+    | `area`   | `area`    | Where to place the panel.                                                   | `"banner" \| "cookie" \| "panel" \| "sidebar" \| "toolbar"`                                  | `'panel'`   |
+    | `end`    | `end`     | Where to end the panel, inclusive. Must be the opposite axis to the area.   | `"banner" \| "body" \| "cookie" \| "edge" \| "panel" \| "sidebar" \| "toolbar" \| undefined` | `undefined` |
+    | `start`  | `start`   | Where to start the panel, inclusive. Must be the opposite axis to the area. | `"banner" \| "body" \| "cookie" \| "edge" \| "panel" \| "sidebar" \| "toolbar" \| undefined` | `undefined` |
+
+-   [`e93f6bd`](https://github.com/EventStore/Design-System/commit/e93f6bd644bf9615772015ade9299caa410be41a) - `es-panel` can now be placed in any layout area, with a custom start and end position.
+    You can also set a `closedMode`to allow the panel to collapse when dragged past the`closedSize`.
+    It remains backwards compatible with previous usage.
+
+    The following new props have been added:
+
+    | Property       | Attribute       | Description                                                                 | Type                                                                                         | Default     |
+    | -------------- | --------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------- |
+    | `area`         | `area`          | Where to place the panel.                                                   | `"banner" \| "cookie" \| "panel" \| "sidebar" \| "toolbar"`                                  | `'panel'`   |
+    | `closeAt`      | `close-at`      | When to snap the panel closed (if a closed mode is set).                    | `number`                                                                                     | `100`       |
+    | `closedMode`   | `closed-mode`   | How the panel should respond to being closed.                               | `"collapsed" \| "none"`                                                                      | `'none'`    |
+    | `closedSize`   | `closed-size`   | How large the panel should be when closed.                                  | `number`                                                                                     | `34`        |
+    | `defaultSize`  | `default-size`  | What size to default to.                                                    | `number`                                                                                     | `200`       |
+    | `end`          | `end`           | Where to end the panel, inclusive. Must be the opposite axis to the area.   | `"banner" \| "body" \| "cookie" \| "edge" \| "panel" \| "sidebar" \| "toolbar" \| undefined` | `undefined` |
+    | `minimumSize`  | `minimum-size`  | The minimum possible size to resize to.                                     | `number`                                                                                     | `100`       |
+    | `rememberMode` | `remember-mode` | If the last mode of the panel should be kept in local storage.              | `boolean \| string \| undefined`                                                             | `undefined` |
+    | `rememberSize` | `remember-size` | If the size of the panel should be kept in local storage.                   | `boolean \| string \| undefined`                                                             | `undefined` |
+    | `start`        | `start`         | Where to start the panel, inclusive. Must be the opposite axis to the area. | `"banner" \| "body" \| "cookie" \| "edge" \| "panel" \| "sidebar" \| "toolbar" \| undefined` | `undefined` |
+
 ## 1.0.1
 
 ### Patch Changes
