@@ -234,7 +234,7 @@ export class InternalRouter {
     private queueActionOnElement = async (element: ReturnType<GetElement>) => {
         await element?.componentOnReady?.();
 
-        if (element?.ownerDocument?.contains(element)) {
+        if (element?.isConnected) {
             this.pendingActions.get(element)?.forEach((cb) => cb());
         }
 
