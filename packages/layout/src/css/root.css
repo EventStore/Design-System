@@ -78,7 +78,7 @@ body {
     display: grid;
     grid-template-columns:
         var(--layout-sidebar-width)
-        auto
+        minmax(0, 1fr)
         var(--layout-toolbar-width);
     grid-template-rows:
         var(--layout-header-height) var(--layout-banner-height)
