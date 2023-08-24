@@ -1,5 +1,11 @@
 # @eventstore-ui/layout
 
+## 1.1.1
+
+### Patch Changes
+
+-   [`af6da01`](https://github.com/EventStore/Design-System/commit/af6da01d226f8a546dd80fc28249cbdf3904b439) - Prevent grid blowout on layout grid.
+
 ## 1.1.0
 
 ### Minor Changes
