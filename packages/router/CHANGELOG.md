@@ -1,5 +1,11 @@
 # @eventstore-ui/router
 
+## 1.0.2
+
+### Patch Changes
+
+-   [`03c2446`](https://github.com/EventStore/Design-System/commit/03c24460321e4746ced94b25b7c235180ec214e2) - Fix inconsistent scroll behaviour when setting / deleting searchParams
+
 ## 1.0.1
 
 ### Patch Changes
