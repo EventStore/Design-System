@@ -35,16 +35,8 @@ class SearchParam implements SearchParamTracker {
         }
 
         const search = this.params;
-
         search.set(this.key, value);
-        window[INTERNAL_ROUTER].history.replace(
-            {
-                ...window[INTERNAL_ROUTER].history.location,
-                search: search.toString(),
-            },
-            undefined,
-            false,
-        );
+        this.updateParams(search);
     };
 
     public delete = () => {
@@ -57,13 +49,19 @@ class SearchParam implements SearchParamTracker {
         }
 
         const search = this.params;
-
         search.delete(this.key);
+        this.updateParams(search);
+    };
 
-        window[INTERNAL_ROUTER].history.replace({
-            ...window[INTERNAL_ROUTER].history.location,
-            search: search.toString(),
-        });
+    private updateParams = (search: URLSearchParams) => {
+        window[INTERNAL_ROUTER].history.replace(
+            {
+                ...window[INTERNAL_ROUTER].history.location,
+                search: search.toString(),
+            },
+            undefined,
+            false,
+        );
     };
 
     private get params(): URLSearchParams {
