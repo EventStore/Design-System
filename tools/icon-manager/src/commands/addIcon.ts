@@ -1,23 +1,23 @@
-import { writeFile } from 'fs/promises';
-import { cwd } from 'process';
-import { resolve, join, isAbsolute } from 'path';
+import { writeFile } from 'node:fs/promises';
+import { cwd } from 'node:process';
+import { resolve, join, isAbsolute } from 'node:path';
 
 import {
     addToIndex,
     isInIndex,
     readAliasesFromIndex,
     removeAliasFromIndex,
-} from '../utils/indexFile';
-import { prettify } from '../utils/prettify';
-import { loadIcon } from '../utils/loadIcon';
+} from '../utils/indexFile.js';
+import { prettify } from '../utils/prettify.js';
+import { loadIcon } from '../utils/loadIcon.js';
 import {
     createDeclarationIfMissing,
     createDirIfMissing,
-} from '../utils/scaffold';
-import { componentMetadata } from '../utils/componentMetadata';
+} from '../utils/scaffold.js';
+import { componentMetadata } from '../utils/componentMetadata.js';
 
-import { convertToComponent } from '../components/icon';
-import { failure, info, success } from '../utils/finish';
+import { convertToComponent } from '../components/icon.js';
+import { failure, info, success } from '../utils/finish.js';
 
 interface AddIconOptions {
     name: string;

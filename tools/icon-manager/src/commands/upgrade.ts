@@ -1,23 +1,23 @@
-import { cwd } from 'process';
-import { mkdir, rename, rm, writeFile } from 'fs/promises';
-import { resolve, isAbsolute, join } from 'path';
+import { cwd } from 'node:process';
+import { mkdir, rename, rm, writeFile } from 'node:fs/promises';
+import { resolve, isAbsolute, join } from 'node:path';
 
 import {
     checkIfIndexNeedsUpdate,
     regenerateIndex,
     readIndex,
     addToIndex,
-} from '../utils/indexFile';
+} from '../utils/indexFile.js';
 
-import { failure, info, success } from '../utils/finish';
-import { convertToComponent } from '../components/icon';
-import { loadIcon } from '../utils/loadIcon';
-import { prettify } from '../utils/prettify';
+import { failure, info, success } from '../utils/finish.js';
+import { convertToComponent } from '../components/icon.js';
+import { loadIcon } from '../utils/loadIcon.js';
+import { prettify } from '../utils/prettify.js';
 import {
     createDirIfMissing,
     createDeclarationIfMissing,
-} from '../utils/scaffold';
-import { version } from '../utils/version';
+} from '../utils/scaffold.js';
+import { version } from '../utils/version.js';
 
 interface UpgradeOptions {
     dir: string;

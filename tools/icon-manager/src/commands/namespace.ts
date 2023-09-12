@@ -1,9 +1,9 @@
-import { cwd } from 'process';
-import { resolve, isAbsolute } from 'path';
+import { cwd } from 'node:process';
+import { resolve, isAbsolute } from 'node:path';
 
-import { readIndexFileDetails, updateIndex } from '../utils/indexFile';
+import { readIndexFileDetails, updateIndex } from '../utils/indexFile.js';
 
-import { failure, success } from '../utils/finish';
+import { failure, success } from '../utils/finish.js';
 
 interface SetNamespaceOptions {
     dir: string;

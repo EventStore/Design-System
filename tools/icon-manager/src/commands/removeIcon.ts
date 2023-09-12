@@ -1,14 +1,14 @@
-import { unlink } from 'fs/promises';
-import { cwd } from 'process';
-import { resolve, isAbsolute } from 'path';
+import { unlink } from 'node:fs/promises';
+import { cwd } from 'node:process';
+import { resolve, isAbsolute } from 'node:path';
 
 import {
     isInIndex,
     removeAliasFromIndex,
     removeFromIndex,
-} from '../utils/indexFile';
-import { componentMetadata } from '../utils/componentMetadata';
-import { failure, success } from '../utils/finish';
+} from '../utils/indexFile.js';
+import { componentMetadata } from '../utils/componentMetadata.js';
+import { failure, success } from '../utils/finish.js';
 
 interface RemoveIconOptions {
     name: string;
