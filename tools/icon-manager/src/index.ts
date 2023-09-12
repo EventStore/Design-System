@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-import * as yargs from 'yargs';
-import { addIcon } from './commands/addIcon';
-import { aliasIcon } from './commands/aliasIcon';
-import { setNamespace } from './commands/namespace';
-import { removeIcon } from './commands/removeIcon';
-import { upgrade } from './commands/upgrade';
-import { display } from './commands/display';
-import { regenerate } from './commands/regenerate';
-import { version } from './utils/version';
+import yargs from 'yargs';
+import { addIcon } from './commands/addIcon.js';
+import { aliasIcon } from './commands/aliasIcon.js';
+import { setNamespace } from './commands/namespace.js';
+import { removeIcon } from './commands/removeIcon.js';
+import { upgrade } from './commands/upgrade.js';
+import { display } from './commands/display.js';
+import { regenerate } from './commands/regenerate.js';
+import { version } from './utils/version.js';
 
 yargs
     .version(version)

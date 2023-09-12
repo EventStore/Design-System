@@ -1,9 +1,9 @@
-import { cwd } from 'process';
-import { resolve, isAbsolute } from 'path';
+import { cwd } from 'node:process';
+import { resolve, isAbsolute } from 'node:path';
 
-import { regenerateIndex } from '../utils/indexFile';
+import { regenerateIndex } from '../utils/indexFile.js';
 
-import { failure, info, success } from '../utils/finish';
+import { failure, info, success } from '../utils/finish.js';
 
 interface RegenerateOptions {
     dir: string;

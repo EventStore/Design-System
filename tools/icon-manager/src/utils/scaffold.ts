@@ -1,8 +1,9 @@
-import { mkdir, writeFile } from 'fs/promises';
-import { parse } from 'path';
-import { join } from 'path/posix';
-import { declaration } from '../components/declaration';
-import { dirExists, fileExists } from './exists';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { parse } from 'node:path';
+import { join } from 'node:path/posix';
+
+import { declaration } from '../components/declaration.js';
+import { dirExists, fileExists } from './exists.js';
 
 export const createDirIfMissing = async (directory: string) => {
     const { dir } = parse(directory);

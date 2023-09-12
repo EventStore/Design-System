@@ -1,8 +1,8 @@
-import { cwd } from 'process';
-import { resolve, isAbsolute } from 'path';
+import { cwd } from 'node:process';
+import { resolve, isAbsolute } from 'node:path';
 
-import { addAliasToIndex } from '../utils/indexFile';
-import { failure, success } from '../utils/finish';
+import { addAliasToIndex } from '../utils/indexFile.js';
+import { failure, success } from '../utils/finish.js';
 
 interface AliasIconOptions {
     name: string;

@@ -1,10 +1,10 @@
-import { readFile } from 'fs/promises';
-import { cwd } from 'process';
-import { resolve, isAbsolute, parse } from 'path';
+import { readFile } from 'node:fs/promises';
+import { cwd } from 'node:process';
+import { resolve, isAbsolute, parse } from 'node:path';
 
 import * as clipboardy from 'clipboardy';
-import { optimiseSVG } from './optimiseSVG';
-import { fileExists } from './exists';
+import { optimiseSVG } from './optimiseSVG.js';
+import { fileExists } from './exists.js';
 
 export interface Loaded {
     kind: 'jsx' | 'svg';

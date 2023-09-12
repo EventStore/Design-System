@@ -1,5 +1,5 @@
-import type { ComponentMetadata } from '../utils/componentMetadata';
-import type { Loaded } from '../utils/loadIcon';
+import type { ComponentMetadata } from '../utils/componentMetadata.js';
+import type { Loaded } from '../utils/loadIcon.js';
 
 export const convertToComponent = (
     { kind, content }: Loaded,

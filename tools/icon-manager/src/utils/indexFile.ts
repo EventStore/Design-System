@@ -1,13 +1,13 @@
-import { readFile, unlink, writeFile } from 'fs/promises';
-import { join } from 'path';
+import { readFile, unlink, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
 
 import { gt, SemVer } from 'semver';
 
-import { version } from './version';
-import { prettify } from './prettify';
-import { convertToLoader } from '../components/loader';
-import type { ComponentMetadata } from './componentMetadata';
-import { fileExists } from './exists';
+import { version } from './version.js';
+import { prettify } from './prettify.js';
+import { convertToLoader } from '../components/loader.js';
+import type { ComponentMetadata } from './componentMetadata.js';
+import { fileExists } from './exists.js';
 
 export type IndexMap = Map<string, ComponentMetadata>;
 export interface IndexFileDetails {

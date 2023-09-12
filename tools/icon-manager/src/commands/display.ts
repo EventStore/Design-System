@@ -1,19 +1,29 @@
 /* eslint-disable no-console */
-import { createServer, type RequestListener } from 'http';
-import { join, dirname, resolve, isAbsolute, extname, basename } from 'path';
-import { readFile, stat } from 'fs/promises';
-import { watch } from 'fs';
-import { cwd } from 'process';
-import type { AddressInfo } from 'net';
-import { EventEmitter } from 'stream';
+import { createServer, type RequestListener } from 'node:http';
+import {
+    join,
+    dirname,
+    resolve,
+    isAbsolute,
+    extname,
+    basename,
+} from 'node:path';
+import { readFile, stat } from 'node:fs/promises';
+import { watch } from 'node:fs';
+import { cwd } from 'node:process';
+import type { AddressInfo } from 'node:net';
+import { EventEmitter } from 'node:events';
+import { createRequire } from 'node:module';
 
-import { JsxEmit, ModuleKind, ScriptTarget, transpileModule } from 'typescript';
+import typescript from 'typescript';
+// 'typescript' is a CommonJS module, which may not support all module.exports as named exports.
+const { JsxEmit, ModuleKind, ScriptTarget, transpileModule } = typescript;
 
 import {
     type IndexFileDetails,
     readIndexFileDetails,
-} from '../utils/indexFile';
-import { debounce } from '../utils/debounce';
+} from '../utils/indexFile.js';
+import { debounce } from '../utils/debounce.js';
 
 interface DisplayOptions {
     dir: string;
@@ -201,6 +211,7 @@ const iconDetails: RequestHandler =
         }
     };
 
+const require = createRequire(import.meta.url);
 const esComponentsDir = join(
     dirname(require.resolve('@eventstore-ui/components/package.json')),
     '/dist',

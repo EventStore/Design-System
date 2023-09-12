@@ -1,4 +1,4 @@
-import type { IndexMap } from '../utils/indexFile';
+import type { IndexMap } from '../utils/indexFile.js';
 
 export const convertToLoader = (
     indexMap: IndexMap,
