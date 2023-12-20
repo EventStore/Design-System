@@ -66,6 +66,7 @@ export default () => (
 | `colors`                   | --         | Set custom colors for all checkpoints | `undefined \| { active?: string \| undefined; complete?: string \| undefined; inactive?: string \| undefined; }`                            | `undefined` |
 | `icons`                    | --         | Set custom icons for all checkpoints  | `undefined \| { active?: IconDescription \| undefined; complete?: IconDescription \| undefined; inactive?: IconDescription \| undefined; }` | `undefined` |
 | `location` _(required)_    | `location` | The current active location.          | `string`                                                                                                                                    | `undefined` |
+| `readonly`                 | `readonly` | The current active location.          | `boolean \| undefined`                                                                                                                      | `undefined` |
 
 
 ## Events

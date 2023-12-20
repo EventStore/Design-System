@@ -43,7 +43,7 @@ button {
         transition-timing-function: ease;
     }
 
-    &.clickable {
+    &:not(.readonly) {
         cursor: pointer;
 
         &:hover,

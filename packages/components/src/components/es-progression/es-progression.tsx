@@ -31,6 +31,8 @@ export class Progression {
     @Prop() checkpoints!: Checkpoint[];
     /** The current active location. */
     @Prop() location!: string;
+    /** The current active location. */
+    @Prop() readonly?: boolean;
     /** Set custom colors for all checkpoints */
     @Prop() colors?: Partial<Record<CheckpointState, string>>;
     /** Set custom icons for all checkpoints */
@@ -69,7 +71,7 @@ export class Progression {
                     id,
                     title,
                     disabled = false,
-                    clickable = true,
+                    readonly = this.readonly ?? false,
                     color,
                     inactiveColor,
                     icon,
@@ -78,18 +80,19 @@ export class Progression {
                 i,
             ) => {
                 const next = this.transformedCheckpoints[i + 1];
-                const cls: { [key: string]: boolean } = { clickable };
-                cls[state] = true;
                 return [
                     <button
                         key={id}
                         type={'button'}
                         part={`checkpoint ${state}`}
-                        class={cls}
+                        class={{
+                            readonly,
+                            [state]: true,
+                        }}
                         disabled={disabled}
                         tabindex={state === 'active' ? -1 : 0}
                         onClick={() =>
-                            clickable ? this.progressionRequest.emit(id) : null
+                            readonly ? null : this.progressionRequest.emit(id)
                         }
                         style={{
                             '--checkpoint-color': color,
