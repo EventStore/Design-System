@@ -69,6 +69,7 @@ export class Progression {
                     id,
                     title,
                     disabled = false,
+                    clickable = true,
                     color,
                     inactiveColor,
                     icon,
@@ -77,15 +78,19 @@ export class Progression {
                 i,
             ) => {
                 const next = this.transformedCheckpoints[i + 1];
+                const cls: { [key: string]: boolean } = { clickable };
+                cls[state] = true;
                 return [
                     <button
                         key={id}
                         type={'button'}
                         part={`checkpoint ${state}`}
-                        class={state}
+                        class={cls}
                         disabled={disabled}
                         tabindex={state === 'active' ? -1 : 0}
-                        onClick={() => this.progressionRequest.emit(id)}
+                        onClick={() =>
+                            clickable ? this.progressionRequest.emit(id) : null
+                        }
                         style={{
                             '--checkpoint-color': color,
                         }}

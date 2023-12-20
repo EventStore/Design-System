@@ -10,6 +10,7 @@ import type { Checkpoint } from './types';
 export class Counter {
     @State() location1: string = '1-1';
     @State() location2: string = '2-1';
+    @State() location3: string = '3-1';
 
     render() {
         return (
@@ -48,6 +49,16 @@ export class Counter {
                         location={this.location2}
                         onProgressionRequest={(e) => {
                             this.location2 = e.detail;
+                        }}
+                    />
+                </div>
+                <h1>Unclickable checkpoints</h1>
+                <div style={{ display: 'flex', gap: '20px' }}>
+                    <es-progression
+                        checkpoints={this.world3}
+                        location={this.location3}
+                        onProgressionRequest={(e) => {
+                            this.location3 = e.detail;
                         }}
                     />
                 </div>
@@ -93,6 +104,7 @@ export class Counter {
                     case 'complete':
                         return [ICON_NAMESPACE, 'check'];
                 }
+                true;
             },
         },
         {
@@ -118,6 +130,28 @@ export class Counter {
         },
         {
             id: '2-4',
+            title: 'Castle',
+            disabled: true,
+        },
+    ];
+
+    private readonly world3: Checkpoint[] = [
+        {
+            id: '3-1',
+            title: 'Overworld',
+            clickable: false,
+        },
+        {
+            id: '3-2',
+            title: 'Underground',
+        },
+        {
+            id: '3-3',
+            title: 'Athletic',
+            clickable: false,
+        },
+        {
+            id: '3-4',
             title: 'Castle',
         },
     ];
