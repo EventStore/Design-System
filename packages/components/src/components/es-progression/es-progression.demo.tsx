@@ -139,7 +139,7 @@ export class Counter {
         {
             id: '3-1',
             title: 'Overworld',
-            clickable: false,
+            readonly: true,
         },
         {
             id: '3-2',
@@ -148,7 +148,7 @@ export class Counter {
         {
             id: '3-3',
             title: 'Athletic',
-            clickable: false,
+            readonly: true,
         },
         {
             id: '3-4',

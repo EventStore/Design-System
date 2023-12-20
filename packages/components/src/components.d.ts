@@ -215,11 +215,6 @@ export namespace Components {
         "variant": CounterVariant;
     }
     /**
-     * es-counter demo.
-     */
-    interface EsCounterDemo {
-    }
-    /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
      * See [IconStore](/components/variables/iconStore) for details on how to load icons.
      */
@@ -266,11 +261,6 @@ export namespace Components {
           * Adds a random number of chars (up to the passed amount)
          */
         "variance"?: number;
-    }
-    /**
-     * es-loading-text & LoadingText demo
-     */
-    interface EsLoadingTextDemo {
     }
     /**
      * A pop up modal for overlaying information, warnings and confirmations.
@@ -439,11 +429,10 @@ export namespace Components {
           * The current active location.
          */
         "location": string;
-    }
-    /**
-     * es-progression demo.
-     */
-    interface EsProgressionDemo {
+        /**
+          * The current active location.
+         */
+        "readonly"?: boolean;
     }
     /**
      * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
@@ -514,16 +503,6 @@ export namespace Components {
         "stickyHeader": boolean;
     }
     /**
-     * Basic table cell align demo.
-     */
-    interface EsTableAlign {
-    }
-    /**
-     * Basic es-table demo.
-     */
-    interface EsTableBasicDemo {
-    }
-    /**
      * Render a single row data as a grid of information.
      */
     interface EsTableDetail {
@@ -543,11 +522,6 @@ export namespace Components {
           * Passed to cell renderer as `parent`.
          */
         "identifier": string;
-    }
-    /**
-     * Basic es-table-detail demo.
-     */
-    interface EsTableDetailBasicDemo {
     }
     /**
      * A default header for [`es-table-detail`](/components/components/es-table-detail).
@@ -573,11 +547,6 @@ export namespace Components {
           * Which cell to place as the title
          */
         "titleCell": string;
-    }
-    /**
-     * Header grouping es-table demo.
-     */
-    interface EsTableGroupedDemo {
     }
     /**
      * Create a nested table from data.
@@ -678,21 +647,6 @@ export namespace Components {
           * If clicking a row should expand it.
          */
         "toggleRowOnClick": boolean;
-    }
-    /**
-     * es-table-nested demo.
-     */
-    interface EsTableNestedDemo {
-    }
-    /**
-     * Basic es-table demo.
-     */
-    interface EsTableSortDemo {
-    }
-    /**
-     * Basic table cell variant demo.
-     */
-    interface EsTableVariants {
     }
     /**
      * Create a virtualized table from data.
@@ -798,16 +752,6 @@ export namespace Components {
           * The size of the window to render
          */
         "windowSize": number;
-    }
-    /**
-     * Basic es-table demo.
-     */
-    interface EsTableVirtualizedDemo {
-    }
-    /**
-     * Header grouping es-table-virtualized demo.
-     */
-    interface EsTableVirtualizedGroupedDemo {
     }
     /**
      * A tabbed panel. Each panel can be targeted via a slot.
@@ -1018,15 +962,6 @@ declare global {
         new (): HTMLEsCounterElement;
     };
     /**
-     * es-counter demo.
-     */
-    interface HTMLEsCounterDemoElement extends Components.EsCounterDemo, HTMLStencilElement {
-    }
-    var HTMLEsCounterDemoElement: {
-        prototype: HTMLEsCounterDemoElement;
-        new (): HTMLEsCounterDemoElement;
-    };
-    /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
      * See [IconStore](/components/variables/iconStore) for details on how to load icons.
      */
@@ -1053,15 +988,6 @@ declare global {
     var HTMLEsLoadingTextElement: {
         prototype: HTMLEsLoadingTextElement;
         new (): HTMLEsLoadingTextElement;
-    };
-    /**
-     * es-loading-text & LoadingText demo
-     */
-    interface HTMLEsLoadingTextDemoElement extends Components.EsLoadingTextDemo, HTMLStencilElement {
-    }
-    var HTMLEsLoadingTextDemoElement: {
-        prototype: HTMLEsLoadingTextDemoElement;
-        new (): HTMLEsLoadingTextDemoElement;
     };
     /**
      * A pop up modal for overlaying information, warnings and confirmations.
@@ -1123,15 +1049,6 @@ declare global {
         new (): HTMLEsProgressionElement;
     };
     /**
-     * es-progression demo.
-     */
-    interface HTMLEsProgressionDemoElement extends Components.EsProgressionDemo, HTMLStencilElement {
-    }
-    var HTMLEsProgressionDemoElement: {
-        prototype: HTMLEsProgressionDemoElement;
-        new (): HTMLEsProgressionDemoElement;
-    };
-    /**
      * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
      */
     interface HTMLEsResizeObserverElement extends Components.EsResizeObserver, HTMLStencilElement {
@@ -1156,24 +1073,6 @@ declare global {
         new (): HTMLEsTableElement;
     };
     /**
-     * Basic table cell align demo.
-     */
-    interface HTMLEsTableAlignElement extends Components.EsTableAlign, HTMLStencilElement {
-    }
-    var HTMLEsTableAlignElement: {
-        prototype: HTMLEsTableAlignElement;
-        new (): HTMLEsTableAlignElement;
-    };
-    /**
-     * Basic es-table demo.
-     */
-    interface HTMLEsTableBasicDemoElement extends Components.EsTableBasicDemo, HTMLStencilElement {
-    }
-    var HTMLEsTableBasicDemoElement: {
-        prototype: HTMLEsTableBasicDemoElement;
-        new (): HTMLEsTableBasicDemoElement;
-    };
-    /**
      * Render a single row data as a grid of information.
      */
     interface HTMLEsTableDetailElement extends Components.EsTableDetail, HTMLStencilElement {
@@ -1181,15 +1080,6 @@ declare global {
     var HTMLEsTableDetailElement: {
         prototype: HTMLEsTableDetailElement;
         new (): HTMLEsTableDetailElement;
-    };
-    /**
-     * Basic es-table-detail demo.
-     */
-    interface HTMLEsTableDetailBasicDemoElement extends Components.EsTableDetailBasicDemo, HTMLStencilElement {
-    }
-    var HTMLEsTableDetailBasicDemoElement: {
-        prototype: HTMLEsTableDetailBasicDemoElement;
-        new (): HTMLEsTableDetailBasicDemoElement;
     };
     /**
      * A default header for [`es-table-detail`](/components/components/es-table-detail).
@@ -1201,15 +1091,6 @@ declare global {
         new (): HTMLEsTableDetailHeaderElement;
     };
     /**
-     * Header grouping es-table demo.
-     */
-    interface HTMLEsTableGroupedDemoElement extends Components.EsTableGroupedDemo, HTMLStencilElement {
-    }
-    var HTMLEsTableGroupedDemoElement: {
-        prototype: HTMLEsTableGroupedDemoElement;
-        new (): HTMLEsTableGroupedDemoElement;
-    };
-    /**
      * Create a nested table from data.
      */
     interface HTMLEsTableNestedElement extends Components.EsTableNested, HTMLStencilElement {
@@ -1219,33 +1100,6 @@ declare global {
         new (): HTMLEsTableNestedElement;
     };
     /**
-     * es-table-nested demo.
-     */
-    interface HTMLEsTableNestedDemoElement extends Components.EsTableNestedDemo, HTMLStencilElement {
-    }
-    var HTMLEsTableNestedDemoElement: {
-        prototype: HTMLEsTableNestedDemoElement;
-        new (): HTMLEsTableNestedDemoElement;
-    };
-    /**
-     * Basic es-table demo.
-     */
-    interface HTMLEsTableSortDemoElement extends Components.EsTableSortDemo, HTMLStencilElement {
-    }
-    var HTMLEsTableSortDemoElement: {
-        prototype: HTMLEsTableSortDemoElement;
-        new (): HTMLEsTableSortDemoElement;
-    };
-    /**
-     * Basic table cell variant demo.
-     */
-    interface HTMLEsTableVariantsElement extends Components.EsTableVariants, HTMLStencilElement {
-    }
-    var HTMLEsTableVariantsElement: {
-        prototype: HTMLEsTableVariantsElement;
-        new (): HTMLEsTableVariantsElement;
-    };
-    /**
      * Create a virtualized table from data.
      */
     interface HTMLEsTableVirtualizedElement extends Components.EsTableVirtualized, HTMLStencilElement {
@@ -1253,24 +1107,6 @@ declare global {
     var HTMLEsTableVirtualizedElement: {
         prototype: HTMLEsTableVirtualizedElement;
         new (): HTMLEsTableVirtualizedElement;
-    };
-    /**
-     * Basic es-table demo.
-     */
-    interface HTMLEsTableVirtualizedDemoElement extends Components.EsTableVirtualizedDemo, HTMLStencilElement {
-    }
-    var HTMLEsTableVirtualizedDemoElement: {
-        prototype: HTMLEsTableVirtualizedDemoElement;
-        new (): HTMLEsTableVirtualizedDemoElement;
-    };
-    /**
-     * Header grouping es-table-virtualized demo.
-     */
-    interface HTMLEsTableVirtualizedGroupedDemoElement extends Components.EsTableVirtualizedGroupedDemo, HTMLStencilElement {
-    }
-    var HTMLEsTableVirtualizedGroupedDemoElement: {
-        prototype: HTMLEsTableVirtualizedGroupedDemoElement;
-        new (): HTMLEsTableVirtualizedGroupedDemoElement;
     };
     /**
      * A tabbed panel. Each panel can be targeted via a slot.
@@ -1321,11 +1157,9 @@ declare global {
         "es-copy": HTMLEsCopyElement;
         "es-corner-banner": HTMLEsCornerBannerElement;
         "es-counter": HTMLEsCounterElement;
-        "es-counter-demo": HTMLEsCounterDemoElement;
         "es-icon": HTMLEsIconElement;
         "es-loading-dots": HTMLEsLoadingDotsElement;
         "es-loading-text": HTMLEsLoadingTextElement;
-        "es-loading-text-demo": HTMLEsLoadingTextDemoElement;
         "es-modal": HTMLEsModalElement;
         "es-pagination": HTMLEsPaginationElement;
         "es-popover": HTMLEsPopoverElement;
@@ -1333,23 +1167,13 @@ declare global {
         "es-popper-inner": HTMLEsPopperInnerElement;
         "es-portal": HTMLEsPortalElement;
         "es-progression": HTMLEsProgressionElement;
-        "es-progression-demo": HTMLEsProgressionDemoElement;
         "es-resize-observer": HTMLEsResizeObserverElement;
         "es-status": HTMLEsStatusElement;
         "es-table": HTMLEsTableElement;
-        "es-table-align": HTMLEsTableAlignElement;
-        "es-table-basic-demo": HTMLEsTableBasicDemoElement;
         "es-table-detail": HTMLEsTableDetailElement;
-        "es-table-detail-basic-demo": HTMLEsTableDetailBasicDemoElement;
         "es-table-detail-header": HTMLEsTableDetailHeaderElement;
-        "es-table-grouped-demo": HTMLEsTableGroupedDemoElement;
         "es-table-nested": HTMLEsTableNestedElement;
-        "es-table-nested-demo": HTMLEsTableNestedDemoElement;
-        "es-table-sort-demo": HTMLEsTableSortDemoElement;
-        "es-table-variants": HTMLEsTableVariantsElement;
         "es-table-virtualized": HTMLEsTableVirtualizedElement;
-        "es-table-virtualized-demo": HTMLEsTableVirtualizedDemoElement;
-        "es-table-virtualized-grouped-demo": HTMLEsTableVirtualizedGroupedDemoElement;
         "es-tabs": HTMLEsTabsElement;
         "es-thinking-button": HTMLEsThinkingButtonElement;
         "es-toast": HTMLEsToastElement;
@@ -1529,11 +1353,6 @@ declare namespace LocalJSX {
         "variant"?: CounterVariant;
     }
     /**
-     * es-counter demo.
-     */
-    interface EsCounterDemo {
-    }
-    /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
      * See [IconStore](/components/variables/iconStore) for details on how to load icons.
      */
@@ -1576,11 +1395,6 @@ declare namespace LocalJSX {
           * Adds a random number of chars (up to the passed amount)
          */
         "variance"?: number;
-    }
-    /**
-     * es-loading-text & LoadingText demo
-     */
-    interface EsLoadingTextDemo {
     }
     /**
      * A pop up modal for overlaying information, warnings and confirmations.
@@ -1767,11 +1581,10 @@ declare namespace LocalJSX {
           * Emitted when a checkpoint is clicked.
          */
         "onProgressionRequest"?: (event: EsProgressionCustomEvent<string>) => void;
-    }
-    /**
-     * es-progression demo.
-     */
-    interface EsProgressionDemo {
+        /**
+          * The current active location.
+         */
+        "readonly"?: boolean;
     }
     /**
      * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
@@ -1854,16 +1667,6 @@ declare namespace LocalJSX {
         "stickyHeader"?: boolean;
     }
     /**
-     * Basic table cell align demo.
-     */
-    interface EsTableAlign {
-    }
-    /**
-     * Basic es-table demo.
-     */
-    interface EsTableBasicDemo {
-    }
-    /**
      * Render a single row data as a grid of information.
      */
     interface EsTableDetail {
@@ -1883,11 +1686,6 @@ declare namespace LocalJSX {
           * Passed to cell renderer as `parent`.
          */
         "identifier"?: string;
-    }
-    /**
-     * Basic es-table-detail demo.
-     */
-    interface EsTableDetailBasicDemo {
     }
     /**
      * A default header for [`es-table-detail`](/components/components/es-table-detail).
@@ -1913,11 +1711,6 @@ declare namespace LocalJSX {
           * Which cell to place as the title
          */
         "titleCell"?: string;
-    }
-    /**
-     * Header grouping es-table demo.
-     */
-    interface EsTableGroupedDemo {
     }
     /**
      * Create a nested table from data.
@@ -2026,21 +1819,6 @@ declare namespace LocalJSX {
           * If clicking a row should expand it.
          */
         "toggleRowOnClick"?: boolean;
-    }
-    /**
-     * es-table-nested demo.
-     */
-    interface EsTableNestedDemo {
-    }
-    /**
-     * Basic es-table demo.
-     */
-    interface EsTableSortDemo {
-    }
-    /**
-     * Basic table cell variant demo.
-     */
-    interface EsTableVariants {
     }
     /**
      * Create a virtualized table from data.
@@ -2164,16 +1942,6 @@ declare namespace LocalJSX {
         "windowSize"?: number;
     }
     /**
-     * Basic es-table demo.
-     */
-    interface EsTableVirtualizedDemo {
-    }
-    /**
-     * Header grouping es-table-virtualized demo.
-     */
-    interface EsTableVirtualizedGroupedDemo {
-    }
-    /**
      * A tabbed panel. Each panel can be targeted via a slot.
      */
     interface EsTabs {
@@ -2265,11 +2033,9 @@ declare namespace LocalJSX {
         "es-copy": EsCopy;
         "es-corner-banner": EsCornerBanner;
         "es-counter": EsCounter;
-        "es-counter-demo": EsCounterDemo;
         "es-icon": EsIcon;
         "es-loading-dots": EsLoadingDots;
         "es-loading-text": EsLoadingText;
-        "es-loading-text-demo": EsLoadingTextDemo;
         "es-modal": EsModal;
         "es-pagination": EsPagination;
         "es-popover": EsPopover;
@@ -2277,23 +2043,13 @@ declare namespace LocalJSX {
         "es-popper-inner": EsPopperInner;
         "es-portal": EsPortal;
         "es-progression": EsProgression;
-        "es-progression-demo": EsProgressionDemo;
         "es-resize-observer": EsResizeObserver;
         "es-status": EsStatus;
         "es-table": EsTable;
-        "es-table-align": EsTableAlign;
-        "es-table-basic-demo": EsTableBasicDemo;
         "es-table-detail": EsTableDetail;
-        "es-table-detail-basic-demo": EsTableDetailBasicDemo;
         "es-table-detail-header": EsTableDetailHeader;
-        "es-table-grouped-demo": EsTableGroupedDemo;
         "es-table-nested": EsTableNested;
-        "es-table-nested-demo": EsTableNestedDemo;
-        "es-table-sort-demo": EsTableSortDemo;
-        "es-table-variants": EsTableVariants;
         "es-table-virtualized": EsTableVirtualized;
-        "es-table-virtualized-demo": EsTableVirtualizedDemo;
-        "es-table-virtualized-grouped-demo": EsTableVirtualizedGroupedDemo;
         "es-tabs": EsTabs;
         "es-thinking-button": EsThinkingButton;
         "es-toast": EsToast;
@@ -2339,10 +2095,6 @@ declare module "@stencil/core" {
              */
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
             /**
-             * es-counter demo.
-             */
-            "es-counter-demo": LocalJSX.EsCounterDemo & JSXBase.HTMLAttributes<HTMLEsCounterDemoElement>;
-            /**
              * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
              * See [IconStore](/components/variables/iconStore) for details on how to load icons.
              */
@@ -2355,10 +2107,6 @@ declare module "@stencil/core" {
              * Displays a grey block to placehold loading text.
              */
             "es-loading-text": LocalJSX.EsLoadingText & JSXBase.HTMLAttributes<HTMLEsLoadingTextElement>;
-            /**
-             * es-loading-text & LoadingText demo
-             */
-            "es-loading-text-demo": LocalJSX.EsLoadingTextDemo & JSXBase.HTMLAttributes<HTMLEsLoadingTextDemoElement>;
             /**
              * A pop up modal for overlaying information, warnings and confirmations.
              * Traps focus within the modal, and returns focus to previous location when closed.
@@ -2384,10 +2132,6 @@ declare module "@stencil/core" {
              */
             "es-progression": LocalJSX.EsProgression & JSXBase.HTMLAttributes<HTMLEsProgressionElement>;
             /**
-             * es-progression demo.
-             */
-            "es-progression-demo": LocalJSX.EsProgressionDemo & JSXBase.HTMLAttributes<HTMLEsProgressionDemoElement>;
-            /**
              * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
              */
             "es-resize-observer": LocalJSX.EsResizeObserver & JSXBase.HTMLAttributes<HTMLEsResizeObserverElement>;
@@ -2397,57 +2141,21 @@ declare module "@stencil/core" {
              */
             "es-table": LocalJSX.EsTable & JSXBase.HTMLAttributes<HTMLEsTableElement>;
             /**
-             * Basic table cell align demo.
-             */
-            "es-table-align": LocalJSX.EsTableAlign & JSXBase.HTMLAttributes<HTMLEsTableAlignElement>;
-            /**
-             * Basic es-table demo.
-             */
-            "es-table-basic-demo": LocalJSX.EsTableBasicDemo & JSXBase.HTMLAttributes<HTMLEsTableBasicDemoElement>;
-            /**
              * Render a single row data as a grid of information.
              */
             "es-table-detail": LocalJSX.EsTableDetail & JSXBase.HTMLAttributes<HTMLEsTableDetailElement>;
-            /**
-             * Basic es-table-detail demo.
-             */
-            "es-table-detail-basic-demo": LocalJSX.EsTableDetailBasicDemo & JSXBase.HTMLAttributes<HTMLEsTableDetailBasicDemoElement>;
             /**
              * A default header for [`es-table-detail`](/components/components/es-table-detail).
              */
             "es-table-detail-header": LocalJSX.EsTableDetailHeader & JSXBase.HTMLAttributes<HTMLEsTableDetailHeaderElement>;
             /**
-             * Header grouping es-table demo.
-             */
-            "es-table-grouped-demo": LocalJSX.EsTableGroupedDemo & JSXBase.HTMLAttributes<HTMLEsTableGroupedDemoElement>;
-            /**
              * Create a nested table from data.
              */
             "es-table-nested": LocalJSX.EsTableNested & JSXBase.HTMLAttributes<HTMLEsTableNestedElement>;
             /**
-             * es-table-nested demo.
-             */
-            "es-table-nested-demo": LocalJSX.EsTableNestedDemo & JSXBase.HTMLAttributes<HTMLEsTableNestedDemoElement>;
-            /**
-             * Basic es-table demo.
-             */
-            "es-table-sort-demo": LocalJSX.EsTableSortDemo & JSXBase.HTMLAttributes<HTMLEsTableSortDemoElement>;
-            /**
-             * Basic table cell variant demo.
-             */
-            "es-table-variants": LocalJSX.EsTableVariants & JSXBase.HTMLAttributes<HTMLEsTableVariantsElement>;
-            /**
              * Create a virtualized table from data.
              */
             "es-table-virtualized": LocalJSX.EsTableVirtualized & JSXBase.HTMLAttributes<HTMLEsTableVirtualizedElement>;
-            /**
-             * Basic es-table demo.
-             */
-            "es-table-virtualized-demo": LocalJSX.EsTableVirtualizedDemo & JSXBase.HTMLAttributes<HTMLEsTableVirtualizedDemoElement>;
-            /**
-             * Header grouping es-table-virtualized demo.
-             */
-            "es-table-virtualized-grouped-demo": LocalJSX.EsTableVirtualizedGroupedDemo & JSXBase.HTMLAttributes<HTMLEsTableVirtualizedGroupedDemoElement>;
             /**
              * A tabbed panel. Each panel can be targeted via a slot.
              */
