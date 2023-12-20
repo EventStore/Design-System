@@ -19,7 +19,6 @@ button {
     align-items: center;
     background-color: transparent;
     font: inherit;
-    cursor: pointer;
     outline: none;
     color: var(--color-text);
     position: relative;
@@ -44,11 +43,15 @@ button {
         transition-timing-function: ease;
     }
 
-    &:hover,
-    &:focus {
-        & .center {
-            opacity: 1;
-            transform: scale(0.5);
+    &.clickable {
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            & .center {
+                opacity: 1;
+                transform: scale(0.5);
+            }
         }
     }
 
