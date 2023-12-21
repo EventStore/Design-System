@@ -31,7 +31,7 @@ export class Progression {
     @Prop() checkpoints!: Checkpoint[];
     /** The current active location. */
     @Prop() location!: string;
-    /** The current active location. */
+    /** Disable interactivity. */
     @Prop() readonly?: boolean;
     /** Set custom colors for all checkpoints */
     @Prop() colors?: Partial<Record<CheckpointState, string>>;
