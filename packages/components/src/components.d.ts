@@ -430,7 +430,7 @@ export namespace Components {
          */
         "location": string;
         /**
-          * The current active location.
+          * Disable interactivity.
          */
         "readonly"?: boolean;
     }
@@ -1582,7 +1582,7 @@ declare namespace LocalJSX {
          */
         "onProgressionRequest"?: (event: EsProgressionCustomEvent<string>) => void;
         /**
-          * The current active location.
+          * Disable interactivity.
          */
         "readonly"?: boolean;
     }
