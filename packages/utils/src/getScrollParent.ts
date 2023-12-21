@@ -29,11 +29,13 @@ const findParent = (node: Element): Element =>
 const canScroll = (node: Element) => {
     const style = getComputedStyle(node, null);
     return (
-        style.getPropertyValue('overflow') === 'scroll' ||
-        style.getPropertyValue('overflow') === 'auto' ||
-        style.getPropertyValue('overflow-y') === 'scroll' ||
-        style.getPropertyValue('overflow-y') === 'auto' ||
-        style.getPropertyValue('overflow-x') === 'scroll' ||
-        style.getPropertyValue('overflow-x') === 'auto'
+        style.getPropertyValue('display') !== 'hidden' &&
+        style.getPropertyValue('display') !== 'contents' &&
+        (style.getPropertyValue('overflow') === 'scroll' ||
+            style.getPropertyValue('overflow') === 'auto' ||
+            style.getPropertyValue('overflow-y') === 'scroll' ||
+            style.getPropertyValue('overflow-y') === 'auto' ||
+            style.getPropertyValue('overflow-x') === 'scroll' ||
+            style.getPropertyValue('overflow-x') === 'auto')
     );
 };
