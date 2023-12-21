@@ -1,5 +1,11 @@
 # @eventstore-ui/components
 
+## 1.2.0
+
+### Minor Changes
+
+-   [`6314c62`](https://github.com/EventStore/Design-System/commit/6314c6281b989b968e9a27a002c35f01e3de3362) - Prevent mouse interractions on readonly es-progressions
+
 ## 1.1.0
 
 ### Minor Changes
