@@ -3,6 +3,8 @@
     "version": "1.0.0",
     "description": "Themes and theming utilities for Event Store Design System",
     "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
     "repository": {
         "type": "git",
         "url": "git@github.com:EventStore/Design-System.git",

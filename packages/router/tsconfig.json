@@ -1,19 +1,21 @@
 {
     "compilerOptions": {
+        "strict": true,
         "allowSyntheticDefaultImports": true,
         "allowUnreachableCode": false,
-        "declaration": false,
+        "declaration": true,
         "experimentalDecorators": true,
         "lib": ["dom", "es2019"],
+        "outDir": "build",
+        "declarationDir": "dist",
         "moduleResolution": "node",
         "module": "esnext",
         "target": "es2017",
         "noUnusedLocals": true,
         "noUnusedParameters": true,
+        "verbatimModuleSyntax": true,
         "jsx": "react",
-        "jsxFactory": "h",
-        "strict": true,
-        "verbatimModuleSyntax": true
+        "jsxFactory": "h"
     },
     "typedocOptions": {
         "name": "@eventstore-ui/router",
