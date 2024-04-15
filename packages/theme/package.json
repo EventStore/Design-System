@@ -14,7 +14,11 @@
         "dist/"
     ],
     "scripts": {
-        "build": "tsc --outDir ./dist --declaration",
+        "build": "run-s \"build:*\"",
+        "build:clean": "rm -rf ./dist",
+        "build:ts": "tsc -p .",
+        "build:rollup": "rollup -c rollup.config.js",
+        "build:cleanup": "rm -rf ./build",
         "docs": "typedoc --logLevel Error --json ../../documentation/generated/theme.typedoc.json",
         "test": "jest --testEnvironment jsdom --passWithNoTests",
         "lint": "yarn g:lint",

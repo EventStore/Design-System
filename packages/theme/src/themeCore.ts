@@ -6,7 +6,7 @@ import type {
     ThemeDefinition,
     ThemeListener,
 } from './types';
-import { loadTheme, type BaseThemeKey } from './themes';
+import { loadTheme, type BaseThemeKey } from './themes/index';
 
 declare global {
     interface Window {
