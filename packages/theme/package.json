@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/theme",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Themes and theming utilities for Event Store Design System",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
