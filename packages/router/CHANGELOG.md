@@ -1,5 +1,11 @@
 # @eventstore-ui/router
 
+## 1.0.3
+
+### Patch Changes
+
+-   [`67b7f3b`](https://github.com/EventStore/Design-System/commit/67b7f3b6de6e561e3b8e55aa1e3e4dec81d91737) - Include file extensions in esm build
+
 ## 1.0.2
 
 ### Patch Changes
