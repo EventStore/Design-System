@@ -1,5 +1,11 @@
 # @eventstore-ui/theme
 
+## 1.0.2
+
+### Patch Changes
+
+-   [`6c452bd`](https://github.com/EventStore/Design-System/commit/6c452bd83750d098e23d3eea137c70c886c9811f) - Fix build
+
 ## 1.0.1
 
 ### Patch Changes
