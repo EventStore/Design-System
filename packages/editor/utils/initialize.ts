@@ -1,4 +1,4 @@
-import { editor, type Environment } from 'monaco-editor';
+import { editor, languages, type Environment } from 'monaco-editor';
 import { theme } from '@eventstore-ui/theme';
 import {
     ES_DARK,
@@ -6,13 +6,16 @@ import {
     ES_HIGH_CONTRAST_LIGHT,
 } from './themes';
 
+const MONACO_EDITOR = Symbol.for('monaco-editor');
+const MONACO_LANGUAGES = Symbol.for('monaco-languages');
+
 declare global {
     interface Window {
         MonacoEnvironment: Environment;
+        [MONACO_EDITOR]: typeof editor;
+        [MONACO_LANGUAGES]: typeof languages;
     }
 }
-
-export type { Environment } from 'monaco-editor';
 
 /**
  * initialize the monaco editor.
@@ -41,6 +44,8 @@ export const initialize = (
         },
     },
 ) => {
+    self[MONACO_EDITOR] = editor;
+    self[MONACO_LANGUAGES] = languages;
     self.MonacoEnvironment = environment;
 
     theme.onThemeChange(({ meta: { contrast, shade } }) => {
@@ -55,3 +60,5 @@ export const initialize = (
         }
     }, true);
 };
+
+export type { Environment } from 'monaco-editor';

@@ -1,5 +1,13 @@
 import { Component, h, Element, Prop } from '@stencil/core';
-import { editor } from 'monaco-editor';
+import type { editor } from 'monaco-editor';
+
+const MONACO_EDITOR = Symbol.for('monaco-editor');
+
+declare global {
+    interface Window {
+        [MONACO_EDITOR]: typeof editor;
+    }
+}
 
 /**
  * Monaco editor wrapped in a web component. Handles re-layout on container resize
@@ -16,18 +24,18 @@ export class YEditor {
     @Prop() options: editor.IStandaloneEditorConstructionOptions = {};
     /** An optional callback for getting a reference to the editor, for external control.  */
     @Prop() editorRef?: (editor: editor.IStandaloneCodeEditor) => void;
-    private editor?: editor.IStandaloneCodeEditor;
+    private editorInstance?: editor.IStandaloneCodeEditor;
 
     componentDidLoad() {
         this.initializeEditor();
     }
 
     componentDidUpdate() {
-        this.editor?.layout();
+        this.editorInstance?.layout();
     }
 
     disconnectedCallback() {
-        this.editor?.dispose();
+        this.editorInstance?.dispose();
     }
 
     render() {
@@ -47,13 +55,16 @@ export class YEditor {
 
     private initializeEditor = () => {
         if (!this.containerRef) return;
-        this.editor = editor.create(this.containerRef, this.options);
-        this.editorRef?.(this.editor);
+        this.editorInstance = window[MONACO_EDITOR].create(
+            this.containerRef,
+            this.options,
+        );
+        this.editorRef?.(this.editorInstance);
     };
 
     private resize = ({
         detail: { width, height },
     }: CustomEvent<DOMRectReadOnly>) => {
-        this.editor?.layout({ width, height });
+        this.editorInstance?.layout({ width, height });
     };
 }
