@@ -36,7 +36,6 @@
         "build:workers": "run-p \"workers:*\"",
         "build:stencil": "stencil build --docs",
         "utils:initialize": "tsc ./utils/initialize.ts --target esnext --moduleResolution node --declaration --outDir . ",
-        "utils:monaco": "tsc ./utils/monaco.ts --target esnext --moduleResolution node --declaration --outDir . ",
         "utils:configure": "tsc ./utils/configure.ts --declaration --outDir . ",
         "workers:main": "rollup ../../node_modules/monaco-editor/esm/vs/editor/editor.worker.js --file ./workers/editor.worker.js --format iife --output.name editorWorker --context self",
         "workers:json": "rollup ../../node_modules/monaco-editor/esm/vs/language/json/json.worker.js --file ./workers/json.worker.js --format iife --output.name jsonWorker --context self",
