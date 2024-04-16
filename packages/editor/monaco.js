@@ -1,4 +1,24 @@
-const MONACO_EDITOR = Symbol.for('monaco-editor');
-const MONACO_LANGUAGES = Symbol.for('monaco-languages');
-export const editor = window[MONACO_EDITOR];
-export const languages = window[MONACO_LANGUAGES];
+const MONACO = Symbol.for('monaco');
+
+export const {
+    // namespaces
+    editor,
+    languages,
+    worker,
+
+    // enums
+    KeyCode,
+    MarkerSeverity,
+    MarkerTag,
+    SelectionDirection,
+
+    // classes
+    CancellationTokenSource,
+    Emitter,
+    KeyMod,
+    Position,
+    Range,
+    Selection,
+    Token,
+    Uri,
+} = window[MONACO];
