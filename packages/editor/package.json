@@ -20,9 +20,7 @@
         "/initialize.d.ts",
         "/initialize.js",
         "/monaco.d.ts",
-        "/monaco.js",
-        "/themes.d.ts",
-        "/themes.js"
+        "/monaco.js"
     ],
     "repository": {
         "type": "git",
