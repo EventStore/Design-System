@@ -1,5 +1,11 @@
 # @eventstore-ui/editor
 
+## 1.0.2
+
+### Patch Changes
+
+-   [`b3f8482`](https://github.com/EventStore/Design-System/commit/b3f848276d9bb09cb69313c3bbee0f548a1eb641) - Bug Fix: Fix editor failing to initialize
+
 ## 1.0.1
 
 ### Patch Changes
