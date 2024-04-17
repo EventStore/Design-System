@@ -1,21 +1,23 @@
 import * as monaco from 'monaco-editor';
 import { theme } from '@eventstore-ui/theme';
-import {
-    ES_DARK,
-    ES_HIGH_CONTRAST_DARK,
-    ES_HIGH_CONTRAST_LIGHT,
-} from './themes';
-
-const MONACO = Symbol.for('monaco');
-const MONACO_EDITOR = Symbol.for('monaco-editor');
+import { createLogger } from '@eventstore-ui/utils';
 
 declare global {
     interface Window {
         MonacoEnvironment: monaco.Environment;
         [MONACO]: typeof monaco;
-        [MONACO_EDITOR]: typeof monaco.editor;
     }
 }
+
+const MONACO = Symbol.for('monaco');
+const ES_DARK = 'es-dark';
+const ES_HIGH_CONTRAST_DARK = 'es-high-contrast-dark';
+const ES_HIGH_CONTRAST_LIGHT = 'es-high-contrast-light';
+
+const logger = createLogger(
+    '@eventstore-ui/editor',
+    'linear-gradient(90deg, #A100FFFF 0%, #71C4FFFF 100%)',
+);
 
 /**
  * initialize the monaco editor.
@@ -44,9 +46,16 @@ export const initialize = (
         },
     },
 ) => {
+    if (self[MONACO] != null) {
+        logger.error(
+            'Initialize has already been called, make sure to only call it once.',
+        );
+        return;
+    }
+
     self[MONACO] = monaco;
     self.MonacoEnvironment = environment;
-
+    defineThemes();
     theme.onThemeChange(({ meta: { contrast, shade } }) => {
         if (contrast === 'high' && shade === 'dark') {
             monaco.editor.setTheme(ES_HIGH_CONTRAST_DARK);
@@ -58,6 +67,38 @@ export const initialize = (
             monaco.editor.setTheme('vs');
         }
     }, true);
+};
+
+const defineThemes = () => {
+    monaco.editor.defineTheme(ES_DARK, {
+        base: 'vs-dark',
+        inherit: true,
+        rules: [{ token: '', foreground: 'd7dae0', background: '313440' }],
+        colors: {
+            'editor.foreground': '#d7dae0',
+            'editor.background': '#313440',
+        },
+    });
+
+    monaco.editor.defineTheme(ES_HIGH_CONTRAST_DARK, {
+        base: 'hc-black',
+        inherit: true,
+        rules: [{ token: '', foreground: 'f8f8f2', background: '2b2b2b' }],
+        colors: {
+            'editor.foreground': '#f8f8f2',
+            'editor.background': '#2b2b2b',
+        },
+    });
+
+    monaco.editor.defineTheme(ES_HIGH_CONTRAST_LIGHT, {
+        base: 'vs',
+        inherit: true,
+        rules: [{ token: '', foreground: '545454', background: 'fefefe' }],
+        colors: {
+            'editor.foreground': '#545454',
+            'editor.background': '#fefefe',
+        },
+    });
 };
 
 export type { Environment } from 'monaco-editor';

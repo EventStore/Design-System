@@ -1,13 +1,7 @@
 import { Component, h, Element, Prop } from '@stencil/core';
 import type { editor } from 'monaco-editor';
-
-const MONACO_EDITOR = Symbol.for('monaco-editor');
-
-declare global {
-    interface Window {
-        [MONACO_EDITOR]: typeof editor;
-    }
-}
+import { MONACO } from '../utils/globals';
+import { logger } from '../utils/logger';
 
 /**
  * Monaco editor wrapped in a web component. Handles re-layout on container resize
@@ -55,7 +49,13 @@ export class YEditor {
 
     private initializeEditor = () => {
         if (!this.containerRef) return;
-        this.editorInstance = window[MONACO_EDITOR].create(
+        if (window[MONACO] == null) {
+            logger.error(
+                'Editor has not been initialized. Make sure to call `initialize` from your global script.',
+            );
+            return;
+        }
+        this.editorInstance = window[MONACO].editor.create(
             this.containerRef,
             this.options,
         );
