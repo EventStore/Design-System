@@ -137,6 +137,8 @@ graph TD;
   es-badge --> es-counter
   es-popover --> es-popper
   es-popover --> es-popper-inner
+  es-popover --> es-popper-x
+  es-popover --> es-popper-y
   es-theme-dropdown --> es-header-dropdown
   style es-header-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -2,6 +2,10 @@
     overflow: hidden;
 }
 
+svg {
+    display: block;
+}
+
 [part='ouroboros'] {
     fill: var(--color-layout-highlight);
 }

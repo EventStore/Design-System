@@ -93,3 +93,9 @@
         }
     }
 }
+
+:where(es-popper-x),
+:where(es-popper-y) {
+    display: block;
+    pointer-events: none;
+}

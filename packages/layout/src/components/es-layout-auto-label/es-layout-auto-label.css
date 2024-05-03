@@ -1,0 +1,67 @@
+:host {
+    display: block;
+}
+
+.inner {
+    pointer-events: none;
+    background-color: var(--color-text);
+    color: var(--color-background);
+    padding: 5px 10px;
+    opacity: 0;
+    transition: opacity 400ms ease;
+    box-shadow: none;
+    border-radius: 4px;
+
+    &.entered {
+        opacity: 1;
+    }
+}
+
+.arrow {
+    &:after {
+        width: 0;
+        height: 0;
+        background-color: transparent;
+        border-radius: 2px;
+    }
+
+    &[data-placement^='right']:after {
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-right: 12px solid var(--color-text);
+    }
+
+    &[data-placement^='left']:after {
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-left: 12px solid var(--color-text);
+    }
+
+    &[data-placement^='top']:after {
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-top: 12px solid var(--color-text);
+    }
+
+    &[data-placement^='bottom']:after {
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 12px solid var(--color-text);
+    }
+}
+
+es-popper-inner.entered {
+    &[data-placement^='right'],
+    &[data-placement^='left'] {
+        & es-popper-y {
+            transition: transform 400ms ease;
+        }
+    }
+
+    &[data-placement^='top'],
+    &[data-placement^='bottom'] {
+        & es-popper-x {
+            transition: transform 400ms ease;
+        }
+    }
+}

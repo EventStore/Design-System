@@ -7,9 +7,13 @@ import {
     Event,
     type EventEmitter,
     Host,
+    Element,
+    State,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
 import { theme } from '@eventstore-ui/theme';
+
+import { bindPanelDetails, type PanelMode } from '../../panel';
 
 /**
  * A button for the sidebar, sidebar-dropdown, and header-dropdown.
@@ -21,6 +25,8 @@ import { theme } from '@eventstore-ui/theme';
     shadow: true,
 })
 export class LayoutButton {
+    @Element() host!: HTMLEsLayoutButtonElement;
+
     /** If the button should display as active */
     @Prop() active: boolean = false;
     /** Display an icon on the left. */
@@ -42,10 +48,24 @@ export class LayoutButton {
     /** Triggers the parent popup to close. */
     @Event() requestClose!: EventEmitter;
 
+    @State() panelMode: PanelMode = 'inline';
+
     /** If the button is currently active */
     @Method()
     async isActive(): Promise<boolean> {
         return !this.disabled && this.active;
+    }
+
+    private unbindPanelMode?: () => void;
+
+    componentWillLoad() {
+        this.unbindPanelMode = bindPanelDetails(this.host, ({ mode }) => {
+            this.panelMode = mode;
+        });
+    }
+
+    disconnectedCallback() {
+        this.unbindPanelMode?.();
     }
 
     @Listen('click', { capture: true }) handleClick(e: MouseEvent) {
@@ -62,7 +82,7 @@ export class LayoutButton {
 
     render() {
         return (
-            <Host high-contrast={theme.isHighContrast()}>
+            <Host high-contrast={theme.isHighContrast()} mode={this.panelMode}>
                 <button
                     class={{ disabled: this.disabled, active: this.active }}
                     aria-disabled={this.disabled}
@@ -85,9 +105,11 @@ export class LayoutButton {
                             </es-badge>
                         )
                     )}
-                    <span class="inner">
-                        <slot />
-                    </span>
+                    {this.panelMode === 'inline' && (
+                        <span class="inner">
+                            <slot />
+                        </span>
+                    )}
                 </button>
             </Host>
         );

@@ -112,6 +112,8 @@ graph TD;
   es-typeahead --> es-popover
   es-popover --> es-popper
   es-popover --> es-popper-inner
+  es-popover --> es-popper-x
+  es-popover --> es-popper-y
   es-validation-messages --> es-icon
   style es-select fill:#f9f,stroke:#333,stroke-width:4px
 ```

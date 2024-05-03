@@ -3,6 +3,7 @@ import { router } from '@eventstore-ui/router';
 
 import { ES_LAYOUT_ICON_NAMESPACE, Page } from '../../../../';
 import { areas } from './validPositions';
+import type { PanelMode } from '../types';
 
 /**
  * es-panel close demo
@@ -17,6 +18,7 @@ export class PanelPlacementDemo {
     @State() startIndex?: number;
     @State() endIndex?: number;
     @State() customClosed = true;
+    @State() currentMode: PanelMode = 'inline';
 
     componentWillLoad() {
         router.init({ root: '/es-panel-close-demo/' });
@@ -88,24 +90,39 @@ export class PanelPlacementDemo {
                         start={start}
                         end={end}
                         closedMode={'collapsed'}
+                        onModeChange={this.onModeChange}
                     >
-                        {this.customClosed && (
-                            <div slot={'collapsed'} class={`collapsed ${area}`}>
-                                <es-icon
-                                    icon={[ES_LAYOUT_ICON_NAMESPACE, 'chevron']}
-                                />
-                                {area}
-                                <es-icon
-                                    icon={[ES_LAYOUT_ICON_NAMESPACE, 'chevron']}
-                                />
-                            </div>
-                        )}
+                        {this.customClosed &&
+                            this.currentMode === 'collapsed' && (
+                                <div
+                                    slot={'handle'}
+                                    class={`collapsed ${area}`}
+                                >
+                                    <es-icon
+                                        icon={[
+                                            ES_LAYOUT_ICON_NAMESPACE,
+                                            'chevron',
+                                        ]}
+                                    />
+                                    {area}
+                                    <es-icon
+                                        icon={[
+                                            ES_LAYOUT_ICON_NAMESPACE,
+                                            'chevron',
+                                        ]}
+                                    />
+                                </div>
+                            )}
                         <p>{'Some content for the panel'}</p>
                     </es-panel>
                 </Page>
             </Host>
         );
     }
+
+    private onModeChange = (e: CustomEvent<PanelMode>) => {
+        this.currentMode = e.detail;
+    };
 
     private onAreaChange = (e: Event) => {
         const value = (e.target as HTMLSelectElement).value;

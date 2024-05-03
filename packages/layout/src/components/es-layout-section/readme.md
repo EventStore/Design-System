@@ -32,11 +32,12 @@ export default () => (
 
 ## Properties
 
-| Property           | Attribute           | Description                                   | Type                  | Default     |
-| ------------------ | ------------------- | --------------------------------------------- | --------------------- | ----------- |
-| `collapsable`      | `collapsable`       | If the section is collapsable                 | `boolean`             | `false`     |
-| `defaultCollapsed` | `default-collapsed` | If the section should be collapsed by default | `boolean`             | `false`     |
-| `sectionTitle`     | `title`             | Optionally renders a title                    | `string \| undefined` | `undefined` |
+| Property           | Attribute           | Description                                              | Type                                 | Default       |
+| ------------------ | ------------------- | -------------------------------------------------------- | ------------------------------------ | ------------- |
+| `autoLabel`        | `auto-label`        | If the section should label it's contents with a popover | `"collapsed" \| "inline" \| boolean` | `'collapsed'` |
+| `collapsable`      | `collapsable`       | If the section is collapsable                            | `boolean`                            | `false`       |
+| `defaultCollapsed` | `default-collapsed` | If the section should be collapsed by default            | `boolean`                            | `false`       |
+| `sectionTitle`     | `title`             | Optionally renders a title                               | `string \| undefined`                | `undefined`   |
 
 
 ## Shadow Parts
@@ -54,11 +55,18 @@ export default () => (
 ### Depends on
 
 - es-icon
+- [es-layout-auto-label](../es-layout-auto-label)
 
 ### Graph
 ```mermaid
 graph TD;
   es-layout-section --> es-icon
+  es-layout-section --> es-layout-auto-label
+  es-layout-auto-label --> es-popover
+  es-popover --> es-popper
+  es-popover --> es-popper-inner
+  es-popover --> es-popper-x
+  es-popover --> es-popper-y
   style es-layout-section fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

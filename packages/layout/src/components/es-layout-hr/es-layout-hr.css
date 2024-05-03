@@ -1,0 +1,11 @@
+:host {
+    display: block;
+    margin: 10px 20px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--color-shade-20);
+}
+
+:host([mode='collapsed']) {
+    margin: 6px 10px;
+}

@@ -2,6 +2,7 @@
     display: block;
 
     --blob-size: 30px;
+    --gutter-size: 30px;
     --default-color: var(--color-text);
     --active-color: var(--color-secondary);
     --disabled-color: var(--color-shade-50);
@@ -9,19 +10,19 @@
 }
 
 :host([level='2']) :matches(a, button) {
-    padding-left: calc(var(--blob-size) * 1.5);
+    padding-left: calc(var(--gutter-size) * 1.5);
 }
 
 :host([level='3']) :matches(a, button) {
-    padding-left: calc(var(--blob-size) * 2);
+    padding-left: calc(var(--gutter-size) * 2);
 }
 
 :host([level='4']) :matches(a, button) {
-    padding-left: calc(var(--blob-size) * 2.5);
+    padding-left: calc(var(--gutter-size) * 2.5);
 }
 
 :host([level='5']) :matches(a, button) {
-    padding-left: calc(var(--blob-size) * 3);
+    padding-left: calc(var(--gutter-size) * 3);
 }
 
 :host([high-contrast]) :matches(.disabled) {
@@ -31,8 +32,8 @@
 a,
 button {
     padding: 10px;
-    padding-left: var(--blob-size);
-    padding-right: var(--blob-size);
+    padding-left: var(--gutter-size);
+    padding-right: var(--gutter-size);
     color: var(--default-color);
     display: flex;
     align-items: center;
@@ -42,6 +43,7 @@ button {
     position: relative;
     overflow: hidden;
     outline-offset: -1px;
+    gap: 12px;
 
     &::before {
         content: '';
@@ -111,10 +113,18 @@ button {
     overflow: hidden;
 }
 
-es-badge {
-    margin-right: 12px;
-}
+:host([mode='collapsed']) {
+    --blob-size: 0;
 
-es-counter {
-    margin-right: 12px;
+    & a,
+    & button {
+        transition: color 500ms ease;
+        padding-left: 0;
+        padding-right: 0;
+
+        &:hover,
+        &:focus {
+            color: var(--active-color);
+        }
+    }
 }

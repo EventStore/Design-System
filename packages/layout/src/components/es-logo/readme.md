@@ -30,10 +30,11 @@ export default () => <es-logo />;
 
 ## Properties
 
-| Property | Attribute | Description             | Type     | Default |
-| -------- | --------- | ----------------------- | -------- | ------- |
-| `height` | `height`  | Height to constrain by. | `number` | `40`    |
-| `width`  | `width`   | Width to constrain by.  | `number` | `164`   |
+| Property | Attribute | Description                                 | Type               | Default  |
+| -------- | --------- | ------------------------------------------- | ------------------ | -------- |
+| `height` | `height`  | Height to constrain by.                     | `number`           | `40`     |
+| `mode`   | `mode`    | If the eventstore text should be displayed. | `"full" \| "icon"` | `'full'` |
+| `width`  | `width`   | Width to constrain by.                      | `number`           | `164`    |
 
 
 ## Shadow Parts
