@@ -14,8 +14,7 @@ import { IconDescription } from "./components/es-icon/types";
 import { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
 import { CounterColor, CounterVariant } from "./components/es-counter/types";
 import { PageChangeEventType } from "./components/es-pagination/types";
-import { Constrain } from "./components/es-popover/es-popover";
-import { Placement } from "@floating-ui/dom";
+import { Constrain, Placement } from "./components/es-popover/types";
 import { Checkpoint, CheckpointState } from "./components/es-progression/types";
 import { Status } from "./components/es-status/es-status";
 import { ClickRow, JumpOptions, LoadWindow, TableCells, TableSort } from "./components/tables/types";
@@ -31,8 +30,7 @@ export { IconDescription } from "./components/es-icon/types";
 export { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
 export { CounterColor, CounterVariant } from "./components/es-counter/types";
 export { PageChangeEventType } from "./components/es-pagination/types";
-export { Constrain } from "./components/es-popover/es-popover";
-export { Placement } from "@floating-ui/dom";
+export { Constrain, Placement } from "./components/es-popover/types";
 export { Checkpoint, CheckpointState } from "./components/es-progression/types";
 export { Status } from "./components/es-status/es-status";
 export { ClickRow, JumpOptions, LoadWindow, TableCells, TableSort } from "./components/tables/types";
@@ -381,6 +379,10 @@ export namespace Components {
         "trapFocus": boolean;
     }
     interface EsPopperInner {
+    }
+    interface EsPopperX {
+    }
+    interface EsPopperY {
     }
     /**
      * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
@@ -1030,6 +1032,18 @@ declare global {
         prototype: HTMLEsPopperInnerElement;
         new (): HTMLEsPopperInnerElement;
     };
+    interface HTMLEsPopperXElement extends Components.EsPopperX, HTMLStencilElement {
+    }
+    var HTMLEsPopperXElement: {
+        prototype: HTMLEsPopperXElement;
+        new (): HTMLEsPopperXElement;
+    };
+    interface HTMLEsPopperYElement extends Components.EsPopperY, HTMLStencilElement {
+    }
+    var HTMLEsPopperYElement: {
+        prototype: HTMLEsPopperYElement;
+        new (): HTMLEsPopperYElement;
+    };
     /**
      * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
      */
@@ -1165,6 +1179,8 @@ declare global {
         "es-popover": HTMLEsPopoverElement;
         "es-popper": HTMLEsPopperElement;
         "es-popper-inner": HTMLEsPopperInnerElement;
+        "es-popper-x": HTMLEsPopperXElement;
+        "es-popper-y": HTMLEsPopperYElement;
         "es-portal": HTMLEsPortalElement;
         "es-progression": HTMLEsProgressionElement;
         "es-resize-observer": HTMLEsResizeObserverElement;
@@ -1527,6 +1543,10 @@ declare namespace LocalJSX {
         "trapFocus"?: boolean;
     }
     interface EsPopperInner {
+    }
+    interface EsPopperX {
+    }
+    interface EsPopperY {
     }
     /**
      * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
@@ -2041,6 +2061,8 @@ declare namespace LocalJSX {
         "es-popover": EsPopover;
         "es-popper": EsPopper;
         "es-popper-inner": EsPopperInner;
+        "es-popper-x": EsPopperX;
+        "es-popper-y": EsPopperY;
         "es-portal": EsPortal;
         "es-progression": EsProgression;
         "es-resize-observer": EsResizeObserver;
@@ -2123,6 +2145,8 @@ declare module "@stencil/core" {
             "es-popover": LocalJSX.EsPopover & JSXBase.HTMLAttributes<HTMLEsPopoverElement>;
             "es-popper": LocalJSX.EsPopper & JSXBase.HTMLAttributes<HTMLEsPopperElement>;
             "es-popper-inner": LocalJSX.EsPopperInner & JSXBase.HTMLAttributes<HTMLEsPopperInnerElement>;
+            "es-popper-x": LocalJSX.EsPopperX & JSXBase.HTMLAttributes<HTMLEsPopperXElement>;
+            "es-popper-y": LocalJSX.EsPopperY & JSXBase.HTMLAttributes<HTMLEsPopperYElement>;
             /**
              * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
              */

@@ -1,5 +1,16 @@
-import { Component, h, Host, Listen, Prop, State } from '@stencil/core';
+import {
+    Component,
+    h,
+    Host,
+    Listen,
+    Prop,
+    State,
+    Element,
+} from '@stencil/core';
 import { ICON_NAMESPACE } from '../../icons/namespace';
+
+import { bindPanelDetails, type PanelDetails, type PanelMode } from '../panel';
+import type { Placement } from '@eventstore-ui/components';
 
 /**
  * A section with an optional title for containing layout-links
@@ -14,24 +25,45 @@ import { ICON_NAMESPACE } from '../../icons/namespace';
     shadow: true,
 })
 export class LayoutSection {
+    @Element() host!: HTMLEsLayoutSectionElement;
+
     /** Optionally renders a title */
     @Prop({ attribute: 'title' }) sectionTitle?: string;
     /** If the section is collapsable */
     @Prop() collapsable: boolean = false;
     /** If the section should be collapsed by default */
     @Prop() defaultCollapsed: boolean = false;
+    /** If the section should label it's contents with a popover */
+    @Prop() autoLabel: boolean | PanelMode = 'collapsed';
 
     @State() collapsed: boolean = this.defaultCollapsed;
+    @State() panelDetails?: PanelDetails;
 
     @Listen('focusin') handleFocusIn() {
         if (!this.collapsable || !this.collapsed) return;
         this.expand();
     }
 
+    private unbindPanelDetails?: () => void;
+
+    componentWillLoad() {
+        this.unbindPanelDetails = bindPanelDetails(
+            this.host,
+            (PanelDetails) => {
+                this.panelDetails = PanelDetails;
+            },
+        );
+    }
+
+    disconnectedCallback() {
+        this.unbindPanelDetails?.();
+    }
+
     render() {
+        const panelMode = this.panelDetails?.mode ?? 'inline';
         return (
-            <Host>
-                {!!this.sectionTitle && (
+            <Host mode={panelMode}>
+                {!!this.sectionTitle && panelMode !== 'collapsed' && (
                     <header
                         class={{
                             collapsable: this.collapsable,
@@ -54,11 +86,22 @@ export class LayoutSection {
                 <nav
                     part={'nav'}
                     ref={this.captureNav}
-                    aria-hidden={`${this.collapsed}`}
+                    aria-hidden={`${
+                        this.collapsed && panelMode !== 'collapsed'
+                    }`}
                 >
-                    <div part={'nav_inner'}>
-                        <slot />
-                    </div>
+                    {this.autoLabel === true || this.autoLabel === panelMode ? (
+                        <es-layout-auto-label
+                            part={'nav_inner'}
+                            placement={this.autoLabelPlacement()}
+                        >
+                            <slot />
+                        </es-layout-auto-label>
+                    ) : (
+                        <div part={'nav_inner'}>
+                            <slot />
+                        </div>
+                    )}
                 </nav>
             </Host>
         );
@@ -79,6 +122,8 @@ export class LayoutSection {
         }
     };
 
+    private foldFrame!: ReturnType<typeof requestAnimationFrame>;
+
     private collapse = () => {
         if (!this.nav) return;
 
@@ -86,7 +131,8 @@ export class LayoutSection {
         this.nav.style.height = `${height}px`;
         this.nav.style.opacity = '1';
 
-        requestAnimationFrame(() => {
+        cancelAnimationFrame(this.foldFrame);
+        this.foldFrame = requestAnimationFrame(() => {
             if (!this.nav) return;
             this.nav.style.transitionProperty = 'opacity height';
             this.nav.style.height = '0px';
@@ -117,12 +163,28 @@ export class LayoutSection {
         this.nav.style.height = '0px';
         this.nav.style.opacity = '0';
         this.nav.style.transitionProperty = 'opacity height';
-        requestAnimationFrame(() => {
+        cancelAnimationFrame(this.foldFrame);
+        this.foldFrame = requestAnimationFrame(() => {
             if (!this.nav) return;
             this.nav.style.height = `${height}px`;
             this.nav.style.opacity = '1';
         });
 
         this.collapsed = false;
+    };
+
+    private autoLabelPlacement = (): Placement => {
+        switch (this.panelDetails?.area) {
+            case 'banner':
+                return 'bottom';
+            case 'cookie':
+            case 'panel':
+                return 'top';
+            case 'sidebar':
+                return 'right';
+            case 'toolbar':
+            default:
+                return 'left';
+        }
     };
 }

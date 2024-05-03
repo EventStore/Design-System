@@ -1,7 +1,17 @@
-import { Component, h, Host, Method, Prop } from '@stencil/core';
+import {
+    Component,
+    h,
+    Host,
+    Method,
+    Prop,
+    Element,
+    State,
+} from '@stencil/core';
 import { Link, router } from '@eventstore-ui/router';
 import type { IconDescription } from '@eventstore-ui/components';
 import { theme } from '@eventstore-ui/theme';
+
+import { bindPanelDetails, type PanelMode } from '../../panel';
 
 /**
  * A link for the sidebar, sidebar-dropdown, and header-dropdown.
@@ -14,6 +24,8 @@ import { theme } from '@eventstore-ui/theme';
     shadow: true,
 })
 export class LayoutLink {
+    @Element() host!: HTMLEsLayoutLinkElement;
+
     /** Where to link to. */
     @Prop() url?: string;
     /** When to display as active. Uses the `url` by default. */
@@ -43,6 +55,8 @@ export class LayoutLink {
     /** When deciding the active child, if multiple are active, the highest priority wins. */
     @Prop() priority: number = 0;
 
+    @State() panelMode: PanelMode = 'inline';
+
     /** If the link is currently active */
     @Method()
     async isActive(): Promise<boolean> {
@@ -56,9 +70,21 @@ export class LayoutLink {
         );
     }
 
+    private unbindPanelMode?: () => void;
+
+    componentWillLoad() {
+        this.unbindPanelMode = bindPanelDetails(this.host, ({ mode }) => {
+            this.panelMode = mode;
+        });
+    }
+
+    disconnectedCallback() {
+        this.unbindPanelMode?.();
+    }
+
     render() {
         return (
-            <Host high-contrast={theme.isHighContrast()}>
+            <Host high-contrast={theme.isHighContrast()} mode={this.panelMode}>
                 <Link
                     url={this.disabled ? undefined : this.url}
                     urlMatch={this.matchUrl}
@@ -90,9 +116,11 @@ export class LayoutLink {
                             </es-badge>
                         )
                     )}
-                    <span class="inner">
-                        <slot />
-                    </span>
+                    {this.panelMode === 'inline' && (
+                        <span class={'inner'}>
+                            <slot />
+                        </span>
+                    )}
                 </Link>
             </Host>
         );

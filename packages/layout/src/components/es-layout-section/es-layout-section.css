@@ -54,6 +54,12 @@ nav {
     }
 }
 
+:host([mode='collapsed']) nav {
+    transition: none;
+    height: auto !important;
+    opacity: 1 !important;
+}
+
 [part='nav_inner'] {
     overflow: hidden;
     display: flex;

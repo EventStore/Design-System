@@ -48,7 +48,7 @@ export class SizedPanel {
 
     disconnectedCallback() {
         this.resizeObserver.disconnect();
-        sidebarWidth.reset();
+        this.cssVar.reset();
     }
 
     @Watch('area')

@@ -7,6 +7,9 @@ import {
     Listen,
     Element,
     Prop,
+    Event,
+    type EventEmitter,
+    Method,
 } from '@stencil/core';
 import { ICON_NAMESPACE } from '../../../icons/namespace';
 import {
@@ -23,6 +26,7 @@ import type {
     PanelMode,
     TargetableArea,
     TargetableEdge,
+    PanelDetailsListener,
 } from '../types';
 
 /**
@@ -31,7 +35,7 @@ import type {
  * @part handle - The grabbable handle
  * @part handle inline - The handle while inline
  * @part handle collapsed - The handle while collapsed
- * @slot collapsed - Shown when the panel is collapsed
+ * @part handle_icon - The handle grips icon
  */
 @Component({
     tag: 'es-panel',
@@ -40,6 +44,9 @@ import type {
 })
 export class Panel {
     @Element() host!: HTMLEsPanelElement;
+
+    /** Triggers when the panel's mode changes. */
+    @Event() modeChange!: EventEmitter<PanelMode>;
 
     /** Where to place the panel. */
     @Prop({ reflect: true }) area: TargetableArea = 'panel';
@@ -61,6 +68,8 @@ export class Panel {
     @Prop() closedMode: ClosedMode = 'none';
     /** When to snap the panel closed (if a closed mode is set). */
     @Prop() closeAt: number = 100;
+    /** The maximum possible size to resize to. */
+    @Prop() maximumSize: number = Infinity;
     /** The minimum possible size to resize to. */
     @Prop() minimumSize: number = 100;
     /** What size to default to. */
@@ -137,18 +146,17 @@ export class Panel {
     renderHandle = () => (
         <div
             class={'handle'}
-            part={`handle ${this.mode}`}
+            part={`handle ${this.mode} ${this.dragging ? 'active' : ''}`}
             onMouseDown={this.dragStart}
             onClick={this.handleClick}
             onDblClick={this.handleDoubleClick}
         >
-            {this.mode === 'collapsed' ? (
-                <slot name={'collapsed'}>
-                    <es-icon icon={[ICON_NAMESPACE, 'grip-lines']} />
-                </slot>
-            ) : (
-                <es-icon icon={[ICON_NAMESPACE, 'grip-lines']} />
-            )}
+            <slot name={'handle'}>
+                <es-icon
+                    icon={[ICON_NAMESPACE, 'grip-lines']}
+                    part={'handle_icon'}
+                />
+            </slot>
         </div>
     );
 
@@ -156,11 +164,9 @@ export class Panel {
         return (
             <Host mode={this.mode} style={{ '--panel-size': `${this.size}px` }}>
                 {this.renderHandle()}
-                {this.mode === 'inline' && (
-                    <aside part={'inner'}>
-                        <slot />
-                    </aside>
-                )}
+                <aside part={`inner ${this.mode}`}>
+                    <slot />
+                </aside>
                 {this.dragging && <div class={'cursor_guard'} />}
             </Host>
         );
@@ -182,6 +188,11 @@ export class Panel {
     savePanelMode() {
         if (this.rememberMode === false) return;
         localStorage.setItem(this.localStorageModeKey, this.mode);
+    }
+
+    @Watch('mode')
+    emitMode() {
+        this.modeChange.emit(this.mode);
     }
 
     private get localStorageModeKey() {
@@ -211,8 +222,9 @@ export class Panel {
                     cookieHeight.value +
                     this.cssVar.value -
                     100;
+                const maximumSize = Math.min(availableSpace, this.maximumSize);
                 return Math.max(
-                    Math.min(requestedSize, availableSpace),
+                    Math.min(requestedSize, maximumSize),
                     this.minimumSize,
                 );
             }
@@ -224,8 +236,9 @@ export class Panel {
                     toolbarWidth.value +
                     this.cssVar.value -
                     400;
+                const maximumSize = Math.min(availableSpace, this.maximumSize);
                 return Math.max(
-                    Math.min(requestedSize, availableSpace),
+                    Math.min(requestedSize, maximumSize),
                     this.minimumSize,
                 );
             }
@@ -312,4 +325,27 @@ export class Panel {
         if (this.closedMode === 'none') return;
         this.mode = this.closedMode;
     };
+
+    private detailsListeners = new Set<PanelDetailsListener>();
+
+    @Watch('mode')
+    @Watch('area')
+    onModeChange() {
+        this.detailsListeners.forEach((fn) =>
+            fn({ area: this.area, mode: this.mode }),
+        );
+    }
+
+    /** @internal */
+    @Method()
+    async attachPanelDetailsListener(listener: PanelDetailsListener) {
+        listener({ area: this.area, mode: this.mode });
+        this.detailsListeners.add(listener);
+    }
+
+    /** @internal */
+    @Method()
+    async detachPanelDetailsListener(listener: PanelDetailsListener) {
+        this.detailsListeners.delete(listener);
+    }
 }

@@ -8,17 +8,19 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Crumb } from "./components/es-breadcrumb/types";
 import { DisplayErrorVariant } from "./components/es-display-error/types";
 import { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/types";
-import { IconDescription } from "@eventstore-ui/components";
+import { IconDescription, Placement } from "@eventstore-ui/components";
+import { PanelMode } from "./components/panel";
 import { LoadingBarStatus } from "./components/es-loading-bar/types";
 import { NavNode, NavTree } from "./components/es-nav/types";
-import { ClosedMode, TargetableArea, TargetableEdge } from "./components/panel/types";
+import { ClosedMode, PanelDetailsListener, PanelMode as PanelMode1, TargetableArea, TargetableEdge } from "./components/panel/types";
 export { Crumb } from "./components/es-breadcrumb/types";
 export { DisplayErrorVariant } from "./components/es-display-error/types";
 export { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/types";
-export { IconDescription } from "@eventstore-ui/components";
+export { IconDescription, Placement } from "@eventstore-ui/components";
+export { PanelMode } from "./components/panel";
 export { LoadingBarStatus } from "./components/es-loading-bar/types";
 export { NavNode, NavTree } from "./components/es-nav/types";
-export { ClosedMode, TargetableArea, TargetableEdge } from "./components/panel/types";
+export { ClosedMode, PanelDetailsListener, PanelMode as PanelMode1, TargetableArea, TargetableEdge } from "./components/panel/types";
 export namespace Components {
     /**
      * A list of breadcrumbs to the current page
@@ -88,6 +90,20 @@ export namespace Components {
          */
         "variant": HeaderDropdownButtonVariant;
     }
+    interface EsLayoutAutoLabel {
+        /**
+          * How to extract the label text
+         */
+        "extractLabel"?: ($el: HTMLElement) => string;
+        /**
+          * Where to place the label
+         */
+        "placement": Placement;
+        /**
+          * Selector for selecting elements to auto label
+         */
+        "selector": string;
+    }
     /**
      * A button for the sidebar, sidebar-dropdown, and header-dropdown.
      */
@@ -128,6 +144,11 @@ export namespace Components {
           * When deciding the active child, if multiple are active, the highest priority wins.
          */
         "priority": number;
+    }
+    /**
+     * A horizontal rule
+     */
+    interface EsLayoutHr {
     }
     /**
      * A link for the sidebar, sidebar-dropdown, and header-dropdown.
@@ -195,6 +216,10 @@ export namespace Components {
      */
     interface EsLayoutSection {
         /**
+          * If the section should label it's contents with a popover
+         */
+        "autoLabel": boolean | PanelMode;
+        /**
           * If the section is collapsable
          */
         "collapsable": boolean;
@@ -230,6 +255,10 @@ export namespace Components {
           * Height to constrain by.
          */
         "height": number;
+        /**
+          * If the eventstore text should be displayed.
+         */
+        "mode": 'full' | 'icon';
         /**
           * Width to constrain by.
          */
@@ -270,6 +299,7 @@ export namespace Components {
           * Where to place the panel.
          */
         "area": TargetableArea;
+        "attachPanelDetailsListener": (listener: PanelDetailsListener) => Promise<void>;
         /**
           * When to snap the panel closed (if a closed mode is set).
          */
@@ -286,10 +316,15 @@ export namespace Components {
           * What size to default to.
          */
         "defaultSize": number;
+        "detachPanelDetailsListener": (listener: PanelDetailsListener) => Promise<void>;
         /**
           * Where to end the panel, inclusive. Must be the opposite axis to the area.
          */
         "end"?: TargetableEdge;
+        /**
+          * The maximum possible size to resize to.
+         */
+        "maximumSize": number;
         /**
           * The minimum possible size to resize to.
          */
@@ -369,6 +404,10 @@ export interface EsLayoutButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEsLayoutButtonElement;
 }
+export interface EsPanelCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsPanelElement;
+}
 declare global {
     /**
      * A list of breadcrumbs to the current page
@@ -406,6 +445,12 @@ declare global {
         prototype: HTMLEsHeaderDropdownElement;
         new (): HTMLEsHeaderDropdownElement;
     };
+    interface HTMLEsLayoutAutoLabelElement extends Components.EsLayoutAutoLabel, HTMLStencilElement {
+    }
+    var HTMLEsLayoutAutoLabelElement: {
+        prototype: HTMLEsLayoutAutoLabelElement;
+        new (): HTMLEsLayoutAutoLabelElement;
+    };
     /**
      * A button for the sidebar, sidebar-dropdown, and header-dropdown.
      */
@@ -414,6 +459,15 @@ declare global {
     var HTMLEsLayoutButtonElement: {
         prototype: HTMLEsLayoutButtonElement;
         new (): HTMLEsLayoutButtonElement;
+    };
+    /**
+     * A horizontal rule
+     */
+    interface HTMLEsLayoutHrElement extends Components.EsLayoutHr, HTMLStencilElement {
+    }
+    var HTMLEsLayoutHrElement: {
+        prototype: HTMLEsLayoutHrElement;
+        new (): HTMLEsLayoutHrElement;
     };
     /**
      * A link for the sidebar, sidebar-dropdown, and header-dropdown.
@@ -564,7 +618,9 @@ declare global {
         "es-display-error": HTMLEsDisplayErrorElement;
         "es-header": HTMLEsHeaderElement;
         "es-header-dropdown": HTMLEsHeaderDropdownElement;
+        "es-layout-auto-label": HTMLEsLayoutAutoLabelElement;
         "es-layout-button": HTMLEsLayoutButtonElement;
+        "es-layout-hr": HTMLEsLayoutHrElement;
         "es-layout-link": HTMLEsLayoutLinkElement;
         "es-layout-section": HTMLEsLayoutSectionElement;
         "es-loading-bar": HTMLEsLoadingBarElement;
@@ -653,6 +709,20 @@ declare namespace LocalJSX {
          */
         "variant"?: HeaderDropdownButtonVariant;
     }
+    interface EsLayoutAutoLabel {
+        /**
+          * How to extract the label text
+         */
+        "extractLabel"?: ($el: HTMLElement) => string;
+        /**
+          * Where to place the label
+         */
+        "placement": Placement;
+        /**
+          * Selector for selecting elements to auto label
+         */
+        "selector"?: string;
+    }
     /**
      * A button for the sidebar, sidebar-dropdown, and header-dropdown.
      */
@@ -693,6 +763,11 @@ declare namespace LocalJSX {
           * When deciding the active child, if multiple are active, the highest priority wins.
          */
         "priority"?: number;
+    }
+    /**
+     * A horizontal rule
+     */
+    interface EsLayoutHr {
     }
     /**
      * A link for the sidebar, sidebar-dropdown, and header-dropdown.
@@ -756,6 +831,10 @@ declare namespace LocalJSX {
      */
     interface EsLayoutSection {
         /**
+          * If the section should label it's contents with a popover
+         */
+        "autoLabel"?: boolean | PanelMode;
+        /**
           * If the section is collapsable
          */
         "collapsable"?: boolean;
@@ -787,6 +866,10 @@ declare namespace LocalJSX {
           * Height to constrain by.
          */
         "height"?: number;
+        /**
+          * If the eventstore text should be displayed.
+         */
+        "mode"?: 'full' | 'icon';
         /**
           * Width to constrain by.
          */
@@ -848,9 +931,17 @@ declare namespace LocalJSX {
          */
         "end"?: TargetableEdge;
         /**
+          * The maximum possible size to resize to.
+         */
+        "maximumSize"?: number;
+        /**
           * The minimum possible size to resize to.
          */
         "minimumSize"?: number;
+        /**
+          * Triggers when the panel's mode changes.
+         */
+        "onModeChange"?: (event: EsPanelCustomEvent<PanelMode1>) => void;
         /**
           * If the last mode of the panel should be kept in local storage.
          */
@@ -926,7 +1017,9 @@ declare namespace LocalJSX {
         "es-display-error": EsDisplayError;
         "es-header": EsHeader;
         "es-header-dropdown": EsHeaderDropdown;
+        "es-layout-auto-label": EsLayoutAutoLabel;
         "es-layout-button": EsLayoutButton;
+        "es-layout-hr": EsLayoutHr;
         "es-layout-link": EsLayoutLink;
         "es-layout-section": EsLayoutSection;
         "es-loading-bar": EsLoadingBar;
@@ -966,10 +1059,15 @@ declare module "@stencil/core" {
              * A dropdown for the header.
              */
             "es-header-dropdown": LocalJSX.EsHeaderDropdown & JSXBase.HTMLAttributes<HTMLEsHeaderDropdownElement>;
+            "es-layout-auto-label": LocalJSX.EsLayoutAutoLabel & JSXBase.HTMLAttributes<HTMLEsLayoutAutoLabelElement>;
             /**
              * A button for the sidebar, sidebar-dropdown, and header-dropdown.
              */
             "es-layout-button": LocalJSX.EsLayoutButton & JSXBase.HTMLAttributes<HTMLEsLayoutButtonElement>;
+            /**
+             * A horizontal rule
+             */
+            "es-layout-hr": LocalJSX.EsLayoutHr & JSXBase.HTMLAttributes<HTMLEsLayoutHrElement>;
             /**
              * A link for the sidebar, sidebar-dropdown, and header-dropdown.
              */

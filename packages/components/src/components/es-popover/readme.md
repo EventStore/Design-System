@@ -229,12 +229,16 @@ es-checkbox {
 
 - es-popper
 - es-popper-inner
+- es-popper-x
+- es-popper-y
 
 ### Graph
 ```mermaid
 graph TD;
   es-popover --> es-popper
   es-popover --> es-popper-inner
+  es-popover --> es-popper-x
+  es-popover --> es-popper-y
   style es-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

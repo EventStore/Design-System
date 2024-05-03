@@ -103,6 +103,8 @@ graph TD;
   es-sidebar-dropdown --> es-popover
   es-popover --> es-popper
   es-popover --> es-popper-inner
+  es-popover --> es-popper-x
+  es-popover --> es-popper-y
   style es-sidebar-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

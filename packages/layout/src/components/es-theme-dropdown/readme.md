@@ -68,6 +68,8 @@ graph TD;
   es-badge --> es-counter
   es-popover --> es-popper
   es-popover --> es-popper-inner
+  es-popover --> es-popper-x
+  es-popover --> es-popper-y
   style es-theme-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
