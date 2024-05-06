@@ -1,5 +1,14 @@
 # @eventstore-ui/utils
 
+## 1.2.0
+
+### Minor Changes
+
+-   [`e1ee71d`](https://github.com/EventStore/Design-System/commit/e1ee71dcc4f3c6769d20ef247f5cb1f6d4d470f8) - New helpers:
+
+    -   `piercingQuerySelectorAll` will select elements with a selector while piercing inside the shadowDOM.
+    -   `slottedQuerySelectorAll` will select elements that a slotted in a slot, optionally piercing inside their shadowDOM.
+
 ## 1.1.1
 
 ### Patch Changes
