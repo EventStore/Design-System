@@ -1,5 +1,11 @@
 # @eventstore-ui/fields
 
+## 1.0.2
+
+### Patch Changes
+
+-   [`e1ee71d`](https://github.com/EventStore/Design-System/commit/e1ee71dcc4f3c6769d20ef247f5cb1f6d4d470f8) - Readmes updated
+
 ## 1.0.1
 
 ### Patch Changes

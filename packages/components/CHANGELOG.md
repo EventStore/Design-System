@@ -1,5 +1,21 @@
 # @eventstore-ui/components
 
+## 1.3.0
+
+### Minor Changes
+
+-   [`e1ee71d`](https://github.com/EventStore/Design-System/commit/e1ee71dcc4f3c6769d20ef247f5cb1f6d4d470f8) - `es-popover` improvements
+
+    Bug Fixes:
+
+    -   Prevent the popover from getting stuck closed when opening and closing too quickly
+    -   Fix modifier css selectors on `es-popper-inner`
+
+    Improvements:
+
+    -   Split out x and y translations to `es-popover-x` and `es-popover-y` to allow transitioning each individuallly.
+    -   Export `es-popover` types from index
+
 ## 1.2.0
 
 ### Minor Changes
