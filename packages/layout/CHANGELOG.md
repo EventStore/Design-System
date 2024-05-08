@@ -1,5 +1,11 @@
 # @eventstore-ui/layout
 
+## 1.2.1
+
+### Patch Changes
+
+-   [`f888953`](https://github.com/EventStore/Design-System/commit/f888953ed9f08329ef2a0eb6769b90f9b753a9c2) - Export panel helpers
+
 ## 1.2.0
 
 ### Minor Changes
