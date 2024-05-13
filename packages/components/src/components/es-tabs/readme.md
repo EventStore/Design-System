@@ -63,11 +63,13 @@ export default () => (
 
 ## Properties
 
-| Property            | Attribute      | Description                                                                                        | Type                  | Default     |
-| ------------------- | -------------- | -------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
-| `active`            | `active`       | The currently active panel. By default it will take from the passed activeParam, or the first tab. | `string \| undefined` | `undefined` |
-| `activeParam`       | `active-param` | Reflect the active tab to a search param of name. Set to false to disable.                         | `boolean \| string`   | `'tab'`     |
-| `tabs` _(required)_ | --             | A list of tabs.                                                                                    | `Tab[]`               | `undefined` |
+| Property            | Attribute             | Description                                                                                        | Type                                                                 | Default     |
+| ------------------- | --------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------- |
+| `active`            | `active`              | The currently active panel. By default it will take from the passed activeParam, or the first tab. | `string \| undefined`                                                | `undefined` |
+| `activeParam`       | `active-param`        | Reflect the active tab to a search param of name. Set to false to disable.                         | `boolean \| string`                                                  | `'tab'`     |
+| `interTabIcon`      | `inter-tab-icon`      | Icon to be rendered between each tab.                                                              | `[namespace: string \| symbol, name: string] \| string \| undefined` | `undefined` |
+| `interTabIconSize`  | `inter-tab-icon-size` | thu size of the icon to be rendered between each tab.                                              | `number`                                                             | `20`        |
+| `tabs` _(required)_ | --                    | A list of tabs.                                                                                    | `Tab[]`                                                              | `undefined` |
 
 
 ## Events
@@ -79,20 +81,22 @@ export default () => (
 
 ## Slots
 
-| Slot          | Description                                                  |
-| ------------- | ------------------------------------------------------------ |
-| `"[tabName]"` | Slots are created based off of the names of the passed tabs. |
+| Slot           | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| `"[tabName]"`  | Slots are created based off of the names of the passed tabs. |
+| `"header-end"` | After all the tabs.                                          |
 
 
 ## Shadow Parts
 
-| Part          | Description                 |
-| ------------- | --------------------------- |
-| `"active"`    | The active tab.             |
-| `"indicator"` | The sliding indicatior bar. |
-| `"panel"`     | Tab panels.                 |
-| `"tab"`       | Tabs.                       |
-| `"tablist"`   | The tab container.          |
+| Part               | Description                       |
+| ------------------ | --------------------------------- |
+| `"active"`         | The active tab.                   |
+| `"indicator"`      | The sliding indicatior bar.       |
+| `"inter-tab-icon"` | Icon between tabs (if specified). |
+| `"panel"`          | Tab panels.                       |
+| `"tab"`            | Tabs.                             |
+| `"tablist"`        | The tab container.                |
 
 
 ## CSS Custom Properties
@@ -110,11 +114,13 @@ export default () => (
 
 ### Depends on
 
+- [es-icon](../es-icon)
 - [es-badge](../es-badge)
 
 ### Graph
 ```mermaid
 graph TD;
+  es-tabs --> es-icon
   es-tabs --> es-badge
   es-badge --> es-counter
   style es-tabs fill:#f9f,stroke:#333,stroke-width:4px
