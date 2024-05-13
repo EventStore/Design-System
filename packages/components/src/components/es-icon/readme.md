@@ -79,6 +79,7 @@ Type: `Promise<void>`
  - [es-table](../tables/es-table)
  - [es-table-nested](../tables/es-table-nested)
  - [es-table-virtualized](../tables/es-table-virtualized)
+ - [es-tabs](../es-tabs)
  - [es-thinking-button](../es-thinking-button)
  - es-toast
 
@@ -96,6 +97,7 @@ graph TD;
   es-table --> es-icon
   es-table-nested --> es-icon
   es-table-virtualized --> es-icon
+  es-tabs --> es-icon
   es-thinking-button --> es-icon
   es-toast --> es-icon
   style es-icon fill:#f9f,stroke:#333,stroke-width:4px

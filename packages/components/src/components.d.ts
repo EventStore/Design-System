@@ -768,6 +768,14 @@ export namespace Components {
          */
         "activeParam": string | false;
         /**
+          * Icon to be rendered between each tab.
+         */
+        "interTabIcon"?: IconDescription;
+        /**
+          * thu size of the icon to be rendered between each tab.
+         */
+        "interTabIconSize": number;
+        /**
           * A list of tabs.
          */
         "tabs": Tab[];
@@ -1973,6 +1981,14 @@ declare namespace LocalJSX {
           * Reflect the active tab to a search param of name. Set to false to disable.
          */
         "activeParam"?: string | false;
+        /**
+          * Icon to be rendered between each tab.
+         */
+        "interTabIcon"?: IconDescription;
+        /**
+          * thu size of the icon to be rendered between each tab.
+         */
+        "interTabIconSize"?: number;
         /**
           * Triggered when the active tab is changed. `detail` is the newly active tab.
          */

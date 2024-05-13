@@ -8,20 +8,24 @@ import {
     type EventEmitter,
     Element,
     State,
+    Fragment,
 } from '@stencil/core';
 import { searchParam, type SearchParamTracker } from '@eventstore-ui/router';
 import { theme } from '@eventstore-ui/theme';
 
 import type { Tab } from './types';
+import type { IconDescription } from '../es-icon/types';
 
 /**
  * A tabbed panel. Each panel can be targeted via a slot.
  * @slot [tabName] - Slots are created based off of the names of the passed tabs.
+ * @slot header-end - After all the tabs.
  * @part indicator - The sliding indicatior bar.
  * @part panel - Tab panels.
  * @part tab - Tabs.
  * @part active - The active tab.
  * @part tablist - The tab container.
+ * @part inter-tab-icon - Icon between tabs (if specified).
  */
 @Component({
     tag: 'es-tabs',
@@ -37,6 +41,10 @@ export class EsTabs {
     @Prop() activeParam: string | false = 'tab';
     /** The currently active panel. By default it will take from the passed activeParam, or the first tab.  */
     @Prop({ mutable: true }) active?: string;
+    /** Icon to be rendered between each tab.  */
+    @Prop() interTabIcon?: IconDescription;
+    /** thu size of the icon to be rendered between each tab.  */
+    @Prop() interTabIconSize: number = 20;
 
     @State() activeDragOver?: string;
 
@@ -44,65 +52,77 @@ export class EsTabs {
     @Event() tabChange!: EventEmitter<string>;
 
     private searchParam?: SearchParamTracker;
+    private observer = new ResizeObserver(() => {
+        this.positionIndicator(this.active);
+    });
 
     componentWillLoad() {
-        this.searchParam = this.activeParam
-            ? searchParam(this.activeParam)
-            : undefined;
+        this.setUpActiveParam(this.activeParam);
+    }
 
-        if (this.active && this.searchParam && !this.searchParam.value) {
-            this.searchParam.set(this.active);
+    disconnectedCallback() {
+        this.observer.disconnect();
+        this.searchParam?.delete();
+        cancelAnimationFrame(this.indicatorFrame);
+        this.dragTimeouts.forEach((t) => clearTimeout(t));
+    }
+
+    @Watch('activeParam')
+    setUpActiveParam(param: string | false) {
+        if (!param) {
+            this.searchParam?.delete();
+            this.searchParam = undefined;
+        } else {
+            this.searchParam = searchParam(param);
+
+            if (this.active && this.searchParam && !this.searchParam.value) {
+                this.searchParam.set(this.active);
+            }
         }
 
         this.active = this.searchParam?.value ?? this.active ?? this.tabs[0].id;
     }
 
-    disconnectedCallback() {
-        this.searchParam?.delete();
-        cancelAnimationFrame(this.frame1);
-        cancelAnimationFrame(this.frame2);
-        this.dragTimeouts.forEach((t) => clearTimeout(t));
-    }
-
-    @Watch('active') updateActive(active?: string) {
-        // workaround for https://github.com/ionic-team/stencil/issues/2982
-        if (active) {
-            const slot = this.host.shadowRoot?.querySelector('slot');
-
-            if (slot) {
-                slot.name = active;
-            }
-        }
-
+    @Watch('active')
+    updateActive(active?: string) {
         this.searchParam?.set(active);
         this.tabChange.emit(active);
     }
 
-    renderTab = ({ title, id, badge }: Tab) => (
-        <button
-            data-skip-focus-delegation
-            type={'button'}
-            role={'tab'}
-            aria-controls={id}
-            aria-selected={this.active === id}
-            id={`tab-${id}`}
-            class={{
-                tab: true,
-                active: this.active === id,
-                drag_over: this.activeDragOver === id,
-            }}
-            part={this.active === id ? 'tab active' : 'tab'}
-            onClick={this.setActive(id)}
-            ref={this.captureTab(id)}
-            onDragEnter={this.dragEnterTab(id)}
-            onDragLeave={this.dragLeaveTab(id)}
-            onDrop={this.dropTab(id)}
-            onDragOver={this.dragOverTab}
-        >
-            <es-badge count={badge?.() ? 1 : 0} variant={'dot'}>
-                {title}
-            </es-badge>
-        </button>
+    renderTab = ({ title, id, badge }: Tab, i: number) => (
+        <>
+            {i !== 0 && !!this.interTabIcon && (
+                <es-icon
+                    icon={this.interTabIcon}
+                    part={'inter-tab-icon'}
+                    size={this.interTabIconSize}
+                />
+            )}
+            <button
+                data-skip-focus-delegation
+                type={'button'}
+                role={'tab'}
+                aria-controls={id}
+                aria-selected={this.active === id}
+                id={`tab-${id}`}
+                class={{
+                    tab: true,
+                    active: this.active === id,
+                    drag_over: this.activeDragOver === id,
+                }}
+                part={this.active === id ? 'tab active' : 'tab'}
+                onClick={this.setActive(id)}
+                ref={this.captureTab(id)}
+                onDragEnter={this.dragEnterTab(id)}
+                onDragLeave={this.dragLeaveTab(id)}
+                onDrop={this.dropTab(id)}
+                onDragOver={this.dragOverTab}
+            >
+                <es-badge count={badge?.() ? 1 : 0} variant={'dot'}>
+                    <span class={'elipsis'}>{title}</span>
+                </es-badge>
+            </button>
+        </>
     );
 
     render() {
@@ -110,6 +130,7 @@ export class EsTabs {
             <Host high-contrast={theme.isHighContrast()} dark={theme.isDark()}>
                 <header role={'tablist'} part={'tablist'}>
                     {this.tabs.map(this.renderTab)}
+                    <slot name={'header-end'} />
                 </header>
                 <div
                     aria-labelledby={`tab-${this.active}`}
@@ -126,7 +147,7 @@ export class EsTabs {
                         ref={this.captureIndicatior}
                         part={'indicator'}
                     />
-                    <slot name={this.active} />
+                    <slot key={this.active} name={this.active} />
                 </div>
             </Host>
         );
@@ -142,11 +163,16 @@ export class EsTabs {
     private captureTab = (id: string) => (ref?: HTMLButtonElement) => {
         if (ref) {
             this.tabRefs.set(id, ref);
+            this.observer.observe(ref);
 
-            if (!this.initialized && id === this.active) {
+            if (!this.indicatorAttactedTo && id === this.active) {
                 this.positionIndicator(this.active);
             }
         } else {
+            if (this.tabRefs.has(id)) {
+                this.observer.unobserve(this.tabRefs.get(id)!);
+            }
+
             this.tabRefs.delete(id);
         }
     };
@@ -157,46 +183,41 @@ export class EsTabs {
         this.positionIndicator(this.active);
     };
 
-    private initialized = false;
-    private frame1!: ReturnType<typeof requestAnimationFrame>;
-    private frame2!: ReturnType<typeof requestAnimationFrame>;
+    private indicatorAttactedTo?: string;
+    private indicatorFrame!: ReturnType<typeof requestAnimationFrame>;
 
     @Watch('active') positionIndicator(active?: string) {
+        if (!active) return;
+
         const tab = this.tabRefs.get(active!);
         const indicator = this.indicator;
+
         if (!indicator || !tab) return;
 
-        const initial = !this.initialized;
-        this.initialized = true;
+        if (!!this.indicatorAttactedTo && active !== this.indicatorAttactedTo) {
+            indicator.style.setProperty(
+                'transition-property',
+                'width, transform',
+            );
+            indicator.addEventListener(
+                'transitionend',
+                () => {
+                    indicator.style.removeProperty('transition-property');
+                },
+                { once: true },
+            );
+        }
 
-        const drawFame = (retry: number) => {
-            cancelAnimationFrame(this.frame1);
-            this.frame1 = requestAnimationFrame(() => {
-                const { width, paddingLeft, paddingRight } =
-                    getComputedStyle(tab);
-                const left = tab.offsetLeft;
-                const newWidth = `calc(${width} - ${paddingLeft} - ${paddingRight})`;
-                const transform = `translateX(calc(${left}px + ${paddingLeft}))`;
-                indicator.style.width = newWidth;
-                indicator.style.transform = transform;
-
-                if (initial) {
-                    this.frame2 = requestAnimationFrame(() => {
-                        // It's possible the text hasn't fully rendered yet, so we should try again next frame
-                        if (
-                            retry >= 0 &&
-                            indicator.getBoundingClientRect().width === 0
-                        ) {
-                            return drawFame(retry - 1);
-                        }
-
-                        indicator.style.transitionProperty = 'width, transform';
-                    });
-                }
-            });
-        };
-
-        drawFame(3);
+        cancelAnimationFrame(this.indicatorFrame);
+        this.indicatorFrame = requestAnimationFrame(() => {
+            const { width, paddingLeft, paddingRight } = getComputedStyle(tab);
+            const left = tab.offsetLeft;
+            const newWidth = `calc(${width} - ${paddingLeft} - ${paddingRight})`;
+            const transform = `translateX(calc(${left}px + ${paddingLeft}))`;
+            indicator.style.width = newWidth;
+            indicator.style.transform = transform;
+            this.indicatorAttactedTo = active;
+        });
     }
 
     private dragTimeouts = new Map<string, ReturnType<typeof setTimeout>>();

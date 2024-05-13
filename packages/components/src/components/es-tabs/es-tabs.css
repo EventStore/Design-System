@@ -41,8 +41,13 @@
     }
 }
 
+header {
+    display: flex;
+    overflow: hidden;
+}
+
 .tab {
-    flex: 0 0 58px;
+    flex: 0 1 auto;
     position: relative;
     appearance: none;
     background-color: transparent;
@@ -57,6 +62,7 @@
     transition-duration: 500ms;
     transition-timing-function: ease;
     z-index: 1;
+    overflow: hidden;
 
     &::after {
         content: '';
@@ -118,4 +124,14 @@
     top: -2px;
     left: 0;
     z-index: 20000;
+}
+
+es-badge {
+    align-items: flex-start;
+}
+
+.elipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
