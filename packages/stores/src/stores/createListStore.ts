@@ -21,6 +21,8 @@ export interface ListStore<T> {
     ) => Array<R>;
     /** Get a single item from the list. */
     get: (id: string) => T | undefined;
+    /** Get a single item from the list, or insert a default and return it */
+    getOrInsert: (id: string, defaultValue: () => T) => T;
     /** Check if an item is available in the list. */
     has: (id: string) => boolean;
     /** Returns an array of all the keys in the store. */
@@ -99,6 +101,12 @@ export const createListStore = <T>(
                 return acc;
             }, []),
         get: (id) => state[id],
+        getOrInsert: (id, defaultValue) => {
+            if (!(id in state)) {
+                state[id] = defaultValue();
+            }
+            return state[id];
+        },
         has: (id) => id in state,
         keys: () => Object.keys(state),
         onChange: (...args: any[]) => {
