@@ -37,24 +37,36 @@ export class Table {
     /** Header sticks to scroll parent. */
     @Prop() stickyHeader: boolean = false;
     /** Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns. */
-    @Prop() getCellData: (key: string) => any = (d) => d;
+    @Prop() getCellData: (row: any) => any = (d) => d;
+    /** Sync function for extracting a key from your row data. By default, if the passed rows are strings it will use them directly, otherwise it will warn and use the index. */
+    @Prop() getRowKey: (row: any, i: number) => string = (row, i) => {
+        if (typeof row === 'string') return row;
+        logger.warn.once(
+            'es-table:',
+            `Key not found for row ${row} at index ${i}. Using index as key (unsafe).`,
+            'Pass the `getRowKey` prop to convert your row into a key.',
+        );
+        return `${i}`;
+    };
     /** A record of table cell definitions. */
     @Prop() cells!: TableCells<any, any>;
     /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: string[];
     /** An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.  */
-    @Prop() rows!: any[];
+    @Prop() rows!: unknown[];
     /** A function to calculate a href from the cell data. */
-    @Prop() linkRowTo?: (row: any) => string;
+    @Prop() linkRowTo?: (data: any) => string;
     /** If rows should be allowed to take focus */
     @Prop() rowTakesFocus?: boolean;
     /** A function to calculate the class or classes of the row from the cellData. */
     @Prop() rowClass: (
+        data: any,
         row: any,
-        key: string,
     ) => Record<string, boolean> | string | undefined = () => undefined;
     /** Allows rendering a node after the row. */
-    @Prop() renderExpansion: RenderFunction<[key: string]> = () => null;
+    @Prop() renderExpansion: RenderFunction<
+        [row: any, key: string, i: number]
+    > = () => null;
     /** How the table is sorted */
     @Prop() sort?: TableSort;
     /** Pass extra props to cells */
@@ -65,25 +77,29 @@ export class Table {
     /** Triggered whenever a sortable header is clicked */
     @Event() clickSort!: EventEmitter<string>;
 
-    private renderRowGroup = (key: string, i: number) => (
-        <div
-            role={'rowgroup'}
-            class={{
-                odd: i % 2 !== 0,
-            }}
-        >
-            {this.renderRow(key, i)}
-            {this.renderExpansion(h, key)}
-        </div>
-    );
+    private renderRowGroup = (row: any, i: number) => {
+        const key = this.getRowKey(row, i);
+        return (
+            <div
+                key={key}
+                role={'rowgroup'}
+                class={{
+                    odd: i % 2 !== 0,
+                }}
+            >
+                {this.renderRow(row, key, i)}
+                {this.renderExpansion(h, row, key, i)}
+            </div>
+        );
+    };
 
-    private renderRow = (key: string, index: number) => {
-        const data = this.getCellData?.(key);
+    private renderRow = (row: unknown, key: string, index: number) => {
+        const data = this.getCellData?.(row);
 
         if (!data) {
             logger.warn.once(
                 'es-table:',
-                `Data not found for cell with key ${key} at index ${index}`,
+                `Data not found for cell with row ${row} at index ${index}`,
             );
             return null;
         }
@@ -94,16 +110,16 @@ export class Table {
                     url={this.linkRowTo(data)}
                     role={'row'}
                     aria-rowindex={index}
-                    key={key}
-                    class={this.rowClass(data, key)}
+                    class={this.rowClass(data, row)}
                     onClick={this.emitRowClick({
                         index,
                         key,
+                        row,
                         data,
                     })}
                     tabindex={'-1'}
                 >
-                    {this.renderCells(data, key, index)}
+                    {this.renderCells(data, row, key, index)}
                 </Link>
             );
         }
@@ -112,21 +128,26 @@ export class Table {
             <div
                 role={'row'}
                 aria-rowindex={index}
-                key={key}
                 class={this.rowClass(data, key)}
                 onClick={this.emitRowClick({
                     index,
                     key,
+                    row,
                     data,
                 })}
                 tabindex={'-1'}
             >
-                {this.renderCells(data, key, index)}
+                {this.renderCells(data, row, key, index)}
             </div>
         );
     };
 
-    private renderCells = (data: any, key: string, index: number) =>
+    private renderCells = (
+        data: any,
+        row: unknown,
+        key: string,
+        index: number,
+    ) =>
         this.getColumnGroups().map(([_, cells], groupIndex, groups) =>
             cells.map(([name, cell], cellIndex, cells) => {
                 const focusCell =
@@ -136,12 +157,14 @@ export class Table {
 
                 return (
                     <div
+                        key={name}
                         role={'cell'}
                         tabindex={focusCell ? '0' : undefined}
                         onKeyDown={
                             focusCell
                                 ? this.focusCellKeyPress({
                                       index,
+                                      row,
                                       key,
                                       data,
                                   })

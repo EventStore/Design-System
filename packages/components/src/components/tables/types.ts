@@ -117,6 +117,8 @@ export interface ClickRow<T = any> {
     index: number;
     /** The key of the row that was clicked. */
     key: string;
+    /** The raw row data for the clicked row. */
+    row: unknown;
     /** The data (if available) of the row that was clicked. */
     data: T;
 }

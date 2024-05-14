@@ -463,7 +463,11 @@ export namespace Components {
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
-        "getCellData": (key: string) => any;
+        "getCellData": (row: any) => any;
+        /**
+          * Sync function for extracting a key from your row data. By default, if the passed rows are strings it will use them directly, otherwise it will warn and use the index.
+         */
+        "getRowKey": (row: any, i: number) => string;
         /**
           * Do not render header.
          */
@@ -475,17 +479,19 @@ export namespace Components {
         /**
           * A function to calculate a href from the cell data.
          */
-        "linkRowTo"?: (row: any) => string;
+        "linkRowTo"?: (data: any) => string;
         /**
           * Allows rendering a node after the row.
          */
-        "renderExpansion": RenderFunction<[key: string]>;
+        "renderExpansion": RenderFunction<
+        [row: any, key: string, i: number]
+    >;
         /**
           * A function to calculate the class or classes of the row from the cellData.
          */
         "rowClass": (
+        data: any,
         row: any,
-        key: string,
     ) => Record<string, boolean> | string | undefined;
         /**
           * If rows should be allowed to take focus
@@ -494,7 +500,7 @@ export namespace Components {
         /**
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
-        "rows": any[];
+        "rows": unknown[];
         /**
           * How the table is sorted
          */
@@ -595,9 +601,17 @@ export namespace Components {
          */
         "getNestedCellData"?: (key: string) => any;
         /**
+          * Sync function for extracting a key from your nested row data. By default, if the passed rows are strings it will use them directly, otherwise it will warn and use the index.
+         */
+        "getNestedRowKey"?: (row: any, i: number) => string;
+        /**
           * Sync function for extracting a list of rows for the nested table
          */
         "getNestedRows"?: (key: string, count: number) => any[] | undefined;
+        /**
+          * Sync function for extracting a key from your row data. By default, if the passed rows are strings it will use them directly, otherwise it will warn and use the index.
+         */
+        "getRowKey"?: (row: any, i: number) => string;
         /**
           * Do not render header.
          */
@@ -1645,7 +1659,11 @@ declare namespace LocalJSX {
         /**
           * Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns.
          */
-        "getCellData"?: (key: string) => any;
+        "getCellData"?: (row: any) => any;
+        /**
+          * Sync function for extracting a key from your row data. By default, if the passed rows are strings it will use them directly, otherwise it will warn and use the index.
+         */
+        "getRowKey"?: (row: any, i: number) => string;
         /**
           * Do not render header.
          */
@@ -1657,7 +1675,7 @@ declare namespace LocalJSX {
         /**
           * A function to calculate a href from the cell data.
          */
-        "linkRowTo"?: (row: any) => string;
+        "linkRowTo"?: (data: any) => string;
         /**
           * Triggered whenever a row is clicked.
          */
@@ -1669,13 +1687,15 @@ declare namespace LocalJSX {
         /**
           * Allows rendering a node after the row.
          */
-        "renderExpansion"?: RenderFunction<[key: string]>;
+        "renderExpansion"?: RenderFunction<
+        [row: any, key: string, i: number]
+    >;
         /**
           * A function to calculate the class or classes of the row from the cellData.
          */
         "rowClass"?: (
+        data: any,
         row: any,
-        key: string,
     ) => Record<string, boolean> | string | undefined;
         /**
           * If rows should be allowed to take focus
@@ -1684,7 +1704,7 @@ declare namespace LocalJSX {
         /**
           * An array of rows to render. Each item in the array is passed to getCellData, to allow passing keys or other identifiers.
          */
-        "rows": any[];
+        "rows": unknown[];
         /**
           * How the table is sorted
          */
@@ -1785,9 +1805,17 @@ declare namespace LocalJSX {
          */
         "getNestedCellData"?: (key: string) => any;
         /**
+          * Sync function for extracting a key from your nested row data. By default, if the passed rows are strings it will use them directly, otherwise it will warn and use the index.
+         */
+        "getNestedRowKey"?: (row: any, i: number) => string;
+        /**
           * Sync function for extracting a list of rows for the nested table
          */
         "getNestedRows"?: (key: string, count: number) => any[] | undefined;
+        /**
+          * Sync function for extracting a key from your row data. By default, if the passed rows are strings it will use them directly, otherwise it will warn and use the index.
+         */
+        "getRowKey"?: (row: any, i: number) => string;
         /**
           * Do not render header.
          */
