@@ -252,7 +252,7 @@ export class Table {
                     key={key}
                     aria-rowindex={index}
                     class={this.rowClass(data, key, index)}
-                    onClick={this.emitRowClick({ data, key, index })}
+                    onClick={this.emitRowClick({ data, row: key, key, index })}
                     tabindex={'-1'}
                 >
                     {this.renderCells(data, key, index)}
@@ -266,7 +266,7 @@ export class Table {
                 aria-rowindex={index}
                 key={key}
                 class={this.rowClass(data, key, index)}
-                onClick={this.emitRowClick({ data, key, index })}
+                onClick={this.emitRowClick({ data, row: key, key, index })}
                 tabindex={'-1'}
             >
                 {this.renderCells(data, key, index)}
@@ -291,6 +291,7 @@ export class Table {
                                 ? this.focusCellKeyPress({
                                       index,
                                       key,
+                                      row: key,
                                       data,
                                   })
                                 : undefined

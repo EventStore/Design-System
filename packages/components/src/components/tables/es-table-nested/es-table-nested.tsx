@@ -27,6 +27,10 @@ export class TableNested {
     @Prop() outerIdentifier: string = 'table';
     /** Sync function for extracting the data from the row. By default, it assumes you passed an array of data as your columns. */
     @Prop() getCellData?: (key: string) => any;
+    /** Sync function for extracting a key from your row data. By default, if the passed rows are strings it will use them directly, otherwise it will warn and use the index. */
+    @Prop() getRowKey?: (row: any, i: number) => string;
+    /** Sync function for extracting a key from your nested row data. By default, if the passed rows are strings it will use them directly, otherwise it will warn and use the index. */
+    @Prop() getNestedRowKey?: (row: any, i: number) => string;
     /** A record of table cell definitions.Some built in cells are cells are available for use:
      * - `--borderless`: A blank placeholder cell with no border, for aligning with the parent cell.
      * - `--no-pad`: A blank placeholder cell, for aligning with the parent cell.
@@ -120,6 +124,7 @@ export class TableNested {
                         }
                         renderExpansion={this.renderExpansion(depth + 1)}
                         rowClass={this.rowClassWithDefaults(depth + 1)}
+                        getRowKey={this.getNestedRowKey ?? this.getRowKey}
                     />
                     {canExpandMore && (
                         <es-button
@@ -149,6 +154,7 @@ export class TableNested {
                 rowClass={this.rowClassWithDefaults(0)}
                 onClickRow={this.toggleIfRequested}
                 extraCellProps={this.nestedExtraCellProps(0)}
+                getRowKey={this.getRowKey}
             />
         );
     }
