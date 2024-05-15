@@ -68,6 +68,8 @@ export interface TableCell<T, X = {}> {
         | Record<string, boolean>;
     /** If the table can be sorted by this column */
     sortable?: boolean;
+    /* If table is loading */
+    loading?: RenderFunction<[d: CellProps<T, X>]>;
 }
 
 /** The order that the table column is sorted in. */

@@ -71,6 +71,9 @@ export class Table {
     @Prop() sort?: TableSort;
     /** Pass extra props to cells */
     @Prop() extraCellProps?: (key: string, data: any) => Record<string, any>;
+    /** If the loading indicators shjould be displayed */
+    @Prop() loading?: boolean;
+    @Prop() loadingRows?: number = 1;
 
     /** Triggered whenever a row is clicked. */
     @Event() clickRow!: EventEmitter<ClickRow<any>>;
@@ -177,7 +180,14 @@ export class Table {
                             cellCount: cells.length,
                         })}
                     >
-                        {cell.cell
+                        {this.loading &&
+                            cell.loading?.(h, {
+                                ...(this.extraCellProps?.(key, data) ?? {}),
+                                key,
+                                data,
+                                parent: this.identifier,
+                            })}
+                        {!this.loading && cell.cell
                             ? cell.cell(h, {
                                   ...(this.extraCellProps?.(key, data) ?? {}),
                                   key,
@@ -205,7 +215,11 @@ export class Table {
                     sort={this.sort}
                     sticky={this.stickyHeader}
                 />
-                {this.rows?.map(this.renderRowGroup)}
+                {this.loading &&
+                    new Array(this.loadingRows)
+                        .fill({})
+                        .map(this.renderRowGroup)}
+                {!this.loading && this.rows?.map(this.renderRowGroup)}
             </Host>
         );
     }
