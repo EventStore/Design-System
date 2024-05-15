@@ -31,8 +31,10 @@ export interface PageProps {
     renderEmptyState?: FunctionalComponent;
     /** Error state renderer. Used if `state` is an Error. */
     renderErrorState?: FunctionalComponent<ErrorStateProps>;
-    /** Loading state renderer. Used if `state` is an "loading". */
-    renderLoadingState?: FunctionalComponent;
+    /** Loading state renderer. Used if `state` is an "loading".
+     * If set to `false`, the component renders normally without a loading state.
+     */
+    renderLoadingState?: FunctionalComponent | false;
     /** Title for the header. Defaults to the passed `pageTitle`. Can be set to `false` to disable. */
     headerTitle?: string | false;
     /** Render to the right of the page header. */
@@ -102,9 +104,12 @@ const PageBody: FunctionalComponent<PageProps> = (
 ) => {
     updateState(progressBarId, state);
 
-    if (state === 'loading') return <LoadingState />;
-    if (Array.isArray(state)) return <ErrorState error={state[1]} />;
-    if (empty) return <EmptyState />;
+    if (state === 'loading') {
+        if (LoadingState !== false) return <LoadingState />;
+    } else {
+        if (Array.isArray(state)) return <ErrorState error={state[1]} />;
+        if (empty) return <EmptyState />;
+    }
     return (
         <>
             {(!!headerTitle || !!HeaderRight) && (
