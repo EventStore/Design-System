@@ -482,6 +482,14 @@ export namespace Components {
          */
         "linkRowTo"?: (data: any) => string;
         /**
+          * Indicates if the loading indicators should be displayed
+         */
+        "loading"?: boolean;
+        /**
+          * Specifies the number of rows to display when loading is true. Defaults to 1.
+         */
+        "loadingRows": number;
+        /**
           * Allows rendering a node after the row.
          */
         "renderExpansion": RenderFunction<
@@ -1677,6 +1685,14 @@ declare namespace LocalJSX {
           * A function to calculate a href from the cell data.
          */
         "linkRowTo"?: (data: any) => string;
+        /**
+          * Indicates if the loading indicators should be displayed
+         */
+        "loading"?: boolean;
+        /**
+          * Specifies the number of rows to display when loading is true. Defaults to 1.
+         */
+        "loadingRows"?: number;
         /**
           * Triggered whenever a row is clicked.
          */

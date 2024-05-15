@@ -71,9 +71,10 @@ export class Table {
     @Prop() sort?: TableSort;
     /** Pass extra props to cells */
     @Prop() extraCellProps?: (key: string, data: any) => Record<string, any>;
-    /** If the loading indicators shjould be displayed */
+    /** Indicates if the loading indicators should be displayed */
     @Prop() loading?: boolean;
-    @Prop() loadingRows?: number = 1;
+    /** Specifies the number of rows to display when loading is true. Defaults to 1. */
+    @Prop() loadingRows: number = 1;
 
     /** Triggered whenever a row is clicked. */
     @Event() clickRow!: EventEmitter<ClickRow<any>>;
@@ -107,7 +108,7 @@ export class Table {
             return null;
         }
 
-        if (this.linkRowTo) {
+        if (this.linkRowTo && !this.loading) {
             return (
                 <Link
                     url={this.linkRowTo(data)}
@@ -156,7 +157,8 @@ export class Table {
                 const focusCell =
                     groupIndex === 0 &&
                     cellIndex === 0 &&
-                    (!!this.rowTakesFocus || !!this.linkRowTo);
+                    (!!this.rowTakesFocus ||
+                        (!!this.linkRowTo && !this.loading));
 
                 return (
                     <div
@@ -228,7 +230,7 @@ export class Table {
         if (e.code !== 'Space' && e.code !== 'Enter') return;
 
         this.clickRow.emit(data);
-        if (this.linkRowTo) {
+        if (this.linkRowTo && !this.loading) {
             const link = this.linkRowTo(data);
             router.history?.push(link);
         }
