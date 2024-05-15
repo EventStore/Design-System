@@ -1,5 +1,18 @@
 # @eventstore-ui/components
 
+## 1.5.0
+
+### Minor Changes
+
+-   [`14620f6`](https://github.com/EventStore/Design-System/commit/14620f66117e6a1e2484f99236b523832958e695) - Previously, when passing data directly to a table's rows (rather than passing strings and using `getCellData`), the data objects were being used as keys, causing unnecessary re-renders.
+
+    `es-table` will now warn when this is happening, and exposes a new prop `getRowKey` to allow you to convert the data into a stable key.
+
+    `renderExpansion` is now more accurately typed to have the passed row as `any` and and additionally recieves this converted key, as well as the index of the row.
+    `rowClass` is also more accurately typed to have the passed row as `any`.
+
+    `es-table-nested` exposes both `getRowKey` and `getNestedRowKey` for the nested table.
+
 ## 1.4.0
 
 ### Minor Changes
