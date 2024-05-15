@@ -82,7 +82,7 @@ export class Table {
     @Event() clickSort!: EventEmitter<string>;
 
     private renderRowGroup = (row: any, i: number) => {
-        const key = this.getRowKey(row, i);
+        const key = this.loading ? '-1' : this.getRowKey(row, i);
         return (
             <div
                 key={key}
@@ -92,7 +92,7 @@ export class Table {
                 }}
             >
                 {this.renderRow(row, key, i)}
-                {this.renderExpansion(h, row, key, i)}
+                {!this.loading && this.renderExpansion(h, row, key, i)}
             </div>
         );
     };
@@ -132,7 +132,7 @@ export class Table {
             <div
                 role={'row'}
                 aria-rowindex={index}
-                class={this.rowClass(data, key)}
+                class={this.loading ? undefined : this.rowClass(data, key)}
                 onClick={this.emitRowClick({
                     index,
                     key,
@@ -157,8 +157,8 @@ export class Table {
                 const focusCell =
                     groupIndex === 0 &&
                     cellIndex === 0 &&
-                    (!!this.rowTakesFocus ||
-                        (!!this.linkRowTo && !this.loading));
+                    (!!this.rowTakesFocus || !!this.linkRowTo) &&
+                    !this.loading;
 
                 return (
                     <div
@@ -227,16 +227,18 @@ export class Table {
     }
 
     private focusCellKeyPress = (data: ClickRow) => (e: KeyboardEvent) => {
+        if (this.loading) return;
         if (e.code !== 'Space' && e.code !== 'Enter') return;
 
         this.clickRow.emit(data);
-        if (this.linkRowTo && !this.loading) {
+        if (this.linkRowTo) {
             const link = this.linkRowTo(data);
             router.history?.push(link);
         }
     };
 
     private emitRowClick = (data: ClickRow) => () => {
+        if (this.loading) return;
         this.clickRow.emit(data);
     };
 
