@@ -49,7 +49,7 @@ module.exports = {
             {
                 prefer: 'type-imports',
                 disallowTypeAnnotations: true,
-                fixStyle: 'inline-type-imports',
+
             },
         ],
     },
