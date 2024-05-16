@@ -81,8 +81,13 @@ export class TableNested {
     /** A path to a the currently active row, to auto expand its parent and show it as selected. */
     @Prop() activePath?: string[];
 
+    /** Indicates if the loading indicators should be displayed */
+    @Prop() loading?: boolean;
+    /** Specifies the number of rows to display when loading is true. Defaults to 1. */
+    @Prop() loadingRows: number = 1;
+
     @State() expanded: Map<string, number> = new Map();
-    @State() loading: Set<string> = new Set();
+    @State() loadingSet: Set<string> = new Set();
 
     /** Triggered whenever a row (or nested row) is clicked. The `detail` is the item in the row array. */
     @Event() clickRow!: EventEmitter<any>;
@@ -92,6 +97,7 @@ export class TableNested {
     renderExpansion =
         (depth: number): RenderFunction<[key: string]> =>
         (h, key) => {
+            if (this.loading) return null;
             const defaultExpanded = this.defaultExpanded?.(key, depth) ?? 0;
             const expanded = this.expanded.has(key) || defaultExpanded > 0;
             const nestedActive =
@@ -155,6 +161,8 @@ export class TableNested {
                 onClickRow={this.toggleIfRequested}
                 extraCellProps={this.nestedExtraCellProps(0)}
                 getRowKey={this.getRowKey}
+                loading={this.loading}
+                loadingRows={this.loadingRows}
             />
         );
     }
@@ -165,13 +173,13 @@ export class TableNested {
             canExpand: this.canExpand(key, data, depth),
             canExpandMore: this.canExpandMore(key, data),
             expanded: this.expanded.has(key),
-            loading: this.loading.has(key),
+            loading: this.loadingSet.has(key),
             toggleExpansion: () => this.toggleExpansion(key, data),
             ...(this.extraCellProps?.(key, data) ?? {}),
         });
 
     private toggleExpansion = async (key: string, data: any) => {
-        if (this.loading.has(key)) return;
+        if (this.loading || this.loadingSet.has(key)) return;
 
         if (this.expanded.has(key)) {
             this.expanded.delete(key);
@@ -185,13 +193,13 @@ export class TableNested {
             return;
         }
 
-        this.loading.add(key);
-        this.loading = new Set(this.loading);
+        this.loadingSet.add(key);
+        this.loadingSet = new Set(this.loadingSet);
 
         await this.loadNested(key, data);
 
-        this.loading.delete(key);
-        this.loading = new Set(this.loading);
+        this.loadingSet.delete(key);
+        this.loadingSet = new Set(this.loadingSet);
 
         this.expanded.set(key, this.expandBy);
         this.expanded = new Map(this.expanded);
@@ -266,7 +274,7 @@ export class TableNested {
                         <es-icon
                             size={18}
                             icon={
-                                loading
+                                loading || this.loading
                                     ? [ICON_NAMESPACE, 'spinner']
                                     : [ICON_NAMESPACE, 'chevron']
                             }
