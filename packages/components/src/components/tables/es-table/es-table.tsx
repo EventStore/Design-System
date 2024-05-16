@@ -82,7 +82,7 @@ export class Table {
     @Event() clickSort!: EventEmitter<string>;
 
     private renderRowGroup = (row: any, i: number) => {
-        const key = this.loading ? '-1' : this.getRowKey(row, i);
+        const key = this.loading ? `loading-${i}` : this.getRowKey(row, i);
         return (
             <div
                 key={key}
@@ -168,11 +168,11 @@ export class Table {
                         onKeyDown={
                             focusCell
                                 ? this.focusCellKeyPress({
-                                      index,
-                                      row,
-                                      key,
-                                      data,
-                                  })
+                                    index,
+                                    row,
+                                    key,
+                                    data,
+                                })
                                 : undefined
                         }
                         class={cellClasses(cell, data, focusCell, {
@@ -191,11 +191,11 @@ export class Table {
                             })}
                         {!this.loading && cell.cell
                             ? cell.cell(h, {
-                                  ...(this.extraCellProps?.(key, data) ?? {}),
-                                  key,
-                                  data,
-                                  parent: this.identifier,
-                              })
+                                ...(this.extraCellProps?.(key, data) ?? {}),
+                                key,
+                                data,
+                                parent: this.identifier,
+                            })
                             : autoExtract(data, name)}
                     </div>
                 );
