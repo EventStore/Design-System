@@ -98,7 +98,7 @@ export class Table {
     };
 
     private renderRow = (row: unknown, key: string, index: number) => {
-        const data = this.getCellData?.(row);
+        const data = this.loading ? {} : this.getCellData?.(row);
 
         if (!data) {
             logger.warn.once(
@@ -108,7 +108,7 @@ export class Table {
             return null;
         }
 
-        if (this.linkRowTo && !this.loading) {
+        if (!this.loading && this.linkRowTo) {
             return (
                 <Link
                     url={this.linkRowTo(data)}
