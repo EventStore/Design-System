@@ -539,6 +539,14 @@ export namespace Components {
           * Passed to cell renderer as `parent`.
          */
         "identifier": string;
+        /**
+          * Indicates if the loading indicators should be displayed
+         */
+        "loading"?: boolean;
+        /**
+          * Specifies the number of rows to display when loading is true. Defaults to 1.
+         */
+        "loadingRows": number;
     }
     /**
      * A default header for [`es-table-detail`](/components/components/es-table-detail).
@@ -1759,6 +1767,14 @@ declare namespace LocalJSX {
           * Passed to cell renderer as `parent`.
          */
         "identifier"?: string;
+        /**
+          * Indicates if the loading indicators should be displayed
+         */
+        "loading"?: boolean;
+        /**
+          * Specifies the number of rows to display when loading is true. Defaults to 1.
+         */
+        "loadingRows"?: number;
     }
     /**
      * A default header for [`es-table-detail`](/components/components/es-table-detail).

@@ -17,11 +17,25 @@ export class TableDetail {
     @Prop() cells!: TableCells<any, any>;
     /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: Array<string>;
+    /** Indicates if the loading indicators should be displayed */
+    @Prop() loading?: boolean;
+    /** Specifies the number of rows to display when loading is true. Defaults to 1. */
+    @Prop() loadingRows: number = 1;
 
     private renderHeader = (title?: string) => <dt>{title}</dt>;
-    private renderCell = (name: string, renderCell: TableCell<any>['cell']) => (
+    private renderCell = (
+        name: string,
+        renderCell: TableCell<any>['cell'],
+        renderLoading: TableCell<any>['loading'],
+    ) => (
         <dd>
-            {renderCell
+            {!!renderLoading &&
+                renderLoading(h, {
+                    data: this.data,
+                    key: name,
+                    parent: this.identifier,
+                })}
+            {!renderLoading && renderCell
                 ? renderCell(h, {
                       data: this.data,
                       key: name,
@@ -45,6 +59,7 @@ export class TableDetail {
                             variant,
                             cell,
                             align = 'start',
+                            loading,
                         } = this.getCell(name);
                         const variants =
                             typeof variant === 'string'
@@ -60,7 +75,7 @@ export class TableDetail {
                                 }}
                             >
                                 {this.renderHeader(title)}
-                                {this.renderCell(name, cell)}
+                                {!this.renderCell(name, cell, loading)}
                             </div>
                         );
                     })}
