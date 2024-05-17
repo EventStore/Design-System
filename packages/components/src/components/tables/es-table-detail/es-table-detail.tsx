@@ -23,19 +23,9 @@ export class TableDetail {
     @Prop() loadingRows: number = 1;
 
     private renderHeader = (title?: string) => <dt>{title}</dt>;
-    private renderCell = (
-        name: string,
-        renderCell: TableCell<any>['cell'],
-        renderLoading: TableCell<any>['loading'],
-    ) => (
+    private renderCell = (name: string, renderCell: TableCell<any>['cell']) => (
         <dd>
-            {!!renderLoading &&
-                renderLoading(h, {
-                    data: this.data,
-                    key: name,
-                    parent: this.identifier,
-                })}
-            {!renderLoading && renderCell
+            {renderCell
                 ? renderCell(h, {
                       data: this.data,
                       key: name,
@@ -59,7 +49,6 @@ export class TableDetail {
                             variant,
                             cell,
                             align = 'start',
-                            loading,
                         } = this.getCell(name);
                         const variants =
                             typeof variant === 'string'
@@ -75,7 +64,7 @@ export class TableDetail {
                                 }}
                             >
                                 {this.renderHeader(title)}
-                                {!this.renderCell(name, cell, loading)}
+                                {!this.renderCell(name, cell)}
                             </div>
                         );
                     })}
