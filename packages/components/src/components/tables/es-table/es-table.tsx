@@ -184,7 +184,6 @@ export class Table {
                     >
                         {this.loading &&
                             cell.loading?.(h, {
-                                ...(this.extraCellProps?.(key, data) ?? {}),
                                 key,
                                 data,
                                 parent: this.identifier,
