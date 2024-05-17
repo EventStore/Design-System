@@ -96,54 +96,54 @@ export class TableNested {
 
     renderExpansion =
         (depth: number): RenderFunction<[key: string]> =>
-            (h, key) => {
-                if (this.loading) return null;
-                const defaultExpanded = this.defaultExpanded?.(key, depth) ?? 0;
-                const expanded = this.expanded.has(key) || defaultExpanded > 0;
-                const nestedActive =
-                    !expanded && this.activePath && this.activePath[depth] === key
-                        ? this.activePath[depth + 1]
-                        : false;
-                if (!expanded && !nestedActive) return null;
+        (h, key) => {
+            if (this.loading) return null;
+            const defaultExpanded = this.defaultExpanded?.(key, depth) ?? 0;
+            const expanded = this.expanded.has(key) || defaultExpanded > 0;
+            const nestedActive =
+                !expanded && this.activePath && this.activePath[depth] === key
+                    ? this.activePath[depth + 1]
+                    : false;
+            if (!expanded && !nestedActive) return null;
 
-                const count =
-                    this.expanded.get(key) ?? defaultExpanded ?? this.expandBy;
-                const canExpandMore =
-                    !nestedActive && this.canExpandMore(key, count);
+            const count =
+                this.expanded.get(key) ?? defaultExpanded ?? this.expandBy;
+            const canExpandMore =
+                !nestedActive && this.canExpandMore(key, count);
 
-                return (
-                    <>
-                        <es-table
-                            headless
-                            class={{ nested: true, can_expand_more: canExpandMore }}
-                            rowTakesFocus={
-                                this.nestedRowTakesFocus ?? this.rowTakesFocus
-                            }
-                            identifier={this.nestedIdentifier}
-                            getCellData={this.getNestedCellData ?? this.getCellData}
-                            cells={this.cellsWithExpander()}
-                            columns={this.nestedColumns ?? this.columns}
-                            rows={
-                                nestedActive
-                                    ? [nestedActive]
-                                    : this.getNestedRows?.(key, count) ?? []
-                            }
-                            renderExpansion={this.renderExpansion(depth + 1)}
-                            rowClass={this.rowClassWithDefaults(depth + 1)}
-                            getRowKey={this.getNestedRowKey ?? this.getRowKey}
-                        />
-                        {canExpandMore && (
-                            <es-button
-                                class={'expand_more'}
-                                variant={'minimal'}
-                                onClick={this.expandMore(key, count)}
-                            >
-                                {`Show next ${this.expandBy} rows`}
-                            </es-button>
-                        )}
-                    </>
-                );
-            };
+            return (
+                <>
+                    <es-table
+                        headless
+                        class={{ nested: true, can_expand_more: canExpandMore }}
+                        rowTakesFocus={
+                            this.nestedRowTakesFocus ?? this.rowTakesFocus
+                        }
+                        identifier={this.nestedIdentifier}
+                        getCellData={this.getNestedCellData ?? this.getCellData}
+                        cells={this.cellsWithExpander()}
+                        columns={this.nestedColumns ?? this.columns}
+                        rows={
+                            nestedActive
+                                ? [nestedActive]
+                                : this.getNestedRows?.(key, count) ?? []
+                        }
+                        renderExpansion={this.renderExpansion(depth + 1)}
+                        rowClass={this.rowClassWithDefaults(depth + 1)}
+                        getRowKey={this.getNestedRowKey ?? this.getRowKey}
+                    />
+                    {canExpandMore && (
+                        <es-button
+                            class={'expand_more'}
+                            variant={'minimal'}
+                            onClick={this.expandMore(key, count)}
+                        >
+                            {`Show next ${this.expandBy} rows`}
+                        </es-button>
+                    )}
+                </>
+            );
+        };
 
     render() {
         return (
@@ -169,14 +169,14 @@ export class TableNested {
 
     private nestedExtraCellProps =
         (depth: number) =>
-            (key: string, data: any): NestedTableExtraProps => ({
-                canExpand: this.canExpand(key, data, depth),
-                canExpandMore: this.canExpandMore(key, data),
-                expanded: this.expanded.has(key),
-                loading: this.loadingExpansions.has(key),
-                toggleExpansion: () => this.toggleExpansion(key, data),
-                ...(this.extraCellProps?.(key, data) ?? {}),
-            });
+        (key: string, data: any): NestedTableExtraProps => ({
+            canExpand: this.canExpand(key, data, depth),
+            canExpandMore: this.canExpandMore(key, data),
+            expanded: this.expanded.has(key),
+            loading: this.loadingExpansions.has(key),
+            toggleExpansion: () => this.toggleExpansion(key, data),
+            ...(this.extraCellProps?.(key, data) ?? {}),
+        });
 
     private toggleExpansion = async (key: string, data: any) => {
         if (this.loading || this.loadingExpansions.has(key)) return;
@@ -215,8 +215,8 @@ export class TableNested {
             const extraClasses = !classes
                 ? {}
                 : typeof classes === 'string'
-                    ? { [classes]: true }
-                    : classes;
+                ? { [classes]: true }
+                : classes;
 
             return {
                 can_expand: true,

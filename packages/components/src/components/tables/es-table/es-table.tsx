@@ -15,6 +15,7 @@ import type {
     TableCells,
     TableSort,
     ColumnGroups,
+    NamedCell,
 } from '../types';
 import { logger } from '../../../utils/logger';
 import { TableHeader } from '../TableHeader';
@@ -168,11 +169,11 @@ export class Table {
                         onKeyDown={
                             focusCell
                                 ? this.focusCellKeyPress({
-                                    index,
-                                    row,
-                                    key,
-                                    data,
-                                })
+                                      index,
+                                      row,
+                                      key,
+                                      data,
+                                  })
                                 : undefined
                         }
                         class={cellClasses(cell, data, focusCell, {
@@ -182,31 +183,45 @@ export class Table {
                             cellCount: cells.length,
                         })}
                     >
-                        {this.loading &&
-                            (cell.loading === undefined ? (
-                                <es-es-loading-text
-                                    expectedLength={cell.title?.length ?? 30}
-                                />
-                            ) : (
-                                cell.loading &&
-                                cell.loading(h, {
-                                    key,
-                                    data,
-                                    parent: this.identifier,
-                                })
-                            ))}
-                        {!this.loading && cell.cell
-                            ? cell.cell(h, {
-                                ...(this.extraCellProps?.(key, data) ?? {}),
-                                key,
-                                data,
-                                parent: this.identifier,
-                            })
-                            : autoExtract(data, name)}
+                        {this.renderCellContent(data, key, name, cell)}
                     </div>
                 );
             }),
         );
+
+    private renderCellContent = (
+        data: any,
+        key: string,
+        name: NamedCell[0],
+        cell: NamedCell[1],
+    ) => {
+        if (this.loading) {
+            if (cell.loading === undefined) {
+                return (
+                    <es-es-loading-text
+                        expectedLength={cell.title?.length ?? 30}
+                    />
+                );
+            } else if (cell.loading) {
+                return cell.loading(h, {
+                    key,
+                    data,
+                    parent: this.identifier,
+                });
+            }
+        } else if (cell.cell) {
+            return cell.cell(h, {
+                ...(this.extraCellProps?.(key, data) ?? {}),
+                key,
+                data,
+                parent: this.identifier,
+            });
+        } else {
+            return autoExtract(data, name);
+        }
+
+        return undefined;
+    };
 
     render() {
         return (
