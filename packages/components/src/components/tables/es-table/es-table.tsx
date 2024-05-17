@@ -168,11 +168,11 @@ export class Table {
                         onKeyDown={
                             focusCell
                                 ? this.focusCellKeyPress({
-                                      index,
-                                      row,
-                                      key,
-                                      data,
-                                  })
+                                    index,
+                                    row,
+                                    key,
+                                    data,
+                                })
                                 : undefined
                         }
                         class={cellClasses(cell, data, focusCell, {
@@ -183,10 +183,9 @@ export class Table {
                         })}
                     >
                         {this.loading &&
-                            cell.width !== '0' &&
                             (cell.loading === undefined ? (
                                 <es-es-loading-text
-                                    exectedLength={cell.title?.length ?? 30}
+                                    expectedLength={cell.title?.length ?? 30}
                                 />
                             ) : (
                                 cell.loading &&
@@ -198,11 +197,11 @@ export class Table {
                             ))}
                         {!this.loading && cell.cell
                             ? cell.cell(h, {
-                                  ...(this.extraCellProps?.(key, data) ?? {}),
-                                  key,
-                                  data,
-                                  parent: this.identifier,
-                              })
+                                ...(this.extraCellProps?.(key, data) ?? {}),
+                                key,
+                                data,
+                                parent: this.identifier,
+                            })
                             : autoExtract(data, name)}
                     </div>
                 );
