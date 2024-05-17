@@ -169,11 +169,11 @@ export class Table {
                         onKeyDown={
                             focusCell
                                 ? this.focusCellKeyPress({
-                                      index,
-                                      row,
-                                      key,
-                                      data,
-                                  })
+                                    index,
+                                    row,
+                                    key,
+                                    data,
+                                })
                                 : undefined
                         }
                         class={cellClasses(cell, data, focusCell, {
@@ -238,11 +238,10 @@ export class Table {
                     sort={this.sort}
                     sticky={this.stickyHeader}
                 />
-                {this.loading &&
+                {this.loading ?
                     Array.from({ length: this.loadingRows }, (_, i) =>
                         this.renderRowGroup({}, i),
-                    )}
-                {!this.loading && this.rows?.map(this.renderRowGroup)}
+                    ) : this.rows?.map(this.renderRowGroup)}
             </Host>
         );
     }
