@@ -218,9 +218,10 @@ export class Table {
                     sticky={this.stickyHeader}
                 />
                 {this.loading &&
-                    new Array(this.loadingRows)
-                        .fill({})
-                        .map(this.renderRowGroup)}
+                    Array.from(
+                        { length: this.loadingRows },
+                        (_, i) => this.renderRowGroup({}, i),
+                    )}
                 {!this.loading && this.rows?.map(this.renderRowGroup)}
             </Host>
         );
