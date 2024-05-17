@@ -274,7 +274,7 @@ export class TableNested {
                         <es-icon
                             size={18}
                             icon={
-                                loading || this.loading
+                                loading
                                     ? [ICON_NAMESPACE, 'spinner']
                                     : [ICON_NAMESPACE, 'chevron']
                             }
