@@ -32,12 +32,21 @@ export class Backdrop {
         this.child = node(h);
     }
 
-    private closingPromise?: () => void;
-    @Method() close() {
-        return new Promise<void>((resolve) => {
-            this.closingPromise = resolve;
+    private resolveClose?: (closed: boolean) => void;
+
+    @Method() async close() {
+        const closed = await new Promise<boolean>((resolve) => {
+            this.resolveClose = resolve;
             this.state = 'exiting';
         });
+        delete this.resolveClose;
+        return closed;
+    }
+
+    @Method() async cancelClose() {
+        if (this.state !== 'exiting') return;
+        this.resolveClose?.(false);
+        this.state = 'entering';
     }
 
     componentDidLoad() {
@@ -73,7 +82,7 @@ export class Backdrop {
                 break;
             }
             case 'exiting': {
-                this.closingPromise?.();
+                this.resolveClose?.(true);
                 break;
             }
         }

@@ -52,7 +52,8 @@ export namespace Components {
         "steps": boolean;
     }
     interface EsBackdrop {
-        "close": () => Promise<void>;
+        "cancelClose": () => Promise<void>;
+        "close": () => Promise<boolean>;
         "preventOverscroll": boolean;
         "renderNode": (node: RenderFunction) => Promise<void>;
         "showBackdrop": boolean;

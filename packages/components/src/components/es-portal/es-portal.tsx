@@ -36,15 +36,14 @@ export class Portal {
     private portalledBackdrop?: HTMLEsBackdropElement;
 
     connectedCallback() {
-        if (this.open) {
-            this.attachElement();
-        }
+        if (!this.open) return;
+        this.portalledBackdrop?.cancelClose();
+        this.attachElement();
     }
 
     disconnectedCallback() {
-        if (this.open) {
-            this.detatchElement();
-        }
+        if (!this.open) return;
+        this.detatchElement();
     }
 
     /** @internal */
@@ -76,9 +75,10 @@ export class Portal {
     @Method() async detatchElement() {
         if (!this.portalledBackdrop) return;
         const backdrop = this.portalledBackdrop;
-        this.portalledBackdrop = undefined;
-        await backdrop.close();
-        backdrop.parentNode?.removeChild(backdrop);
+        if (await backdrop.close()) {
+            backdrop.parentNode?.removeChild(backdrop);
+            this.portalledBackdrop = undefined;
+        }
     }
 
     render() {
