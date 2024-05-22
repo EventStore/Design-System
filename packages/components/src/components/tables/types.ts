@@ -68,8 +68,10 @@ export interface TableCell<T, X = {}> {
         | Record<string, boolean>;
     /** If the table can be sorted by this column */
     sortable?: boolean;
-    /* If table is loading */
-    loading?: RenderFunction<[d: CellProps<T, X>]>;
+    /** The anticipated length of the loaded text to be provided to es-loading-text. */
+    expectedLength?: number;
+    /** Appends a random number of characters (up to the specified amount) to the expectedLength. */
+    variance?: number;
 }
 
 /** The order that the table column is sorted in. */

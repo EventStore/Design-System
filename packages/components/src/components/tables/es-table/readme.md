@@ -109,12 +109,14 @@ export default () => (
 
 ### Depends on
 
+- [es-loading-text](../../es-loading-text)
 - [es-button](../../buttons/es-button)
 - [es-icon](../../es-icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  es-table --> es-loading-text
   es-table --> es-button
   es-table --> es-icon
   es-table-nested --> es-table

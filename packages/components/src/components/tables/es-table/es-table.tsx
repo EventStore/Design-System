@@ -196,19 +196,18 @@ export class Table {
         cell: NamedCell[1],
     ) => {
         if (this.loading) {
-            if (cell.loading === undefined) {
-                return (
-                    <es-es-loading-text
-                        expectedLength={cell.title?.length ?? 30}
-                    />
-                );
-            } else if (cell.loading) {
-                return cell.loading(h, {
-                    key,
-                    data,
-                    parent: this.identifier,
-                });
-            }
+            if (cell.expectedLength === 0 && !cell.variance) return undefined;
+            if (cell.expectedLength === undefined && !cell.title?.length)
+                return undefined;
+            return (
+                <es-loading-text
+                    expectedLength={Math.max(
+                        cell.title?.length ?? 0,
+                        cell.expectedLength ?? 30,
+                    )}
+                    variance={cell.variance}
+                />
+            );
         } else if (cell.cell) {
             return cell.cell(h, {
                 ...(this.extraCellProps?.(key, data) ?? {}),
@@ -219,8 +218,6 @@ export class Table {
         } else {
             return autoExtract(data, name);
         }
-
-        return undefined;
     };
 
     render() {

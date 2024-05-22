@@ -6,9 +6,10 @@
 
 Improvements:
 
--   The `renderLoadingState` prop in the `Page` component now accepts false as a parameter, which will render the component normally.
--   A new prop `loading` has been added to `es-table` to indicate if `cell.loading` should be used for rendering cells. Additionally, `loadingRows` has been introduced to specify the number of rows to render when `loading` is `true`, defaulting to `1`.
+-   `renderLoadingState` prop in the `Page` component now accepts false to render normally.
+-   `TableCell` props `exptectedLength` and `variance` for `<es-loading-text />` rendering.
+-   `es-table` prop `loading` added to indicate `<es-loading-text />` rendering,.with `loadingRows` props to specify the number of rows to render.
 
 Bug fixes:
 
--   Removed `fixStyle: 'inline-type-imports'` from the ESLint rules section, as the latest version of `@typescript-eslint/consistent-type-imports` no longer supports it.
+-   Removed `fixStyle: 'inline-type-imports'` from ESLint rules due to compatibility issues with `@typescript-eslint/consistent-type-imports`.

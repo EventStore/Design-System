@@ -34,6 +34,19 @@ export default () => (
 | `variance`                    | `variance`        | Adds a random number of chars (up to the passed amount) | `number \| undefined` | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - [es-table](../tables/es-table)
+
+### Graph
+```mermaid
+graph TD;
+  es-table --> es-loading-text
+  style es-loading-text fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 
