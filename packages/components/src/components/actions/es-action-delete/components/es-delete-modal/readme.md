@@ -69,13 +69,14 @@ export default () => (
 
 ## Properties
 
-| Property                  | Attribute     | Description                                            | Type                                | Default     |
-| ------------------------- | ------------- | ------------------------------------------------------ | ----------------------------------- | ----------- |
-| `body` _(required)_       | `body`        | Text or component to display in the body of the modal. | `FunctionalComponent<{}> \| string` | `undefined` |
-| `confirm` _(required)_    | `confirm`     | Text to display within the confirm button.             | `string`                            | `undefined` |
-| `heading` _(required)_    | `heading`     | Text to display in the heading.                        | `string`                            | `undefined` |
-| `preHeading` _(required)_ | `pre-heading` | Text to display above the heading.                     | `string`                            | `undefined` |
-| `warning`                 | `warning`     | Text to display in red below the body.                 | `string \| undefined`               | `undefined` |
+| Property                  | Attribute        | Description                                              | Type                                | Default     |
+| ------------------------- | ---------------- | -------------------------------------------------------- | ----------------------------------- | ----------- |
+| `body` _(required)_       | `body`           | Text or component to display in the body of the modal.   | `FunctionalComponent<{}> \| string` | `undefined` |
+| `confirm` _(required)_    | `confirm`        | Text to display within the confirm button.               | `string`                            | `undefined` |
+| `heading` _(required)_    | `heading`        | Text to display in the heading.                          | `string`                            | `undefined` |
+| `preHeading` _(required)_ | `pre-heading`    | Text to display above the heading.                       | `string`                            | `undefined` |
+| `typeToDelete`            | `type-to-delete` | String required to be typed to enable the delete button. | `string \| undefined`               | `undefined` |
+| `warning`                 | `warning`        | Text to display in red below the body.                   | `string \| undefined`               | `undefined` |
 
 
 ## Events
@@ -95,14 +96,20 @@ export default () => (
 ### Depends on
 
 - [es-modal](../../../../es-modal)
+- [es-popover](../../../../es-popover)
 - [es-button](../../../../buttons/es-button)
 
 ### Graph
 ```mermaid
 graph TD;
   es-delete-modal --> es-modal
+  es-delete-modal --> es-popover
   es-delete-modal --> es-button
   es-modal --> es-icon
+  es-popover --> es-popper
+  es-popover --> es-popper-inner
+  es-popover --> es-popper-x
+  es-popover --> es-popper-y
   es-action-delete --> es-delete-modal
   style es-delete-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```

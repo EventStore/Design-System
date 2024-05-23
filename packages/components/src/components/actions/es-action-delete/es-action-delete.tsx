@@ -4,7 +4,7 @@ import { toast } from '../../../utils/toast';
 import { HTTPError } from '@eventstore-ui/utils';
 import type { ToastOptions } from '../../toast/types';
 import { ICON_NAMESPACE } from '../../../icons/namespace';
-import type { ModalText } from '../types';
+import type { DeleteModalOptions } from './types';
 import type { IconDescription } from '../../es-icon/types';
 
 /**
@@ -27,7 +27,9 @@ export class EsActionDelete {
     /** The icon to show for the action. */
     @Prop() icon: IconDescription = [ICON_NAMESPACE, 'trash'];
     /** The text te display within the modal. */
-    @Prop() modalText!: ModalText;
+    @Prop() modal!: DeleteModalOptions;
+    /** If the user needs to type the passed description to enable deletion. */
+    @Prop() typeToDelete: boolean = false;
     /** The details of the toast to be popped, when successfully deleted. */
     @Prop() toast!: ToastOptions;
 
@@ -57,7 +59,12 @@ export class EsActionDelete {
                         renderElement={() => (
                             <es-delete-modal
                                 onRequestDeletion={this.deleteAndClose}
-                                {...this.modalText}
+                                typeToDelete={
+                                    this.typeToDelete
+                                        ? this.description
+                                        : undefined
+                                }
+                                {...this.modal}
                             />
                         )}
                     />

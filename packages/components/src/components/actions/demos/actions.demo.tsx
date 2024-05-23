@@ -56,6 +56,7 @@ export class LoadingTextDemo {
             <es-table
                 cells={this.cells}
                 rows={this.data}
+                getRowKey={({ name }) => name}
                 linkRowTo={() => '#'}
                 rowClass={() => 'selectable'}
             />
@@ -108,9 +109,10 @@ export class LoadingTextDemo {
                         {'Copy name'}
                     </es-action-copy>
                     <es-action-delete
+                        typeToDelete
                         description={name}
                         deleteItem={this.deleteItem(name)}
-                        modalText={{
+                        modal={{
                             preHeading: 'Name',
                             heading: name,
                             body: 'Deleting this person will remove them from your organization. This operation cannot be undone.',
@@ -119,7 +121,7 @@ export class LoadingTextDemo {
                             confirm: 'Delete person',
                         }}
                         toast={{
-                            title: 'Group deleted',
+                            title: 'Person deleted',
                             message: `Successfully deleted ${name}`,
                         }}
                     />
@@ -160,7 +162,7 @@ export class LoadingTextDemo {
                             dropdownItem
                             description={name}
                             deleteItem={this.deleteItem(name)}
-                            modalText={{
+                            modal={{
                                 preHeading: 'Name',
                                 heading: name,
                                 body: 'Deleting this person will remove them from your organization. This operation cannot be undone.',
@@ -169,7 +171,7 @@ export class LoadingTextDemo {
                                 confirm: 'Delete person',
                             }}
                             toast={{
-                                title: 'Group deleted',
+                                title: 'Person deleted',
                                 message: `Successfully deleted ${name}`,
                             }}
                         />
