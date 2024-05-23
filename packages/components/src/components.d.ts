@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordianSection } from "./components/es-accordian/types";
 import { IconDescription } from "./components/es-icon/types";
 import { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
-import { ModalText } from "./components/actions/types";
+import { DeleteModalOptions } from "./components/actions/es-action-delete/types";
 import { RenderFunction } from "./types";
 import { BadgeVariant } from "./components/es-badge/es-badge";
 import { ButtonVariant } from "./components/buttons/types";
@@ -26,7 +26,7 @@ import { WizardPage } from "./components/es-wizard/types";
 export { AccordianSection } from "./components/es-accordian/types";
 export { IconDescription } from "./components/es-icon/types";
 export { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
-export { ModalText } from "./components/actions/types";
+export { DeleteModalOptions } from "./components/actions/es-action-delete/types";
 export { RenderFunction } from "./types";
 export { BadgeVariant } from "./components/es-badge/es-badge";
 export { ButtonVariant } from "./components/buttons/types";
@@ -132,11 +132,15 @@ export namespace Components {
         /**
           * The text te display within the modal.
          */
-        "modalText": ModalText;
+        "modal": DeleteModalOptions;
         /**
           * The details of the toast to be popped, when successfully deleted.
          */
         "toast": ToastOptions;
+        /**
+          * If the user needs to type the passed description to enable deletion.
+         */
+        "typeToDelete": boolean;
     }
     /**
      * A dropdown to display more actions than can be reasonably fit in a row.
@@ -360,6 +364,10 @@ export namespace Components {
           * Text to display above the heading.
          */
         "preHeading": string;
+        /**
+          * String required to be typed to enable the delete button.
+         */
+        "typeToDelete"?: string;
         /**
           * Text to display in red below the body.
          */
@@ -1538,11 +1546,15 @@ declare namespace LocalJSX {
         /**
           * The text te display within the modal.
          */
-        "modalText": ModalText;
+        "modal": DeleteModalOptions;
         /**
           * The details of the toast to be popped, when successfully deleted.
          */
         "toast": ToastOptions;
+        /**
+          * If the user needs to type the passed description to enable deletion.
+         */
+        "typeToDelete"?: boolean;
     }
     /**
      * A dropdown to display more actions than can be reasonably fit in a row.
@@ -1769,6 +1781,10 @@ declare namespace LocalJSX {
           * Text to display above the heading.
          */
         "preHeading": string;
+        /**
+          * String required to be typed to enable the delete button.
+         */
+        "typeToDelete"?: string;
         /**
           * Text to display in red below the body.
          */

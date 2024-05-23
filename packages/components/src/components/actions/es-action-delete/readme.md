@@ -44,15 +44,16 @@ export default () => (
 
 ## Properties
 
-| Property                   | Attribute       | Description                                                       | Type                                                    | Default                     |
-| -------------------------- | --------------- | ----------------------------------------------------------------- | ------------------------------------------------------- | --------------------------- |
-| `deleteItem` _(required)_  | --              | The function to call to delete the item.                          | `() => Promise<void>`                                   | `undefined`                 |
-| `description` _(required)_ | `description`   | The name of the item being deleted.                               | `string`                                                | `undefined`                 |
-| `disabled`                 | `disabled`      | if the action should be disabled.                                 | `boolean`                                               | `false`                     |
-| `dropdownItem`             | `dropdown-item` | If the action is within an `es-action-dropdown`.                  | `boolean`                                               | `false`                     |
-| `icon`                     | `icon`          | The icon to show for the action.                                  | `[namespace: string \| symbol, name: string] \| string` | `[ICON_NAMESPACE, 'trash']` |
-| `modalText` _(required)_   | --              | The text te display within the modal.                             | `ModalText`                                             | `undefined`                 |
-| `toast` _(required)_       | --              | The details of the toast to be popped, when successfully deleted. | `ToastOptions`                                          | `undefined`                 |
+| Property                   | Attribute        | Description                                                          | Type                                                    | Default                     |
+| -------------------------- | ---------------- | -------------------------------------------------------------------- | ------------------------------------------------------- | --------------------------- |
+| `deleteItem` _(required)_  | --               | The function to call to delete the item.                             | `() => Promise<void>`                                   | `undefined`                 |
+| `description` _(required)_ | `description`    | The name of the item being deleted.                                  | `string`                                                | `undefined`                 |
+| `disabled`                 | `disabled`       | if the action should be disabled.                                    | `boolean`                                               | `false`                     |
+| `dropdownItem`             | `dropdown-item`  | If the action is within an `es-action-dropdown`.                     | `boolean`                                               | `false`                     |
+| `icon`                     | `icon`           | The icon to show for the action.                                     | `[namespace: string \| symbol, name: string] \| string` | `[ICON_NAMESPACE, 'trash']` |
+| `modal` _(required)_       | --               | The text te display within the modal.                                | `DeleteModalOptions`                                    | `undefined`                 |
+| `toast` _(required)_       | --               | The details of the toast to be popped, when successfully deleted.    | `ToastOptions`                                          | `undefined`                 |
+| `typeToDelete`             | `type-to-delete` | If the user needs to type the passed description to enable deletion. | `boolean`                                               | `false`                     |
 
 
 ## Dependencies
@@ -75,8 +76,13 @@ graph TD;
   es-action-delete --> es-toaster
   es-portal --> es-backdrop
   es-delete-modal --> es-modal
+  es-delete-modal --> es-popover
   es-delete-modal --> es-button
   es-modal --> es-icon
+  es-popover --> es-popper
+  es-popover --> es-popper-inner
+  es-popover --> es-popper-x
+  es-popover --> es-popper-y
   es-toaster --> es-toast
   es-toast --> es-counter
   es-toast --> es-icon

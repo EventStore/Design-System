@@ -1,7 +1,7 @@
 import type { FunctionalComponent } from '@stencil/core';
 
 /** What to display within a modal. */
-export interface ModalText {
+export interface DeleteModalOptions {
     /** Text to display above the heading. */
     preHeading: string;
     /** Text to display in the heading. */

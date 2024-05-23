@@ -1,7 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
 :host {
     display: contents;
 }
 
 .important {
     color: var(--color-error);
+}
+
+.type_to_delete {
+    border: 2px solid var(--color-shade-20);
+    border-radius: 20px;
+    padding: 20px;
+    display: block;
+
+    & pre {
+        display: inline;
+        background-color: var(--color-shade-10);
+        padding: 4px;
+        border-radius: 4px;
+    }
+
+    & input {
+        height: 40px;
+        border-radius: 20px;
+        width: 100%;
+        margin-top: 16px;
+
+        border-width: 1px;
+        border-style: solid;
+        border-color: var(--color-shade-60);
+        outline: none;
+        padding: 0 20px;
+        transition-property: border-color;
+        transition-duration: 500ms;
+        transition-timing-function: ease;
+
+        font-family: inherit;
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--color-text);
+        background-color: var(--color-background);
+
+        &:disabled {
+            color: var(--color-disabled-contrast);
+            border-color: var(--color-disabled-border);
+            background-color: var(--color-disabled);
+            border-style: dashed;
+        }
+
+        &:focus {
+            border-color: var(--color-secondary);
+        }
+
+        &::placeholder {
+            color: var(--color-shade-60);
+        }
+    }
+}
+
+.inner {
+    opacity: 0;
+    border: none;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: none;
+    padding: 10px;
+    background-color: var(--color-text);
+    color: var(--color-background);
+
+    &.entered {
+        animation: 1s linear 0s 1 forwards animate-up;
+    }
+}
+
+@keyframes animate-up {
+    from {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 }
