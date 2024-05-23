@@ -69,6 +69,11 @@ Type: `Promise<void>`
 ### Used by
 
  - [es-accordian](../es-accordian)
+ - [es-action](../actions/es-action)
+ - [es-action-copy](../actions/es-action-copy)
+ - [es-action-delete](../actions/es-action-delete)
+ - [es-action-dropdown](../actions/es-action-dropdown)
+ - [es-action-link](../actions/es-action-link)
  - [es-callout](../es-callout)
  - [es-copy](../es-copy)
  - [es-loading-dots](../es-loading-dots)
@@ -87,6 +92,11 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   es-accordian --> es-icon
+  es-action --> es-icon
+  es-action-copy --> es-icon
+  es-action-delete --> es-icon
+  es-action-dropdown --> es-icon
+  es-action-link --> es-icon
   es-callout --> es-icon
   es-copy --> es-icon
   es-loading-dots --> es-icon

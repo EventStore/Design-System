@@ -32,7 +32,7 @@
         height: 24px;
         width: 24px;
         position: absolute;
-        background-color: var(--color-layout-highlight);
+        background-color: var(--color-secondary);
         border-radius: 50%;
         transition:
             opacity 400ms ease,

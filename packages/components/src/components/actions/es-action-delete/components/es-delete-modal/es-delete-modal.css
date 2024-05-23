@@ -1,0 +1,7 @@
+:host {
+    display: contents;
+}
+
+.important {
+    color: var(--color-error);
+}

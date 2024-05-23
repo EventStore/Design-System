@@ -113,6 +113,10 @@ const ExampleModal: FunctionalComponent<{ requestClose: () => void }> = ({
 
 ## Dependencies
 
+### Used by
+
+ - [es-action-delete](../actions/es-action-delete)
+
 ### Depends on
 
 - es-backdrop
@@ -121,6 +125,7 @@ const ExampleModal: FunctionalComponent<{ requestClose: () => void }> = ({
 ```mermaid
 graph TD;
   es-portal --> es-backdrop
+  es-action-delete --> es-portal
   style es-portal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

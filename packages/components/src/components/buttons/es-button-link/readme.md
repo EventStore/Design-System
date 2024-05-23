@@ -120,6 +120,19 @@ export default () =>
 | `--transition-duration` | The transition duration of the button.                      |
 
 
+## Dependencies
+
+### Used by
+
+ - [es-action-link](../../actions/es-action-link)
+
+### Graph
+```mermaid
+graph TD;
+  es-action-link --> es-button-link
+  style es-button-link fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 

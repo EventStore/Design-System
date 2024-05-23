@@ -6,36 +6,40 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordianSection } from "./components/es-accordian/types";
+import { IconDescription } from "./components/es-icon/types";
+import { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
+import { ModalText } from "./components/actions/types";
 import { RenderFunction } from "./types";
 import { BadgeVariant } from "./components/es-badge/es-badge";
 import { ButtonVariant } from "./components/buttons/types";
 import { EsCalloutVariant } from "./components/es-callout/es-callout";
-import { IconDescription } from "./components/es-icon/types";
 import { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
 import { CounterColor, CounterVariant } from "./components/es-counter/types";
+import { FunctionalComponent } from "@stencil/core";
 import { PageChangeEventType } from "./components/es-pagination/types";
 import { Constrain, Placement } from "./components/es-popover/types";
 import { Checkpoint, CheckpointState } from "./components/es-progression/types";
 import { Status } from "./components/es-status/es-status";
 import { ClickRow, JumpOptions, LoadWindow, TableCells, TableSort } from "./components/tables/types";
 import { Tab } from "./components/es-tabs/types";
-import { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
 import { WizardPage } from "./components/es-wizard/types";
 export { AccordianSection } from "./components/es-accordian/types";
+export { IconDescription } from "./components/es-icon/types";
+export { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
+export { ModalText } from "./components/actions/types";
 export { RenderFunction } from "./types";
 export { BadgeVariant } from "./components/es-badge/es-badge";
 export { ButtonVariant } from "./components/buttons/types";
 export { EsCalloutVariant } from "./components/es-callout/es-callout";
-export { IconDescription } from "./components/es-icon/types";
 export { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
 export { CounterColor, CounterVariant } from "./components/es-counter/types";
+export { FunctionalComponent } from "@stencil/core";
 export { PageChangeEventType } from "./components/es-pagination/types";
 export { Constrain, Placement } from "./components/es-popover/types";
 export { Checkpoint, CheckpointState } from "./components/es-progression/types";
 export { Status } from "./components/es-status/es-status";
 export { ClickRow, JumpOptions, LoadWindow, TableCells, TableSort } from "./components/tables/types";
 export { Tab } from "./components/es-tabs/types";
-export { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
 export { WizardPage } from "./components/es-wizard/types";
 export namespace Components {
     /**
@@ -50,6 +54,129 @@ export namespace Components {
           * Display numbered counters beside each title.
          */
         "steps": boolean;
+    }
+    /**
+     * A generic button action.
+     */
+    interface EsAction {
+        /**
+          * The action to take when the button is clicked.
+         */
+        "action": (e: MouseEvent) => any;
+        /**
+          * If the action should be disabled.
+         */
+        "disabled": boolean;
+        /**
+          * If a dot should be shown on the action, to indicate attention being required.
+         */
+        "dot"?: HTMLEsBadgeElement['color'];
+        /**
+          * If the action is within an `es-action-dropdown`.
+         */
+        "dropdownItem": boolean;
+        /**
+          * The icon to show for the action.
+         */
+        "icon": IconDescription;
+    }
+    /**
+     * An action to copy a piece of text.
+     */
+    interface EsActionCopy {
+        /**
+          * If the action should be disabled.
+         */
+        "disabled": boolean;
+        /**
+          * If the action is within an `es-action-dropdown`.
+         */
+        "dropdownItem": boolean;
+        /**
+          * The icon to show for the action.
+         */
+        "icon": IconDescription;
+        /**
+          * The details of the toast to be popped, when successfully copied.
+         */
+        "toast": ToastOptions;
+        /**
+          * The value to be copied when clicked.
+         */
+        "value": string;
+    }
+    /**
+     * An action to delete something.
+     */
+    interface EsActionDelete {
+        /**
+          * The function to call to delete the item.
+         */
+        "deleteItem": () => Promise<void>;
+        /**
+          * The name of the item being deleted.
+         */
+        "description": string;
+        /**
+          * if the action should be disabled.
+         */
+        "disabled": boolean;
+        /**
+          * If the action is within an `es-action-dropdown`.
+         */
+        "dropdownItem": boolean;
+        /**
+          * The icon to show for the action.
+         */
+        "icon": IconDescription;
+        /**
+          * The text te display within the modal.
+         */
+        "modalText": ModalText;
+        /**
+          * The details of the toast to be popped, when successfully deleted.
+         */
+        "toast": ToastOptions;
+    }
+    /**
+     * A dropdown to display more actions than can be reasonably fit in a row.
+     * All child actions must have the `dropdownItem` prop set.
+     */
+    interface EsActionDropdown {
+        /**
+          * The icon to show for the action.
+         */
+        "icon": IconDescription;
+    }
+    /**
+     * A link action.
+     */
+    interface EsActionLink {
+        /**
+          * If the action should be disabled.
+         */
+        "disabled": boolean;
+        /**
+          * If a dot should be shown on the action, to indicate attention being required.
+         */
+        "dot"?: HTMLEsBadgeElement['color'];
+        /**
+          * If the action is within an `es-action-dropdown`.
+         */
+        "dropdownItem": boolean;
+        /**
+          * The icon to show for the action.
+         */
+        "icon": IconDescription;
+        /**
+          * The url to go to when clicked.
+         */
+        "url": string;
+    }
+    /**
+     * A container for `es-aciton-*` elements, to be used in tables or panel headers.
+     */
+    interface EsActions {
     }
     interface EsBackdrop {
         "cancelClose": () => Promise<void>;
@@ -212,6 +339,31 @@ export namespace Components {
           * The display style of the counter.
          */
         "variant": CounterVariant;
+    }
+    /**
+     * A modal to confirm the deletion of something.
+     */
+    interface EsDeleteModal {
+        /**
+          * Text or component to display in the body of the modal.
+         */
+        "body": string | FunctionalComponent;
+        /**
+          * Text to display within the confirm button.
+         */
+        "confirm": string;
+        /**
+          * Text to display in the heading.
+         */
+        "heading": string;
+        /**
+          * Text to display above the heading.
+         */
+        "preHeading": string;
+        /**
+          * Text to display in red below the body.
+         */
+        "warning"?: string;
     }
     /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
@@ -863,6 +1015,10 @@ export interface EsBackdropCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEsBackdropElement;
 }
+export interface EsDeleteModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsDeleteModalElement;
+}
 export interface EsModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEsModalElement;
@@ -916,6 +1072,61 @@ declare global {
     var HTMLEsAccordianElement: {
         prototype: HTMLEsAccordianElement;
         new (): HTMLEsAccordianElement;
+    };
+    /**
+     * A generic button action.
+     */
+    interface HTMLEsActionElement extends Components.EsAction, HTMLStencilElement {
+    }
+    var HTMLEsActionElement: {
+        prototype: HTMLEsActionElement;
+        new (): HTMLEsActionElement;
+    };
+    /**
+     * An action to copy a piece of text.
+     */
+    interface HTMLEsActionCopyElement extends Components.EsActionCopy, HTMLStencilElement {
+    }
+    var HTMLEsActionCopyElement: {
+        prototype: HTMLEsActionCopyElement;
+        new (): HTMLEsActionCopyElement;
+    };
+    /**
+     * An action to delete something.
+     */
+    interface HTMLEsActionDeleteElement extends Components.EsActionDelete, HTMLStencilElement {
+    }
+    var HTMLEsActionDeleteElement: {
+        prototype: HTMLEsActionDeleteElement;
+        new (): HTMLEsActionDeleteElement;
+    };
+    /**
+     * A dropdown to display more actions than can be reasonably fit in a row.
+     * All child actions must have the `dropdownItem` prop set.
+     */
+    interface HTMLEsActionDropdownElement extends Components.EsActionDropdown, HTMLStencilElement {
+    }
+    var HTMLEsActionDropdownElement: {
+        prototype: HTMLEsActionDropdownElement;
+        new (): HTMLEsActionDropdownElement;
+    };
+    /**
+     * A link action.
+     */
+    interface HTMLEsActionLinkElement extends Components.EsActionLink, HTMLStencilElement {
+    }
+    var HTMLEsActionLinkElement: {
+        prototype: HTMLEsActionLinkElement;
+        new (): HTMLEsActionLinkElement;
+    };
+    /**
+     * A container for `es-aciton-*` elements, to be used in tables or panel headers.
+     */
+    interface HTMLEsActionsElement extends Components.EsActions, HTMLStencilElement {
+    }
+    var HTMLEsActionsElement: {
+        prototype: HTMLEsActionsElement;
+        new (): HTMLEsActionsElement;
     };
     interface HTMLEsBackdropElement extends Components.EsBackdrop, HTMLStencilElement {
     }
@@ -985,6 +1196,15 @@ declare global {
     var HTMLEsCounterElement: {
         prototype: HTMLEsCounterElement;
         new (): HTMLEsCounterElement;
+    };
+    /**
+     * A modal to confirm the deletion of something.
+     */
+    interface HTMLEsDeleteModalElement extends Components.EsDeleteModal, HTMLStencilElement {
+    }
+    var HTMLEsDeleteModalElement: {
+        prototype: HTMLEsDeleteModalElement;
+        new (): HTMLEsDeleteModalElement;
     };
     /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
@@ -1186,6 +1406,12 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "es-accordian": HTMLEsAccordianElement;
+        "es-action": HTMLEsActionElement;
+        "es-action-copy": HTMLEsActionCopyElement;
+        "es-action-delete": HTMLEsActionDeleteElement;
+        "es-action-dropdown": HTMLEsActionDropdownElement;
+        "es-action-link": HTMLEsActionLinkElement;
+        "es-actions": HTMLEsActionsElement;
         "es-backdrop": HTMLEsBackdropElement;
         "es-badge": HTMLEsBadgeElement;
         "es-button": HTMLEsButtonElement;
@@ -1194,6 +1420,7 @@ declare global {
         "es-copy": HTMLEsCopyElement;
         "es-corner-banner": HTMLEsCornerBannerElement;
         "es-counter": HTMLEsCounterElement;
+        "es-delete-modal": HTMLEsDeleteModalElement;
         "es-icon": HTMLEsIconElement;
         "es-loading-dots": HTMLEsLoadingDotsElement;
         "es-loading-text": HTMLEsLoadingTextElement;
@@ -1233,6 +1460,129 @@ declare namespace LocalJSX {
           * Display numbered counters beside each title.
          */
         "steps"?: boolean;
+    }
+    /**
+     * A generic button action.
+     */
+    interface EsAction {
+        /**
+          * The action to take when the button is clicked.
+         */
+        "action": (e: MouseEvent) => any;
+        /**
+          * If the action should be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If a dot should be shown on the action, to indicate attention being required.
+         */
+        "dot"?: HTMLEsBadgeElement['color'];
+        /**
+          * If the action is within an `es-action-dropdown`.
+         */
+        "dropdownItem"?: boolean;
+        /**
+          * The icon to show for the action.
+         */
+        "icon": IconDescription;
+    }
+    /**
+     * An action to copy a piece of text.
+     */
+    interface EsActionCopy {
+        /**
+          * If the action should be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If the action is within an `es-action-dropdown`.
+         */
+        "dropdownItem"?: boolean;
+        /**
+          * The icon to show for the action.
+         */
+        "icon"?: IconDescription;
+        /**
+          * The details of the toast to be popped, when successfully copied.
+         */
+        "toast": ToastOptions;
+        /**
+          * The value to be copied when clicked.
+         */
+        "value": string;
+    }
+    /**
+     * An action to delete something.
+     */
+    interface EsActionDelete {
+        /**
+          * The function to call to delete the item.
+         */
+        "deleteItem": () => Promise<void>;
+        /**
+          * The name of the item being deleted.
+         */
+        "description": string;
+        /**
+          * if the action should be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If the action is within an `es-action-dropdown`.
+         */
+        "dropdownItem"?: boolean;
+        /**
+          * The icon to show for the action.
+         */
+        "icon"?: IconDescription;
+        /**
+          * The text te display within the modal.
+         */
+        "modalText": ModalText;
+        /**
+          * The details of the toast to be popped, when successfully deleted.
+         */
+        "toast": ToastOptions;
+    }
+    /**
+     * A dropdown to display more actions than can be reasonably fit in a row.
+     * All child actions must have the `dropdownItem` prop set.
+     */
+    interface EsActionDropdown {
+        /**
+          * The icon to show for the action.
+         */
+        "icon"?: IconDescription;
+    }
+    /**
+     * A link action.
+     */
+    interface EsActionLink {
+        /**
+          * If the action should be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If a dot should be shown on the action, to indicate attention being required.
+         */
+        "dot"?: HTMLEsBadgeElement['color'];
+        /**
+          * If the action is within an `es-action-dropdown`.
+         */
+        "dropdownItem"?: boolean;
+        /**
+          * The icon to show for the action.
+         */
+        "icon": IconDescription;
+        /**
+          * The url to go to when clicked.
+         */
+        "url": string;
+    }
+    /**
+     * A container for `es-aciton-*` elements, to be used in tables or panel headers.
+     */
+    interface EsActions {
     }
     interface EsBackdrop {
         "onClosed"?: (event: EsBackdropCustomEvent<any>) => void;
@@ -1390,6 +1740,39 @@ declare namespace LocalJSX {
           * The display style of the counter.
          */
         "variant"?: CounterVariant;
+    }
+    /**
+     * A modal to confirm the deletion of something.
+     */
+    interface EsDeleteModal {
+        /**
+          * Text or component to display in the body of the modal.
+         */
+        "body": string | FunctionalComponent;
+        /**
+          * Text to display within the confirm button.
+         */
+        "confirm": string;
+        /**
+          * Text to display in the heading.
+         */
+        "heading": string;
+        /**
+          * Triggered when the user has indicated that they want to close the modal.
+         */
+        "onRequestClose"?: (event: EsDeleteModalCustomEvent<any>) => void;
+        /**
+          * Triggered when the user has indicated that they want to close the modal.
+         */
+        "onRequestDeletion"?: (event: EsDeleteModalCustomEvent<any>) => void;
+        /**
+          * Text to display above the heading.
+         */
+        "preHeading": string;
+        /**
+          * Text to display in red below the body.
+         */
+        "warning"?: string;
     }
     /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
@@ -2090,6 +2473,12 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "es-accordian": EsAccordian;
+        "es-action": EsAction;
+        "es-action-copy": EsActionCopy;
+        "es-action-delete": EsActionDelete;
+        "es-action-dropdown": EsActionDropdown;
+        "es-action-link": EsActionLink;
+        "es-actions": EsActions;
         "es-backdrop": EsBackdrop;
         "es-badge": EsBadge;
         "es-button": EsButton;
@@ -2098,6 +2487,7 @@ declare namespace LocalJSX {
         "es-copy": EsCopy;
         "es-corner-banner": EsCornerBanner;
         "es-counter": EsCounter;
+        "es-delete-modal": EsDeleteModal;
         "es-icon": EsIcon;
         "es-loading-dots": EsLoadingDots;
         "es-loading-text": EsLoadingText;
@@ -2132,6 +2522,31 @@ declare module "@stencil/core" {
              * Optionally collapsible sectioned view. Each section can be targeted via a part.
              */
             "es-accordian": LocalJSX.EsAccordian & JSXBase.HTMLAttributes<HTMLEsAccordianElement>;
+            /**
+             * A generic button action.
+             */
+            "es-action": LocalJSX.EsAction & JSXBase.HTMLAttributes<HTMLEsActionElement>;
+            /**
+             * An action to copy a piece of text.
+             */
+            "es-action-copy": LocalJSX.EsActionCopy & JSXBase.HTMLAttributes<HTMLEsActionCopyElement>;
+            /**
+             * An action to delete something.
+             */
+            "es-action-delete": LocalJSX.EsActionDelete & JSXBase.HTMLAttributes<HTMLEsActionDeleteElement>;
+            /**
+             * A dropdown to display more actions than can be reasonably fit in a row.
+             * All child actions must have the `dropdownItem` prop set.
+             */
+            "es-action-dropdown": LocalJSX.EsActionDropdown & JSXBase.HTMLAttributes<HTMLEsActionDropdownElement>;
+            /**
+             * A link action.
+             */
+            "es-action-link": LocalJSX.EsActionLink & JSXBase.HTMLAttributes<HTMLEsActionLinkElement>;
+            /**
+             * A container for `es-aciton-*` elements, to be used in tables or panel headers.
+             */
+            "es-actions": LocalJSX.EsActions & JSXBase.HTMLAttributes<HTMLEsActionsElement>;
             "es-backdrop": LocalJSX.EsBackdrop & JSXBase.HTMLAttributes<HTMLEsBackdropElement>;
             /**
              * Display a counter or dot beside a component to indicate action being required.
@@ -2161,6 +2576,10 @@ declare module "@stencil/core" {
              * A pill display of an number, that pulses on change. Caps out at 999.
              */
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
+            /**
+             * A modal to confirm the deletion of something.
+             */
+            "es-delete-modal": LocalJSX.EsDeleteModal & JSXBase.HTMLAttributes<HTMLEsDeleteModalElement>;
             /**
              * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
              * See [IconStore](/components/variables/iconStore) for details on how to load icons.
