@@ -260,7 +260,7 @@ span {
     flex: 1 1 100%;
 }
 
-::slotted(es-icon:not([slot]):only-child) {
+::slotted(:where(es-icon, es-badge):not([slot]):only-child) {
     margin-left: calc(0px - var(--spacing));
     margin-right: calc(0px - var(--spacing));
     width: calc(var(--height) - var(--border-width));

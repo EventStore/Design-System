@@ -42,6 +42,9 @@ iconStore.addIcons(ICON_NAMESPACE, {
             ({ Lightbulb }) => Lightbulb,
         );
     },
+    get more() {
+        return import('./components/More').then(({ More }) => More);
+    },
     get okay() {
         return import('./components/Okay').then(({ Okay }) => Okay);
     },
@@ -53,6 +56,9 @@ iconStore.addIcons(ICON_NAMESPACE, {
     },
     get spinner() {
         return import('./components/Spinner').then(({ Spinner }) => Spinner);
+    },
+    get trash() {
+        return import('./components/Trash').then(({ Trash }) => Trash);
     },
     get warning() {
         return import('./components/Warning').then(({ Warning }) => Warning);

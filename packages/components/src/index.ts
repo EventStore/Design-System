@@ -33,6 +33,7 @@ export type {
     CheckpointState,
 } from './components/es-progression/types';
 export type { ButtonVariant } from './components/buttons/types';
+export type { ModalText } from './components/actions/types';
 export type { Constrain, Placement } from './components/es-popover/types';
 
 export { toast } from './utils/toast';

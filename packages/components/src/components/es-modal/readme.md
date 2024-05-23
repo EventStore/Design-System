@@ -113,6 +113,10 @@ export default () => (
 
 ## Dependencies
 
+### Used by
+
+ - [es-delete-modal](../actions/es-action-delete/components/es-delete-modal)
+
 ### Depends on
 
 - [es-icon](../es-icon)
@@ -121,6 +125,7 @@ export default () => (
 ```mermaid
 graph TD;
   es-modal --> es-icon
+  es-delete-modal --> es-modal
   style es-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
