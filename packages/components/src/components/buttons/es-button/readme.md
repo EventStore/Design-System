@@ -104,10 +104,9 @@ export default () =>
 ### Used by
 
  - [es-action](../../actions/es-action)
- - [es-action-copy](../../actions/es-action-copy)
- - [es-action-delete](../../actions/es-action-delete)
  - [es-action-dropdown](../../actions/es-action-dropdown)
- - [es-delete-modal](../../actions/es-action-delete/components/es-delete-modal)
+ - [es-action-with-confirmation](../../actions/es-action-with-confirmation)
+ - [es-confirm-modal](../../actions/es-action-with-confirmation/components/es-confirm-modal)
  - [es-pagination](../../es-pagination)
  - [es-table](../../tables/es-table)
  - [es-table-nested](../../tables/es-table-nested)
@@ -118,10 +117,9 @@ export default () =>
 ```mermaid
 graph TD;
   es-action --> es-button
-  es-action-copy --> es-button
-  es-action-delete --> es-button
   es-action-dropdown --> es-button
-  es-delete-modal --> es-button
+  es-action-with-confirmation --> es-button
+  es-confirm-modal --> es-button
   es-pagination --> es-button
   es-table --> es-button
   es-table-nested --> es-button

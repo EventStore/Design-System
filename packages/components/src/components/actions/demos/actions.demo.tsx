@@ -3,6 +3,8 @@ import { router } from '@eventstore-ui/router';
 import type { TableCells } from '../../tables/types';
 import { ICON_NAMESPACE } from '../../../icons/namespace';
 import { toast } from '../../../utils/toast';
+import { ActionDelete } from '../ActionDelete';
+import { ActionCopy } from '../ActionCopy';
 
 interface DummyData {
     name: string;
@@ -99,7 +101,7 @@ export class LoadingTextDemo {
                     >
                         {'Link action'}
                     </es-action-link>
-                    <es-action-copy
+                    <ActionCopy
                         value={name}
                         toast={{
                             title: 'Copied!',
@@ -107,9 +109,9 @@ export class LoadingTextDemo {
                         }}
                     >
                         {'Copy name'}
-                    </es-action-copy>
-                    <es-action-delete
-                        typeToDelete
+                    </ActionCopy>
+                    <ActionDelete
+                        typeToConfirm
                         description={name}
                         deleteItem={this.deleteItem(name)}
                         modal={{
@@ -147,7 +149,7 @@ export class LoadingTextDemo {
                         >
                             {'Link action'}
                         </es-action-link>
-                        <es-action-copy
+                        <ActionCopy
                             dropdownItem
                             value={name}
                             toast={{
@@ -157,8 +159,8 @@ export class LoadingTextDemo {
                             }}
                         >
                             {'Copy name'}
-                        </es-action-copy>
-                        <es-action-delete
+                        </ActionCopy>
+                        <ActionDelete
                             dropdownItem
                             description={name}
                             deleteItem={this.deleteItem(name)}

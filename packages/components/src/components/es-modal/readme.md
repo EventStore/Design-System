@@ -115,7 +115,7 @@ export default () => (
 
 ### Used by
 
- - [es-delete-modal](../actions/es-action-delete/components/es-delete-modal)
+ - [es-confirm-modal](../actions/es-action-with-confirmation/components/es-confirm-modal)
 
 ### Depends on
 
@@ -125,7 +125,7 @@ export default () => (
 ```mermaid
 graph TD;
   es-modal --> es-icon
-  es-delete-modal --> es-modal
+  es-confirm-modal --> es-modal
   style es-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

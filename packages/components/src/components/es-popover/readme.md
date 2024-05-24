@@ -228,7 +228,7 @@ es-checkbox {
 ### Used by
 
  - [es-action-dropdown](../actions/es-action-dropdown)
- - [es-delete-modal](../actions/es-action-delete/components/es-delete-modal)
+ - [es-confirm-modal](../actions/es-action-with-confirmation/components/es-confirm-modal)
 
 ### Depends on
 
@@ -245,7 +245,7 @@ graph TD;
   es-popover --> es-popper-x
   es-popover --> es-popper-y
   es-action-dropdown --> es-popover
-  es-delete-modal --> es-popover
+  es-confirm-modal --> es-popover
   style es-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

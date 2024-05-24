@@ -1,14 +1,16 @@
 ```tsx
+import { ActionDelete } from '@eventstore-ui/components';
 import { createLogger } from '@eventstore-ui/utils';
 
 const logger = createLogger('es-actions');
 
 export default () => (
     <es-actions>
-        <es-action-delete
-            description={'es-action-delete'}
+        <ActionDelete
+            typeToConfirm
+            description={'action-delete'}
             deleteItem={async () => logger.log('deleted!')}
-            modalText={{
+            modal={{
                 preHeading: 'Group name',
                 heading: 'es-action-delete',
                 body: 'Deleting this group will remove it from your organization. This operation cannot be undone.',

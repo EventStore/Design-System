@@ -120,6 +120,7 @@ export default () => (
 
  - [es-action](../actions/es-action)
  - [es-action-link](../actions/es-action-link)
+ - [es-action-with-confirmation](../actions/es-action-with-confirmation)
  - [es-tabs](../es-tabs)
 
 ### Depends on
@@ -132,6 +133,7 @@ graph TD;
   es-badge --> es-counter
   es-action --> es-badge
   es-action-link --> es-badge
+  es-action-with-confirmation --> es-badge
   es-tabs --> es-badge
   style es-badge fill:#f9f,stroke:#333,stroke-width:4px
 ```

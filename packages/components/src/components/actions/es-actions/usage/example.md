@@ -1,4 +1,5 @@
 ```tsx
+import { ActionCopy, ActionDelete } from '@eventstore-ui/components';
 import { createLogger } from '@eventstore-ui/utils';
 
 const logger = createLogger('es-actions');
@@ -14,21 +15,21 @@ export default () => (
         <es-action-link url={'/cheese'} icon={'info'}>
             {'Link action'}
         </es-action-link>
-        <es-action-copy
-            value={'es-action-copy'}
+        <ActionCopy
+            value={'Hello Copy'}
             toast={{
                 title: 'Copied!',
-                message: 'Successfully copied "es-action-copy" to clipboard',
+                message: 'Successfully copied "Hello Copy" to clipboard',
             }}
         >
             {'Copy name'}
-        </es-action-copy>
-        <es-action-delete
-            description={'es-action-delete'}
+        </ActionCopy>
+        <ActionDelete
+            description={'ActionDelete'}
             deleteItem={async () => logger.log('deleted!')}
-            modalText={{
+            modal={{
                 preHeading: 'Group name',
-                heading: 'es-action-delete',
+                heading: 'ActionDelete',
                 body: 'Deleting this group will remove it from your organization. This operation cannot be undone.',
                 warning:
                     'Are you sure you want to proceed in deleting this group?',
@@ -51,24 +52,23 @@ export default () => (
             <es-action-link dropdownItem url={'/cheese'} icon={'info'}>
                 {'Link action'}
             </es-action-link>
-            <es-action-copy
+            <ActionCopy
                 dropdownItem
-                value={'es-action-copy'}
+                value={'Hello Copy'}
                 toast={{
                     title: 'Copied!',
-                    message:
-                        'Successfully copied "es-action-copy" to clipboard',
+                    message: 'Successfully copied "Hello Copy" to clipboard',
                 }}
             >
                 {'Copy name'}
-            </es-action-copy>
-            <es-action-delete
+            </ActionCopy>
+            <ActionDelete
                 dropdownItem
-                description={'es-action-delete'}
+                description={'ActionDelete'}
                 deleteItem={async () => logger.log('deleted!')}
-                modalText={{
+                modal={{
                     preHeading: 'Group name',
-                    heading: 'es-action-delete',
+                    heading: 'ActionDelete',
                     body: 'Deleting this group will remove it from your organization. This operation cannot be undone.',
                     warning:
                         'Are you sure you want to proceed in deleting this group?',

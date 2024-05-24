@@ -1,7 +1,9 @@
 ```tsx
+import { ActionCopy } from '@eventstore-ui/components';
+
 export default () => (
     <es-actions>
-        <es-action-copy
+        <ActionCopy
             value={'hello copy'}
             toast={{
                 title: 'Copied!',
@@ -9,7 +11,7 @@ export default () => (
             }}
         >
             {'Copy name'}
-        </es-action-copy>
+        </ActionCopy>
     </es-actions>
 );
 ```

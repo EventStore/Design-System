@@ -7,13 +7,21 @@ import {
     type EventEmitter,
     type FunctionalComponent,
 } from '@stencil/core';
+import type { ButtonVariant } from '../../../../buttons/types';
 
 /**
  * A modal to confirm the deletion of something.
+ * @part preheading - The h2 above the heading.
+ * @part heading - The h1 heading.
+ * @part body - The body of the modal.
+ * @part warning - The warning text (if provided).
+ * @part type_to_confirm - The type to confirm label (if enabled).
+ * @part cancel - The cancel button.
+ * @part confirm - The confirm button.
  */
 @Component({
-    tag: 'es-delete-modal',
-    styleUrl: 'es-delete-modal.css',
+    tag: 'es-confirm-modal',
+    styleUrl: 'es-confirm-modal.css',
     shadow: true,
 })
 export class DeleteModal {
@@ -27,8 +35,10 @@ export class DeleteModal {
     @Prop() warning?: string;
     /** Text to display within the confirm button. */
     @Prop() confirm!: string;
-    /** String required to be typed to enable the delete button. */
-    @Prop() typeToDelete?: string;
+    /** Button variant for the confirm button. */
+    @Prop() confirmVariant: ButtonVariant = 'delete';
+    /** String required to be typed to enable the confirm button. */
+    @Prop() typeToConfirm?: string;
 
     /** Triggered when the user has indicated that they want to close the modal. */
     @Event() requestClose!: EventEmitter;
@@ -41,17 +51,25 @@ export class DeleteModal {
     render() {
         return (
             <es-modal role={'alert'}>
-                <h2 slot={'header'}>{this.preHeading}</h2>
-                <h1 slot={'header'}>{this.heading}</h1>
-                <p>
+                <h2 slot={'header'} part={'preheading'}>
+                    {this.preHeading}
+                </h2>
+                <h1 slot={'header'} part={'heading'}>
+                    {this.heading}
+                </h1>
+                <p part={'body'}>
                     {typeof this.body === 'string' ? this.body : h(this.body)}
                 </p>
-                {!!this.warning && <p class={'important'}>{this.warning}</p>}
-                {!!this.typeToDelete && (
-                    <label class={'type_to_delete'}>
+                {!!this.warning && (
+                    <p class={'important'} part={'warning'}>
+                        {this.warning}
+                    </p>
+                )}
+                {!!this.typeToConfirm && (
+                    <label class={'type_to_confirm'} part={'type_to_confirm'}>
                         {'To confirm type '}
                         <pre onClick={this.clickPre}>
-                            {this.typeToDelete}
+                            {this.typeToConfirm}
                             <es-popover open={this.copied}>
                                 {'Copied to clipboard'}
                             </es-popover>
@@ -59,8 +77,8 @@ export class DeleteModal {
                         {' in the box below.'}
                         <input
                             type={'text'}
-                            name={'type_to_delete'}
-                            placeholder={this.typeToDelete}
+                            name={'type_to_confirm'}
+                            placeholder={this.typeToConfirm}
                             onInput={this.onInputChange}
                             value={this.typed}
                         />
@@ -69,6 +87,7 @@ export class DeleteModal {
                 <es-button
                     variant={'cancel'}
                     slot={'footer'}
+                    part={'cancel'}
                     onClick={this.requestClose.emit}
                 >
                     {'Cancel'}
@@ -76,8 +95,9 @@ export class DeleteModal {
                 <es-button
                     variant={'delete'}
                     slot={'footer'}
+                    part={'confirm'}
                     onClick={this.requestDeletion.emit}
-                    disabled={this.deleteDisabled()}
+                    disabled={this.confirmDisabled()}
                 >
                     {this.confirm}
                 </es-button>
@@ -87,10 +107,10 @@ export class DeleteModal {
 
     private removeCopiedTimeout!: ReturnType<typeof setTimeout>;
     private clickPre = async () => {
-        if (!this.typeToDelete) return;
+        if (!this.typeToConfirm) return;
 
         try {
-            await navigator.clipboard.writeText(this.typeToDelete);
+            await navigator.clipboard.writeText(this.typeToConfirm);
 
             if (this.copied) return;
             this.copied = true;
@@ -98,7 +118,7 @@ export class DeleteModal {
             this.removeCopiedTimeout = setTimeout(() => {
                 this.copied = false;
             }, 1_000);
-        } catch (error) {
+        } catch (_error) {
             // oh well
         }
     };
@@ -108,9 +128,9 @@ export class DeleteModal {
         this.typed = input.value;
     };
 
-    private deleteDisabled = () => {
-        if (!this.typeToDelete) return false;
-        return !!this.typeToDelete.localeCompare(this.typed, 'en', {
+    private confirmDisabled = () => {
+        if (!this.typeToConfirm) return false;
+        return !!this.typeToConfirm.localeCompare(this.typed, 'en', {
             sensitivity: 'base',
         });
     };

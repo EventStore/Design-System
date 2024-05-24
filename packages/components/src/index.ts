@@ -33,14 +33,24 @@ export type {
     CheckpointState,
 } from './components/es-progression/types';
 export type { ButtonVariant } from './components/buttons/types';
-export type { DeleteModalOptions } from './components/actions/es-action-delete/types';
+export type { ConfirmModalOptions } from './components/actions/es-action-with-confirmation/types';
 export type { Constrain, Placement } from './components/es-popover/types';
 
 export { toast } from './utils/toast';
 export { iconStore } from './utils/iconStore';
 export { ICON_NAMESPACE as ES_COMPONENTS_ICON_NAMESPACE } from './icons/namespace';
+
 export { requestClose } from './components/es-popover/utils/requestClose';
 export {
     LoadingText,
     type LoadingTextProps,
 } from './components/es-loading-text/LoadingText';
+
+export {
+    ActionDelete,
+    type ActionDeleteProps,
+} from './components/actions/ActionDelete';
+export {
+    ActionCopy,
+    type ActionCopyProps,
+} from './components/actions/ActionCopy';
