@@ -1,5 +1,24 @@
 # @eventstore-ui/components
 
+## 1.6.0
+
+### Minor Changes
+
+-   [`389e7e2`](https://github.com/EventStore/Design-System/commit/389e7e26d2e558c853da0d08323b6447109fa2aa) - Add `actions` for use in tables and panel headers
+
+    `es-actions` - Action container.
+    `es-action` - Generic button action.
+    `es-action-with-confirmation` - An action button with confirmation modal.
+    `es-action-link` - Link action.
+    `es-action-dropdown` - A dropdown to contain more actions.
+    `ActionCopy` - Copy some text.
+    `ActionDelete` - Delete icon and confirmation modal.
+    `action.css` - Styles for creating custom actions.
+
+### Patch Changes
+
+-   [`918e384`](https://github.com/EventStore/Design-System/commit/918e384300a018ce4e048040b8efadf235db87d6) - Bug fix: Persist portaled elements when parent `es-portal` is moved in the DOM.
+
 ## 1.5.0
 
 ### Minor Changes
