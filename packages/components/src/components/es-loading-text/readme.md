@@ -39,11 +39,13 @@ export default () => (
 ### Used by
 
  - [es-table](../tables/es-table)
+ - [es-table-detail](../tables/es-table-detail)
 
 ### Graph
 ```mermaid
 graph TD;
   es-table --> es-loading-text
+  es-table-detail --> es-loading-text
   style es-loading-text fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

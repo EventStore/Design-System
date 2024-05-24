@@ -97,7 +97,6 @@ export class TableNested {
     renderExpansion =
         (depth: number): RenderFunction<[key: string]> =>
         (h, key) => {
-            if (this.loading) return null;
             const defaultExpanded = this.defaultExpanded?.(key, depth) ?? 0;
             const expanded = this.expanded.has(key) || defaultExpanded > 0;
             const nestedActive =
@@ -179,7 +178,7 @@ export class TableNested {
         });
 
     private toggleExpansion = async (key: string, data: any) => {
-        if (this.loading || this.loadingExpansions.has(key)) return;
+        if (this.loadingExpansions.has(key)) return;
 
         if (this.expanded.has(key)) {
             this.expanded.delete(key);

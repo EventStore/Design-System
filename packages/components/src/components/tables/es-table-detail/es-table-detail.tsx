@@ -19,21 +19,34 @@ export class TableDetail {
     @Prop() columns?: Array<string>;
     /** Indicates if the loading indicators should be displayed */
     @Prop() loading?: boolean;
-    /** Specifies the number of rows to display when loading is true. Defaults to 1. */
-    @Prop() loadingRows: number = 1;
 
     private renderHeader = (title?: string) => <dt>{title}</dt>;
-    private renderCell = (name: string, renderCell: TableCell<any>['cell']) => (
-        <dd>
-            {renderCell
-                ? renderCell(h, {
-                      data: this.data,
-                      key: name,
-                      parent: this.identifier,
-                  })
-                : autoExtract(this.data, name)}
-        </dd>
-    );
+    private renderCell = (name: string) => {
+        const cell = this.getCell(name);
+
+        if (this.loading) {
+            if (cell.expectedLength === 0 && !cell.variance) return undefined;
+            if (cell.expectedLength === undefined && !cell.title?.length)
+                return undefined;
+            return (
+                <es-loading-text
+                    expectedLength={Math.max(
+                        cell.title?.length ?? 0,
+                        cell.expectedLength ?? 30,
+                    )}
+                    variance={cell.variance}
+                />
+            );
+        } else if (cell.cell) {
+            return cell.cell(h, {
+                data: this.data,
+                key: name,
+                parent: this.identifier,
+            });
+        } else {
+            return autoExtract(this.data, name);
+        }
+    };
 
     render() {
         const columns =
@@ -47,7 +60,6 @@ export class TableDetail {
                         const {
                             title,
                             variant,
-                            cell,
                             align = 'start',
                         } = this.getCell(name);
                         const variants =
@@ -64,7 +76,7 @@ export class TableDetail {
                                 }}
                             >
                                 {this.renderHeader(title)}
-                                {!this.renderCell(name, cell)}
+                                {this.renderCell(name)}
                             </div>
                         );
                     })}

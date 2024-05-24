@@ -8,13 +8,13 @@ interface DummyData {
     amount: number;
 }
 
-/** es-table demo with 3 es-loading-text lines. */
+/** Basic es-table demo with loading set to true. */
 @Component({
-    tag: 'es-table-loading-demo',
+    tag: 'es-table-basic-loading-demo',
     styleUrl: './table-basic.css',
     shadow: true,
 })
-export class TableLoadingDemo {
+export class TableBasicLoadingDemo {
     @State() data: DummyData[] = [
         {
             name: 'test',
@@ -49,7 +49,7 @@ export class TableLoadingDemo {
                 rows={this.data}
                 linkRowTo={() => '#'}
                 rowClass={() => 'selectable'}
-                loading={true}
+                loading
                 loadingRows={3}
             />
         );
@@ -59,7 +59,7 @@ export class TableLoadingDemo {
         name: {
             title: 'Name',
             expectedLength: 50,
-            variance: 20
+            variance: 20,
         },
         value: {
             title: 'Value',

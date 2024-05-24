@@ -54,15 +54,27 @@ export default () => (
 
 ## Properties
 
-| Property             | Attribute      | Description                                                                             | Type                                    | Default     |
-| -------------------- | -------------- | --------------------------------------------------------------------------------------- | --------------------------------------- | ----------- |
-| `cells` _(required)_ | --             | A record of table cell definitions.                                                     | `{ [x: string]: TableCell<any, any>; }` | `undefined` |
-| `columns`            | --             | The order and keys of the cells to be rendered. If omitted, all cells will be rendered. | `string[] \| undefined`                 | `undefined` |
-| `data` _(required)_  | `data`         | The data to render.                                                                     | `any`                                   | `undefined` |
-| `identifier`         | `identifier`   | Passed to cell renderer as `parent`.                                                    | `string`                                | `'detail'`  |
-| `loading`            | `loading`      | Indicates if the loading indicators should be displayed                                 | `boolean \| undefined`                  | `undefined` |
-| `loadingRows`        | `loading-rows` | Specifies the number of rows to display when loading is true. Defaults to 1.            | `number`                                | `1`         |
+| Property             | Attribute    | Description                                                                             | Type                                    | Default     |
+| -------------------- | ------------ | --------------------------------------------------------------------------------------- | --------------------------------------- | ----------- |
+| `cells` _(required)_ | --           | A record of table cell definitions.                                                     | `{ [x: string]: TableCell<any, any>; }` | `undefined` |
+| `columns`            | --           | The order and keys of the cells to be rendered. If omitted, all cells will be rendered. | `string[] \| undefined`                 | `undefined` |
+| `data` _(required)_  | `data`       | The data to render.                                                                     | `any`                                   | `undefined` |
+| `identifier`         | `identifier` | Passed to cell renderer as `parent`.                                                    | `string`                                | `'detail'`  |
+| `loading`            | `loading`    | Indicates if the loading indicators should be displayed                                 | `boolean \| undefined`                  | `undefined` |
 
+
+## Dependencies
+
+### Depends on
+
+- [es-loading-text](../../es-loading-text)
+
+### Graph
+```mermaid
+graph TD;
+  es-table-detail --> es-loading-text
+  style es-table-detail fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
