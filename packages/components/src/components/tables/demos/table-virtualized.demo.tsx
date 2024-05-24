@@ -13,7 +13,7 @@ interface DummyData {
     styleUrl: './table-basic.css',
     shadow: true,
 })
-export class LoadingTextDemo {
+export class TableVirtualizedDemo {
     render() {
         return (
             <Host>

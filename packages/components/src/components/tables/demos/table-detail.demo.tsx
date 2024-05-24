@@ -14,7 +14,7 @@ interface DummyData {
     styleUrl: './table-basic.css',
     shadow: true,
 })
-export class LoadingTextDemo {
+export class TableDetailDemo {
     @State() data: DummyData = {
         name: 'test',
         value: 'something here',
