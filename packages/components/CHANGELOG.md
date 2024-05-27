@@ -1,5 +1,13 @@
 # @eventstore-ui/components
 
+## 1.6.1
+
+### Patch Changes
+
+-   [`afe6084`](https://github.com/EventStore/Design-System/commit/afe60846eb2e388c60b67a5acdd705d79a98545e) - Add missing `confirmVariant` to `ConfirmModalOptions`
+
+-   [`59d3f19`](https://github.com/EventStore/Design-System/commit/59d3f19e254e80fc501f3457a6a19dd45175ef2a) - Add missing disabled prop to `es-action-dropdown`
+
 ## 1.6.0
 
 ### Minor Changes
