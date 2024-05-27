@@ -86,6 +86,10 @@ export namespace Components {
      */
     interface EsActionDropdown {
         /**
+          * If the dropdown should be disabled.
+         */
+        "disabled": boolean;
+        /**
           * The icon to show for the action.
          */
         "icon": IconDescription;
@@ -1464,6 +1468,10 @@ declare namespace LocalJSX {
      * All child actions must have the `dropdownItem` prop set.
      */
     interface EsActionDropdown {
+        /**
+          * If the dropdown should be disabled.
+         */
+        "disabled"?: boolean;
         /**
           * The icon to show for the action.
          */
