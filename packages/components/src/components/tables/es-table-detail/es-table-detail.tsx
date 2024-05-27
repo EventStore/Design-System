@@ -20,7 +20,6 @@ export class TableDetail {
     /** Indicates if the loading indicators should be displayed */
     @Prop() loading?: boolean;
 
-    private renderHeader = (title?: string) => <dt>{title}</dt>;
     private renderCell = (name: string) => {
         const cell = this.getCell(name);
 
@@ -75,8 +74,8 @@ export class TableDetail {
                                     [align]: align !== 'start',
                                 }}
                             >
-                                {this.renderHeader(title)}
-                                {this.renderCell(name)}
+                                <dt>{title}</dt>
+                                <dd>{this.renderCell(name)}</dd>
                             </div>
                         );
                     })}
