@@ -1,4 +1,5 @@
 import type { FunctionalComponent } from '@stencil/core';
+import type { ButtonVariant } from '../../buttons/types';
 
 /** What to display within a modal. */
 export interface ConfirmModalOptions {
@@ -12,4 +13,6 @@ export interface ConfirmModalOptions {
     warning?: string;
     /** Text to display within the confirm button. */
     confirm: string;
+    /** Which variant to display the button as. */
+    confirmVariant?: ButtonVariant;
 }
