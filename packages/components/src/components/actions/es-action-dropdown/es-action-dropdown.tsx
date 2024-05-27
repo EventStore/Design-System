@@ -14,6 +14,8 @@ import type { IconDescription } from '../../es-icon/types';
 export class ESActionDropdown {
     /** The icon to show for the action. */
     @Prop() icon: IconDescription = [ICON_NAMESPACE, 'more'];
+    /** If the dropdown should be disabled. */
+    @Prop() disabled: boolean = false;
 
     @State() dropdownOpen: boolean = false;
 
@@ -21,6 +23,7 @@ export class ESActionDropdown {
         return (
             <Host>
                 <es-button
+                    disabled={this.disabled}
                     variant={'minimal'}
                     onClick={this.toggleDropdown}
                     onMouseDown={(e) => e.preventDefault()}

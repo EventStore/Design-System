@@ -67,9 +67,10 @@ export default () => (
 
 ## Properties
 
-| Property | Attribute | Description                      | Type                                                    | Default                    |
-| -------- | --------- | -------------------------------- | ------------------------------------------------------- | -------------------------- |
-| `icon`   | `icon`    | The icon to show for the action. | `[namespace: string \| symbol, name: string] \| string` | `[ICON_NAMESPACE, 'more']` |
+| Property   | Attribute  | Description                         | Type                                                    | Default                    |
+| ---------- | ---------- | ----------------------------------- | ------------------------------------------------------- | -------------------------- |
+| `disabled` | `disabled` | If the dropdown should be disabled. | `boolean`                                               | `false`                    |
+| `icon`     | `icon`     | The icon to show for the action.    | `[namespace: string \| symbol, name: string] \| string` | `[ICON_NAMESPACE, 'more']` |
 
 
 ## Dependencies
