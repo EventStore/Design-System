@@ -93,7 +93,7 @@ export class DeleteModal {
                     {'Cancel'}
                 </es-button>
                 <es-button
-                    variant={'delete'}
+                    variant={this.confirmVariant}
                     slot={'footer'}
                     part={'confirm'}
                     onClick={this.requestDeletion.emit}
