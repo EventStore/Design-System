@@ -621,6 +621,14 @@ export namespace Components {
          */
         "linkRowTo"?: (data: any) => string;
         /**
+          * Indicates if the loading indicators should be displayed
+         */
+        "loading"?: boolean;
+        /**
+          * Specifies the number of rows to display when loading is true. Defaults to 1.
+         */
+        "loadingRows": number;
+        /**
           * Allows rendering a node after the row.
          */
         "renderExpansion": RenderFunction<
@@ -670,6 +678,10 @@ export namespace Components {
           * Passed to cell renderer as `parent`.
          */
         "identifier": string;
+        /**
+          * Indicates if the loading indicators should be displayed
+         */
+        "loading"?: boolean;
     }
     /**
      * A default header for [`es-table-detail`](/components/components/es-table-detail).
@@ -764,6 +776,14 @@ export namespace Components {
           * async function for loading nested data when a row is expanded.
          */
         "loadNested"?: (key: string, data: any) => Promise<void>;
+        /**
+          * Indicates if the loading indicators should be displayed
+         */
+        "loading"?: boolean;
+        /**
+          * Specifies the number of rows to display when loading is true. Defaults to 1.
+         */
+        "loadingRows": number;
         /**
           * The order and keys of the cells to be rendered in a nested table. If omitted, all cells will be rendered.
          */
@@ -2025,6 +2045,14 @@ declare namespace LocalJSX {
          */
         "linkRowTo"?: (data: any) => string;
         /**
+          * Indicates if the loading indicators should be displayed
+         */
+        "loading"?: boolean;
+        /**
+          * Specifies the number of rows to display when loading is true. Defaults to 1.
+         */
+        "loadingRows"?: number;
+        /**
           * Triggered whenever a row is clicked.
          */
         "onClickRow"?: (event: EsTableCustomEvent<ClickRow<any>>) => void;
@@ -2082,6 +2110,10 @@ declare namespace LocalJSX {
           * Passed to cell renderer as `parent`.
          */
         "identifier"?: string;
+        /**
+          * Indicates if the loading indicators should be displayed
+         */
+        "loading"?: boolean;
     }
     /**
      * A default header for [`es-table-detail`](/components/components/es-table-detail).
@@ -2176,6 +2208,14 @@ declare namespace LocalJSX {
           * async function for loading nested data when a row is expanded.
          */
         "loadNested"?: (key: string, data: any) => Promise<void>;
+        /**
+          * Indicates if the loading indicators should be displayed
+         */
+        "loading"?: boolean;
+        /**
+          * Specifies the number of rows to display when loading is true. Defaults to 1.
+         */
+        "loadingRows"?: number;
         /**
           * The order and keys of the cells to be rendered in a nested table. If omitted, all cells will be rendered.
          */

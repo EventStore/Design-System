@@ -17,19 +17,35 @@ export class TableDetail {
     @Prop() cells!: TableCells<any, any>;
     /** The order and keys of the cells to be rendered. If omitted, all cells will be rendered. */
     @Prop() columns?: Array<string>;
+    /** Indicates if the loading indicators should be displayed */
+    @Prop() loading?: boolean;
 
-    private renderHeader = (title?: string) => <dt>{title}</dt>;
-    private renderCell = (name: string, renderCell: TableCell<any>['cell']) => (
-        <dd>
-            {renderCell
-                ? renderCell(h, {
-                      data: this.data,
-                      key: name,
-                      parent: this.identifier,
-                  })
-                : autoExtract(this.data, name)}
-        </dd>
-    );
+    private renderCell = (name: string) => {
+        const cell = this.getCell(name);
+
+        if (this.loading) {
+            if (cell.expectedLength === 0 && !cell.variance) return undefined;
+            if (cell.expectedLength === undefined && !cell.title?.length)
+                return undefined;
+            return (
+                <es-loading-text
+                    expectedLength={Math.max(
+                        cell.title?.length ?? 0,
+                        cell.expectedLength ?? 30,
+                    )}
+                    variance={cell.variance}
+                />
+            );
+        } else if (cell.cell) {
+            return cell.cell(h, {
+                data: this.data,
+                key: name,
+                parent: this.identifier,
+            });
+        } else {
+            return autoExtract(this.data, name);
+        }
+    };
 
     render() {
         const columns =
@@ -43,7 +59,6 @@ export class TableDetail {
                         const {
                             title,
                             variant,
-                            cell,
                             align = 'start',
                         } = this.getCell(name);
                         const variants =
@@ -59,8 +74,8 @@ export class TableDetail {
                                     [align]: align !== 'start',
                                 }}
                             >
-                                {this.renderHeader(title)}
-                                {this.renderCell(name, cell)}
+                                <dt>{title}</dt>
+                                <dd>{this.renderCell(name)}</dd>
                             </div>
                         );
                     })}

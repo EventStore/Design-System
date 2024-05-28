@@ -15,6 +15,7 @@ import type {
     TableCells,
     TableSort,
     ColumnGroups,
+    NamedCell,
 } from '../types';
 import { logger } from '../../../utils/logger';
 import { TableHeader } from '../TableHeader';
@@ -71,6 +72,10 @@ export class Table {
     @Prop() sort?: TableSort;
     /** Pass extra props to cells */
     @Prop() extraCellProps?: (key: string, data: any) => Record<string, any>;
+    /** Indicates if the loading indicators should be displayed */
+    @Prop() loading?: boolean;
+    /** Specifies the number of rows to display when loading is true. Defaults to 1. */
+    @Prop() loadingRows: number = 1;
 
     /** Triggered whenever a row is clicked. */
     @Event() clickRow!: EventEmitter<ClickRow<any>>;
@@ -78,7 +83,7 @@ export class Table {
     @Event() clickSort!: EventEmitter<string>;
 
     private renderRowGroup = (row: any, i: number) => {
-        const key = this.getRowKey(row, i);
+        const key = this.loading ? `loading-${i}` : this.getRowKey(row, i);
         return (
             <div
                 key={key}
@@ -88,13 +93,13 @@ export class Table {
                 }}
             >
                 {this.renderRow(row, key, i)}
-                {this.renderExpansion(h, row, key, i)}
+                {!this.loading && this.renderExpansion(h, row, key, i)}
             </div>
         );
     };
 
     private renderRow = (row: unknown, key: string, index: number) => {
-        const data = this.getCellData?.(row);
+        const data = this.loading ? {} : this.getCellData?.(row);
 
         if (!data) {
             logger.warn.once(
@@ -104,7 +109,7 @@ export class Table {
             return null;
         }
 
-        if (this.linkRowTo) {
+        if (!this.loading && this.linkRowTo) {
             return (
                 <Link
                     url={this.linkRowTo(data)}
@@ -128,7 +133,7 @@ export class Table {
             <div
                 role={'row'}
                 aria-rowindex={index}
-                class={this.rowClass(data, key)}
+                class={this.loading ? undefined : this.rowClass(data, key)}
                 onClick={this.emitRowClick({
                     index,
                     key,
@@ -153,7 +158,8 @@ export class Table {
                 const focusCell =
                     groupIndex === 0 &&
                     cellIndex === 0 &&
-                    (!!this.rowTakesFocus || !!this.linkRowTo);
+                    (!!this.rowTakesFocus || !!this.linkRowTo) &&
+                    !this.loading;
 
                 return (
                     <div
@@ -177,18 +183,42 @@ export class Table {
                             cellCount: cells.length,
                         })}
                     >
-                        {cell.cell
-                            ? cell.cell(h, {
-                                  ...(this.extraCellProps?.(key, data) ?? {}),
-                                  key,
-                                  data,
-                                  parent: this.identifier,
-                              })
-                            : autoExtract(data, name)}
+                        {this.renderCellContent(data, key, name, cell)}
                     </div>
                 );
             }),
         );
+
+    private renderCellContent = (
+        data: any,
+        key: string,
+        name: NamedCell[0],
+        cell: NamedCell[1],
+    ) => {
+        if (this.loading) {
+            if (cell.expectedLength === 0 && !cell.variance) return undefined;
+            if (cell.expectedLength === undefined && !cell.title?.length)
+                return undefined;
+            return (
+                <es-loading-text
+                    expectedLength={Math.max(
+                        cell.title?.length ?? 0,
+                        cell.expectedLength ?? 30,
+                    )}
+                    variance={cell.variance}
+                />
+            );
+        } else if (cell.cell) {
+            return cell.cell(h, {
+                ...(this.extraCellProps?.(key, data) ?? {}),
+                key,
+                data,
+                parent: this.identifier,
+            });
+        } else {
+            return autoExtract(data, name);
+        }
+    };
 
     render() {
         return (
@@ -205,12 +235,17 @@ export class Table {
                     sort={this.sort}
                     sticky={this.stickyHeader}
                 />
-                {this.rows?.map(this.renderRowGroup)}
+                {this.loading
+                    ? Array.from({ length: this.loadingRows }, (_, i) =>
+                          this.renderRowGroup({}, i),
+                      )
+                    : this.rows?.map(this.renderRowGroup)}
             </Host>
         );
     }
 
     private focusCellKeyPress = (data: ClickRow) => (e: KeyboardEvent) => {
+        if (this.loading) return;
         if (e.code !== 'Space' && e.code !== 'Enter') return;
 
         this.clickRow.emit(data);
@@ -221,6 +256,7 @@ export class Table {
     };
 
     private emitRowClick = (data: ClickRow) => () => {
+        if (this.loading) return;
         this.clickRow.emit(data);
     };
 

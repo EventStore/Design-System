@@ -8,13 +8,13 @@ interface DummyData {
     amount: number;
 }
 
-/** Basic es-table-detail demo. */
+/** Basic es-table-detail demo with loading set to true. */
 @Component({
-    tag: 'es-table-detail-basic-demo',
+    tag: 'es-table-detail-loading-demo',
     styleUrl: './table-basic.css',
     shadow: true,
 })
-export class TableDetailDemo {
+export class TableDetailLoadingDemo {
     @State() data: DummyData = {
         name: 'test',
         value: 'something here',
@@ -29,7 +29,7 @@ export class TableDetailDemo {
                     data={this.data}
                     cells={this.cells}
                 />
-                <es-table-detail data={this.data} cells={this.cells} />
+                <es-table-detail data={this.data} cells={this.cells} loading />
             </Host>
         );
     }
@@ -37,6 +37,8 @@ export class TableDetailDemo {
     private cells: TableCells<DummyData> = {
         name: {
             title: 'Name',
+            expectedLength: 50,
+            variance: 20,
         },
         value: {
             title: 'Value',

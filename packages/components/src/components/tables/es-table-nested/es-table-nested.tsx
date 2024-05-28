@@ -81,8 +81,13 @@ export class TableNested {
     /** A path to a the currently active row, to auto expand its parent and show it as selected. */
     @Prop() activePath?: string[];
 
+    /** Indicates if the loading indicators should be displayed */
+    @Prop() loading?: boolean;
+    /** Specifies the number of rows to display when loading is true. Defaults to 1. */
+    @Prop() loadingRows: number = 1;
+
     @State() expanded: Map<string, number> = new Map();
-    @State() loading: Set<string> = new Set();
+    @State() loadingExpansions: Set<string> = new Set();
 
     /** Triggered whenever a row (or nested row) is clicked. The `detail` is the item in the row array. */
     @Event() clickRow!: EventEmitter<any>;
@@ -155,6 +160,8 @@ export class TableNested {
                 onClickRow={this.toggleIfRequested}
                 extraCellProps={this.nestedExtraCellProps(0)}
                 getRowKey={this.getRowKey}
+                loading={this.loading}
+                loadingRows={this.loadingRows}
             />
         );
     }
@@ -165,13 +172,13 @@ export class TableNested {
             canExpand: this.canExpand(key, data, depth),
             canExpandMore: this.canExpandMore(key, data),
             expanded: this.expanded.has(key),
-            loading: this.loading.has(key),
+            loading: this.loadingExpansions.has(key),
             toggleExpansion: () => this.toggleExpansion(key, data),
             ...(this.extraCellProps?.(key, data) ?? {}),
         });
 
     private toggleExpansion = async (key: string, data: any) => {
-        if (this.loading.has(key)) return;
+        if (this.loadingExpansions.has(key)) return;
 
         if (this.expanded.has(key)) {
             this.expanded.delete(key);
@@ -185,13 +192,13 @@ export class TableNested {
             return;
         }
 
-        this.loading.add(key);
-        this.loading = new Set(this.loading);
+        this.loadingExpansions.add(key);
+        this.loadingExpansions = new Set(this.loadingExpansions);
 
         await this.loadNested(key, data);
 
-        this.loading.delete(key);
-        this.loading = new Set(this.loading);
+        this.loadingExpansions.delete(key);
+        this.loadingExpansions = new Set(this.loadingExpansions);
 
         this.expanded.set(key, this.expandBy);
         this.expanded = new Map(this.expanded);
