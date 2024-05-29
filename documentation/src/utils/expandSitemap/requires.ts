@@ -44,9 +44,6 @@ import routerPackageJson from '@eventstore-ui/router/package.json';
 import routerReadme from '@eventstore-ui/router/readme.md';
 import routerTypeDocs from '../../../generated/router.typedoc.json';
 
-import stencilMarkdownPluginPackageJson from '@eventstore-ui/stencil-markdown-plugin/package.json';
-import stencilMarkdownPluginReadme from '@eventstore-ui/stencil-markdown-plugin/readme.md';
-
 import storesPackageJson from '@eventstore-ui/stores/package.json';
 import storesReadme from '@eventstore-ui/stores/readme.md';
 import storesTypeDocs from '../../../generated/stores.typedoc.json';
@@ -70,7 +67,6 @@ const packageJsons: Record<string, PackageJson> = {
     'icon-manager': iconManagerPackageJson,
     layout: layoutPackageJson,
     router: routerPackageJson,
-    'stencil-markdown-plugin': stencilMarkdownPluginPackageJson,
     stores: storesPackageJson,
     theme: themePackageJson,
     utils: utilsPackageJson,
@@ -87,7 +83,6 @@ const readmes: Record<string, string> = {
     'icon-manager': iconManagerReadme,
     layout: layoutReadme,
     router: routerReadme,
-    'stencil-markdown-plugin': stencilMarkdownPluginReadme,
     stores: storesReadme,
     theme: themeReadme,
     utils: utilsReadme,

@@ -199,11 +199,7 @@
         "markdown": {
             "name": "markdown",
             "component": "Markdown",
-            "path": "./components/Markdown.tsx",
-            "aliases": [
-                "@eventstore-ui/stencil-markdown-plugin",
-                "stencil-markdown-plugin"
-            ]
+            "path": "./components/Markdown.tsx"
         },
         "more": {
             "name": "more",

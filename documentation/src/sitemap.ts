@@ -19,11 +19,6 @@ export const sitemap = expandSitemap([
     },
     {
         title: 'Tools',
-        children: [
-            'Configs',
-            'Assets',
-            'Icon Manager',
-            'Stencil Markdown Plugin',
-        ],
+        children: ['Configs', 'Assets', 'Icon Manager'],
     },
 ]);
