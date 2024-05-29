@@ -157,12 +157,6 @@ iconStore.addIcons({
     get markdown() {
         return import('./components/Markdown').then(({ Markdown }) => Markdown);
     },
-    get '@eventstore-ui/stencil-markdown-plugin'() {
-        return this['markdown'];
-    },
-    get 'stencil-markdown-plugin'() {
-        return this['markdown'];
-    },
     get more() {
         return import('./components/More').then(({ More }) => More);
     },
