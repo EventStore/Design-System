@@ -12,9 +12,10 @@ import { RenderFunction } from "./types";
 import { BadgeVariant } from "./components/es-badge/es-badge";
 import { ButtonVariant } from "./components/buttons/types";
 import { EsCalloutVariant } from "./components/es-callout/es-callout";
-import { FunctionalComponent } from "@stencil/core";
+import { FunctionalComponent, VNode } from "@stencil/core";
 import { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
 import { CounterColor, CounterVariant } from "./components/es-counter/types";
+import { EmptyStateLayout } from "./components/es-empty-state/es-empty-state-demo";
 import { PageChangeEventType } from "./components/es-pagination/types";
 import { Constrain, Placement } from "./components/es-popover/types";
 import { Checkpoint, CheckpointState } from "./components/es-progression/types";
@@ -30,9 +31,10 @@ export { RenderFunction } from "./types";
 export { BadgeVariant } from "./components/es-badge/es-badge";
 export { ButtonVariant } from "./components/buttons/types";
 export { EsCalloutVariant } from "./components/es-callout/es-callout";
-export { FunctionalComponent } from "@stencil/core";
+export { FunctionalComponent, VNode } from "@stencil/core";
 export { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
 export { CounterColor, CounterVariant } from "./components/es-counter/types";
+export { EmptyStateLayout } from "./components/es-empty-state/es-empty-state-demo";
 export { PageChangeEventType } from "./components/es-pagination/types";
 export { Constrain, Placement } from "./components/es-popover/types";
 export { Checkpoint, CheckpointState } from "./components/es-progression/types";
@@ -351,6 +353,28 @@ export namespace Components {
           * The display style of the counter.
          */
         "variant": CounterVariant;
+    }
+    /**
+     * Display an empty state with an illustration and a message.
+     */
+    interface EsEmptyState {
+        /**
+          * The body of the empty state.
+         */
+        "body": string | VNode;
+        /**
+          * The header of the empty state.
+         */
+        "header": string;
+        /**
+          * The layout of the empty state.
+         */
+        "layout": EmptyStateLayout;
+    }
+    /**
+     * Basic es-empty-state demo
+     */
+    interface EsEmptyStateDemo {
     }
     /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
@@ -1205,6 +1229,24 @@ declare global {
         new (): HTMLEsCounterElement;
     };
     /**
+     * Display an empty state with an illustration and a message.
+     */
+    interface HTMLEsEmptyStateElement extends Components.EsEmptyState, HTMLStencilElement {
+    }
+    var HTMLEsEmptyStateElement: {
+        prototype: HTMLEsEmptyStateElement;
+        new (): HTMLEsEmptyStateElement;
+    };
+    /**
+     * Basic es-empty-state demo
+     */
+    interface HTMLEsEmptyStateDemoElement extends Components.EsEmptyStateDemo, HTMLStencilElement {
+    }
+    var HTMLEsEmptyStateDemoElement: {
+        prototype: HTMLEsEmptyStateDemoElement;
+        new (): HTMLEsEmptyStateDemoElement;
+    };
+    /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
      * See [IconStore](/components/variables/iconStore) for details on how to load icons.
      */
@@ -1418,6 +1460,8 @@ declare global {
         "es-copy": HTMLEsCopyElement;
         "es-corner-banner": HTMLEsCornerBannerElement;
         "es-counter": HTMLEsCounterElement;
+        "es-empty-state": HTMLEsEmptyStateElement;
+        "es-empty-state-demo": HTMLEsEmptyStateDemoElement;
         "es-icon": HTMLEsIconElement;
         "es-loading-dots": HTMLEsLoadingDotsElement;
         "es-loading-text": HTMLEsLoadingTextElement;
@@ -1757,6 +1801,28 @@ declare namespace LocalJSX {
           * The display style of the counter.
          */
         "variant"?: CounterVariant;
+    }
+    /**
+     * Display an empty state with an illustration and a message.
+     */
+    interface EsEmptyState {
+        /**
+          * The body of the empty state.
+         */
+        "body": string | VNode;
+        /**
+          * The header of the empty state.
+         */
+        "header": string;
+        /**
+          * The layout of the empty state.
+         */
+        "layout"?: EmptyStateLayout;
+    }
+    /**
+     * Basic es-empty-state demo
+     */
+    interface EsEmptyStateDemo {
     }
     /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
@@ -2491,6 +2557,8 @@ declare namespace LocalJSX {
         "es-copy": EsCopy;
         "es-corner-banner": EsCornerBanner;
         "es-counter": EsCounter;
+        "es-empty-state": EsEmptyState;
+        "es-empty-state-demo": EsEmptyStateDemo;
         "es-icon": EsIcon;
         "es-loading-dots": EsLoadingDots;
         "es-loading-text": EsLoadingText;
@@ -2579,6 +2647,14 @@ declare module "@stencil/core" {
              * A pill display of an number, that pulses on change. Caps out at 999.
              */
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
+            /**
+             * Display an empty state with an illustration and a message.
+             */
+            "es-empty-state": LocalJSX.EsEmptyState & JSXBase.HTMLAttributes<HTMLEsEmptyStateElement>;
+            /**
+             * Basic es-empty-state demo
+             */
+            "es-empty-state-demo": LocalJSX.EsEmptyStateDemo & JSXBase.HTMLAttributes<HTMLEsEmptyStateDemoElement>;
             /**
              * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
              * See [IconStore](/components/variables/iconStore) for details on how to load icons.

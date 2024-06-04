@@ -27,6 +27,19 @@ export default () => <es-page-title>{'A lovely page'}</es-page-title>;
 
 
 
+## Dependencies
+
+### Used by
+
+ - es-empty-state
+
+### Graph
+```mermaid
+graph TD;
+  es-empty-state --> es-page-title
+  style es-page-title fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 
