@@ -227,6 +227,7 @@ export class Table {
                 style={{ gridTemplateColumns: this.gridTemplateColumns() }}
                 high-contrast={theme.isHighContrast()}
                 dark={theme.isDark()}
+                class={{ loading: !!this.loading }}
             >
                 <TableHeader
                     columnGroups={this.getColumnGroups()}

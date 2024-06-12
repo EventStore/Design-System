@@ -54,7 +54,7 @@ export class TableDetail {
 
         return (
             <Host>
-                <dl>
+                <dl class={{ loading: !!this.loading }}>
                     {columns.map((name) => {
                         const {
                             title,
