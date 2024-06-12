@@ -10,3 +10,18 @@ es-table {
 }
 
 @import url('../table.css');
+
+.loading {
+    opacity: 0;
+    animation: fadeIn 0.4s forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

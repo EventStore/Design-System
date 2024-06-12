@@ -6,4 +6,5 @@
     white-space: pre;
     color: transparent;
     user-select: none;
+    max-width: 100%;
 }

@@ -42,3 +42,18 @@ dd {
     flex: 1 1 100%;
     margin: 0;
 }
+
+.loading {
+    opacity: 0;
+    animation: fadeIn 0.4s forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
