@@ -7,7 +7,7 @@
 
 ## Overview
 
-Basic es-empty-state demo
+Display an empty state with an illustration and a message.
 
 ## Usage
 
@@ -32,20 +32,14 @@ export default () =>
 
 
 
-## Dependencies
+## Properties
 
-### Depends on
+| Property              | Attribute | Description                    | Type                         | Default      |
+| --------------------- | --------- | ------------------------------ | ---------------------------- | ------------ |
+| `body` _(required)_   | `body`    | The body of the empty state.   | `VNode \| string`            | `undefined`  |
+| `header` _(required)_ | `header`  | The header of the empty state. | `string`                     | `undefined`  |
+| `layout`              | `layout`  | The layout of the empty state. | `"horizontal" \| "vertical"` | `'vertical'` |
 
-- [es-empty-state](.)
-- [es-button](../buttons/es-button)
-
-### Graph
-```mermaid
-graph TD;
-  es-empty-state-demo --> es-empty-state
-  es-empty-state-demo --> es-button
-  style es-empty-state-demo fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

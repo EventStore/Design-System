@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop, type VNode } from '@stencil/core';
-import type { EmptyStateLayout } from './es-empty-state-demo';
+import type { EmptyStateLayout } from './types';
 
 /**
  * Display an empty state with an illustration and a message.
