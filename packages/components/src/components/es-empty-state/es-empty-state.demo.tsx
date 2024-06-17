@@ -1,8 +1,6 @@
 import { Component, h, Host } from '@stencil/core';
 
-export type EmptyStateLayout = 'horizontal' | 'vertical';
-
-/** Basic es-empty-state demo */
+/** es-empty-state demo */
 @Component({
     tag: 'es-empty-state-demo',
     shadow: true,

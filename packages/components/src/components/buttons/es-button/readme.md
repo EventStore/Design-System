@@ -107,7 +107,6 @@ export default () =>
  - [es-action-dropdown](../../actions/es-action-dropdown)
  - [es-action-with-confirmation](../../actions/es-action-with-confirmation)
  - [es-confirm-modal](../../actions/es-action-with-confirmation/components/es-confirm-modal)
- - [es-empty-state-demo](../../es-empty-state)
  - [es-pagination](../../es-pagination)
  - [es-table](../../tables/es-table)
  - [es-table-nested](../../tables/es-table-nested)
@@ -121,7 +120,6 @@ graph TD;
   es-action-dropdown --> es-button
   es-action-with-confirmation --> es-button
   es-confirm-modal --> es-button
-  es-empty-state-demo --> es-button
   es-pagination --> es-button
   es-table --> es-button
   es-table-nested --> es-button
