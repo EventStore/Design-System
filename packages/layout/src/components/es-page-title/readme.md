@@ -31,7 +31,7 @@ export default () => <es-page-title>{'A lovely page'}</es-page-title>;
 
 ### Used by
 
- - es-empty-state
+ - [es-empty-state](../es-empty-state)
 
 ### Graph
 ```mermaid

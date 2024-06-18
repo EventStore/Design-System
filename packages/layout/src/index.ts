@@ -24,3 +24,4 @@ export * from './components/panel';
 export { setProgress } from './components/es-loading-bar/utils/setProgress';
 export { dispatchPageViewEvent } from './utils/pageView';
 export * from './utils/LayoutVar';
+export { type EmptyStateLayout } from './components/es-empty-state/types';

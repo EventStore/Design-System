@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Crumb } from "./components/es-breadcrumb/types";
 import { DisplayErrorVariant } from "./components/es-display-error/types";
+import { EmptyStateLayout } from "./components/es-empty-state/types";
 import { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/types";
 import { IconDescription, Placement } from "@eventstore-ui/components";
 import { PanelMode } from "./components/panel";
@@ -15,6 +16,7 @@ import { NavNode, NavTree } from "./components/es-nav/types";
 import { ClosedMode, PanelDetailsListener, PanelMode as PanelMode1, TargetableArea, TargetableEdge } from "./components/panel/types";
 export { Crumb } from "./components/es-breadcrumb/types";
 export { DisplayErrorVariant } from "./components/es-display-error/types";
+export { EmptyStateLayout } from "./components/es-empty-state/types";
 export { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/types";
 export { IconDescription, Placement } from "@eventstore-ui/components";
 export { PanelMode } from "./components/panel";
@@ -47,6 +49,20 @@ export namespace Components {
           * Which styling variant to use.
          */
         "variant": DisplayErrorVariant;
+    }
+    /**
+     * Display an empty state with an illustration and a message.
+     * Intended for use as `Page`'s `renderEmptyState`.
+     */
+    interface EsEmptyState {
+        /**
+          * The header of the empty state.
+         */
+        "header": string;
+        /**
+          * The layout of the empty state.
+         */
+        "layout": EmptyStateLayout;
     }
     /**
      * A site header for applications.
@@ -428,6 +444,16 @@ declare global {
         new (): HTMLEsDisplayErrorElement;
     };
     /**
+     * Display an empty state with an illustration and a message.
+     * Intended for use as `Page`'s `renderEmptyState`.
+     */
+    interface HTMLEsEmptyStateElement extends Components.EsEmptyState, HTMLStencilElement {
+    }
+    var HTMLEsEmptyStateElement: {
+        prototype: HTMLEsEmptyStateElement;
+        new (): HTMLEsEmptyStateElement;
+    };
+    /**
      * A site header for applications.
      */
     interface HTMLEsHeaderElement extends Components.EsHeader, HTMLStencilElement {
@@ -616,6 +642,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "es-breadcrumb": HTMLEsBreadcrumbElement;
         "es-display-error": HTMLEsDisplayErrorElement;
+        "es-empty-state": HTMLEsEmptyStateElement;
         "es-header": HTMLEsHeaderElement;
         "es-header-dropdown": HTMLEsHeaderDropdownElement;
         "es-layout-auto-label": HTMLEsLayoutAutoLabelElement;
@@ -666,6 +693,20 @@ declare namespace LocalJSX {
           * Which styling variant to use.
          */
         "variant"?: DisplayErrorVariant;
+    }
+    /**
+     * Display an empty state with an illustration and a message.
+     * Intended for use as `Page`'s `renderEmptyState`.
+     */
+    interface EsEmptyState {
+        /**
+          * The header of the empty state.
+         */
+        "header": string;
+        /**
+          * The layout of the empty state.
+         */
+        "layout"?: EmptyStateLayout;
     }
     /**
      * A site header for applications.
@@ -1015,6 +1056,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "es-breadcrumb": EsBreadcrumb;
         "es-display-error": EsDisplayError;
+        "es-empty-state": EsEmptyState;
         "es-header": EsHeader;
         "es-header-dropdown": EsHeaderDropdown;
         "es-layout-auto-label": EsLayoutAutoLabel;
@@ -1051,6 +1093,11 @@ declare module "@stencil/core" {
              * Display an error to the user, with title and detail. Will automatically extract from HTTPError.
              */
             "es-display-error": LocalJSX.EsDisplayError & JSXBase.HTMLAttributes<HTMLEsDisplayErrorElement>;
+            /**
+             * Display an empty state with an illustration and a message.
+             * Intended for use as `Page`'s `renderEmptyState`.
+             */
+            "es-empty-state": LocalJSX.EsEmptyState & JSXBase.HTMLAttributes<HTMLEsEmptyStateElement>;
             /**
              * A site header for applications.
              */
