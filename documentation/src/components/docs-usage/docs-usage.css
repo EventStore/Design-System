@@ -44,5 +44,5 @@ es-tabs::part(panel) {
 }
 
 es-editor {
-    --editor-height: 100%;
+    --editor-height: calc(100% - 10px);
 }
