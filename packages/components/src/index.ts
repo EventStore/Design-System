@@ -54,4 +54,3 @@ export {
     ActionCopy,
     type ActionCopyProps,
 } from './components/actions/ActionCopy';
-export { type EmptyStateLayout } from './components/es-empty-state/types';
