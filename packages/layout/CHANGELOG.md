@@ -1,5 +1,11 @@
 # @eventstore-ui/layout
 
+## 1.4.0
+
+### Minor Changes
+
+-   [`f895224`](https://github.com/EventStore/Design-System/commit/f8952240ddcbe643b213f3d2babc0c5dd43adb08) - Add `es-empty-state` to be used as the `renderEmptyState` of `Page`
+
 ## 1.3.0
 
 ### Minor Changes
