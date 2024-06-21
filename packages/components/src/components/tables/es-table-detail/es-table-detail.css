@@ -45,7 +45,7 @@ dd {
 
 .loading {
     opacity: 0;
-    animation: fadeIn 0.4s forwards;
+    animation: fadeIn 2s forwards;
     animation-delay: 0.2s;
 }
 
