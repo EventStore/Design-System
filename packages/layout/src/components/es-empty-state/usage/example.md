@@ -1,16 +1,15 @@
 ```tsx
 
 export default () =>
-<div>
-    <es-empty-state header={'Example empty state'} body={<es-button>{'There are no items'}</es-button>}>
-    <es-illustration-group slot={'illustration'} />
-    <p slot='foot'>{ 'Footer goes here' }</p>
+    <es-empty-state header={'Create a new group'}>
+        <es-illustration-group slot={'illustration'} />
+        {
+            'Creating a new group will allow for the grouping of members with the same access.'
+        }
+        <es-button slot={'foot'} variant={'outline'}>
+            {'New group'}
+            <es-icon icon={'plus'} slot={'after'} />
+        </es-button>
     </es-empty-state>
-    <hr/>
-    <es-empty-state header={'Example empty state'} body={'No items to show'} layout='horizontal'>
-    <es-illustration-group slot={'illustration'} />
-    <p slot='foot'>{ 'Footer goes here' }</p>
-    </es-empty-state>
-</div>
         
 ```
