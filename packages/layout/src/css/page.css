@@ -41,8 +41,8 @@ header {
 
 .loading {
     opacity: 0;
-    animation: fadeIn 2s forwards;
-    animation-delay: 0.2s;
+    animation: fadeIn 0.5s forwards;
+    animation-delay: 0.4s;
 }
 
 @keyframes fadeIn {
@@ -51,5 +51,11 @@ header {
     }
     to {
         opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion) {
+    .loading {
+        animation-duration: 0s;
     }
 }
