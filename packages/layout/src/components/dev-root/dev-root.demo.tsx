@@ -1,7 +1,7 @@
-import { Component, h, Host } from '@stencil/core';
+import { Component, h, Host, State } from '@stencil/core';
 
 import { Route, router, Switch } from '@eventstore-ui/router';
-import { Page } from '../Page/Page';
+import { Page, type PageState } from '../Page/Page';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import { requestClose } from '@eventstore-ui/components';
 import { logger } from '../../utils/logger';
@@ -13,8 +13,13 @@ import { logger } from '../../utils/logger';
     shadow: true,
 })
 export class DevRoot {
+    @State() pageState: PageState = 'loading';
+
     componentWillLoad() {
         router.init();
+        setTimeout(() => {
+            this.pageState = 'ready';
+        }, 100);
     }
 
     render() {
@@ -211,7 +216,11 @@ export class DevRoot {
                         </es-sidebar>
                         <Switch>
                             <Route exact url={'/'}>
-                                <Page pageTitle={'Home'}>
+                                <Page
+                                    pageTitle={'Home'}
+                                    state={this.pageState}
+                                    renderLoadingState={false}
+                                >
                                     <div class={'padder'} />
                                     {'hello'}
                                     <div class={'padder'} />
@@ -271,12 +280,20 @@ export class DevRoot {
                                 </Page>
                             </Route>
                             <Route url={'/somewhere'}>
-                                <Page pageTitle={'Somewhere'}>
+                                <Page
+                                    pageTitle={'Somewhere'}
+                                    state={this.pageState}
+                                    renderLoadingState={false}
+                                >
                                     <div>{'Welcome to somewhere'}</div>
                                 </Page>
                             </Route>
                             <Route url={'/something'}>
-                                <Page pageTitle={'something'}>
+                                <Page
+                                    pageTitle={'something'}
+                                    state={this.pageState}
+                                    renderLoadingState={false}
+                                >
                                     <div>{'Welcome to something'}</div>
                                     <es-button-link url={'/something/deeper'}>
                                         {'Go Deeper'}
@@ -284,7 +301,11 @@ export class DevRoot {
                                 </Page>
                             </Route>
                             <Route>
-                                <Page pageTitle={'404'}>
+                                <Page
+                                    pageTitle={'404'}
+                                    state={this.pageState}
+                                    renderLoadingState={false}
+                                >
                                     <div>{'404'}</div>
                                 </Page>
                             </Route>
