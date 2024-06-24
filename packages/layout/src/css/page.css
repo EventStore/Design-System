@@ -38,3 +38,18 @@ header {
 .header_right > * {
     margin-left: 10px;
 }
+
+.loading {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

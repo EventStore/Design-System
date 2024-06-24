@@ -137,7 +137,10 @@ const PageBody: FunctionalComponent<PageProps> = (
 export const Page: FunctionalComponent<PageProps> = (props, children) => (
     <>
         <PageTitle>{props.pageTitle}</PageTitle>
-        <main ref={(ref) => ((document as any).main = ref)}>
+        <main
+            ref={(ref) => ((document as any).main = ref)}
+            class={{ loading: props.state === 'loading' }}
+        >
             {props.crumbs && <es-breadcrumb crumbs={props.crumbs} />}
             <PageBody {...props}>{children}</PageBody>
         </main>
