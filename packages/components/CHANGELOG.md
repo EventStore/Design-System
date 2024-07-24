@@ -1,5 +1,11 @@
 # @eventstore-ui/components
 
+## 1.7.1
+
+### Patch Changes
+
+-   [`032ca21`](https://github.com/EventStore/Design-System/commit/032ca212ff5c4b72fb80df8d726aba1fb334091a) - Prevent es-loading-text from overflowing it's parents
+
 ## 1.7.0
 
 ### Minor Changes
