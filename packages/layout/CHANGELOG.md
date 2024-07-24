@@ -1,5 +1,11 @@
 # @eventstore-ui/layout
 
+## 1.5.0
+
+### Minor Changes
+
+-   [`032ca21`](https://github.com/EventStore/Design-System/commit/032ca212ff5c4b72fb80df8d726aba1fb334091a) - Automatically fade in pages when bypassing loading state in `Page`
+
 ## 1.4.0
 
 ### Minor Changes
