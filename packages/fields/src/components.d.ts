@@ -224,6 +224,39 @@ export namespace Components {
         "value": string;
     }
     /**
+     * A multi-checkbox component
+     */
+    interface EsMultiCheckbox {
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * The icon to use.
+         */
+        "icon": IconDescription;
+        /**
+          * If the field is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * The list of options for the checkboxes.
+         */
+        "options": { label: string; value: string }[];
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
+        "value": Record<string, boolean>;
+    }
+    /**
      * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
      */
     interface EsNumberInput {
@@ -567,6 +600,10 @@ export interface EsMegaInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEsMegaInputElement;
 }
+export interface EsMultiCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEsMultiCheckboxElement;
+}
 export interface EsNumberInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEsNumberInputElement;
@@ -640,6 +677,15 @@ declare global {
     var HTMLEsMegaInputElement: {
         prototype: HTMLEsMegaInputElement;
         new (): HTMLEsMegaInputElement;
+    };
+    /**
+     * A multi-checkbox component
+     */
+    interface HTMLEsMultiCheckboxElement extends Components.EsMultiCheckbox, HTMLStencilElement {
+    }
+    var HTMLEsMultiCheckboxElement: {
+        prototype: HTMLEsMultiCheckboxElement;
+        new (): HTMLEsMultiCheckboxElement;
     };
     /**
      * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
@@ -716,6 +762,7 @@ declare global {
         "es-input-list": HTMLEsInputListElement;
         "es-list-creator": HTMLEsListCreatorElement;
         "es-mega-input": HTMLEsMegaInputElement;
+        "es-multi-checkbox": HTMLEsMultiCheckboxElement;
         "es-number-input": HTMLEsNumberInputElement;
         "es-radio-card-group": HTMLEsRadioCardGroupElement;
         "es-select": HTMLEsSelectElement;
@@ -959,6 +1006,43 @@ declare namespace LocalJSX {
           * The current value of the field.
          */
         "value": string;
+    }
+    /**
+     * A multi-checkbox component
+     */
+    interface EsMultiCheckbox {
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * The icon to use.
+         */
+        "icon"?: IconDescription;
+        /**
+          * If the field is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: EsMultiCheckboxCustomEvent<FieldChange<Record<string, boolean>>>) => void;
+        /**
+          * The list of options for the checkboxes.
+         */
+        "options"?: { label: string; value: string }[];
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
+        "value"?: Record<string, boolean>;
     }
     /**
      * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
@@ -1311,6 +1395,7 @@ declare namespace LocalJSX {
         "es-input-list": EsInputList;
         "es-list-creator": EsListCreator;
         "es-mega-input": EsMegaInput;
+        "es-multi-checkbox": EsMultiCheckbox;
         "es-number-input": EsNumberInput;
         "es-radio-card-group": EsRadioCardGroup;
         "es-select": EsSelect;
@@ -1345,6 +1430,10 @@ declare module "@stencil/core" {
              * An extra large input.
              */
             "es-mega-input": LocalJSX.EsMegaInput & JSXBase.HTMLAttributes<HTMLEsMegaInputElement>;
+            /**
+             * A multi-checkbox component
+             */
+            "es-multi-checkbox": LocalJSX.EsMultiCheckbox & JSXBase.HTMLAttributes<HTMLEsMultiCheckboxElement>;
             /**
              * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
              */
