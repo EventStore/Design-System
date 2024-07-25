@@ -1,0 +1,64 @@
+@import '../Field/field.css';
+
+.field {
+    --field-grid-columns: repeat(auto-fill, minmax(300px, max-content));
+    --field-grid-gap: 10px;
+}
+
+.input {
+    visibility: hidden;
+    position: absolute;;
+
+    &:checked ~ .multi-checkbox {
+        color: var(--color-secondary);
+    }
+
+    &:disabled ~ .multi-checkbox {
+        border-color: var(--color-shade-20);
+        background-color: var(--color-shade-20);
+    }
+
+    &:focus ~ .multi-checkbox {
+        border-color: var(--color-secondary);
+    }
+}
+
+label {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-background);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.multi-checkbox {
+    color: transparent;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-shade-50);
+    border-radius: 4px;
+    height: 18px;
+    width: 18px;
+    min-width: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-property: color, border-color, background-color;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+    margin: 5px 10px 5px 5px;
+}
+
+.label {
+    text-align: left;
+}
+
+
+.invalid {
+    & .multi-checkbox {
+        border-color: var(--color-error);
+    }
+}
