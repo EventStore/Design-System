@@ -1,13 +1,15 @@
 @import '../Field/field.css';
 
-.field {
-    --field-grid-columns: repeat(auto-fill, minmax(300px, max-content));
-    --field-grid-gap: 10px;
+.checkbox-field {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, max-content));
+    grid-column-gap: 10px;
+    align-items: center;
 }
 
 .input {
     visibility: hidden;
-    position: absolute;;
+    position: absolute;
 
     &:checked ~ .multi-checkbox {
         color: var(--color-secondary);
@@ -23,6 +25,10 @@
     }
 }
 
+.field {
+    align-items: flex-start;
+}
+
 label {
     display: flex;
     align-items: center;
@@ -30,7 +36,25 @@ label {
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
+    transition:
+        background-color 0.3s,
+        border-color 0.3s;
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+    & es-icon {
+        outline: 1px solid transparent;
+    }
+
+    &:focus {
+        outline: none;
+        border: 1px solid var(--color-secondary);
+        border-radius: 4px;
+
+        & es-icon {
+            outline: 1px solid var(--color-focus);
+        }
+    }
 }
 
 .multi-checkbox {
@@ -52,10 +76,9 @@ label {
     margin: 5px 10px 5px 5px;
 }
 
-.label {
+.checkbox-label {
     text-align: left;
 }
-
 
 .invalid {
     & .multi-checkbox {

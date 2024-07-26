@@ -56,30 +56,30 @@ export class Demo {
                         slot={'options'}
                         options={[
                             {
-                                label: 'Customer / user profile data',
+                                name: 'Customer / user profile data',
                                 value: 'option1',
                             },
                             {
-                                label: 'Sales / transaction data',
+                                name: 'Sales / transaction data',
                                 value: 'option2',
                             },
-                            { label: 'Time series data', value: 'option4' },
+                            { name: 'Time series data', value: 'option4' },
                             {
-                                label: 'Location / geospacial',
+                                name: 'Location / geospacial',
                                 value: 'option5',
                             },
                             {
-                                label: 'User activity / messaging data',
+                                name: 'User activity / messaging data',
                                 value: 'option6',
                             },
                             {
-                                label: 'Catalog / inventory data',
+                                name: 'Catalog / inventory data',
                                 value: 'option7',
                             },
-                            { label: 'Vector embeddings', value: 'option8' },
-                            { label: 'Streaming data', value: 'option9' },
-                            { label: 'Not Sure', value: 'option10' },
-                            { label: 'Other', value: 'option11' },
+                            { name: 'Vector embeddings', value: 'option8' },
+                            { name: 'Streaming data', value: 'option9' },
+                            { name: 'Not Sure', value: 'option10' },
+                            { name: 'Other', value: 'option11' },
                         ]}
                         {...this.form.connect('options')}
                     />
