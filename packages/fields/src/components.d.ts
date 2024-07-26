@@ -240,13 +240,21 @@ export namespace Components {
          */
         "invalid"?: boolean;
         /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The validation messages of the field
+         */
+        "messages"?: ValidationMessages;
+        /**
           * The name of the field.
          */
         "name": string;
         /**
           * The list of options for the checkboxes.
          */
-        "options": { label: string; value: string }[];
+        "options": { name: string; value: string }[];
         /**
           * If the field is editable.
          */
@@ -254,7 +262,7 @@ export namespace Components {
         /**
           * The current value of the field.
          */
-        "value": Record<string, boolean>;
+        "value": string | null;
     }
     /**
      * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
@@ -1024,17 +1032,25 @@ declare namespace LocalJSX {
          */
         "invalid"?: boolean;
         /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The validation messages of the field
+         */
+        "messages"?: ValidationMessages;
+        /**
           * The name of the field.
          */
         "name": string;
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: EsMultiCheckboxCustomEvent<FieldChange<Record<string, boolean>>>) => void;
+        "onFieldchange"?: (event: EsMultiCheckboxCustomEvent<FieldChange<string | null>>) => void;
         /**
           * The list of options for the checkboxes.
          */
-        "options"?: { label: string; value: string }[];
+        "options"?: { name: string; value: string }[];
         /**
           * If the field is editable.
          */
@@ -1042,7 +1058,7 @@ declare namespace LocalJSX {
         /**
           * The current value of the field.
          */
-        "value"?: Record<string, boolean>;
+        "value": string | null;
     }
     /**
      * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
