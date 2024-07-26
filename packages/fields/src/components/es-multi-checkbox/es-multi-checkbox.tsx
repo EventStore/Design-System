@@ -37,8 +37,8 @@ export class EsMultiCheckbox {
     render() {
         return (
             <div class={{ field: true, invalid: !!this.invalid }}>
-                {this.options.map(option => (
-                    <label>
+                {this.options.map((option, i) => (
+                    <label key={option.value} tabIndex={i}>
                         <input
                             class={'input'}
                             type={'checkbox'}
