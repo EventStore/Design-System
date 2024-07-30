@@ -28,7 +28,11 @@ export class EsCheckbox {
 
     render() {
         return (
-            <label class={{ field: true, invalid: !!this.invalid }}>
+            <label
+                class={{ field: true, invalid: !!this.invalid }}
+                tabindex={1}
+                onKeyDown={this.onKeyDown}
+            >
                 <input
                     class={'input'}
                     type={'checkbox'}
@@ -46,10 +50,22 @@ export class EsCheckbox {
         );
     }
 
-    private onChange = (e: any) => {
+    private onChange = (e: Event) => {
         this.fieldchange.emit({
             name: this.name,
-            value: e?.target?.checked,
+            value: (e?.target as HTMLInputElement)?.checked,
         });
+    };
+
+    private onKeyDown = (e: KeyboardEvent) => {
+        if (e.key === ' ' || e.key === 'Enter') {
+            e.preventDefault();
+            const input = (e.target as HTMLLabelElement).querySelector(
+                'input',
+            ) as HTMLInputElement;
+            if (input) {
+                input.checked = !input.checked;
+            }
+        }
     };
 }
