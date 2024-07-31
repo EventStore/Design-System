@@ -2,19 +2,16 @@
 import { createValidatedForm } from '@eventstore-ui/forms';
 
 interface Example {
-    options: Record<string, boolean>;
+    options: Set<string>;
 }
 
 const form = createValidatedForm<Example>({
-    options: {
-        option1: false,
-        option2: false,
-        option3: false,
-    },
+    options: new Set<string>(),
 });
 
 export default () => (
     <es-multi-checkbox 
+        label={'options'}
         {...form.connect('options')}
         options={[
             { name: 'Option 1', value: 'option1' },
@@ -37,4 +34,10 @@ export default () => (
         ]}
     />
 );
+```
+
+```css
+es-multi-checkbox::part(checkbox-field) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, max-content))
+}
 ```

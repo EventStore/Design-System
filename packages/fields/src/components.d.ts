@@ -262,7 +262,7 @@ export namespace Components {
         /**
           * The current value of the field.
          */
-        "value": string | null;
+        "value": Set<string>;
     }
     /**
      * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
@@ -1046,7 +1046,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: EsMultiCheckboxCustomEvent<FieldChange<string | null>>) => void;
+        "onFieldchange"?: (event: EsMultiCheckboxCustomEvent<FieldChange<Set<string>>>) => void;
         /**
           * The list of options for the checkboxes.
          */
@@ -1058,7 +1058,7 @@ declare namespace LocalJSX {
         /**
           * The current value of the field.
          */
-        "value": string | null;
+        "value": Set<string>;
     }
     /**
      * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.

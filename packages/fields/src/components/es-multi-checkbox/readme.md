@@ -17,19 +17,16 @@ A multi-checkbox component
 import { createValidatedForm } from '@eventstore-ui/forms';
 
 interface Example {
-    options: Record<string, boolean>;
+    options: Set<string>;
 }
 
 const form = createValidatedForm<Example>({
-    options: {
-        option1: false,
-        option2: false,
-        option3: false,
-    },
+    options: new Set<string>,
 });
 
 export default () => (
     <es-multi-checkbox 
+        label={'options'}
         {...form.connect('options')}
         options={[
             { name: 'Option 1', value: 'option1' },
@@ -54,6 +51,12 @@ export default () => (
 );
 ```
 
+```css
+es-multi-checkbox::part(checkbox-field) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, max-content))
+}
+```
+
 
 
 ## Properties
@@ -68,14 +71,21 @@ export default () => (
 | `name` _(required)_  | `name`     | The name of the field.                       | `string`                                                | `undefined`                 |
 | `options`            | --         | The list of options for the checkboxes.      | `{ name: string; value: string; }[]`                    | `[]`                        |
 | `readonly`           | `readonly` | If the field is editable.                    | `boolean \| undefined`                                  | `undefined`                 |
-| `value` _(required)_ | `value`    | The current value of the field.              | `null \| string`                                        | `undefined`                 |
+| `value` _(required)_ | --         | The current value of the field.              | `Set<string>`                                           | `undefined`                 |
 
 
 ## Events
 
-| Event         | Description                                     | Type                                       |
-| ------------- | ----------------------------------------------- | ------------------------------------------ |
-| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string \| null>>` |
+| Event         | Description                                     | Type                                    |
+| ------------- | ----------------------------------------------- | --------------------------------------- |
+| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<Set<string>>>` |
+
+
+## Shadow Parts
+
+| Part               | Description     |
+| ------------------ | --------------- |
+| `"checkbox-field"` | Checkbox Field. |
 
 
 ## Dependencies

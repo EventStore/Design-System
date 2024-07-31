@@ -4,7 +4,7 @@ import { createValidatedForm } from '@eventstore-ui/forms';
 
 interface Example {
     something: string;
-    options: Record<string, boolean>;
+    options: Set<string>;
     somethingElse: string;
 }
 
@@ -16,11 +16,7 @@ interface Example {
 export class Demo {
     private form = createValidatedForm<Example>({
         something: '',
-        options: {
-            option1: false,
-            option2: false,
-            option3: false,
-        },
+        options: new Set<string>(),
         somethingElse: '',
     });
 
@@ -53,6 +49,7 @@ export class Demo {
                         {...this.form.connect('something')}
                     />
                     <es-multi-checkbox
+                        label={'Options?'}
                         slot={'options'}
                         options={[
                             {
