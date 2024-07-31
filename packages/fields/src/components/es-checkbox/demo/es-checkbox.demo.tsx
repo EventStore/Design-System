@@ -32,6 +32,7 @@ export class Demo {
                         },
                         {
                             name: 'option',
+                            title: 'Checkboxes',
                             variant: 'field',
                         },
                         {
@@ -42,6 +43,7 @@ export class Demo {
                         {
                             name: 'data',
                             title: 'Form data',
+                            variant: 'field',
                         },
                     ]}
                 >
@@ -56,6 +58,20 @@ export class Demo {
                         {...this.form.connect('option')}
                     >
                         {'I agree to the terms and conditions?'}
+                    </es-checkbox>
+                    <es-checkbox
+                        disabled
+                        slot={'option'}
+                        {...this.form.connect('option')}
+                    >
+                        {'I agree (disabled)'}
+                    </es-checkbox>
+                    <es-checkbox
+                        slot={'option'}
+                        {...this.form.connect('option')}
+                        invalid
+                    >
+                        {'I agree (invalid)'}
                     </es-checkbox>
                     <es-input
                         slot={'something-else'}
