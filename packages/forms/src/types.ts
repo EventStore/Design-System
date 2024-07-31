@@ -111,7 +111,10 @@ interface WDConnection<K extends string, V extends object> {
     data: ValidatedForm<V>;
 }
 
-export type Connection<K extends string, V> = V extends Array<any> | Map<any, any> | Set<any>
+export type Connection<K extends string, V> = V extends
+    | Array<any>
+    | Map<any, any>
+    | Set<any>
     ? BasicConnection<K, V>
     : V extends object
     ? WDConnection<K, V>
