@@ -21,7 +21,7 @@ interface Example {
 }
 
 const form = createValidatedForm<Example>({
-    options: new Set<string>,
+    options: new Set<string>(),
 });
 
 export default () => (
