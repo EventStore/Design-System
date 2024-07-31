@@ -16,7 +16,7 @@ import { Field } from '../Field/Field';
 export class EsMultiCheckbox {
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<
-        FieldChange<string | null>
+        FieldChange<Set<string>>
     >;
 
     /** The label of the field. */
@@ -24,7 +24,7 @@ export class EsMultiCheckbox {
     /** The name of the field. */
     @Prop() name!: string;
     /** The current value of the field. */
-    @Prop() value!: string | null;
+    @Prop() value!: Set<string>;
     /** If the field is disabled. */
     @Prop() disabled?: boolean;
     /** If the field is editable. */
@@ -59,11 +59,7 @@ export class EsMultiCheckbox {
                                 value={option.value}
                                 disabled={this.disabled}
                                 readonly={this.readonly}
-                                checked={
-                                    !!this.value
-                                        ?.split('\n')
-                                        .includes(option.value)
-                                }
+                                checked={this.value.has(option.value)}
                             />
                             <es-icon
                                 icon={this.icon}
@@ -83,19 +79,12 @@ export class EsMultiCheckbox {
 
         if (!value) return;
 
-        let newValue = this.value;
+        let newValue = new Set<string>(this.value);
 
         if (checked) {
-            if (!newValue) {
-                newValue = value;
-            } else if (!newValue.split('\n').includes(value)) {
-                newValue += `\n${value}`;
-            }
+            newValue.add(value);
         } else if (newValue) {
-            newValue = newValue
-                .split('\n')
-                .filter((v) => v !== value)
-                .join('\n');
+            newValue.delete(value);
         }
 
         this.fieldchange.emit({

@@ -111,7 +111,7 @@ interface WDConnection<K extends string, V extends object> {
     data: ValidatedForm<V>;
 }
 
-export type Connection<K extends string, V> = V extends Array<any>
+export type Connection<K extends string, V> = V extends Array<any> | Map<any, any> | Set<any>
     ? BasicConnection<K, V>
     : V extends object
     ? WDConnection<K, V>
@@ -189,7 +189,7 @@ export type ExtendOptions<T> = {
  * - A ValidatedFormArray store, to back an array.
  */
 export type ValidatedFormOptions<T> = {
-    [key in keyof T]: T[key] extends Array<any>
+    [key in keyof T]: T[key] extends Array<any> | Map<any, any> | Set<any>
         ? FieldOptions<T[key], T> | T[key]
         : T[key] extends object
         ? FieldOptions<T[key], T> | T[key] | ValidatedForm<T[key]>
