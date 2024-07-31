@@ -30,7 +30,7 @@ export class EsCheckbox {
         return (
             <label
                 class={{ field: true, invalid: !!this.invalid }}
-                tabindex={1}
+                tabindex={this.disabled ? undefined : 0}
                 onKeyDown={this.onKeyDown}
             >
                 <input
@@ -58,14 +58,20 @@ export class EsCheckbox {
     };
 
     private onKeyDown = (e: KeyboardEvent) => {
-        if (e.key === ' ' || e.key === 'Enter') {
-            e.preventDefault();
-            const input = (e.target as HTMLLabelElement).querySelector(
-                'input',
-            ) as HTMLInputElement;
-            if (input) {
-                input.checked = !input.checked;
-            }
-        }
+        if (e.key !== ' ' && e.key !== 'Enter') return;
+
+        e.preventDefault();
+
+        const input = (
+            e.target as HTMLLabelElement
+        )?.querySelector<HTMLInputElement>('input');
+
+        if (!input) return;
+
+        input.checked = !input.checked;
+        this.fieldchange.emit({
+            name: this.name,
+            value: input.checked,
+        });
     };
 }

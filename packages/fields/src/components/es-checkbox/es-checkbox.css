@@ -6,7 +6,7 @@
 
 :host {
     display: block;
-    --field-grid-columns: [before] 1fr [input] 24px [label] 311px [after] 1fr;
+    --field-grid-columns: [before] 1fr [input] 18px [label] 311px [after] 1fr;
 }
 
 .input {
@@ -20,10 +20,6 @@
         border-color: var(--color-shade-20);
         background-color: var(--color-shade-20);
     }
-
-    &:focus ~ .checkbox {
-        border-color: var(--color-secondary);
-    }
 }
 
 .checkbox {
@@ -34,9 +30,9 @@
     border-width: 1px;
     border-style: solid;
     border-color: var(--color-shade-50);
-    border-radius: 50%;
-    height: 24px;
-    width: 24px;
+    border-radius: 4px;
+    height: 18px;
+    width: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,6 +45,16 @@
     text-align: left;
     grid-column-start: label;
     grid-column-end: after;
+}
+
+.field {
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible .checkbox {
+        box-shadow: 0 0 0px 1px var(--color-secondary);
+    }
 }
 
 .invalid {
