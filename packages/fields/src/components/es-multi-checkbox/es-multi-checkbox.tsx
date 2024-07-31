@@ -49,7 +49,7 @@ export class EsMultiCheckbox {
                     {this.options.map((option) => (
                         <label
                             key={option.value}
-                            tabIndex={1}
+                            tabIndex={0}
                             onKeyDown={this.onKeyDown}
                         >
                             <input
