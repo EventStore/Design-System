@@ -79,7 +79,7 @@ export class EsMultiCheckbox {
 
         if (!value) return;
 
-        let newValue = new Set<string>(this.value);
+        const newValue = new Set<string>(this.value);
 
         if (checked) {
             newValue.add(value);
