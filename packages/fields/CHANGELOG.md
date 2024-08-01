@@ -1,5 +1,15 @@
 # @eventstore-ui/fields
 
+## 1.1.0
+
+### Minor Changes
+
+-   [`7a0f5fb`](https://github.com/EventStore/Design-System/commit/7a0f5fb32350675d22f7970e7e1c117be05cb8e7) - Added the `es-multi-checkbox` component, which allows the selection of multiple options from a list of checkboxes. This component enhances the form handling capabilities by providing a flexible and user-friendly way to manage multi-selection inputs.
+
+### Patch Changes
+
+-   [`a9e23f7`](https://github.com/EventStore/Design-System/commit/a9e23f7f7b59091deb159a44757249899235ae6a) - Implement keyboard accessibility for es-checkbox
+
 ## 1.0.2
 
 ### Patch Changes

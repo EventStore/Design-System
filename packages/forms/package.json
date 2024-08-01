@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/forms",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Form validation and working copy data store.",
     "license": "Apache-2.0",
     "main": "dist/index.js",
