@@ -4,6 +4,7 @@ export type {
     RadioCardGroupOption,
     RenderCard,
 } from './components/es-radio-card-group/types';
+export type { MultiCheckboxOption } from './components/es-multi-checkbox/types';
 export type {
     RenderSelectValue,
     RenderSelectOption,

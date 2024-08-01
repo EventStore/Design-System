@@ -9,12 +9,14 @@ import { IconDescription } from "@eventstore-ui/components";
 import { FieldChange, RenderFunction, ValidationMessages } from "./types";
 import { MaskOptions } from "./components/es-input/types";
 import { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
+import { MultiCheckboxOption } from "./components/es-multi-checkbox/types";
 import { RadioCardGroupOption, RenderCard } from "./components/es-radio-card-group/types";
 import { RenderSelectValue } from "./components/es-select/types";
 export { IconDescription } from "@eventstore-ui/components";
 export { FieldChange, RenderFunction, ValidationMessages } from "./types";
 export { MaskOptions } from "./components/es-input/types";
 export { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
+export { MultiCheckboxOption } from "./components/es-multi-checkbox/types";
 export { RadioCardGroupOption, RenderCard } from "./components/es-radio-card-group/types";
 export { RenderSelectValue } from "./components/es-select/types";
 export namespace Components {
@@ -254,7 +256,7 @@ export namespace Components {
         /**
           * The list of options for the checkboxes.
          */
-        "options": { name: string; value: string }[];
+        "options": MultiCheckboxOption[];
         /**
           * If the field is editable.
          */
@@ -1050,7 +1052,7 @@ declare namespace LocalJSX {
         /**
           * The list of options for the checkboxes.
          */
-        "options"?: { name: string; value: string }[];
+        "options"?: MultiCheckboxOption[];
         /**
           * If the field is editable.
          */
