@@ -3,6 +3,7 @@ import type { IconDescription } from '@eventstore-ui/components';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import type { FieldChange, ValidationMessages } from '../../types';
 import { Field } from '../Field/Field';
+import type { MultiCheckboxOption } from './types';
 
 /**
  * A multi-checkbox component
@@ -36,7 +37,7 @@ export class EsMultiCheckbox {
     /** The icon to use. */
     @Prop() icon: IconDescription = [ICON_NAMESPACE, 'check'];
     /** The list of options for the checkboxes. */
-    @Prop() options: { name: string; value: string }[] = [];
+    @Prop() options: MultiCheckboxOption[] = [];
 
     render() {
         return (
@@ -46,37 +47,43 @@ export class EsMultiCheckbox {
                 messages={this.messages}
             >
                 <div class={'checkbox-field'} part={'checkbox-field'}>
-                    {this.options.map((option) => (
-                        <label
-                            key={option.value}
-                            tabIndex={0}
-                            onKeyDown={this.onKeyDown}
-                        >
-                            <input
-                                class={'input'}
-                                type={'checkbox'}
-                                onChange={this.onChange}
-                                value={option.value}
-                                disabled={this.disabled}
-                                readonly={this.readonly}
-                                checked={this.value.has(option.value)}
-                            />
-                            <es-icon
-                                icon={this.icon}
-                                class={'multi-checkbox'}
-                                size={12}
-                            />
-                            <span class={'checkbox-label'}>{option.name}</span>
-                        </label>
-                    ))}
+                    {this.options.map((option) => {
+                        const disabled =
+                            option.disabled || this.disabled || false;
+
+                        return (
+                            <label
+                                key={option.value}
+                                tabIndex={disabled ? undefined : 0}
+                                onKeyDown={this.onKeyDown}
+                                class={{ disabled }}
+                            >
+                                <input
+                                    class={'input'}
+                                    type={'checkbox'}
+                                    onChange={this.onChange}
+                                    value={option.value}
+                                    disabled={disabled}
+                                    readonly={this.readonly}
+                                    checked={this.value.has(option.value)}
+                                />
+                                <es-icon
+                                    icon={this.icon}
+                                    class={'multi-checkbox'}
+                                    size={12}
+                                />
+                                <span class={'checkbox-label'}>
+                                    {option.name}
+                                </span>
+                            </label>
+                        );
+                    })}
                 </div>
             </Field>
         );
     }
 
-    private onChange = (e: Event) => {
-        const { value, checked } = e.target as HTMLInputElement;
-
+    private emitFieldChange = ({ value, checked }: HTMLInputElement) => {
         if (!value) return;
 
         const newValue = new Set<string>(this.value);
@@ -93,15 +100,21 @@ export class EsMultiCheckbox {
         });
     };
 
+    private onChange = (e: Event) =>
+        this.emitFieldChange(e.target as HTMLInputElement);
+
     private onKeyDown = (e: KeyboardEvent) => {
-        if (e.key === ' ' || e.key === 'Enter') {
-            e.preventDefault();
-            const input = (e.target as HTMLLabelElement).querySelector(
-                'input',
-            ) as HTMLInputElement;
-            if (input) {
-                input.checked = !input.checked;
-            }
-        }
+        if (e.key !== ' ' && e.key !== 'Enter') return;
+
+        e.preventDefault();
+
+        const input = (
+            e.target as HTMLLabelElement
+        )?.querySelector<HTMLInputElement>('input');
+
+        if (!input) return;
+
+        input.checked = !input.checked;
+        this.emitFieldChange(input);
     };
 }

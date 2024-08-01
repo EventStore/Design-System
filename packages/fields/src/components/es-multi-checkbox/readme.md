@@ -69,7 +69,7 @@ es-multi-checkbox::part(checkbox-field) {
 | `label` _(required)_ | `label`    | The label of the field.                      | `string`                                                | `undefined`                 |
 | `messages`           | --         | The validation messages of the field         | `ValidationMessages \| undefined`                       | `undefined`                 |
 | `name` _(required)_  | `name`     | The name of the field.                       | `string`                                                | `undefined`                 |
-| `options`            | --         | The list of options for the checkboxes.      | `{ name: string; value: string; }[]`                    | `[]`                        |
+| `options`            | --         | The list of options for the checkboxes.      | `MultiCheckboxOption[]`                                 | `[]`                        |
 | `readonly`           | `readonly` | If the field is editable.                    | `boolean \| undefined`                                  | `undefined`                 |
 | `value` _(required)_ | --         | The current value of the field.              | `Set<string>`                                           | `undefined`                 |
 

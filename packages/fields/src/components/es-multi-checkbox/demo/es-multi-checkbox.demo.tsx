@@ -16,7 +16,7 @@ interface Example {
 export class Demo {
     private form = createValidatedForm<Example>({
         something: '',
-        options: new Set<string>(),
+        options: new Set(['option2']),
         somethingElse: '',
     });
 
@@ -40,6 +40,7 @@ export class Demo {
                             title: 'Something Else',
                             variant: 'field',
                         },
+                        { name: 'data', title: 'Data' },
                     ]}
                 >
                     <es-input
@@ -64,6 +65,7 @@ export class Demo {
                             {
                                 name: 'Location / geospacial',
                                 value: 'option5',
+                                disabled: true,
                             },
                             {
                                 name: 'User activity / messaging data',
@@ -80,12 +82,55 @@ export class Demo {
                         ]}
                         {...this.form.connect('options')}
                     />
+                    <es-multi-checkbox
+                        disabled
+                        label={'Disabled options?'}
+                        slot={'options'}
+                        options={[
+                            {
+                                name: 'Sales / transaction data',
+                                value: 'option2',
+                            },
+                            { name: 'Time series data', value: 'option4' },
+                            {
+                                name: 'Location / geospacial',
+                                value: 'option5',
+                                disabled: true,
+                            },
+                        ]}
+                        {...this.form.connect('options')}
+                    />
+                    <es-multi-checkbox
+                        label={'Invalid options?'}
+                        slot={'options'}
+                        options={[
+                            {
+                                name: 'Sales / transaction data',
+                                value: 'option2',
+                            },
+                            { name: 'Time series data', value: 'option4' },
+                            {
+                                name: 'Location / geospacial',
+                                value: 'option5',
+                                disabled: true,
+                            },
+                        ]}
+                        {...this.form.connect('options')}
+                        invalid
+                    />
                     <es-input
                         slot={'something-else'}
                         label={'Something Else'}
                         placeholder={'Something Else'}
                         {...this.form.connect('somethingElse')}
                     />
+                    <pre slot={'data'}>
+                        {JSON.stringify(
+                            this.form.data,
+                            (_, v) => (v instanceof Set ? Array.from(v) : v),
+                            2,
+                        )}
+                    </pre>
                 </es-accordian>
             </Host>
         );
