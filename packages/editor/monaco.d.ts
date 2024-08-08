@@ -1,1 +1,1 @@
-export * from 'monaco-editor';
+export * from '@eventstore-ui/monaco-editor';

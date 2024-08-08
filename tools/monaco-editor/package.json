@@ -1,0 +1,49 @@
+{
+    "name": "@eventstore-ui/monaco-editor",
+    "version": "1.0.0",
+    "description": "Pre-compiled Monaco Editor",
+    "license": "Apache-2.0",
+    "type": "module",
+    "main": "dist/editor/editor.main.mjs",
+    "types": "dist/editor/editor.api.d.ts",
+    "files": [
+        "dist/",
+        "workers/",
+        "assets/"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:EventStore/Design-System.git",
+        "directory": "tools/monaco-editor"
+    },
+    "scripts": {
+        "build": "run-p \"build:*\"",
+        "build:lib": "rollup -c rollup.config.mjs",
+        "build:workers": "run-p \"build:workers:*\"",
+        "build:workers:editor": "rollup -c rollup.worker.config.mjs --environment WORKER:editor",
+        "build:workers:json": "rollup -c rollup.worker.config.mjs --environment WORKER:json",
+        "build:workers:ts": "rollup -c rollup.worker.config.mjs --environment WORKER:ts",
+        "build:workers:css": "rollup -c rollup.worker.config.mjs --environment WORKER:css",
+        "build:workers:html": "rollup -c rollup.worker.config.mjs --environment WORKER:html"
+    },
+    "nx": {
+        "targets": {
+            "build": {
+                "outputs": [
+                    "{projectRoot}/dist"
+                ]
+            }
+        }
+    },
+    "devDependencies": {
+        "@babel/core": "7.24.6",
+        "@babel/plugin-transform-class-static-block": "7.24.6",
+        "@rollup/plugin-babel": "6.0.4",
+        "@rollup/plugin-replace": "5.0.7",
+        "monaco-editor": "0.47.0",
+        "npm-run-all": "^4.1.5",
+        "rollup": "4.18.0",
+        "rollup-plugin-copy": "3.5.0",
+        "rollup-plugin-import-css": "3.5.0"
+    }
+}

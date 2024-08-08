@@ -16,4 +16,6 @@ if (Build.isServer) {
         observe() {}
         unobserve() {}
     };
+
+    global.UIEvent = class {} as any;
 }
