@@ -15,12 +15,13 @@ log.txt
 *.sublime-workspace
 
 
-/.yarn/*
-!/.yarn/patches
-!/.yarn/plugins
-!/.yarn/releases
-!/.yarn/sdks
-/.pnp.*
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 .stencil/
 .idea/
