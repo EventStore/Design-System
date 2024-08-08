@@ -353,6 +353,17 @@ export namespace Components {
         "variant": CounterVariant;
     }
     /**
+     * Punches a hole through all parent shadow DOMs into the light DOM.
+     * Any slotted chlid will be moved into the light, and a chain of slots
+     * brings the slotted children back into position.
+     */
+    interface EsHolePuncher {
+        /**
+          * The unique ID to use for the slot path
+         */
+        "uniqueId": string;
+    }
+    /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
      * See [IconStore](/components/variables/iconStore) for details on how to load icons.
      */
@@ -1205,6 +1216,17 @@ declare global {
         new (): HTMLEsCounterElement;
     };
     /**
+     * Punches a hole through all parent shadow DOMs into the light DOM.
+     * Any slotted chlid will be moved into the light, and a chain of slots
+     * brings the slotted children back into position.
+     */
+    interface HTMLEsHolePuncherElement extends Components.EsHolePuncher, HTMLStencilElement {
+    }
+    var HTMLEsHolePuncherElement: {
+        prototype: HTMLEsHolePuncherElement;
+        new (): HTMLEsHolePuncherElement;
+    };
+    /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
      * See [IconStore](/components/variables/iconStore) for details on how to load icons.
      */
@@ -1418,6 +1440,7 @@ declare global {
         "es-copy": HTMLEsCopyElement;
         "es-corner-banner": HTMLEsCornerBannerElement;
         "es-counter": HTMLEsCounterElement;
+        "es-hole-puncher": HTMLEsHolePuncherElement;
         "es-icon": HTMLEsIconElement;
         "es-loading-dots": HTMLEsLoadingDotsElement;
         "es-loading-text": HTMLEsLoadingTextElement;
@@ -1757,6 +1780,17 @@ declare namespace LocalJSX {
           * The display style of the counter.
          */
         "variant"?: CounterVariant;
+    }
+    /**
+     * Punches a hole through all parent shadow DOMs into the light DOM.
+     * Any slotted chlid will be moved into the light, and a chain of slots
+     * brings the slotted children back into position.
+     */
+    interface EsHolePuncher {
+        /**
+          * The unique ID to use for the slot path
+         */
+        "uniqueId": string;
     }
     /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
@@ -2491,6 +2525,7 @@ declare namespace LocalJSX {
         "es-copy": EsCopy;
         "es-corner-banner": EsCornerBanner;
         "es-counter": EsCounter;
+        "es-hole-puncher": EsHolePuncher;
         "es-icon": EsIcon;
         "es-loading-dots": EsLoadingDots;
         "es-loading-text": EsLoadingText;
@@ -2579,6 +2614,12 @@ declare module "@stencil/core" {
              * A pill display of an number, that pulses on change. Caps out at 999.
              */
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
+            /**
+             * Punches a hole through all parent shadow DOMs into the light DOM.
+             * Any slotted chlid will be moved into the light, and a chain of slots
+             * brings the slotted children back into position.
+             */
+            "es-hole-puncher": LocalJSX.EsHolePuncher & JSXBase.HTMLAttributes<HTMLEsHolePuncherElement>;
             /**
              * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
              * See [IconStore](/components/variables/iconStore) for details on how to load icons.

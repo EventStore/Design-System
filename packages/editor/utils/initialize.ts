@@ -1,10 +1,9 @@
-import * as monaco from 'monaco-editor';
+import * as monaco from '@eventstore-ui/monaco-editor';
 import { theme } from '@eventstore-ui/theme';
 import { createLogger } from '@eventstore-ui/utils';
 
 declare global {
     interface Window {
-        MonacoEnvironment: monaco.Environment;
         [MONACO]: typeof monaco;
     }
 }
@@ -101,4 +100,4 @@ const defineThemes = () => {
     });
 };
 
-export type { Environment } from 'monaco-editor';
+export type { Environment } from '@eventstore-ui/monaco-editor';

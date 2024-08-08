@@ -4,7 +4,7 @@ import { assetsPath } from '@eventstore-ui/assets';
 import postcssPresetEnv from 'postcss-preset-env';
 
 import { string } from 'rollup-plugin-string';
-import { workerPath } from '@eventstore-ui/editor/configure';
+import * as editor from '@eventstore-ui/editor/configure';
 
 export const config: Config = {
     globalStyle: 'src/global/app.css',
@@ -19,7 +19,11 @@ export const config: Config = {
             copy: [
                 { src: 'preview.html', dest: 'preview/index.html' },
                 {
-                    src: workerPath,
+                    src: editor.assetsPath,
+                    dest: 'assets',
+                },
+                {
+                    src: editor.workerPath,
                     dest: 'workers',
                 },
                 {

@@ -1,5 +1,5 @@
 import { dirname } from 'path';
-import pkg from './package.json';
+import pkg from './package.json' assert { type: 'json' };
 
 // eslint-disable-next-line no-restricted-syntax
 export default {
@@ -17,5 +17,10 @@ export default {
             entryFileNames: '[name].mjs',
         },
     ],
-    external: ['@stencil/core'],
+    external: [
+        '@stencil/core',
+        '@eventstore-ui/components',
+        '@eventstore-ui/stores',
+        '@eventstore-ui/utils',
+    ],
 };

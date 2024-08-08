@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { editor } from "monaco-editor";
-export { editor } from "monaco-editor";
+import { editor } from "@eventstore-ui/monaco-editor";
+export { editor } from "@eventstore-ui/monaco-editor";
 export namespace Components {
     /**
      * Monaco editor wrapped in a web component. Handles re-layout on container resize

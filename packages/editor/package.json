@@ -14,7 +14,6 @@
     "unpkg": "dist/components/components.js",
     "files": [
         "dist/",
-        "workers/",
         "/configure.d.ts",
         "/configure.js",
         "/initialize.d.ts",
@@ -31,15 +30,9 @@
         "build": "run-s \"build:*\"",
         "dev": "stencil build --dev --watch --serve",
         "build:utils": "run-p \"utils:*\"",
-        "build:workers": "run-p \"workers:*\"",
         "build:stencil": "stencil build --docs",
         "utils:initialize": "tsc ./utils/initialize.ts --target esnext --moduleResolution node --declaration --outDir . ",
         "utils:configure": "tsc ./utils/configure.ts --declaration --outDir . ",
-        "workers:main": "rollup ../../node_modules/monaco-editor/esm/vs/editor/editor.worker.js --file ./workers/editor.worker.js --format iife --output.name editorWorker --context self",
-        "workers:json": "rollup ../../node_modules/monaco-editor/esm/vs/language/json/json.worker.js --file ./workers/json.worker.js --format iife --output.name jsonWorker --context self",
-        "workers:typescript": "rollup ../../node_modules/monaco-editor/esm/vs/language/typescript/ts.worker.js --file ./workers/ts.worker.js --format iife --output.name tsWorker --context self",
-        "workers:css": "rollup ../../node_modules/monaco-editor/esm/vs/language/css/css.worker.js --file ./workers/css.worker.js --format iife --output.name cssWorker --context self",
-        "workers:html": "rollup ../../node_modules/monaco-editor/esm/vs/language/html/html.worker.js --file ./workers/html.worker.js --format iife --output.name htmlWorker --context self",
         "docs": "run-s \"docs:*\"",
         "docs:stencil": "stencil build --docs-json ../../documentation/generated/editor.stencil.json",
         "docs:typedoc": "typedoc --tsconfig ./utils/tsconfig.json --json ../../documentation/generated/editor.typedoc.json",
@@ -66,7 +59,7 @@
         }
     },
     "dependencies": {
-        "monaco-editor": "^0.22.3"
+        "@eventstore-ui/monaco-editor": "workspace:*"
     },
     "peerDependencies": {
         "@eventstore-ui/components": "^1.0.0",
@@ -83,7 +76,9 @@
         "jest": "^27.4.5",
         "npm-run-all": "^4.1.5",
         "puppeteer": "^19.5.0",
-        "rollup": "^2.52.7",
+        "rollup": "^4.18.0",
+        "rollup-plugin-copy": "3.5.0",
+        "rollup-plugin-import-css": "3.5.0",
         "typedoc": "0.24.8",
         "typescript": "5.1.6"
     }

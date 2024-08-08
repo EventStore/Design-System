@@ -18,7 +18,7 @@
         "build": "run-s \"build:*\"",
         "build:clean": "rm -rf ./dist",
         "build:ts": "tsc -p .",
-        "build:rollup": "rollup -c rollup.config.js",
+        "build:rollup": "rollup -c rollup.config.mjs",
         "build:cleanup": "rm -rf ./build",
         "docs": "typedoc --logLevel Error --json ../../documentation/generated/router.typedoc.json",
         "test": "jest --testEnvironment jsdom --passWithNoTests",
@@ -44,7 +44,7 @@
         "@types/jest": "^27.0.3",
         "babel-jest": "^27.5.1",
         "jest": "^27.4.5",
-        "rollup": "^2.52.7",
+        "rollup": "^4.18.0",
         "typedoc": "0.24.8",
         "typescript": "5.1.6"
     },

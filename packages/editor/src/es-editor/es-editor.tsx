@@ -1,5 +1,5 @@
 import { Component, h, Element, Prop } from '@stencil/core';
-import type { editor } from 'monaco-editor';
+import type { editor } from '@eventstore-ui/monaco-editor';
 import { MONACO } from '../utils/globals';
 import { logger } from '../utils/logger';
 
@@ -20,6 +20,12 @@ export class YEditor {
     @Prop() editorRef?: (editor: editor.IStandaloneCodeEditor) => void;
     private editorInstance?: editor.IStandaloneCodeEditor;
 
+    private holeId!: string;
+
+    componentWillLoad() {
+        this.holeId = `es-editor-${Math.random().toString(16).slice(2)}`;
+    }
+
     componentDidLoad() {
         this.initializeEditor();
     }
@@ -34,11 +40,11 @@ export class YEditor {
 
     render() {
         return (
-            <es-resize-observer
-                onSizeChanged={this.resize}
-                class={'container'}
-                ref={this.captureContainer}
-            />
+            <es-resize-observer onSizeChanged={this.resize} class={'container'}>
+                <es-hole-puncher uniqueId={this.holeId}>
+                    <div ref={this.captureContainer} />
+                </es-hole-puncher>
+            </es-resize-observer>
         );
     }
 
