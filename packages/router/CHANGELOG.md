@@ -1,5 +1,11 @@
 # @eventstore-ui/router
 
+## 1.0.4
+
+### Patch Changes
+
+-   [`20dcceb`](https://github.com/EventStore/Design-System/commit/20dccebe11067986fd5eb31aa7f9e5bf03063017) - Standardization of builds across design system libraries.
+
 ## 1.0.3
 
 ### Patch Changes

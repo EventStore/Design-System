@@ -1,5 +1,11 @@
 # @eventstore-ui/components
 
+## 1.8.0
+
+### Minor Changes
+
+-   [`20dcceb`](https://github.com/EventStore/Design-System/commit/20dccebe11067986fd5eb31aa7f9e5bf03063017) - Adds the `es-hole-puncher` element, to pass children through to the light DOM.
+
 ## 1.7.1
 
 ### Patch Changes
