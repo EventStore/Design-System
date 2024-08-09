@@ -64,3 +64,4 @@ jobs:
                   # 2. Allow GiHub Actions to create and manage pull requests
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+                  YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
