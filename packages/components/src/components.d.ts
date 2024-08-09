@@ -359,9 +359,9 @@ export namespace Components {
      */
     interface EsHolePuncher {
         /**
-          * The unique ID to use for the slot path
+          * Prefix the generated slot name, to allow easier identification in the DOM
          */
-        "uniqueId": string;
+        "namePrefix": string;
     }
     /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
@@ -1788,9 +1788,9 @@ declare namespace LocalJSX {
      */
     interface EsHolePuncher {
         /**
-          * The unique ID to use for the slot path
+          * Prefix the generated slot name, to allow easier identification in the DOM
          */
-        "uniqueId": string;
+        "namePrefix"?: string;
     }
     /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.

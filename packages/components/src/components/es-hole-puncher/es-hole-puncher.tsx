@@ -12,11 +12,18 @@ import { Component, h, Element, Prop, Host } from '@stencil/core';
 export class EsHolePuncher {
     @Element() host!: Element;
 
-    /** The unique ID to use for the slot path */
-    @Prop() uniqueId!: string;
+    /** Prefix the generated slot name, to allow easier identification in the DOM */
+    @Prop() namePrefix: string = 'hole';
 
+    private uniqueId!: string;
     private slotChain: HTMLSlotElement[] = [];
     private slottedElements: Element[] = [];
+
+    componentWillLoad() {
+        this.uniqueId = `${this.namePrefix}-${Math.random()
+            .toString(16)
+            .slice(2)}`;
+    }
 
     componentDidLoad() {
         let $parent = this.host;
@@ -34,10 +41,12 @@ export class EsHolePuncher {
             $host = ($parent.getRootNode() as ShadowRoot).host;
         }
 
-        const slot = this.host.shadowRoot!.querySelector('slot');
-        if (!slot) throw new Error('No slot found');
+        const $slot = this.host.shadowRoot!.querySelector('slot');
 
-        slot.assignedNodes({ flatten: true })
+        if (!$slot) throw new Error('No slot found');
+
+        $slot
+            .assignedNodes({ flatten: true })
             .filter(
                 ($node): $node is Element =>
                     $node.nodeType === Node.ELEMENT_NODE,
@@ -53,9 +62,10 @@ export class EsHolePuncher {
         this.slotChain.forEach(($slot) => $slot.remove());
         this.slotChain = [];
 
-        const slot = this.host.shadowRoot!.querySelector('slot')!;
+        const $slot = this.host.shadowRoot!.querySelector('slot');
+
         this.slottedElements.forEach(($node) => {
-            slot.appendChild($node);
+            $slot?.appendChild($node);
         });
         this.slottedElements = [];
     }

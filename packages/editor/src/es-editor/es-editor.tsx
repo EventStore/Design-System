@@ -20,12 +20,6 @@ export class YEditor {
     @Prop() editorRef?: (editor: editor.IStandaloneCodeEditor) => void;
     private editorInstance?: editor.IStandaloneCodeEditor;
 
-    private holeId!: string;
-
-    componentWillLoad() {
-        this.holeId = `es-editor-${Math.random().toString(16).slice(2)}`;
-    }
-
     componentDidLoad() {
         this.initializeEditor();
     }
@@ -41,7 +35,7 @@ export class YEditor {
     render() {
         return (
             <es-resize-observer onSizeChanged={this.resize} class={'container'}>
-                <es-hole-puncher uniqueId={this.holeId}>
+                <es-hole-puncher namePrefix={'es-editor'}>
                     <div ref={this.captureContainer} />
                 </es-hole-puncher>
             </es-resize-observer>
