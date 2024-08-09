@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/typedoc-plugin-usage",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Typedoc plugin that resolves @usage paths to content.",
     "license": "Apache-2.0",
     "main": "dist/index.js",
