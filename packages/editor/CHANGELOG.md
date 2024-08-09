@@ -1,5 +1,41 @@
 # @eventstore-ui/editor
 
+## 2.0.0
+
+### Major Changes
+
+-   [`20dcceb`](https://github.com/EventStore/Design-System/commit/20dccebe11067986fd5eb31aa7f9e5bf03063017) - Monaco editor has been moved to a seperate package: `@eventstore-ui/monaco-editor`.
+
+    ## Breaking changes:
+
+    ### `assetsPath`
+
+    You must now also copy `assetsPath` as well as `workersPath`, into your served assets.
+
+    ```ts
+    import * as editor from '@eventstore-ui/editor/configure';
+
+    // ...
+
+                    {
+                        src: editor.assetsPath,
+                        dest: 'assets',
+                    },
+                    {
+                        src: editor.workerPath,
+                        dest: 'workers',
+                    },
+     // ...
+    ```
+
+    ### `IStandaloneEditorConstructionOptions`
+
+    `es-editor`'s options prop may required different arguments, due to changes in monaco's `IStandaloneEditorConstructionOptions`
+
+    ### `codeTheme`
+
+    Child theme `codeTheme` has been removed, and is no-longer added to the global theme.
+
 ## 1.0.2
 
 ### Patch Changes
