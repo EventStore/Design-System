@@ -13,9 +13,9 @@ brings the slotted children back into position.
 
 ## Properties
 
-| Property                | Attribute   | Description                            | Type     | Default     |
-| ----------------------- | ----------- | -------------------------------------- | -------- | ----------- |
-| `uniqueId` _(required)_ | `unique-id` | The unique ID to use for the slot path | `string` | `undefined` |
+| Property     | Attribute     | Description                                                               | Type     | Default  |
+| ------------ | ------------- | ------------------------------------------------------------------------- | -------- | -------- |
+| `namePrefix` | `name-prefix` | Prefix the generated slot name, to allow easier identification in the DOM | `string` | `'hole'` |
 
 
 ----------------------------------------------

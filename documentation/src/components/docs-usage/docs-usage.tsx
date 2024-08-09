@@ -72,6 +72,7 @@ export class DocsUsage {
                                 slot={this.active}
                                 options={{
                                     readOnly: true,
+                                    stickyScroll: { enabled: false },
                                     model: this.models[this.active],
                                 }}
                             />
