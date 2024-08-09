@@ -48,6 +48,14 @@ jobs:
             # It uses the Changesets GitHub Action to automate versioning and releases.
             - name: Create Release Pull Request
               uses: changesets/action@v1
+              with:
+                  # Executes the `changeset publish` command to create a new version tag for each updated
+                  # package and publish them to npm. These tags will be included in the new PR and will be applied when the PR is merged.is merged.
+                  publish: yarn release
+
+                  # This will create GitHub releases for each published package.
+                  # These releases will be created when the PR is merged and the new versions are published.
+                  createGithubReleases: true
               env:
                   # The GitHub token is used to authenticate with GitHub
                   # Setting: https://github.com/EventStore/Design-System/settings/actions
@@ -56,8 +64,3 @@ jobs:
                   # 2. Allow GiHub Actions to create and manage pull requests
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
-            # will run the release command when applicable
-            - name: Publish
-              if: steps.changesets.outputs.hasChangesets == 'false'
-              run: yarn release
