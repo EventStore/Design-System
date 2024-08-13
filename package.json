@@ -17,7 +17,7 @@
         "fix": "nx run-many --target=fix",
         "test": "nx run-many --target=test",
         "dev": "nx run dev --project=${0}",
-        "release": "yarn workspaces foreach --all --no-private npm publish",
+        "release": "yarn workspaces foreach --all --no-private npm publish --tolerate-republish",
         "docs": "nx run docs:build",
         "docs:serve": "nx run docs:serve",
         "changelog": "changeset"
