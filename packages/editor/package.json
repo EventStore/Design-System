@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/editor",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "Monaco Editor for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",

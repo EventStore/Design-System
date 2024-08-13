@@ -1,5 +1,11 @@
 # @eventstore-ui/editor
 
+## 2.0.2
+
+### Patch Changes
+
+-   [`2347c88e`](https://github.com/EventStore/Design-System/commit/2347c88edb7c6d8f322ddc4ee81041468fe2d57c) - Return codeThemes to editor
+
 ## 2.0.1
 
 ### Patch Changes
