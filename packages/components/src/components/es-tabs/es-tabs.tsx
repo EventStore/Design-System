@@ -19,7 +19,7 @@ import type { IconDescription } from '../es-icon/types';
 /**
  * A tabbed panel. Each panel can be targeted via a slot.
  * @slot [tabName] - Slots are created based off of the names of the passed tabs.
- * @part [tabName] - The panel and tab for that tab
+ * @part [tabName] - The tab and its corresponding panel.
  * @slot header-end - After all the tabs.
  * @part indicator - The sliding indicatior bar.
  * @part panel - Tab panels.

@@ -89,15 +89,15 @@ export default () => (
 
 ## Shadow Parts
 
-| Part               | Description                       |
-| ------------------ | --------------------------------- |
-| `"[tabName]"`      | The panel and tab for that tab    |
-| `"active"`         | The active tab.                   |
-| `"indicator"`      | The sliding indicatior bar.       |
-| `"inter-tab-icon"` | Icon between tabs (if specified). |
-| `"panel"`          | Tab panels.                       |
-| `"tab"`            | Tabs.                             |
-| `"tablist"`        | The tab container.                |
+| Part               | Description                          |
+| ------------------ | ------------------------------------ |
+| `"[tabName]"`      | The tab and its corresponding panel. |
+| `"active"`         | The active tab.                      |
+| `"indicator"`      | The sliding indicatior bar.          |
+| `"inter-tab-icon"` | Icon between tabs (if specified).    |
+| `"panel"`          | Tab panels.                          |
+| `"tab"`            | Tabs.                                |
+| `"tablist"`        | The tab container.                   |
 
 
 ## CSS Custom Properties
