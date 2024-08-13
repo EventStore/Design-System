@@ -1,5 +1,11 @@
 # @eventstore-ui/components
 
+## 1.8.2
+
+### Patch Changes
+
+-   [`1cf41eab`](https://github.com/EventStore/Design-System/commit/1cf41eab2a52f4932f9ac528a24b691553c58f76) - Add tab name to panel and tab part.
+
 ## 1.8.1
 
 ### Patch Changes
