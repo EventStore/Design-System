@@ -91,6 +91,7 @@ export default () => (
 
 | Part               | Description                       |
 | ------------------ | --------------------------------- |
+| `"[tabName]"`      | The panel and tab for that tab    |
 | `"active"`         | The active tab.                   |
 | `"indicator"`      | The sliding indicatior bar.       |
 | `"inter-tab-icon"` | Icon between tabs (if specified). |

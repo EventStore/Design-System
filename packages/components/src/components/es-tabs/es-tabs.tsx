@@ -19,6 +19,7 @@ import type { IconDescription } from '../es-icon/types';
 /**
  * A tabbed panel. Each panel can be targeted via a slot.
  * @slot [tabName] - Slots are created based off of the names of the passed tabs.
+ * @part [tabName] - The panel and tab for that tab
  * @slot header-end - After all the tabs.
  * @part indicator - The sliding indicatior bar.
  * @part panel - Tab panels.
@@ -110,7 +111,7 @@ export class EsTabs {
                     active: this.active === id,
                     drag_over: this.activeDragOver === id,
                 }}
-                part={this.active === id ? 'tab active' : 'tab'}
+                part={`tab ${id} ${this.active === id ? 'active' : ''}`}
                 onClick={this.setActive(id)}
                 ref={this.captureTab(id)}
                 onDragEnter={this.dragEnterTab(id)}
@@ -139,7 +140,7 @@ export class EsTabs {
                         [this.getActive()?.panelVariant ?? '']: true,
                     }}
                     role={'tabpanel'}
-                    part={'panel'}
+                    part={`panel ${this.active}`}
                 >
                     <div
                         role={'presentation'}
