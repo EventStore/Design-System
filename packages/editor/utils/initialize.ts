@@ -1,5 +1,5 @@
 import * as monaco from '@eventstore-ui/monaco-editor';
-import { theme } from '@eventstore-ui/theme';
+import { addChildTheme, theme } from '@eventstore-ui/theme';
 import { createLogger } from '@eventstore-ui/utils';
 
 declare global {
@@ -9,9 +9,6 @@ declare global {
 }
 
 const MONACO = Symbol.for('monaco');
-const ES_DARK = 'es-dark';
-const ES_HIGH_CONTRAST_DARK = 'es-high-contrast-dark';
-const ES_HIGH_CONTRAST_LIGHT = 'es-high-contrast-light';
 
 const logger = createLogger(
     '@eventstore-ui/editor',
@@ -55,6 +52,118 @@ export const initialize = (
     self[MONACO] = monaco;
     self.MonacoEnvironment = environment;
     defineThemes();
+};
+
+export interface CodeColorScheme {
+    fg: string;
+    bg: string;
+    literal: string;
+    symbol: string;
+    keyword: string;
+    string: string;
+    error: string;
+    variable: string;
+    class: string;
+    comment: string;
+}
+
+export const codeTheme = {
+    // one light
+    light: {
+        fg: '#383a42',
+        bg: '#fffffe',
+        literal: '#0184bc',
+        symbol: '#4078f2',
+        keyword: '#a626a4',
+        string: '#50a14f',
+        error: '#e45649',
+        variable: '#986801',
+        class: '#c18401',
+        comment: '#6f7f90',
+    },
+    // one dark
+    dark: {
+        fg: '#d7dae0',
+        bg: '#313440',
+        literal: '#E5C07B',
+        symbol: '#56B6C2',
+        keyword: '#C678DD',
+        string: '#98C379',
+        error: '#E05252',
+        variable: '#E06C75',
+        class: '#E5C07B',
+        comment: '#5C6370',
+    },
+    // a11y syntax highlighting (light)
+    high_contrast_light: {
+        fg: '#545454',
+        bg: '#fefefe',
+        literal: '#aa5d00',
+        symbol: '#008000',
+        keyword: '#7928a1',
+        string: '#008000',
+        error: '#d91e18',
+        variable: '#d91e18',
+        class: '#aa5d00',
+        comment: '#696969',
+    },
+    // a11y syntax highlighting (dark)
+    high_contrast_dark: {
+        fg: '#f8f8f2',
+        bg: '#2b2b2b',
+        literal: '#f5ab35',
+        symbol: '#abe338',
+        keyword: '#dcc6e0',
+        string: '#abe338',
+        error: '#ffa07a',
+        variable: '#ffa07a',
+        class: '#f5ab35',
+        comment: '#d4d0ab',
+    },
+};
+
+const ES_LIGHT = 'es-light';
+const ES_DARK = 'es-dark';
+const ES_HIGH_CONTRAST_LIGHT = 'es-high-contrast-light';
+const ES_HIGH_CONTRAST_DARK = 'es-high-contrast-dark';
+
+const defineTheme = (
+    themeName: string,
+    base: monaco.editor.BuiltinTheme,
+    scheme: CodeColorScheme,
+) =>
+    monaco.editor.defineTheme(themeName, {
+        base,
+        inherit: true,
+        rules: [
+            {
+                foreground: scheme.fg.replace('#', ''),
+                background: scheme.bg.replace('#', ''),
+                token: '',
+            },
+        ],
+        colors: {
+            'editor.foreground': scheme.fg,
+            'editor.background': scheme.bg,
+        },
+    });
+
+const defineThemes = () => {
+    addChildTheme<CodeColorScheme>('code', codeTheme);
+
+    defineTheme(ES_LIGHT, 'vs', codeTheme.light);
+    defineTheme(ES_DARK, 'vs-dark', codeTheme.dark);
+    defineTheme(
+        ES_HIGH_CONTRAST_LIGHT,
+        'hc-light',
+        codeTheme.high_contrast_light,
+    );
+    defineTheme(
+        ES_HIGH_CONTRAST_DARK,
+        'hc-black',
+        codeTheme.high_contrast_dark,
+    );
+
     theme.onThemeChange(({ meta: { contrast, shade } }) => {
         if (contrast === 'high' && shade === 'dark') {
             monaco.editor.setTheme(ES_HIGH_CONTRAST_DARK);
@@ -63,41 +172,9 @@ export const initialize = (
         } else if (shade === 'dark') {
             monaco.editor.setTheme(ES_DARK);
         } else {
-            monaco.editor.setTheme('vs');
+            monaco.editor.setTheme(ES_LIGHT);
         }
     }, true);
-};
-
-const defineThemes = () => {
-    monaco.editor.defineTheme(ES_DARK, {
-        base: 'vs-dark',
-        inherit: true,
-        rules: [{ token: '', foreground: 'd7dae0', background: '313440' }],
-        colors: {
-            'editor.foreground': '#d7dae0',
-            'editor.background': '#313440',
-        },
-    });
-
-    monaco.editor.defineTheme(ES_HIGH_CONTRAST_DARK, {
-        base: 'hc-black',
-        inherit: true,
-        rules: [{ token: '', foreground: 'f8f8f2', background: '2b2b2b' }],
-        colors: {
-            'editor.foreground': '#f8f8f2',
-            'editor.background': '#2b2b2b',
-        },
-    });
-
-    monaco.editor.defineTheme(ES_HIGH_CONTRAST_LIGHT, {
-        base: 'vs',
-        inherit: true,
-        rules: [{ token: '', foreground: '545454', background: 'fefefe' }],
-        colors: {
-            'editor.foreground': '#545454',
-            'editor.background': '#fefefe',
-        },
-    });
 };
 
 export type { Environment } from '@eventstore-ui/monaco-editor';

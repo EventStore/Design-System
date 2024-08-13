@@ -1,9 +1,9 @@
 {
     "extends": "../tsconfig.json",
-    "include": [".", "../src/utils/codeThemes.ts"],
+    "include": ["."],
     "typedocOptions": {
         "name": "@eventstore-ui/editor",
         "plugin": ["@eventstore-ui/typedoc-plugin-usage"],
-        "entryPoints": ["./initialize.ts", "../src/utils/codeThemes.ts"]
+        "entryPoints": ["./initialize.ts"]
     }
 }
