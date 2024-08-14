@@ -106,12 +106,13 @@ export default () =>
  - [es-action](../../actions/es-action)
  - [es-action-dropdown](../../actions/es-action-dropdown)
  - [es-action-with-confirmation](../../actions/es-action-with-confirmation)
- - [es-confirm-modal](../../actions/es-action-with-confirmation/components/es-confirm-modal)
+ - [es-button-with-confirmation](../es-button-with-confirmation)
+ - [es-confirm-modal](../../modals/es-confirm-modal)
  - [es-pagination](../../es-pagination)
  - [es-table](../../tables/es-table)
  - [es-table-nested](../../tables/es-table-nested)
  - [es-table-virtualized](../../tables/es-table-virtualized)
- - [es-thinking-button](../../es-thinking-button)
+ - [es-thinking-button](../es-thinking-button)
 
 ### Graph
 ```mermaid
@@ -119,6 +120,7 @@ graph TD;
   es-action --> es-button
   es-action-dropdown --> es-button
   es-action-with-confirmation --> es-button
+  es-button-with-confirmation --> es-button
   es-confirm-modal --> es-button
   es-pagination --> es-button
   es-table --> es-button

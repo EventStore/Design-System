@@ -94,8 +94,8 @@ export default () => (
 
 ### Depends on
 
-- [es-button](../buttons/es-button)
-- [es-icon](../es-icon)
+- [es-button](../es-button)
+- [es-icon](../../es-icon)
 
 ### Graph
 ```mermaid

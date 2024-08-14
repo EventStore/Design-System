@@ -76,7 +76,7 @@ Type: `Promise<void>`
  - [es-callout](../es-callout)
  - [es-copy](../es-copy)
  - [es-loading-dots](../es-loading-dots)
- - [es-modal](../es-modal)
+ - [es-modal](../modals/es-modal)
  - [es-pagination](../es-pagination)
  - [es-progression](../es-progression)
  - es-status
@@ -84,7 +84,7 @@ Type: `Promise<void>`
  - [es-table-nested](../tables/es-table-nested)
  - [es-table-virtualized](../tables/es-table-virtualized)
  - [es-tabs](../es-tabs)
- - [es-thinking-button](../es-thinking-button)
+ - [es-thinking-button](../buttons/es-thinking-button)
  - es-toast
 
 ### Graph

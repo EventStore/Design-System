@@ -1,6 +1,7 @@
 import { Component, h, State, Prop } from '@stencil/core';
-import type { IconDescription } from '../../components/es-icon/types';
-import { ICON_NAMESPACE } from '../../icons/namespace';
+
+import type { IconDescription } from '../../es-icon/types';
+import { ICON_NAMESPACE } from '../../../icons/namespace';
 
 export type Status = 'default' | 'thinking' | 'complete' | 'failed';
 

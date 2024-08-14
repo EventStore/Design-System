@@ -3,7 +3,7 @@ import { HTTPError } from '@eventstore-ui/utils';
 
 import { toast } from '../../utils/toast';
 import { ICON_NAMESPACE } from '../../icons/namespace';
-import type { ConfirmModalOptions } from './es-action-with-confirmation/types';
+import type { ConfirmModalOptions } from '../modals/es-confirm-modal/types';
 import type { IconDescription } from '../es-icon/types';
 import type { ToastOptions } from '../toast/types';
 

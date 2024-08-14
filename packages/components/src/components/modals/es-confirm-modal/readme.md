@@ -105,13 +105,14 @@ export default () => (
 
 ### Used by
 
- - [es-action-with-confirmation](../..)
+ - [es-action-with-confirmation](../../actions/es-action-with-confirmation)
+ - [es-button-with-confirmation](../../buttons/es-button-with-confirmation)
 
 ### Depends on
 
-- [es-modal](../../../../es-modal)
-- [es-popover](../../../../es-popover)
-- [es-button](../../../../buttons/es-button)
+- [es-modal](../es-modal)
+- [es-popover](../../es-popover)
+- [es-button](../../buttons/es-button)
 
 ### Graph
 ```mermaid
@@ -125,6 +126,7 @@ graph TD;
   es-popover --> es-popper-x
   es-popover --> es-popper-y
   es-action-with-confirmation --> es-confirm-modal
+  es-button-with-confirmation --> es-confirm-modal
   style es-confirm-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

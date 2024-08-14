@@ -228,7 +228,7 @@ es-checkbox {
 ### Used by
 
  - [es-action-dropdown](../actions/es-action-dropdown)
- - [es-confirm-modal](../actions/es-action-with-confirmation/components/es-confirm-modal)
+ - [es-confirm-modal](../modals/es-confirm-modal)
 
 ### Depends on
 

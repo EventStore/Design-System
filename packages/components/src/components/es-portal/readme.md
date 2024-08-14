@@ -116,6 +116,7 @@ const ExampleModal: FunctionalComponent<{ requestClose: () => void }> = ({
 ### Used by
 
  - [es-action-with-confirmation](../actions/es-action-with-confirmation)
+ - [es-button-with-confirmation](../buttons/es-button-with-confirmation)
 
 ### Depends on
 
@@ -126,6 +127,7 @@ const ExampleModal: FunctionalComponent<{ requestClose: () => void }> = ({
 graph TD;
   es-portal --> es-backdrop
   es-action-with-confirmation --> es-portal
+  es-button-with-confirmation --> es-portal
   style es-portal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
