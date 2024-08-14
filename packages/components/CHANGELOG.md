@@ -1,5 +1,11 @@
 # @eventstore-ui/components
 
+## 1.9.0
+
+### Minor Changes
+
+-   [`5a90a4aa`](https://github.com/EventStore/Design-System/commit/5a90a4aa916ad50c6a79bcadaac11cecc022f409) - Adds es-button-with-confirmation, for confirming actions on standard buttons.
+
 ## 1.8.2
 
 ### Patch Changes
