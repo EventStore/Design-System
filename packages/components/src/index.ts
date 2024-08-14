@@ -33,7 +33,7 @@ export type {
     CheckpointState,
 } from './components/es-progression/types';
 export type { ButtonVariant } from './components/buttons/types';
-export type { ConfirmModalOptions } from './components/actions/es-action-with-confirmation/types';
+export type { ConfirmModalOptions } from './components/modals/es-confirm-modal/types';
 export type { Constrain, Placement } from './components/es-popover/types';
 
 export { toast } from './utils/toast';

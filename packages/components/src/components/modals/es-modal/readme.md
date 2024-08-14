@@ -115,11 +115,11 @@ export default () => (
 
 ### Used by
 
- - [es-confirm-modal](../actions/es-action-with-confirmation/components/es-confirm-modal)
+ - [es-confirm-modal](../es-confirm-modal)
 
 ### Depends on
 
-- [es-icon](../es-icon)
+- [es-icon](../../es-icon)
 
 ### Graph
 ```mermaid

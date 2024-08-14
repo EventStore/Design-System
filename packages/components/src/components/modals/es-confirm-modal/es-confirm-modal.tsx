@@ -7,7 +7,7 @@ import {
     type EventEmitter,
     type FunctionalComponent,
 } from '@stencil/core';
-import type { ButtonVariant } from '../../../../buttons/types';
+import type { ButtonVariant } from '../../buttons/types';
 
 /**
  * A modal to confirm the deletion of something.

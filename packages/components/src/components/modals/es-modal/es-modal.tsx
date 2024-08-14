@@ -9,7 +9,7 @@ import {
     Listen,
 } from '@stencil/core';
 import { delegateFocus, trapFocus } from '@eventstore-ui/utils';
-import { ICON_NAMESPACE } from '../../icons/namespace';
+import { ICON_NAMESPACE } from '../../../icons/namespace';
 
 /**
  * A pop up modal for overlaying information, warnings and confirmations.

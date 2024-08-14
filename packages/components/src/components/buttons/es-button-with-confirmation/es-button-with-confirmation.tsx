@@ -1,29 +1,30 @@
 import { Component, h, Prop, Host, State, Element } from '@stencil/core';
 
+import type { ButtonVariant } from '../types';
 import type { ConfirmModalOptions } from '../../modals/es-confirm-modal/types';
-import type { IconDescription } from '../../es-icon/types';
 
 /**
- * An action with a confirmation modal.
+ * A button with a confirmation modal.
+ * @slot before - Placed before the main content with correct padding.
+ * @slot after - Placed after the main content with correct padding.
+ * @part button - The button.
  */
 @Component({
-    tag: 'es-action-with-confirmation',
-    styleUrl: '../action.css',
+    tag: 'es-button-with-confirmation',
     shadow: true,
 })
 export class EsActionWithConfirmation {
     @Element() host!: HTMLEsActionWithConfirmationElement;
 
-    /** If the action is within an `es-action-dropdown`. */
-    @Prop({ reflect: true, attribute: 'dropdown-item' }) dropdownItem = false;
-    /** The action to take when the button is clicked. */
-    @Prop() action!: () => any;
-    /** if the action should be disabled. */
+    /** Which styling variant to use. */
+    @Prop({ reflect: true }) variant: ButtonVariant = 'default';
+    /** The default behavior of the button. */
+    @Prop() type: string = 'button';
+    /** If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused. */
     @Prop() disabled: boolean = false;
-    /** The icon to show for the action. */
-    @Prop() icon!: IconDescription;
-    /** If a dot should be shown on the action, to indicate attention being required. */
-    @Prop() dot?: HTMLEsBadgeElement['color'];
+
+    /** The action to be called on click. */
+    @Prop() action!: () => any;
     /** If the user needs to type the passed string to enable confirmation. */
     @Prop() typeToConfirm?: string;
     /** The text to display within the modal. */
@@ -36,19 +37,13 @@ export class EsActionWithConfirmation {
             <Host>
                 <es-button
                     onClick={this.requestDeletion}
-                    variant={'minimal'}
-                    title={this.host.textContent ?? undefined}
+                    variant={this.variant}
                     disabled={this.disabled}
+                    part={'button'}
                 >
-                    <es-badge
-                        slot={this.dropdownItem ? 'before' : undefined}
-                        variant={'dot'}
-                        color={this.dot}
-                        count={this.dot ? 1 : 0}
-                    >
-                        <es-icon icon={this.icon} size={20} />
-                    </es-badge>
-                    {this.dropdownItem && <slot />}
+                    <slot name={'before'} slot={'before'} />
+                    <slot />
+                    <slot name={'after'} slot={'after'} />
                 </es-button>
                 {!this.disabled && (
                     <es-portal

@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordianSection } from "./components/es-accordian/types";
 import { IconDescription } from "./components/es-icon/types";
-import { ConfirmModalOptions } from "./components/actions/es-action-with-confirmation/types";
+import { ConfirmModalOptions } from "./components/modals/es-confirm-modal/types";
 import { RenderFunction } from "./types";
 import { BadgeVariant } from "./components/es-badge/es-badge";
 import { ButtonVariant } from "./components/buttons/types";
@@ -25,7 +25,7 @@ import { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
 import { WizardPage } from "./components/es-wizard/types";
 export { AccordianSection } from "./components/es-accordian/types";
 export { IconDescription } from "./components/es-icon/types";
-export { ConfirmModalOptions } from "./components/actions/es-action-with-confirmation/types";
+export { ConfirmModalOptions } from "./components/modals/es-confirm-modal/types";
 export { RenderFunction } from "./types";
 export { BadgeVariant } from "./components/es-badge/es-badge";
 export { ButtonVariant } from "./components/buttons/types";
@@ -252,6 +252,35 @@ export namespace Components {
         "url"?: string;
         /**
           * Which styling variant to use
+         */
+        "variant": ButtonVariant;
+    }
+    /**
+     * A button with a confirmation modal.
+     */
+    interface EsButtonWithConfirmation {
+        /**
+          * The action to be called on click.
+         */
+        "action": () => any;
+        /**
+          * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
+         */
+        "disabled": boolean;
+        /**
+          * The text to display within the modal.
+         */
+        "modal": ConfirmModalOptions;
+        /**
+          * The default behavior of the button.
+         */
+        "type": string;
+        /**
+          * If the user needs to type the passed string to enable confirmation.
+         */
+        "typeToConfirm"?: string;
+        /**
+          * Which styling variant to use.
          */
         "variant": ButtonVariant;
     }
@@ -1171,6 +1200,15 @@ declare global {
         new (): HTMLEsButtonLinkElement;
     };
     /**
+     * A button with a confirmation modal.
+     */
+    interface HTMLEsButtonWithConfirmationElement extends Components.EsButtonWithConfirmation, HTMLStencilElement {
+    }
+    var HTMLEsButtonWithConfirmationElement: {
+        prototype: HTMLEsButtonWithConfirmationElement;
+        new (): HTMLEsButtonWithConfirmationElement;
+    };
+    /**
      * Calls out a piece of information.
      */
     interface HTMLEsCalloutElement extends Components.EsCallout, HTMLStencilElement {
@@ -1435,6 +1473,7 @@ declare global {
         "es-badge": HTMLEsBadgeElement;
         "es-button": HTMLEsButtonElement;
         "es-button-link": HTMLEsButtonLinkElement;
+        "es-button-with-confirmation": HTMLEsButtonWithConfirmationElement;
         "es-callout": HTMLEsCalloutElement;
         "es-confirm-modal": HTMLEsConfirmModalElement;
         "es-copy": HTMLEsCopyElement;
@@ -1677,6 +1716,35 @@ declare namespace LocalJSX {
         "url"?: string;
         /**
           * Which styling variant to use
+         */
+        "variant"?: ButtonVariant;
+    }
+    /**
+     * A button with a confirmation modal.
+     */
+    interface EsButtonWithConfirmation {
+        /**
+          * The action to be called on click.
+         */
+        "action": () => any;
+        /**
+          * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
+         */
+        "disabled"?: boolean;
+        /**
+          * The text to display within the modal.
+         */
+        "modal": ConfirmModalOptions;
+        /**
+          * The default behavior of the button.
+         */
+        "type"?: string;
+        /**
+          * If the user needs to type the passed string to enable confirmation.
+         */
+        "typeToConfirm"?: string;
+        /**
+          * Which styling variant to use.
          */
         "variant"?: ButtonVariant;
     }
@@ -2520,6 +2588,7 @@ declare namespace LocalJSX {
         "es-badge": EsBadge;
         "es-button": EsButton;
         "es-button-link": EsButtonLink;
+        "es-button-with-confirmation": EsButtonWithConfirmation;
         "es-callout": EsCallout;
         "es-confirm-modal": EsConfirmModal;
         "es-copy": EsCopy;
@@ -2594,6 +2663,10 @@ declare module "@stencil/core" {
              * Anchor link version of es-button, wraps a `Link` from `@eventstore-ui/router`.
              */
             "es-button-link": LocalJSX.EsButtonLink & JSXBase.HTMLAttributes<HTMLEsButtonLinkElement>;
+            /**
+             * A button with a confirmation modal.
+             */
+            "es-button-with-confirmation": LocalJSX.EsButtonWithConfirmation & JSXBase.HTMLAttributes<HTMLEsButtonWithConfirmationElement>;
             /**
              * Calls out a piece of information.
              */

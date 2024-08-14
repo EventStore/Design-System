@@ -60,7 +60,7 @@ export default () => (
 - [es-badge](../../es-badge)
 - [es-icon](../../es-icon)
 - [es-portal](../../es-portal)
-- [es-confirm-modal](./components/es-confirm-modal)
+- [es-confirm-modal](../../modals/es-confirm-modal)
 
 ### Graph
 ```mermaid
