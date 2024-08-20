@@ -1,5 +1,11 @@
 # @eventstore-ui/components
 
+## 1.9.1
+
+### Patch Changes
+
+-   [`ba7ea778`](https://github.com/EventStore/Design-System/commit/ba7ea77895ab29a35011349712d2c53b3228dba4) - Default error toast icon changed from skull to exclamation mark
+
 ## 1.9.0
 
 ### Minor Changes
