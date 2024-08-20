@@ -31,8 +31,16 @@ iconStore.addIcons(ICON_NAMESPACE, {
     get dot() {
         return import('./components/Dot').then(({ Dot }) => Dot);
     },
+    get 'exclamation-mark'() {
+        return import('./components/ExclamationMark').then(
+            ({ ExclamationMark }) => ExclamationMark,
+        );
+    },
     get error() {
-        return import('./components/Error').then(({ Error }) => Error);
+        return this['exclamation-mark'];
+    },
+    get warning() {
+        return this['exclamation-mark'];
     },
     get info() {
         return import('./components/Info').then(({ Info }) => Info);
@@ -59,8 +67,5 @@ iconStore.addIcons(ICON_NAMESPACE, {
     },
     get trash() {
         return import('./components/Trash').then(({ Trash }) => Trash);
-    },
-    get warning() {
-        return import('./components/Warning').then(({ Warning }) => Warning);
     },
 });

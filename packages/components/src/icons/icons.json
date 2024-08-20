@@ -1,5 +1,5 @@
 {
-    "version": "1.0.1",
+    "version": "1.0.2",
     "namespace": "es-components",
     "iconStoreImportPath": "../utils/iconStore",
     "icons": {
@@ -48,10 +48,11 @@
             "component": "Dot",
             "path": "./components/Dot.tsx"
         },
-        "error": {
-            "name": "error",
-            "component": "Error",
-            "path": "./components/Error.tsx"
+        "exclamation-mark": {
+            "name": "exclamation-mark",
+            "component": "ExclamationMark",
+            "path": "./components/ExclamationMark.tsx",
+            "aliases": ["error", "warning"]
         },
         "info": {
             "name": "info",
@@ -92,11 +93,6 @@
             "name": "trash",
             "component": "Trash",
             "path": "./components/Trash.tsx"
-        },
-        "warning": {
-            "name": "warning",
-            "component": "Warning",
-            "path": "./components/Warning.tsx"
         }
     }
 }
