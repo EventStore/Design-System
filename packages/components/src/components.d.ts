@@ -1166,7 +1166,19 @@ declare global {
         prototype: HTMLEsActionsElement;
         new (): HTMLEsActionsElement;
     };
+    interface HTMLEsBackdropElementEventMap {
+        "requestClose": any;
+        "closed": any;
+    }
     interface HTMLEsBackdropElement extends Components.EsBackdrop, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsBackdropElementEventMap>(type: K, listener: (this: HTMLEsBackdropElement, ev: EsBackdropCustomEvent<HTMLEsBackdropElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsBackdropElementEventMap>(type: K, listener: (this: HTMLEsBackdropElement, ev: EsBackdropCustomEvent<HTMLEsBackdropElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsBackdropElement: {
         prototype: HTMLEsBackdropElement;
@@ -1217,10 +1229,22 @@ declare global {
         prototype: HTMLEsCalloutElement;
         new (): HTMLEsCalloutElement;
     };
+    interface HTMLEsConfirmModalElementEventMap {
+        "requestClose": any;
+        "requestDeletion": any;
+    }
     /**
      * A modal to confirm the deletion of something.
      */
     interface HTMLEsConfirmModalElement extends Components.EsConfirmModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsConfirmModalElementEventMap>(type: K, listener: (this: HTMLEsConfirmModalElement, ev: EsConfirmModalCustomEvent<HTMLEsConfirmModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsConfirmModalElementEventMap>(type: K, listener: (this: HTMLEsConfirmModalElement, ev: EsConfirmModalCustomEvent<HTMLEsConfirmModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsConfirmModalElement: {
         prototype: HTMLEsConfirmModalElement;
@@ -1292,36 +1316,80 @@ declare global {
         prototype: HTMLEsLoadingTextElement;
         new (): HTMLEsLoadingTextElement;
     };
+    interface HTMLEsModalElementEventMap {
+        "requestClose": void;
+    }
     /**
      * A pop up modal for overlaying information, warnings and confirmations.
      * Traps focus within the modal, and returns focus to previous location when closed.
      * Pair with an [`es-portal`](/components/components/es-portal) to open and close.
      */
     interface HTMLEsModalElement extends Components.EsModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsModalElementEventMap>(type: K, listener: (this: HTMLEsModalElement, ev: EsModalCustomEvent<HTMLEsModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsModalElementEventMap>(type: K, listener: (this: HTMLEsModalElement, ev: EsModalCustomEvent<HTMLEsModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsModalElement: {
         prototype: HTMLEsModalElement;
         new (): HTMLEsModalElement;
     };
+    interface HTMLEsPaginationElementEventMap {
+        "update": PageChangeEventType;
+    }
     /**
      * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
      */
     interface HTMLEsPaginationElement extends Components.EsPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsPaginationElementEventMap>(type: K, listener: (this: HTMLEsPaginationElement, ev: EsPaginationCustomEvent<HTMLEsPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsPaginationElementEventMap>(type: K, listener: (this: HTMLEsPaginationElement, ev: EsPaginationCustomEvent<HTMLEsPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsPaginationElement: {
         prototype: HTMLEsPaginationElement;
         new (): HTMLEsPaginationElement;
     };
+    interface HTMLEsPopoverElementEventMap {
+        "requestClose": any;
+    }
     /**
      * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
      */
     interface HTMLEsPopoverElement extends Components.EsPopover, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsPopoverElementEventMap>(type: K, listener: (this: HTMLEsPopoverElement, ev: EsPopoverCustomEvent<HTMLEsPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsPopoverElementEventMap>(type: K, listener: (this: HTMLEsPopoverElement, ev: EsPopoverCustomEvent<HTMLEsPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsPopoverElement: {
         prototype: HTMLEsPopoverElement;
         new (): HTMLEsPopoverElement;
     };
+    interface HTMLEsPopperElementEventMap {
+        "requestClose": any;
+    }
     interface HTMLEsPopperElement extends Components.EsPopper, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsPopperElementEventMap>(type: K, listener: (this: HTMLEsPopperElement, ev: EsPopperCustomEvent<HTMLEsPopperElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsPopperElementEventMap>(type: K, listener: (this: HTMLEsPopperElement, ev: EsPopperCustomEvent<HTMLEsPopperElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsPopperElement: {
         prototype: HTMLEsPopperElement;
@@ -1345,28 +1413,61 @@ declare global {
         prototype: HTMLEsPopperYElement;
         new (): HTMLEsPopperYElement;
     };
+    interface HTMLEsPortalElementEventMap {
+        "requestClose": any;
+    }
     /**
      * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
      */
     interface HTMLEsPortalElement extends Components.EsPortal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsPortalElementEventMap>(type: K, listener: (this: HTMLEsPortalElement, ev: EsPortalCustomEvent<HTMLEsPortalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsPortalElementEventMap>(type: K, listener: (this: HTMLEsPortalElement, ev: EsPortalCustomEvent<HTMLEsPortalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsPortalElement: {
         prototype: HTMLEsPortalElement;
         new (): HTMLEsPortalElement;
     };
+    interface HTMLEsProgressionElementEventMap {
+        "progressionRequest": string;
+    }
     /**
      * A wizard progression bar.
      */
     interface HTMLEsProgressionElement extends Components.EsProgression, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsProgressionElementEventMap>(type: K, listener: (this: HTMLEsProgressionElement, ev: EsProgressionCustomEvent<HTMLEsProgressionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsProgressionElementEventMap>(type: K, listener: (this: HTMLEsProgressionElement, ev: EsProgressionCustomEvent<HTMLEsProgressionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsProgressionElement: {
         prototype: HTMLEsProgressionElement;
         new (): HTMLEsProgressionElement;
     };
+    interface HTMLEsResizeObserverElementEventMap {
+        "sizeChanged": DOMRectReadOnly;
+    }
     /**
      * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
      */
     interface HTMLEsResizeObserverElement extends Components.EsResizeObserver, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsResizeObserverElementEventMap>(type: K, listener: (this: HTMLEsResizeObserverElement, ev: EsResizeObserverCustomEvent<HTMLEsResizeObserverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsResizeObserverElementEventMap>(type: K, listener: (this: HTMLEsResizeObserverElement, ev: EsResizeObserverCustomEvent<HTMLEsResizeObserverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsResizeObserverElement: {
         prototype: HTMLEsResizeObserverElement;
@@ -1378,10 +1479,22 @@ declare global {
         prototype: HTMLEsStatusElement;
         new (): HTMLEsStatusElement;
     };
+    interface HTMLEsTableElementEventMap {
+        "clickRow": ClickRow<any>;
+        "clickSort": string;
+    }
     /**
      * Create a table from data.
      */
     interface HTMLEsTableElement extends Components.EsTable, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsTableElementEventMap>(type: K, listener: (this: HTMLEsTableElement, ev: EsTableCustomEvent<HTMLEsTableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsTableElementEventMap>(type: K, listener: (this: HTMLEsTableElement, ev: EsTableCustomEvent<HTMLEsTableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsTableElement: {
         prototype: HTMLEsTableElement;
@@ -1405,28 +1518,66 @@ declare global {
         prototype: HTMLEsTableDetailHeaderElement;
         new (): HTMLEsTableDetailHeaderElement;
     };
+    interface HTMLEsTableNestedElementEventMap {
+        "clickRow": any;
+        "expansion": { data: any; key: string };
+    }
     /**
      * Create a nested table from data.
      */
     interface HTMLEsTableNestedElement extends Components.EsTableNested, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsTableNestedElementEventMap>(type: K, listener: (this: HTMLEsTableNestedElement, ev: EsTableNestedCustomEvent<HTMLEsTableNestedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsTableNestedElementEventMap>(type: K, listener: (this: HTMLEsTableNestedElement, ev: EsTableNestedCustomEvent<HTMLEsTableNestedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsTableNestedElement: {
         prototype: HTMLEsTableNestedElement;
         new (): HTMLEsTableNestedElement;
     };
+    interface HTMLEsTableVirtualizedElementEventMap {
+        "clickRow": ClickRow;
+        "clickSort": string;
+        "loadBlock": LoadWindow;
+        "lastBlock": void;
+        "firstBlock": void;
+    }
     /**
      * Create a virtualized table from data.
      */
     interface HTMLEsTableVirtualizedElement extends Components.EsTableVirtualized, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsTableVirtualizedElementEventMap>(type: K, listener: (this: HTMLEsTableVirtualizedElement, ev: EsTableVirtualizedCustomEvent<HTMLEsTableVirtualizedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsTableVirtualizedElementEventMap>(type: K, listener: (this: HTMLEsTableVirtualizedElement, ev: EsTableVirtualizedCustomEvent<HTMLEsTableVirtualizedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsTableVirtualizedElement: {
         prototype: HTMLEsTableVirtualizedElement;
         new (): HTMLEsTableVirtualizedElement;
     };
+    interface HTMLEsTabsElementEventMap {
+        "tabChange": string;
+    }
     /**
      * A tabbed panel. Each panel can be targeted via a slot.
      */
     interface HTMLEsTabsElement extends Components.EsTabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsTabsElementEventMap>(type: K, listener: (this: HTMLEsTabsElement, ev: EsTabsCustomEvent<HTMLEsTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsTabsElementEventMap>(type: K, listener: (this: HTMLEsTabsElement, ev: EsTabsCustomEvent<HTMLEsTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsTabsElement: {
         prototype: HTMLEsTabsElement;

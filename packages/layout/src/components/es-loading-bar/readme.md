@@ -56,6 +56,13 @@ fakeProgress(0);
 
 Set (and animate to) a progress.
 
+#### Parameters
+
+| Name         | Type                                          | Description                                |
+| ------------ | --------------------------------------------- | ------------------------------------------ |
+| `completion` | `number`                                      | The current completion persentage. (0-100) |
+| `status`     | `"info" \| "error" \| "success" \| "warning"` | Sets the status of the bar.                |
+
 #### Returns
 
 Type: `Promise<void>`

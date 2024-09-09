@@ -2034,7 +2034,7 @@ __metadata:
     "@eventstore-ui/utils": "workspace:*"
     "@floating-ui/dom": "npm:0.4.1"
     "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:^4.0.5"
+    "@stencil/core": "npm:4.19.2"
     jest: "npm:^27.4.5"
     npm-run-all: "npm:^4.1.5"
     puppeteer: "npm:^19.5.0"
@@ -2083,7 +2083,7 @@ __metadata:
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:^4.0.5"
+    "@stencil/core": "npm:4.19.2"
     "@types/jest": "npm:^27.0.3"
     "@types/markdown-it": "npm:12.0.3"
     eslint: "npm:^8.4.0"
@@ -2113,7 +2113,7 @@ __metadata:
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:^4.0.5"
+    "@stencil/core": "npm:4.19.2"
     jest: "npm:^27.4.5"
     npm-run-all: "npm:^4.1.5"
     puppeteer: "npm:^19.5.0"
@@ -2139,7 +2139,7 @@ __metadata:
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:^4.0.5"
+    "@stencil/core": "npm:4.19.2"
     imask: "npm:6.0.5"
     jest: "npm:^27.4.5"
     npm-run-all: "npm:^4.1.5"
@@ -2163,7 +2163,7 @@ __metadata:
     "@eventstore-ui/components": "workspace:*"
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": "npm:^4.0.5"
+    "@stencil/core": "npm:4.19.2"
     "@types/jest": "npm:^27.0.3"
     babel-jest: "npm:^27.5.1"
     jest: "npm:^27.4.5"
@@ -2204,7 +2204,7 @@ __metadata:
   dependencies:
     "@eventstore-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:^4.0.5"
+    "@stencil/core": "npm:4.19.2"
     case-anything: "npm:^2.1.10"
     jest: "npm:^27.4.5"
     npm-run-all: "npm:^4.1.5"
@@ -2231,7 +2231,7 @@ __metadata:
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:^4.0.5"
+    "@stencil/core": "npm:4.19.2"
     jest: "npm:^27.4.5"
     npm-run-all: "npm:^4.1.5"
     puppeteer: "npm:^19.5.0"
@@ -2281,7 +2281,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.12.11"
     "@babel/preset-typescript": "npm:^7.12.7"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": "npm:^4.0.5"
+    "@stencil/core": "npm:4.19.2"
     "@types/jest": "npm:^27.0.3"
     babel-jest: "npm:^27.5.1"
     jest: "npm:^27.4.5"
@@ -2301,7 +2301,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.12.11"
     "@babel/preset-typescript": "npm:^7.12.7"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": "npm:^4.0.5"
+    "@stencil/core": "npm:4.19.2"
     "@types/jest": "npm:^27.0.3"
     babel-jest: "npm:^27.5.1"
     jest: "npm:^27.4.5"
@@ -2322,7 +2322,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.12.11"
     "@babel/preset-typescript": "npm:^7.12.7"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": "npm:^4.0.5"
+    "@stencil/core": "npm:4.19.2"
     babel-jest: "npm:^27.5.1"
     jest: "npm:^27.4.5"
     rollup: "npm:^4.18.0"
@@ -3029,12 +3029,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:^4.0.5":
-  version: 4.0.5
-  resolution: "@stencil/core@npm:4.0.5"
+"@stencil/core@npm:4.19.2":
+  version: 4.19.2
+  resolution: "@stencil/core@npm:4.19.2"
   bin:
     stencil: bin/stencil
-  checksum: dbce870491a855a743d57b6cdec3461d5d592193884c95b04c8d5a7eb9883c152591b836fc92e983cc87320fe5eb1b37160316dd08337bc9dbaec79727d91916
+  checksum: 9e188af9988e9068368e8e512f3146833b1241f2aee562d2aecb4654cec6bacd5b76c80ea8e4c47322d9586186211cefaf93fd4525a729103fa95bd2e4cbb602
   languageName: node
   linkType: hard
 
@@ -5745,7 +5745,7 @@ __metadata:
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": "npm:^4.0.5"
+    "@stencil/core": "npm:4.19.2"
   languageName: unknown
   linkType: soft
 
@@ -9675,7 +9675,7 @@ __metadata:
   resolution: "router-demo@workspace:demos/router-demo"
   dependencies:
     "@eventstore-ui/router": "workspace:*"
-    "@stencil/core": "npm:^4.0.5"
+    "@stencil/core": "npm:4.19.2"
   languageName: unknown
   linkType: soft
 
@@ -10047,7 +10047,7 @@ __metadata:
   dependencies:
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": "npm:^4.0.5"
+    "@stencil/core": "npm:4.19.2"
   languageName: unknown
   linkType: soft
 

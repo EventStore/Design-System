@@ -72,6 +72,12 @@ export default () => (
 
 Allows you to pause interaction with the input while an operation completes.
 
+#### Parameters
+
+| Name      | Type      | Description |
+| --------- | --------- | ----------- |
+| `pending` | `boolean` |             |
+
 #### Returns
 
 Type: `Promise<void>`

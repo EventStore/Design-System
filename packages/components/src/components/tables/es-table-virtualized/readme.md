@@ -55,6 +55,13 @@ Create a virtualized table from data.
 
 Jump to the passed row, with smooth scroll and highlight, if specified.
 
+#### Parameters
+
+| Name    | Type                                                                           | Description |
+| ------- | ------------------------------------------------------------------------------ | ----------- |
+| `index` | `number`                                                                       |             |
+| `__1`   | `{ highlight?: boolean \| undefined; smooth?: false \| "auto" \| undefined; }` |             |
+
 #### Returns
 
 Type: `Promise<void>`
