@@ -1,0 +1,15 @@
+:root {
+    /** The basic unit of spacing */
+    --spacing-base: 8px;
+
+    --spacing-0: 0;
+    --spacing-0_5: calc(var(--spacing-base) * 0.5);
+    --spacing-1: var(--spacing-base);
+    --spacing-1_5: calc(var(--spacing-base) * 1.5);
+    --spacing-2: calc(var(--spacing-base) * 2);
+    --spacing-2_5: calc(var(--spacing-base) * 2.5);
+    --spacing-3: calc(var(--spacing-base) * 3);
+    --spacing-4: calc(var(--spacing-base) * 4);
+    --spacing-5: calc(var(--spacing-base) * 5);
+    --spacing-6: calc(var(--spacing-base) * 6);
+}

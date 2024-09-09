@@ -6,11 +6,12 @@
     "files": [
         "assets/",
         "font-face.css",
+        "spacing.css",
         "index.ts"
     ],
     "repository": {
         "type": "git",
         "url": "git@github.com:EventStore/Design-System.git",
-        "directory": "tools/assets"
+        "directory": "packages/assets"
     }
 }
