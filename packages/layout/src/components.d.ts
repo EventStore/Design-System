@@ -477,10 +477,21 @@ declare global {
         prototype: HTMLEsLayoutAutoLabelElement;
         new (): HTMLEsLayoutAutoLabelElement;
     };
+    interface HTMLEsLayoutButtonElementEventMap {
+        "requestClose": any;
+    }
     /**
      * A button for the sidebar, sidebar-dropdown, and header-dropdown.
      */
     interface HTMLEsLayoutButtonElement extends Components.EsLayoutButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsLayoutButtonElementEventMap>(type: K, listener: (this: HTMLEsLayoutButtonElement, ev: EsLayoutButtonCustomEvent<HTMLEsLayoutButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsLayoutButtonElementEventMap>(type: K, listener: (this: HTMLEsLayoutButtonElement, ev: EsLayoutButtonCustomEvent<HTMLEsLayoutButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsLayoutButtonElement: {
         prototype: HTMLEsLayoutButtonElement;
@@ -569,10 +580,21 @@ declare global {
         prototype: HTMLEsPageTitleElement;
         new (): HTMLEsPageTitleElement;
     };
+    interface HTMLEsPanelElementEventMap {
+        "modeChange": PanelMode1;
+    }
     /**
      * A resizable panel. Automatically sets the relevant layout var based on it's size and when resized.
      */
     interface HTMLEsPanelElement extends Components.EsPanel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsPanelElementEventMap>(type: K, listener: (this: HTMLEsPanelElement, ev: EsPanelCustomEvent<HTMLEsPanelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsPanelElementEventMap>(type: K, listener: (this: HTMLEsPanelElement, ev: EsPanelCustomEvent<HTMLEsPanelElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsPanelElement: {
         prototype: HTMLEsPanelElement;

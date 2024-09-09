@@ -643,115 +643,262 @@ export interface EsTypeaheadCustomEvent<T> extends CustomEvent<T> {
     target: HTMLEsTypeaheadElement;
 }
 declare global {
+    interface HTMLEsCheckboxElementEventMap {
+        "fieldchange": FieldChange<boolean>;
+    }
     /**
      * A checkbox component
      */
     interface HTMLEsCheckboxElement extends Components.EsCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsCheckboxElementEventMap>(type: K, listener: (this: HTMLEsCheckboxElement, ev: EsCheckboxCustomEvent<HTMLEsCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsCheckboxElementEventMap>(type: K, listener: (this: HTMLEsCheckboxElement, ev: EsCheckboxCustomEvent<HTMLEsCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsCheckboxElement: {
         prototype: HTMLEsCheckboxElement;
         new (): HTMLEsCheckboxElement;
     };
+    interface HTMLEsInputElementEventMap {
+        "fieldchange": FieldChange<string>;
+        "enter": any;
+    }
     /**
      * An optionally masked text input.
      */
     interface HTMLEsInputElement extends Components.EsInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsInputElementEventMap>(type: K, listener: (this: HTMLEsInputElement, ev: EsInputCustomEvent<HTMLEsInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsInputElementEventMap>(type: K, listener: (this: HTMLEsInputElement, ev: EsInputCustomEvent<HTMLEsInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsInputElement: {
         prototype: HTMLEsInputElement;
         new (): HTMLEsInputElement;
     };
+    interface HTMLEsInputListElementEventMap {
+        "fieldchange": FieldChange<string[]>;
+    }
     /**
      * A list creator input.
      */
     interface HTMLEsInputListElement extends Components.EsInputList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsInputListElementEventMap>(type: K, listener: (this: HTMLEsInputListElement, ev: EsInputListCustomEvent<HTMLEsInputListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsInputListElementEventMap>(type: K, listener: (this: HTMLEsInputListElement, ev: EsInputListCustomEvent<HTMLEsInputListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsInputListElement: {
         prototype: HTMLEsInputListElement;
         new (): HTMLEsInputListElement;
     };
+    interface HTMLEsListCreatorElementEventMap {
+        "fieldchange": FieldChange<string[]>;
+    }
     /**
      * A list creator input.
      */
     interface HTMLEsListCreatorElement extends Components.EsListCreator, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsListCreatorElementEventMap>(type: K, listener: (this: HTMLEsListCreatorElement, ev: EsListCreatorCustomEvent<HTMLEsListCreatorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsListCreatorElementEventMap>(type: K, listener: (this: HTMLEsListCreatorElement, ev: EsListCreatorCustomEvent<HTMLEsListCreatorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsListCreatorElement: {
         prototype: HTMLEsListCreatorElement;
         new (): HTMLEsListCreatorElement;
     };
+    interface HTMLEsMegaInputElementEventMap {
+        "fieldchange": FieldChange<string>;
+        "enter": any;
+    }
     /**
      * An extra large input.
      */
     interface HTMLEsMegaInputElement extends Components.EsMegaInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsMegaInputElementEventMap>(type: K, listener: (this: HTMLEsMegaInputElement, ev: EsMegaInputCustomEvent<HTMLEsMegaInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsMegaInputElementEventMap>(type: K, listener: (this: HTMLEsMegaInputElement, ev: EsMegaInputCustomEvent<HTMLEsMegaInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsMegaInputElement: {
         prototype: HTMLEsMegaInputElement;
         new (): HTMLEsMegaInputElement;
     };
+    interface HTMLEsMultiCheckboxElementEventMap {
+        "fieldchange": FieldChange<Set<string>>;
+    }
     /**
      * A multi-checkbox component
      */
     interface HTMLEsMultiCheckboxElement extends Components.EsMultiCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsMultiCheckboxElementEventMap>(type: K, listener: (this: HTMLEsMultiCheckboxElement, ev: EsMultiCheckboxCustomEvent<HTMLEsMultiCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsMultiCheckboxElementEventMap>(type: K, listener: (this: HTMLEsMultiCheckboxElement, ev: EsMultiCheckboxCustomEvent<HTMLEsMultiCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsMultiCheckboxElement: {
         prototype: HTMLEsMultiCheckboxElement;
         new (): HTMLEsMultiCheckboxElement;
     };
+    interface HTMLEsNumberInputElementEventMap {
+        "fieldchange": FieldChange<string>;
+        "enter": any;
+    }
     /**
      * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
      */
     interface HTMLEsNumberInputElement extends Components.EsNumberInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsNumberInputElementEventMap>(type: K, listener: (this: HTMLEsNumberInputElement, ev: EsNumberInputCustomEvent<HTMLEsNumberInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsNumberInputElementEventMap>(type: K, listener: (this: HTMLEsNumberInputElement, ev: EsNumberInputCustomEvent<HTMLEsNumberInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsNumberInputElement: {
         prototype: HTMLEsNumberInputElement;
         new (): HTMLEsNumberInputElement;
     };
+    interface HTMLEsRadioCardGroupElementEventMap {
+        "fieldchange": FieldChange<string | null>;
+    }
     /**
      * A card based single select input.
      */
     interface HTMLEsRadioCardGroupElement extends Components.EsRadioCardGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsRadioCardGroupElementEventMap>(type: K, listener: (this: HTMLEsRadioCardGroupElement, ev: EsRadioCardGroupCustomEvent<HTMLEsRadioCardGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsRadioCardGroupElementEventMap>(type: K, listener: (this: HTMLEsRadioCardGroupElement, ev: EsRadioCardGroupCustomEvent<HTMLEsRadioCardGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsRadioCardGroupElement: {
         prototype: HTMLEsRadioCardGroupElement;
         new (): HTMLEsRadioCardGroupElement;
     };
+    interface HTMLEsSelectElementEventMap {
+        "fieldchange": FieldChange<string | null>;
+    }
     /**
      * A searchable select dropdown.
      */
     interface HTMLEsSelectElement extends Components.EsSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsSelectElementEventMap>(type: K, listener: (this: HTMLEsSelectElement, ev: EsSelectCustomEvent<HTMLEsSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsSelectElementEventMap>(type: K, listener: (this: HTMLEsSelectElement, ev: EsSelectCustomEvent<HTMLEsSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsSelectElement: {
         prototype: HTMLEsSelectElement;
         new (): HTMLEsSelectElement;
     };
+    interface HTMLEsSwitchElementEventMap {
+        "fieldchange": FieldChange<boolean>;
+    }
     /**
      * A switchable switch.
      */
     interface HTMLEsSwitchElement extends Components.EsSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsSwitchElementEventMap>(type: K, listener: (this: HTMLEsSwitchElement, ev: EsSwitchCustomEvent<HTMLEsSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsSwitchElementEventMap>(type: K, listener: (this: HTMLEsSwitchElement, ev: EsSwitchCustomEvent<HTMLEsSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsSwitchElement: {
         prototype: HTMLEsSwitchElement;
         new (): HTMLEsSwitchElement;
     };
+    interface HTMLEsSwitchFieldElementEventMap {
+        "fieldchange": FieldChange<boolean>;
+    }
     /**
      * A switchable switch field.
      */
     interface HTMLEsSwitchFieldElement extends Components.EsSwitchField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsSwitchFieldElementEventMap>(type: K, listener: (this: HTMLEsSwitchFieldElement, ev: EsSwitchFieldCustomEvent<HTMLEsSwitchFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsSwitchFieldElementEventMap>(type: K, listener: (this: HTMLEsSwitchFieldElement, ev: EsSwitchFieldCustomEvent<HTMLEsSwitchFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsSwitchFieldElement: {
         prototype: HTMLEsSwitchFieldElement;
         new (): HTMLEsSwitchFieldElement;
     };
+    interface HTMLEsTextareaElementEventMap {
+        "fieldchange": FieldChange<string>;
+    }
     /**
      * A textarea field.
      */
     interface HTMLEsTextareaElement extends Components.EsTextarea, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsTextareaElementEventMap>(type: K, listener: (this: HTMLEsTextareaElement, ev: EsTextareaCustomEvent<HTMLEsTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsTextareaElementEventMap>(type: K, listener: (this: HTMLEsTextareaElement, ev: EsTextareaCustomEvent<HTMLEsTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsTextareaElement: {
         prototype: HTMLEsTextareaElement;
         new (): HTMLEsTextareaElement;
     };
+    interface HTMLEsTypeaheadElementEventMap {
+        "fieldchange": FieldChange<string[]>;
+        "enter": any;
+    }
     interface HTMLEsTypeaheadElement extends Components.EsTypeahead, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEsTypeaheadElementEventMap>(type: K, listener: (this: HTMLEsTypeaheadElement, ev: EsTypeaheadCustomEvent<HTMLEsTypeaheadElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEsTypeaheadElementEventMap>(type: K, listener: (this: HTMLEsTypeaheadElement, ev: EsTypeaheadCustomEvent<HTMLEsTypeaheadElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEsTypeaheadElement: {
         prototype: HTMLEsTypeaheadElement;
