@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:host {
+    display: block;
+}
+
+.input {
+    height: 40px;
+    width: 100%;
+
+    border-width: 1px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: var(--color-shade-60);
+    outline: none;
+    padding: 0 var(--spacing-2_5, 20px);
+    transition-property: border-color;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--color-text);
+    background-color: var(--color-background);
+
+    &.invalid {
+        border-color: var(--color-error);
+    }
+
+    &:disabled {
+        color: var(--color-disabled-contrast);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled);
+        border-style: dashed;
+    }
+
+    &:focus {
+        border-color: var(--color-secondary);
+    }
+
+    &::placeholder {
+        color: var(--color-shade-60);
+    }
+}
