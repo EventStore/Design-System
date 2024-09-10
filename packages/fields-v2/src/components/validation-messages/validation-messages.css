@@ -1,0 +1,31 @@
+.messages {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-0_5, 4px);
+}
+
+.error,
+.warning,
+.info {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.error {
+    color: var(--color-error);
+}
+.warning {
+    color: var(--color-warning);
+}
+.info {
+    color: var(--color-info);
+}
+
+es-icon {
+    margin-right: 6px;
+}

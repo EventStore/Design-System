@@ -1,0 +1,68 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:host {
+    display: contents;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1_5, 12px);
+
+    &.invalid > :not(.label):not(.documentation):not(f2-validation-messages) {
+        animation: invalidshake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
+}
+
+.label {
+    color: var(--color-text);
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+}
+
+::slotted([slot='documentation']),
+.documentation {
+    color: var(--color-text);
+    color: color-mix(in lab, var(--color-text), var(--color-background) 30%);
+    font-size: 14px;
+}
+
+.documentation_link {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color-info);
+    margin-left: var(--spacing-1, 8px);
+    gap: var(--spacing-1, 8px);
+}
+
+@keyframes invalidshake {
+    10%,
+    90% {
+        transform: translateX(-1px);
+    }
+
+    20%,
+    80% {
+        transform: translateX(2px);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translateX(-4px);
+    }
+
+    40%,
+    60% {
+        transform: translateX(4px);
+    }
+}

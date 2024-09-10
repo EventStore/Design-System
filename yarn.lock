@@ -1291,6 +1291,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime-corejs3@npm:^7.24.4":
+  version: 7.25.6
+  resolution: "@babel/runtime-corejs3@npm:7.25.6"
+  dependencies:
+    core-js-pure: "npm:^3.30.2"
+    regenerator-runtime: "npm:^0.14.0"
+  checksum: 67e0a012c015cdb24b373a135d93c4d73c043b266d100bdcad8aa061794121d79b4a9ce3722f881ef44bc209c3665aa8b40f7e16e4bad6d344793d2517dd9ead
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
   version: 7.22.6
   resolution: "@babel/runtime@npm:7.22.6"
@@ -2120,6 +2130,30 @@ __metadata:
     rollup: "npm:^4.18.0"
     rollup-plugin-copy: "npm:3.5.0"
     rollup-plugin-import-css: "npm:3.5.0"
+    typedoc: "npm:0.24.8"
+    typescript: "npm:5.1.6"
+  peerDependencies:
+    "@eventstore-ui/components": ^1.0.0
+    "@eventstore-ui/theme": ^1.0.0
+    "@eventstore-ui/utils": ^1.0.0
+  languageName: unknown
+  linkType: soft
+
+"@eventstore-ui/fields-v2@workspace:packages/fields-v2":
+  version: 0.0.0-use.local
+  resolution: "@eventstore-ui/fields-v2@workspace:packages/fields-v2"
+  dependencies:
+    "@eventstore-ui/components": "workspace:*"
+    "@eventstore-ui/configs": "workspace:*"
+    "@eventstore-ui/icon-manager": "workspace:*"
+    "@eventstore-ui/theme": "workspace:*"
+    "@eventstore-ui/utils": "workspace:*"
+    "@stencil-community/postcss": "npm:^2.2.0"
+    "@stencil/core": "npm:4.19.2"
+    imask: "npm:7.6.1"
+    jest: "npm:^27.4.5"
+    npm-run-all: "npm:^4.1.5"
+    puppeteer: "npm:^19.5.0"
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
@@ -4571,6 +4605,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js-pure@npm:^3.30.2":
+  version: 3.38.1
+  resolution: "core-js-pure@npm:3.38.1"
+  checksum: 7dfd59bf3a09277056ac2ef87e49b49d77340952e99ee12b3e1e53bf7e1f34a8ee1fb6026f286b1ba29957f5728664430ccd1ff86983c7ae5fa411d4da74d3de
+  languageName: node
+  linkType: hard
+
 "cosmiconfig@npm:8.0.0":
   version: 8.0.0
   resolution: "cosmiconfig@npm:8.0.0"
@@ -6306,6 +6347,15 @@ __metadata:
   version: 6.0.5
   resolution: "imask@npm:6.0.5"
   checksum: 2f1104d1b9753e3b3b72e4419937475d1df4d0eeae17fb4e14b6939fe81bb73bfee86c623c8619288ab2cfeb99c8370753b220e6aeff6ea8d3906c24cfa114ba
+  languageName: node
+  linkType: hard
+
+"imask@npm:7.6.1":
+  version: 7.6.1
+  resolution: "imask@npm:7.6.1"
+  dependencies:
+    "@babel/runtime-corejs3": "npm:^7.24.4"
+  checksum: 0c8746547ee06132ae35200418cf6ed209e8f5bc7f6ba184e7b9aaa3932f518ac36531033da7ac2ab8a8c826098eaca85825b884b846867973cd31211dc5fc65
   languageName: node
   linkType: hard
 
@@ -9319,6 +9369,13 @@ __metadata:
   version: 0.13.11
   resolution: "regenerator-runtime@npm:0.13.11"
   checksum: d493e9e118abef5b099c78170834f18540c4933cedf9bfabc32d3af94abfb59a7907bd7950259cbab0a929ebca7db77301e8024e5121e6482a82f78283dfd20c
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.14.0":
+  version: 0.14.1
+  resolution: "regenerator-runtime@npm:0.14.1"
+  checksum: 5db3161abb311eef8c45bcf6565f4f378f785900ed3945acf740a9888c792f75b98ecb77f0775f3bf95502ff423529d23e94f41d80c8256e8fa05ed4b07cf471
   languageName: node
   linkType: hard
 

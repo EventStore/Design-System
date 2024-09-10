@@ -1,0 +1,46 @@
+{
+    "version": "1.0.2",
+    "namespace": "es-fields",
+    "icons": {
+        "check": {
+            "name": "check",
+            "component": "Check",
+            "path": "./components/Check.tsx"
+        },
+        "chevron": {
+            "name": "chevron",
+            "component": "Chevron",
+            "path": "./components/Chevron.tsx"
+        },
+        "error": {
+            "name": "error",
+            "component": "Error",
+            "path": "./components/Error.tsx"
+        },
+        "external-link": {
+            "name": "external-link",
+            "component": "ExternalLink",
+            "path": "./components/ExternalLink.tsx"
+        },
+        "info": {
+            "name": "info",
+            "component": "Info",
+            "path": "./components/Info.tsx"
+        },
+        "plus": {
+            "name": "plus",
+            "component": "Plus",
+            "path": "./components/Plus.tsx"
+        },
+        "trash": {
+            "name": "trash",
+            "component": "Trash",
+            "path": "./components/Trash.tsx"
+        },
+        "warning": {
+            "name": "warning",
+            "component": "Warning",
+            "path": "./components/Warning.tsx"
+        }
+    }
+}
