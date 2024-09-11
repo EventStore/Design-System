@@ -9,9 +9,9 @@ interface Example {
     somethingElse: string;
 }
 
-/** masked-text-field demo. */
+/** textarea-field demo. */
 @Component({
-    tag: 'masked-text-field-demo',
+    tag: 'textarea-field-demo',
     shadow: true,
 })
 export class Demo {
@@ -25,7 +25,7 @@ export class Demo {
         return (
             <Host style={{ padding: '10px', display: 'block' }}>
                 <form onSubmit={this.onSubmit}>
-                    <f2-masked-text-field
+                    <f2-textarea-field
                         label={'Something Else'}
                         documentation={
                             'This is where you put something important.'
@@ -34,10 +34,9 @@ export class Demo {
                             'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
                         }
                         placeholder={'Something Else'}
-                        mask={{ mask: '{#}000[aaa]/NIC-`*[**]' }}
                         {...this.form.connect('somethingElse')}
                     />
-                    <f2-masked-text-field
+                    <f2-textarea-field
                         label={'Something'}
                         placeholder={'Something'}
                         documentation={
@@ -47,22 +46,12 @@ export class Demo {
                             'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
                         }
                         documentationLinkText={"Don't click on this"}
-                        mask={{
-                            mask: 'Ple\\ase fill ye\\ar: 19YY',
-                            lazy: false,
-                            blocks: {
-                                YY: {
-                                    mask: '00',
-                                },
-                            },
-                        }}
                         {...this.form.connect('something')}
                     />
 
-                    <f2-masked-text-field
+                    <f2-textarea-field
                         label={'Something'}
                         placeholder={'Something'}
-                        mask={{ mask: '{#}000[aaa]/NIC-`*[**]', lazy: false }}
                         {...this.form.connect('something')}
                     >
                         <span
@@ -86,12 +75,9 @@ export class Demo {
                                 style={{ color: 'pink' }}
                             />
                         </span>
-                        <es-button>
-                            <es-icon icon={[ICON_NAMESPACE, 'trash']} />
-                        </es-button>
-                    </f2-masked-text-field>
+                    </f2-textarea-field>
 
-                    <f2-masked-text-field
+                    <f2-textarea-field
                         label={'Something'}
                         placeholder={'Something'}
                         documentation={
@@ -101,7 +87,6 @@ export class Demo {
                             'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
                         }
                         documentationLinkText={"Don't click on this"}
-                        mask={{ mask: '{#}000[aaa]/NIC-`*[**]' }}
                         {...this.form.connect('something')}
                         invalid
                         messages={{
@@ -109,7 +94,11 @@ export class Demo {
                             warning: ['You need to fix this...'],
                             info: ['pls'],
                         }}
-                    />
+                    >
+                        <es-button>
+                            <es-icon icon={[ICON_NAMESPACE, 'trash']} />
+                        </es-button>
+                    </f2-textarea-field>
 
                     <pre slot={'data'}>
                         {JSON.stringify(this.form.data, null, 2)}

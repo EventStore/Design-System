@@ -16,7 +16,7 @@ import type { MaskOptions } from './types';
 /** A masked text input. */
 @Component({
     tag: 'f2-masked-text-input',
-    styleUrl: '../text-input/text-input.css',
+    styleUrl: '../text.css',
     formAssociated: true,
     shadow: true,
 })

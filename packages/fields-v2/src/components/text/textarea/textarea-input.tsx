@@ -10,24 +10,22 @@ import {
 
 import type { FieldChange } from 'types';
 
-/** A text input. */
+/** A textarea input. */
 @Component({
-    tag: 'f2-text-input',
-    styleUrl: 'text-input.css',
+    tag: 'f2-textarea-input',
+    styleUrl: 'textarea.css',
     formAssociated: true,
     shadow: true,
 })
-export class TextInput {
+export class TextAreaInput {
     @AttachInternals() internals!: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
-    /** Emitted on keyup of enter, if no modifier keys are held. */
-    @Event() enter!: EventEmitter;
 
     /** The name of the input. */
     @Prop({ reflect: true }) name!: string;
-    /** The current value of the field. */
+    /** The current value of the input. */
     @Prop() value!: string;
     /** The placeholder for the input. */
     @Prop() placeholder!: string;
@@ -35,7 +33,7 @@ export class TextInput {
     @Prop() disabled?: boolean;
     /** If the input is editable. */
     @Prop() readonly?: boolean;
-    /** If the input is currently invalid. */
+    /** If the input is currently in an error state. */
     @Prop() invalid?: boolean;
     /** Pass props directly to the input. */
     @Prop() inputProps?: Record<string, any>;
@@ -47,26 +45,21 @@ export class TextInput {
     render() {
         return (
             <Host>
-                <input
+                <textarea
                     {...(this.inputProps ?? {})}
                     class={{ input: true, invalid: !!this.invalid }}
                     part={'input'}
+                    value={this.value}
                     onInput={this.onInput}
-                    onKeyUp={this.onKeyUp}
                     placeholder={this.placeholder}
                     disabled={this.disabled}
                     readonly={this.readonly}
+                    tabindex={this.readonly ? -1 : undefined}
                 />
                 <slot />
             </Host>
         );
     }
-
-    private onKeyUp = (e: KeyboardEvent) => {
-        if (e.key === 'Enter' && !e.shiftKey && !e.altKey && !e.metaKey) {
-            this.enter.emit();
-        }
-    };
 
     private onInput = (e: InputEvent) => {
         const value = (e.target as HTMLInputElement).value ?? '';
