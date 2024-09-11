@@ -5,6 +5,7 @@ import {
     Event,
     type EventEmitter,
     AttachInternals,
+    Host,
 } from '@stencil/core';
 
 import type { FieldChange } from 'types';
@@ -45,16 +46,19 @@ export class TextInput {
 
     render() {
         return (
-            <input
-                {...(this.inputProps ?? {})}
-                class={{ input: true, invalid: !!this.invalid }}
-                part={'input'}
-                onInput={this.onInput}
-                onKeyUp={this.onKeyUp}
-                placeholder={this.placeholder}
-                disabled={this.disabled}
-                readonly={this.readonly}
-            />
+            <Host>
+                <input
+                    {...(this.inputProps ?? {})}
+                    class={{ input: true, invalid: !!this.invalid }}
+                    part={'input'}
+                    onInput={this.onInput}
+                    onKeyUp={this.onKeyUp}
+                    placeholder={this.placeholder}
+                    disabled={this.disabled}
+                    readonly={this.readonly}
+                />
+                <slot />
+            </Host>
         );
     }
 

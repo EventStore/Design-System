@@ -60,7 +60,9 @@ export class TextField {
                     readonly={this.readonly}
                     inputProps={this.inputProps}
                     invalid={this.invalid}
-                />
+                >
+                    <slot />
+                </f2-text-input>
             </Field>
         );
     }

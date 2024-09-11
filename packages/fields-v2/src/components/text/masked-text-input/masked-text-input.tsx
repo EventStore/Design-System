@@ -6,6 +6,7 @@ import {
     type EventEmitter,
     Watch,
     AttachInternals,
+    Host,
 } from '@stencil/core';
 import iMask, { type InputMask } from 'imask';
 
@@ -68,17 +69,20 @@ export class MaskedTextInput {
 
     render() {
         return (
-            <input
-                {...(this.inputProps ?? {})}
-                class={{ input: true, invalid: !!this.invalid }}
-                part={'input'}
-                onInput={this.onInput}
-                onKeyUp={this.onKeyUp}
-                placeholder={this.placeholder}
-                disabled={this.disabled}
-                readonly={this.readonly}
-                ref={this.captureInput}
-            />
+            <Host>
+                <input
+                    {...(this.inputProps ?? {})}
+                    class={{ input: true, invalid: !!this.invalid }}
+                    part={'input'}
+                    onInput={this.onInput}
+                    onKeyUp={this.onKeyUp}
+                    placeholder={this.placeholder}
+                    disabled={this.disabled}
+                    readonly={this.readonly}
+                    ref={this.captureInput}
+                />
+                <slot />
+            </Host>
         );
     }
 

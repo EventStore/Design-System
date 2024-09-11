@@ -86,6 +86,9 @@ export class Demo {
                                 style={{ color: 'pink' }}
                             />
                         </span>
+                        <es-button>
+                            <es-icon icon={[ICON_NAMESPACE, 'trash']} />
+                        </es-button>
                     </f2-masked-text-field>
 
                     <f2-masked-text-field

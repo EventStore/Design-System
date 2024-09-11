@@ -213,6 +213,26 @@ export namespace Components {
          */
         "warningIcon": IconDescription;
     }
+    /**
+     * masked-text-field demo.
+     */
+    interface MaskedTextFieldDemo {
+    }
+    /**
+     * masked-text-input demo.
+     */
+    interface MaskedTextInputDemo {
+    }
+    /**
+     * text-field demo.
+     */
+    interface TextFieldDemo {
+    }
+    /**
+     * text-input demo.
+     */
+    interface TextInputDemo {
+    }
 }
 export interface F2MaskedTextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -324,12 +344,52 @@ declare global {
         prototype: HTMLF2ValidationMessagesElement;
         new (): HTMLF2ValidationMessagesElement;
     };
+    /**
+     * masked-text-field demo.
+     */
+    interface HTMLMaskedTextFieldDemoElement extends Components.MaskedTextFieldDemo, HTMLStencilElement {
+    }
+    var HTMLMaskedTextFieldDemoElement: {
+        prototype: HTMLMaskedTextFieldDemoElement;
+        new (): HTMLMaskedTextFieldDemoElement;
+    };
+    /**
+     * masked-text-input demo.
+     */
+    interface HTMLMaskedTextInputDemoElement extends Components.MaskedTextInputDemo, HTMLStencilElement {
+    }
+    var HTMLMaskedTextInputDemoElement: {
+        prototype: HTMLMaskedTextInputDemoElement;
+        new (): HTMLMaskedTextInputDemoElement;
+    };
+    /**
+     * text-field demo.
+     */
+    interface HTMLTextFieldDemoElement extends Components.TextFieldDemo, HTMLStencilElement {
+    }
+    var HTMLTextFieldDemoElement: {
+        prototype: HTMLTextFieldDemoElement;
+        new (): HTMLTextFieldDemoElement;
+    };
+    /**
+     * text-input demo.
+     */
+    interface HTMLTextInputDemoElement extends Components.TextInputDemo, HTMLStencilElement {
+    }
+    var HTMLTextInputDemoElement: {
+        prototype: HTMLTextInputDemoElement;
+        new (): HTMLTextInputDemoElement;
+    };
     interface HTMLElementTagNameMap {
         "f2-masked-text-field": HTMLF2MaskedTextFieldElement;
         "f2-masked-text-input": HTMLF2MaskedTextInputElement;
         "f2-text-field": HTMLF2TextFieldElement;
         "f2-text-input": HTMLF2TextInputElement;
         "f2-validation-messages": HTMLF2ValidationMessagesElement;
+        "masked-text-field-demo": HTMLMaskedTextFieldDemoElement;
+        "masked-text-input-demo": HTMLMaskedTextInputDemoElement;
+        "text-field-demo": HTMLTextFieldDemoElement;
+        "text-input-demo": HTMLTextInputDemoElement;
     }
 }
 declare namespace LocalJSX {
@@ -566,12 +626,36 @@ declare namespace LocalJSX {
          */
         "warningIcon"?: IconDescription;
     }
+    /**
+     * masked-text-field demo.
+     */
+    interface MaskedTextFieldDemo {
+    }
+    /**
+     * masked-text-input demo.
+     */
+    interface MaskedTextInputDemo {
+    }
+    /**
+     * text-field demo.
+     */
+    interface TextFieldDemo {
+    }
+    /**
+     * text-input demo.
+     */
+    interface TextInputDemo {
+    }
     interface IntrinsicElements {
         "f2-masked-text-field": F2MaskedTextField;
         "f2-masked-text-input": F2MaskedTextInput;
         "f2-text-field": F2TextField;
         "f2-text-input": F2TextInput;
         "f2-validation-messages": F2ValidationMessages;
+        "masked-text-field-demo": MaskedTextFieldDemo;
+        "masked-text-input-demo": MaskedTextInputDemo;
+        "text-field-demo": TextFieldDemo;
+        "text-input-demo": TextInputDemo;
     }
 }
 export { LocalJSX as JSX };
@@ -598,6 +682,22 @@ declare module "@stencil/core" {
              * Display messages under fields.
              */
             "f2-validation-messages": LocalJSX.F2ValidationMessages & JSXBase.HTMLAttributes<HTMLF2ValidationMessagesElement>;
+            /**
+             * masked-text-field demo.
+             */
+            "masked-text-field-demo": LocalJSX.MaskedTextFieldDemo & JSXBase.HTMLAttributes<HTMLMaskedTextFieldDemoElement>;
+            /**
+             * masked-text-input demo.
+             */
+            "masked-text-input-demo": LocalJSX.MaskedTextInputDemo & JSXBase.HTMLAttributes<HTMLMaskedTextInputDemoElement>;
+            /**
+             * text-field demo.
+             */
+            "text-field-demo": LocalJSX.TextFieldDemo & JSXBase.HTMLAttributes<HTMLTextFieldDemoElement>;
+            /**
+             * text-input demo.
+             */
+            "text-input-demo": LocalJSX.TextInputDemo & JSXBase.HTMLAttributes<HTMLTextInputDemoElement>;
         }
     }
 }
