@@ -65,7 +65,9 @@ export class MaskedTextField {
                     inputProps={this.inputProps}
                     invalid={this.invalid}
                     mask={this.mask}
-                />
+                >
+                    <slot />
+                </f2-masked-text-input>
             </Field>
         );
     }

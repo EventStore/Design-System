@@ -5,12 +5,15 @@
 }
 
 :host {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-2, 16px);
 }
 
 .input {
     height: 40px;
     width: 100%;
+    flex: 1 1 100%;
 
     border-width: 1px;
     border-radius: 20px;

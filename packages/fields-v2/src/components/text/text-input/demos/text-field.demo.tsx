@@ -94,7 +94,11 @@ export class Demo {
                             warning: ['You need to fix this...'],
                             info: ['pls'],
                         }}
-                    />
+                    >
+                        <es-button>
+                            <es-icon icon={[ICON_NAMESPACE, 'trash']} />
+                        </es-button>
+                    </f2-text-field>
 
                     <pre slot={'data'}>
                         {JSON.stringify(this.form.data, null, 2)}
