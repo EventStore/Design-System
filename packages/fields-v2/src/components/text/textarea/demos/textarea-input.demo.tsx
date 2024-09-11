@@ -8,9 +8,9 @@ interface Example {
     somethingElse: string;
 }
 
-/** masked-text-input demo. */
+/** textarea-input demo. */
 @Component({
-    tag: 'masked-text-input-demo',
+    tag: 'textarea-input-demo',
     shadow: true,
 })
 export class Demo {
@@ -24,22 +24,11 @@ export class Demo {
         return (
             <Host style={{ padding: '10px', display: 'block' }}>
                 <form onSubmit={this.onSubmit}>
-                    <input name={'eh'} />
-                    <f2-masked-text-input
-                        mask={{ mask: '{#}000[aaa]/NIC-`*[**]' }}
+                    <f2-textarea-input
                         placeholder={'Something Else'}
                         {...this.form.connect('somethingElse')}
                     />
-                    <f2-masked-text-input
-                        mask={{
-                            mask: 'Ple\\ase fill ye\\ar: 19YY',
-                            lazy: false,
-                            blocks: {
-                                YY: {
-                                    mask: '00',
-                                },
-                            },
-                        }}
+                    <f2-textarea-input
                         placeholder={'Something'}
                         {...this.form.connect('something')}
                     />

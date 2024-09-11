@@ -6,10 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FieldChange, ValidationMessages } from "./types";
-import { MaskOptions } from "./components/text/masked-text-input/types";
+import { MaskOptions } from "./components/text/masked-text/types";
 import { IconDescription } from "@eventstore-ui/components";
 export { FieldChange, ValidationMessages } from "./types";
-export { MaskOptions } from "./components/text/masked-text-input/types";
+export { MaskOptions } from "./components/text/masked-text/types";
 export { IconDescription } from "@eventstore-ui/components";
 export namespace Components {
     /**
@@ -193,6 +193,92 @@ export namespace Components {
         "value": string;
     }
     /**
+     * A textarea field.
+     */
+    interface F2TextareaField {
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
+        "value": string;
+    }
+    /**
+     * A textarea input.
+     */
+    interface F2TextareaInput {
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the input is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current value of the input.
+         */
+        "value": string;
+    }
+    /**
      * Display messages under fields.
      */
     interface F2ValidationMessages {
@@ -233,6 +319,16 @@ export namespace Components {
      */
     interface TextInputDemo {
     }
+    /**
+     * textarea-field demo.
+     */
+    interface TextareaFieldDemo {
+    }
+    /**
+     * textarea-input demo.
+     */
+    interface TextareaInputDemo {
+    }
 }
 export interface F2MaskedTextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -249,6 +345,14 @@ export interface F2TextFieldCustomEvent<T> extends CustomEvent<T> {
 export interface F2TextInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2TextInputElement;
+}
+export interface F2TextareaFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2TextareaFieldElement;
+}
+export interface F2TextareaInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2TextareaInputElement;
 }
 declare global {
     interface HTMLF2MaskedTextFieldElementEventMap {
@@ -335,6 +439,46 @@ declare global {
         prototype: HTMLF2TextInputElement;
         new (): HTMLF2TextInputElement;
     };
+    interface HTMLF2TextareaFieldElementEventMap {
+        "fieldchange": FieldChange<string>;
+    }
+    /**
+     * A textarea field.
+     */
+    interface HTMLF2TextareaFieldElement extends Components.F2TextareaField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2TextareaFieldElementEventMap>(type: K, listener: (this: HTMLF2TextareaFieldElement, ev: F2TextareaFieldCustomEvent<HTMLF2TextareaFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2TextareaFieldElementEventMap>(type: K, listener: (this: HTMLF2TextareaFieldElement, ev: F2TextareaFieldCustomEvent<HTMLF2TextareaFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2TextareaFieldElement: {
+        prototype: HTMLF2TextareaFieldElement;
+        new (): HTMLF2TextareaFieldElement;
+    };
+    interface HTMLF2TextareaInputElementEventMap {
+        "fieldchange": FieldChange<string>;
+    }
+    /**
+     * A textarea input.
+     */
+    interface HTMLF2TextareaInputElement extends Components.F2TextareaInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2TextareaInputElementEventMap>(type: K, listener: (this: HTMLF2TextareaInputElement, ev: F2TextareaInputCustomEvent<HTMLF2TextareaInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2TextareaInputElementEventMap>(type: K, listener: (this: HTMLF2TextareaInputElement, ev: F2TextareaInputCustomEvent<HTMLF2TextareaInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2TextareaInputElement: {
+        prototype: HTMLF2TextareaInputElement;
+        new (): HTMLF2TextareaInputElement;
+    };
     /**
      * Display messages under fields.
      */
@@ -380,16 +524,38 @@ declare global {
         prototype: HTMLTextInputDemoElement;
         new (): HTMLTextInputDemoElement;
     };
+    /**
+     * textarea-field demo.
+     */
+    interface HTMLTextareaFieldDemoElement extends Components.TextareaFieldDemo, HTMLStencilElement {
+    }
+    var HTMLTextareaFieldDemoElement: {
+        prototype: HTMLTextareaFieldDemoElement;
+        new (): HTMLTextareaFieldDemoElement;
+    };
+    /**
+     * textarea-input demo.
+     */
+    interface HTMLTextareaInputDemoElement extends Components.TextareaInputDemo, HTMLStencilElement {
+    }
+    var HTMLTextareaInputDemoElement: {
+        prototype: HTMLTextareaInputDemoElement;
+        new (): HTMLTextareaInputDemoElement;
+    };
     interface HTMLElementTagNameMap {
         "f2-masked-text-field": HTMLF2MaskedTextFieldElement;
         "f2-masked-text-input": HTMLF2MaskedTextInputElement;
         "f2-text-field": HTMLF2TextFieldElement;
         "f2-text-input": HTMLF2TextInputElement;
+        "f2-textarea-field": HTMLF2TextareaFieldElement;
+        "f2-textarea-input": HTMLF2TextareaInputElement;
         "f2-validation-messages": HTMLF2ValidationMessagesElement;
         "masked-text-field-demo": HTMLMaskedTextFieldDemoElement;
         "masked-text-input-demo": HTMLMaskedTextInputDemoElement;
         "text-field-demo": HTMLTextFieldDemoElement;
         "text-input-demo": HTMLTextInputDemoElement;
+        "textarea-field-demo": HTMLTextareaFieldDemoElement;
+        "textarea-input-demo": HTMLTextareaInputDemoElement;
     }
 }
 declare namespace LocalJSX {
@@ -606,6 +772,100 @@ declare namespace LocalJSX {
         "value": string;
     }
     /**
+     * A textarea field.
+     */
+    interface F2TextareaField {
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2TextareaFieldCustomEvent<FieldChange<string>>) => void;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
+        "value": string;
+    }
+    /**
+     * A textarea input.
+     */
+    interface F2TextareaInput {
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the input is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2TextareaInputCustomEvent<FieldChange<string>>) => void;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current value of the input.
+         */
+        "value": string;
+    }
+    /**
      * Display messages under fields.
      */
     interface F2ValidationMessages {
@@ -646,16 +906,30 @@ declare namespace LocalJSX {
      */
     interface TextInputDemo {
     }
+    /**
+     * textarea-field demo.
+     */
+    interface TextareaFieldDemo {
+    }
+    /**
+     * textarea-input demo.
+     */
+    interface TextareaInputDemo {
+    }
     interface IntrinsicElements {
         "f2-masked-text-field": F2MaskedTextField;
         "f2-masked-text-input": F2MaskedTextInput;
         "f2-text-field": F2TextField;
         "f2-text-input": F2TextInput;
+        "f2-textarea-field": F2TextareaField;
+        "f2-textarea-input": F2TextareaInput;
         "f2-validation-messages": F2ValidationMessages;
         "masked-text-field-demo": MaskedTextFieldDemo;
         "masked-text-input-demo": MaskedTextInputDemo;
         "text-field-demo": TextFieldDemo;
         "text-input-demo": TextInputDemo;
+        "textarea-field-demo": TextareaFieldDemo;
+        "textarea-input-demo": TextareaInputDemo;
     }
 }
 export { LocalJSX as JSX };
@@ -679,6 +953,14 @@ declare module "@stencil/core" {
              */
             "f2-text-input": LocalJSX.F2TextInput & JSXBase.HTMLAttributes<HTMLF2TextInputElement>;
             /**
+             * A textarea field.
+             */
+            "f2-textarea-field": LocalJSX.F2TextareaField & JSXBase.HTMLAttributes<HTMLF2TextareaFieldElement>;
+            /**
+             * A textarea input.
+             */
+            "f2-textarea-input": LocalJSX.F2TextareaInput & JSXBase.HTMLAttributes<HTMLF2TextareaInputElement>;
+            /**
              * Display messages under fields.
              */
             "f2-validation-messages": LocalJSX.F2ValidationMessages & JSXBase.HTMLAttributes<HTMLF2ValidationMessagesElement>;
@@ -698,6 +980,14 @@ declare module "@stencil/core" {
              * text-input demo.
              */
             "text-input-demo": LocalJSX.TextInputDemo & JSXBase.HTMLAttributes<HTMLTextInputDemoElement>;
+            /**
+             * textarea-field demo.
+             */
+            "textarea-field-demo": LocalJSX.TextareaFieldDemo & JSXBase.HTMLAttributes<HTMLTextareaFieldDemoElement>;
+            /**
+             * textarea-input demo.
+             */
+            "textarea-input-demo": LocalJSX.TextareaInputDemo & JSXBase.HTMLAttributes<HTMLTextareaInputDemoElement>;
         }
     }
 }
