@@ -16,7 +16,7 @@ interface Example {
 })
 export class Demo {
     private form = createValidatedForm<Example>({
-        something: '',
+        something: 'some',
         option: false,
         somethingElse: '',
     });
