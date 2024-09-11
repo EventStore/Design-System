@@ -6,10 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FieldChange, ValidationMessages } from "./types";
-import { MaskOptions } from "./components/text/masked-text/types";
+import { MaskOptions } from "./components/masked-text/types";
 import { IconDescription } from "@eventstore-ui/components";
 export { FieldChange, ValidationMessages } from "./types";
-export { MaskOptions } from "./components/text/masked-text/types";
+export { MaskOptions } from "./components/masked-text/types";
 export { IconDescription } from "@eventstore-ui/components";
 export namespace Components {
     /**

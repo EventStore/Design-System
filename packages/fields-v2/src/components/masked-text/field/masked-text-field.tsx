@@ -7,15 +7,15 @@ import {
     AttachInternals,
     Watch,
 } from '@stencil/core';
-import { Field } from 'components/Field/Field';
+import { Field } from 'components/Field';
 
 import type { FieldChange, ValidationMessages } from 'types';
-import type { MaskOptions } from './types';
+import type { MaskOptions } from '../types';
 
 /** A masked text input. */
 @Component({
     tag: 'f2-masked-text-field',
-    styleUrl: '../../Field/field.css',
+    styleUrl: '../../field.css',
     formAssociated: true,
     shadow: true,
 })

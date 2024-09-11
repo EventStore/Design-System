@@ -1,4 +1,4 @@
-# es-input
+# f2-masked-text-input
 
 
 
@@ -107,7 +107,7 @@ export default () => (
 
 ### Used by
 
- - [f2-masked-text-field](.)
+ - [f2-masked-text-field](../field)
 
 ### Graph
 ```mermaid
