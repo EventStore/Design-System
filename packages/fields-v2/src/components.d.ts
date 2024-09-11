@@ -107,6 +107,101 @@ export namespace Components {
         "value": string;
     }
     /**
+     * A number field.
+     */
+    interface F2NumberField {
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * Display a unit beside the input.
+         */
+        "unit"?: string;
+        /**
+          * The current value of the field.
+         */
+        "value": string;
+    }
+    /**
+     * A number based input.
+     * Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+     */
+    interface F2NumberInput {
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder"?: string;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * Display a unit beside the input.
+         */
+        "unit"?: string;
+        /**
+          * The current value of the field.
+         */
+        "value": string;
+    }
+    /**
      * A text input.
      */
     interface F2TextField {
@@ -299,36 +394,6 @@ export namespace Components {
          */
         "warningIcon": IconDescription;
     }
-    /**
-     * masked-text-field demo.
-     */
-    interface MaskedTextFieldDemo {
-    }
-    /**
-     * masked-text-input demo.
-     */
-    interface MaskedTextInputDemo {
-    }
-    /**
-     * text-field demo.
-     */
-    interface TextFieldDemo {
-    }
-    /**
-     * text-input demo.
-     */
-    interface TextInputDemo {
-    }
-    /**
-     * textarea-field demo.
-     */
-    interface TextareaFieldDemo {
-    }
-    /**
-     * textarea-input demo.
-     */
-    interface TextareaInputDemo {
-    }
 }
 export interface F2MaskedTextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -337,6 +402,14 @@ export interface F2MaskedTextFieldCustomEvent<T> extends CustomEvent<T> {
 export interface F2MaskedTextInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2MaskedTextInputElement;
+}
+export interface F2NumberFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2NumberFieldElement;
+}
+export interface F2NumberInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2NumberInputElement;
 }
 export interface F2TextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -396,6 +469,48 @@ declare global {
     var HTMLF2MaskedTextInputElement: {
         prototype: HTMLF2MaskedTextInputElement;
         new (): HTMLF2MaskedTextInputElement;
+    };
+    interface HTMLF2NumberFieldElementEventMap {
+        "fieldchange": FieldChange<string>;
+    }
+    /**
+     * A number field.
+     */
+    interface HTMLF2NumberFieldElement extends Components.F2NumberField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2NumberFieldElementEventMap>(type: K, listener: (this: HTMLF2NumberFieldElement, ev: F2NumberFieldCustomEvent<HTMLF2NumberFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2NumberFieldElementEventMap>(type: K, listener: (this: HTMLF2NumberFieldElement, ev: F2NumberFieldCustomEvent<HTMLF2NumberFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2NumberFieldElement: {
+        prototype: HTMLF2NumberFieldElement;
+        new (): HTMLF2NumberFieldElement;
+    };
+    interface HTMLF2NumberInputElementEventMap {
+        "fieldchange": FieldChange<string>;
+        "enter": any;
+    }
+    /**
+     * A number based input.
+     * Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+     */
+    interface HTMLF2NumberInputElement extends Components.F2NumberInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2NumberInputElementEventMap>(type: K, listener: (this: HTMLF2NumberInputElement, ev: F2NumberInputCustomEvent<HTMLF2NumberInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2NumberInputElementEventMap>(type: K, listener: (this: HTMLF2NumberInputElement, ev: F2NumberInputCustomEvent<HTMLF2NumberInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2NumberInputElement: {
+        prototype: HTMLF2NumberInputElement;
+        new (): HTMLF2NumberInputElement;
     };
     interface HTMLF2TextFieldElementEventMap {
         "fieldchange": FieldChange<string>;
@@ -488,74 +603,16 @@ declare global {
         prototype: HTMLF2ValidationMessagesElement;
         new (): HTMLF2ValidationMessagesElement;
     };
-    /**
-     * masked-text-field demo.
-     */
-    interface HTMLMaskedTextFieldDemoElement extends Components.MaskedTextFieldDemo, HTMLStencilElement {
-    }
-    var HTMLMaskedTextFieldDemoElement: {
-        prototype: HTMLMaskedTextFieldDemoElement;
-        new (): HTMLMaskedTextFieldDemoElement;
-    };
-    /**
-     * masked-text-input demo.
-     */
-    interface HTMLMaskedTextInputDemoElement extends Components.MaskedTextInputDemo, HTMLStencilElement {
-    }
-    var HTMLMaskedTextInputDemoElement: {
-        prototype: HTMLMaskedTextInputDemoElement;
-        new (): HTMLMaskedTextInputDemoElement;
-    };
-    /**
-     * text-field demo.
-     */
-    interface HTMLTextFieldDemoElement extends Components.TextFieldDemo, HTMLStencilElement {
-    }
-    var HTMLTextFieldDemoElement: {
-        prototype: HTMLTextFieldDemoElement;
-        new (): HTMLTextFieldDemoElement;
-    };
-    /**
-     * text-input demo.
-     */
-    interface HTMLTextInputDemoElement extends Components.TextInputDemo, HTMLStencilElement {
-    }
-    var HTMLTextInputDemoElement: {
-        prototype: HTMLTextInputDemoElement;
-        new (): HTMLTextInputDemoElement;
-    };
-    /**
-     * textarea-field demo.
-     */
-    interface HTMLTextareaFieldDemoElement extends Components.TextareaFieldDemo, HTMLStencilElement {
-    }
-    var HTMLTextareaFieldDemoElement: {
-        prototype: HTMLTextareaFieldDemoElement;
-        new (): HTMLTextareaFieldDemoElement;
-    };
-    /**
-     * textarea-input demo.
-     */
-    interface HTMLTextareaInputDemoElement extends Components.TextareaInputDemo, HTMLStencilElement {
-    }
-    var HTMLTextareaInputDemoElement: {
-        prototype: HTMLTextareaInputDemoElement;
-        new (): HTMLTextareaInputDemoElement;
-    };
     interface HTMLElementTagNameMap {
         "f2-masked-text-field": HTMLF2MaskedTextFieldElement;
         "f2-masked-text-input": HTMLF2MaskedTextInputElement;
+        "f2-number-field": HTMLF2NumberFieldElement;
+        "f2-number-input": HTMLF2NumberInputElement;
         "f2-text-field": HTMLF2TextFieldElement;
         "f2-text-input": HTMLF2TextInputElement;
         "f2-textarea-field": HTMLF2TextareaFieldElement;
         "f2-textarea-input": HTMLF2TextareaInputElement;
         "f2-validation-messages": HTMLF2ValidationMessagesElement;
-        "masked-text-field-demo": HTMLMaskedTextFieldDemoElement;
-        "masked-text-input-demo": HTMLMaskedTextInputDemoElement;
-        "text-field-demo": HTMLTextFieldDemoElement;
-        "text-input-demo": HTMLTextInputDemoElement;
-        "textarea-field-demo": HTMLTextareaFieldDemoElement;
-        "textarea-input-demo": HTMLTextareaInputDemoElement;
     }
 }
 declare namespace LocalJSX {
@@ -664,6 +721,113 @@ declare namespace LocalJSX {
           * If the input is editable.
          */
         "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
+        "value": string;
+    }
+    /**
+     * A number field.
+     */
+    interface F2NumberField {
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2NumberFieldCustomEvent<FieldChange<string>>) => void;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * Display a unit beside the input.
+         */
+        "unit"?: string;
+        /**
+          * The current value of the field.
+         */
+        "value": string;
+    }
+    /**
+     * A number based input.
+     * Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+     */
+    interface F2NumberInput {
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Emitted on keyup of enter, if no modifier keys are held.
+         */
+        "onEnter"?: (event: F2NumberInputCustomEvent<any>) => void;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2NumberInputCustomEvent<FieldChange<string>>) => void;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder"?: string;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * Display a unit beside the input.
+         */
+        "unit"?: string;
         /**
           * The current value of the field.
          */
@@ -886,50 +1050,16 @@ declare namespace LocalJSX {
          */
         "warningIcon"?: IconDescription;
     }
-    /**
-     * masked-text-field demo.
-     */
-    interface MaskedTextFieldDemo {
-    }
-    /**
-     * masked-text-input demo.
-     */
-    interface MaskedTextInputDemo {
-    }
-    /**
-     * text-field demo.
-     */
-    interface TextFieldDemo {
-    }
-    /**
-     * text-input demo.
-     */
-    interface TextInputDemo {
-    }
-    /**
-     * textarea-field demo.
-     */
-    interface TextareaFieldDemo {
-    }
-    /**
-     * textarea-input demo.
-     */
-    interface TextareaInputDemo {
-    }
     interface IntrinsicElements {
         "f2-masked-text-field": F2MaskedTextField;
         "f2-masked-text-input": F2MaskedTextInput;
+        "f2-number-field": F2NumberField;
+        "f2-number-input": F2NumberInput;
         "f2-text-field": F2TextField;
         "f2-text-input": F2TextInput;
         "f2-textarea-field": F2TextareaField;
         "f2-textarea-input": F2TextareaInput;
         "f2-validation-messages": F2ValidationMessages;
-        "masked-text-field-demo": MaskedTextFieldDemo;
-        "masked-text-input-demo": MaskedTextInputDemo;
-        "text-field-demo": TextFieldDemo;
-        "text-input-demo": TextInputDemo;
-        "textarea-field-demo": TextareaFieldDemo;
-        "textarea-input-demo": TextareaInputDemo;
     }
 }
 export { LocalJSX as JSX };
@@ -944,6 +1074,15 @@ declare module "@stencil/core" {
              * A masked text input.
              */
             "f2-masked-text-input": LocalJSX.F2MaskedTextInput & JSXBase.HTMLAttributes<HTMLF2MaskedTextInputElement>;
+            /**
+             * A number field.
+             */
+            "f2-number-field": LocalJSX.F2NumberField & JSXBase.HTMLAttributes<HTMLF2NumberFieldElement>;
+            /**
+             * A number based input.
+             * Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+             */
+            "f2-number-input": LocalJSX.F2NumberInput & JSXBase.HTMLAttributes<HTMLF2NumberInputElement>;
             /**
              * A text input.
              */
@@ -964,30 +1103,6 @@ declare module "@stencil/core" {
              * Display messages under fields.
              */
             "f2-validation-messages": LocalJSX.F2ValidationMessages & JSXBase.HTMLAttributes<HTMLF2ValidationMessagesElement>;
-            /**
-             * masked-text-field demo.
-             */
-            "masked-text-field-demo": LocalJSX.MaskedTextFieldDemo & JSXBase.HTMLAttributes<HTMLMaskedTextFieldDemoElement>;
-            /**
-             * masked-text-input demo.
-             */
-            "masked-text-input-demo": LocalJSX.MaskedTextInputDemo & JSXBase.HTMLAttributes<HTMLMaskedTextInputDemoElement>;
-            /**
-             * text-field demo.
-             */
-            "text-field-demo": LocalJSX.TextFieldDemo & JSXBase.HTMLAttributes<HTMLTextFieldDemoElement>;
-            /**
-             * text-input demo.
-             */
-            "text-input-demo": LocalJSX.TextInputDemo & JSXBase.HTMLAttributes<HTMLTextInputDemoElement>;
-            /**
-             * textarea-field demo.
-             */
-            "textarea-field-demo": LocalJSX.TextareaFieldDemo & JSXBase.HTMLAttributes<HTMLTextareaFieldDemoElement>;
-            /**
-             * textarea-input demo.
-             */
-            "textarea-input-demo": LocalJSX.TextareaInputDemo & JSXBase.HTMLAttributes<HTMLTextareaInputDemoElement>;
         }
     }
 }

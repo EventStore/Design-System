@@ -7,7 +7,7 @@
 
 ## Overview
 
-A textarea field.
+A textarea input.
 
 ## Usage
 
@@ -50,43 +50,33 @@ export default () => (
 
 | Property                   | Attribute     | Description                                  | Type                                 | Default     |
 | -------------------------- | ------------- | -------------------------------------------- | ------------------------------------ | ----------- |
-| `disabled`                 | `disabled`    | If the field is disabled.                    | `boolean \| undefined`               | `undefined` |
+| `disabled`                 | `disabled`    | If the input is disabled.                    | `boolean \| undefined`               | `undefined` |
 | `inputProps`               | --            | Pass props directly to the input.            | `undefined \| { [x: string]: any; }` | `undefined` |
-| `invalid`                  | `invalid`     | If the field is currently in an error state. | `boolean \| undefined`               | `undefined` |
-| `label` _(required)_       | `label`       | The label of the field.                      | `string`                             | `undefined` |
-| `messages`                 | --            | The validation messages of the field         | `ValidationMessages \| undefined`    | `undefined` |
-| `name` _(required)_        | `name`        | The name of the field.                       | `string`                             | `undefined` |
+| `invalid`                  | `invalid`     | If the input is currently in an error state. | `boolean \| undefined`               | `undefined` |
+| `name` _(required)_        | `name`        | The name of the input.                       | `string`                             | `undefined` |
 | `placeholder` _(required)_ | `placeholder` | The placeholder for the input.               | `string`                             | `undefined` |
-| `readonly`                 | `readonly`    | If the field is editable.                    | `boolean \| undefined`               | `undefined` |
-| `value` _(required)_       | `value`       | The current value of the field.              | `string`                             | `undefined` |
+| `readonly`                 | `readonly`    | If the input is editable.                    | `boolean \| undefined`               | `undefined` |
+| `value` _(required)_       | `value`       | The current value of the input.              | `string`                             | `undefined` |
 
 
 ## Events
 
-| Event         | Description                                     | Type                               |
-| ------------- | ----------------------------------------------- | ---------------------------------- |
-| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string>>` |
-
-
-## CSS Custom Properties
-
-| Name                   | Description       |
-| ---------------------- | ----------------- |
-| `--field-grid-columns` | The field layout. |
+| Event         | Description                                     | Type                                       |
+| ------------- | ----------------------------------------------- | ------------------------------------------ |
+| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string, string>>` |
 
 
 ## Dependencies
 
-### Depends on
+### Used by
 
-- [es-validation-messages](../es-validation-messages)
+ - [f2-textarea-field](.)
 
 ### Graph
 ```mermaid
 graph TD;
-  es-textarea --> es-validation-messages
-  es-validation-messages --> es-icon
-  style es-textarea fill:#f9f,stroke:#333,stroke-width:4px
+  f2-textarea-field --> f2-textarea-input
+  style f2-textarea-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

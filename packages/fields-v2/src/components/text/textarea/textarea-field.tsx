@@ -1,4 +1,12 @@
-import { Component, h, Prop, Event, type EventEmitter } from '@stencil/core';
+import {
+    Component,
+    h,
+    Prop,
+    Event,
+    type EventEmitter,
+    Watch,
+    AttachInternals,
+} from '@stencil/core';
 import { Field } from 'components/Field/Field';
 
 import type { FieldChange, ValidationMessages } from 'types';
@@ -10,7 +18,9 @@ import type { FieldChange, ValidationMessages } from 'types';
     formAssociated: true,
     shadow: true,
 })
-export class TextField {
+export class TextAreaField {
+    @AttachInternals() internals!: ElementInternals;
+
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
 
@@ -28,7 +38,7 @@ export class TextField {
     @Prop() documentationLinkText?: string;
 
     /** The name of the input. */
-    @Prop() name!: string;
+    @Prop({ reflect: true }) name!: string;
     /** The current value of the field. */
     @Prop() value!: string;
     /** The placeholder for the input. */
@@ -39,6 +49,11 @@ export class TextField {
     @Prop() readonly?: boolean;
     /** Pass props directly to the input. */
     @Prop() inputProps?: Record<string, any>;
+
+    @Watch('value')
+    componentDidLoad() {
+        this.internals.setFormValue(this.value);
+    }
 
     render() {
         return (

@@ -1,4 +1,12 @@
-import { Component, h, Prop, Event, type EventEmitter } from '@stencil/core';
+import {
+    Component,
+    h,
+    Prop,
+    Event,
+    type EventEmitter,
+    AttachInternals,
+    Watch,
+} from '@stencil/core';
 import { Field } from 'components/Field/Field';
 
 import type { FieldChange, ValidationMessages } from 'types';
@@ -12,6 +20,8 @@ import type { MaskOptions } from './types';
     shadow: true,
 })
 export class MaskedTextField {
+    @AttachInternals() internals!: ElementInternals;
+
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
     /** Emitted on keyup of enter, if no modifier keys are held. */
@@ -45,6 +55,11 @@ export class MaskedTextField {
 
     /** Apply an input mask */
     @Prop() mask!: MaskOptions;
+
+    @Watch('value')
+    componentDidLoad() {
+        this.internals.setFormValue(this.value);
+    }
 
     render() {
         return (

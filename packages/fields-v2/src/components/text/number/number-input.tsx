@@ -12,6 +12,7 @@ import type { FieldChange } from 'types';
 /**
  * A number based input.
  * Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+ * @part unit - The unit indicator
  */
 @Component({
     tag: 'f2-number-input',
