@@ -13,7 +13,7 @@ import type { FieldChange } from 'types';
 /** A text input. */
 @Component({
     tag: 'f2-text-input',
-    styleUrl: '../text.css',
+    styleUrl: '../../input.css',
     formAssociated: true,
     shadow: true,
 })

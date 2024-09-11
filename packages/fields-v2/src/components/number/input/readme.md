@@ -1,4 +1,4 @@
-# es-number-input
+# f2-number-input
 
 
 
@@ -111,7 +111,7 @@ es-button {
 
 ### Used by
 
- - [f2-number-field](.)
+ - [f2-number-field](../field)
 
 ### Graph
 ```mermaid

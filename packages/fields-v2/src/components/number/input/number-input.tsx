@@ -16,7 +16,7 @@ import type { FieldChange } from 'types';
  */
 @Component({
     tag: 'f2-number-input',
-    styleUrl: 'number.css',
+    styleUrl: 'number-input.css',
     formAssociated: true,
     shadow: true,
 })

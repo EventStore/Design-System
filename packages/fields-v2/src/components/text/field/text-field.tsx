@@ -7,14 +7,14 @@ import {
     AttachInternals,
     Watch,
 } from '@stencil/core';
-import { Field } from 'components/Field/Field';
+import { Field } from 'components/Field';
 
 import type { FieldChange, ValidationMessages } from 'types';
 
 /** A text input. */
 @Component({
     tag: 'f2-text-field',
-    styleUrl: '../../Field/field.css',
+    styleUrl: '../../field.css',
     formAssociated: true,
     shadow: true,
 })

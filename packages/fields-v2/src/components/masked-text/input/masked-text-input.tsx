@@ -11,12 +11,12 @@ import {
 import iMask, { type InputMask } from 'imask';
 
 import type { FieldChange } from 'types';
-import type { MaskOptions } from './types';
+import type { MaskOptions } from '../types';
 
 /** A masked text input. */
 @Component({
     tag: 'f2-masked-text-input',
-    styleUrl: '../text.css',
+    styleUrl: '../../input.css',
     formAssociated: true,
     shadow: true,
 })

@@ -7,14 +7,14 @@ import {
     Watch,
     AttachInternals,
 } from '@stencil/core';
-import { Field } from 'components/Field/Field';
+import { Field } from 'components/Field';
 
 import type { FieldChange, ValidationMessages } from 'types';
 
 /** A textarea field. */
 @Component({
     tag: 'f2-textarea-field',
-    styleUrl: '../../Field/field.css',
+    styleUrl: '../../field.css',
     formAssociated: true,
     shadow: true,
 })
