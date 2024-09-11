@@ -1,0 +1,18 @@
+@import '../text.css';
+
+.input_wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.unit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 20px;
+}
