@@ -7,9 +7,11 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FieldChange, ValidationMessages } from "./types";
 import { MaskOptions } from "./components/masked-text/types";
+import { RadioCardOption, RenderCard } from "./components/radio-card/types";
 import { IconDescription } from "@eventstore-ui/components";
 export { FieldChange, ValidationMessages } from "./types";
 export { MaskOptions } from "./components/masked-text/types";
+export { RadioCardOption, RenderCard } from "./components/radio-card/types";
 export { IconDescription } from "@eventstore-ui/components";
 export namespace Components {
     /**
@@ -200,6 +202,104 @@ export namespace Components {
           * The current value of the field.
          */
         "value": string;
+    }
+    /**
+     * A card based single select field.
+     */
+    interface F2RadioCardField {
+        /**
+          * Parts in the carld, to be exported on the top level.
+         */
+        "cardParts"?: string[];
+        /**
+          * Icon to display when checked.
+         */
+        "checkIcon": IconDescription;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Group the cards by a key.
+         */
+        "groupBy"?: string;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * The options to be displayed and chosen from.
+         */
+        "options": RadioCardOption[];
+        /**
+          * Overwrite the default card renderer
+         */
+        "renderCard"?: RenderCard<any>;
+        /**
+          * The current value of the input.
+         */
+        "value": string | null;
+    }
+    /**
+     * A card based single select input.
+     */
+    interface F2RadioCardInput {
+        /**
+          * Icon to display when checked.
+         */
+        "checkIcon": IconDescription;
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Group the cards by a key.
+         */
+        "groupBy"?: string;
+        /**
+          * If the input is currently in an error state.
+         */
+        "invalid": boolean;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * The options to be displayed and chosen from.
+         */
+        "options": RadioCardOption[];
+        /**
+          * Overwrite the default card renderer
+         */
+        "renderCard": RenderCard<any>;
+        /**
+          * The current value of the input.
+         */
+        "value": string | null;
     }
     /**
      * A text input.
@@ -411,6 +511,14 @@ export interface F2NumberInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2NumberInputElement;
 }
+export interface F2RadioCardFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2RadioCardFieldElement;
+}
+export interface F2RadioCardInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2RadioCardInputElement;
+}
 export interface F2TextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2TextFieldElement;
@@ -512,6 +620,46 @@ declare global {
         prototype: HTMLF2NumberInputElement;
         new (): HTMLF2NumberInputElement;
     };
+    interface HTMLF2RadioCardFieldElementEventMap {
+        "fieldchange": FieldChange<string | null>;
+    }
+    /**
+     * A card based single select field.
+     */
+    interface HTMLF2RadioCardFieldElement extends Components.F2RadioCardField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2RadioCardFieldElementEventMap>(type: K, listener: (this: HTMLF2RadioCardFieldElement, ev: F2RadioCardFieldCustomEvent<HTMLF2RadioCardFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2RadioCardFieldElementEventMap>(type: K, listener: (this: HTMLF2RadioCardFieldElement, ev: F2RadioCardFieldCustomEvent<HTMLF2RadioCardFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2RadioCardFieldElement: {
+        prototype: HTMLF2RadioCardFieldElement;
+        new (): HTMLF2RadioCardFieldElement;
+    };
+    interface HTMLF2RadioCardInputElementEventMap {
+        "fieldchange": FieldChange<string | null>;
+    }
+    /**
+     * A card based single select input.
+     */
+    interface HTMLF2RadioCardInputElement extends Components.F2RadioCardInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2RadioCardInputElementEventMap>(type: K, listener: (this: HTMLF2RadioCardInputElement, ev: F2RadioCardInputCustomEvent<HTMLF2RadioCardInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2RadioCardInputElementEventMap>(type: K, listener: (this: HTMLF2RadioCardInputElement, ev: F2RadioCardInputCustomEvent<HTMLF2RadioCardInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2RadioCardInputElement: {
+        prototype: HTMLF2RadioCardInputElement;
+        new (): HTMLF2RadioCardInputElement;
+    };
     interface HTMLF2TextFieldElementEventMap {
         "fieldchange": FieldChange<string>;
         "enter": any;
@@ -608,6 +756,8 @@ declare global {
         "f2-masked-text-input": HTMLF2MaskedTextInputElement;
         "f2-number-field": HTMLF2NumberFieldElement;
         "f2-number-input": HTMLF2NumberInputElement;
+        "f2-radio-card-field": HTMLF2RadioCardFieldElement;
+        "f2-radio-card-input": HTMLF2RadioCardInputElement;
         "f2-text-field": HTMLF2TextFieldElement;
         "f2-text-input": HTMLF2TextInputElement;
         "f2-textarea-field": HTMLF2TextareaFieldElement;
@@ -834,6 +984,112 @@ declare namespace LocalJSX {
         "value": string;
     }
     /**
+     * A card based single select field.
+     */
+    interface F2RadioCardField {
+        /**
+          * Parts in the carld, to be exported on the top level.
+         */
+        "cardParts"?: string[];
+        /**
+          * Icon to display when checked.
+         */
+        "checkIcon"?: IconDescription;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Group the cards by a key.
+         */
+        "groupBy"?: string;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2RadioCardFieldCustomEvent<FieldChange<string | null>>) => void;
+        /**
+          * The options to be displayed and chosen from.
+         */
+        "options": RadioCardOption[];
+        /**
+          * Overwrite the default card renderer
+         */
+        "renderCard"?: RenderCard<any>;
+        /**
+          * The current value of the input.
+         */
+        "value": string | null;
+    }
+    /**
+     * A card based single select input.
+     */
+    interface F2RadioCardInput {
+        /**
+          * Icon to display when checked.
+         */
+        "checkIcon"?: IconDescription;
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Group the cards by a key.
+         */
+        "groupBy"?: string;
+        /**
+          * If the input is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2RadioCardInputCustomEvent<FieldChange<string | null>>) => void;
+        /**
+          * The options to be displayed and chosen from.
+         */
+        "options": RadioCardOption[];
+        /**
+          * Overwrite the default card renderer
+         */
+        "renderCard"?: RenderCard<any>;
+        /**
+          * The current value of the input.
+         */
+        "value": string | null;
+    }
+    /**
      * A text input.
      */
     interface F2TextField {
@@ -1055,6 +1311,8 @@ declare namespace LocalJSX {
         "f2-masked-text-input": F2MaskedTextInput;
         "f2-number-field": F2NumberField;
         "f2-number-input": F2NumberInput;
+        "f2-radio-card-field": F2RadioCardField;
+        "f2-radio-card-input": F2RadioCardInput;
         "f2-text-field": F2TextField;
         "f2-text-input": F2TextInput;
         "f2-textarea-field": F2TextareaField;
@@ -1083,6 +1341,14 @@ declare module "@stencil/core" {
              * Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
              */
             "f2-number-input": LocalJSX.F2NumberInput & JSXBase.HTMLAttributes<HTMLF2NumberInputElement>;
+            /**
+             * A card based single select field.
+             */
+            "f2-radio-card-field": LocalJSX.F2RadioCardField & JSXBase.HTMLAttributes<HTMLF2RadioCardFieldElement>;
+            /**
+             * A card based single select input.
+             */
+            "f2-radio-card-input": LocalJSX.F2RadioCardInput & JSXBase.HTMLAttributes<HTMLF2RadioCardInputElement>;
             /**
              * A text input.
              */
