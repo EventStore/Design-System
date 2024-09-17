@@ -107,11 +107,13 @@ export default () => (
 ### Used by
 
  - [f2-text-field](../field)
+ - [f2-text-list-field](../../text-list)
 
 ### Graph
 ```mermaid
 graph TD;
   f2-text-field --> f2-text-input
+  f2-text-list-field --> f2-text-input
   style f2-text-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
