@@ -3,7 +3,7 @@ import { ICON_NAMESPACE } from 'icons/namespace';
 
 /** used in the es-select demo. */
 @Component({
-    tag: 'es-select-option-demo',
+    tag: 'select-option-demo',
     shadow: true,
 })
 export class Demo {

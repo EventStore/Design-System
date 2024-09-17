@@ -1,17 +1,16 @@
-import { Component, h, Host, Listen, State } from '@stencil/core';
-import type { FieldChange } from '../../../types';
-import type { RenderSelectOption } from '../types';
+import { Component, h, Listen, State, Host } from '@stencil/core';
+import type { FieldChange } from 'types';
 
-/** select-input demo. */
+/** select-list-field demo. */
 @Component({
-    tag: 'select-input-demo',
+    tag: 'select-list-field-demo',
     shadow: true,
 })
 export class Demo {
-    @State() value: string | null = null;
+    @State() value: string[] = [];
 
     @Listen('fieldchange')
-    onChange(e: CustomEvent<FieldChange<string>>) {
+    onFieldChange(e: CustomEvent<FieldChange<string[]>>) {
         this.value = e.detail.value;
     }
 
@@ -19,23 +18,31 @@ export class Demo {
         return (
             <Host style={{ padding: '10px', display: 'block' }}>
                 <form onSubmit={this.onSubmit}>
-                    <f2-select-input
-                        name={'hello'}
-                        placeholder={'hello'}
+                    <f2-select-list-field
+                        label={'Select List'}
+                        documentation={
+                            'Allows you to create a list of strings from fixed values'
+                        }
+                        name={'list'}
+                        placeholder={'Add a name to your list'}
                         options={this.options}
                         value={this.value}
-                        renderOption={this.renderOption}
                     />
-                    <pre slot={'data'}>{this.value}</pre>
+                    <pre slot={'data'}>
+                        {JSON.stringify(this.value, null, 2)}
+                    </pre>
                     <button>{'submit'}</button>
                 </form>
             </Host>
         );
     }
 
-    private renderOption: RenderSelectOption = (h, { name, value }) => (
-        <select-option-demo name={name} value={value} />
-    );
+    private onSubmit = (e: Event) => {
+        e.preventDefault();
+
+        // eslint-disable-next-line no-console
+        console.log(new FormData(e.target as HTMLFormElement));
+    };
 
     private options = [
         {
@@ -67,11 +74,4 @@ export class Demo {
             value: 'warning',
         },
     ];
-
-    private onSubmit = (e: Event) => {
-        e.preventDefault();
-
-        // eslint-disable-next-line no-console
-        console.log(new FormData(e.target as HTMLFormElement));
-    };
 }

@@ -92,7 +92,7 @@ export class Select {
                       )
                     : this.renderPlaceholder()
                 : null}
-            <es-icon icon={this.chevronIcon} size={14} />
+            <es-icon class={'chevron'} icon={this.chevronIcon} size={14} />
         </div>
     );
 

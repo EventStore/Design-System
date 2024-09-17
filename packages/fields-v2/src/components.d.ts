@@ -5,14 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { FieldChange, ValidationMessages } from "./types";
+import { FieldChange, RenderFunction, ValidationMessages } from "./types";
 import { MaskOptions } from "./components/masked-text/types";
 import { RadioCardOption, RenderCard } from "./components/radio-card/types";
 import { IconDescription } from "@eventstore-ui/components";
 import { OptionFilter, RenderTypeaheadOption, TypeaheadOption } from "./components/typeahead/types";
 import { RenderSelectValue } from "./components/select/types";
 import { OptionFilter as OptionFilter1, RenderTypeaheadInput, RenderTypeaheadOption as RenderTypeaheadOption1, TypeaheadOption as TypeaheadOption1 } from "./components/typeahead/types";
-export { FieldChange, ValidationMessages } from "./types";
+export { FieldChange, RenderFunction, ValidationMessages } from "./types";
 export { MaskOptions } from "./components/masked-text/types";
 export { RadioCardOption, RenderCard } from "./components/radio-card/types";
 export { IconDescription } from "@eventstore-ui/components";
@@ -20,13 +20,6 @@ export { OptionFilter, RenderTypeaheadOption, TypeaheadOption } from "./componen
 export { RenderSelectValue } from "./components/select/types";
 export { OptionFilter as OptionFilter1, RenderTypeaheadInput, RenderTypeaheadOption as RenderTypeaheadOption1, TypeaheadOption as TypeaheadOption1 } from "./components/typeahead/types";
 export namespace Components {
-    /**
-     * used in the es-select demo.
-     */
-    interface EsSelectOptionDemo {
-        "name": string;
-        "value": string;
-    }
     /**
      * A masked text input.
      */
@@ -441,6 +434,79 @@ export namespace Components {
         "value": string | null;
     }
     /**
+     * Create a list from a fixed set of values.
+     */
+    interface F2SelectListField {
+        /**
+          * The icon to display next to the field
+         */
+        "addIcon": IconDescription;
+        /**
+          * Icon to use as a chevron.
+         */
+        "chevronIcon": IconDescription;
+        /**
+          * Icon for the delete button.
+         */
+        "deleteIcon": IconDescription;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * The icon to display next to the field
+         */
+        "icon"?: IconDescription;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * A list of options to choose from.
+         */
+        "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * Render the list item.
+         */
+        "renderItem": RenderFunction<[option: TypeaheadOption]>;
+        /**
+          * The selected item ids
+         */
+        "value": string[];
+    }
+    /**
      * A text input.
      */
     interface F2TextField {
@@ -743,6 +809,18 @@ export namespace Components {
     interface SelectInputDemo {
     }
     /**
+     * select-list-field demo.
+     */
+    interface SelectListFieldDemo {
+    }
+    /**
+     * used in the es-select demo.
+     */
+    interface SelectOptionDemo {
+        "name": string;
+        "value": string;
+    }
+    /**
      * text-field demo.
      */
     interface TextFieldDemo {
@@ -800,6 +878,10 @@ export interface F2SelectInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2SelectInputElement;
 }
+export interface F2SelectListFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2SelectListFieldElement;
+}
 export interface F2TextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2TextFieldElement;
@@ -825,15 +907,6 @@ export interface F2TypeaheadCustomEvent<T> extends CustomEvent<T> {
     target: HTMLF2TypeaheadElement;
 }
 declare global {
-    /**
-     * used in the es-select demo.
-     */
-    interface HTMLEsSelectOptionDemoElement extends Components.EsSelectOptionDemo, HTMLStencilElement {
-    }
-    var HTMLEsSelectOptionDemoElement: {
-        prototype: HTMLEsSelectOptionDemoElement;
-        new (): HTMLEsSelectOptionDemoElement;
-    };
     interface HTMLF2MaskedTextFieldElementEventMap {
         "fieldchange": FieldChange<string>;
         "enter": any;
@@ -998,6 +1071,26 @@ declare global {
     var HTMLF2SelectInputElement: {
         prototype: HTMLF2SelectInputElement;
         new (): HTMLF2SelectInputElement;
+    };
+    interface HTMLF2SelectListFieldElementEventMap {
+        "fieldchange": FieldChange<string[]>;
+    }
+    /**
+     * Create a list from a fixed set of values.
+     */
+    interface HTMLF2SelectListFieldElement extends Components.F2SelectListField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2SelectListFieldElementEventMap>(type: K, listener: (this: HTMLF2SelectListFieldElement, ev: F2SelectListFieldCustomEvent<HTMLF2SelectListFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2SelectListFieldElementEventMap>(type: K, listener: (this: HTMLF2SelectListFieldElement, ev: F2SelectListFieldCustomEvent<HTMLF2SelectListFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2SelectListFieldElement: {
+        prototype: HTMLF2SelectListFieldElement;
+        new (): HTMLF2SelectListFieldElement;
     };
     interface HTMLF2TextFieldElementEventMap {
         "fieldchange": FieldChange<string>;
@@ -1201,6 +1294,24 @@ declare global {
         new (): HTMLSelectInputDemoElement;
     };
     /**
+     * select-list-field demo.
+     */
+    interface HTMLSelectListFieldDemoElement extends Components.SelectListFieldDemo, HTMLStencilElement {
+    }
+    var HTMLSelectListFieldDemoElement: {
+        prototype: HTMLSelectListFieldDemoElement;
+        new (): HTMLSelectListFieldDemoElement;
+    };
+    /**
+     * used in the es-select demo.
+     */
+    interface HTMLSelectOptionDemoElement extends Components.SelectOptionDemo, HTMLStencilElement {
+    }
+    var HTMLSelectOptionDemoElement: {
+        prototype: HTMLSelectOptionDemoElement;
+        new (): HTMLSelectOptionDemoElement;
+    };
+    /**
      * text-field demo.
      */
     interface HTMLTextFieldDemoElement extends Components.TextFieldDemo, HTMLStencilElement {
@@ -1246,7 +1357,6 @@ declare global {
         new (): HTMLTextareaInputDemoElement;
     };
     interface HTMLElementTagNameMap {
-        "es-select-option-demo": HTMLEsSelectOptionDemoElement;
         "f2-masked-text-field": HTMLF2MaskedTextFieldElement;
         "f2-masked-text-input": HTMLF2MaskedTextInputElement;
         "f2-number-field": HTMLF2NumberFieldElement;
@@ -1255,6 +1365,7 @@ declare global {
         "f2-radio-card-input": HTMLF2RadioCardInputElement;
         "f2-select-field": HTMLF2SelectFieldElement;
         "f2-select-input": HTMLF2SelectInputElement;
+        "f2-select-list-field": HTMLF2SelectListFieldElement;
         "f2-text-field": HTMLF2TextFieldElement;
         "f2-text-input": HTMLF2TextInputElement;
         "f2-text-list-field": HTMLF2TextListFieldElement;
@@ -1270,6 +1381,8 @@ declare global {
         "radio-card-input-demo": HTMLRadioCardInputDemoElement;
         "select-field-demo": HTMLSelectFieldDemoElement;
         "select-input-demo": HTMLSelectInputDemoElement;
+        "select-list-field-demo": HTMLSelectListFieldDemoElement;
+        "select-option-demo": HTMLSelectOptionDemoElement;
         "text-field-demo": HTMLTextFieldDemoElement;
         "text-input-demo": HTMLTextInputDemoElement;
         "text-list-field-demo": HTMLTextListFieldDemoElement;
@@ -1278,13 +1391,6 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    /**
-     * used in the es-select demo.
-     */
-    interface EsSelectOptionDemo {
-        "name"?: string;
-        "value"?: string;
-    }
     /**
      * A masked text input.
      */
@@ -1747,6 +1853,83 @@ declare namespace LocalJSX {
         "value": string | null;
     }
     /**
+     * Create a list from a fixed set of values.
+     */
+    interface F2SelectListField {
+        /**
+          * The icon to display next to the field
+         */
+        "addIcon"?: IconDescription;
+        /**
+          * Icon to use as a chevron.
+         */
+        "chevronIcon"?: IconDescription;
+        /**
+          * Icon for the delete button.
+         */
+        "deleteIcon"?: IconDescription;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * The icon to display next to the field
+         */
+        "icon"?: IconDescription;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2SelectListFieldCustomEvent<FieldChange<string[]>>) => void;
+        /**
+          * A list of options to choose from.
+         */
+        "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * Render the list item.
+         */
+        "renderItem"?: RenderFunction<[option: TypeaheadOption]>;
+        /**
+          * The selected item ids
+         */
+        "value": string[];
+    }
+    /**
      * A text input.
      */
     interface F2TextField {
@@ -2079,6 +2262,18 @@ declare namespace LocalJSX {
     interface SelectInputDemo {
     }
     /**
+     * select-list-field demo.
+     */
+    interface SelectListFieldDemo {
+    }
+    /**
+     * used in the es-select demo.
+     */
+    interface SelectOptionDemo {
+        "name"?: string;
+        "value"?: string;
+    }
+    /**
      * text-field demo.
      */
     interface TextFieldDemo {
@@ -2104,7 +2299,6 @@ declare namespace LocalJSX {
     interface TextareaInputDemo {
     }
     interface IntrinsicElements {
-        "es-select-option-demo": EsSelectOptionDemo;
         "f2-masked-text-field": F2MaskedTextField;
         "f2-masked-text-input": F2MaskedTextInput;
         "f2-number-field": F2NumberField;
@@ -2113,6 +2307,7 @@ declare namespace LocalJSX {
         "f2-radio-card-input": F2RadioCardInput;
         "f2-select-field": F2SelectField;
         "f2-select-input": F2SelectInput;
+        "f2-select-list-field": F2SelectListField;
         "f2-text-field": F2TextField;
         "f2-text-input": F2TextInput;
         "f2-text-list-field": F2TextListField;
@@ -2128,6 +2323,8 @@ declare namespace LocalJSX {
         "radio-card-input-demo": RadioCardInputDemo;
         "select-field-demo": SelectFieldDemo;
         "select-input-demo": SelectInputDemo;
+        "select-list-field-demo": SelectListFieldDemo;
+        "select-option-demo": SelectOptionDemo;
         "text-field-demo": TextFieldDemo;
         "text-input-demo": TextInputDemo;
         "text-list-field-demo": TextListFieldDemo;
@@ -2139,10 +2336,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            /**
-             * used in the es-select demo.
-             */
-            "es-select-option-demo": LocalJSX.EsSelectOptionDemo & JSXBase.HTMLAttributes<HTMLEsSelectOptionDemoElement>;
             /**
              * A masked text input.
              */
@@ -2176,6 +2369,10 @@ declare module "@stencil/core" {
              * A searchable select dropdown.
              */
             "f2-select-input": LocalJSX.F2SelectInput & JSXBase.HTMLAttributes<HTMLF2SelectInputElement>;
+            /**
+             * Create a list from a fixed set of values.
+             */
+            "f2-select-list-field": LocalJSX.F2SelectListField & JSXBase.HTMLAttributes<HTMLF2SelectListFieldElement>;
             /**
              * A text input.
              */
@@ -2233,6 +2430,14 @@ declare module "@stencil/core" {
              * select-input demo.
              */
             "select-input-demo": LocalJSX.SelectInputDemo & JSXBase.HTMLAttributes<HTMLSelectInputDemoElement>;
+            /**
+             * select-list-field demo.
+             */
+            "select-list-field-demo": LocalJSX.SelectListFieldDemo & JSXBase.HTMLAttributes<HTMLSelectListFieldDemoElement>;
+            /**
+             * used in the es-select demo.
+             */
+            "select-option-demo": LocalJSX.SelectOptionDemo & JSXBase.HTMLAttributes<HTMLSelectOptionDemoElement>;
             /**
              * text-field demo.
              */
