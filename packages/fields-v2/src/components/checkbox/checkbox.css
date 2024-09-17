@@ -1,0 +1,65 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:host {
+    display: block;
+    margin-bottom: var(--spacing-1_5, 12px);
+}
+
+.field {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-1_5, 12px);
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible .checkbox {
+        box-shadow: 0 0 0px 1px var(--color-secondary);
+    }
+}
+
+.input {
+    visibility: hidden;
+    position: absolute;
+
+    &:checked ~ .checkbox {
+        color: var(--color-secondary);
+    }
+
+    &:disabled ~ .checkbox {
+        border-color: var(--color-shade-20);
+        background-color: var(--color-shade-20);
+    }
+}
+
+.checkbox {
+    color: transparent;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-shade-50);
+    border-radius: 4px;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-property: color, border-color, background-color;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+}
+
+.label {
+    text-align: left;
+}
+
+.invalid {
+    & .checkbox {
+        border-color: var(--color-error);
+    }
+}
