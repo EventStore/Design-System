@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconDescription } from "@eventstore-ui/components";
 import { FieldChange, RenderFunction, ValidationMessages } from "./types";
 import { MaskOptions } from "./components/masked-text/types";
+import { MultiCheckboxOption } from "./components/multi-checkbox/types";
 import { RadioCardOption, RenderCard } from "./components/radio-card/types";
 import { OptionFilter, RenderTypeaheadOption, TypeaheadOption } from "./components/typeahead/types";
 import { RenderSelectValue } from "./components/select/types";
@@ -15,6 +16,7 @@ import { OptionFilter as OptionFilter1, RenderTypeaheadInput, RenderTypeaheadOpt
 export { IconDescription } from "@eventstore-ui/components";
 export { FieldChange, RenderFunction, ValidationMessages } from "./types";
 export { MaskOptions } from "./components/masked-text/types";
+export { MultiCheckboxOption } from "./components/multi-checkbox/types";
 export { RadioCardOption, RenderCard } from "./components/radio-card/types";
 export { OptionFilter, RenderTypeaheadOption, TypeaheadOption } from "./components/typeahead/types";
 export { RenderSelectValue } from "./components/select/types";
@@ -142,6 +144,59 @@ export namespace Components {
           * The current value of the field.
          */
         "value": string;
+    }
+    /**
+     * A multi-checkbox component
+     */
+    interface F2MultiCheckboxField {
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * The icon to use.
+         */
+        "icon": IconDescription;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * The list of options for the checkboxes.
+         */
+        "options": MultiCheckboxOption[];
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
+        "value": Set<string>;
     }
     /**
      * A number field.
@@ -810,6 +865,10 @@ export interface F2MaskedTextInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2MaskedTextInputElement;
 }
+export interface F2MultiCheckboxFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2MultiCheckboxFieldElement;
+}
 export interface F2NumberFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2NumberFieldElement;
@@ -924,6 +983,26 @@ declare global {
     var HTMLF2MaskedTextInputElement: {
         prototype: HTMLF2MaskedTextInputElement;
         new (): HTMLF2MaskedTextInputElement;
+    };
+    interface HTMLF2MultiCheckboxFieldElementEventMap {
+        "fieldchange": FieldChange<Set<string>>;
+    }
+    /**
+     * A multi-checkbox component
+     */
+    interface HTMLF2MultiCheckboxFieldElement extends Components.F2MultiCheckboxField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2MultiCheckboxFieldElementEventMap>(type: K, listener: (this: HTMLF2MultiCheckboxFieldElement, ev: F2MultiCheckboxFieldCustomEvent<HTMLF2MultiCheckboxFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2MultiCheckboxFieldElementEventMap>(type: K, listener: (this: HTMLF2MultiCheckboxFieldElement, ev: F2MultiCheckboxFieldCustomEvent<HTMLF2MultiCheckboxFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2MultiCheckboxFieldElement: {
+        prototype: HTMLF2MultiCheckboxFieldElement;
+        new (): HTMLF2MultiCheckboxFieldElement;
     };
     interface HTMLF2NumberFieldElementEventMap {
         "fieldchange": FieldChange<string>;
@@ -1201,6 +1280,7 @@ declare global {
         "f2-checkbox": HTMLF2CheckboxElement;
         "f2-masked-text-field": HTMLF2MaskedTextFieldElement;
         "f2-masked-text-input": HTMLF2MaskedTextInputElement;
+        "f2-multi-checkbox-field": HTMLF2MultiCheckboxFieldElement;
         "f2-number-field": HTMLF2NumberFieldElement;
         "f2-number-input": HTMLF2NumberInputElement;
         "f2-radio-card-field": HTMLF2RadioCardFieldElement;
@@ -1360,6 +1440,63 @@ declare namespace LocalJSX {
           * The current value of the field.
          */
         "value": string;
+    }
+    /**
+     * A multi-checkbox component
+     */
+    interface F2MultiCheckboxField {
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * The icon to use.
+         */
+        "icon"?: IconDescription;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2MultiCheckboxFieldCustomEvent<FieldChange<Set<string>>>) => void;
+        /**
+          * The list of options for the checkboxes.
+         */
+        "options"?: MultiCheckboxOption[];
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
+        "value": Set<string>;
     }
     /**
      * A number field.
@@ -2085,6 +2222,7 @@ declare namespace LocalJSX {
         "f2-checkbox": F2Checkbox;
         "f2-masked-text-field": F2MaskedTextField;
         "f2-masked-text-input": F2MaskedTextInput;
+        "f2-multi-checkbox-field": F2MultiCheckboxField;
         "f2-number-field": F2NumberField;
         "f2-number-input": F2NumberInput;
         "f2-radio-card-field": F2RadioCardField;
@@ -2117,6 +2255,10 @@ declare module "@stencil/core" {
              * A masked text input.
              */
             "f2-masked-text-input": LocalJSX.F2MaskedTextInput & JSXBase.HTMLAttributes<HTMLF2MaskedTextInputElement>;
+            /**
+             * A multi-checkbox component
+             */
+            "f2-multi-checkbox-field": LocalJSX.F2MultiCheckboxField & JSXBase.HTMLAttributes<HTMLF2MultiCheckboxFieldElement>;
             /**
              * A number field.
              */

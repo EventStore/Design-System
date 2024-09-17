@@ -16,6 +16,21 @@ export interface FieldProps {
     documentationLink?: string;
     /** Inline documentation link text. */
     documentationLinkText?: string;
+    /** Allows you to set the outer element to something other thatn a label, to prevent nested labels */
+    elements?: Partial<{
+        outer:
+            | string
+            | FunctionalComponent<{
+                  class: string | Record<string, boolean>;
+                  part: string;
+              }>;
+        label:
+            | string
+            | FunctionalComponent<{
+                  class: string | Record<string, boolean>;
+                  part: string;
+              }>;
+    }>;
 }
 
 /** Default layout for a Field. */
@@ -27,11 +42,12 @@ export const Field: FunctionalComponent<FieldProps> = (
         documentation,
         documentationLink,
         documentationLinkText,
+        elements: { outer: Outer = 'label', label: Label = 'span' } = {},
     },
     children,
 ) => (
-    <label class={{ field: true, invalid }} part={'field'}>
-        <span class={'label'} part={'label'}>
+    <Outer class={{ field: true, invalid }} part={'field'}>
+        <Label class={'label'} part={'label'}>
             {label}
             <slot name={'documentation'}>
                 {documentation != null && (
@@ -54,8 +70,8 @@ export const Field: FunctionalComponent<FieldProps> = (
                     </span>
                 )}
             </slot>
-        </span>
+        </Label>
         {children}
         <f2-validation-messages messages={messages} />
-    </label>
+    </Outer>
 );

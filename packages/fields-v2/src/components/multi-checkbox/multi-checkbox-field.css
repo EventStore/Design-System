@@ -1,0 +1,82 @@
+@import '../field.css';
+
+.checkbox-field {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, max-content));
+    gap: var(--spacing-1_5, 12px);
+    align-items: center;
+    width: 100%;
+}
+
+.input {
+    visibility: hidden;
+    position: absolute;
+
+    &:checked ~ .multi-checkbox {
+        color: var(--color-secondary);
+    }
+
+    &:disabled ~ .multi-checkbox {
+        border-color: var(--color-shade-20);
+        background-color: var(--color-shade-20);
+    }
+
+    &:focus ~ .multi-checkbox {
+        border-color: var(--color-secondary);
+    }
+}
+
+.invalid .input {
+    & ~ .multi-checkbox {
+        border-color: var(--color-error);
+    }
+
+    &:checked ~ .multi-checkbox {
+        color: var(--color-error);
+    }
+}
+
+.field {
+    align-items: flex-start;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: var(--spacing-1_5, 12px);
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible es-icon {
+        box-shadow: 0 0 0px 1px var(--color-secondary);
+    }
+
+    &.disabled {
+        cursor: default;
+        font-style: italic;
+    }
+}
+
+.multi-checkbox {
+    color: transparent;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-shade-50);
+    border-radius: 4px;
+    height: 18px;
+    width: 18px;
+    min-width: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-property: color, border-color, background-color;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+}
+
+.checkbox-label {
+    text-align: left;
+}
