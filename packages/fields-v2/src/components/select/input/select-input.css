@@ -1,0 +1,92 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:host {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-2, 16px);
+}
+
+.input {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    height: 40px;
+    width: 100%;
+    flex: 1 1 100%;
+
+    border-width: 1px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: var(--color-shade-50);
+    outline: none;
+    padding: 0 var(--spacing-2_5, 20px);
+    transition-property: border-color;
+    transition-duration: 200ms;
+
+    &.disabled,
+    &:disabled {
+        color: var(--color-disabled-contrast);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled);
+        border-style: dashed;
+
+        & es-icon {
+            color: var(--color-shade-50);
+        }
+    }
+
+    &.open {
+        border-color: transparent;
+        & es-icon {
+            transform: rotate(-180deg);
+        }
+    }
+}
+
+.placeholder {
+    color: var(--color-shade-50);
+}
+
+.true_input {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    bottom: 0;
+    left: 20px;
+    height: 40px;
+    width: calc(100% - 40px);
+    border: transparent;
+    outline: transparent;
+    background-color: transparent;
+    padding: 0;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--color-text);
+}
+
+.select_wrapper {
+    position: relative;
+    grid-column-start: input;
+    grid-column-end: input;
+}
+
+es-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 15px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    pointer-events: none;
+
+    transition: transform 500ms ease;
+    transform: rotate(0deg);
+}
