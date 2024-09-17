@@ -1,16 +1,32 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+@import '../field.css';
+@import '../select/input/select-input.css';
 
 :host {
-    display: flex;
-    flex-direction: row;
-    gap: var(--spacing-2, 16px);
+    display: block;
 }
 
-.input {
+:host f2-typeahead {
+    display: flex;
+    flex-direction: row;
+}
+
+.value_list {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1_5, 12px);
+}
+
+.value_list_item {
+    display: flex;
+    flex-direction: row;
+}
+
+.value_list_item_icon {
+    margin-left: auto;
+}
+
+.value {
     height: 40px;
     width: 100%;
     flex: 1 1 100%;
@@ -30,24 +46,4 @@
     font-size: 16px;
     color: var(--color-text);
     background-color: var(--color-background);
-
-    &.invalid {
-        border-color: var(--color-error);
-    }
-
-    &.disabled,
-    &:disabled {
-        color: var(--color-disabled-contrast);
-        border-color: var(--color-disabled-border);
-        background-color: var(--color-disabled);
-        border-style: dashed;
-    }
-
-    &:focus {
-        border-color: var(--color-secondary);
-    }
-
-    &::placeholder {
-        color: var(--color-shade-60);
-    }
 }
