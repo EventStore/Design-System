@@ -9,10 +9,16 @@ import { FieldChange, ValidationMessages } from "./types";
 import { MaskOptions } from "./components/masked-text/types";
 import { RadioCardOption, RenderCard } from "./components/radio-card/types";
 import { IconDescription } from "@eventstore-ui/components";
+import { OptionFilter, RenderTypeaheadOption, TypeaheadOption } from "./components/typeahead/types";
+import { RenderSelectValue } from "./components/select/types";
+import { OptionFilter as OptionFilter1, RenderTypeaheadInput, RenderTypeaheadOption as RenderTypeaheadOption1, TypeaheadOption as TypeaheadOption1 } from "./components/typeahead/types";
 export { FieldChange, ValidationMessages } from "./types";
 export { MaskOptions } from "./components/masked-text/types";
 export { RadioCardOption, RenderCard } from "./components/radio-card/types";
 export { IconDescription } from "@eventstore-ui/components";
+export { OptionFilter, RenderTypeaheadOption, TypeaheadOption } from "./components/typeahead/types";
+export { RenderSelectValue } from "./components/select/types";
+export { OptionFilter as OptionFilter1, RenderTypeaheadInput, RenderTypeaheadOption as RenderTypeaheadOption1, TypeaheadOption as TypeaheadOption1 } from "./components/typeahead/types";
 export namespace Components {
     /**
      * A masked text input.
@@ -304,6 +310,132 @@ export namespace Components {
     /**
      * A text input.
      */
+    interface F2SelectField {
+        /**
+          * Icon to use as a chevron.
+         */
+        "chevronIcon"?: IconDescription;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Pass a custom search filter function
+         */
+        "optionFilter"?: OptionFilter;
+        /**
+          * A list of options to choose from.
+         */
+        "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder"?: string;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * Overwrite the default option renderer.
+         */
+        "renderOption"?: RenderTypeaheadOption<any>;
+        /**
+          * Overwrite the default value renderer.
+         */
+        "renderValue"?: RenderSelectValue<any>;
+        /**
+          * The current value of the field.
+         */
+        "value": string | null;
+    }
+    /**
+     * A searchable select dropdown.
+     */
+    interface F2SelectInput {
+        /**
+          * Icon to use as a chevron.
+         */
+        "chevronIcon": IconDescription;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Pass a custom search filter function
+         */
+        "optionFilter"?: OptionFilter;
+        /**
+          * A list of options to choose from.
+         */
+        "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder"?: string;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * Overwrite the default option renderer.
+         */
+        "renderOption"?: RenderTypeaheadOption<any>;
+        /**
+          * Overwrite the default value renderer.
+         */
+        "renderValue": RenderSelectValue<any>;
+        /**
+          * The current value of the field.
+         */
+        "value": string | null;
+    }
+    /**
+     * A text input.
+     */
     interface F2TextField {
         /**
           * If the input is disabled.
@@ -473,6 +605,18 @@ export namespace Components {
          */
         "value": string;
     }
+    interface F2Typeahead {
+        "clearOnSelect": boolean;
+        "closeOnSelect": boolean;
+        "disabled"?: boolean;
+        "name": string;
+        "optionFilter": OptionFilter1;
+        "options": TypeaheadOption1[];
+        "readonly"?: boolean;
+        "renderInput": RenderTypeaheadInput;
+        "renderOption": RenderTypeaheadOption1;
+        "value": string[];
+    }
     /**
      * Display messages under fields.
      */
@@ -519,6 +663,14 @@ export interface F2RadioCardInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2RadioCardInputElement;
 }
+export interface F2SelectFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2SelectFieldElement;
+}
+export interface F2SelectInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2SelectInputElement;
+}
 export interface F2TextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2TextFieldElement;
@@ -534,6 +686,10 @@ export interface F2TextareaFieldCustomEvent<T> extends CustomEvent<T> {
 export interface F2TextareaInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2TextareaInputElement;
+}
+export interface F2TypeaheadCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2TypeaheadElement;
 }
 declare global {
     interface HTMLF2MaskedTextFieldElementEventMap {
@@ -660,6 +816,47 @@ declare global {
         prototype: HTMLF2RadioCardInputElement;
         new (): HTMLF2RadioCardInputElement;
     };
+    interface HTMLF2SelectFieldElementEventMap {
+        "fieldchange": FieldChange<string>;
+        "enter": any;
+    }
+    /**
+     * A text input.
+     */
+    interface HTMLF2SelectFieldElement extends Components.F2SelectField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2SelectFieldElementEventMap>(type: K, listener: (this: HTMLF2SelectFieldElement, ev: F2SelectFieldCustomEvent<HTMLF2SelectFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2SelectFieldElementEventMap>(type: K, listener: (this: HTMLF2SelectFieldElement, ev: F2SelectFieldCustomEvent<HTMLF2SelectFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2SelectFieldElement: {
+        prototype: HTMLF2SelectFieldElement;
+        new (): HTMLF2SelectFieldElement;
+    };
+    interface HTMLF2SelectInputElementEventMap {
+        "fieldchange": FieldChange<string | null>;
+    }
+    /**
+     * A searchable select dropdown.
+     */
+    interface HTMLF2SelectInputElement extends Components.F2SelectInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2SelectInputElementEventMap>(type: K, listener: (this: HTMLF2SelectInputElement, ev: F2SelectInputCustomEvent<HTMLF2SelectInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2SelectInputElementEventMap>(type: K, listener: (this: HTMLF2SelectInputElement, ev: F2SelectInputCustomEvent<HTMLF2SelectInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2SelectInputElement: {
+        prototype: HTMLF2SelectInputElement;
+        new (): HTMLF2SelectInputElement;
+    };
     interface HTMLF2TextFieldElementEventMap {
         "fieldchange": FieldChange<string>;
         "enter": any;
@@ -742,6 +939,24 @@ declare global {
         prototype: HTMLF2TextareaInputElement;
         new (): HTMLF2TextareaInputElement;
     };
+    interface HTMLF2TypeaheadElementEventMap {
+        "fieldchange": FieldChange<string[]>;
+        "enter": any;
+    }
+    interface HTMLF2TypeaheadElement extends Components.F2Typeahead, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2TypeaheadElementEventMap>(type: K, listener: (this: HTMLF2TypeaheadElement, ev: F2TypeaheadCustomEvent<HTMLF2TypeaheadElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2TypeaheadElementEventMap>(type: K, listener: (this: HTMLF2TypeaheadElement, ev: F2TypeaheadCustomEvent<HTMLF2TypeaheadElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2TypeaheadElement: {
+        prototype: HTMLF2TypeaheadElement;
+        new (): HTMLF2TypeaheadElement;
+    };
     /**
      * Display messages under fields.
      */
@@ -758,10 +973,13 @@ declare global {
         "f2-number-input": HTMLF2NumberInputElement;
         "f2-radio-card-field": HTMLF2RadioCardFieldElement;
         "f2-radio-card-input": HTMLF2RadioCardInputElement;
+        "f2-select-field": HTMLF2SelectFieldElement;
+        "f2-select-input": HTMLF2SelectInputElement;
         "f2-text-field": HTMLF2TextFieldElement;
         "f2-text-input": HTMLF2TextInputElement;
         "f2-textarea-field": HTMLF2TextareaFieldElement;
         "f2-textarea-input": HTMLF2TextareaInputElement;
+        "f2-typeahead": HTMLF2TypeaheadElement;
         "f2-validation-messages": HTMLF2ValidationMessagesElement;
     }
 }
@@ -1092,6 +1310,144 @@ declare namespace LocalJSX {
     /**
      * A text input.
      */
+    interface F2SelectField {
+        /**
+          * Icon to use as a chevron.
+         */
+        "chevronIcon"?: IconDescription;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Emitted on keyup of enter, if no modifier keys are held.
+         */
+        "onEnter"?: (event: F2SelectFieldCustomEvent<any>) => void;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2SelectFieldCustomEvent<FieldChange<string>>) => void;
+        /**
+          * Pass a custom search filter function
+         */
+        "optionFilter"?: OptionFilter;
+        /**
+          * A list of options to choose from.
+         */
+        "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder"?: string;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * Overwrite the default option renderer.
+         */
+        "renderOption"?: RenderTypeaheadOption<any>;
+        /**
+          * Overwrite the default value renderer.
+         */
+        "renderValue"?: RenderSelectValue<any>;
+        /**
+          * The current value of the field.
+         */
+        "value": string | null;
+    }
+    /**
+     * A searchable select dropdown.
+     */
+    interface F2SelectInput {
+        /**
+          * Icon to use as a chevron.
+         */
+        "chevronIcon"?: IconDescription;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2SelectInputCustomEvent<FieldChange<string | null>>) => void;
+        /**
+          * Pass a custom search filter function
+         */
+        "optionFilter"?: OptionFilter;
+        /**
+          * A list of options to choose from.
+         */
+        "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder"?: string;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * Overwrite the default option renderer.
+         */
+        "renderOption"?: RenderTypeaheadOption<any>;
+        /**
+          * Overwrite the default value renderer.
+         */
+        "renderValue"?: RenderSelectValue<any>;
+        /**
+          * The current value of the field.
+         */
+        "value": string | null;
+    }
+    /**
+     * A text input.
+     */
     interface F2TextField {
         /**
           * If the input is disabled.
@@ -1285,6 +1641,20 @@ declare namespace LocalJSX {
          */
         "value": string;
     }
+    interface F2Typeahead {
+        "clearOnSelect"?: boolean;
+        "closeOnSelect"?: boolean;
+        "disabled"?: boolean;
+        "name": string;
+        "onEnter"?: (event: F2TypeaheadCustomEvent<any>) => void;
+        "onFieldchange"?: (event: F2TypeaheadCustomEvent<FieldChange<string[]>>) => void;
+        "optionFilter"?: OptionFilter1;
+        "options": TypeaheadOption1[];
+        "readonly"?: boolean;
+        "renderInput": RenderTypeaheadInput;
+        "renderOption"?: RenderTypeaheadOption1;
+        "value": string[];
+    }
     /**
      * Display messages under fields.
      */
@@ -1313,10 +1683,13 @@ declare namespace LocalJSX {
         "f2-number-input": F2NumberInput;
         "f2-radio-card-field": F2RadioCardField;
         "f2-radio-card-input": F2RadioCardInput;
+        "f2-select-field": F2SelectField;
+        "f2-select-input": F2SelectInput;
         "f2-text-field": F2TextField;
         "f2-text-input": F2TextInput;
         "f2-textarea-field": F2TextareaField;
         "f2-textarea-input": F2TextareaInput;
+        "f2-typeahead": F2Typeahead;
         "f2-validation-messages": F2ValidationMessages;
     }
 }
@@ -1352,6 +1725,14 @@ declare module "@stencil/core" {
             /**
              * A text input.
              */
+            "f2-select-field": LocalJSX.F2SelectField & JSXBase.HTMLAttributes<HTMLF2SelectFieldElement>;
+            /**
+             * A searchable select dropdown.
+             */
+            "f2-select-input": LocalJSX.F2SelectInput & JSXBase.HTMLAttributes<HTMLF2SelectInputElement>;
+            /**
+             * A text input.
+             */
             "f2-text-field": LocalJSX.F2TextField & JSXBase.HTMLAttributes<HTMLF2TextFieldElement>;
             /**
              * A text input.
@@ -1365,6 +1746,7 @@ declare module "@stencil/core" {
              * A textarea input.
              */
             "f2-textarea-input": LocalJSX.F2TextareaInput & JSXBase.HTMLAttributes<HTMLF2TextareaInputElement>;
+            "f2-typeahead": LocalJSX.F2Typeahead & JSXBase.HTMLAttributes<HTMLF2TypeaheadElement>;
             /**
              * Display messages under fields.
              */
