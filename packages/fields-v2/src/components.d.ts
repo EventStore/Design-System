@@ -21,6 +21,13 @@ export { RenderSelectValue } from "./components/select/types";
 export { OptionFilter as OptionFilter1, RenderTypeaheadInput, RenderTypeaheadOption as RenderTypeaheadOption1, TypeaheadOption as TypeaheadOption1 } from "./components/typeahead/types";
 export namespace Components {
     /**
+     * used in the es-select demo.
+     */
+    interface EsSelectOptionDemo {
+        "name": string;
+        "value": string;
+    }
+    /**
      * A masked text input.
      */
     interface F2MaskedTextField {
@@ -520,6 +527,63 @@ export namespace Components {
         "value": string;
     }
     /**
+     * A list creator input.
+     */
+    interface F2TextListField {
+        /**
+          * Icon for the add item button.
+         */
+        "additionIcon": IconDescription;
+        /**
+          * Text for the add item button.
+         */
+        "additionText": string;
+        /**
+          * Icon for the delete button.
+         */
+        "deleteIcon": IconDescription;
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Display a placeholder in the input.
+         */
+        "placeholder": string;
+        /**
+          * The currently selected values
+         */
+        "value": string[];
+    }
+    /**
      * A textarea field.
      */
     interface F2TextareaField {
@@ -638,6 +702,71 @@ export namespace Components {
          */
         "warningIcon": IconDescription;
     }
+    /**
+     * masked-text-field demo.
+     */
+    interface MaskedTextFieldDemo {
+    }
+    /**
+     * masked-text-input demo.
+     */
+    interface MaskedTextInputDemo {
+    }
+    /**
+     * number-field demo.
+     */
+    interface NumberFieldDemo {
+    }
+    /**
+     * number-input demo.
+     */
+    interface NumberInputDemo {
+    }
+    /**
+     * radio-card-field demo.
+     */
+    interface RadioCardFieldDemo {
+    }
+    /**
+     * radio-card-input demo.
+     */
+    interface RadioCardInputDemo {
+    }
+    /**
+     * select-field demo.
+     */
+    interface SelectFieldDemo {
+    }
+    /**
+     * select-input demo.
+     */
+    interface SelectInputDemo {
+    }
+    /**
+     * text-field demo.
+     */
+    interface TextFieldDemo {
+    }
+    /**
+     * text-input demo.
+     */
+    interface TextInputDemo {
+    }
+    /**
+     * text-list-field demo.
+     */
+    interface TextListFieldDemo {
+    }
+    /**
+     * textarea-field demo.
+     */
+    interface TextareaFieldDemo {
+    }
+    /**
+     * textarea-input demo.
+     */
+    interface TextareaInputDemo {
+    }
 }
 export interface F2MaskedTextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -679,6 +808,10 @@ export interface F2TextInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2TextInputElement;
 }
+export interface F2TextListFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2TextListFieldElement;
+}
 export interface F2TextareaFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2TextareaFieldElement;
@@ -692,6 +825,15 @@ export interface F2TypeaheadCustomEvent<T> extends CustomEvent<T> {
     target: HTMLF2TypeaheadElement;
 }
 declare global {
+    /**
+     * used in the es-select demo.
+     */
+    interface HTMLEsSelectOptionDemoElement extends Components.EsSelectOptionDemo, HTMLStencilElement {
+    }
+    var HTMLEsSelectOptionDemoElement: {
+        prototype: HTMLEsSelectOptionDemoElement;
+        new (): HTMLEsSelectOptionDemoElement;
+    };
     interface HTMLF2MaskedTextFieldElementEventMap {
         "fieldchange": FieldChange<string>;
         "enter": any;
@@ -899,6 +1041,26 @@ declare global {
         prototype: HTMLF2TextInputElement;
         new (): HTMLF2TextInputElement;
     };
+    interface HTMLF2TextListFieldElementEventMap {
+        "fieldchange": FieldChange<string[]>;
+    }
+    /**
+     * A list creator input.
+     */
+    interface HTMLF2TextListFieldElement extends Components.F2TextListField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2TextListFieldElementEventMap>(type: K, listener: (this: HTMLF2TextListFieldElement, ev: F2TextListFieldCustomEvent<HTMLF2TextListFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2TextListFieldElementEventMap>(type: K, listener: (this: HTMLF2TextListFieldElement, ev: F2TextListFieldCustomEvent<HTMLF2TextListFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2TextListFieldElement: {
+        prototype: HTMLF2TextListFieldElement;
+        new (): HTMLF2TextListFieldElement;
+    };
     interface HTMLF2TextareaFieldElementEventMap {
         "fieldchange": FieldChange<string>;
     }
@@ -966,7 +1128,125 @@ declare global {
         prototype: HTMLF2ValidationMessagesElement;
         new (): HTMLF2ValidationMessagesElement;
     };
+    /**
+     * masked-text-field demo.
+     */
+    interface HTMLMaskedTextFieldDemoElement extends Components.MaskedTextFieldDemo, HTMLStencilElement {
+    }
+    var HTMLMaskedTextFieldDemoElement: {
+        prototype: HTMLMaskedTextFieldDemoElement;
+        new (): HTMLMaskedTextFieldDemoElement;
+    };
+    /**
+     * masked-text-input demo.
+     */
+    interface HTMLMaskedTextInputDemoElement extends Components.MaskedTextInputDemo, HTMLStencilElement {
+    }
+    var HTMLMaskedTextInputDemoElement: {
+        prototype: HTMLMaskedTextInputDemoElement;
+        new (): HTMLMaskedTextInputDemoElement;
+    };
+    /**
+     * number-field demo.
+     */
+    interface HTMLNumberFieldDemoElement extends Components.NumberFieldDemo, HTMLStencilElement {
+    }
+    var HTMLNumberFieldDemoElement: {
+        prototype: HTMLNumberFieldDemoElement;
+        new (): HTMLNumberFieldDemoElement;
+    };
+    /**
+     * number-input demo.
+     */
+    interface HTMLNumberInputDemoElement extends Components.NumberInputDemo, HTMLStencilElement {
+    }
+    var HTMLNumberInputDemoElement: {
+        prototype: HTMLNumberInputDemoElement;
+        new (): HTMLNumberInputDemoElement;
+    };
+    /**
+     * radio-card-field demo.
+     */
+    interface HTMLRadioCardFieldDemoElement extends Components.RadioCardFieldDemo, HTMLStencilElement {
+    }
+    var HTMLRadioCardFieldDemoElement: {
+        prototype: HTMLRadioCardFieldDemoElement;
+        new (): HTMLRadioCardFieldDemoElement;
+    };
+    /**
+     * radio-card-input demo.
+     */
+    interface HTMLRadioCardInputDemoElement extends Components.RadioCardInputDemo, HTMLStencilElement {
+    }
+    var HTMLRadioCardInputDemoElement: {
+        prototype: HTMLRadioCardInputDemoElement;
+        new (): HTMLRadioCardInputDemoElement;
+    };
+    /**
+     * select-field demo.
+     */
+    interface HTMLSelectFieldDemoElement extends Components.SelectFieldDemo, HTMLStencilElement {
+    }
+    var HTMLSelectFieldDemoElement: {
+        prototype: HTMLSelectFieldDemoElement;
+        new (): HTMLSelectFieldDemoElement;
+    };
+    /**
+     * select-input demo.
+     */
+    interface HTMLSelectInputDemoElement extends Components.SelectInputDemo, HTMLStencilElement {
+    }
+    var HTMLSelectInputDemoElement: {
+        prototype: HTMLSelectInputDemoElement;
+        new (): HTMLSelectInputDemoElement;
+    };
+    /**
+     * text-field demo.
+     */
+    interface HTMLTextFieldDemoElement extends Components.TextFieldDemo, HTMLStencilElement {
+    }
+    var HTMLTextFieldDemoElement: {
+        prototype: HTMLTextFieldDemoElement;
+        new (): HTMLTextFieldDemoElement;
+    };
+    /**
+     * text-input demo.
+     */
+    interface HTMLTextInputDemoElement extends Components.TextInputDemo, HTMLStencilElement {
+    }
+    var HTMLTextInputDemoElement: {
+        prototype: HTMLTextInputDemoElement;
+        new (): HTMLTextInputDemoElement;
+    };
+    /**
+     * text-list-field demo.
+     */
+    interface HTMLTextListFieldDemoElement extends Components.TextListFieldDemo, HTMLStencilElement {
+    }
+    var HTMLTextListFieldDemoElement: {
+        prototype: HTMLTextListFieldDemoElement;
+        new (): HTMLTextListFieldDemoElement;
+    };
+    /**
+     * textarea-field demo.
+     */
+    interface HTMLTextareaFieldDemoElement extends Components.TextareaFieldDemo, HTMLStencilElement {
+    }
+    var HTMLTextareaFieldDemoElement: {
+        prototype: HTMLTextareaFieldDemoElement;
+        new (): HTMLTextareaFieldDemoElement;
+    };
+    /**
+     * textarea-input demo.
+     */
+    interface HTMLTextareaInputDemoElement extends Components.TextareaInputDemo, HTMLStencilElement {
+    }
+    var HTMLTextareaInputDemoElement: {
+        prototype: HTMLTextareaInputDemoElement;
+        new (): HTMLTextareaInputDemoElement;
+    };
     interface HTMLElementTagNameMap {
+        "es-select-option-demo": HTMLEsSelectOptionDemoElement;
         "f2-masked-text-field": HTMLF2MaskedTextFieldElement;
         "f2-masked-text-input": HTMLF2MaskedTextInputElement;
         "f2-number-field": HTMLF2NumberFieldElement;
@@ -977,13 +1257,34 @@ declare global {
         "f2-select-input": HTMLF2SelectInputElement;
         "f2-text-field": HTMLF2TextFieldElement;
         "f2-text-input": HTMLF2TextInputElement;
+        "f2-text-list-field": HTMLF2TextListFieldElement;
         "f2-textarea-field": HTMLF2TextareaFieldElement;
         "f2-textarea-input": HTMLF2TextareaInputElement;
         "f2-typeahead": HTMLF2TypeaheadElement;
         "f2-validation-messages": HTMLF2ValidationMessagesElement;
+        "masked-text-field-demo": HTMLMaskedTextFieldDemoElement;
+        "masked-text-input-demo": HTMLMaskedTextInputDemoElement;
+        "number-field-demo": HTMLNumberFieldDemoElement;
+        "number-input-demo": HTMLNumberInputDemoElement;
+        "radio-card-field-demo": HTMLRadioCardFieldDemoElement;
+        "radio-card-input-demo": HTMLRadioCardInputDemoElement;
+        "select-field-demo": HTMLSelectFieldDemoElement;
+        "select-input-demo": HTMLSelectInputDemoElement;
+        "text-field-demo": HTMLTextFieldDemoElement;
+        "text-input-demo": HTMLTextInputDemoElement;
+        "text-list-field-demo": HTMLTextListFieldDemoElement;
+        "textarea-field-demo": HTMLTextareaFieldDemoElement;
+        "textarea-input-demo": HTMLTextareaInputDemoElement;
     }
 }
 declare namespace LocalJSX {
+    /**
+     * used in the es-select demo.
+     */
+    interface EsSelectOptionDemo {
+        "name"?: string;
+        "value"?: string;
+    }
     /**
      * A masked text input.
      */
@@ -1548,6 +1849,67 @@ declare namespace LocalJSX {
         "value": string;
     }
     /**
+     * A list creator input.
+     */
+    interface F2TextListField {
+        /**
+          * Icon for the add item button.
+         */
+        "additionIcon"?: IconDescription;
+        /**
+          * Text for the add item button.
+         */
+        "additionText"?: string;
+        /**
+          * Icon for the delete button.
+         */
+        "deleteIcon"?: IconDescription;
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2TextListFieldCustomEvent<FieldChange<string[]>>) => void;
+        /**
+          * Display a placeholder in the input.
+         */
+        "placeholder": string;
+        /**
+          * The currently selected values
+         */
+        "value": string[];
+    }
+    /**
      * A textarea field.
      */
     interface F2TextareaField {
@@ -1676,7 +2038,73 @@ declare namespace LocalJSX {
          */
         "warningIcon"?: IconDescription;
     }
+    /**
+     * masked-text-field demo.
+     */
+    interface MaskedTextFieldDemo {
+    }
+    /**
+     * masked-text-input demo.
+     */
+    interface MaskedTextInputDemo {
+    }
+    /**
+     * number-field demo.
+     */
+    interface NumberFieldDemo {
+    }
+    /**
+     * number-input demo.
+     */
+    interface NumberInputDemo {
+    }
+    /**
+     * radio-card-field demo.
+     */
+    interface RadioCardFieldDemo {
+    }
+    /**
+     * radio-card-input demo.
+     */
+    interface RadioCardInputDemo {
+    }
+    /**
+     * select-field demo.
+     */
+    interface SelectFieldDemo {
+    }
+    /**
+     * select-input demo.
+     */
+    interface SelectInputDemo {
+    }
+    /**
+     * text-field demo.
+     */
+    interface TextFieldDemo {
+    }
+    /**
+     * text-input demo.
+     */
+    interface TextInputDemo {
+    }
+    /**
+     * text-list-field demo.
+     */
+    interface TextListFieldDemo {
+    }
+    /**
+     * textarea-field demo.
+     */
+    interface TextareaFieldDemo {
+    }
+    /**
+     * textarea-input demo.
+     */
+    interface TextareaInputDemo {
+    }
     interface IntrinsicElements {
+        "es-select-option-demo": EsSelectOptionDemo;
         "f2-masked-text-field": F2MaskedTextField;
         "f2-masked-text-input": F2MaskedTextInput;
         "f2-number-field": F2NumberField;
@@ -1687,16 +2115,34 @@ declare namespace LocalJSX {
         "f2-select-input": F2SelectInput;
         "f2-text-field": F2TextField;
         "f2-text-input": F2TextInput;
+        "f2-text-list-field": F2TextListField;
         "f2-textarea-field": F2TextareaField;
         "f2-textarea-input": F2TextareaInput;
         "f2-typeahead": F2Typeahead;
         "f2-validation-messages": F2ValidationMessages;
+        "masked-text-field-demo": MaskedTextFieldDemo;
+        "masked-text-input-demo": MaskedTextInputDemo;
+        "number-field-demo": NumberFieldDemo;
+        "number-input-demo": NumberInputDemo;
+        "radio-card-field-demo": RadioCardFieldDemo;
+        "radio-card-input-demo": RadioCardInputDemo;
+        "select-field-demo": SelectFieldDemo;
+        "select-input-demo": SelectInputDemo;
+        "text-field-demo": TextFieldDemo;
+        "text-input-demo": TextInputDemo;
+        "text-list-field-demo": TextListFieldDemo;
+        "textarea-field-demo": TextareaFieldDemo;
+        "textarea-input-demo": TextareaInputDemo;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            /**
+             * used in the es-select demo.
+             */
+            "es-select-option-demo": LocalJSX.EsSelectOptionDemo & JSXBase.HTMLAttributes<HTMLEsSelectOptionDemoElement>;
             /**
              * A masked text input.
              */
@@ -1739,6 +2185,10 @@ declare module "@stencil/core" {
              */
             "f2-text-input": LocalJSX.F2TextInput & JSXBase.HTMLAttributes<HTMLF2TextInputElement>;
             /**
+             * A list creator input.
+             */
+            "f2-text-list-field": LocalJSX.F2TextListField & JSXBase.HTMLAttributes<HTMLF2TextListFieldElement>;
+            /**
              * A textarea field.
              */
             "f2-textarea-field": LocalJSX.F2TextareaField & JSXBase.HTMLAttributes<HTMLF2TextareaFieldElement>;
@@ -1751,6 +2201,58 @@ declare module "@stencil/core" {
              * Display messages under fields.
              */
             "f2-validation-messages": LocalJSX.F2ValidationMessages & JSXBase.HTMLAttributes<HTMLF2ValidationMessagesElement>;
+            /**
+             * masked-text-field demo.
+             */
+            "masked-text-field-demo": LocalJSX.MaskedTextFieldDemo & JSXBase.HTMLAttributes<HTMLMaskedTextFieldDemoElement>;
+            /**
+             * masked-text-input demo.
+             */
+            "masked-text-input-demo": LocalJSX.MaskedTextInputDemo & JSXBase.HTMLAttributes<HTMLMaskedTextInputDemoElement>;
+            /**
+             * number-field demo.
+             */
+            "number-field-demo": LocalJSX.NumberFieldDemo & JSXBase.HTMLAttributes<HTMLNumberFieldDemoElement>;
+            /**
+             * number-input demo.
+             */
+            "number-input-demo": LocalJSX.NumberInputDemo & JSXBase.HTMLAttributes<HTMLNumberInputDemoElement>;
+            /**
+             * radio-card-field demo.
+             */
+            "radio-card-field-demo": LocalJSX.RadioCardFieldDemo & JSXBase.HTMLAttributes<HTMLRadioCardFieldDemoElement>;
+            /**
+             * radio-card-input demo.
+             */
+            "radio-card-input-demo": LocalJSX.RadioCardInputDemo & JSXBase.HTMLAttributes<HTMLRadioCardInputDemoElement>;
+            /**
+             * select-field demo.
+             */
+            "select-field-demo": LocalJSX.SelectFieldDemo & JSXBase.HTMLAttributes<HTMLSelectFieldDemoElement>;
+            /**
+             * select-input demo.
+             */
+            "select-input-demo": LocalJSX.SelectInputDemo & JSXBase.HTMLAttributes<HTMLSelectInputDemoElement>;
+            /**
+             * text-field demo.
+             */
+            "text-field-demo": LocalJSX.TextFieldDemo & JSXBase.HTMLAttributes<HTMLTextFieldDemoElement>;
+            /**
+             * text-input demo.
+             */
+            "text-input-demo": LocalJSX.TextInputDemo & JSXBase.HTMLAttributes<HTMLTextInputDemoElement>;
+            /**
+             * text-list-field demo.
+             */
+            "text-list-field-demo": LocalJSX.TextListFieldDemo & JSXBase.HTMLAttributes<HTMLTextListFieldDemoElement>;
+            /**
+             * textarea-field demo.
+             */
+            "textarea-field-demo": LocalJSX.TextareaFieldDemo & JSXBase.HTMLAttributes<HTMLTextareaFieldDemoElement>;
+            /**
+             * textarea-input demo.
+             */
+            "textarea-input-demo": LocalJSX.TextareaInputDemo & JSXBase.HTMLAttributes<HTMLTextareaInputDemoElement>;
         }
     }
 }

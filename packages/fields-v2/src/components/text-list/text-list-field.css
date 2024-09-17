@@ -1,0 +1,22 @@
+@import '../field.css';
+
+:host {
+    display: block;
+}
+
+.delete_row {
+    width: fit-content;
+    --border-radius: 50%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    padding-right: 40px;
+}
+
+.add_item {
+    margin-left: auto;
+    --text-color: var(--color-text);
+    --border-radius: 20px;
+}
