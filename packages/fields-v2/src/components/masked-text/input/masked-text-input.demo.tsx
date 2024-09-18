@@ -8,7 +8,10 @@ interface Example {
     somethingElse: string;
 }
 
-/** masked-text-input demo. */
+/**
+ * masked-text-input
+ * @group inputs
+ */
 @Component({
     tag: 'masked-text-input-demo',
     shadow: true,

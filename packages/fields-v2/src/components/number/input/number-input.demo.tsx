@@ -8,7 +8,10 @@ interface Example {
     somethingElse: string;
 }
 
-/** number-input demo. */
+/**
+ * number-input
+ * @group inputs
+ */
 @Component({
     tag: 'number-input-demo',
     shadow: true,

@@ -9,7 +9,10 @@ interface Example {
     somethingElse: string;
 }
 
-/** number-field demo. */
+/**
+ * number-field
+ * @group fields
+ */
 @Component({
     tag: 'number-field-demo',
     shadow: true,

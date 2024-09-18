@@ -9,7 +9,10 @@ interface Example {
     somethingElse: string;
 }
 
-/** textarea-field demo. */
+/**
+ * textarea-field
+ * @group fields
+ */
 @Component({
     tag: 'textarea-field-demo',
     shadow: true,

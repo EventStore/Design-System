@@ -1,7 +1,10 @@
 import { Component, h, Listen, State, Host } from '@stencil/core';
 import type { FieldChange } from 'types';
 
-/** select-list-field demo. */
+/**
+ * select-list-field
+ * @group fields
+ */
 @Component({
     tag: 'select-list-field-demo',
     shadow: true,

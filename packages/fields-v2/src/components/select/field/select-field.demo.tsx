@@ -8,7 +8,10 @@ interface Example {
     somethingElse: string | null;
 }
 
-/** select-field demo. */
+/**
+ * select-field
+ * @group fields
+ */
 @Component({
     tag: 'select-field-demo',
     shadow: true,
