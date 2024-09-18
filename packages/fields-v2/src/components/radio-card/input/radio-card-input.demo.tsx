@@ -66,7 +66,10 @@ const topologies: RadioCardOption[] = [
     },
 ];
 
-/** radio-card-input demo. */
+/**
+ * radio-card-input
+ * @group inputs
+ */
 @Component({
     tag: 'radio-card-input-demo',
     shadow: true,

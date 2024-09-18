@@ -2,7 +2,10 @@ import { Component, h, Host, Listen, State } from '@stencil/core';
 import type { FieldChange } from '../../../types';
 import type { RenderSelectOption } from '../types';
 
-/** select-input demo. */
+/**
+ * select-input
+ * @group inputs
+ */
 @Component({
     tag: 'select-input-demo',
     shadow: true,

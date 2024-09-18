@@ -6,7 +6,7 @@ interface Example {
     option: boolean;
 }
 
-/** checkbox demo. */
+/** checkbox */
 @Component({
     tag: 'checkbox-demo',
     shadow: true,

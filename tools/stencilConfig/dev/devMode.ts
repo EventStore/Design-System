@@ -7,6 +7,17 @@ import type {
     JsonDocs,
 } from '@stencil/core/internal';
 
+interface Demo {
+    tagName: string;
+    description: string;
+    tags: Map<string, string>;
+    group: string;
+}
+
+type DevComponents = Map<string, Demo[]>;
+
+const DEFAULT_GROUP = 'other';
+
 class DevMode implements OutputTargetCustom {
     public type = 'custom' as const;
     public name = 'dev-mode';
@@ -19,15 +30,38 @@ class DevMode implements OutputTargetCustom {
     ) {
         const timespan = buildCtx.createTimeSpan('dev mode started', true);
 
-        const devComponents = buildCtx.components
-            .filter(({ isCollectionDependency }) => !isCollectionDependency)
-            .filter(({ sourceFilePath }) =>
-                sourceFilePath.endsWith('.demo.tsx'),
-            )
-            .map<[string, string]>(({ tagName }) => [
-                tagName,
-                docs.components.find((c) => c.tag === tagName)?.docs ?? '',
-            ]);
+        const devComponents: DevComponents = new Map();
+
+        for (const component of buildCtx.components) {
+            if (component.isCollectionDependency) continue;
+            if (!component.sourceFilePath.endsWith('demo.tsx')) continue;
+
+            const componentDocs = docs.components.find(
+                (c) => c.tag === component.tagName,
+            );
+
+            // Component has be marked as internal
+            if (!componentDocs) continue;
+
+            const tags = componentDocs.docsTags.reduce(
+                (acc, tag) => acc.set(tag.name, tag.text ?? ''),
+                new Map<string, string>(),
+            );
+
+            const group =
+                tags.get('group')?.toLocaleLowerCase() ?? DEFAULT_GROUP;
+
+            if (!devComponents.has(group)) {
+                devComponents.set(group, []);
+            }
+
+            devComponents.get(group)?.push({
+                tagName: component.tagName,
+                description: componentDocs?.docs ?? component.tagName,
+                tags,
+                group,
+            });
+        }
 
         const filePath = join(stencilConfig.rootDir!, 'www', 'index.html');
 
@@ -47,7 +81,7 @@ export const devMode = (): DevMode => new DevMode();
 
 interface IndexBuilder {
     name: string;
-    devComponents: Array<[string, string]>;
+    devComponents: DevComponents;
 }
 
 const buildIndex = ({ name, devComponents }: IndexBuilder) => `
@@ -56,10 +90,6 @@ const buildIndex = ({ name, devComponents }: IndexBuilder) => `
     <head>
         <meta charset="utf-8" />
         <title>${name}</title>
-        <meta
-            name="Description"
-            content="Welcome to the Stencil App Starter. You can use this starter to build entire apps all with web components using Stencil!"
-        />
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
@@ -71,21 +101,77 @@ const buildIndex = ({ name, devComponents }: IndexBuilder) => `
         <link href="/build/${name}.css" rel="stylesheet" />
         <script type="module" src="/build/${name}.esm.js"></script>
         <script nomodule src="/build/${name}.js"></script>
+        <style>
+            body {
+                display: block;
+            }
 
-        <link
-            rel="icon"
-            type="image/x-icon"
-            href="/assets/favicons/favicon.ico"
-        />
+            body ul.links {
+                list-style: none;
+                padding: 10px 20px;
+                margin: 0;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, max-content));
+            }
+
+            body ul.links .group_title {
+                margin: 10px 0;
+                text-transform: capitalize;
+                font-weight: 300;
+            }
+
+            body ul.links a {
+                color: #435261;
+                text-decoration: none;
+                font-size: 18px;
+            }
+
+            body ul.links a:hover,
+            body ul.links a:focus-visible {
+                text-decoration: underline;
+            }
+
+            body ul.group_links {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                padding-left: 20px;
+            }
+        </style>
     </head>
     <body>
         <ul class="links">
-            ${devComponents
-                .map(
-                    ([name, description]) =>
-                        `<li><a href="${name}"><b>${name}</b><span>${description}</span></a></li>`,
+            ${Array.from(devComponents)
+                .sort(([groupA], [groupB]) =>
+                    groupA === DEFAULT_GROUP
+                        ? 1
+                        : groupB === DEFAULT_GROUP
+                        ? -1
+                        : groupA.localeCompare(groupB),
                 )
-                .join(' ')}
+                .map(([group, demos], _, groups) => {
+                    const children = demos
+                        .sort((a, b) =>
+                            a.description.localeCompare(b.description),
+                        )
+                        .map(
+                            ({ tagName, description }) =>
+                                `<li><a href="${tagName}">${description}</a></li>`,
+                        )
+                        .join('\n');
+
+                    if (group === DEFAULT_GROUP && groups.length === 1) {
+                        return children;
+                    }
+
+                    return `<li class="group">
+                                <h2 class="group_title">${group}</h2>
+                                <ul class="group_links">
+                                    ${children}
+                                </ul>
+                            </li>`;
+                })
+                .join('\n')}
         </ul>
         <script>
         const tagname = document.location.pathname.split("/").at(1);

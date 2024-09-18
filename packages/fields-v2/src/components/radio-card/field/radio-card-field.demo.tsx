@@ -67,7 +67,10 @@ const topologies: RadioCardOption[] = [
     },
 ];
 
-/** radio-card-field demo. */
+/**
+ * radio-card-field
+ * @group fields
+ */
 @Component({
     tag: 'radio-card-field-demo',
     shadow: true,

@@ -1,7 +1,7 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 import { ICON_NAMESPACE } from 'icons/namespace';
 
-/** used in the es-select demo. */
+/** @internal. */
 @Component({
     tag: 'select-option-demo',
     shadow: true,

@@ -8,7 +8,10 @@ interface Example {
     somethingElse: string;
 }
 
-/** textarea-input demo. */
+/**
+ * textarea-input
+ * @group inputs
+ */
 @Component({
     tag: 'textarea-input-demo',
     shadow: true,

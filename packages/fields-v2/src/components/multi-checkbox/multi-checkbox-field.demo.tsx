@@ -8,7 +8,10 @@ interface Example {
     options3: Set<string>;
 }
 
-/** multi-checkbox-field demo. */
+/**
+ * multi-checkbox-field
+ * @group fields
+ */
 @Component({
     tag: 'multi-checkbox-field-demo',
     shadow: true,
