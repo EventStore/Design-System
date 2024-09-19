@@ -1,4 +1,6 @@
-import { h, type FunctionalComponent } from '@stencil/core';
+import { h, type FunctionalComponent, Fragment } from '@stencil/core';
+import type { Templated } from '@eventstore-ui/forms';
+
 import { ICON_NAMESPACE } from 'icons/namespace';
 
 import type { ValidationMessages } from '../types';
@@ -6,6 +8,12 @@ import type { ValidationMessages } from '../types';
 export interface FieldProps {
     /** The label of the field. */
     label: string;
+    /** The label of the field. */
+    templated?: Templated;
+    /** The value to display if templated. */
+    templatedValue?: unknown;
+    /** Called when the user requests to edit the template. */
+    requestToEdit?: (e: Event) => void;
     /** The messages to display under the field. */
     messages?: ValidationMessages;
     /** If the field is currently invalid. */
@@ -37,6 +45,9 @@ export interface FieldProps {
 export const Field: FunctionalComponent<FieldProps> = (
     {
         label,
+        templated = false,
+        templatedValue,
+        requestToEdit,
         messages,
         invalid = false,
         documentation,
@@ -46,13 +57,16 @@ export const Field: FunctionalComponent<FieldProps> = (
     },
     children,
 ) => (
-    <Outer class={{ field: true, invalid }} part={'field'}>
+    <Outer
+        class={{ field: true, invalid, templated: !!templated }}
+        part={'field'}
+    >
         <Label class={'label'} part={'label'}>
             {label}
             <slot name={'documentation'}>
                 {documentation != null && (
                     <span class={'documentation'} part={'documentation'}>
-                        {documentation}
+                        {documentation}{' '}
                         {documentationLink != null && (
                             <a
                                 class={'documentation_link'}
@@ -71,7 +85,24 @@ export const Field: FunctionalComponent<FieldProps> = (
                 )}
             </slot>
         </Label>
-        {children}
-        <f2-validation-messages messages={messages} />
+        {templated ? (
+            <div class={'template'}>
+                <slot name={'template'}>
+                    <span class={'templated_value'} part={'templated_value'}>
+                        {templatedValue}
+                    </span>
+                </slot>
+                {templated !== 'no-edit' && (
+                    <es-button onClick={requestToEdit}>
+                        <es-icon icon={[ICON_NAMESPACE, 'edit']} />
+                    </es-button>
+                )}
+            </div>
+        ) : (
+            <>
+                {children}
+                <f2-validation-messages messages={messages} />
+            </>
+        )}
     </Outer>
 );

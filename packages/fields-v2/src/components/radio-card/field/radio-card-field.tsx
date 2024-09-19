@@ -8,6 +8,7 @@ import {
     Watch,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
+import type { Templated } from '@eventstore-ui/forms';
 
 import { Field } from 'components/Field';
 import { ICON_NAMESPACE } from 'icons/namespace';
@@ -28,9 +29,9 @@ export class RadioCardInput {
     @AttachInternals() internals!: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
-    @Event({ bubbles: true }) fieldchange!: EventEmitter<
-        FieldChange<string | null>
-    >;
+    @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
+    /** Emitted when the user requests to edit. */
+    @Event({ bubbles: true }) requestEdit!: EventEmitter<string>;
 
     /** The label of the field. */
     @Prop() label!: string;
@@ -44,6 +45,8 @@ export class RadioCardInput {
     @Prop() documentationLink?: string;
     /** Inline documentation link text. */
     @Prop() documentationLinkText?: string;
+    /**If the field is templated. */
+    @Prop() templated?: Templated;
 
     /** The name of the input. */
     @Prop({ reflect: true }) name!: string;
@@ -76,6 +79,11 @@ export class RadioCardInput {
                 documentation={this.documentation}
                 documentationLink={this.documentationLink}
                 documentationLinkText={this.documentationLinkText}
+                templated={this.templated}
+                templatedValue={
+                    this.templated ? this.getSelectedOption()?.name : undefined
+                }
+                requestToEdit={this.onRequestToEdit}
             >
                 <f2-radio-card-input
                     name={this.name}
@@ -96,4 +104,11 @@ export class RadioCardInput {
             </Field>
         );
     }
+
+    private getSelectedOption = () =>
+        this.options.find((option) => option.value === this.value);
+
+    private onRequestToEdit = () => {
+        this.requestEdit.emit(this.name);
+    };
 }

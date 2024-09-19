@@ -8,6 +8,7 @@ import {
     Watch,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
+import type { Templated } from '@eventstore-ui/forms';
 
 import type { FieldChange, ValidationMessages } from 'types';
 import type {
@@ -32,6 +33,8 @@ export class SelectField {
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
     /** Emitted on keyup of enter, if no modifier keys are held. */
     @Event() enter!: EventEmitter;
+    /** Emitted when the user requests to edit. */
+    @Event({ bubbles: true }) requestEdit!: EventEmitter<string>;
 
     /** The label of the field. */
     @Prop() label!: string;
@@ -45,6 +48,8 @@ export class SelectField {
     @Prop() documentationLink?: string;
     /** Inline documentation link text. */
     @Prop() documentationLinkText?: string;
+    /** If the field is templated. */
+    @Prop() templated?: Templated;
 
     /** The name of the field. */
     @Prop({ reflect: true }) name!: string;
@@ -83,6 +88,11 @@ export class SelectField {
                 documentation={this.documentation}
                 documentationLink={this.documentationLink}
                 documentationLinkText={this.documentationLinkText}
+                templated={this.templated}
+                templatedValue={
+                    this.templated ? this.getSelectedOption()?.name : undefined
+                }
+                requestToEdit={this.onRequestToEdit}
             >
                 <f2-select-input
                     name={this.name}
@@ -102,4 +112,11 @@ export class SelectField {
             </Field>
         );
     }
+
+    private getSelectedOption = () =>
+        this.options.find((option) => option.value === this.value);
+
+    private onRequestToEdit = () => {
+        this.requestEdit.emit(this.name);
+    };
 }

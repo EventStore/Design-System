@@ -1,7 +1,5 @@
 # f2-radio-card-field
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -134,14 +132,16 @@ const sections: AccordianSection[] = [
 | `name` _(required)_     | `name`                    | The name of the input.                               | `string`                                                                                           | `undefined`                 |
 | `options` _(required)_  | --                        | The options to be displayed and chosen from.         | `RadioCardOption[]`                                                                                | `undefined`                 |
 | `renderCard`            | --                        | Overwrite the default card renderer                  | `((h: typeof h, option: any, active: boolean) => string \| VNode \| VNode[] \| null) \| undefined` | `undefined`                 |
+| `templated`             | `templated`               | If the field is templated.                           | `"no-edit" \| boolean \| undefined`                                                                | `undefined`                 |
 | `value` _(required)_    | `value`                   | The current value of the input.                      | `null \| string`                                                                                   | `undefined`                 |
 
 
 ## Events
 
-| Event         | Description                                     | Type                                               |
-| ------------- | ----------------------------------------------- | -------------------------------------------------- |
-| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string \| null, string>>` |
+| Event         | Description                                     | Type                                       |
+| ------------- | ----------------------------------------------- | ------------------------------------------ |
+| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string, string>>` |
+| `requestEdit` | Emitted when the user requests to edit.         | `CustomEvent<string>`                      |
 
 
 ## Shadow Parts

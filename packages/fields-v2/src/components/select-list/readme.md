@@ -1,7 +1,5 @@
 # es-list-creator
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -72,6 +70,7 @@ export default () => (
 | `options` _(required)_     | --                        | A list of options to choose from.        | `TypeaheadOption[]`                                                            | `undefined`                                                                                             |
 | `placeholder` _(required)_ | `placeholder`             | The placeholder for the input.           | `string`                                                                       | `undefined`                                                                                             |
 | `renderItem`               | --                        | Render the list item.                    | `(h: typeof h, option: TypeaheadOption) => string \| VNode \| VNode[] \| null` | `(         h,         { name },     ) => <input readonly class={'value'} value={name} tabindex={-1} />` |
+| `templated`                | `templated`               | If the field is templated.               | `"no-edit" \| boolean \| undefined`                                            | `undefined`                                                                                             |
 | `value` _(required)_       | --                        | The selected item ids                    | `string[]`                                                                     | `undefined`                                                                                             |
 
 
@@ -80,6 +79,7 @@ export default () => (
 | Event         | Description                                     | Type                                         |
 | ------------- | ----------------------------------------------- | -------------------------------------------- |
 | `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string[], string>>` |
+| `requestEdit` | Emitted when the user requests to edit.         | `CustomEvent<string>`                        |
 
 
 ## Shadow Parts

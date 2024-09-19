@@ -1,7 +1,5 @@
 # es-multi-checkbox
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -72,8 +70,9 @@ es-multi-checkbox::part(checkbox-field) {
 | `label` _(required)_    | `label`                   | The label of the field.                  | `string`                                                | `undefined`                 |
 | `messages`              | --                        | The messages to display under the field. | `ValidationMessages \| undefined`                       | `undefined`                 |
 | `name` _(required)_     | `name`                    | The name of the field.                   | `string`                                                | `undefined`                 |
-| `options`               | --                        | The list of options for the checkboxes.  | `MultiCheckboxOption[]`                                 | `[]`                        |
+| `options` _(required)_  | --                        | The list of options for the checkboxes.  | `MultiCheckboxOption[]`                                 | `undefined`                 |
 | `readonly`              | `readonly`                | If the field is editable.                | `boolean \| undefined`                                  | `undefined`                 |
+| `templated`             | `templated`               | If the field is templated.               | `"no-edit" \| boolean \| undefined`                     | `undefined`                 |
 | `value` _(required)_    | --                        | The current value of the field.          | `Set<string>`                                           | `undefined`                 |
 
 
@@ -82,6 +81,7 @@ es-multi-checkbox::part(checkbox-field) {
 | Event         | Description                                     | Type                                            |
 | ------------- | ----------------------------------------------- | ----------------------------------------------- |
 | `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<Set<string>, string>>` |
+| `requestEdit` | Emitted when the user requests to edit.         | `CustomEvent<string>`                           |
 
 
 ## Shadow Parts

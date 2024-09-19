@@ -12,6 +12,11 @@
             "component": "Chevron",
             "path": "./components/Chevron.tsx"
         },
+        "edit": {
+            "name": "edit",
+            "component": "Edit",
+            "path": "./components/Edit.tsx"
+        },
         "error": {
             "name": "error",
             "component": "Error",

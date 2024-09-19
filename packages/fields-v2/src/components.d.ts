@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconDescription } from "@eventstore-ui/components";
 import { FieldChange, RenderFunction, ValidationMessages } from "./types";
+import { Templated } from "@eventstore-ui/forms";
 import { MaskOptions } from "./components/masked-text/types";
 import { MultiCheckboxOption } from "./components/multi-checkbox/types";
 import { RadioCardOption, RenderCard } from "./components/radio-card/types";
@@ -15,6 +16,7 @@ import { RenderSelectValue } from "./components/select/types";
 import { OptionFilter as OptionFilter1, RenderTypeaheadInput, RenderTypeaheadOption as RenderTypeaheadOption1, TypeaheadOption as TypeaheadOption1 } from "./components/typeahead/types";
 export { IconDescription } from "@eventstore-ui/components";
 export { FieldChange, RenderFunction, ValidationMessages } from "./types";
+export { Templated } from "@eventstore-ui/forms";
 export { MaskOptions } from "./components/masked-text/types";
 export { MultiCheckboxOption } from "./components/multi-checkbox/types";
 export { RadioCardOption, RenderCard } from "./components/radio-card/types";
@@ -50,6 +52,8 @@ export namespace Components {
           * The current value of the field.
          */
         "value": boolean;
+    }
+    interface F2Hr {
     }
     /**
      * A masked text input.
@@ -103,6 +107,10 @@ export namespace Components {
           * If the input is editable.
          */
         "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
@@ -194,6 +202,10 @@ export namespace Components {
          */
         "readonly"?: boolean;
         /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
           * The current value of the field.
          */
         "value": Set<string>;
@@ -246,6 +258,10 @@ export namespace Components {
           * If the input is editable.
          */
         "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * Display a unit beside the input.
          */
@@ -349,6 +365,10 @@ export namespace Components {
           * Overwrite the default card renderer
          */
         "renderCard"?: RenderCard<any>;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the input.
          */
@@ -459,6 +479,10 @@ export namespace Components {
           * Overwrite the default value renderer.
          */
         "renderValue"?: RenderSelectValue<any>;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
@@ -586,6 +610,10 @@ export namespace Components {
          */
         "renderItem": RenderFunction<[option: TypeaheadOption]>;
         /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
           * The selected item ids
          */
         "value": string[];
@@ -638,6 +666,10 @@ export namespace Components {
           * If the input is editable.
          */
         "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
@@ -729,6 +761,10 @@ export namespace Components {
          */
         "placeholder": string;
         /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
           * The currently selected values
          */
         "value": string[];
@@ -781,6 +817,10 @@ export namespace Components {
           * If the input is editable.
          */
         "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
@@ -942,9 +982,16 @@ declare global {
         prototype: HTMLF2CheckboxElement;
         new (): HTMLF2CheckboxElement;
     };
+    interface HTMLF2HrElement extends Components.F2Hr, HTMLStencilElement {
+    }
+    var HTMLF2HrElement: {
+        prototype: HTMLF2HrElement;
+        new (): HTMLF2HrElement;
+    };
     interface HTMLF2MaskedTextFieldElementEventMap {
         "fieldchange": FieldChange<string>;
         "enter": any;
+        "requestEdit": string;
     }
     /**
      * A masked text input.
@@ -986,6 +1033,7 @@ declare global {
     };
     interface HTMLF2MultiCheckboxFieldElementEventMap {
         "fieldchange": FieldChange<Set<string>>;
+        "requestEdit": string;
     }
     /**
      * A multi-checkbox component
@@ -1006,6 +1054,7 @@ declare global {
     };
     interface HTMLF2NumberFieldElementEventMap {
         "fieldchange": FieldChange<string>;
+        "requestEdit": string;
     }
     /**
      * A number field.
@@ -1047,7 +1096,8 @@ declare global {
         new (): HTMLF2NumberInputElement;
     };
     interface HTMLF2RadioCardFieldElementEventMap {
-        "fieldchange": FieldChange<string | null>;
+        "fieldchange": FieldChange<string>;
+        "requestEdit": string;
     }
     /**
      * A card based single select field.
@@ -1067,7 +1117,7 @@ declare global {
         new (): HTMLF2RadioCardFieldElement;
     };
     interface HTMLF2RadioCardInputElementEventMap {
-        "fieldchange": FieldChange<string | null>;
+        "fieldchange": FieldChange<string>;
     }
     /**
      * A card based single select input.
@@ -1089,6 +1139,7 @@ declare global {
     interface HTMLF2SelectFieldElementEventMap {
         "fieldchange": FieldChange<string>;
         "enter": any;
+        "requestEdit": string;
     }
     /**
      * A text input.
@@ -1129,6 +1180,7 @@ declare global {
     };
     interface HTMLF2SelectListFieldElementEventMap {
         "fieldchange": FieldChange<string[]>;
+        "requestEdit": string;
     }
     /**
      * Create a list from a fixed set of values.
@@ -1150,6 +1202,7 @@ declare global {
     interface HTMLF2TextFieldElementEventMap {
         "fieldchange": FieldChange<string>;
         "enter": any;
+        "requestEdit": string;
     }
     /**
      * A text input.
@@ -1191,6 +1244,7 @@ declare global {
     };
     interface HTMLF2TextListFieldElementEventMap {
         "fieldchange": FieldChange<string[]>;
+        "requestEdit": string;
     }
     /**
      * A list creator input.
@@ -1211,6 +1265,7 @@ declare global {
     };
     interface HTMLF2TextareaFieldElementEventMap {
         "fieldchange": FieldChange<string>;
+        "requestEdit": string;
     }
     /**
      * A textarea field.
@@ -1278,6 +1333,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "f2-checkbox": HTMLF2CheckboxElement;
+        "f2-hr": HTMLF2HrElement;
         "f2-masked-text-field": HTMLF2MaskedTextFieldElement;
         "f2-masked-text-input": HTMLF2MaskedTextInputElement;
         "f2-multi-checkbox-field": HTMLF2MultiCheckboxFieldElement;
@@ -1330,6 +1386,8 @@ declare namespace LocalJSX {
           * The current value of the field.
          */
         "value": boolean;
+    }
+    interface F2Hr {
     }
     /**
      * A masked text input.
@@ -1384,6 +1442,10 @@ declare namespace LocalJSX {
          */
         "onFieldchange"?: (event: F2MaskedTextFieldCustomEvent<FieldChange<string>>) => void;
         /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2MaskedTextFieldCustomEvent<string>) => void;
+        /**
           * The placeholder for the input.
          */
         "placeholder": string;
@@ -1391,6 +1453,10 @@ declare namespace LocalJSX {
           * If the input is editable.
          */
         "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
@@ -1486,13 +1552,21 @@ declare namespace LocalJSX {
          */
         "onFieldchange"?: (event: F2MultiCheckboxFieldCustomEvent<FieldChange<Set<string>>>) => void;
         /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2MultiCheckboxFieldCustomEvent<string>) => void;
+        /**
           * The list of options for the checkboxes.
          */
-        "options"?: MultiCheckboxOption[];
+        "options": MultiCheckboxOption[];
         /**
           * If the field is editable.
          */
         "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
@@ -1543,6 +1617,10 @@ declare namespace LocalJSX {
          */
         "onFieldchange"?: (event: F2NumberFieldCustomEvent<FieldChange<string>>) => void;
         /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2NumberFieldCustomEvent<string>) => void;
+        /**
           * The placeholder for the input.
          */
         "placeholder": string;
@@ -1550,6 +1628,10 @@ declare namespace LocalJSX {
           * If the input is editable.
          */
         "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * Display a unit beside the input.
          */
@@ -1656,7 +1738,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: F2RadioCardFieldCustomEvent<FieldChange<string | null>>) => void;
+        "onFieldchange"?: (event: F2RadioCardFieldCustomEvent<FieldChange<string>>) => void;
+        /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2RadioCardFieldCustomEvent<string>) => void;
         /**
           * The options to be displayed and chosen from.
          */
@@ -1665,6 +1751,10 @@ declare namespace LocalJSX {
           * Overwrite the default card renderer
          */
         "renderCard"?: RenderCard<any>;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the input.
          */
@@ -1697,7 +1787,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: F2RadioCardInputCustomEvent<FieldChange<string | null>>) => void;
+        "onFieldchange"?: (event: F2RadioCardInputCustomEvent<FieldChange<string>>) => void;
         /**
           * The options to be displayed and chosen from.
          */
@@ -1764,6 +1854,10 @@ declare namespace LocalJSX {
          */
         "onFieldchange"?: (event: F2SelectFieldCustomEvent<FieldChange<string>>) => void;
         /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2SelectFieldCustomEvent<string>) => void;
+        /**
           * Pass a custom search filter function
          */
         "optionFilter"?: OptionFilter;
@@ -1787,6 +1881,10 @@ declare namespace LocalJSX {
           * Overwrite the default value renderer.
          */
         "renderValue"?: RenderSelectValue<any>;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
@@ -1910,6 +2008,10 @@ declare namespace LocalJSX {
          */
         "onFieldchange"?: (event: F2SelectListFieldCustomEvent<FieldChange<string[]>>) => void;
         /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2SelectListFieldCustomEvent<string>) => void;
+        /**
           * A list of options to choose from.
          */
         "options": TypeaheadOption[];
@@ -1921,6 +2023,10 @@ declare namespace LocalJSX {
           * Render the list item.
          */
         "renderItem"?: RenderFunction<[option: TypeaheadOption]>;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The selected item ids
          */
@@ -1975,6 +2081,10 @@ declare namespace LocalJSX {
          */
         "onFieldchange"?: (event: F2TextFieldCustomEvent<FieldChange<string>>) => void;
         /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2TextFieldCustomEvent<string>) => void;
+        /**
           * The placeholder for the input.
          */
         "placeholder": string;
@@ -1982,6 +2092,10 @@ declare namespace LocalJSX {
           * If the input is editable.
          */
         "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
@@ -2081,9 +2195,17 @@ declare namespace LocalJSX {
          */
         "onFieldchange"?: (event: F2TextListFieldCustomEvent<FieldChange<string[]>>) => void;
         /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2TextListFieldCustomEvent<string>) => void;
+        /**
           * Display a placeholder in the input.
          */
         "placeholder": string;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The currently selected values
          */
@@ -2134,6 +2256,10 @@ declare namespace LocalJSX {
          */
         "onFieldchange"?: (event: F2TextareaFieldCustomEvent<FieldChange<string>>) => void;
         /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2TextareaFieldCustomEvent<string>) => void;
+        /**
           * The placeholder for the input.
          */
         "placeholder": string;
@@ -2141,6 +2267,10 @@ declare namespace LocalJSX {
           * If the input is editable.
          */
         "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
@@ -2220,6 +2350,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "f2-checkbox": F2Checkbox;
+        "f2-hr": F2Hr;
         "f2-masked-text-field": F2MaskedTextField;
         "f2-masked-text-input": F2MaskedTextInput;
         "f2-multi-checkbox-field": F2MultiCheckboxField;
@@ -2247,6 +2378,7 @@ declare module "@stencil/core" {
              * A checkbox component
              */
             "f2-checkbox": LocalJSX.F2Checkbox & JSXBase.HTMLAttributes<HTMLF2CheckboxElement>;
+            "f2-hr": LocalJSX.F2Hr & JSXBase.HTMLAttributes<HTMLF2HrElement>;
             /**
              * A masked text input.
              */

@@ -7,8 +7,9 @@ import {
     AttachInternals,
     Watch,
 } from '@stencil/core';
-import { Field } from 'components/Field';
+import type { Templated } from '@eventstore-ui/forms';
 
+import { Field } from 'components/Field';
 import type { FieldChange, ValidationMessages } from 'types';
 
 /** A number field. */
@@ -23,6 +24,8 @@ export class TextField {
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
+    /** Emitted when the user requests to edit. */
+    @Event({ bubbles: true }) requestEdit!: EventEmitter<string>;
 
     /** The label of the field. */
     @Prop() label!: string;
@@ -36,6 +39,8 @@ export class TextField {
     @Prop() documentationLink?: string;
     /** Inline documentation link text. */
     @Prop() documentationLinkText?: string;
+    /**If the field is templated. */
+    @Prop() templated?: Templated;
 
     /** The name of the input. */
     @Prop() name!: string;
@@ -66,6 +71,9 @@ export class TextField {
                 documentation={this.documentation}
                 documentationLink={this.documentationLink}
                 documentationLinkText={this.documentationLinkText}
+                templated={this.templated}
+                templatedValue={this.value}
+                requestToEdit={this.onRequestToEdit}
             >
                 <f2-number-input
                     name={this.name}
@@ -82,4 +90,8 @@ export class TextField {
             </Field>
         );
     }
+
+    private onRequestToEdit = () => {
+        this.requestEdit.emit(this.name);
+    };
 }

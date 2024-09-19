@@ -7,8 +7,9 @@ import {
     Watch,
     AttachInternals,
 } from '@stencil/core';
-import { Field } from 'components/Field';
+import type { Templated } from '@eventstore-ui/forms';
 
+import { Field } from 'components/Field';
 import type { FieldChange, ValidationMessages } from 'types';
 
 /** A textarea field. */
@@ -23,6 +24,8 @@ export class TextAreaField {
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
+    /** Emitted when the user requests to edit. */
+    @Event({ bubbles: true }) requestEdit!: EventEmitter<string>;
 
     /** The label of the field. */
     @Prop() label!: string;
@@ -36,6 +39,8 @@ export class TextAreaField {
     @Prop() documentationLink?: string;
     /** Inline documentation link text. */
     @Prop() documentationLinkText?: string;
+    /**If the field is templated. */
+    @Prop() templated?: Templated;
 
     /** The name of the input. */
     @Prop({ reflect: true }) name!: string;
@@ -64,6 +69,9 @@ export class TextAreaField {
                 documentation={this.documentation}
                 documentationLink={this.documentationLink}
                 documentationLinkText={this.documentationLinkText}
+                templated={this.templated}
+                templatedValue={this.value}
+                requestToEdit={this.onRequestToEdit}
             >
                 <f2-textarea-input
                     name={this.name}
@@ -79,4 +87,8 @@ export class TextAreaField {
             </Field>
         );
     }
+
+    private onRequestToEdit = () => {
+        this.requestEdit.emit(this.name);
+    };
 }

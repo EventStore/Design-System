@@ -1,7 +1,5 @@
 # f2-number-field
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -92,6 +90,7 @@ es-button {
 | `name` _(required)_        | `name`                    | The name of the input.                   | `string`                             | `undefined` |
 | `placeholder` _(required)_ | `placeholder`             | The placeholder for the input.           | `string`                             | `undefined` |
 | `readonly`                 | `readonly`                | If the input is editable.                | `boolean \| undefined`               | `undefined` |
+| `templated`                | `templated`               | If the field is templated.               | `"no-edit" \| boolean \| undefined`  | `undefined` |
 | `unit`                     | `unit`                    | Display a unit beside the input.         | `string \| undefined`                | `undefined` |
 | `value` _(required)_       | `value`                   | The current value of the field.          | `string`                             | `undefined` |
 
@@ -101,6 +100,7 @@ es-button {
 | Event         | Description                                     | Type                                       |
 | ------------- | ----------------------------------------------- | ------------------------------------------ |
 | `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string, string>>` |
+| `requestEdit` | Emitted when the user requests to edit.         | `CustomEvent<string>`                      |
 
 
 ## Dependencies

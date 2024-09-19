@@ -5,7 +5,16 @@
 }
 
 :host {
-    display: contents;
+    display: block;
+    margin: var(--spacing-2, 16px) 0;
+}
+
+:host(:first-child) {
+    margin-top: 0;
+}
+
+:host(:last-child) {
+    margin-bottom: 0;
 }
 
 .field {
@@ -16,6 +25,19 @@
     &.invalid > :not(.label):not(.documentation):not(f2-validation-messages) {
         animation: invalidshake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     }
+
+    &.templated {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.template {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-3, 24px);
 }
 
 .label {
@@ -24,7 +46,7 @@
     font-size: 16px;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-1);
+    gap: var(--spacing-1, 8px);
 }
 
 ::slotted([slot='documentation']),
@@ -40,7 +62,6 @@
     justify-content: center;
     text-decoration: none;
     color: var(--color-info);
-    margin-left: var(--spacing-1, 8px);
     gap: var(--spacing-1, 8px);
 }
 

@@ -133,9 +133,9 @@ const sections: AccordianSection[] = [
 
 ## Events
 
-| Event         | Description                                     | Type                                               |
-| ------------- | ----------------------------------------------- | -------------------------------------------------- |
-| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string \| null, string>>` |
+| Event         | Description                                     | Type                                       |
+| ------------- | ----------------------------------------------- | ------------------------------------------ |
+| `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string, string>>` |
 
 
 ## Shadow Parts

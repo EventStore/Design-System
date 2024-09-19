@@ -10,6 +10,7 @@ import {
     Watch,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
+import type { Templated } from '@eventstore-ui/forms';
 
 import { ICON_NAMESPACE } from 'icons/namespace';
 import type { FieldChange, RenderFunction, ValidationMessages } from 'types';
@@ -38,6 +39,8 @@ export class SelectListField {
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string[]>>;
+    /** Emitted when the user requests to edit. */
+    @Event({ bubbles: true }) requestEdit!: EventEmitter<string>;
 
     /** The label of the field. */
     @Prop() label!: string;
@@ -51,6 +54,8 @@ export class SelectListField {
     @Prop() documentationLink?: string;
     /** Inline documentation link text. */
     @Prop() documentationLinkText?: string;
+    /**If the field is templated. */
+    @Prop() templated?: Templated;
 
     /** The name of the field. */
     @Prop() name!: string;
@@ -140,6 +145,9 @@ export class SelectListField {
                 documentation={this.documentation}
                 documentationLink={this.documentationLink}
                 documentationLinkText={this.documentationLinkText}
+                templated={this.templated}
+                templatedValue={this.getTemplatedValue()}
+                requestToEdit={this.onRequestToEdit}
             >
                 <f2-typeahead
                     clearOnSelect
@@ -192,5 +200,14 @@ export class SelectListField {
             name: this.name,
             value: [...this.value.slice(0, i), ...this.value.slice(i + 1)],
         });
+    };
+
+    private onRequestToEdit = () => {
+        this.requestEdit.emit(this.name);
+    };
+
+    private getTemplatedValue = () => {
+        if (!this.templated) return;
+        return this.value.join(', ');
     };
 }

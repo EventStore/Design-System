@@ -9,15 +9,18 @@ import type {
     ValidatedForm,
     ValidateOn,
     Validation,
+    Templated,
 } from '../types';
 import { isValidatedForm } from './isValidatedForm';
 
 type MessageStore<T> = { [key in keyof T]: ValidationMessages };
+type TemplatedStore<T> = { [key in keyof T]: Templated };
 type ValidationSets<T> = Record<ValidateOn, Set<keyof T>>;
 
 interface Stores<T> {
     dataStore: Store<T>;
     messageStore: Store<MessageStore<T>>;
+    templatedStore: Store<TemplatedStore<T>>;
     state: Store<ValidatedFormState>;
     fields: Map<
         keyof T,
@@ -58,6 +61,7 @@ export const createStores = <T>(
     const messages: Record<string, any> = {
         [':root']: blankMessages(),
     };
+    const templated: Record<string, Templated> = {};
     const fields = new Map<string, any>();
     const defaultState: ValidatedFormState = {
         frozen: false,
@@ -78,6 +82,7 @@ export const createStores = <T>(
         }
 
         initialValues[key] = value.initialValue;
+        templated[key] = value.templated;
         messages[key] = blankMessages();
 
         addToValidationSets(
@@ -91,6 +96,7 @@ export const createStores = <T>(
         children,
         dataStore: createStore(initialValues as any),
         messageStore: createStore<MessageStore<T>>(messages as any),
+        templatedStore: createStore<TemplatedStore<T>>(templated as any),
         state: createStore<ValidatedFormState>(defaultState),
         fields: fields as any,
         refs: new Map(),
