@@ -7,8 +7,10 @@ import {
     AttachInternals,
     Watch,
 } from '@stencil/core';
-import { Field } from 'components/Field';
+import type { Templated } from '@eventstore-ui/forms';
+import iMask from 'imask';
 
+import { Field } from 'components/Field';
 import type { FieldChange, ValidationMessages } from 'types';
 import type { MaskOptions } from '../types';
 
@@ -26,6 +28,8 @@ export class MaskedTextField {
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
     /** Emitted on keyup of enter, if no modifier keys are held. */
     @Event() enter!: EventEmitter;
+    /** Emitted when the user requests to edit. */
+    @Event({ bubbles: true }) requestEdit!: EventEmitter<string>;
 
     /** The label of the field. */
     @Prop() label!: string;
@@ -39,6 +43,8 @@ export class MaskedTextField {
     @Prop() documentationLink?: string;
     /** Inline documentation link text. */
     @Prop() documentationLinkText?: string;
+    /**If the field is templated. */
+    @Prop() templated?: Templated;
 
     /** The name of the input. */
     @Prop() name!: string;
@@ -70,6 +76,9 @@ export class MaskedTextField {
                 documentation={this.documentation}
                 documentationLink={this.documentationLink}
                 documentationLinkText={this.documentationLinkText}
+                templated={this.templated}
+                templatedValue={this.getTemplatedValue()}
+                requestToEdit={this.onRequestToEdit}
             >
                 <f2-masked-text-input
                     name={this.name}
@@ -86,4 +95,21 @@ export class MaskedTextField {
             </Field>
         );
     }
+
+    private onRequestToEdit = () => {
+        this.requestEdit.emit(this.name);
+    };
+
+    private pipe?: (value: string) => string;
+
+    @Watch('mask')
+    setPipe(mask: MaskOptions) {
+        this.pipe = iMask.createPipe(mask);
+    }
+
+    private getTemplatedValue = () => {
+        if (!this.templated) return;
+        if (!this.pipe) this.setPipe(this.mask);
+        return this.pipe?.(this.value) ?? this.value;
+    };
 }

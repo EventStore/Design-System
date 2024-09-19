@@ -9,6 +9,7 @@ import {
     Watch,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
+import type { Templated } from '@eventstore-ui/forms';
 import { focusFirst } from '@eventstore-ui/utils';
 
 import type { FieldChange, ValidationMessages } from 'types';
@@ -28,6 +29,8 @@ export class TextListField {
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string[]>>;
+    /** Emitted when the user requests to edit. */
+    @Event({ bubbles: true }) requestEdit!: EventEmitter<string>;
 
     /** The label of the field. */
     @Prop() label!: string;
@@ -41,6 +44,8 @@ export class TextListField {
     @Prop() documentationLink?: string;
     /** Inline documentation link text. */
     @Prop() documentationLinkText?: string;
+    /**If the field is templated. */
+    @Prop() templated?: Templated;
 
     /** The name of the field. */
     @Prop({ reflect: true }) name!: string;
@@ -97,6 +102,9 @@ export class TextListField {
                 documentation={this.documentation}
                 documentationLink={this.documentationLink}
                 documentationLinkText={this.documentationLinkText}
+                templated={this.templated}
+                templatedValue={this.getTemplatedValue()}
+                requestToEdit={this.onRequestToEdit}
             >
                 {!this.value.length
                     ? this.renderInput('', 0)
@@ -175,4 +183,13 @@ export class TextListField {
         if (ref) focusFirst(ref);
         delete this.expectFocus;
     }
+
+    private onRequestToEdit = () => {
+        this.requestEdit.emit(this.name);
+    };
+
+    private getTemplatedValue = () => {
+        if (!this.templated) return;
+        return this.value.join(', ');
+    };
 }

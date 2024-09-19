@@ -13,6 +13,7 @@ const defaults: InternalFieldOptions<any, any> = {
     optional: () => false,
     message: 'Field is required',
     validations: [],
+    templated: false,
 };
 
 export const expandOptions = <T>(

@@ -1,0 +1,7 @@
+:host {
+    display: block;
+    background-color: var(--color-shade-40);
+    width: 100%;
+    height: 2px;
+    margin: var(--spacing-2_5, 20px) 0;
+}

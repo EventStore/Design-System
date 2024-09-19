@@ -15,6 +15,8 @@ export type FieldChangeEvent<T extends object> = CustomEvent<
     ChangeEventValue<T, keyof T>
 >;
 
+export type Templated = boolean | 'no-edit';
+
 export type Severity = 'error' | 'warning' | 'info';
 
 export type ValidationMessage =
@@ -104,6 +106,8 @@ interface BasicConnection<K extends string, V> {
         }>,
     ) => void;
     ref: (ref?: HTMLElement) => void;
+    templated: Templated;
+    onRequestEdit: (e: CustomEvent<string>) => void;
 }
 
 interface WDConnection<K extends string, V extends object> {
@@ -213,6 +217,8 @@ export interface FieldOptions<ItemType, T> {
     validations?: ItemType extends Array<any>
         ? ArrayValidation<ItemType, T>[]
         : Validation<ItemType, T>[];
+    /** If the field is a templated value */
+    templated?: Templated;
 }
 
 export type InternalValidatedFormOptions<T> = {

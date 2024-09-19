@@ -57,7 +57,7 @@ class DevMode implements OutputTargetCustom {
 
             devComponents.get(group)?.push({
                 tagName: component.tagName,
-                description: componentDocs?.docs ?? component.tagName,
+                description: componentDocs.docs || component.tagName,
                 tags,
                 group,
             });

@@ -38,6 +38,7 @@ export const createValidatedForm = <T extends object>(
     const {
         dataStore: { state: data, reset: resetData, onChange },
         messageStore: { state: messages, reset: resetMessages },
+        templatedStore: { state: templated, reset: resetTemplated },
         state: { state },
         fields,
         refs,
@@ -212,6 +213,23 @@ export const createValidatedForm = <T extends object>(
         data[name] = value;
 
         validateUpdatedData();
+    };
+
+    const requestEdit = (e: CustomEvent<keyof T>) => {
+        e.stopPropagation();
+        if (state.frozen) return;
+        const name = e.detail;
+
+        if (!fields.has(name)) {
+            logger.warn(
+                `Unknown field "${String(name)}" passed to requestEdit`,
+            );
+            return;
+        }
+
+        if (templated[name] === 'no-edit') return;
+
+        templated[name] = false;
     };
 
     const triggers: ValidateOn[] = ['submit', 'always'];
@@ -398,6 +416,7 @@ export const createValidatedForm = <T extends object>(
         reset: () => {
             resetData();
             resetMessages();
+            resetTemplated();
             children.forEach((d) => d.reset());
         },
         update: (partial) => {
@@ -445,6 +464,8 @@ export const createValidatedForm = <T extends object>(
                             refs.delete(key);
                         }
                     },
+                    templated: templated[key],
+                    onRequestEdit: requestEdit,
                 };
             }
 

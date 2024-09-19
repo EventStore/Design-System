@@ -1,7 +1,5 @@
 # es-list-creator
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -62,6 +60,7 @@ export default () => (
 | `messages`                 | --                        | The messages to display under the field. | `ValidationMessages \| undefined`                       | `undefined`                 |
 | `name` _(required)_        | `name`                    | The name of the field.                   | `string`                                                | `undefined`                 |
 | `placeholder` _(required)_ | `placeholder`             | Display a placeholder in the input.      | `string`                                                | `undefined`                 |
+| `templated`                | `templated`               | If the field is templated.               | `"no-edit" \| boolean \| undefined`                     | `undefined`                 |
 | `value` _(required)_       | --                        | The currently selected values            | `string[]`                                              | `undefined`                 |
 
 
@@ -70,6 +69,7 @@ export default () => (
 | Event         | Description                                     | Type                                         |
 | ------------- | ----------------------------------------------- | -------------------------------------------- |
 | `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string[], string>>` |
+| `requestEdit` | Emitted when the user requests to edit.         | `CustomEvent<string>`                        |
 
 
 ## Dependencies

@@ -1,7 +1,5 @@
 # f2-text-field
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -96,6 +94,7 @@ export default () => (
 | `name` _(required)_        | `name`                    | The name of the input.                   | `string`                             | `undefined` |
 | `placeholder` _(required)_ | `placeholder`             | The placeholder for the input.           | `string`                             | `undefined` |
 | `readonly`                 | `readonly`                | If the input is editable.                | `boolean \| undefined`               | `undefined` |
+| `templated`                | `templated`               | If the field is templated.               | `"no-edit" \| boolean \| undefined`  | `undefined` |
 | `value` _(required)_       | `value`                   | The current value of the field.          | `string`                             | `undefined` |
 
 
@@ -105,6 +104,7 @@ export default () => (
 | ------------- | -------------------------------------------------------- | ------------------------------------------ |
 | `enter`       | Emitted on keyup of enter, if no modifier keys are held. | `CustomEvent<any>`                         |
 | `fieldchange` | Emitted when the value of the field is changed.          | `CustomEvent<FieldChange<string, string>>` |
+| `requestEdit` | Emitted when the user requests to edit.                  | `CustomEvent<string>`                      |
 
 
 ## Dependencies

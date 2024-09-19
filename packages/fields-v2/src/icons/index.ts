@@ -8,6 +8,9 @@ iconStore.addIcons(ICON_NAMESPACE, {
     get chevron() {
         return import('./components/Chevron').then(({ Chevron }) => Chevron);
     },
+    get edit() {
+        return import('./components/Edit').then(({ Edit }) => Edit);
+    },
     get error() {
         return import('./components/Error').then(({ Error }) => Error);
     },

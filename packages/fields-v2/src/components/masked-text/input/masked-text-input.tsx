@@ -88,7 +88,7 @@ export class MaskedTextInput {
 
     private get maskValue() {
         if (!this.inputMask) return this.input?.value ?? '';
-        if (this.mask?.unmask) return this.inputMask.unmaskedValue;
+        if (this.mask.unmask) return this.inputMask.unmaskedValue;
         return this.inputMask.value;
     }
 

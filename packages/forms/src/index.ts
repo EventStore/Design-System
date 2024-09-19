@@ -6,5 +6,6 @@ export type {
     ValidationMessages,
     ValidatedForm,
     ValidatedFormOptions,
+    Templated,
 } from './types';
 export { createValidatedForm } from './stores/createValidatedForm';

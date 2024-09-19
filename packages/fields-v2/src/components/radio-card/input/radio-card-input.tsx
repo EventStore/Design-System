@@ -28,9 +28,7 @@ export class RadioCardInput {
     @AttachInternals() internals!: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
-    @Event({ bubbles: true }) fieldchange!: EventEmitter<
-        FieldChange<string | null>
-    >;
+    @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
 
     /** The name of the input. */
     @Prop({ reflect: true }) name!: string;

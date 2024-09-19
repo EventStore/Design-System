@@ -8,6 +8,7 @@ import {
     Watch,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
+import type { Templated } from '@eventstore-ui/forms';
 
 import type { FieldChange, ValidationMessages } from 'types';
 import { ICON_NAMESPACE } from 'icons/namespace';
@@ -31,6 +32,8 @@ export class MultiCheckboxField {
     @Event({ bubbles: true }) fieldchange!: EventEmitter<
         FieldChange<Set<string>>
     >;
+    /** Emitted when the user requests to edit. */
+    @Event({ bubbles: true }) requestEdit!: EventEmitter<string>;
 
     /** The label of the field. */
     @Prop() label!: string;
@@ -44,6 +47,8 @@ export class MultiCheckboxField {
     @Prop() documentationLink?: string;
     /** Inline documentation link text. */
     @Prop() documentationLinkText?: string;
+    /**If the field is templated. */
+    @Prop() templated?: Templated;
 
     /** The name of the field. */
     @Prop({ reflect: true }) name!: string;
@@ -56,7 +61,7 @@ export class MultiCheckboxField {
     /** The icon to use. */
     @Prop() icon: IconDescription = [ICON_NAMESPACE, 'check'];
     /** The list of options for the checkboxes. */
-    @Prop() options: MultiCheckboxOption[] = [];
+    @Prop() options!: MultiCheckboxOption[];
 
     @Watch('value')
     componentDidLoad() {
@@ -76,6 +81,9 @@ export class MultiCheckboxField {
                 documentation={this.documentation}
                 documentationLink={this.documentationLink}
                 documentationLinkText={this.documentationLinkText}
+                templated={this.templated}
+                templatedValue={this.getTemplatedValue()}
+                requestToEdit={this.onRequestToEdit}
                 elements={{
                     outer: (props, children) => (
                         <div
@@ -163,5 +171,19 @@ export class MultiCheckboxField {
 
         input.checked = !input.checked;
         this.emitFieldChange(input);
+    };
+
+    private getTemplatedValue = () => {
+        if (!this.templated) return;
+        return this.options
+            .reduce<string[]>((acc, { name, value }) => {
+                if (this.value.has(value)) acc.push(name);
+                return acc;
+            }, [])
+            .join(', ');
+    };
+
+    private onRequestToEdit = () => {
+        this.requestEdit.emit(this.name);
     };
 }
