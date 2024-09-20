@@ -10,10 +10,14 @@ import {
     Watch,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
-import type { Templated } from '@eventstore-ui/forms';
 
 import { ICON_NAMESPACE } from 'icons/namespace';
-import type { FieldChange, RenderFunction, ValidationMessages } from 'types';
+import type {
+    FieldChange,
+    RenderFunction,
+    ValidationMessages,
+    Templated,
+} from 'types';
 import type {
     RenderTypeaheadInput,
     TypeaheadOption,
