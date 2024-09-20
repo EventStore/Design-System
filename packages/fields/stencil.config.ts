@@ -1,4 +1,4 @@
-import { packageConfig, flags } from '../../tools/stencilConfig';
+import { packageConfig } from '../../tools/stencilConfig';
 
 export const config = packageConfig({
     namespace: 'es-fields',

@@ -2139,30 +2139,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eventstore-ui/fields-v2@workspace:packages/fields-v2":
-  version: 0.0.0-use.local
-  resolution: "@eventstore-ui/fields-v2@workspace:packages/fields-v2"
-  dependencies:
-    "@eventstore-ui/components": "workspace:*"
-    "@eventstore-ui/configs": "workspace:*"
-    "@eventstore-ui/icon-manager": "workspace:*"
-    "@eventstore-ui/theme": "workspace:*"
-    "@eventstore-ui/utils": "workspace:*"
-    "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:4.19.2"
-    imask: "npm:7.6.1"
-    jest: "npm:^27.4.5"
-    npm-run-all: "npm:^4.1.5"
-    puppeteer: "npm:^19.5.0"
-    typedoc: "npm:0.24.8"
-    typescript: "npm:5.1.6"
-  peerDependencies:
-    "@eventstore-ui/components": ^1.0.0
-    "@eventstore-ui/theme": ^1.0.0
-    "@eventstore-ui/utils": ^1.0.0
-  languageName: unknown
-  linkType: soft
-
 "@eventstore-ui/fields@workspace:*, @eventstore-ui/fields@workspace:packages/fields":
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/fields@workspace:packages/fields"
@@ -2174,7 +2150,7 @@ __metadata:
     "@eventstore-ui/utils": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
     "@stencil/core": "npm:4.19.2"
-    imask: "npm:6.0.5"
+    imask: "npm:7.6.1"
     jest: "npm:^27.4.5"
     npm-run-all: "npm:^4.1.5"
     puppeteer: "npm:^19.5.0"
@@ -6340,13 +6316,6 @@ __metadata:
   version: 5.3.1
   resolution: "ignore@npm:5.3.1"
   checksum: 0a884c2fbc8c316f0b9f92beaf84464253b73230a4d4d286697be45fca081199191ca33e1c2e82d9e5f851f5e9a48a78e25a35c951e7eb41e59f150db3530065
-  languageName: node
-  linkType: hard
-
-"imask@npm:6.0.5":
-  version: 6.0.5
-  resolution: "imask@npm:6.0.5"
-  checksum: 2f1104d1b9753e3b3b72e4419937475d1df4d0eeae17fb4e14b6939fe81bb73bfee86c623c8619288ab2cfeb99c8370753b220e6aeff6ea8d3906c24cfa114ba
   languageName: node
   linkType: hard
 

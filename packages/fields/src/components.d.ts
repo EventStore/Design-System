@@ -7,23 +7,25 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconDescription } from "@eventstore-ui/components";
 import { FieldChange, RenderFunction, ValidationMessages } from "./types";
-import { MaskOptions } from "./components/es-input/types";
-import { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
-import { MultiCheckboxOption } from "./components/es-multi-checkbox/types";
-import { RadioCardGroupOption, RenderCard } from "./components/es-radio-card-group/types";
-import { RenderSelectValue } from "./components/es-select/types";
+import { MaskOptions } from "./components/masked-text/types";
+import { MultiCheckboxOption } from "./components/multi-checkbox/types";
+import { RadioCardOption, RenderCard } from "./components/radio-card/types";
+import { OptionFilter, RenderTypeaheadOption, TypeaheadOption } from "./components/typeahead/types";
+import { RenderSelectValue } from "./components/select/types";
+import { OptionFilter as OptionFilter1, RenderTypeaheadInput, RenderTypeaheadOption as RenderTypeaheadOption1, TypeaheadOption as TypeaheadOption1 } from "./components/typeahead/types";
 export { IconDescription } from "@eventstore-ui/components";
 export { FieldChange, RenderFunction, ValidationMessages } from "./types";
-export { MaskOptions } from "./components/es-input/types";
-export { OptionFilter, RenderTypeaheadField, RenderTypeaheadOption, TypeaheadOption } from "./components/es-typeahead/types";
-export { MultiCheckboxOption } from "./components/es-multi-checkbox/types";
-export { RadioCardGroupOption, RenderCard } from "./components/es-radio-card-group/types";
-export { RenderSelectValue } from "./components/es-select/types";
+export { MaskOptions } from "./components/masked-text/types";
+export { MultiCheckboxOption } from "./components/multi-checkbox/types";
+export { RadioCardOption, RenderCard } from "./components/radio-card/types";
+export { OptionFilter, RenderTypeaheadOption, TypeaheadOption } from "./components/typeahead/types";
+export { RenderSelectValue } from "./components/select/types";
+export { OptionFilter as OptionFilter1, RenderTypeaheadInput, RenderTypeaheadOption as RenderTypeaheadOption1, TypeaheadOption as TypeaheadOption1 } from "./components/typeahead/types";
 export namespace Components {
     /**
      * A checkbox component
      */
-    interface EsCheckbox {
+    interface F2Checkbox {
         /**
           * If the field is disabled.
          */
@@ -49,20 +51,34 @@ export namespace Components {
          */
         "value": boolean;
     }
+    interface F2Hr {
+    }
     /**
-     * An optionally masked text input.
+     * A masked text input.
      */
-    interface EsInput {
+    interface F2MaskedTextField {
         /**
-          * If the field is disabled.
+          * If the input is disabled.
          */
         "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
         /**
           * Pass props directly to the input.
          */
         "inputProps"?: Record<string, any>;
         /**
-          * If the field is currently in an error state.
+          * If the field is currently invalid.
          */
         "invalid"?: boolean;
         /**
@@ -72,13 +88,13 @@ export namespace Components {
         /**
           * Apply an input mask
          */
-        "mask"?: MaskOptions;
+        "mask": MaskOptions;
         /**
-          * The validation messages of the field
+          * The messages to display under the field.
          */
         "messages"?: ValidationMessages;
         /**
-          * The name of the field.
+          * The name of the input.
          */
         "name": string;
         /**
@@ -86,110 +102,24 @@ export namespace Components {
          */
         "placeholder": string;
         /**
-          * If the field is editable.
+          * If the input is editable.
          */
         "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
         "value": string;
     }
     /**
-     * A list creator input.
+     * A masked text input.
      */
-    interface EsInputList {
-        /**
-          * Icon for the add item button.
-         */
-        "additionIcon": IconDescription;
-        /**
-          * Text for the add item button.
-         */
-        "additionText": string;
-        /**
-          * Icon for the delete button.
-         */
-        "deleteIcon": IconDescription;
+    interface F2MaskedTextInput {
         /**
           * If the input is disabled.
-         */
-        "disabled"?: boolean;
-        /**
-          * The label of the field.
-         */
-        "label": string;
-        /**
-          * The validation messages of the field
-         */
-        "messages"?: ValidationMessages;
-        /**
-          * The name of the field.
-         */
-        "name": string;
-        /**
-          * Display a placeholder in the input.
-         */
-        "placeholder": string;
-        /**
-          * The currently selected values
-         */
-        "value": string[];
-    }
-    /**
-     * A list creator input.
-     */
-    interface EsListCreator {
-        /**
-          * The icon to display next to the field
-         */
-        "addIcon": IconDescription;
-        /**
-          * Icon for the delete button.
-         */
-        "deleteIcon": IconDescription;
-        /**
-          * If the field is disabled.
-         */
-        "disabled"?: boolean;
-        /**
-          * The icon to display next to the field
-         */
-        "icon"?: IconDescription;
-        /**
-          * The label of the field.
-         */
-        "label": string;
-        /**
-          * The validation messages of the field
-         */
-        "messages"?: ValidationMessages;
-        /**
-          * The name of the field.
-         */
-        "name": string;
-        /**
-          * A list of options to choose from.
-         */
-        "options": TypeaheadOption[];
-        /**
-          * The placeholder for the input.
-         */
-        "placeholder": string;
-        /**
-          * Render the list item.
-         */
-        "renderItem": RenderFunction<[option: TypeaheadOption]>;
-        /**
-          * The selected item ids
-         */
-        "value": string[];
-    }
-    /**
-     * An extra large input.
-     */
-    interface EsMegaInput {
-        /**
-          * If the field is disabled.
          */
         "disabled"?: boolean;
         /**
@@ -197,19 +127,15 @@ export namespace Components {
          */
         "inputProps"?: Record<string, any>;
         /**
-          * If the field is currently in an error state.
+          * If the input is currently invalid.
          */
         "invalid"?: boolean;
         /**
-          * The label of the field.
+          * Apply an input mask
          */
-        "label": string;
+        "mask": MaskOptions;
         /**
-          * The validation messages of the field
-         */
-        "messages"?: ValidationMessages;
-        /**
-          * The name of the field.
+          * The name of the input.
          */
         "name": string;
         /**
@@ -217,7 +143,7 @@ export namespace Components {
          */
         "placeholder": string;
         /**
-          * If the field is editable.
+          * If the input is editable.
          */
         "readonly"?: boolean;
         /**
@@ -228,17 +154,29 @@ export namespace Components {
     /**
      * A multi-checkbox component
      */
-    interface EsMultiCheckbox {
+    interface F2MultiCheckboxField {
         /**
           * If the field is disabled.
          */
         "disabled"?: boolean;
         /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
           * The icon to use.
          */
         "icon": IconDescription;
         /**
-          * If the field is currently in an error state.
+          * If the field is currently invalid.
          */
         "invalid"?: boolean;
         /**
@@ -246,7 +184,7 @@ export namespace Components {
          */
         "label": string;
         /**
-          * The validation messages of the field
+          * The messages to display under the field.
          */
         "messages"?: ValidationMessages;
         /**
@@ -262,14 +200,80 @@ export namespace Components {
          */
         "readonly"?: boolean;
         /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
           * The current value of the field.
          */
         "value": Set<string>;
     }
     /**
-     * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+     * A number field.
      */
-    interface EsNumberInput {
+    interface F2NumberField {
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
+          * Display a unit beside the input.
+         */
+        "unit"?: string;
+        /**
+          * The current value of the field.
+         */
+        "value": string;
+    }
+    /**
+     * A number based input.
+     * Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+     */
+    interface F2NumberInput {
         /**
           * If the field is disabled.
          */
@@ -282,14 +286,6 @@ export namespace Components {
           * If the field is currently in an error state.
          */
         "invalid"?: boolean;
-        /**
-          * The label of the field.
-         */
-        "label": string;
-        /**
-          * The validation messages of the field
-         */
-        "messages"?: ValidationMessages;
         /**
           * The name of the field.
          */
@@ -312,27 +308,145 @@ export namespace Components {
         "value": string;
     }
     /**
-     * A card based single select input.
+     * A card based single select field.
      */
-    interface EsRadioCardGroup {
+    interface F2RadioCardField {
+        /**
+          * Parts in the carld, to be exported on the top level.
+         */
+        "cardParts"?: string[];
+        /**
+          * Icon to display when checked.
+         */
+        "checkIcon": IconDescription;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
         /**
           * Group the cards by a key.
          */
         "groupBy"?: string;
         /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * The options to be displayed and chosen from.
+         */
+        "options": RadioCardOption[];
+        /**
+          * Overwrite the default card renderer
+         */
+        "renderCard"?: RenderCard<any>;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
+          * The current value of the input.
+         */
+        "value": string | null;
+    }
+    /**
+     * A card based single select input.
+     */
+    interface F2RadioCardInput {
+        /**
           * Icon to display when checked.
          */
-        "icon": IconDescription;
+        "checkIcon": IconDescription;
         /**
-          * If the field is currently in an error state.
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Group the cards by a key.
+         */
+        "groupBy"?: string;
+        /**
+          * If the input is currently in an error state.
          */
         "invalid": boolean;
         /**
-          * The id of the component that labels this input. This input doesn't bring its own label, so must be labeled externally and referenced here.
+          * The name of the input.
          */
-        "labelledby": string;
+        "name": string;
         /**
-          * The validation messages of the field
+          * The options to be displayed and chosen from.
+         */
+        "options": RadioCardOption[];
+        /**
+          * Overwrite the default card renderer
+         */
+        "renderCard": RenderCard<any>;
+        /**
+          * The current value of the input.
+         */
+        "value": string | null;
+    }
+    /**
+     * A text input.
+     */
+    interface F2SelectField {
+        /**
+          * Icon to use as a chevron.
+         */
+        "chevronIcon"?: IconDescription;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
          */
         "messages"?: ValidationMessages;
         /**
@@ -340,13 +454,33 @@ export namespace Components {
          */
         "name": string;
         /**
-          * The options to be displayed and chosen from.
+          * Pass a custom search filter function
          */
-        "options": RadioCardGroupOption[];
+        "optionFilter"?: OptionFilter;
         /**
-          * Overwrite the default card renderer
+          * A list of options to choose from.
          */
-        "renderCard": RenderCard<any>;
+        "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder"?: string;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * Overwrite the default option renderer.
+         */
+        "renderOption"?: RenderTypeaheadOption<any>;
+        /**
+          * Overwrite the default value renderer.
+         */
+        "renderValue"?: RenderSelectValue<any>;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
@@ -355,7 +489,7 @@ export namespace Components {
     /**
      * A searchable select dropdown.
      */
-    interface EsSelect {
+    interface F2SelectInput {
         /**
           * Icon to use as a chevron.
          */
@@ -372,14 +506,6 @@ export namespace Components {
           * If the field is currently in an error state.
          */
         "invalid"?: boolean;
-        /**
-          * The label of the field.
-         */
-        "label": string;
-        /**
-          * The validation messages of the field
-         */
-        "messages"?: ValidationMessages;
         /**
           * The name of the field.
          */
@@ -414,9 +540,86 @@ export namespace Components {
         "value": string | null;
     }
     /**
+     * Create a list from a fixed set of values.
+     */
+    interface F2SelectListField {
+        /**
+          * The icon to display next to the field
+         */
+        "addIcon": IconDescription;
+        /**
+          * Icon to use as a chevron.
+         */
+        "chevronIcon": IconDescription;
+        /**
+          * Icon for the delete button.
+         */
+        "deleteIcon": IconDescription;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * The icon to display next to the field
+         */
+        "icon"?: IconDescription;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * A list of options to choose from.
+         */
+        "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * Render the list item.
+         */
+        "renderItem": RenderFunction<[option: TypeaheadOption]>;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
+          * The selected item ids
+         */
+        "value": string[];
+    }
+    /**
      * A switchable switch.
      */
-    interface EsSwitch {
+    interface F2Switch {
         /**
           * Icon to display when switch is on in high contrast mode.
          */
@@ -459,72 +662,31 @@ export namespace Components {
         "value": boolean;
     }
     /**
-     * A switchable switch field.
+     * A text input.
      */
-    interface EsSwitchField {
+    interface F2TextField {
         /**
-          * Icon to display when switch is on in high contrast mode.
-         */
-        "activeIcon"?: IconDescription;
-        /**
-          * Text to display when switch is on in high contrast mode.
-         */
-        "activeText"?: string;
-        /**
-          * If the field is disabled.
+          * If the input is disabled.
          */
         "disabled"?: boolean;
         /**
-          * Icon to display when switch is off in high contrast mode.
+          * Inline documentation text.
          */
-        "inactiveIcon"?: IconDescription;
+        "documentation"?: string;
         /**
-          * Text to display when switch is off in high contrast mode.
+          * Inline documentation link.
          */
-        "inactiveText"?: string;
+        "documentationLink"?: string;
         /**
-          * If the field is currently in an error state.
+          * Inline documentation link text.
          */
-        "invalid"?: boolean;
-        /**
-          * The label of the field.
-         */
-        "label": string;
-        /**
-          * The validation messages of the field
-         */
-        "messages"?: ValidationMessages;
-        /**
-          * The name of the field.
-         */
-        "name": string;
-        /**
-          * If the field is editable.
-         */
-        "readonly"?: boolean;
-        /**
-          * Allows you to pause interaction with the input while an operation completes.
-         */
-        "setPending": (pending: boolean) => Promise<void>;
-        /**
-          * The current value of the field.
-         */
-        "value": boolean;
-    }
-    /**
-     * A textarea field.
-     */
-    interface EsTextarea {
-        /**
-          * If the field is disabled.
-         */
-        "disabled"?: boolean;
+        "documentationLinkText"?: string;
         /**
           * Pass props directly to the input.
          */
         "inputProps"?: Record<string, any>;
         /**
-          * If the field is currently in an error state.
+          * If the field is currently invalid.
          */
         "invalid"?: boolean;
         /**
@@ -532,11 +694,11 @@ export namespace Components {
          */
         "label": string;
         /**
-          * The validation messages of the field
+          * The messages to display under the field.
          */
         "messages"?: ValidationMessages;
         /**
-          * The name of the field.
+          * The name of the input.
          */
         "name": string;
         /**
@@ -544,7 +706,44 @@ export namespace Components {
          */
         "placeholder": string;
         /**
-          * If the field is editable.
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
+          * The current value of the field.
+         */
+        "value": string;
+    }
+    /**
+     * A text input.
+     */
+    interface F2TextInput {
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the input is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
          */
         "readonly"?: boolean;
         /**
@@ -552,22 +751,173 @@ export namespace Components {
          */
         "value": string;
     }
-    interface EsTypeahead {
+    /**
+     * A list creator input.
+     */
+    interface F2TextListField {
+        /**
+          * Icon for the add item button.
+         */
+        "additionIcon": IconDescription;
+        /**
+          * Text for the add item button.
+         */
+        "additionText": string;
+        /**
+          * Icon for the delete button.
+         */
+        "deleteIcon": IconDescription;
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Display a placeholder in the input.
+         */
+        "placeholder": string;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
+          * The currently selected values
+         */
+        "value": string[];
+    }
+    /**
+     * A textarea field.
+     */
+    interface F2TextareaField {
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
+          * The current value of the field.
+         */
+        "value": string;
+    }
+    /**
+     * A textarea input.
+     */
+    interface F2TextareaInput {
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the input is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current value of the input.
+         */
+        "value": string;
+    }
+    interface F2Typeahead {
         "clearOnSelect": boolean;
         "closeOnSelect": boolean;
         "disabled"?: boolean;
         "name": string;
-        "optionFilter": OptionFilter;
-        "options": TypeaheadOption[];
+        "optionFilter": OptionFilter1;
+        "options": TypeaheadOption1[];
         "readonly"?: boolean;
-        "renderField": RenderTypeaheadField;
-        "renderOption": RenderTypeaheadOption;
+        "renderInput": RenderTypeaheadInput;
+        "renderOption": RenderTypeaheadOption1;
         "value": string[];
     }
     /**
      * Display messages under fields.
      */
-    interface EsValidationMessages {
+    interface F2ValidationMessages {
         /**
           * Icon to diplay next to errors. (if `showIcons` or high contrast)
          */
@@ -579,362 +929,503 @@ export namespace Components {
         /**
           * The messages to display.
          */
-        "messages"?: Partial<ValidationMessages>;
-        /**
-          * Display icons alongside messages.
-         */
-        "showIcons": boolean;
+        "messages"?: ValidationMessages;
         /**
           * Icon to diplay next to warnings. (if `showIcons` or high contrast)
          */
         "warningIcon": IconDescription;
     }
 }
-export interface EsCheckboxCustomEvent<T> extends CustomEvent<T> {
+export interface F2CheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsCheckboxElement;
+    target: HTMLF2CheckboxElement;
 }
-export interface EsInputCustomEvent<T> extends CustomEvent<T> {
+export interface F2MaskedTextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsInputElement;
+    target: HTMLF2MaskedTextFieldElement;
 }
-export interface EsInputListCustomEvent<T> extends CustomEvent<T> {
+export interface F2MaskedTextInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsInputListElement;
+    target: HTMLF2MaskedTextInputElement;
 }
-export interface EsListCreatorCustomEvent<T> extends CustomEvent<T> {
+export interface F2MultiCheckboxFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsListCreatorElement;
+    target: HTMLF2MultiCheckboxFieldElement;
 }
-export interface EsMegaInputCustomEvent<T> extends CustomEvent<T> {
+export interface F2NumberFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsMegaInputElement;
+    target: HTMLF2NumberFieldElement;
 }
-export interface EsMultiCheckboxCustomEvent<T> extends CustomEvent<T> {
+export interface F2NumberInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsMultiCheckboxElement;
+    target: HTMLF2NumberInputElement;
 }
-export interface EsNumberInputCustomEvent<T> extends CustomEvent<T> {
+export interface F2RadioCardFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsNumberInputElement;
+    target: HTMLF2RadioCardFieldElement;
 }
-export interface EsRadioCardGroupCustomEvent<T> extends CustomEvent<T> {
+export interface F2RadioCardInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsRadioCardGroupElement;
+    target: HTMLF2RadioCardInputElement;
 }
-export interface EsSelectCustomEvent<T> extends CustomEvent<T> {
+export interface F2SelectFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsSelectElement;
+    target: HTMLF2SelectFieldElement;
 }
-export interface EsSwitchCustomEvent<T> extends CustomEvent<T> {
+export interface F2SelectInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsSwitchElement;
+    target: HTMLF2SelectInputElement;
 }
-export interface EsSwitchFieldCustomEvent<T> extends CustomEvent<T> {
+export interface F2SelectListFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsSwitchFieldElement;
+    target: HTMLF2SelectListFieldElement;
 }
-export interface EsTextareaCustomEvent<T> extends CustomEvent<T> {
+export interface F2SwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsTextareaElement;
+    target: HTMLF2SwitchElement;
 }
-export interface EsTypeaheadCustomEvent<T> extends CustomEvent<T> {
+export interface F2TextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsTypeaheadElement;
+    target: HTMLF2TextFieldElement;
+}
+export interface F2TextInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2TextInputElement;
+}
+export interface F2TextListFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2TextListFieldElement;
+}
+export interface F2TextareaFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2TextareaFieldElement;
+}
+export interface F2TextareaInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2TextareaInputElement;
+}
+export interface F2TypeaheadCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2TypeaheadElement;
 }
 declare global {
-    interface HTMLEsCheckboxElementEventMap {
+    interface HTMLF2CheckboxElementEventMap {
         "fieldchange": FieldChange<boolean>;
     }
     /**
      * A checkbox component
      */
-    interface HTMLEsCheckboxElement extends Components.EsCheckbox, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsCheckboxElementEventMap>(type: K, listener: (this: HTMLEsCheckboxElement, ev: EsCheckboxCustomEvent<HTMLEsCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLF2CheckboxElement extends Components.F2Checkbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2CheckboxElementEventMap>(type: K, listener: (this: HTMLF2CheckboxElement, ev: F2CheckboxCustomEvent<HTMLF2CheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsCheckboxElementEventMap>(type: K, listener: (this: HTMLEsCheckboxElement, ev: EsCheckboxCustomEvent<HTMLEsCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2CheckboxElementEventMap>(type: K, listener: (this: HTMLF2CheckboxElement, ev: F2CheckboxCustomEvent<HTMLF2CheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsCheckboxElement: {
-        prototype: HTMLEsCheckboxElement;
-        new (): HTMLEsCheckboxElement;
+    var HTMLF2CheckboxElement: {
+        prototype: HTMLF2CheckboxElement;
+        new (): HTMLF2CheckboxElement;
     };
-    interface HTMLEsInputElementEventMap {
+    interface HTMLF2HrElement extends Components.F2Hr, HTMLStencilElement {
+    }
+    var HTMLF2HrElement: {
+        prototype: HTMLF2HrElement;
+        new (): HTMLF2HrElement;
+    };
+    interface HTMLF2MaskedTextFieldElementEventMap {
+        "fieldchange": FieldChange<string>;
+        "enter": any;
+        "requestEdit": string;
+    }
+    /**
+     * A masked text input.
+     */
+    interface HTMLF2MaskedTextFieldElement extends Components.F2MaskedTextField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2MaskedTextFieldElementEventMap>(type: K, listener: (this: HTMLF2MaskedTextFieldElement, ev: F2MaskedTextFieldCustomEvent<HTMLF2MaskedTextFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2MaskedTextFieldElementEventMap>(type: K, listener: (this: HTMLF2MaskedTextFieldElement, ev: F2MaskedTextFieldCustomEvent<HTMLF2MaskedTextFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2MaskedTextFieldElement: {
+        prototype: HTMLF2MaskedTextFieldElement;
+        new (): HTMLF2MaskedTextFieldElement;
+    };
+    interface HTMLF2MaskedTextInputElementEventMap {
         "fieldchange": FieldChange<string>;
         "enter": any;
     }
     /**
-     * An optionally masked text input.
+     * A masked text input.
      */
-    interface HTMLEsInputElement extends Components.EsInput, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsInputElementEventMap>(type: K, listener: (this: HTMLEsInputElement, ev: EsInputCustomEvent<HTMLEsInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLF2MaskedTextInputElement extends Components.F2MaskedTextInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2MaskedTextInputElementEventMap>(type: K, listener: (this: HTMLF2MaskedTextInputElement, ev: F2MaskedTextInputCustomEvent<HTMLF2MaskedTextInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsInputElementEventMap>(type: K, listener: (this: HTMLEsInputElement, ev: EsInputCustomEvent<HTMLEsInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2MaskedTextInputElementEventMap>(type: K, listener: (this: HTMLF2MaskedTextInputElement, ev: F2MaskedTextInputCustomEvent<HTMLF2MaskedTextInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsInputElement: {
-        prototype: HTMLEsInputElement;
-        new (): HTMLEsInputElement;
+    var HTMLF2MaskedTextInputElement: {
+        prototype: HTMLF2MaskedTextInputElement;
+        new (): HTMLF2MaskedTextInputElement;
     };
-    interface HTMLEsInputListElementEventMap {
-        "fieldchange": FieldChange<string[]>;
-    }
-    /**
-     * A list creator input.
-     */
-    interface HTMLEsInputListElement extends Components.EsInputList, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsInputListElementEventMap>(type: K, listener: (this: HTMLEsInputListElement, ev: EsInputListCustomEvent<HTMLEsInputListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsInputListElementEventMap>(type: K, listener: (this: HTMLEsInputListElement, ev: EsInputListCustomEvent<HTMLEsInputListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLEsInputListElement: {
-        prototype: HTMLEsInputListElement;
-        new (): HTMLEsInputListElement;
-    };
-    interface HTMLEsListCreatorElementEventMap {
-        "fieldchange": FieldChange<string[]>;
-    }
-    /**
-     * A list creator input.
-     */
-    interface HTMLEsListCreatorElement extends Components.EsListCreator, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsListCreatorElementEventMap>(type: K, listener: (this: HTMLEsListCreatorElement, ev: EsListCreatorCustomEvent<HTMLEsListCreatorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsListCreatorElementEventMap>(type: K, listener: (this: HTMLEsListCreatorElement, ev: EsListCreatorCustomEvent<HTMLEsListCreatorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLEsListCreatorElement: {
-        prototype: HTMLEsListCreatorElement;
-        new (): HTMLEsListCreatorElement;
-    };
-    interface HTMLEsMegaInputElementEventMap {
-        "fieldchange": FieldChange<string>;
-        "enter": any;
-    }
-    /**
-     * An extra large input.
-     */
-    interface HTMLEsMegaInputElement extends Components.EsMegaInput, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsMegaInputElementEventMap>(type: K, listener: (this: HTMLEsMegaInputElement, ev: EsMegaInputCustomEvent<HTMLEsMegaInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsMegaInputElementEventMap>(type: K, listener: (this: HTMLEsMegaInputElement, ev: EsMegaInputCustomEvent<HTMLEsMegaInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLEsMegaInputElement: {
-        prototype: HTMLEsMegaInputElement;
-        new (): HTMLEsMegaInputElement;
-    };
-    interface HTMLEsMultiCheckboxElementEventMap {
+    interface HTMLF2MultiCheckboxFieldElementEventMap {
         "fieldchange": FieldChange<Set<string>>;
+        "requestEdit": string;
     }
     /**
      * A multi-checkbox component
      */
-    interface HTMLEsMultiCheckboxElement extends Components.EsMultiCheckbox, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsMultiCheckboxElementEventMap>(type: K, listener: (this: HTMLEsMultiCheckboxElement, ev: EsMultiCheckboxCustomEvent<HTMLEsMultiCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLF2MultiCheckboxFieldElement extends Components.F2MultiCheckboxField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2MultiCheckboxFieldElementEventMap>(type: K, listener: (this: HTMLF2MultiCheckboxFieldElement, ev: F2MultiCheckboxFieldCustomEvent<HTMLF2MultiCheckboxFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsMultiCheckboxElementEventMap>(type: K, listener: (this: HTMLEsMultiCheckboxElement, ev: EsMultiCheckboxCustomEvent<HTMLEsMultiCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2MultiCheckboxFieldElementEventMap>(type: K, listener: (this: HTMLF2MultiCheckboxFieldElement, ev: F2MultiCheckboxFieldCustomEvent<HTMLF2MultiCheckboxFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsMultiCheckboxElement: {
-        prototype: HTMLEsMultiCheckboxElement;
-        new (): HTMLEsMultiCheckboxElement;
+    var HTMLF2MultiCheckboxFieldElement: {
+        prototype: HTMLF2MultiCheckboxFieldElement;
+        new (): HTMLF2MultiCheckboxFieldElement;
     };
-    interface HTMLEsNumberInputElementEventMap {
+    interface HTMLF2NumberFieldElementEventMap {
+        "fieldchange": FieldChange<string>;
+        "requestEdit": string;
+    }
+    /**
+     * A number field.
+     */
+    interface HTMLF2NumberFieldElement extends Components.F2NumberField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2NumberFieldElementEventMap>(type: K, listener: (this: HTMLF2NumberFieldElement, ev: F2NumberFieldCustomEvent<HTMLF2NumberFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2NumberFieldElementEventMap>(type: K, listener: (this: HTMLF2NumberFieldElement, ev: F2NumberFieldCustomEvent<HTMLF2NumberFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2NumberFieldElement: {
+        prototype: HTMLF2NumberFieldElement;
+        new (): HTMLF2NumberFieldElement;
+    };
+    interface HTMLF2NumberInputElementEventMap {
         "fieldchange": FieldChange<string>;
         "enter": any;
     }
     /**
-     * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+     * A number based input.
+     * Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
      */
-    interface HTMLEsNumberInputElement extends Components.EsNumberInput, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsNumberInputElementEventMap>(type: K, listener: (this: HTMLEsNumberInputElement, ev: EsNumberInputCustomEvent<HTMLEsNumberInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLF2NumberInputElement extends Components.F2NumberInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2NumberInputElementEventMap>(type: K, listener: (this: HTMLF2NumberInputElement, ev: F2NumberInputCustomEvent<HTMLF2NumberInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsNumberInputElementEventMap>(type: K, listener: (this: HTMLEsNumberInputElement, ev: EsNumberInputCustomEvent<HTMLEsNumberInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2NumberInputElementEventMap>(type: K, listener: (this: HTMLF2NumberInputElement, ev: F2NumberInputCustomEvent<HTMLF2NumberInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsNumberInputElement: {
-        prototype: HTMLEsNumberInputElement;
-        new (): HTMLEsNumberInputElement;
+    var HTMLF2NumberInputElement: {
+        prototype: HTMLF2NumberInputElement;
+        new (): HTMLF2NumberInputElement;
     };
-    interface HTMLEsRadioCardGroupElementEventMap {
-        "fieldchange": FieldChange<string | null>;
+    interface HTMLF2RadioCardFieldElementEventMap {
+        "fieldchange": FieldChange<string>;
+        "requestEdit": string;
+    }
+    /**
+     * A card based single select field.
+     */
+    interface HTMLF2RadioCardFieldElement extends Components.F2RadioCardField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2RadioCardFieldElementEventMap>(type: K, listener: (this: HTMLF2RadioCardFieldElement, ev: F2RadioCardFieldCustomEvent<HTMLF2RadioCardFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2RadioCardFieldElementEventMap>(type: K, listener: (this: HTMLF2RadioCardFieldElement, ev: F2RadioCardFieldCustomEvent<HTMLF2RadioCardFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2RadioCardFieldElement: {
+        prototype: HTMLF2RadioCardFieldElement;
+        new (): HTMLF2RadioCardFieldElement;
+    };
+    interface HTMLF2RadioCardInputElementEventMap {
+        "fieldchange": FieldChange<string>;
     }
     /**
      * A card based single select input.
      */
-    interface HTMLEsRadioCardGroupElement extends Components.EsRadioCardGroup, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsRadioCardGroupElementEventMap>(type: K, listener: (this: HTMLEsRadioCardGroupElement, ev: EsRadioCardGroupCustomEvent<HTMLEsRadioCardGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLF2RadioCardInputElement extends Components.F2RadioCardInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2RadioCardInputElementEventMap>(type: K, listener: (this: HTMLF2RadioCardInputElement, ev: F2RadioCardInputCustomEvent<HTMLF2RadioCardInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsRadioCardGroupElementEventMap>(type: K, listener: (this: HTMLEsRadioCardGroupElement, ev: EsRadioCardGroupCustomEvent<HTMLEsRadioCardGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2RadioCardInputElementEventMap>(type: K, listener: (this: HTMLF2RadioCardInputElement, ev: F2RadioCardInputCustomEvent<HTMLF2RadioCardInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsRadioCardGroupElement: {
-        prototype: HTMLEsRadioCardGroupElement;
-        new (): HTMLEsRadioCardGroupElement;
+    var HTMLF2RadioCardInputElement: {
+        prototype: HTMLF2RadioCardInputElement;
+        new (): HTMLF2RadioCardInputElement;
     };
-    interface HTMLEsSelectElementEventMap {
+    interface HTMLF2SelectFieldElementEventMap {
+        "fieldchange": FieldChange<string>;
+        "enter": any;
+        "requestEdit": string;
+    }
+    /**
+     * A text input.
+     */
+    interface HTMLF2SelectFieldElement extends Components.F2SelectField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2SelectFieldElementEventMap>(type: K, listener: (this: HTMLF2SelectFieldElement, ev: F2SelectFieldCustomEvent<HTMLF2SelectFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2SelectFieldElementEventMap>(type: K, listener: (this: HTMLF2SelectFieldElement, ev: F2SelectFieldCustomEvent<HTMLF2SelectFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2SelectFieldElement: {
+        prototype: HTMLF2SelectFieldElement;
+        new (): HTMLF2SelectFieldElement;
+    };
+    interface HTMLF2SelectInputElementEventMap {
         "fieldchange": FieldChange<string | null>;
     }
     /**
      * A searchable select dropdown.
      */
-    interface HTMLEsSelectElement extends Components.EsSelect, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsSelectElementEventMap>(type: K, listener: (this: HTMLEsSelectElement, ev: EsSelectCustomEvent<HTMLEsSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLF2SelectInputElement extends Components.F2SelectInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2SelectInputElementEventMap>(type: K, listener: (this: HTMLF2SelectInputElement, ev: F2SelectInputCustomEvent<HTMLF2SelectInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsSelectElementEventMap>(type: K, listener: (this: HTMLEsSelectElement, ev: EsSelectCustomEvent<HTMLEsSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2SelectInputElementEventMap>(type: K, listener: (this: HTMLF2SelectInputElement, ev: F2SelectInputCustomEvent<HTMLF2SelectInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsSelectElement: {
-        prototype: HTMLEsSelectElement;
-        new (): HTMLEsSelectElement;
+    var HTMLF2SelectInputElement: {
+        prototype: HTMLF2SelectInputElement;
+        new (): HTMLF2SelectInputElement;
     };
-    interface HTMLEsSwitchElementEventMap {
+    interface HTMLF2SelectListFieldElementEventMap {
+        "fieldchange": FieldChange<string[]>;
+        "requestEdit": string;
+    }
+    /**
+     * Create a list from a fixed set of values.
+     */
+    interface HTMLF2SelectListFieldElement extends Components.F2SelectListField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2SelectListFieldElementEventMap>(type: K, listener: (this: HTMLF2SelectListFieldElement, ev: F2SelectListFieldCustomEvent<HTMLF2SelectListFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2SelectListFieldElementEventMap>(type: K, listener: (this: HTMLF2SelectListFieldElement, ev: F2SelectListFieldCustomEvent<HTMLF2SelectListFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2SelectListFieldElement: {
+        prototype: HTMLF2SelectListFieldElement;
+        new (): HTMLF2SelectListFieldElement;
+    };
+    interface HTMLF2SwitchElementEventMap {
         "fieldchange": FieldChange<boolean>;
     }
     /**
      * A switchable switch.
      */
-    interface HTMLEsSwitchElement extends Components.EsSwitch, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsSwitchElementEventMap>(type: K, listener: (this: HTMLEsSwitchElement, ev: EsSwitchCustomEvent<HTMLEsSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLF2SwitchElement extends Components.F2Switch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2SwitchElementEventMap>(type: K, listener: (this: HTMLF2SwitchElement, ev: F2SwitchCustomEvent<HTMLF2SwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsSwitchElementEventMap>(type: K, listener: (this: HTMLEsSwitchElement, ev: EsSwitchCustomEvent<HTMLEsSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2SwitchElementEventMap>(type: K, listener: (this: HTMLF2SwitchElement, ev: F2SwitchCustomEvent<HTMLF2SwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsSwitchElement: {
-        prototype: HTMLEsSwitchElement;
-        new (): HTMLEsSwitchElement;
+    var HTMLF2SwitchElement: {
+        prototype: HTMLF2SwitchElement;
+        new (): HTMLF2SwitchElement;
     };
-    interface HTMLEsSwitchFieldElementEventMap {
-        "fieldchange": FieldChange<boolean>;
+    interface HTMLF2TextFieldElementEventMap {
+        "fieldchange": FieldChange<string>;
+        "enter": any;
+        "requestEdit": string;
     }
     /**
-     * A switchable switch field.
+     * A text input.
      */
-    interface HTMLEsSwitchFieldElement extends Components.EsSwitchField, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsSwitchFieldElementEventMap>(type: K, listener: (this: HTMLEsSwitchFieldElement, ev: EsSwitchFieldCustomEvent<HTMLEsSwitchFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLF2TextFieldElement extends Components.F2TextField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2TextFieldElementEventMap>(type: K, listener: (this: HTMLF2TextFieldElement, ev: F2TextFieldCustomEvent<HTMLF2TextFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsSwitchFieldElementEventMap>(type: K, listener: (this: HTMLEsSwitchFieldElement, ev: EsSwitchFieldCustomEvent<HTMLEsSwitchFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2TextFieldElementEventMap>(type: K, listener: (this: HTMLF2TextFieldElement, ev: F2TextFieldCustomEvent<HTMLF2TextFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsSwitchFieldElement: {
-        prototype: HTMLEsSwitchFieldElement;
-        new (): HTMLEsSwitchFieldElement;
+    var HTMLF2TextFieldElement: {
+        prototype: HTMLF2TextFieldElement;
+        new (): HTMLF2TextFieldElement;
     };
-    interface HTMLEsTextareaElementEventMap {
+    interface HTMLF2TextInputElementEventMap {
         "fieldchange": FieldChange<string>;
+        "enter": any;
+    }
+    /**
+     * A text input.
+     */
+    interface HTMLF2TextInputElement extends Components.F2TextInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2TextInputElementEventMap>(type: K, listener: (this: HTMLF2TextInputElement, ev: F2TextInputCustomEvent<HTMLF2TextInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2TextInputElementEventMap>(type: K, listener: (this: HTMLF2TextInputElement, ev: F2TextInputCustomEvent<HTMLF2TextInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2TextInputElement: {
+        prototype: HTMLF2TextInputElement;
+        new (): HTMLF2TextInputElement;
+    };
+    interface HTMLF2TextListFieldElementEventMap {
+        "fieldchange": FieldChange<string[]>;
+        "requestEdit": string;
+    }
+    /**
+     * A list creator input.
+     */
+    interface HTMLF2TextListFieldElement extends Components.F2TextListField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2TextListFieldElementEventMap>(type: K, listener: (this: HTMLF2TextListFieldElement, ev: F2TextListFieldCustomEvent<HTMLF2TextListFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2TextListFieldElementEventMap>(type: K, listener: (this: HTMLF2TextListFieldElement, ev: F2TextListFieldCustomEvent<HTMLF2TextListFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2TextListFieldElement: {
+        prototype: HTMLF2TextListFieldElement;
+        new (): HTMLF2TextListFieldElement;
+    };
+    interface HTMLF2TextareaFieldElementEventMap {
+        "fieldchange": FieldChange<string>;
+        "requestEdit": string;
     }
     /**
      * A textarea field.
      */
-    interface HTMLEsTextareaElement extends Components.EsTextarea, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsTextareaElementEventMap>(type: K, listener: (this: HTMLEsTextareaElement, ev: EsTextareaCustomEvent<HTMLEsTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLF2TextareaFieldElement extends Components.F2TextareaField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2TextareaFieldElementEventMap>(type: K, listener: (this: HTMLF2TextareaFieldElement, ev: F2TextareaFieldCustomEvent<HTMLF2TextareaFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsTextareaElementEventMap>(type: K, listener: (this: HTMLEsTextareaElement, ev: EsTextareaCustomEvent<HTMLEsTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2TextareaFieldElementEventMap>(type: K, listener: (this: HTMLF2TextareaFieldElement, ev: F2TextareaFieldCustomEvent<HTMLF2TextareaFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsTextareaElement: {
-        prototype: HTMLEsTextareaElement;
-        new (): HTMLEsTextareaElement;
+    var HTMLF2TextareaFieldElement: {
+        prototype: HTMLF2TextareaFieldElement;
+        new (): HTMLF2TextareaFieldElement;
     };
-    interface HTMLEsTypeaheadElementEventMap {
+    interface HTMLF2TextareaInputElementEventMap {
+        "fieldchange": FieldChange<string>;
+    }
+    /**
+     * A textarea input.
+     */
+    interface HTMLF2TextareaInputElement extends Components.F2TextareaInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2TextareaInputElementEventMap>(type: K, listener: (this: HTMLF2TextareaInputElement, ev: F2TextareaInputCustomEvent<HTMLF2TextareaInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2TextareaInputElementEventMap>(type: K, listener: (this: HTMLF2TextareaInputElement, ev: F2TextareaInputCustomEvent<HTMLF2TextareaInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2TextareaInputElement: {
+        prototype: HTMLF2TextareaInputElement;
+        new (): HTMLF2TextareaInputElement;
+    };
+    interface HTMLF2TypeaheadElementEventMap {
         "fieldchange": FieldChange<string[]>;
         "enter": any;
     }
-    interface HTMLEsTypeaheadElement extends Components.EsTypeahead, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsTypeaheadElementEventMap>(type: K, listener: (this: HTMLEsTypeaheadElement, ev: EsTypeaheadCustomEvent<HTMLEsTypeaheadElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLF2TypeaheadElement extends Components.F2Typeahead, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2TypeaheadElementEventMap>(type: K, listener: (this: HTMLF2TypeaheadElement, ev: F2TypeaheadCustomEvent<HTMLF2TypeaheadElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsTypeaheadElementEventMap>(type: K, listener: (this: HTMLEsTypeaheadElement, ev: EsTypeaheadCustomEvent<HTMLEsTypeaheadElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2TypeaheadElementEventMap>(type: K, listener: (this: HTMLF2TypeaheadElement, ev: F2TypeaheadCustomEvent<HTMLF2TypeaheadElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsTypeaheadElement: {
-        prototype: HTMLEsTypeaheadElement;
-        new (): HTMLEsTypeaheadElement;
+    var HTMLF2TypeaheadElement: {
+        prototype: HTMLF2TypeaheadElement;
+        new (): HTMLF2TypeaheadElement;
     };
     /**
      * Display messages under fields.
      */
-    interface HTMLEsValidationMessagesElement extends Components.EsValidationMessages, HTMLStencilElement {
+    interface HTMLF2ValidationMessagesElement extends Components.F2ValidationMessages, HTMLStencilElement {
     }
-    var HTMLEsValidationMessagesElement: {
-        prototype: HTMLEsValidationMessagesElement;
-        new (): HTMLEsValidationMessagesElement;
+    var HTMLF2ValidationMessagesElement: {
+        prototype: HTMLF2ValidationMessagesElement;
+        new (): HTMLF2ValidationMessagesElement;
     };
     interface HTMLElementTagNameMap {
-        "es-checkbox": HTMLEsCheckboxElement;
-        "es-input": HTMLEsInputElement;
-        "es-input-list": HTMLEsInputListElement;
-        "es-list-creator": HTMLEsListCreatorElement;
-        "es-mega-input": HTMLEsMegaInputElement;
-        "es-multi-checkbox": HTMLEsMultiCheckboxElement;
-        "es-number-input": HTMLEsNumberInputElement;
-        "es-radio-card-group": HTMLEsRadioCardGroupElement;
-        "es-select": HTMLEsSelectElement;
-        "es-switch": HTMLEsSwitchElement;
-        "es-switch-field": HTMLEsSwitchFieldElement;
-        "es-textarea": HTMLEsTextareaElement;
-        "es-typeahead": HTMLEsTypeaheadElement;
-        "es-validation-messages": HTMLEsValidationMessagesElement;
+        "f2-checkbox": HTMLF2CheckboxElement;
+        "f2-hr": HTMLF2HrElement;
+        "f2-masked-text-field": HTMLF2MaskedTextFieldElement;
+        "f2-masked-text-input": HTMLF2MaskedTextInputElement;
+        "f2-multi-checkbox-field": HTMLF2MultiCheckboxFieldElement;
+        "f2-number-field": HTMLF2NumberFieldElement;
+        "f2-number-input": HTMLF2NumberInputElement;
+        "f2-radio-card-field": HTMLF2RadioCardFieldElement;
+        "f2-radio-card-input": HTMLF2RadioCardInputElement;
+        "f2-select-field": HTMLF2SelectFieldElement;
+        "f2-select-input": HTMLF2SelectInputElement;
+        "f2-select-list-field": HTMLF2SelectListFieldElement;
+        "f2-switch": HTMLF2SwitchElement;
+        "f2-text-field": HTMLF2TextFieldElement;
+        "f2-text-input": HTMLF2TextInputElement;
+        "f2-text-list-field": HTMLF2TextListFieldElement;
+        "f2-textarea-field": HTMLF2TextareaFieldElement;
+        "f2-textarea-input": HTMLF2TextareaInputElement;
+        "f2-typeahead": HTMLF2TypeaheadElement;
+        "f2-validation-messages": HTMLF2ValidationMessagesElement;
     }
 }
 declare namespace LocalJSX {
     /**
      * A checkbox component
      */
-    interface EsCheckbox {
+    interface F2Checkbox {
         /**
           * If the field is disabled.
          */
@@ -954,7 +1445,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: EsCheckboxCustomEvent<FieldChange<boolean>>) => void;
+        "onFieldchange"?: (event: F2CheckboxCustomEvent<FieldChange<boolean>>) => void;
         /**
           * If the field is editable.
          */
@@ -964,20 +1455,34 @@ declare namespace LocalJSX {
          */
         "value": boolean;
     }
+    interface F2Hr {
+    }
     /**
-     * An optionally masked text input.
+     * A masked text input.
      */
-    interface EsInput {
+    interface F2MaskedTextField {
         /**
-          * If the field is disabled.
+          * If the input is disabled.
          */
         "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
         /**
           * Pass props directly to the input.
          */
         "inputProps"?: Record<string, any>;
         /**
-          * If the field is currently in an error state.
+          * If the field is currently invalid.
          */
         "invalid"?: boolean;
         /**
@@ -987,140 +1492,50 @@ declare namespace LocalJSX {
         /**
           * Apply an input mask
          */
-        "mask"?: MaskOptions;
+        "mask": MaskOptions;
         /**
-          * The validation messages of the field
+          * The messages to display under the field.
          */
         "messages"?: ValidationMessages;
         /**
-          * The name of the field.
+          * The name of the input.
          */
         "name": string;
         /**
           * Emitted on keyup of enter, if no modifier keys are held.
          */
-        "onEnter"?: (event: EsInputCustomEvent<any>) => void;
+        "onEnter"?: (event: F2MaskedTextFieldCustomEvent<any>) => void;
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: EsInputCustomEvent<FieldChange<string>>) => void;
+        "onFieldchange"?: (event: F2MaskedTextFieldCustomEvent<FieldChange<string>>) => void;
+        /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2MaskedTextFieldCustomEvent<string>) => void;
         /**
           * The placeholder for the input.
          */
         "placeholder": string;
         /**
-          * If the field is editable.
+          * If the input is editable.
          */
         "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
         "value": string;
     }
     /**
-     * A list creator input.
+     * A masked text input.
      */
-    interface EsInputList {
-        /**
-          * Icon for the add item button.
-         */
-        "additionIcon"?: IconDescription;
-        /**
-          * Text for the add item button.
-         */
-        "additionText"?: string;
-        /**
-          * Icon for the delete button.
-         */
-        "deleteIcon"?: IconDescription;
+    interface F2MaskedTextInput {
         /**
           * If the input is disabled.
-         */
-        "disabled"?: boolean;
-        /**
-          * The label of the field.
-         */
-        "label": string;
-        /**
-          * The validation messages of the field
-         */
-        "messages"?: ValidationMessages;
-        /**
-          * The name of the field.
-         */
-        "name": string;
-        /**
-          * Emitted when the value of the field is changed.
-         */
-        "onFieldchange"?: (event: EsInputListCustomEvent<FieldChange<string[]>>) => void;
-        /**
-          * Display a placeholder in the input.
-         */
-        "placeholder": string;
-        /**
-          * The currently selected values
-         */
-        "value": string[];
-    }
-    /**
-     * A list creator input.
-     */
-    interface EsListCreator {
-        /**
-          * The icon to display next to the field
-         */
-        "addIcon"?: IconDescription;
-        /**
-          * Icon for the delete button.
-         */
-        "deleteIcon"?: IconDescription;
-        /**
-          * If the field is disabled.
-         */
-        "disabled"?: boolean;
-        /**
-          * The icon to display next to the field
-         */
-        "icon"?: IconDescription;
-        /**
-          * The label of the field.
-         */
-        "label": string;
-        /**
-          * The validation messages of the field
-         */
-        "messages"?: ValidationMessages;
-        /**
-          * The name of the field.
-         */
-        "name": string;
-        /**
-          * Emitted when the value of the field is changed.
-         */
-        "onFieldchange"?: (event: EsListCreatorCustomEvent<FieldChange<string[]>>) => void;
-        /**
-          * A list of options to choose from.
-         */
-        "options": TypeaheadOption[];
-        /**
-          * The placeholder for the input.
-         */
-        "placeholder": string;
-        /**
-          * Render the list item.
-         */
-        "renderItem"?: RenderFunction<[option: TypeaheadOption]>;
-        /**
-          * The selected item ids
-         */
-        "value": string[];
-    }
-    /**
-     * An extra large input.
-     */
-    interface EsMegaInput {
-        /**
-          * If the field is disabled.
          */
         "disabled"?: boolean;
         /**
@@ -1128,35 +1543,31 @@ declare namespace LocalJSX {
          */
         "inputProps"?: Record<string, any>;
         /**
-          * If the field is currently in an error state.
+          * If the input is currently invalid.
          */
         "invalid"?: boolean;
         /**
-          * The label of the field.
+          * Apply an input mask
          */
-        "label": string;
+        "mask": MaskOptions;
         /**
-          * The validation messages of the field
-         */
-        "messages"?: ValidationMessages;
-        /**
-          * The name of the field.
+          * The name of the input.
          */
         "name": string;
         /**
           * Emitted on keyup of enter, if no modifier keys are held.
          */
-        "onEnter"?: (event: EsMegaInputCustomEvent<any>) => void;
+        "onEnter"?: (event: F2MaskedTextInputCustomEvent<any>) => void;
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: EsMegaInputCustomEvent<FieldChange<string>>) => void;
+        "onFieldchange"?: (event: F2MaskedTextInputCustomEvent<FieldChange<string>>) => void;
         /**
           * The placeholder for the input.
          */
         "placeholder": string;
         /**
-          * If the field is editable.
+          * If the input is editable.
          */
         "readonly"?: boolean;
         /**
@@ -1167,17 +1578,29 @@ declare namespace LocalJSX {
     /**
      * A multi-checkbox component
      */
-    interface EsMultiCheckbox {
+    interface F2MultiCheckboxField {
         /**
           * If the field is disabled.
          */
         "disabled"?: boolean;
         /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
           * The icon to use.
          */
         "icon"?: IconDescription;
         /**
-          * If the field is currently in an error state.
+          * If the field is currently invalid.
          */
         "invalid"?: boolean;
         /**
@@ -1185,7 +1608,7 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * The validation messages of the field
+          * The messages to display under the field.
          */
         "messages"?: ValidationMessages;
         /**
@@ -1195,24 +1618,102 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: EsMultiCheckboxCustomEvent<FieldChange<Set<string>>>) => void;
+        "onFieldchange"?: (event: F2MultiCheckboxFieldCustomEvent<FieldChange<Set<string>>>) => void;
+        /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2MultiCheckboxFieldCustomEvent<string>) => void;
         /**
           * The list of options for the checkboxes.
          */
-        "options"?: MultiCheckboxOption[];
+        "options": MultiCheckboxOption[];
         /**
           * If the field is editable.
          */
         "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
         "value": Set<string>;
     }
     /**
-     * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+     * A number field.
      */
-    interface EsNumberInput {
+    interface F2NumberField {
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2NumberFieldCustomEvent<FieldChange<string>>) => void;
+        /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2NumberFieldCustomEvent<string>) => void;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
+          * Display a unit beside the input.
+         */
+        "unit"?: string;
+        /**
+          * The current value of the field.
+         */
+        "value": string;
+    }
+    /**
+     * A number based input.
+     * Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+     */
+    interface F2NumberInput {
         /**
           * If the field is disabled.
          */
@@ -1226,25 +1727,17 @@ declare namespace LocalJSX {
          */
         "invalid"?: boolean;
         /**
-          * The label of the field.
-         */
-        "label": string;
-        /**
-          * The validation messages of the field
-         */
-        "messages"?: ValidationMessages;
-        /**
           * The name of the field.
          */
         "name": string;
         /**
           * Emitted on keyup of enter, if no modifier keys are held.
          */
-        "onEnter"?: (event: EsNumberInputCustomEvent<any>) => void;
+        "onEnter"?: (event: F2NumberInputCustomEvent<any>) => void;
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: EsNumberInputCustomEvent<FieldChange<string>>) => void;
+        "onFieldchange"?: (event: F2NumberInputCustomEvent<FieldChange<string>>) => void;
         /**
           * The placeholder for the input.
          */
@@ -1263,27 +1756,157 @@ declare namespace LocalJSX {
         "value": string;
     }
     /**
-     * A card based single select input.
+     * A card based single select field.
      */
-    interface EsRadioCardGroup {
+    interface F2RadioCardField {
+        /**
+          * Parts in the carld, to be exported on the top level.
+         */
+        "cardParts"?: string[];
+        /**
+          * Icon to display when checked.
+         */
+        "checkIcon"?: IconDescription;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
         /**
           * Group the cards by a key.
          */
         "groupBy"?: string;
         /**
-          * Icon to display when checked.
-         */
-        "icon"?: IconDescription;
-        /**
-          * If the field is currently in an error state.
+          * If the field is currently invalid.
          */
         "invalid"?: boolean;
         /**
-          * The id of the component that labels this input. This input doesn't bring its own label, so must be labeled externally and referenced here.
+          * The label of the field.
          */
-        "labelledby": string;
+        "label": string;
         /**
-          * The validation messages of the field
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2RadioCardFieldCustomEvent<FieldChange<string>>) => void;
+        /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2RadioCardFieldCustomEvent<string>) => void;
+        /**
+          * The options to be displayed and chosen from.
+         */
+        "options": RadioCardOption[];
+        /**
+          * Overwrite the default card renderer
+         */
+        "renderCard"?: RenderCard<any>;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
+          * The current value of the input.
+         */
+        "value": string | null;
+    }
+    /**
+     * A card based single select input.
+     */
+    interface F2RadioCardInput {
+        /**
+          * Icon to display when checked.
+         */
+        "checkIcon"?: IconDescription;
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Group the cards by a key.
+         */
+        "groupBy"?: string;
+        /**
+          * If the input is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2RadioCardInputCustomEvent<FieldChange<string>>) => void;
+        /**
+          * The options to be displayed and chosen from.
+         */
+        "options": RadioCardOption[];
+        /**
+          * Overwrite the default card renderer
+         */
+        "renderCard"?: RenderCard<any>;
+        /**
+          * The current value of the input.
+         */
+        "value": string | null;
+    }
+    /**
+     * A text input.
+     */
+    interface F2SelectField {
+        /**
+          * Icon to use as a chevron.
+         */
+        "chevronIcon"?: IconDescription;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
          */
         "messages"?: ValidationMessages;
         /**
@@ -1291,17 +1914,45 @@ declare namespace LocalJSX {
          */
         "name": string;
         /**
+          * Emitted on keyup of enter, if no modifier keys are held.
+         */
+        "onEnter"?: (event: F2SelectFieldCustomEvent<any>) => void;
+        /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: EsRadioCardGroupCustomEvent<FieldChange<string | null>>) => void;
+        "onFieldchange"?: (event: F2SelectFieldCustomEvent<FieldChange<string>>) => void;
         /**
-          * The options to be displayed and chosen from.
+          * Emitted when the user requests to edit.
          */
-        "options": RadioCardGroupOption[];
+        "onRequestEdit"?: (event: F2SelectFieldCustomEvent<string>) => void;
         /**
-          * Overwrite the default card renderer
+          * Pass a custom search filter function
          */
-        "renderCard"?: RenderCard<any>;
+        "optionFilter"?: OptionFilter;
+        /**
+          * A list of options to choose from.
+         */
+        "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder"?: string;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * Overwrite the default option renderer.
+         */
+        "renderOption"?: RenderTypeaheadOption<any>;
+        /**
+          * Overwrite the default value renderer.
+         */
+        "renderValue"?: RenderSelectValue<any>;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
@@ -1310,7 +1961,7 @@ declare namespace LocalJSX {
     /**
      * A searchable select dropdown.
      */
-    interface EsSelect {
+    interface F2SelectInput {
         /**
           * Icon to use as a chevron.
          */
@@ -1328,21 +1979,13 @@ declare namespace LocalJSX {
          */
         "invalid"?: boolean;
         /**
-          * The label of the field.
-         */
-        "label": string;
-        /**
-          * The validation messages of the field
-         */
-        "messages"?: ValidationMessages;
-        /**
           * The name of the field.
          */
         "name": string;
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: EsSelectCustomEvent<FieldChange<string | null>>) => void;
+        "onFieldchange"?: (event: F2SelectInputCustomEvent<FieldChange<string | null>>) => void;
         /**
           * Pass a custom search filter function
          */
@@ -1373,76 +2016,47 @@ declare namespace LocalJSX {
         "value": string | null;
     }
     /**
-     * A switchable switch.
+     * Create a list from a fixed set of values.
      */
-    interface EsSwitch {
+    interface F2SelectListField {
         /**
-          * Icon to display when switch is on in high contrast mode.
+          * The icon to display next to the field
          */
-        "activeIcon"?: IconDescription;
+        "addIcon"?: IconDescription;
         /**
-          * Text to display when switch is on in high contrast mode.
+          * Icon to use as a chevron.
          */
-        "activeText"?: string;
+        "chevronIcon"?: IconDescription;
+        /**
+          * Icon for the delete button.
+         */
+        "deleteIcon"?: IconDescription;
         /**
           * If the field is disabled.
          */
         "disabled"?: boolean;
         /**
-          * Icon to display when switch is off in high contrast mode.
+          * Inline documentation text.
          */
-        "inactiveIcon"?: IconDescription;
+        "documentation"?: string;
         /**
-          * Text to display when switch is off in high contrast mode.
+          * Inline documentation link.
          */
-        "inactiveText"?: string;
+        "documentationLink"?: string;
         /**
-          * If the field is currently in an error state.
+          * Inline documentation link text.
          */
-        "invalid"?: boolean;
+        "documentationLinkText"?: string;
         /**
-          * The name of the field.
+          * The icon to display next to the field
          */
-        "name": string;
+        "icon"?: IconDescription;
         /**
-          * Emitted when the value of the field is changed.
+          * Pass props directly to the input.
          */
-        "onFieldchange"?: (event: EsSwitchCustomEvent<FieldChange<boolean>>) => void;
+        "inputProps"?: Record<string, any>;
         /**
-          * If the field is editable.
-         */
-        "readonly"?: boolean;
-        /**
-          * The current value of the field.
-         */
-        "value": boolean;
-    }
-    /**
-     * A switchable switch field.
-     */
-    interface EsSwitchField {
-        /**
-          * Icon to display when switch is on in high contrast mode.
-         */
-        "activeIcon"?: IconDescription;
-        /**
-          * Text to display when switch is on in high contrast mode.
-         */
-        "activeText"?: string;
-        /**
-          * If the field is disabled.
-         */
-        "disabled"?: boolean;
-        /**
-          * Icon to display when switch is off in high contrast mode.
-         */
-        "inactiveIcon"?: IconDescription;
-        /**
-          * Text to display when switch is off in high contrast mode.
-         */
-        "inactiveText"?: string;
-        /**
-          * If the field is currently in an error state.
+          * If the field is currently invalid.
          */
         "invalid"?: boolean;
         /**
@@ -1450,7 +2064,7 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * The validation messages of the field
+          * The messages to display under the field.
          */
         "messages"?: ValidationMessages;
         /**
@@ -1460,7 +2074,68 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: EsSwitchFieldCustomEvent<FieldChange<boolean>>) => void;
+        "onFieldchange"?: (event: F2SelectListFieldCustomEvent<FieldChange<string[]>>) => void;
+        /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2SelectListFieldCustomEvent<string>) => void;
+        /**
+          * A list of options to choose from.
+         */
+        "options": TypeaheadOption[];
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * Render the list item.
+         */
+        "renderItem"?: RenderFunction<[option: TypeaheadOption]>;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
+          * The selected item ids
+         */
+        "value": string[];
+    }
+    /**
+     * A switchable switch.
+     */
+    interface F2Switch {
+        /**
+          * Icon to display when switch is on in high contrast mode.
+         */
+        "activeIcon"?: IconDescription;
+        /**
+          * Text to display when switch is on in high contrast mode.
+         */
+        "activeText"?: string;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Icon to display when switch is off in high contrast mode.
+         */
+        "inactiveIcon"?: IconDescription;
+        /**
+          * Text to display when switch is off in high contrast mode.
+         */
+        "inactiveText"?: string;
+        /**
+          * If the field is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2SwitchCustomEvent<FieldChange<boolean>>) => void;
         /**
           * If the field is editable.
          */
@@ -1471,11 +2146,80 @@ declare namespace LocalJSX {
         "value": boolean;
     }
     /**
-     * A textarea field.
+     * A text input.
      */
-    interface EsTextarea {
+    interface F2TextField {
         /**
-          * If the field is disabled.
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * Emitted on keyup of enter, if no modifier keys are held.
+         */
+        "onEnter"?: (event: F2TextFieldCustomEvent<any>) => void;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2TextFieldCustomEvent<FieldChange<string>>) => void;
+        /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2TextFieldCustomEvent<string>) => void;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
+          * The current value of the field.
+         */
+        "value": string;
+    }
+    /**
+     * A text input.
+     */
+    interface F2TextInput {
+        /**
+          * If the input is disabled.
          */
         "disabled"?: boolean;
         /**
@@ -1483,7 +2227,68 @@ declare namespace LocalJSX {
          */
         "inputProps"?: Record<string, any>;
         /**
-          * If the field is currently in an error state.
+          * If the input is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * Emitted on keyup of enter, if no modifier keys are held.
+         */
+        "onEnter"?: (event: F2TextInputCustomEvent<any>) => void;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2TextInputCustomEvent<FieldChange<string>>) => void;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
+        "value": string;
+    }
+    /**
+     * A list creator input.
+     */
+    interface F2TextListField {
+        /**
+          * Icon for the add item button.
+         */
+        "additionIcon"?: IconDescription;
+        /**
+          * Text for the add item button.
+         */
+        "additionText"?: string;
+        /**
+          * Icon for the delete button.
+         */
+        "deleteIcon"?: IconDescription;
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * If the field is currently invalid.
          */
         "invalid"?: boolean;
         /**
@@ -1491,7 +2296,7 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * The validation messages of the field
+          * The messages to display under the field.
          */
         "messages"?: ValidationMessages;
         /**
@@ -1501,38 +2306,144 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: EsTextareaCustomEvent<FieldChange<string>>) => void;
+        "onFieldchange"?: (event: F2TextListFieldCustomEvent<FieldChange<string[]>>) => void;
+        /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2TextListFieldCustomEvent<string>) => void;
+        /**
+          * Display a placeholder in the input.
+         */
+        "placeholder": string;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
+          * The currently selected values
+         */
+        "value": string[];
+    }
+    /**
+     * A textarea field.
+     */
+    interface F2TextareaField {
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2TextareaFieldCustomEvent<FieldChange<string>>) => void;
+        /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2TextareaFieldCustomEvent<string>) => void;
         /**
           * The placeholder for the input.
          */
         "placeholder": string;
         /**
-          * If the field is editable.
+          * If the input is editable.
          */
         "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
         /**
           * The current value of the field.
          */
         "value": string;
     }
-    interface EsTypeahead {
+    /**
+     * A textarea input.
+     */
+    interface F2TextareaInput {
+        /**
+          * If the input is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Pass props directly to the input.
+         */
+        "inputProps"?: Record<string, any>;
+        /**
+          * If the input is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the input.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2TextareaInputCustomEvent<FieldChange<string>>) => void;
+        /**
+          * The placeholder for the input.
+         */
+        "placeholder": string;
+        /**
+          * If the input is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current value of the input.
+         */
+        "value": string;
+    }
+    interface F2Typeahead {
         "clearOnSelect"?: boolean;
         "closeOnSelect"?: boolean;
         "disabled"?: boolean;
         "name": string;
-        "onEnter"?: (event: EsTypeaheadCustomEvent<any>) => void;
-        "onFieldchange"?: (event: EsTypeaheadCustomEvent<FieldChange<string[]>>) => void;
-        "optionFilter"?: OptionFilter;
-        "options": TypeaheadOption[];
+        "onEnter"?: (event: F2TypeaheadCustomEvent<any>) => void;
+        "onFieldchange"?: (event: F2TypeaheadCustomEvent<FieldChange<string[]>>) => void;
+        "optionFilter"?: OptionFilter1;
+        "options": TypeaheadOption1[];
         "readonly"?: boolean;
-        "renderField": RenderTypeaheadField;
-        "renderOption"?: RenderTypeaheadOption;
+        "renderInput": RenderTypeaheadInput;
+        "renderOption"?: RenderTypeaheadOption1;
         "value": string[];
     }
     /**
      * Display messages under fields.
      */
-    interface EsValidationMessages {
+    interface F2ValidationMessages {
         /**
           * Icon to diplay next to errors. (if `showIcons` or high contrast)
          */
@@ -1544,31 +2455,33 @@ declare namespace LocalJSX {
         /**
           * The messages to display.
          */
-        "messages"?: Partial<ValidationMessages>;
-        /**
-          * Display icons alongside messages.
-         */
-        "showIcons"?: boolean;
+        "messages"?: ValidationMessages;
         /**
           * Icon to diplay next to warnings. (if `showIcons` or high contrast)
          */
         "warningIcon"?: IconDescription;
     }
     interface IntrinsicElements {
-        "es-checkbox": EsCheckbox;
-        "es-input": EsInput;
-        "es-input-list": EsInputList;
-        "es-list-creator": EsListCreator;
-        "es-mega-input": EsMegaInput;
-        "es-multi-checkbox": EsMultiCheckbox;
-        "es-number-input": EsNumberInput;
-        "es-radio-card-group": EsRadioCardGroup;
-        "es-select": EsSelect;
-        "es-switch": EsSwitch;
-        "es-switch-field": EsSwitchField;
-        "es-textarea": EsTextarea;
-        "es-typeahead": EsTypeahead;
-        "es-validation-messages": EsValidationMessages;
+        "f2-checkbox": F2Checkbox;
+        "f2-hr": F2Hr;
+        "f2-masked-text-field": F2MaskedTextField;
+        "f2-masked-text-input": F2MaskedTextInput;
+        "f2-multi-checkbox-field": F2MultiCheckboxField;
+        "f2-number-field": F2NumberField;
+        "f2-number-input": F2NumberInput;
+        "f2-radio-card-field": F2RadioCardField;
+        "f2-radio-card-input": F2RadioCardInput;
+        "f2-select-field": F2SelectField;
+        "f2-select-input": F2SelectInput;
+        "f2-select-list-field": F2SelectListField;
+        "f2-switch": F2Switch;
+        "f2-text-field": F2TextField;
+        "f2-text-input": F2TextInput;
+        "f2-text-list-field": F2TextListField;
+        "f2-textarea-field": F2TextareaField;
+        "f2-textarea-input": F2TextareaInput;
+        "f2-typeahead": F2Typeahead;
+        "f2-validation-messages": F2ValidationMessages;
     }
 }
 export { LocalJSX as JSX };
@@ -1578,56 +2491,78 @@ declare module "@stencil/core" {
             /**
              * A checkbox component
              */
-            "es-checkbox": LocalJSX.EsCheckbox & JSXBase.HTMLAttributes<HTMLEsCheckboxElement>;
+            "f2-checkbox": LocalJSX.F2Checkbox & JSXBase.HTMLAttributes<HTMLF2CheckboxElement>;
+            "f2-hr": LocalJSX.F2Hr & JSXBase.HTMLAttributes<HTMLF2HrElement>;
             /**
-             * An optionally masked text input.
+             * A masked text input.
              */
-            "es-input": LocalJSX.EsInput & JSXBase.HTMLAttributes<HTMLEsInputElement>;
+            "f2-masked-text-field": LocalJSX.F2MaskedTextField & JSXBase.HTMLAttributes<HTMLF2MaskedTextFieldElement>;
             /**
-             * A list creator input.
+             * A masked text input.
              */
-            "es-input-list": LocalJSX.EsInputList & JSXBase.HTMLAttributes<HTMLEsInputListElement>;
-            /**
-             * A list creator input.
-             */
-            "es-list-creator": LocalJSX.EsListCreator & JSXBase.HTMLAttributes<HTMLEsListCreatorElement>;
-            /**
-             * An extra large input.
-             */
-            "es-mega-input": LocalJSX.EsMegaInput & JSXBase.HTMLAttributes<HTMLEsMegaInputElement>;
+            "f2-masked-text-input": LocalJSX.F2MaskedTextInput & JSXBase.HTMLAttributes<HTMLF2MaskedTextInputElement>;
             /**
              * A multi-checkbox component
              */
-            "es-multi-checkbox": LocalJSX.EsMultiCheckbox & JSXBase.HTMLAttributes<HTMLEsMultiCheckboxElement>;
+            "f2-multi-checkbox-field": LocalJSX.F2MultiCheckboxField & JSXBase.HTMLAttributes<HTMLF2MultiCheckboxFieldElement>;
             /**
-             * A number based input. Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+             * A number field.
              */
-            "es-number-input": LocalJSX.EsNumberInput & JSXBase.HTMLAttributes<HTMLEsNumberInputElement>;
+            "f2-number-field": LocalJSX.F2NumberField & JSXBase.HTMLAttributes<HTMLF2NumberFieldElement>;
+            /**
+             * A number based input.
+             * Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
+             */
+            "f2-number-input": LocalJSX.F2NumberInput & JSXBase.HTMLAttributes<HTMLF2NumberInputElement>;
+            /**
+             * A card based single select field.
+             */
+            "f2-radio-card-field": LocalJSX.F2RadioCardField & JSXBase.HTMLAttributes<HTMLF2RadioCardFieldElement>;
             /**
              * A card based single select input.
              */
-            "es-radio-card-group": LocalJSX.EsRadioCardGroup & JSXBase.HTMLAttributes<HTMLEsRadioCardGroupElement>;
+            "f2-radio-card-input": LocalJSX.F2RadioCardInput & JSXBase.HTMLAttributes<HTMLF2RadioCardInputElement>;
+            /**
+             * A text input.
+             */
+            "f2-select-field": LocalJSX.F2SelectField & JSXBase.HTMLAttributes<HTMLF2SelectFieldElement>;
             /**
              * A searchable select dropdown.
              */
-            "es-select": LocalJSX.EsSelect & JSXBase.HTMLAttributes<HTMLEsSelectElement>;
+            "f2-select-input": LocalJSX.F2SelectInput & JSXBase.HTMLAttributes<HTMLF2SelectInputElement>;
+            /**
+             * Create a list from a fixed set of values.
+             */
+            "f2-select-list-field": LocalJSX.F2SelectListField & JSXBase.HTMLAttributes<HTMLF2SelectListFieldElement>;
             /**
              * A switchable switch.
              */
-            "es-switch": LocalJSX.EsSwitch & JSXBase.HTMLAttributes<HTMLEsSwitchElement>;
+            "f2-switch": LocalJSX.F2Switch & JSXBase.HTMLAttributes<HTMLF2SwitchElement>;
             /**
-             * A switchable switch field.
+             * A text input.
              */
-            "es-switch-field": LocalJSX.EsSwitchField & JSXBase.HTMLAttributes<HTMLEsSwitchFieldElement>;
+            "f2-text-field": LocalJSX.F2TextField & JSXBase.HTMLAttributes<HTMLF2TextFieldElement>;
+            /**
+             * A text input.
+             */
+            "f2-text-input": LocalJSX.F2TextInput & JSXBase.HTMLAttributes<HTMLF2TextInputElement>;
+            /**
+             * A list creator input.
+             */
+            "f2-text-list-field": LocalJSX.F2TextListField & JSXBase.HTMLAttributes<HTMLF2TextListFieldElement>;
             /**
              * A textarea field.
              */
-            "es-textarea": LocalJSX.EsTextarea & JSXBase.HTMLAttributes<HTMLEsTextareaElement>;
-            "es-typeahead": LocalJSX.EsTypeahead & JSXBase.HTMLAttributes<HTMLEsTypeaheadElement>;
+            "f2-textarea-field": LocalJSX.F2TextareaField & JSXBase.HTMLAttributes<HTMLF2TextareaFieldElement>;
+            /**
+             * A textarea input.
+             */
+            "f2-textarea-input": LocalJSX.F2TextareaInput & JSXBase.HTMLAttributes<HTMLF2TextareaInputElement>;
+            "f2-typeahead": LocalJSX.F2Typeahead & JSXBase.HTMLAttributes<HTMLF2TypeaheadElement>;
             /**
              * Display messages under fields.
              */
-            "es-validation-messages": LocalJSX.EsValidationMessages & JSXBase.HTMLAttributes<HTMLEsValidationMessagesElement>;
+            "f2-validation-messages": LocalJSX.F2ValidationMessages & JSXBase.HTMLAttributes<HTMLF2ValidationMessagesElement>;
         }
     }
 }
