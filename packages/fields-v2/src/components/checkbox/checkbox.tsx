@@ -18,7 +18,7 @@ import type { FieldChange } from 'types';
     shadow: true,
     formAssociated: true,
 })
-export class EsCheckbox {
+export class Checkbox {
     @AttachInternals() internals!: ElementInternals;
 
     /** Emitted when the value of the field is changed. */

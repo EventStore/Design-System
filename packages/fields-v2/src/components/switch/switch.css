@@ -1,0 +1,88 @@
+:host {
+    display: block;
+    outline: none;
+}
+
+:host([high-contrast]) .field:focus {
+    outline: solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+.field {
+    outline: none;
+    border: none;
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+
+    &.checked {
+        & .switch {
+            color: var(--color-secondary);
+
+            & .handle {
+                transform: translateX(29px);
+            }
+        }
+
+        & .checkbox {
+            color: var(--color-secondary);
+        }
+    }
+
+    &:focus {
+        & .track {
+            opacity: 0.6;
+        }
+    }
+
+    &:disabled {
+        & .switch {
+            color: var(--color-shade-20);
+        }
+    }
+
+    &.invalid {
+        & .switch {
+            color: var(--color-error);
+        }
+    }
+}
+
+.switch {
+    color: var(--color-shade-50);
+    transition: color 400ms ease;
+
+    & .track {
+        fill: transparent;
+        stroke-width: 8px;
+        stroke: currentColor;
+        opacity: 0.3;
+    }
+
+    & .handle {
+        fill: currentColor;
+        transition: transform 400ms ease;
+    }
+}
+
+.checkbox {
+    color: transparent;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-shade-50);
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-property: color, border-color, background-color;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+    margin-right: 9px;
+}
