@@ -43,6 +43,7 @@
     },
     "peerDependencies": {
         "@eventstore-ui/components": "^1.0.0",
+        "@eventstore-ui/forms": "^1.1.0",
         "@eventstore-ui/theme": "^1.0.0",
         "@eventstore-ui/utils": "^1.0.0"
     },
@@ -52,6 +53,7 @@
     "devDependencies": {
         "@eventstore-ui/components": "workspace:*",
         "@eventstore-ui/configs": "workspace:*",
+        "@eventstore-ui/forms": "workspace:*",
         "@eventstore-ui/icon-manager": "workspace:*",
         "@eventstore-ui/theme": "workspace:*",
         "@eventstore-ui/utils": "workspace:*",

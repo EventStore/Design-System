@@ -90,7 +90,7 @@ es-button {
 | `name` _(required)_        | `name`                    | The name of the input.                   | `string`                             | `undefined` |
 | `placeholder` _(required)_ | `placeholder`             | The placeholder for the input.           | `string`                             | `undefined` |
 | `readonly`                 | `readonly`                | If the input is editable.                | `boolean \| undefined`               | `undefined` |
-| `templated`                | `templated`               | If the field is templated.               | `any`                                | `undefined` |
+| `templated`                | `templated`               | If the field is templated.               | `"no-edit" \| boolean \| undefined`  | `undefined` |
 | `unit`                     | `unit`                    | Display a unit beside the input.         | `string \| undefined`                | `undefined` |
 | `value` _(required)_       | `value`                   | The current value of the field.          | `string`                             | `undefined` |
 
