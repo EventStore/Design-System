@@ -22,3 +22,5 @@ export interface FieldChange<T, N = string> {
 export type FieldChangeEvent<T, N extends keyof T> = CustomEvent<
     FieldChange<T[N], N>
 >;
+
+export type Templated = boolean | 'no-edit';

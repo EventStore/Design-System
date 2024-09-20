@@ -1,9 +1,8 @@
 import { h, type FunctionalComponent, Fragment } from '@stencil/core';
-import type { Templated } from '@eventstore-ui/forms';
 
 import { ICON_NAMESPACE } from 'icons/namespace';
 
-import type { ValidationMessages } from '../types';
+import type { ValidationMessages, Templated } from '../types';
 
 export interface FieldProps {
     /** The label of the field. */

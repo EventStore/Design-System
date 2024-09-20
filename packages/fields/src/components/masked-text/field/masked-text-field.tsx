@@ -7,11 +7,10 @@ import {
     AttachInternals,
     Watch,
 } from '@stencil/core';
-import type { Templated } from '@eventstore-ui/forms';
 import iMask from 'imask';
 
 import { Field } from 'components/Field';
-import type { FieldChange, ValidationMessages } from 'types';
+import type { FieldChange, ValidationMessages, Templated } from 'types';
 import type { MaskOptions } from '../types';
 
 /** A masked text input. */

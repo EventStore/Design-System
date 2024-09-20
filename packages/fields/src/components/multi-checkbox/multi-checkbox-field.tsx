@@ -8,9 +8,8 @@ import {
     Watch,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
-import type { Templated } from '@eventstore-ui/forms';
 
-import type { FieldChange, ValidationMessages } from 'types';
+import type { FieldChange, ValidationMessages, Templated } from 'types';
 import { ICON_NAMESPACE } from 'icons/namespace';
 import { Field } from 'components/Field';
 import type { MultiCheckboxOption } from './types';

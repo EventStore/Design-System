@@ -6,8 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconDescription } from "@eventstore-ui/components";
-import { FieldChange, RenderFunction, ValidationMessages } from "./types";
-import { Templated } from "@eventstore-ui/forms";
+import { FieldChange, RenderFunction, Templated, ValidationMessages } from "./types";
 import { MaskOptions } from "./components/masked-text/types";
 import { MultiCheckboxOption } from "./components/multi-checkbox/types";
 import { RadioCardOption, RenderCard } from "./components/radio-card/types";
@@ -15,8 +14,7 @@ import { OptionFilter, RenderTypeaheadOption, TypeaheadOption } from "./componen
 import { RenderSelectValue } from "./components/select/types";
 import { OptionFilter as OptionFilter1, RenderTypeaheadInput, RenderTypeaheadOption as RenderTypeaheadOption1, TypeaheadOption as TypeaheadOption1 } from "./components/typeahead/types";
 export { IconDescription } from "@eventstore-ui/components";
-export { FieldChange, RenderFunction, ValidationMessages } from "./types";
-export { Templated } from "@eventstore-ui/forms";
+export { FieldChange, RenderFunction, Templated, ValidationMessages } from "./types";
 export { MaskOptions } from "./components/masked-text/types";
 export { MultiCheckboxOption } from "./components/multi-checkbox/types";
 export { RadioCardOption, RenderCard } from "./components/radio-card/types";

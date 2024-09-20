@@ -7,10 +7,9 @@ import {
     Watch,
     AttachInternals,
 } from '@stencil/core';
-import type { Templated } from '@eventstore-ui/forms';
 
 import { Field } from 'components/Field';
-import type { FieldChange, ValidationMessages } from 'types';
+import type { FieldChange, ValidationMessages, Templated } from 'types';
 
 /** A textarea field. */
 @Component({
