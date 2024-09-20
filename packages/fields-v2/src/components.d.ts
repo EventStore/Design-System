@@ -619,6 +619,51 @@ export namespace Components {
         "value": string[];
     }
     /**
+     * A switchable switch.
+     */
+    interface F2Switch {
+        /**
+          * Icon to display when switch is on in high contrast mode.
+         */
+        "activeIcon": IconDescription;
+        /**
+          * Text to display when switch is on in high contrast mode.
+         */
+        "activeText": string;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Icon to display when switch is off in high contrast mode.
+         */
+        "inactiveIcon": IconDescription;
+        /**
+          * Text to display when switch is off in high contrast mode.
+         */
+        "inactiveText": string;
+        /**
+          * If the field is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * Allows you to pause interaction with the input while an operation completes.
+         */
+        "setPending": (pending: boolean) => Promise<void>;
+        /**
+          * The current value of the field.
+         */
+        "value": boolean;
+    }
+    /**
      * A text input.
      */
     interface F2TextField {
@@ -937,6 +982,10 @@ export interface F2SelectListFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2SelectListFieldElement;
 }
+export interface F2SwitchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2SwitchElement;
+}
 export interface F2TextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2TextFieldElement;
@@ -1199,6 +1248,26 @@ declare global {
         prototype: HTMLF2SelectListFieldElement;
         new (): HTMLF2SelectListFieldElement;
     };
+    interface HTMLF2SwitchElementEventMap {
+        "fieldchange": FieldChange<boolean>;
+    }
+    /**
+     * A switchable switch.
+     */
+    interface HTMLF2SwitchElement extends Components.F2Switch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2SwitchElementEventMap>(type: K, listener: (this: HTMLF2SwitchElement, ev: F2SwitchCustomEvent<HTMLF2SwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2SwitchElementEventMap>(type: K, listener: (this: HTMLF2SwitchElement, ev: F2SwitchCustomEvent<HTMLF2SwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2SwitchElement: {
+        prototype: HTMLF2SwitchElement;
+        new (): HTMLF2SwitchElement;
+    };
     interface HTMLF2TextFieldElementEventMap {
         "fieldchange": FieldChange<string>;
         "enter": any;
@@ -1344,6 +1413,7 @@ declare global {
         "f2-select-field": HTMLF2SelectFieldElement;
         "f2-select-input": HTMLF2SelectInputElement;
         "f2-select-list-field": HTMLF2SelectListFieldElement;
+        "f2-switch": HTMLF2SwitchElement;
         "f2-text-field": HTMLF2TextFieldElement;
         "f2-text-input": HTMLF2TextInputElement;
         "f2-text-list-field": HTMLF2TextListFieldElement;
@@ -2033,6 +2103,51 @@ declare namespace LocalJSX {
         "value": string[];
     }
     /**
+     * A switchable switch.
+     */
+    interface F2Switch {
+        /**
+          * Icon to display when switch is on in high contrast mode.
+         */
+        "activeIcon"?: IconDescription;
+        /**
+          * Text to display when switch is on in high contrast mode.
+         */
+        "activeText"?: string;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Icon to display when switch is off in high contrast mode.
+         */
+        "inactiveIcon"?: IconDescription;
+        /**
+          * Text to display when switch is off in high contrast mode.
+         */
+        "inactiveText"?: string;
+        /**
+          * If the field is currently in an error state.
+         */
+        "invalid"?: boolean;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2SwitchCustomEvent<FieldChange<boolean>>) => void;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current value of the field.
+         */
+        "value": boolean;
+    }
+    /**
      * A text input.
      */
     interface F2TextField {
@@ -2361,6 +2476,7 @@ declare namespace LocalJSX {
         "f2-select-field": F2SelectField;
         "f2-select-input": F2SelectInput;
         "f2-select-list-field": F2SelectListField;
+        "f2-switch": F2Switch;
         "f2-text-field": F2TextField;
         "f2-text-input": F2TextInput;
         "f2-text-list-field": F2TextListField;
@@ -2420,6 +2536,10 @@ declare module "@stencil/core" {
              * Create a list from a fixed set of values.
              */
             "f2-select-list-field": LocalJSX.F2SelectListField & JSXBase.HTMLAttributes<HTMLF2SelectListFieldElement>;
+            /**
+             * A switchable switch.
+             */
+            "f2-switch": LocalJSX.F2Switch & JSXBase.HTMLAttributes<HTMLF2SwitchElement>;
             /**
              * A text input.
              */
