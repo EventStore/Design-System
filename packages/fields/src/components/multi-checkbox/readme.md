@@ -72,7 +72,7 @@ es-multi-checkbox::part(checkbox-field) {
 | `name` _(required)_     | `name`                    | The name of the field.                   | `string`                                                | `undefined`                 |
 | `options` _(required)_  | --                        | The list of options for the checkboxes.  | `MultiCheckboxOption[]`                                 | `undefined`                 |
 | `readonly`              | `readonly`                | If the field is editable.                | `boolean \| undefined`                                  | `undefined`                 |
-| `templated`             | `templated`               | If the field is templated.               | `any`                                                   | `undefined`                 |
+| `templated`             | `templated`               | If the field is templated.               | `"no-edit" \| boolean \| undefined`                     | `undefined`                 |
 | `value` _(required)_    | --                        | The current value of the field.          | `Set<string>`                                           | `undefined`                 |
 
 

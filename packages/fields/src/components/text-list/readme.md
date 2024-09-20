@@ -60,7 +60,7 @@ export default () => (
 | `messages`                 | --                        | The messages to display under the field. | `ValidationMessages \| undefined`                       | `undefined`                 |
 | `name` _(required)_        | `name`                    | The name of the field.                   | `string`                                                | `undefined`                 |
 | `placeholder` _(required)_ | `placeholder`             | Display a placeholder in the input.      | `string`                                                | `undefined`                 |
-| `templated`                | `templated`               | If the field is templated.               | `any`                                                   | `undefined`                 |
+| `templated`                | `templated`               | If the field is templated.               | `"no-edit" \| boolean \| undefined`                     | `undefined`                 |
 | `value` _(required)_       | --                        | The currently selected values            | `string[]`                                              | `undefined`                 |
 
 

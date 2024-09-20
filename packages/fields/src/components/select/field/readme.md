@@ -99,7 +99,7 @@ export default () => (
 | `readonly`              | `readonly`                | If the field is editable.                | `boolean \| undefined`                                                                             | `undefined` |
 | `renderOption`          | --                        | Overwrite the default option renderer.   | `((h: typeof h, option: any, chosen: boolean) => string \| VNode \| VNode[] \| null) \| undefined` | `undefined` |
 | `renderValue`           | --                        | Overwrite the default value renderer.    | `((h: typeof h, value: any, rawValue: string) => string \| VNode \| VNode[] \| null) \| undefined` | `undefined` |
-| `templated`             | `templated`               | If the field is templated.               | `any`                                                                                              | `undefined` |
+| `templated`             | `templated`               | If the field is templated.               | `"no-edit" \| boolean \| undefined`                                                                | `undefined` |
 | `value` _(required)_    | `value`                   | The current value of the field.          | `null \| string`                                                                                   | `undefined` |
 
 
