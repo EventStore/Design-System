@@ -1,5 +1,5 @@
 {
-    "version": "0.1.3",
+    "version": "1.0.2",
     "namespace": "es-fields",
     "icons": {
         "check": {
@@ -12,10 +12,20 @@
             "component": "Chevron",
             "path": "./components/Chevron.tsx"
         },
+        "edit": {
+            "name": "edit",
+            "component": "Edit",
+            "path": "./components/Edit.tsx"
+        },
         "error": {
             "name": "error",
             "component": "Error",
             "path": "./components/Error.tsx"
+        },
+        "external-link": {
+            "name": "external-link",
+            "component": "ExternalLink",
+            "path": "./components/ExternalLink.tsx"
         },
         "info": {
             "name": "info",

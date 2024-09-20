@@ -8,15 +8,17 @@ export type RenderFunction<T extends any[] = []> = (
 export type Severity = 'error' | 'warning' | 'info';
 export type ValidationMessage = string | RenderFunction;
 export interface ValidationMessages {
-    error: ValidationMessage[];
-    warning: ValidationMessage[];
-    info: ValidationMessage[];
+    error?: ValidationMessage[];
+    warning?: ValidationMessage[];
+    info?: ValidationMessage[];
     children?: Record<number, Record<Severity, ValidationMessage[]>>;
 }
 
-export interface FieldChange<T> {
-    name: string;
+export interface FieldChange<T, N = string> {
+    name: N;
     value: T;
 }
 
-export type FieldChangeEvent<T> = CustomEvent<FieldChange<T>>;
+export type FieldChangeEvent<T, N extends keyof T> = CustomEvent<
+    FieldChange<T[N], N>
+>;
