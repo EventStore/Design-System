@@ -59,7 +59,7 @@ export class RadioCardInput {
     @Prop() disabled?: boolean;
     /** Overwrite the default card renderer */
     @Prop() renderCard?: RenderCard<any>;
-    /** Parts in the carld, to be exported on the top level. */
+    /** Parts in the card, to be exported on the top level. */
     @Prop() cardParts?: string[];
     /** Icon to display when checked. */
     @Prop() checkIcon: IconDescription = [ICON_NAMESPACE, 'check'];
