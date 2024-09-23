@@ -122,6 +122,7 @@ export class Demo {
                                     'flex-direction': 'column',
                                     'align-items': 'center',
                                     gap: '12px',
+                                    padding: '12px',
                                 }}
                             >
                                 <es-icon

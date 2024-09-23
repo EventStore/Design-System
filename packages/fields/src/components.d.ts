@@ -312,7 +312,7 @@ export namespace Components {
      */
     interface F2RadioCardField {
         /**
-          * Parts in the carld, to be exported on the top level.
+          * Parts in the card, to be exported on the top level.
          */
         "cardParts"?: string[];
         /**
@@ -1760,7 +1760,7 @@ declare namespace LocalJSX {
      */
     interface F2RadioCardField {
         /**
-          * Parts in the carld, to be exported on the top level.
+          * Parts in the card, to be exported on the top level.
          */
         "cardParts"?: string[];
         /**
