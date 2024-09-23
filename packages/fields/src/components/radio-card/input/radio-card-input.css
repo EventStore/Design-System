@@ -4,9 +4,6 @@
 
 :host {
     outline: none;
-    --template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    --template-rows: initial;
-    --gap: 20px;
 }
 
 .cards:has(:focus-visible) label:not(.disabled) {
@@ -89,9 +86,12 @@ label {
 
 .group-inner {
     display: grid;
-    grid-template-columns: var(--template-columns);
-    grid-template-rows: var(--template-rows);
-    gap: var(--gap);
+    grid-template-columns: var(
+        --template-columns,
+        repeat(auto-fill, minmax(280px, 1fr))
+    );
+    grid-template-rows: var(--template-rows, initial);
+    gap: var(--gap, 20px);
 }
 
 input {
