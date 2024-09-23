@@ -10,22 +10,21 @@
 }
 
 .cards:has(:focus-visible) label:not(.disabled) {
-    padding: 19px;
-    border-width: 2px;
+    outline-offset: -2px;
+    outline-width: 2px;
 }
 
 label {
     display: block;
     position: relative;
-    border: 1px solid var(--color-shade-50);
+    outline-offset: -1px;
+    outline: 1px solid var(--color-shade-50);
     border-radius: 8px;
-    padding: 20px;
     cursor: pointer;
     overflow: hidden;
-    transition-property: border-color, filter;
+    transition-property: outline-color, filter;
     transition-duration: 500ms;
     transition-timing-function: ease;
-    outline: none;
 
     & .check_icon {
         box-sizing: border-box;
@@ -52,8 +51,8 @@ label {
         &:hover,
         &:focus,
         &:focus-within {
-            padding: 19px;
-            border: 2px solid var(--color-success-alt);
+            outline-offset: -2px;
+            outline: 2px solid var(--color-success-alt);
 
             & .check_icon {
                 transform: translateX(20%) translateY(20%);
@@ -63,8 +62,8 @@ label {
         }
 
         &.active {
-            padding: 19px;
-            border: 2px solid var(--color-success);
+            outline-offset: -2px;
+            outline: 2px solid var(--color-success);
 
             & .check_icon {
                 transform: translateX(0%) translateY(0%);
@@ -77,9 +76,9 @@ label {
     &.disabled {
         cursor: not-allowed;
         color: var(--color-disabled-contrast);
-        border-color: var(--color-disabled-border);
+        outline-color: var(--color-disabled-border);
         background-color: var(--color-disabled);
-        border-style: dashed;
+        outline-style: dashed;
 
         & > *:not(input, .no-fade, .check_icon) {
             filter: grayscale(1);
@@ -131,4 +130,8 @@ input {
 
 .group-inner + .group-title {
     margin-top: 20px;
+}
+
+.default_card {
+    padding: 20px;
 }

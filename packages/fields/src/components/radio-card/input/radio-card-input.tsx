@@ -51,10 +51,12 @@ export class RadioCardInput {
         this.internals.setFormValue(this.value);
     }
 
-    static defaultRenderCard: RenderCard<RadioCardOption> = (h, option) => [
-        <span class={'label'}>{option.name}</span>,
-        <span class={'description'}>{option.description}</span>,
-    ];
+    static defaultRenderCard: RenderCard<RadioCardOption> = (h, option) => (
+        <div class={'default_card'}>
+            <span class={'label'}>{option.name}</span>
+            <span class={'description'}>{option.description}</span>
+        </div>
+    );
 
     render() {
         return (
