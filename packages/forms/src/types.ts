@@ -34,6 +34,10 @@ interface SubmitOptions {
     forceFocus?: boolean;
 }
 
+interface SetOptions {
+    templated?: Templated;
+}
+
 export interface ValidatedForm<T extends object> {
     /** The access the contained data directly */
     readonly data: T;
@@ -47,9 +51,11 @@ export interface ValidatedForm<T extends object> {
     /** Reset all values and validations to default.  */
     reset: () => void;
     /** Set the value of a item. */
-    set: (key: keyof T, item: T[typeof key], options?: any) => void;
-    /** Perform a partial update of the data contained in the store.. */
+    set: (key: keyof T, item: T[typeof key], options?: SetOptions) => void;
+    /** Perform a partial update of the data contained in the store. */
     update: (update: Partial<T>) => void;
+    /** Perform a partial update of the data contained in the store, setting the templated value to the passed option. */
+    applyTemplate: (update: Partial<T>, templated?: Templated) => void;
     /** Connect a component to the data, for two way data binding. */
     connect: Connector<T>;
     /** Validate the data, optionally focusing the first error. */
@@ -153,7 +159,10 @@ export interface Connector<T> {
 }
 
 export interface OnChangeHandler<T> {
-    <Key extends keyof T>(key: Key, cb: (newValue: T[Key]) => void): () => void;
+    <Key extends keyof T>(
+        key: Key,
+        cb: (newValue: T[Key], data: T) => void,
+    ): () => void;
 }
 
 export type ValidationFailedCallback<T> = (
