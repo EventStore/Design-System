@@ -26,7 +26,7 @@ const form = createValidatedForm<Example>({
 
 export default () => (
     <>
-        <es-switch {...form.connect('good')} />
+        <f2-switch {...form.connect('good')} />
     </>
 );
 ```

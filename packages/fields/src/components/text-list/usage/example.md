@@ -12,19 +12,13 @@ const form = createValidatedForm<Example>({
 });
 
 export default () => (
-    <es-input-list
-        label={'Names'}
-        placeholder={'Add a name to your list'}
-        {...form.connect('names')}
-    />
+    <f2-form>
+        <f2-text-list-field
+            label={'Names'}
+            documentation={'Free text list creation'}
+            placeholder={'Add a name to your list'}
+            {...form.connect('names')}
+        />
+    </f2-form>
 );
-```
-
-```css
-:host {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 ```

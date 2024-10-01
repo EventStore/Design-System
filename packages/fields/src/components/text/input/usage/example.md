@@ -2,64 +2,32 @@
 import { createValidatedForm } from '@eventstore-ui/forms';
 
 interface Example {
-    text: string;
-    id: string;
+    something: string;
+    somethingElse: string;
 }
 
-const forms = createValidatedForm<Example>({
-    text: '',
-    id: {
-        initialValue: '',
-        validations: [
-            {
-                validator: (v) => v.length === 12,
-                message: 'Please provide a complete Id',
-            },
-        ],
-    },
+const form = createValidatedForm<Example>({
+    something: '',
+    somethingElse: '',
 });
 
-const onEnter = () => {
-    forms.submit((data) => {
+const onSubmit = () => {
+    form.submit((data) => {
         console.log(data);
     });
 };
 
 export default () => (
-    <>
-        <es-input
-            label={'Text'}
-            placeholder={'Write some text'}
-            onEnter={onEnter}
-            {...forms.connect('text')}
+    <f2-form onSubmit={onSubmit}>
+        <f2-text-input
+            placeholder={'Something Else'}
+            {...form.connect('somethingElse')}
         />
-        <es-input
-            label={'Account Id'}
-            placeholder={'Account Id'}
-            onEnter={onEnter}
-            mask={{
-                mask: '0000-0000-0000',
-                unmask: true,
-                lazy: false,
-                placeholderChar: '_',
-            }}
-            {...forms.connect('id')}
+        <f2-text-input
+            placeholder={'Something'}
+            {...form.connect('something')}
         />
-        <es-input
-            disabled
-            label={'Disabled'}
-            placeholder={'This is disabled'}
-            {...forms.connect('text')}
-        />
-    </>
+        <es-button type={'submit'}>{'submit'}</es-button>
+    </f2-form>
 );
-```
-
-```css
-:host {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 ```

@@ -13,7 +13,7 @@ Attaches a portaled popover, attached to the parent node. Can be used to create 
 
 ```tsx
 import { createStore } from '@eventstore-ui/stores';
-import type { FieldChangeEvent } from '@eventstore-ui/fields';
+import type { FieldChange } from '@eventstore-ui/fields';
 
 interface PopoverStore {
     open: boolean;
@@ -36,43 +36,44 @@ const { state } = createStore<PopoverStore>({
 export default () => (
     <>
         <div class={'options'}>
-            <es-checkbox
+            <f2-checkbox
                 name={'open'}
                 value={state.open}
                 onFieldchange={fieldChange}
             >
                 {'Open'}
-            </es-checkbox>
-            <es-checkbox
+            </f2-checkbox>
+            <f2-checkbox
                 name={'arrow'}
                 value={state.arrow}
                 onFieldchange={fieldChange}
             >
                 {'Arrow'}
-            </es-checkbox>
-            <es-select
+            </f2-checkbox>
+            <f2-select-field
                 name={'autoSize'}
                 label={'autoSize'}
                 options={constrainOptions}
                 value={state.autoSize}
                 onFieldchange={fieldChange}
             />
-            <es-select
+            <f2-select-field
                 name={'constrain'}
                 label={'constrain'}
                 options={constrainOptions}
                 value={state.constrain}
                 onFieldchange={fieldChange}
             />
-            <es-select
+            <f2-select-field
                 name={'placement'}
                 label={'placement'}
                 options={placement}
                 value={state.placement}
                 onFieldchange={fieldChange}
             />
-            <es-number-input
+            <f2-number-field
                 label={'offset'}
+                placeholder={'How much offset'}
                 unit={'px'}
                 name={'offset'}
                 value={state.offset.toString()}
@@ -97,7 +98,7 @@ export default () => (
     </>
 );
 
-const fieldChange = (e: FieldChangeEvent<unknown>) => {
+const fieldChange = (e: CustomEvent<FieldChange<unknown>>) => {
     const { name, value } = e.detail;
     // dont do this
     (state as any)[name] = value;
@@ -176,15 +177,6 @@ const placement = [
     border-radius: 20px;
     justify-self: flex-end;
     height: 100vh;
-}
-
-es-select,
-es-number-input {
-    --field-grid-columns: [before] 85px [input] 150px [after] 0px;
-}
-
-es-checkbox {
-    --field-grid-columns: [before] 85px [input] 24px [label] 1fr [after] 0;
 }
 ```
 

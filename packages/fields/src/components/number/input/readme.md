@@ -36,21 +36,18 @@ const form = createValidatedForm<Example>({
 });
 
 export default () => (
-    <>
-        <es-number-input
-            label={'Count'}
+    <f2-form>
+        <f2-number-input
             placeholder={'How high can you count'}
             unit={'n'}
             {...form.connect('count')}
         />
-        <es-number-input
-            label={'How many mice?'}
+        <f2-number-input
             placeholder={'Are there any?'}
             unit={'🐁'}
             {...form.connect('mice')}
         />
         <es-button
-            slot={'footer'}
             onClick={() => {
                 form.submit((data) => {
                     console.log(data);
@@ -59,7 +56,7 @@ export default () => (
         >
             {'Submit'}
         </es-button>
-    </>
+    </f2-form>
 );
 ```
 

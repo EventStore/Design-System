@@ -27,13 +27,13 @@ export default () => (
             label={'A field'}
             documentation={'Use a form to space your fields'}
             placeholder={'Write something here'}
-            {...this.form.connect('something')}
+            {...form.connect('something')}
         />
         <f2-text-field
             label={'Another field'}
             documentation={"You can use it's submit to get formdata."}
             placeholder={'Type something here'}
-            {...this.form.connect('something')}
+            {...form.connect('something')}
         />
         <es-button type={'submit'}>{'submit'}</es-button>
     </f2-form>

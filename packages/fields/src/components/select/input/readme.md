@@ -31,31 +31,20 @@ const options = [
 ];
 
 export default () => (
-    <>
-        <es-select
-            label={'Name'}
+    <f2-form>
+        <f2-select-input
             placeholder={'Choose a name from the list'}
             options={options}
             {...form.connect('name')}
         />
-        <es-select
+        <f2-select-input
             disabled
-            label={'Disabled'}
             placeholder={'Choose a name from the list'}
             options={options}
             {...form.connect('name')}
         />
-    </>
+    </f2-form>
 );
-```
-
-```css
-:host {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 ```
 
 

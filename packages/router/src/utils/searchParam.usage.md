@@ -6,9 +6,10 @@ import { searchParam } from '@eventstore-ui/router';
 const myParam = searchParam('hello');
 
 export default () => (
-    <es-input
+    <f2-text-field
         label={'Hello'}
-        placeholder={'Set the hello parameter'}
+        documentation={'Set the hello parameter'}
+        placeholder={'There'}
         name={'hello'}
         value={''}
         onFieldchange={(e) => {
