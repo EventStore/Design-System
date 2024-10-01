@@ -36,7 +36,7 @@ export const createValidatedForm = <T extends object>(
 ): ValidatedForm<T> => {
     const fullOptions = expandOptions(options);
     const {
-        dataStore: { state: data, reset: resetData, onChange },
+        dataStore: { state: data, reset: resetData, onChange: onDataChange },
         messageStore: { state: messages, reset: resetMessages },
         templatedStore: { state: templated, reset: resetTemplated },
         state: { state },
@@ -77,6 +77,15 @@ export const createValidatedForm = <T extends object>(
                 `Unknown key "${String(key)}" passed to validation failure`,
             );
             return;
+        }
+
+        // Expand the failed field, if allowed to edit
+        if (templated[key] !== 'no-edit') {
+            templated[key] = false;
+        } else {
+            logger.warn(
+                `Validation failure in un-editable field "${String(key)}`,
+            );
         }
 
         validationFailedCallbacks
@@ -431,9 +440,27 @@ export const createValidatedForm = <T extends object>(
             }
             validateUpdatedData();
         },
-        set: (key, value) => {
+        applyTemplate: (partial, valuesTemplated = true) => {
+            if (state.frozen) return;
+            for (const [key, value] of Object.entries<any>(partial)) {
+                const wd = fields.get(key as keyof T);
+                if (isValidatedForm(wd)) {
+                    wd.applyTemplate(value, valuesTemplated);
+                } else {
+                    (data as any)[key] = value;
+                    (templated as any)[key] = valuesTemplated;
+                }
+            }
+            validateUpdatedData();
+        },
+        set: (key, value, options = {}) => {
             if (state.frozen) return;
             data[key] = value;
+
+            if (options.templated != null) {
+                templated[key] = options.templated;
+            }
+
             validateUpdatedData();
         },
         connect: (key: keyof T, ...args: any[]) => {
@@ -471,7 +498,8 @@ export const createValidatedForm = <T extends object>(
 
             throw new Error(`Bad path in formdata connect: ${[key, ...args]}`);
         },
-        onChange,
+        onChange: (propName, cb) =>
+            onDataChange(propName, (newValue) => cb(newValue, data)),
         onValidationFailed: (key, callback) => {
             if (!validationFailedCallbacks.has(key)) {
                 validationFailedCallbacks.set(key, new Set());
