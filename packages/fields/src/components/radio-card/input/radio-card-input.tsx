@@ -82,6 +82,7 @@ export class RadioCardInput {
                                                 disabled:
                                                     this.disabled ??
                                                     !!option.disabled,
+                                                invalid: this.invalid,
                                             }}
                                             htmlFor={`${this.name}-${option.value}`}
                                         >

@@ -51,6 +51,8 @@ export namespace Components {
          */
         "value": boolean;
     }
+    interface F2Form {
+    }
     interface F2Hr {
     }
     /**
@@ -314,7 +316,7 @@ export namespace Components {
         /**
           * Parts in the card, to be exported on the top level.
          */
-        "cardParts"?: string[];
+        "cardParts": string[];
         /**
           * Icon to display when checked.
          */
@@ -458,6 +460,10 @@ export namespace Components {
          */
         "optionFilter"?: OptionFilter;
         /**
+          * Parts in the options, to be exported on the top level.
+         */
+        "optionParts": string[];
+        /**
           * A list of options to choose from.
          */
         "options": TypeaheadOption[];
@@ -485,6 +491,10 @@ export namespace Components {
           * The current value of the field.
          */
         "value": string | null;
+        /**
+          * Parts in the value, to be exported on the top level.
+         */
+        "valueParts": string[];
     }
     /**
      * A searchable select dropdown.
@@ -1029,6 +1039,12 @@ declare global {
         prototype: HTMLF2CheckboxElement;
         new (): HTMLF2CheckboxElement;
     };
+    interface HTMLF2FormElement extends Components.F2Form, HTMLStencilElement {
+    }
+    var HTMLF2FormElement: {
+        prototype: HTMLF2FormElement;
+        new (): HTMLF2FormElement;
+    };
     interface HTMLF2HrElement extends Components.F2Hr, HTMLStencilElement {
     }
     var HTMLF2HrElement: {
@@ -1400,6 +1416,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "f2-checkbox": HTMLF2CheckboxElement;
+        "f2-form": HTMLF2FormElement;
         "f2-hr": HTMLF2HrElement;
         "f2-masked-text-field": HTMLF2MaskedTextFieldElement;
         "f2-masked-text-input": HTMLF2MaskedTextInputElement;
@@ -1454,6 +1471,8 @@ declare namespace LocalJSX {
           * The current value of the field.
          */
         "value": boolean;
+    }
+    interface F2Form {
     }
     interface F2Hr {
     }
@@ -1930,6 +1949,10 @@ declare namespace LocalJSX {
          */
         "optionFilter"?: OptionFilter;
         /**
+          * Parts in the options, to be exported on the top level.
+         */
+        "optionParts"?: string[];
+        /**
           * A list of options to choose from.
          */
         "options": TypeaheadOption[];
@@ -1957,6 +1980,10 @@ declare namespace LocalJSX {
           * The current value of the field.
          */
         "value": string | null;
+        /**
+          * Parts in the value, to be exported on the top level.
+         */
+        "valueParts"?: string[];
     }
     /**
      * A searchable select dropdown.
@@ -2463,6 +2490,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "f2-checkbox": F2Checkbox;
+        "f2-form": F2Form;
         "f2-hr": F2Hr;
         "f2-masked-text-field": F2MaskedTextField;
         "f2-masked-text-input": F2MaskedTextInput;
@@ -2492,6 +2520,7 @@ declare module "@stencil/core" {
              * A checkbox component
              */
             "f2-checkbox": LocalJSX.F2Checkbox & JSXBase.HTMLAttributes<HTMLF2CheckboxElement>;
+            "f2-form": LocalJSX.F2Form & JSXBase.HTMLAttributes<HTMLF2FormElement>;
             "f2-hr": LocalJSX.F2Hr & JSXBase.HTMLAttributes<HTMLF2HrElement>;
             /**
              * A masked text input.

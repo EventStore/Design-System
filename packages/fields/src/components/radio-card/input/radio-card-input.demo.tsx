@@ -83,7 +83,7 @@ export class Demo {
     render() {
         return (
             <Host style={{ padding: '10px', display: 'block' }}>
-                <form
+                <f2-form
                     onSubmit={this.onSubmit}
                     style={{
                         display: 'flex',
@@ -119,7 +119,7 @@ export class Demo {
                         {JSON.stringify(this.form.data, null, 2)}
                     </pre>
                     <button>{'submit'}</button>
-                </form>
+                </f2-form>
             </Host>
         );
     }

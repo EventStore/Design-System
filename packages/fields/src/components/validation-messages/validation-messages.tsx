@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, Host } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
 
 import type { ValidationMessages } from 'types';
@@ -24,7 +24,9 @@ export class EsValidationMessages {
     render() {
         const { error = [], info = [], warning = [] } = this.messages ?? {};
 
-        if (!error.length && !info.length && !warning.length) return null;
+        if (!error.length && !info.length && !warning.length) {
+            return <Host empty />;
+        }
 
         return (
             <ul class={'messages'}>

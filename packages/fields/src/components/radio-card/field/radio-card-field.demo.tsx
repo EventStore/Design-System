@@ -96,14 +96,7 @@ export class Demo {
                     
                     `}
                 </style>
-                <form
-                    onSubmit={this.onSubmit}
-                    style={{
-                        display: 'flex',
-                        'flex-direction': 'column',
-                        gap: '12px',
-                    }}
-                >
+                <f2-form onSubmit={this.onSubmit}>
                     <f2-radio-card-field
                         label={'Instance Size'}
                         options={sizes}
@@ -135,11 +128,9 @@ export class Demo {
                         )}
                         {...this.form.connect('topology')}
                     />
-                    <pre slot={'data'}>
-                        {JSON.stringify(this.form.data, null, 2)}
-                    </pre>
+                    <pre>{JSON.stringify(this.form.data, null, 2)}</pre>
                     <button>{'submit'}</button>
-                </form>
+                </f2-form>
             </Host>
         );
     }
@@ -149,5 +140,10 @@ export class Demo {
 
         // eslint-disable-next-line no-console
         console.log(new FormData(e.target as HTMLFormElement));
+
+        this.form.submit((data) => {
+            // eslint-disable-next-line no-console
+            console.log(data);
+        });
     };
 }

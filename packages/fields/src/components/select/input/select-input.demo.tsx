@@ -21,7 +21,7 @@ export class Demo {
     render() {
         return (
             <Host style={{ padding: '10px', display: 'block' }}>
-                <form onSubmit={this.onSubmit}>
+                <f2-form onSubmit={this.onSubmit}>
                     <f2-select-input
                         name={'hello'}
                         placeholder={'hello'}
@@ -31,7 +31,7 @@ export class Demo {
                     />
                     <pre slot={'data'}>{this.value}</pre>
                     <button>{'submit'}</button>
-                </form>
+                </f2-form>
             </Host>
         );
     }

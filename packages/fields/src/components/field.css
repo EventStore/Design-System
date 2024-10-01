@@ -6,15 +6,7 @@
 
 :host {
     display: block;
-    margin: var(--spacing-2, 16px) 0;
-}
-
-:host(:first-child) {
-    margin-top: 0;
-}
-
-:host(:last-child) {
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .field {

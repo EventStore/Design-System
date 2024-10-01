@@ -26,7 +26,7 @@ export class Demo {
     render() {
         return (
             <Host style={{ padding: '10px', display: 'block' }}>
-                <form onSubmit={this.onSubmit}>
+                <f2-form onSubmit={this.onSubmit}>
                     <f2-multi-checkbox-field
                         label={'Options'}
                         documentation={
@@ -105,7 +105,7 @@ export class Demo {
                         )}
                     </pre>
                     <button>{'submit'}</button>
-                </form>
+                </f2-form>
             </Host>
         );
     }
