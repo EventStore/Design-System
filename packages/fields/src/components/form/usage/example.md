@@ -1,18 +1,3 @@
-# f2-hr
-
-
-
-<!-- Auto Generated Below -->
-
-
-## Overview
-
-A styling component for form fields
-
-## Usage
-
-### Example
-
 ```tsx
 import { createValidatedForm } from '@eventstore-ui/forms';
 
@@ -54,9 +39,3 @@ export default () => (
     </f2-form>
 );
 ```
-
-
-
-----------------------------------------------
-
-

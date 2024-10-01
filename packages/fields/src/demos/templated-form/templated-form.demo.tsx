@@ -19,6 +19,10 @@ interface CreateDedicatedCluster {
     things: Set<string>;
 }
 
+/**
+ * Templated form
+ * @group examples
+ */
 @Component({
     tag: 'templated-form-demo',
     styleUrl: 'templated-form.css',
@@ -56,7 +60,7 @@ export class TemplatedFormDemo {
                     value={this.infrastructure}
                     onFieldchange={this.switchInfrastructure}
                 />
-                <f2-hr />
+                <f2-form-section-divider>{'Network'}</f2-form-section-divider>
                 <f2-radio-card-field
                     label={'Provider'}
                     documentation={'Where your cluster should be hosted.'}
@@ -101,7 +105,7 @@ export class TemplatedFormDemo {
                     options={this.regions}
                     {...this.form.connect('region')}
                 />
-                <f2-hr />
+                <f2-form-section-divider>{'Peering'}</f2-form-section-divider>
                 <f2-masked-text-field
                     label={'Peer AWS Account ID'}
                     documentation={

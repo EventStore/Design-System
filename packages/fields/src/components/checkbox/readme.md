@@ -25,9 +25,9 @@ const form = createValidatedForm<Example>({
 });
 
 export default () => (
-    <es-checkbox {...form.connect('enabled')}>
+    <f2-checkbox {...form.connect('enabled')}>
         {'I agree to the terms and conditions?'}
-    </es-checkbox>
+    </f2-checkbox>
 );
 ```
 
