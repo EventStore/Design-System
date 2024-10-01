@@ -15,8 +15,7 @@ A card based single select input.
 
 ```tsx
 import { createValidatedForm } from '@eventstore-ui/forms';
-import type { AccordianSection } from '@eventstore-ui/components';
-import type { RadioCardGroupOption } from '@eventstore-ui/fields';
+import type { RadioCardOption } from '@eventstore-ui/fields';
 
 interface Example {
     best: string | null;
@@ -29,16 +28,9 @@ const form = createValidatedForm<Example>({
 });
 
 export default () => (
-    <es-accordian sections={sections}>
-        <es-radio-card-group
-            slot={'option_one'}
-            labelledby={'option_one'}
-            options={options}
-            {...form.connect('best')}
-        />
-        <es-radio-card-group
-            slot={'option_two'}
-            labelledby={'option_two'}
+    <f2-form>
+        <f2-radio-card-input options={options} {...form.connect('best')} />
+        <f2-radio-card-input
             options={options}
             groupBy={'group'}
             {...form.connect('another')}
@@ -53,10 +45,10 @@ export default () => (
         >
             {'Submit'}
         </es-button>
-    </es-accordian>
+    </f2-form>
 );
 
-const options: RadioCardGroupOption[] = [
+const options: RadioCardOption[] = [
     {
         value: 'a',
         name: 'The letter A',
@@ -93,24 +85,6 @@ const options: RadioCardGroupOption[] = [
         name: 'The letter F',
         description: 'A letter of the alphabet',
         group: 'Consonants',
-    },
-];
-
-const sections: AccordianSection[] = [
-    {
-        name: 'option_one',
-        title: 'Options 1',
-        variant: 'field',
-    },
-    {
-        name: 'option_two',
-        title: 'Grouped Options',
-        variant: 'field',
-    },
-    {
-        name: 'footer',
-        title: '',
-        variant: 'footer',
     },
 ];
 ```

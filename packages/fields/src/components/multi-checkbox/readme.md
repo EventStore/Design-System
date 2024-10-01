@@ -23,9 +23,9 @@ const form = createValidatedForm<Example>({
 });
 
 export default () => (
-    <es-multi-checkbox 
+    <f2-multi-checkbox-field
         label={'options'}
-        {...form.connect('options')}
+        documentation={'Here you can select your options.'}
         options={[
             { name: 'Option 1', value: 'option1' },
             { name: 'Option 2', value: 'option2' },
@@ -45,14 +45,9 @@ export default () => (
             { name: 'Option 18', value: 'option18' },
             { name: 'Option 19', value: 'option19' },
         ]}
+        {...form.connect('options')}
     />
 );
-```
-
-```css
-es-multi-checkbox::part(checkbox-field) {
-    grid-template-columns: repeat(auto-fill, minmax(150px, max-content))
-}
 ```
 
 

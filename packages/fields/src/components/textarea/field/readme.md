@@ -23,13 +23,14 @@ const form = createValidatedForm<Example>({
 });
 
 export default () => (
-    <>
-        <es-textarea
+    <f2-form>
+        <f2-textarea-field
             label={'Text'}
+            documentation={'Write some text in here.'}
             placeholder={'Write some text'}
             {...form.connect('text')}
         />
-    </>
+    </f2-form>
 );
 ```
 

@@ -17,20 +17,12 @@ const options = [
 ];
 
 export default () => (
-    <es-list-creator
+    <f2-select-list-field
         label={'Names'}
-        placeholder={'Add a name to your list'}
+        documentation={'Add some names to your list'}
+        placeholder={'Type here to filter the names'}
         options={options}
         {...workingData.connect('names')}
     />
 );
-```
-
-```css
-:host {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 ```

@@ -15,66 +15,38 @@ A text input.
 import { createValidatedForm } from '@eventstore-ui/forms';
 
 interface Example {
-    text: string;
-    id: string;
+    name: string | null;
 }
 
-const forms = createValidatedForm<Example>({
-    text: '',
-    id: {
-        initialValue: '',
-        validations: [
-            {
-                validator: (v) => v.length === 12,
-                message: 'Please provide a complete Id',
-            },
-        ],
-    },
+const form = createValidatedForm<Example>({
+    name: null,
 });
 
-const onEnter = () => {
-    forms.submit((data) => {
-        console.log(data);
-    });
-};
+const options = [
+    { name: 'Jim', value: 'jim' },
+    { name: 'John', value: 'john' },
+    { name: 'Nathanial', value: 'nathanial' },
+];
 
 export default () => (
-    <>
-        <es-input
-            label={'Text'}
-            placeholder={'Write some text'}
-            onEnter={onEnter}
-            {...forms.connect('text')}
+    <f2-form>
+        <f2-select-field
+            label={'Choose a name from the list'}
+            documentation={"It doesn't matter who it is."}
+            placeholder={'Choose a name from the list'}
+            options={options}
+            {...form.connect('name')}
         />
-        <es-input
-            label={'Account Id'}
-            placeholder={'Account Id'}
-            onEnter={onEnter}
-            mask={{
-                mask: '0000-0000-0000',
-                unmask: true,
-                lazy: false,
-                placeholderChar: '_',
-            }}
-            {...forms.connect('id')}
-        />
-        <es-input
+        <f2-select-field
             disabled
-            label={'Disabled'}
-            placeholder={'This is disabled'}
-            {...forms.connect('text')}
+            label={'Choose a name from the list'}
+            documentation={'This field is disabled'}
+            placeholder={'Choose a name from the list'}
+            options={options}
+            {...form.connect('name')}
         />
-    </>
+    </f2-form>
 );
-```
-
-```css
-:host {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 ```
 
 

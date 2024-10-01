@@ -10,21 +10,11 @@ const form = createValidatedForm<Example>({
 });
 
 export default () => (
-    <>
-        <es-textarea
-            label={'Text'}
+    <f2-form>
+        <f2-textarea-input
             placeholder={'Write some text'}
             {...form.connect('text')}
         />
-    </>
+    </f2-form>
 );
-```
-
-```css
-:host {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 ```

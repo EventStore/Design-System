@@ -2,64 +2,46 @@
 import { createValidatedForm } from '@eventstore-ui/forms';
 
 interface Example {
-    text: string;
-    id: string;
+    something: string;
+    somethingElse: string;
 }
 
-const forms = createValidatedForm<Example>({
-    text: '',
-    id: {
-        initialValue: '',
-        validations: [
-            {
-                validator: (v) => v.length === 12,
-                message: 'Please provide a complete Id',
-            },
-        ],
-    },
+const form = createValidatedForm<Example>({
+    something: '',
+    somethingElse: '',
 });
 
-const onEnter = () => {
-    forms.submit((data) => {
+const onSubmit = () => {
+    form.submit((data) => {
         console.log(data);
     });
 };
 
 export default () => (
-    <>
-        <es-input
-            label={'Text'}
-            placeholder={'Write some text'}
-            onEnter={onEnter}
-            {...forms.connect('text')}
+    <f2-form onSubmit={onSubmit}>
+        <f2-masked-text-field
+            label={'Something'}
+            documentation={'Allows you to mask the text in an input'}
+            mask={{ mask: '{#}000[aaa]/NIC-`*[**]' }}
+            placeholder={'Something here'}
+            {...form.connect('something')}
         />
-        <es-input
-            label={'Account Id'}
-            placeholder={'Account Id'}
-            onEnter={onEnter}
+        <f2-masked-text-field
+            label={'Something else'}
+            documentation={'Allows you to mask the text in an input'}
             mask={{
-                mask: '0000-0000-0000',
-                unmask: true,
+                mask: 'Ple\\ase fill ye\\ar: 19YY',
                 lazy: false,
-                placeholderChar: '_',
+                blocks: {
+                    YY: {
+                        mask: '00',
+                    },
+                },
             }}
-            {...forms.connect('id')}
+            placeholder={'Something else here please'}
+            {...form.connect('somethingElse')}
         />
-        <es-input
-            disabled
-            label={'Disabled'}
-            placeholder={'This is disabled'}
-            {...forms.connect('text')}
-        />
-    </>
+        <es-button type={'submit'}>{'submit'}</es-button>
+    </f2-form>
 );
-```
-
-```css
-:host {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 ```

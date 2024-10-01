@@ -1,18 +1,3 @@
-# f2-hr
-
-
-
-<!-- Auto Generated Below -->
-
-
-## Overview
-
-A styling component for form fields
-
-## Usage
-
-### Example
-
 ```tsx
 import { createValidatedForm } from '@eventstore-ui/forms';
 
@@ -40,13 +25,25 @@ export default () => (
     <f2-form onSubmit={handleSubmit}>
         <f2-text-field
             label={'A field'}
-            documentation={'Use a form to space your fields'}
+            documentation={'Can be used as a horizontal rule'}
+            placeholder={'Write something here'}
+            {...form.connect('something')}
+        />
+        <f2-form-section-divider />
+        <f2-text-field
+            label={'Another field'}
+            documentation={'Can be used as a section title'}
+            placeholder={'Type something here'}
+            {...form.connect('something')}
+        />
+        <f2-form-section-divider>{'Section Name'}</f2-form-section-divider>
+        <f2-text-field
+            label={'A field'}
             placeholder={'Write something here'}
             {...form.connect('something')}
         />
         <f2-text-field
             label={'Another field'}
-            documentation={"You can use it's submit to get formdata."}
             placeholder={'Type something here'}
             {...form.connect('something')}
         />
@@ -54,9 +51,3 @@ export default () => (
     </f2-form>
 );
 ```
-
-
-
-----------------------------------------------
-
-
