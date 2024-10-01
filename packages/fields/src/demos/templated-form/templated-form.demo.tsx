@@ -42,7 +42,7 @@ export class TemplatedFormDemo {
 
     render() {
         return (
-            <form>
+            <f2-form>
                 <f2-radio-card-field
                     templated={'no-edit'}
                     label={'Infrastructure'}
@@ -136,7 +136,7 @@ export class TemplatedFormDemo {
                     placeholder={''}
                     {...this.form.connect('peerRoutes')}
                 />
-            </form>
+            </f2-form>
         );
     }
 

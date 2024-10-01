@@ -1,4 +1,4 @@
-:host(:empty) {
+:host([empty]) {
     display: none;
 }
 
@@ -31,5 +31,5 @@
 }
 
 es-icon {
-    margin-right: 6px;
+    margin-right: var(--spacing-1, 8px);
 }

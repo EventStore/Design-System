@@ -60,7 +60,7 @@ export class RadioCardInput {
     /** Overwrite the default card renderer */
     @Prop() renderCard?: RenderCard<any>;
     /** Parts in the card, to be exported on the top level. */
-    @Prop() cardParts?: string[];
+    @Prop() cardParts: string[] = [];
     /** Icon to display when checked. */
     @Prop() checkIcon: IconDescription = [ICON_NAMESPACE, 'check'];
 
@@ -93,10 +93,7 @@ export class RadioCardInput {
                     renderCard={this.renderCard}
                     checkIcon={this.checkIcon}
                     invalid={this.invalid}
-                    exportparts={[
-                        'group-title',
-                        ...(this.cardParts ?? []),
-                    ].join(', ')}
+                    exportparts={['group-title', ...this.cardParts].join(', ')}
                 >
                     <slot />
                 </f2-radio-card-input>

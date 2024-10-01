@@ -26,7 +26,7 @@ export class Demo {
     render() {
         return (
             <Host style={{ padding: '10px', display: 'block' }}>
-                <form onSubmit={this.onSubmit}>
+                <f2-form onSubmit={this.onSubmit}>
                     <f2-masked-text-input
                         mask={{ mask: '{#}000[aaa]/NIC-`*[**]' }}
                         placeholder={'Something Else'}
@@ -49,7 +49,7 @@ export class Demo {
                         {JSON.stringify(this.form.data, null, 2)}
                     </pre>
                     <button>{'submit'}</button>
-                </form>
+                </f2-form>
             </Host>
         );
     }

@@ -6,20 +6,25 @@
     outline: none;
 }
 
-.cards:has(:focus-visible) label:not(.disabled) {
-    outline-offset: -2px;
-    outline-width: 2px;
+:where(.cards:has(:focus-visible)) label:not(.disabled) {
+    outline-color: var(--color-shade-50);
+
+    &.invalid {
+        border-color: transparent;
+    }
 }
 
 label {
     display: block;
     position: relative;
     outline-offset: -1px;
-    outline: 1px solid var(--color-shade-50);
+    border: 1px solid var(--color-shade-50);
+    outline: 2px solid transparent;
+    outline-offset: -2px;
     border-radius: 8px;
     cursor: pointer;
     overflow: hidden;
-    transition-property: outline-color, filter;
+    transition-property: outline-color, border-color, filter;
     transition-duration: 500ms;
     transition-timing-function: ease;
 
@@ -48,8 +53,8 @@ label {
         &:hover,
         &:focus,
         &:focus-within {
-            outline-offset: -2px;
-            outline: 2px solid var(--color-success-alt);
+            outline-color: var(--color-success-alt);
+            border-color: transparent;
 
             & .check_icon {
                 transform: translateX(20%) translateY(20%);
@@ -59,8 +64,8 @@ label {
         }
 
         &.active {
-            outline-offset: -2px;
-            outline: 2px solid var(--color-success);
+            outline-color: var(--color-success);
+            border-color: transparent;
 
             & .check_icon {
                 transform: translateX(0%) translateY(0%);
@@ -68,12 +73,16 @@ label {
                 background-color: var(--color-success);
             }
         }
+
+        &:where(.invalid) {
+            border-color: var(--color-error);
+        }
     }
 
     &.disabled {
         cursor: not-allowed;
         color: var(--color-disabled-contrast);
-        outline-color: var(--color-disabled-border);
+        border-color: var(--color-disabled-border);
         background-color: var(--color-disabled);
         outline-style: dashed;
 

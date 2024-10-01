@@ -119,7 +119,7 @@ const sections: AccordianSection[] = [
 
 | Property                | Attribute                 | Description                                         | Type                                                                                               | Default                     |
 | ----------------------- | ------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------- |
-| `cardParts`             | --                        | Parts in the card, to be exported on the top level. | `string[] \| undefined`                                                                            | `undefined`                 |
+| `cardParts`             | --                        | Parts in the card, to be exported on the top level. | `string[]`                                                                                         | `[]`                        |
 | `checkIcon`             | `check-icon`              | Icon to display when checked.                       | `[namespace: string \| symbol, name: string] \| string`                                            | `[ICON_NAMESPACE, 'check']` |
 | `disabled`              | `disabled`                | If the field is disabled.                           | `boolean \| undefined`                                                                             | `undefined`                 |
 | `documentation`         | `documentation`           | Inline documentation text.                          | `string \| undefined`                                                                              | `undefined`                 |

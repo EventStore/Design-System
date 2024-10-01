@@ -19,7 +19,7 @@ export class Demo {
     render() {
         return (
             <Host style={{ padding: '10px', display: 'block' }}>
-                <form onSubmit={this.onSubmit}>
+                <f2-form onSubmit={this.onSubmit}>
                     <f2-switch {...this.form.connect('option')} />
                     <f2-switch disabled {...this.form.connect('option')} />
                     <f2-switch {...this.form.connect('option')} invalid />
@@ -27,7 +27,7 @@ export class Demo {
                         {JSON.stringify(this.form.data, null, 2)}
                     </pre>
                     <button>{'submit'}</button>
-                </form>
+                </f2-form>
             </Host>
         );
     }
