@@ -95,7 +95,14 @@ export class Demo {
                         options={sizes}
                         groupBy={'tag'}
                         {...this.form.connect('size')}
-                    />
+                    >
+                        <es-callout
+                            heading={'Some details'}
+                            style={{ margin: '0', flex: '1 1 400px' }}
+                        >
+                            {'Hello!'}
+                        </es-callout>
+                    </f2-radio-card-input>
 
                     <f2-radio-card-input
                         options={topologies}

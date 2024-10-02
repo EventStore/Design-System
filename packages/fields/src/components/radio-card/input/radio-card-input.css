@@ -4,6 +4,9 @@
 
 :host {
     outline: none;
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-2, 16px);
 }
 
 :where(.cards:has(:focus-visible)) label:not(.disabled) {
@@ -12,6 +15,10 @@
     &.invalid {
         border-color: transparent;
     }
+}
+
+.cards {
+    flex: 1 1 100%;
 }
 
 label {
