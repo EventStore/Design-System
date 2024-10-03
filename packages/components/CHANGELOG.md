@@ -1,5 +1,13 @@
 # @eventstore-ui/components
 
+## 1.9.2
+
+### Patch Changes
+
+-   [`fb12b852`](https://github.com/EventStore/Design-System/commit/fb12b852960312a25b681349a93a674a08cbddea) - Improve button styles
+
+-   [`4d8bb497`](https://github.com/EventStore/Design-System/commit/4d8bb497c229564da79111667386cf683369a302) - `es-tabs`: Ensure that the active tab exists.
+
 ## 1.9.1
 
 ### Patch Changes
