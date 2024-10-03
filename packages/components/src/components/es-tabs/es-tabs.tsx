@@ -59,6 +59,7 @@ export class EsTabs {
 
     componentWillLoad() {
         this.setUpActiveParam(this.activeParam);
+        this.updateActiveIfNoMatchesTabs(this.tabs);
     }
 
     disconnectedCallback() {
@@ -88,6 +89,12 @@ export class EsTabs {
     updateActive(active?: string) {
         this.searchParam?.set(active);
         this.tabChange.emit(active);
+    }
+
+    @Watch('tabs')
+    updateActiveIfNoMatchesTabs(tabs: Tab[]) {
+        if (tabs.find(({ id }) => id === this.active)) return;
+        this.active = this.tabs[0].id;
     }
 
     renderTab = ({ title, id, badge }: Tab, i: number) => (
