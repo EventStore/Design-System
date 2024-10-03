@@ -1,5 +1,11 @@
 # @eventstore-ui/assets
 
+## 1.1.0
+
+### Minor Changes
+
+-   [`18412851`](https://github.com/EventStore/Design-System/commit/18412851f044ec154e85e9c73ea36b3354f5a3d6) - Added "spacing" css file
+
 ## 1.0.1
 
 ### Patch Changes
