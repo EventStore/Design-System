@@ -16,6 +16,6 @@
         "@eventstore-ui/utils": "workspace:*"
     },
     "devDependencies": {
-        "@stencil/core": "4.19.2"
+        "@stencil/core": "4.22.0"
     }
 }

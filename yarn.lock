@@ -2044,7 +2044,7 @@ __metadata:
     "@eventstore-ui/utils": "workspace:*"
     "@floating-ui/dom": "npm:0.4.1"
     "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:4.19.2"
+    "@stencil/core": "npm:4.22.0"
     jest: "npm:^27.4.5"
     npm-run-all: "npm:^4.1.5"
     puppeteer: "npm:^19.5.0"
@@ -2093,7 +2093,7 @@ __metadata:
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:4.19.2"
+    "@stencil/core": "npm:4.22.0"
     "@types/jest": "npm:^27.0.3"
     "@types/markdown-it": "npm:12.0.3"
     eslint: "npm:^8.4.0"
@@ -2123,7 +2123,7 @@ __metadata:
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:4.19.2"
+    "@stencil/core": "npm:4.22.0"
     jest: "npm:^27.4.5"
     npm-run-all: "npm:^4.1.5"
     puppeteer: "npm:^19.5.0"
@@ -2150,7 +2150,7 @@ __metadata:
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:4.19.2"
+    "@stencil/core": "npm:4.22.0"
     imask: "npm:7.6.1"
     jest: "npm:^27.4.5"
     npm-run-all: "npm:^4.1.5"
@@ -2174,7 +2174,7 @@ __metadata:
     "@eventstore-ui/components": "workspace:*"
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": "npm:4.19.2"
+    "@stencil/core": "npm:4.22.0"
     "@types/jest": "npm:^27.0.3"
     babel-jest: "npm:^27.5.1"
     jest: "npm:^27.4.5"
@@ -2215,7 +2215,7 @@ __metadata:
   dependencies:
     "@eventstore-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:4.19.2"
+    "@stencil/core": "npm:4.22.0"
     case-anything: "npm:^2.1.10"
     jest: "npm:^27.4.5"
     npm-run-all: "npm:^4.1.5"
@@ -2242,7 +2242,7 @@ __metadata:
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:4.19.2"
+    "@stencil/core": "npm:4.22.0"
     jest: "npm:^27.4.5"
     npm-run-all: "npm:^4.1.5"
     puppeteer: "npm:^19.5.0"
@@ -2292,7 +2292,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.12.11"
     "@babel/preset-typescript": "npm:^7.12.7"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": "npm:4.19.2"
+    "@stencil/core": "npm:4.22.0"
     "@types/jest": "npm:^27.0.3"
     babel-jest: "npm:^27.5.1"
     jest: "npm:^27.4.5"
@@ -2312,7 +2312,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.12.11"
     "@babel/preset-typescript": "npm:^7.12.7"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": "npm:4.19.2"
+    "@stencil/core": "npm:4.22.0"
     "@types/jest": "npm:^27.0.3"
     babel-jest: "npm:^27.5.1"
     jest: "npm:^27.4.5"
@@ -2333,7 +2333,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.12.11"
     "@babel/preset-typescript": "npm:^7.12.7"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": "npm:4.19.2"
+    "@stencil/core": "npm:4.22.0"
     babel-jest: "npm:^27.5.1"
     jest: "npm:^27.4.5"
     rollup: "npm:^4.22.4"
@@ -3040,12 +3040,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:4.19.2":
-  version: 4.19.2
-  resolution: "@stencil/core@npm:4.19.2"
+"@stencil/core@npm:4.22.0":
+  version: 4.22.0
+  resolution: "@stencil/core@npm:4.22.0"
   bin:
     stencil: bin/stencil
-  checksum: 9e188af9988e9068368e8e512f3146833b1241f2aee562d2aecb4654cec6bacd5b76c80ea8e4c47322d9586186211cefaf93fd4525a729103fa95bd2e4cbb602
+  checksum: 6e23a197e9f332670396a25a6707c0c5874debaeef96ca54ad3cd27c4fd252d7727899a3239bbb9a0eaf81ee11bc5a8237bf0fa4ff352c171909ad9ee581179f
+  languageName: node
+  linkType: hard
+
+"@stencil/core@patch:@stencil/core@npm%3A4.22.0#~/.yarn/patches/@stencil-core-npm-4.22.0-1dd6276cbb.patch":
+  version: 4.22.0
+  resolution: "@stencil/core@patch:@stencil/core@npm%3A4.22.0#~/.yarn/patches/@stencil-core-npm-4.22.0-1dd6276cbb.patch::version=4.22.0&hash=54b949"
+  bin:
+    stencil: bin/stencil
+  checksum: 69acb254271bf8116a7833f67d6f734bf65355a634f8d2cf604bba6635784ce651200b370ebc76f4f6bc505c0192ae7387bd21a5f6d9005cd09530f2f8d80d0d
   languageName: node
   linkType: hard
 
@@ -5763,7 +5772,7 @@ __metadata:
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": "npm:4.19.2"
+    "@stencil/core": "npm:4.22.0"
   languageName: unknown
   linkType: soft
 
@@ -9702,7 +9711,7 @@ __metadata:
   resolution: "router-demo@workspace:demos/router-demo"
   dependencies:
     "@eventstore-ui/router": "workspace:*"
-    "@stencil/core": "npm:4.19.2"
+    "@stencil/core": "npm:4.22.0"
   languageName: unknown
   linkType: soft
 
@@ -10074,7 +10083,7 @@ __metadata:
   dependencies:
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": "npm:4.19.2"
+    "@stencil/core": "npm:4.22.0"
   languageName: unknown
   linkType: soft
 

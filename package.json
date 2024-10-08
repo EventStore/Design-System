@@ -36,7 +36,8 @@
         "typescript": "5.1.6"
     },
     "resolutions": {
-        "semver": "7.5.4"
+        "semver": "7.5.4",
+        "@stencil/core": "patch:@stencil/core@npm%3A4.22.0#~/.yarn/patches/@stencil-core-npm-4.22.0-1dd6276cbb.patch"
     },
     "packageManager": "yarn@4.0.1"
 }
