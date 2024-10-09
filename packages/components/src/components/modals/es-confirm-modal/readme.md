@@ -7,15 +7,15 @@
 
 ## Overview
 
-A modal to confirm the deletion of something.
+A modal to confirm an action.
 
 ## Usage
 
 ### Example
 
 ```tsx
-// Despite being intended to be used with `es-action-delete`,
-// `es-delete-modal` can be used standalone.
+// Despite being intended to be used with `es-action-with-confirmation` or
+// `es-button-with-confirmation, `es-confirm-modal` can be used standalone.
 
 import { createStore } from '@eventstore-ui/stores';
 
@@ -39,7 +39,7 @@ export default () => (
             open={state.open}
             onRequestClose={requestClose}
             renderElement={(h) => (
-                <es-delete-modal
+                <es-confirm-modal
                     onRequestDeletion={deleteAndClose}
                     preHeading={'Group name'}
                     heading={'es-action-delete'}

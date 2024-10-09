@@ -302,7 +302,7 @@ export namespace Components {
         "variant": EsCalloutVariant;
     }
     /**
-     * A modal to confirm the deletion of something.
+     * A modal to confirm an action.
      */
     interface EsConfirmModal {
         /**
@@ -1234,7 +1234,7 @@ declare global {
         "requestDeletion": any;
     }
     /**
-     * A modal to confirm the deletion of something.
+     * A modal to confirm an action.
      */
     interface HTMLEsConfirmModalElement extends Components.EsConfirmModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLEsConfirmModalElementEventMap>(type: K, listener: (this: HTMLEsConfirmModalElement, ev: EsConfirmModalCustomEvent<HTMLEsConfirmModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1917,7 +1917,7 @@ declare namespace LocalJSX {
         "variant"?: EsCalloutVariant;
     }
     /**
-     * A modal to confirm the deletion of something.
+     * A modal to confirm an action.
      */
     interface EsConfirmModal {
         /**
@@ -2823,7 +2823,7 @@ declare module "@stencil/core" {
              */
             "es-callout": LocalJSX.EsCallout & JSXBase.HTMLAttributes<HTMLEsCalloutElement>;
             /**
-             * A modal to confirm the deletion of something.
+             * A modal to confirm an action.
              */
             "es-confirm-modal": LocalJSX.EsConfirmModal & JSXBase.HTMLAttributes<HTMLEsConfirmModalElement>;
             /**
