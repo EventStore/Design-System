@@ -69,7 +69,7 @@
         "postcss-preset-env": "^9.2.0",
         "puppeteer": "^19.5.0",
         "rollup-plugin-string": "3.0.0",
-        "serve": "^14.2.0",
+        "serve": "^14.2.3",
         "typedoc": "0.24.8",
         "typescript": "5.1.6",
         "workbox-build": "6.5.4"
