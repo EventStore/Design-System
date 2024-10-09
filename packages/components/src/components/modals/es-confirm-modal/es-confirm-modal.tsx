@@ -10,7 +10,7 @@ import {
 import type { ButtonVariant } from '../../buttons/types';
 
 /**
- * A modal to confirm the deletion of something.
+ * A modal to confirm an action.
  * @part preheading - The h2 above the heading.
  * @part heading - The h1 heading.
  * @part body - The body of the modal.
@@ -24,7 +24,7 @@ import type { ButtonVariant } from '../../buttons/types';
     styleUrl: 'es-confirm-modal.css',
     shadow: true,
 })
-export class DeleteModal {
+export class ConfirmModal {
     /** Text to display above the heading. */
     @Prop() preHeading!: string;
     /** Text to display in the heading. */

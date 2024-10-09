@@ -35,7 +35,7 @@ const { state } = createStore<PopoverStore>({
 
 export default () => (
     <>
-        <div class={'options'}>
+        <f2-form class={'options'}>
             <f2-checkbox
                 name={'open'}
                 value={state.open}
@@ -79,7 +79,7 @@ export default () => (
                 value={state.offset.toString()}
                 onFieldchange={fieldChange}
             />
-        </div>
+        </f2-form>
         <div class={'wrapper'}>
             <div class={'attachment'}>
                 {'Attachment element'}

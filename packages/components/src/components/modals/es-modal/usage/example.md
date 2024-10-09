@@ -5,12 +5,11 @@ export default () => (
     <es-modal role={'alert'}>
         <h2 slot={'header'}>{'Successfully created a new'}</h2>
         <h1 slot={'header'}>{'Refresh token'}</h1>
-        <es-input
+        <f2-text-input
             readonly
             class={'token'}
+            placeholder={'token'}
             name={'token'}
-            placeholder={''}
-            label={''}
             value={token}
             inputProps={{
                 onFocus(e: FocusEvent) {
@@ -28,7 +27,7 @@ export default () => (
                 variant={'outline'}
                 color={'secondary'}
             />
-        </es-input>
+        </f2-text-input>
         <b class={'copy_warning'}>
             <es-icon icon={'critical'} />
             {"Be sure to copy your new token. It won't be shown again."}
@@ -43,8 +42,7 @@ export default () => (
 ```css
 .token {
     width: 100%;
-    --field-grid-columns: [input] 1fr [before] 15px [after] 110px;
-    --field-grid-gap: 0;
+    margin-bottom: 16px;
 }
 
 .copy_warning {

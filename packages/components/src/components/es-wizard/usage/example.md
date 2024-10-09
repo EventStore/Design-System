@@ -47,44 +47,49 @@ export class WizardExample {
         return (
             <>
                 <es-wizard location={this.location} pages={this.pages}>
-                    {/* user_details */}
-                    <es-input
-                        label={'Name'}
-                        placeholder={'Your name'}
-                        slot={'user_details'}
-                        {...this.form.connect('user', 'fullName')}
-                    />
-                    <es-input
-                        label={'Email'}
-                        placeholder={'Your contact email'}
-                        slot={'user_details'}
-                        {...this.form.connect('user', 'email')}
-                    />
-                    <es-textarea
-                        label={'Message'}
-                        placeholder={'Tell us about your project'}
-                        slot={'user_details'}
-                        {...this.form.connect('user', 'message')}
-                    />
-                    {/* billing_details */}
-                    <es-input
-                        label={'Company name'}
-                        placeholder={'The name of your company for invoices'}
-                        slot={'billing_details'}
-                        {...this.form.connect('billing', 'billingCompanyName')}
-                    />
-                    <es-input
-                        label={'Billing address'}
-                        placeholder={'The address of your company for invoices'}
-                        slot={'billing_details'}
-                        {...this.form.connect('billing', 'billingAddress')}
-                    />
-                    <es-input
-                        label={'Billing Email'}
-                        placeholder={'The email address to send invoices to'}
-                        slot={'billing_details'}
-                        {...this.form.connect('billing', 'billingEmail')}
-                    />
+                    <f2-form slot={'user_details'}>
+                        <f2-text-field
+                            label={'Name'}
+                            placeholder={'Your name'}
+                            {...this.form.connect('user', 'fullName')}
+                        />
+                        <f2-text-field
+                            label={'Email'}
+                            placeholder={'Your contact email'}
+                            {...this.form.connect('user', 'email')}
+                        />
+                        <f2-textarea-field
+                            label={'Message'}
+                            placeholder={'Tell us about your project'}
+                            {...this.form.connect('user', 'message')}
+                        />
+                    </f2-form>
+                    <f2-form slot={'billing_details'}>
+                        <f2-text-field
+                            label={'Company name'}
+                            placeholder={
+                                'The name of your company for invoices'
+                            }
+                            {...this.form.connect(
+                                'billing',
+                                'billingCompanyName',
+                            )}
+                        />
+                        <f2-text-field
+                            label={'Billing address'}
+                            placeholder={
+                                'The address of your company for invoices'
+                            }
+                            {...this.form.connect('billing', 'billingAddress')}
+                        />
+                        <f2-text-field
+                            label={'Billing Email'}
+                            placeholder={
+                                'The email address to send invoices to'
+                            }
+                            {...this.form.connect('billing', 'billingEmail')}
+                        />
+                    </f2-form>
                 </es-wizard>
                 <footer>
                     {this.location === 'user_details' && (
