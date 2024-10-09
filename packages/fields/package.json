@@ -1,6 +1,6 @@
 {
     "name": "@eventstore-ui/fields",
-    "version": "2.0.0-alpha.7",
+    "version": "2.0.0-alpha.8",
     "description": "Forms and fields for Event Store Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",

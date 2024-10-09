@@ -11,14 +11,15 @@ const form = createValidatedForm<Example>({
     somethingElse: '',
 });
 
-const onSubmit = () => {
+const handleSubmit = (e: Event) => {
+    e.preventDefault();
     form.submit((data) => {
         console.log(data);
     });
 };
 
 export default () => (
-    <f2-form onSubmit={onSubmit}>
+    <f2-form onSubmit={handleSubmit}>
         <f2-masked-text-field
             label={'Something'}
             documentation={'Allows you to mask the text in an input'}
