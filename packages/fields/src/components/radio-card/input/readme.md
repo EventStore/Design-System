@@ -1,7 +1,5 @@
 # f2-radio-card-input
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -36,7 +34,6 @@ export default () => (
             {...form.connect('another')}
         />
         <es-button
-            slot={'footer'}
             onClick={() => {
                 form.submit((data) => {
                     console.log(data);

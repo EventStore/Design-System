@@ -1,7 +1,5 @@
 # f2-masked-text-input
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -26,14 +24,15 @@ const form = createValidatedForm<Example>({
     somethingElse: '',
 });
 
-const onSubmit = () => {
+const handleSubmit = (e: Event) => {
+    e.preventDefault();
     form.submit((data) => {
         console.log(data);
     });
 };
 
 export default () => (
-    <f2-form onSubmit={onSubmit}>
+    <f2-form onSubmit={handleSubmit}>
         <f2-masked-text-input
             mask={{ mask: '{#}000[aaa]/NIC-`*[**]' }}
             placeholder={'Something Else'}

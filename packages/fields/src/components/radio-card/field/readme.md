@@ -42,7 +42,6 @@ export default () => (
             {...form.connect('another')}
         />
         <es-button
-            slot={'footer'}
             onClick={() => {
                 form.submit((data) => {
                     console.log(data);
