@@ -1,11 +1,11 @@
 import { h, type FunctionalComponent } from '@stencil/core';
-import { HTTPError } from '@eventstore-ui/utils';
 
 import { toast } from '../../utils/toast';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import type { ConfirmModalOptions } from '../modals/es-confirm-modal/types';
 import type { IconDescription } from '../es-icon/types';
 import type { ToastOptions } from '../toast/types';
+import { toastError } from '../../utils/toastError';
 
 /** @props */
 export interface ActionDeleteProps {
@@ -67,18 +67,6 @@ const handleDeletion =
                 ...toastOptions,
             });
         } catch (error) {
-            if (HTTPError.isHTTPError(error)) {
-                const details = await error.details();
-                toast.error({
-                    title: `Failed to delete ${description}`,
-                    message: details.detail,
-                });
-            } else {
-                toast.error({
-                    title: `Failed to delete ${description}`,
-                    message:
-                        error instanceof Error ? error.message : String(error),
-                });
-            }
+            toastError(error, `Failed to delete ${description}`);
         }
     };
