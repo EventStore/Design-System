@@ -5,7 +5,6 @@ import { ICON_NAMESPACE } from '../../icons/namespace';
 import type { ConfirmModalOptions } from '../modals/es-confirm-modal/types';
 import type { IconDescription } from '../es-icon/types';
 import type { ToastOptions } from '../toast/types';
-import { toastError } from '../../utils/toastError';
 
 /** @props */
 export interface ActionDeleteProps {
@@ -67,6 +66,6 @@ const handleDeletion =
                 ...toastOptions,
             });
         } catch (error) {
-            toastError(error, `Failed to delete ${description}`);
+            toast.httpError(error, `Failed to delete ${description}`);
         }
     };

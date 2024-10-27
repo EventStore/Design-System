@@ -1,3 +1,4 @@
+import { HTTPError } from '@eventstore-ui/utils';
 import type { ToastOptions, ToastLevel } from '../components/toast/types';
 
 const popToast =
@@ -34,4 +35,21 @@ export const toast = {
      * Called when an error occured, to inform the user.
      */
     error: popToast('error'),
+    /**
+     * Handles HTTPError instances specifically and displays them as error toasts.
+     */
+    async httpError(err: unknown, fallbackTitle: string) {
+        if (HTTPError.isHTTPError(err)) {
+            const { title, detail } = await err.details();
+            popToast('error')({
+                title: title || fallbackTitle,
+                message: detail,
+            });
+        } else {
+            popToast('error')({
+                title: fallbackTitle,
+                message: err instanceof Error ? err.message : String(err),
+            });
+        }
+    },
 };
