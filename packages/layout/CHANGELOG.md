@@ -1,5 +1,11 @@
 # @eventstore-ui/layout
 
+## 1.5.2
+
+### Patch Changes
+
+-   [`54817579`](https://github.com/EventStore/Design-System/commit/54817579af135fca7e672aa0b5ce6bdf57e06782) - Fix dragging handle in es-panel selects everything inside the panel
+
 ## 1.5.1
 
 ### Patch Changes
