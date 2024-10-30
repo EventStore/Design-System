@@ -1,5 +1,13 @@
 # @eventstore-ui/components
 
+## 1.10.0
+
+### Minor Changes
+
+-   [`5d7cd1af`](https://github.com/EventStore/Design-System/commit/5d7cd1afad792a5f9918ad494f2e3d7773d8f2ae) - Adds `httpError` to toast, a utility for displaying error toasts with a fallback title.
+
+    This utility provides a consistent approach for handling error toasts across the application. It supports detailed handling for HTTPError instances and includes a fallback title for non-HTTP errors. Refactored existing error toasts to use this new utility.
+
 ## 1.9.2
 
 ### Patch Changes
