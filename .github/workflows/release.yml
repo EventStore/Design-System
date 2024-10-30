@@ -12,7 +12,7 @@ jobs:
     build-and-test:
         uses: ./.github/workflows/ci.yml
     release:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         needs: [build-and-test]
         steps:
             - name: Checkout repo
