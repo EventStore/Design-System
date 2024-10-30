@@ -42,6 +42,7 @@
 
     color: var(--color-contrast);
     z-index: 100;
+    user-select: none;
 }
 
 .cursor_guard {
