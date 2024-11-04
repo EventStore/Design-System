@@ -1,5 +1,30 @@
 # @eventstore-ui/layout
 
+## 1.6.0
+
+### Minor Changes
+
+-   [`6ea5f57f`](https://github.com/EventStore/Design-System/commit/6ea5f57fc719571481f337520d2ca2aefd7a632a) - Improve styleability of `es-layout-link` and `es-layout-button`.
+
+    Changed:
+
+    -   Use `focus-visible` rather than `focus`.
+
+    Added parts:
+
+    -   `counter` - The counter element, if rendered.
+    -   `badge` - The badge element, if rendered.
+    -   `icon` - The icon element, if rendered.
+
+    Added css variables:
+
+    -   `--icon-gap` - The space between the icon and the text
+    -   `--icon-size` - The size of the icon.
+    -   `--vertical-spacing` - The total space between one button and another.
+    -   `--highlight-color` - The text color when the button is focused or hovered.
+    -   `--highlight-background-color` - The background color when the button is focused or hovered.
+    -   `--highlight-decoration` - The text decoration when the button is focused or hovered.
+
 ## 1.5.2
 
 ### Patch Changes
