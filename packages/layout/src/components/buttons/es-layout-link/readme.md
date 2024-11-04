@@ -133,10 +133,12 @@ Type: `Promise<boolean>`
 
 ## Shadow Parts
 
-| Part        | Description         |
-| ----------- | ------------------- |
-| `"counter"` | The counter element |
-| `"link"`    | The link element.   |
+| Part        | Description                       |
+| ----------- | --------------------------------- |
+| `"badge"`   | The badge element, if rendered.   |
+| `"counter"` | The counter element, if rendered. |
+| `"icon"`    | The icon element, if rendered.    |
+| `"link"`    | The link element.                 |
 
 
 ## Dependencies
