@@ -145,9 +145,12 @@ Type: `Promise<boolean>`
 
 ## Shadow Parts
 
-| Part       | Description         |
-| ---------- | ------------------- |
-| `"button"` | The button element. |
+| Part        | Description                       |
+| ----------- | --------------------------------- |
+| `"badge"`   | The badge element, if rendered.   |
+| `"button"`  | The button element.               |
+| `"counter"` | The counter element, if rendered. |
+| `"icon"`    | The icon element, if rendered.    |
 
 
 ## Dependencies

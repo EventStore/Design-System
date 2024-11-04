@@ -16,7 +16,9 @@ import { bindPanelDetails, type PanelMode } from '../../panel';
 /**
  * A link for the sidebar, sidebar-dropdown, and header-dropdown.
  * @part link - The link element.
- * @part counter - The counter element
+ * @part counter - The counter element, if rendered.
+ * @part badge - The badge element, if rendered.
+ * @part icon - The icon element, if rendered.
  */
 @Component({
     tag: 'es-layout-link',
@@ -111,8 +113,9 @@ export class LayoutLink {
                                 count={this.alertLevel ? 1 : 0}
                                 variant={'dot'}
                                 color={this.alertLevel}
+                                part={'badge'}
                             >
-                                <es-icon icon={this.icon} />
+                                <es-icon part={'icon'} icon={this.icon} />
                             </es-badge>
                         )
                     )}

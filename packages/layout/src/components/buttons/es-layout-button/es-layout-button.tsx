@@ -18,6 +18,9 @@ import { bindPanelDetails, type PanelMode } from '../../panel';
 /**
  * A button for the sidebar, sidebar-dropdown, and header-dropdown.
  * @part button - The button element.
+ * @part counter - The counter element, if rendered.
+ * @part badge - The badge element, if rendered.
+ * @part icon - The icon element, if rendered.
  */
 @Component({
     tag: 'es-layout-button',
@@ -90,6 +93,7 @@ export class LayoutButton {
                 >
                     {this.count != null ? (
                         <es-counter
+                            part={'counter'}
                             count={this.count}
                             variant={'filled'}
                             color={this.alertLevel}
@@ -100,8 +104,9 @@ export class LayoutButton {
                                 count={this.alertLevel ? 1 : 0}
                                 variant={'dot'}
                                 color={this.alertLevel}
+                                part={'badge'}
                             >
-                                <es-icon icon={this.icon} />
+                                <es-icon part={'icon'} icon={this.icon} />
                             </es-badge>
                         )
                     )}
