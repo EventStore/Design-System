@@ -23,6 +23,9 @@
 :host([area='cookie']) {
     height: var(--layout-cookie-height);
 }
+:host([area='header']) {
+    height: var(--layout-header-height);
+}
 :host([area='banner']) {
     height: var(--layout-banner-height);
 }
@@ -57,6 +60,7 @@
 /* Horizontal */
 :host([area='panel']),
 :host([area='cookie']),
+:host([area='header']),
 :host([area='banner']) {
     & .handle {
         left: 0;
@@ -81,6 +85,7 @@
 }
 
 /* Bottom */
+:host([area='header']),
 :host([area='banner']) {
     & .handle {
         bottom: 0;

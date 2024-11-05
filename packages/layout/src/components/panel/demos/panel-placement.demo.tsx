@@ -3,6 +3,7 @@ import { router } from '@eventstore-ui/router';
 
 import {
     Page,
+    headerHeight,
     bannerHeight,
     cookieHeight,
     panelHeight,
@@ -13,7 +14,8 @@ import {
 import { areas } from './validPositions';
 
 /**
- * es-panel-placement
+ * Panel placement
+ * @group Panels
  */
 @Component({
     tag: 'es-panel-placement-demo',
@@ -29,11 +31,12 @@ export class PanelPlacementDemo {
 
     componentWillLoad() {
         router.init({ root: '/es-panel-placement-demo/' });
-        bannerHeight.set(200);
-        cookieHeight.set(200);
-        panelHeight.set(200);
-        sidebarWidth.set(200);
-        toolbarWidth.set(200);
+        headerHeight.set(140);
+        bannerHeight.set(140);
+        cookieHeight.set(140);
+        panelHeight.set(140);
+        sidebarWidth.set(140);
+        toolbarWidth.set(140);
     }
 
     disconnectedCallback() {
@@ -103,7 +106,9 @@ export class PanelPlacementDemo {
                     </label>
 
                     <es-panel
-                        defaultSize={200}
+                        defaultSize={140}
+                        maximumSize={140}
+                        minimumSize={140}
                         area={area}
                         start={start}
                         end={end}

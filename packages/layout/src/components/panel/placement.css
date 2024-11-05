@@ -10,6 +10,12 @@
     left: 0;
 }
 
+:host([area='header']) {
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
 :host([area='banner']) {
     top: var(--layout-header-height);
     right: 0;
@@ -32,6 +38,10 @@
     Horizontal starts 
     Top to Bottom 
 */
+:host([area='sidebar'][start='header']),
+:host([area='toolbar'][start='header']) {
+    top: 0;
+}
 :host([area='sidebar'][start='banner']),
 :host([area='toolbar'][start='banner']) {
     top: var(--layout-header-height);
@@ -53,6 +63,10 @@
     Horizontal ends 
     Top to Bottom 
 */
+:host([area='sidebar'][end='header']),
+:host([area='toolbar'][end='header']) {
+    bottom: calc(100vh - var(--layout-header-height));
+}
 :host([area='sidebar'][end='banner']),
 :host([area='toolbar'][end='banner']) {
     bottom: calc(
@@ -76,24 +90,25 @@
     Vertical starts 
     Left to right  
 */
+:host([area='header'][start='edge']),
 :host([area='banner'][start='edge']),
 :host([area='panel'][start='edge']),
 :host([area='cookie'][start='edge']) {
     left: 0;
 }
-
+:host([area='header'][start='sidebar']),
 :host([area='banner'][start='sidebar']),
 :host([area='panel'][start='sidebar']),
 :host([area='cookie'][start='sidebar']) {
     left: var(--layout-current-edge);
 }
-
+:host([area='header'][start='body']),
 :host([area='banner'][start='body']),
 :host([area='panel'][start='body']),
 :host([area='cookie'][start='body']) {
     left: calc(var(--layout-current-edge) + var(--layout-sidebar-width));
 }
-
+:host([area='header'][start='toolbar']),
 :host([area='banner'][start='toolbar']),
 :host([area='panel'][start='toolbar']),
 :host([area='cookie'][start='toolbar']) {
@@ -106,6 +121,7 @@
     Vertical ends 
     Left to right  
 */
+:host([area='header'][end='sidebar']),
 :host([area='banner'][end='sidebar']),
 :host([area='panel'][end='sidebar']),
 :host([area='cookie'][end='sidebar']) {
@@ -113,16 +129,19 @@
         100vw - var(--layout-current-edge) - var(--layout-sidebar-width)
     );
 }
+:host([area='header'][end='body']),
 :host([area='banner'][end='body']),
 :host([area='panel'][end='body']),
 :host([area='cookie'][end='body']) {
     right: calc(var(--layout-current-edge) + var(--layout-toolbar-width));
 }
+:host([area='header'][end='toolbar']),
 :host([area='banner'][end='toolbar']),
 :host([area='panel'][end='toolbar']),
 :host([area='cookie'][end='toolbar']) {
     right: var(--layout-current-edge);
 }
+:host([area='header'][end='edge']),
 :host([area='banner'][end='edge']),
 :host([area='panel'][end='edge']),
 :host([area='cookie'][end='edge']) {

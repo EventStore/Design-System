@@ -1,4 +1,5 @@
 export type TargetableArea =
+    | 'header'
     | 'banner'
     | 'sidebar'
     | 'panel'

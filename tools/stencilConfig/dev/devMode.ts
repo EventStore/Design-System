@@ -101,43 +101,6 @@ const buildIndex = ({ name, devComponents }: IndexBuilder) => `
         <link href="/build/${name}.css" rel="stylesheet" />
         <script type="module" src="/build/${name}.esm.js"></script>
         <script nomodule src="/build/${name}.js"></script>
-        <style>
-            body {
-                display: block;
-            }
-
-            body ul.links {
-                list-style: none;
-                padding: 10px 20px;
-                margin: 0;
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(300px, max-content));
-            }
-
-            body ul.links .group_title {
-                margin: 10px 0;
-                text-transform: capitalize;
-                font-weight: 300;
-            }
-
-            body ul.links a {
-                color: #435261;
-                text-decoration: none;
-                font-size: 18px;
-            }
-
-            body ul.links a:hover,
-            body ul.links a:focus-visible {
-                text-decoration: underline;
-            }
-
-            body ul.group_links {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-                padding-left: 20px;
-            }
-        </style>
     </head>
     <body>
         <ul class="links">
@@ -160,18 +123,57 @@ const buildIndex = ({ name, devComponents }: IndexBuilder) => `
                         )
                         .join('\n');
 
-                    if (group === DEFAULT_GROUP && groups.length === 1) {
-                        return children;
-                    }
-
                     return `<li class="group">
-                                <h2 class="group_title">${group}</h2>
+                                ${
+                                    group === DEFAULT_GROUP &&
+                                    groups.length === 1
+                                        ? ''
+                                        : `<h2 class="group_title">${group}</h2>`
+                                }
                                 <ul class="group_links">
                                     ${children}
                                 </ul>
                             </li>`;
                 })
                 .join('\n')}
+            <style>
+                body {
+                    display: block;
+                }
+
+                body ul.links {
+                    list-style: none;
+                    padding: 10px 20px;
+                    gap: 10px;
+                    margin: 0;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(300px, max-content));
+                }
+
+                body ul.links .group_title {
+                    margin: 10px 0;
+                    text-transform: capitalize;
+                    font-weight: 300;
+                }
+
+                body ul.links a {
+                    color: #435261;
+                    text-decoration: none;
+                    font-size: 18px;
+                }
+
+                body ul.links a:hover,
+                body ul.links a:focus-visible {
+                    text-decoration: underline;
+                }
+
+                body ul.group_links {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    padding-left: 20px;
+                }
+            </style>
         </ul>
         <script>
         const tagname = document.location.pathname.split("/").at(1);

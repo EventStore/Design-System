@@ -5,7 +5,8 @@ import { Page } from '../../../../';
 import { areas } from './validPositions';
 
 /**
- * es-sized-panel example
+ * All sized panel placements
+ * @group Sized Panels
  */
 @Component({
     tag: 'es-sized-panel-demo',
@@ -20,9 +21,6 @@ export class PanelPlacementDemo {
     render() {
         return (
             <Host>
-                <es-header>
-                    <es-theme-dropdown slot={'right'} />
-                </es-header>
                 <Page pageTitle={'Sized Panels'}>
                     {'hello'}
 

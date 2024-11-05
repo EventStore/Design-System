@@ -6,7 +6,8 @@ import { Page } from '../../../../';
 import { areas } from './validPositions';
 
 /**
- * es-sized-panel placemen demo
+ * Sized panel placement
+ * @group Sized panels
  */
 @Component({
     tag: 'es-sized-panel-placement-demo',

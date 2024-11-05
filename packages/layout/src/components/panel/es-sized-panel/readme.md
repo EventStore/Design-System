@@ -24,11 +24,11 @@ export default () => (
 
 ## Properties
 
-| Property | Attribute | Description                                                                 | Type                                                                                         | Default     |
-| -------- | --------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------- |
-| `area`   | `area`    | Where to place the panel.                                                   | `"banner" \| "cookie" \| "panel" \| "sidebar" \| "toolbar"`                                  | `'panel'`   |
-| `end`    | `end`     | Where to end the panel, inclusive. Must be the opposite axis to the area.   | `"banner" \| "body" \| "cookie" \| "edge" \| "panel" \| "sidebar" \| "toolbar" \| undefined` | `undefined` |
-| `start`  | `start`   | Where to start the panel, inclusive. Must be the opposite axis to the area. | `"banner" \| "body" \| "cookie" \| "edge" \| "panel" \| "sidebar" \| "toolbar" \| undefined` | `undefined` |
+| Property | Attribute | Description                                                                 | Type                                                                                                     | Default     |
+| -------- | --------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----------- |
+| `area`   | `area`    | Where to place the panel.                                                   | `"banner" \| "cookie" \| "header" \| "panel" \| "sidebar" \| "toolbar"`                                  | `'panel'`   |
+| `end`    | `end`     | Where to end the panel, inclusive. Must be the opposite axis to the area.   | `"banner" \| "body" \| "cookie" \| "edge" \| "header" \| "panel" \| "sidebar" \| "toolbar" \| undefined` | `undefined` |
+| `start`  | `start`   | Where to start the panel, inclusive. Must be the opposite axis to the area. | `"banner" \| "body" \| "cookie" \| "edge" \| "header" \| "panel" \| "sidebar" \| "toolbar" \| undefined` | `undefined` |
 
 
 ----------------------------------------------
