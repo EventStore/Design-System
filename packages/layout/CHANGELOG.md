@@ -1,5 +1,14 @@
 # @eventstore-ui/layout
 
+## 1.7.0
+
+### Minor Changes
+
+-   [`a7cf0cd2`](https://github.com/EventStore/Design-System/commit/a7cf0cd2c90979b0c0ba96e1e5eaf1f541d27278) - Allow `es-panel` and `es-sized-panel` to target the header area
+
+    Previously, the `header` area was considered a special case, as it would always contain the header.
+    We now allow the area to be targetted by panels and is treated like any other layout area.
+
 ## 1.6.0
 
 ### Minor Changes
