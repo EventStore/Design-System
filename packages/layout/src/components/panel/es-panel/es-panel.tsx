@@ -210,6 +210,7 @@ export class Panel {
         }
 
         switch (this.area) {
+            case 'header':
             case 'banner':
             case 'panel':
             case 'cookie': {
@@ -251,6 +252,8 @@ export class Panel {
 
     private getCssVar = (area: TargetableArea) => {
         switch (area) {
+            case 'header':
+                return headerHeight;
             case 'panel':
                 return panelHeight;
             case 'cookie':
@@ -294,6 +297,7 @@ export class Panel {
     private calcSize = (x: number, y: number) => {
         const { top, right, bottom, left } = this.host.getBoundingClientRect();
         switch (this.area) {
+            case 'header':
             case 'banner':
                 return y - top;
             case 'panel':

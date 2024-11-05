@@ -3,6 +3,7 @@ import { Component, h, Host, Watch, Element, Prop } from '@stencil/core';
 import {
     bannerHeight,
     cookieHeight,
+    headerHeight,
     panelHeight,
     sidebarWidth,
     toolbarWidth,
@@ -66,6 +67,7 @@ export class SizedPanel {
 
     private setSize = ({ inlineSize, blockSize }: ResizeObserverSize) => {
         switch (this.area) {
+            case 'header':
             case 'panel':
             case 'cookie':
             case 'banner': {
@@ -90,6 +92,8 @@ export class SizedPanel {
                 return panelHeight;
             case 'cookie':
                 return cookieHeight;
+            case 'header':
+                return headerHeight;
             case 'banner':
                 return bannerHeight;
             case 'sidebar':

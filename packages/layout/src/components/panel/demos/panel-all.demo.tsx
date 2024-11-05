@@ -10,7 +10,8 @@ import { router } from '@eventstore-ui/router';
 import { Page, ES_LAYOUT_ICON_NAMESPACE } from '../../../../';
 
 /**
- * es-panel-placement
+ * All panel placements
+ * @group Panels
  */
 @Component({
     tag: 'es-panel-all-demo',
@@ -25,11 +26,11 @@ export class PanelPlacementDemo {
     render() {
         return (
             <Host>
-                <es-header>
-                    <es-theme-dropdown slot={'right'} />
-                </es-header>
                 <Page pageTitle={'All Panels'}>
                     {'hello'}
+                    <es-panel area={'header'}>
+                        <Inner>{'Header Panel'}</Inner>
+                    </es-panel>
                     <es-panel area={'cookie'}>
                         <Inner>{'Cookie Panel'}</Inner>
                     </es-panel>

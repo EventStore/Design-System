@@ -6,7 +6,8 @@ import { areas } from './validPositions';
 import type { PanelMode } from '../types';
 
 /**
- * es-panel close demo
+ * Panel closing
+ * @group Panels
  */
 @Component({
     tag: 'es-panel-close-demo',
@@ -33,7 +34,6 @@ export class PanelPlacementDemo {
 
         return (
             <Host>
-                <div class={'area header'}>{'header'}</div>
                 <Page pageTitle={'body'}>
                     <label>
                         {'Area: '}

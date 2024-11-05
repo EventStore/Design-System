@@ -10,7 +10,8 @@ import {
 import type { TargetableArea } from '../types';
 
 /**
- * es-layout-button and es-layout-link collapsed demo
+ * Button and link collapsing
+ * @group Panels
  */
 @Component({
     tag: 'es-layout-button-collapsed-demo',
