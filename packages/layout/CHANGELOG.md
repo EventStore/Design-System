@@ -1,5 +1,11 @@
 # @eventstore-ui/layout
 
+## 1.7.1
+
+### Patch Changes
+
+-   [`5760869c`](https://github.com/EventStore/Design-System/commit/5760869cda67f9f8b2cc14546a1c8511d8f87f03) - Bug fix: Prevent layout items from losing their connection to asigned panel on DOM move.
+
 ## 1.7.0
 
 ### Minor Changes
