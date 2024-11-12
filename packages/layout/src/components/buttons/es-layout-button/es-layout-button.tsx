@@ -61,7 +61,8 @@ export class LayoutButton {
 
     private unbindPanelMode?: () => void;
 
-    componentWillLoad() {
+    connectedCallback() {
+        this.unbindPanelMode?.();
         this.unbindPanelMode = bindPanelDetails(this.host, ({ mode }) => {
             this.panelMode = mode;
         });

@@ -46,7 +46,8 @@ export class LayoutSection {
 
     private unbindPanelDetails?: () => void;
 
-    componentWillLoad() {
+    connectedCallback() {
+        this.unbindPanelDetails?.();
         this.unbindPanelDetails = bindPanelDetails(
             this.host,
             (PanelDetails) => {

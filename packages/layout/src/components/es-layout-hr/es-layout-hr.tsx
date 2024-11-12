@@ -9,14 +9,15 @@ import { bindPanelDetails, type PanelMode } from '../panel';
     styleUrl: 'es-layout-hr.css',
     shadow: true,
 })
-export class PageTitle {
+export class LayoutHR {
     @Element() host!: HTMLEsLayoutSectionElement;
 
     @State() panelMode: PanelMode = 'inline';
 
     private unbindMode?: () => void;
 
-    componentWillLoad() {
+    connectedCallback() {
+        this.unbindMode?.();
         this.unbindMode = bindPanelDetails(this.host, ({ mode }) => {
             this.panelMode = mode;
         });
