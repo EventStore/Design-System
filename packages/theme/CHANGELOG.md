@@ -1,4 +1,4 @@
-# @eventstore-ui/theme
+# @kurrent-ui/theme
 
 ## 1.0.4
 
