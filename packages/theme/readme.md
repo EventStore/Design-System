@@ -1,4 +1,4 @@
-# @eventstore-ui/theme
+# @kurrent-ui/theme
 
 Theming for the Event Store design system.
 
@@ -7,7 +7,7 @@ Theming for the Event Store design system.
 ### Add to your project
 
 ```sh
-yarn add @eventstore-ui/theme
+yarn add @kurrent-ui/theme
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ yarn add @eventstore-ui/theme
 In your `globalScript` file, add an import:
 
 ```ts
-import '@eventstore-ui/theme';
+import '@kurrent-ui/theme';
 ```
 
 The active theme will be automatically applied as a set of css variables.
@@ -27,7 +27,7 @@ background-color: var(--color-background);
 By default, an appropriate theme will be chosen from the users system settings, or a theme can be chosen directly:
 
 ```ts
-import { theme } from '@eventstore-ui/theme';
+import { theme } from '@kurrent-ui/theme';
 
 theme.select('high_contrast_dark');
 ```

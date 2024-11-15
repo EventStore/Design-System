@@ -1,98 +1,78 @@
-import type { ThemeDefinition } from '../types';
+import { palette } from './palette';
+import type { BaseScheme } from '../types';
 
-const colors = {
-    cyan: '#3dd0ff',
-    mid_blue: '#257fd7',
-    light_blue: '#ddebf8',
-    green: '#5ab552',
-    mid_green: '#addaa9',
-    light_green: '#d6ecd4',
-    red: '#dc3813',
-    light_red: '#fbebe7',
-    orange: '#f8a71b',
-    light_orange: '#feedd1',
-    pink: '#ff52bc',
-    navy: '#09264a',
-    navy_10: '#223c5c',
-    navy_20: '#2e4665',
-    navy_30: '#3a516e',
-    navy_40: '#596c83',
-    navy_50: '#95a1b1',
-    navy_60: '#b6bec9',
-    grey_50: '#ced4db',
-    dark_grey: '#435261',
-    white: '#ffffff',
+// 22 steps between foreground and background, in oklab
+const shades = {
+    // #000000
+    // #000000
+    // #010102
+    // #030505
+    // #080b0d
+    // #0f1315
+    shade_10: '#161c1e',
+    shade_20: '#1e2528',
+    shade_30: '#262e31',
+    shade_40: '#2e383b',
+    shade_50: '#364146',
+    shade_60: '#3f4c50',
+    // #48565b
+    // #516066
+    // #5a6b72
+    // #64767d
+    // #6d8189
+    // #778c95
+    // #8198a1
+    // #8ba3ad
+    // #95afb9
+    // #9fbbc6
 };
 
-export const theme: ThemeDefinition = {
-    title: 'Dark',
-    name: 'dark',
-    meta: {
-        shade: 'dark',
-        contrast: 'low',
-    },
-    prefix: 'color',
-    scheme: {
-        // basic
-        background: colors.navy,
-        contrast: colors.white,
+export const dark: BaseScheme = {
+    // basic
+    background: palette.black,
+    foreground: palette.powder_blue,
 
-        // text
-        text: colors.grey_50,
+    title: palette.powder_blue,
+    title_contrast: palette.black,
 
-        title_1: colors.cyan,
-        title_2: colors.white,
-        title_3: colors.white,
+    highlight: palette.seaglass_green,
+    highlight_contrast: palette.black,
 
-        // scheme
-        primary: colors.cyan,
-        primary_alt: colors.light_blue,
-        primary_contrast: colors.navy,
+    link: palette.pacific_blue,
+    link_contrast: palette.black,
 
-        secondary: colors.green,
-        secondary_alt: colors.light_green,
-        secondary_contrast: colors.white,
+    focus: palette.electric_lilac,
+    focus_contrast: palette.black,
 
-        highlight: colors.pink,
-        highlight_alt: colors.pink,
-        highlight_contrast: colors.navy,
+    // levels
+    error: palette.coral,
+    error_contrast: palette.black,
+    error_alt: palette.dusty_rose,
+    error_alt_contrast: palette.black,
 
-        // levels
-        error: colors.red,
-        error_contrast: colors.white,
-        error_alt: colors.light_red,
-        error_alt_contrast: colors.dark_grey,
+    warning: palette.sunflower,
+    warning_contrast: palette.black,
+    warning_alt: palette.maize_yellow,
+    warning_alt_contrast: palette.black,
 
-        warning: colors.orange,
-        warning_contrast: colors.white,
-        warning_alt: colors.light_orange,
-        warning_alt_contrast: colors.dark_grey,
+    success: palette.seaglass_green,
+    success_contrast: palette.black,
+    success_alt: palette.powder_blue,
+    success_alt_contrast: palette.black,
 
-        success: colors.green,
-        success_contrast: colors.white,
-        success_alt: colors.light_green,
-        success_alt_contrast: colors.dark_grey,
+    info: palette.pacific_blue,
+    info_contrast: palette.black,
+    info_alt: palette.sky_blue,
+    info_alt_contrast: palette.black,
 
-        info: colors.mid_blue,
-        info_contrast: colors.navy,
-        info_alt: colors.light_blue,
-        info_alt_contrast: colors.dark_grey,
+    // shades
+    ...shades,
 
-        // shades
-        shade_10: colors.navy_10,
-        shade_20: colors.navy_20,
-        shade_30: colors.navy_30,
-        shade_40: colors.navy_40,
-        shade_50: colors.navy_50,
-        shade_60: colors.navy_60,
+    // special
+    overlay: palette.dark_cyan,
+    overlay_alpha: 0.75,
 
-        // special
-        overlay: colors.navy_60,
-        overlay_alpha: 0.75,
-
-        focus: colors.light_blue,
-        disabled: colors.navy_20,
-        disabled_border: colors.navy_20,
-        disabled_contrast: colors.grey_50,
-    },
+    disabled: shades.shade_20,
+    disabled_border: shades.shade_20,
+    disabled_contrast: palette.powder_blue,
 };

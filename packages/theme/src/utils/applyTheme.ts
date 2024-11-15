@@ -10,7 +10,7 @@ const themeToVars = ({
 
 export const applyTheme = (
     theme: ThemeDefinition,
-    childThemes: ChildThemeDefinition[],
+    childThemes: ChildThemeDefinition[] = [],
 ) => {
     const $head = document.querySelector('head');
     if (!$head) throw 'No head element. Unable to apply theme.';
@@ -40,7 +40,7 @@ export const applyTheme = (
 
 body {
     background-color: var(--color-background);
-    color: var(--color-text);
+    color: var(--color-foreground);
 }
     `;
 };
