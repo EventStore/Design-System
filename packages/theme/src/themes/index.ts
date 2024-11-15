@@ -1,7 +1,5 @@
-import { theme as dark } from './dark';
-import { theme as light } from './light';
-import { theme as high_contrast_light } from './high_contrast_light';
-import { theme as high_contrast_dark } from './high_contrast_dark';
+import { dark } from './dark';
+import { light } from './light';
 
 import type { ChildThemeDefinition, ThemeDefinition } from '../types';
 import { THEME } from '../utils/constants';
@@ -14,18 +12,49 @@ export type BaseThemeKey =
     | 'high_contrast_dark';
 
 export const themes: Record<string, ThemeDefinition> = {
-    light,
-    dark,
-    high_contrast_light,
-    high_contrast_dark,
+    light: {
+        title: 'Light',
+        name: 'light',
+        prefix: 'color',
+        scheme: light,
+        meta: {
+            shade: 'light',
+            contrast: 'low',
+        },
+    },
+    dark: {
+        title: 'Light',
+        name: 'light',
+        prefix: 'color',
+        scheme: dark,
+        meta: {
+            shade: 'dark',
+            contrast: 'low',
+        },
+    },
+    high_contrast_light: {
+        title: 'Light high contrast',
+        name: 'high_contrast_light',
+        prefix: 'color',
+        scheme: light,
+        meta: {
+            shade: 'light',
+            contrast: 'high',
+        },
+    },
+    high_contrast_dark: {
+        title: 'Dark high contrast',
+        name: 'high_contrast_dark',
+        prefix: 'color',
+        scheme: dark,
+        meta: {
+            shade: 'dark',
+            contrast: 'high',
+        },
+    },
 };
 
-export const childThemes: Record<string, ChildThemeDefinition[]> = {
-    light: [],
-    dark: [],
-    high_contrast_light: [],
-    high_contrast_dark: [],
-};
+export const childThemes: Record<string, ChildThemeDefinition[]> = {};
 
 /** Add a custom theme. */
 export const addCustomTheme = (

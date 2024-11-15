@@ -1,7 +1,7 @@
 import type { BaseThemeKey } from './themes';
 
-export type Color = string;
-export type Colors = Record<string, Color>;
+export type Hex = string;
+export type Colors = Record<string, Hex>;
 
 export type Shade = 'light' | 'dark';
 export type Contrast = 'high' | 'low';
@@ -24,66 +24,57 @@ export interface ChildThemeDefinition<Scheme extends object = object> {
 
 export interface BaseScheme {
     // basic
-    background: Color;
-    contrast: Color;
+    background: Hex;
+    foreground: Hex;
 
-    // text
-    text: Color;
+    title: Hex;
+    title_contrast: Hex;
 
-    title_1: Color;
-    title_2: Color;
-    title_3: Color;
+    highlight: Hex;
+    highlight_contrast: Hex;
 
-    // scheme
-    primary: Color;
-    primary_alt: Color;
-    primary_contrast: Color;
+    link: Hex;
+    link_contrast: Hex;
 
-    secondary: Color;
-    secondary_alt: Color;
-    secondary_contrast: Color;
-
-    highlight: Color;
-    highlight_alt: Color;
-    highlight_contrast: Color;
+    focus: Hex;
+    focus_contrast: Hex;
 
     // levels
-    error: Color;
-    error_contrast: Color;
-    error_alt: Color;
-    error_alt_contrast: Color;
+    error: Hex;
+    error_contrast: Hex;
+    error_alt: Hex;
+    error_alt_contrast: Hex;
 
-    warning: Color;
-    warning_contrast: Color;
-    warning_alt: Color;
-    warning_alt_contrast: Color;
+    warning: Hex;
+    warning_contrast: Hex;
+    warning_alt: Hex;
+    warning_alt_contrast: Hex;
 
-    success: Color;
-    success_contrast: Color;
-    success_alt: Color;
-    success_alt_contrast: Color;
+    success: Hex;
+    success_contrast: Hex;
+    success_alt: Hex;
+    success_alt_contrast: Hex;
 
-    info: Color;
-    info_contrast: Color;
-    info_alt: Color;
-    info_alt_contrast: Color;
+    info: Hex;
+    info_contrast: Hex;
+    info_alt: Hex;
+    info_alt_contrast: Hex;
 
     // shades
-    shade_10: Color;
-    shade_20: Color;
-    shade_30: Color;
-    shade_40: Color;
-    shade_50: Color;
-    shade_60: Color;
+    shade_10: Hex;
+    shade_20: Hex;
+    shade_30: Hex;
+    shade_40: Hex;
+    shade_50: Hex;
+    shade_60: Hex;
 
     // special
-    overlay: Color;
+    overlay: Hex;
     overlay_alpha: number;
 
-    focus: Color;
-    disabled: Color;
-    disabled_border: Color;
-    disabled_contrast: Color;
+    disabled: Hex;
+    disabled_border: Hex;
+    disabled_contrast: Hex;
 }
 
 /** A theme change callback */
