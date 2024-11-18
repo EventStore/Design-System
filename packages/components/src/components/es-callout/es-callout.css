@@ -1,7 +1,7 @@
 /**
- * @prop --strong-color: Header, icon and border color. Can be set to a default via the variant prop.
- * @prop --weak-color: Background color. Can be set to a default via the variant prop.
- * @prop --text-color: Color of the body text.
+ * @prop --foreground-color: Text color. Can be set to a default via the variant prop.
+ * @prop --background-color: Background color. Can be set to a default via the variant prop.
+ * @prop --border-color: Border color. Can be set to a default via the variant prop.
  */
 
 :host,
@@ -11,71 +11,54 @@
 
 :host {
     display: block;
-    border-width: 1px 1px 1px 8px;
-    border-style: solid;
-    border-color: var(--weak-color);
-    border-left-color: var(--strong-color);
-    background-color: var(--weak-color);
+    background-color: var(--background-color);
     position: relative;
-    padding: 18px 30px;
-    color: var(--text-color);
-    margin: 0 16px 20px 16px;
+    padding: var(--spacing-3);
+    color: var(--foreground-color);
+    border-width: 4px;
+    border-style: solid;
+    border-color: var(--border-color);
+    color: var(--foreground-color);
 
     /* Button theme inheritance */
-    --primary-color: var(--weak-color);
-    --secondary-color: var(--strong-color);
-    --tertiary-color: var(--strong-color);
+    --primary-color: var(--background-color);
+    --secondary-color: var(--foreground-color);
+    --tertiary-color: var(--foreground-color);
 }
 
 :host([variant='tip']) {
-    --strong-color: var(--color-success);
-    --weak-color: var(--color-success-alt);
-    --text-color: var(--color-success-alt-contrast);
+    --background-color: var(--color-success-alt);
+    --foreground-color: var(--color-success-alt-contrast);
+    --border-color: var(--color-success-alt);
 }
 
 :host([variant='info']) {
-    --strong-color: var(--color-info);
-    --weak-color: var(--color-info-alt);
-    --text-color: var(--color-info-alt-contrast);
+    --background-color: var(--color-info-alt);
+    --foreground-color: var(--color-info-alt-contrast);
+    --border-color: var(--color-info-alt);
 }
 
 :host([variant='warning']) {
-    --strong-color: var(--color-warning);
-    --weak-color: var(--color-warning-alt);
-    --text-color: var(--color-warning-alt-contrast);
+    --background-color: var(--color-warning-alt);
+    --foreground-color: var(--color-warning-alt-contrast);
+    --border-color: var(--color-warning-alt);
 }
 
 :host([variant='error']) {
-    --strong-color: var(--color-error);
-    --weak-color: var(--color-error-alt);
-    --text-color: var(--color-error-alt-contrast);
+    --background-color: var(--color-error-alt);
+    --foreground-color: var(--color-error-alt-contrast);
+    --border-color: var(--color-error-alt);
 }
 
 :host([high-contrast]) {
-    --weak-color: var(--color-background);
-    --text-color: var(--color-text);
-    border-color: var(--strong-color);
-}
-
-es-icon {
-    position: absolute;
-    top: 12px;
-    left: -24px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 2px solid var(--strong-color);
-    background-color: var(--weak-color);
-    color: var(--strong-color);
+    --background-color: var(--color-background);
+    --foreground-color: var(--color-foreground);
 }
 
 h1 {
     font-size: 18px;
     font-weight: 700;
-    color: var(--strong-color);
+    color: var(--foreground-color);
     margin: 0;
     line-height: 1.5;
     margin-bottom: 12px;

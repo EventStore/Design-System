@@ -19,7 +19,7 @@ es-table-nested {
                     content: '';
                     position: absolute;
                     background-color: var(--row-color);
-                    border-right: 2px solid var(--color-secondary);
+                    border-right: 2px solid var(--color-highlight);
 
                     width: 20px;
                     left: 0;
@@ -31,7 +31,7 @@ es-table-nested {
 
         & .borderless + .group_first {
             overflow: visible;
-            --border-group-color: var(--color-secondary);
+            --border-group-color: var(--color-highlight);
 
             &::after {
                 content: '';

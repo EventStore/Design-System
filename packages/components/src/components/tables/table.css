@@ -9,7 +9,7 @@
     transition: color 500ms ease;
 
     &:hover {
-        color: var(--color-secondary);
+        color: var(--color-highlight);
     }
 }
 
@@ -200,7 +200,7 @@
 
     &:hover,
     &:focus {
-        color: var(--color-secondary);
+        color: var(--color-highlight);
 
         & [role='cell']:first-child::before {
             transform: translateX(5px);
@@ -210,7 +210,7 @@
 }
 
 :where(.selected) {
-    color: var(--color-secondary);
+    color: var(--color-highlight);
 
     &:hover,
     &:focus,
@@ -233,7 +233,7 @@
     border-bottom: 1px solid var(--border-bottom-color);
 
     &:where(:focus, :focus ~ [role='cell']) {
-        color: var(--color-secondary);
+        color: var(--color-highlight);
     }
 
     &.focusCell {

@@ -19,7 +19,10 @@ function alphabet(num: number) {
     return s;
 }
 
-/** Header grouping es-table-virtualized demo. */
+/**
+ * Table Header Grouping (Virtualized)
+ * @group Tables
+ */
 @Component({
     tag: 'es-table-virtualized-grouped-demo',
     styleUrl: './table-basic.css',

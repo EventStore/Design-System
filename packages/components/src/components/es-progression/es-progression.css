@@ -20,7 +20,7 @@ button {
     background-color: transparent;
     font: inherit;
     outline: none;
-    color: var(--color-text);
+    color: var(--color-foreground);
     position: relative;
 
     & .blob {
@@ -43,7 +43,7 @@ button {
         transition-timing-function: ease;
     }
 
-    &:not(.readonly) {
+    &:not(:where(.readonly, :disabled, .active)) {
         cursor: pointer;
 
         &:hover,
@@ -58,15 +58,25 @@ button {
     &.active {
         cursor: default;
 
-        & .center {
-            opacity: 1;
-            transform: scale(1);
+        &,
+        &:hover,
+        &:focus {
+            & .center {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     }
 
-    &.complete .center.custom {
-        opacity: 1;
-        transform: scale(1);
+    &.complete {
+        &,
+        &:hover,
+        &:focus {
+            & .center.custom {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
     }
 }
 

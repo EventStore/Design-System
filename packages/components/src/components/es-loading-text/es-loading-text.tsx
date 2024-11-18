@@ -1,4 +1,5 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { theme } from '@kurrent-ui/theme';
+import { Component, h, Host, Prop, Watch } from '@stencil/core';
 
 /**
  * Displays a grey block to placehold loading text.
@@ -14,10 +15,25 @@ export class EsLoadingText {
     /** Adds a random number of chars (up to the passed amount) */
     @Prop() variance?: number;
 
-    render() {
-        const renderedLength = this.variance
+    private renderedLength: number = 12;
+
+    componentWillLoad() {
+        this.calcLength();
+    }
+
+    @Watch('variance')
+    @Watch('expectedLength')
+    calcLength() {
+        this.renderedLength = this.variance
             ? Math.floor(Math.random() * this.variance) + this.expectedLength
             : this.expectedLength;
-        return <Host role={'presentation'}>{' '.repeat(renderedLength)}</Host>;
+    }
+
+    render() {
+        return (
+            <Host role={'presentation'} dark={theme.isDark()}>
+                {' '.repeat(this.renderedLength)}
+            </Host>
+        );
     }
 }

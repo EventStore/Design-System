@@ -10,11 +10,11 @@
     opacity: 0;
     transform: translateX(100%);
     --background-color: var(--color-background);
-    --text-color: var(--color-text);
+    --text-color: var(--color-foreground);
 }
 
 :host([dark]:not([high-contrast])) {
-    --background-color: var(--color-contrast);
+    --background-color: var(--color-foreground);
     --text-color: var(--color-background);
 }
 

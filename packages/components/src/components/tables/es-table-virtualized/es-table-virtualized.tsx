@@ -11,7 +11,7 @@ import {
     Watch,
 } from '@stencil/core';
 import { Link, router } from '@eventstore-ui/router';
-import { theme } from '@eventstore-ui/theme';
+import { theme } from '@kurrent-ui/theme';
 import { debounce, rateLimit } from '@eventstore-ui/utils';
 
 import type {

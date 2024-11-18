@@ -13,12 +13,3 @@ span {
 .page-count {
     color: var(--color-info);
 }
-
-es-button {
-    --border-width: 2px;
-    --border-radius: 100%;
-
-    &:hover {
-        --border-color: var(--color-shade-60);
-    }
-}

@@ -1,2 +1,2 @@
-import '@eventstore-ui/theme';
+import '@kurrent-ui/theme';
 import './icons';

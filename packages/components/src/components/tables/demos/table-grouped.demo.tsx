@@ -25,7 +25,10 @@ function alphabet(num: number) {
     return s;
 }
 
-/** Header grouping es-table demo. */
+/**
+ * Table Header Grouping
+ * @group Tables
+ */
 @Component({
     tag: 'es-table-grouped-demo',
     styleUrl: './table-basic.css',

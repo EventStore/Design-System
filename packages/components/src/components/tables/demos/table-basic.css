@@ -1,6 +1,7 @@
 :host {
     display: block;
     padding: 40px;
+    grid-area: body;
 }
 
 .amount {

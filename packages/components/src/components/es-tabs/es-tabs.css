@@ -12,7 +12,7 @@
     flex-direction: column;
 
     --tab-color: var(--color-title-2);
-    --active-color: var(--color-secondary);
+    --active-color: var(--color-highlight);
     --focus-color: var(--color-primary-alt);
     --focus-indicator-color: var(--color-shade-40);
     --border-color: var(--color-shade-30);
@@ -90,7 +90,7 @@ header {
     }
 
     &.active {
-        color: var(--color-secondary);
+        color: var(--color-highlight);
     }
 }
 
