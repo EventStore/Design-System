@@ -28,7 +28,7 @@
     font-family: var(--font-sans);
     font-weight: 400;
     font-size: 16px;
-    color: var(--color-text);
+    color: var(--color-foreground);
     background-color: var(--color-background);
 
     &.invalid {
@@ -44,7 +44,7 @@
     }
 
     &:focus {
-        border-color: var(--color-secondary);
+        border-color: var(--color-highlight);
     }
 
     &::placeholder {
