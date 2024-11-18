@@ -1,5 +1,4 @@
 :host {
-    grid-area: body;
     display: grid;
     grid-template-columns: repeat(2, minmax(150px, 1fr));
     gap: 10px;

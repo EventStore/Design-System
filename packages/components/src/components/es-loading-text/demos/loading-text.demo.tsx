@@ -33,7 +33,6 @@ export class LoadingTextDemo {
                 style={{
                     display: 'block',
                     padding: '20px',
-                    'grid-area': 'body',
                 }}
             >
                 <h1>{'Basic usage'}</h1>

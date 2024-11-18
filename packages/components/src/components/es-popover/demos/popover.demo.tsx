@@ -18,7 +18,7 @@ export class Demo {
     render() {
         return (
             <Host>
-                <f2-form class={'options'}>
+                <form class={'options'}>
                     <label>
                         <input
                             type={'checkbox'}
@@ -94,7 +94,7 @@ export class Demo {
                             value={this.offset.toString()}
                         />
                     </label>
-                </f2-form>
+                </form>
                 <div class={'wrapper'}>
                     <div class={'attachment'}>
                         {'Attachment element'}

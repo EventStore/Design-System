@@ -3,7 +3,10 @@ import { existsSync } from 'fs';
 
 import { type Config as StencilConfig } from '@stencil/core';
 import { parseFlags } from '@stencil/core/cli';
-import { type CopyTask } from '@stencil/core/internal';
+import {
+    type StencilDevServerConfig,
+    type CopyTask,
+} from '@stencil/core/internal';
 import { postcss } from '@stencil-community/postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 
@@ -12,9 +15,14 @@ import { devMode } from './dev/devMode';
 
 export const flags = parseFlags(process.argv.slice(2));
 
+interface DevServer extends StencilDevServerConfig {
+    includeLayoutGrid?: boolean;
+}
+
 interface PackageConfig extends Partial<Config> {
     namespace: string;
     copy?: CopyTask[];
+    devServer?: DevServer;
 }
 
 interface Config extends StencilConfig {
@@ -30,7 +38,14 @@ export const packageConfig = ({
     taskQueue: 'async',
     globalStyle:
         config.globalStyle ??
-        (flags.dev ? join(__dirname, './dev/dev.css') : undefined),
+        (flags.dev
+            ? join(
+                  __dirname,
+                  `./dev/dev${
+                      devServer.includeLayoutGrid ? '-with-layout-grid' : ''
+                  }.css`,
+              )
+            : undefined),
     outputTargets: flags.dev
         ? [
               devMode(),
