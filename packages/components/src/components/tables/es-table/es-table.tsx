@@ -7,7 +7,7 @@ import {
     type EventEmitter,
 } from '@stencil/core';
 import { Link, router } from '@eventstore-ui/router';
-import { theme } from '@eventstore-ui/theme';
+import { theme } from '@kurrent-ui/theme';
 
 import type {
     ClickRow,

@@ -1,5 +1,5 @@
 import { Component, h, Prop, Element, Listen, Host } from '@stencil/core';
-import { theme } from '@eventstore-ui/theme';
+import { theme } from '@kurrent-ui/theme';
 import { closest } from '@eventstore-ui/utils';
 import type { ButtonVariant } from '../types';
 

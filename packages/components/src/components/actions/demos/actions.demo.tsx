@@ -13,7 +13,7 @@ interface DummyData {
     age: number;
 }
 
-/** Basic es-table demo. */
+/** Actions */
 @Component({
     tag: 'es-actions-demo',
     styleUrl: './actions-demo.css',

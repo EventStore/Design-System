@@ -39,7 +39,7 @@
 /* variants */
 :host([variant='default']) {
     ---primary: var(--primary-color, var(--color-background));
-    ---secondary: var(--secondary-color, var(--color-secondary));
+    ---secondary: var(--secondary-color, var(--color-highlight));
     ---tertiary: var(--tertiary-color, var(--color-shade-30));
 
     --background-color: var(---primary);
@@ -51,16 +51,18 @@
     --foreground-color: var(---primary);
     --border-color: var(---primary);
 }
+:host([variant='default']:not([disabled])) :focus-visible {
+    --border-color: var(--color-focus);
+}
 :host([variant='default'][disabled]) {
-    --background-color: var(--color-shade-40);
-    --foreground-color: var(--color-background);
-    --border-color: var(--color-shade-40);
+    --foreground-color: var(--color-shade-60);
+    --border-style: dashed;
 }
 
 :host([variant='filled']) {
-    ---primary: var(--primary-color, var(--color-secondary));
+    ---primary: var(--primary-color, var(--color-highlight));
     ---secondary: var(--secondary-color, var(--color-background));
-    ---tertiary: var(--tertiary-color, var(--color-secondary));
+    ---tertiary: var(--tertiary-color, var(--color-highlight));
 
     --background-color: var(---primary);
     --foreground-color: var(---secondary);
@@ -71,16 +73,19 @@
     --foreground-color: var(---primary);
     --border-color: var(---tertiary);
 }
+:host([variant='filled']:not([disabled])) :focus-visible {
+    --border-color: var(--color-focus);
+}
 :host([variant='filled'][disabled]) {
-    --background-color: var(--color-shade-40);
-    --foreground-color: var(--color-background);
-    --border-color: var(--color-shade-40);
+    --background-color: var(--color-shade-60);
+    --foreground-color: var(--color-shade-10);
+    --border-color: var(--color-shade-60);
 }
 
 :host([variant='outline']) {
     ---primary: var(--primary-color, var(--color-background));
-    ---secondary: var(--secondary-color, var(--color-secondary));
-    ---tertiary: var(--tertiary-color, var(--color-secondary));
+    ---secondary: var(--secondary-color, var(--color-highlight));
+    ---tertiary: var(--tertiary-color, var(--color-highlight));
 
     --background-color: var(---primary);
     --foreground-color: var(---secondary);
@@ -91,10 +96,13 @@
     --foreground-color: var(---primary);
     --border-color: var(---tertiary);
 }
+:host([variant='outline']:not([disabled])) :focus-visible {
+    --border-color: var(--color-focus);
+}
 :host([variant='outline'][disabled]) {
-    --background-color: var(--color-shade-40);
-    --foreground-color: var(--color-background);
-    --border-color: var(--color-shade-40);
+    --foreground-color: var(--color-shade-60);
+    --border-color: var(--color-shade-60);
+    --border-style: dashed;
 }
 
 :host([variant='delete']) {
@@ -102,23 +110,23 @@
     --foreground-color: var(--color-error);
     --border-color: var(--color-error);
 }
-:host([variant='delete'][dark]) {
-    ---secondary: var(--color-text);
-}
 :host([variant='delete']:not([disabled]):hover) {
     --background-color: var(--color-error);
     --foreground-color: var(--color-error-contrast);
     --border-color: var(--color-error);
 }
+:host([variant='delete']:not([disabled])) :focus-visible {
+    --border-color: var(--color-focus);
+}
 :host([variant='delete'][disabled]) {
-    --background-color: var(--color-shade-40);
-    --foreground-color: var(--color-background);
-    --border-color: var(--color-shade-40);
+    --foreground-color: var(--color-shade-60);
+    --border-color: var(--color-shade-60);
+    --border-style: dashed;
 }
 
 :host([variant='cancel']) {
     --background-color: var(--color-shade-40);
-    --foreground-color: var(--color-text);
+    --foreground-color: var(--color-foreground);
     --border-color: var(--color-shade-40);
 }
 :host([variant='cancel'][high-contrast]) {
@@ -126,26 +134,22 @@
 }
 :host([variant='cancel']:not([disabled]):hover) {
     --background-color: var(--color-background);
-    --foreground-color: var(--color-text);
+    --foreground-color: var(--color-foreground);
     --border-color: var(--color-shade-40);
 }
-:host([variant='cancel'][high-contrast]:not([disabled]):hover) {
-    --background-color: var(--color-text);
-    --foreground-color: var(--color-background);
-}
-:host([variant='cancel']:not([disabled]):focus),
-:host([variant='cancel']:not([disabled]):focus-within) {
+:host([variant='cancel']:not([disabled])) :focus-visible {
     --border-color: var(--color-focus);
 }
 :host([variant='cancel'][disabled]) {
-    --background-color: var(--color-shade-40);
-    --foreground-color: var(--color-background);
-    --border-color: var(--color-shade-40);
+    --background-color: var(--color-background);
+    --foreground-color: var(--color-shade-60);
+    --border-color: var(--color-shade-60);
+    --border-style: dashed;
 }
 
 :host([variant='minimal']) {
-    ---primary: var(--primary-color, var(--color-text));
-    ---secondary: var(--secondary-color, var(--color-secondary));
+    ---primary: var(--primary-color, var(--color-foreground));
+    ---secondary: var(--secondary-color, var(--color-link));
 
     --background-color: transparent;
     --foreground-color: var(---primary);
@@ -156,17 +160,16 @@
 :host([variant='minimal']:not([disabled]):hover) {
     --foreground-color: var(---secondary);
 }
-:host([variant='minimal']:not([disabled]):focus),
-:host([variant='minimal']:not([disabled]):focus-within) {
+:host([variant='minimal']:not([disabled])) :focus-visible {
     --foreground-color: var(--color-focus);
 }
 :host([variant='minimal'][disabled]) {
-    --foreground-color: var(--color-shade-40);
+    --foreground-color: var(--color-shade-60);
 }
 
 :host([variant='link']) {
     --background-color: transparent;
-    --foreground-color: var(--color-secondary);
+    --foreground-color: var(--color-link);
     --border-color: transparent;
     --border-width: 0px;
     --border-radius: 0px;
@@ -180,19 +183,16 @@
 :host([variant='link']:not([disabled]):hover) {
     --text-decoration: underline;
 }
-:host([variant='link']:not([disabled]):focus),
-:host([variant='link']:not([disabled]):focus-within) {
+:host([variant='link']:not([disabled])) :focus-visible {
     --text-decoration: underline;
     --foreground-color: var(--color-focus);
 }
 :host([variant='link'][disabled]) {
-    --foreground-color: var(--color-shade-40);
+    --foreground-color: var(--color-shade-60);
 }
 
 :host([variant][high-contrast][disabled]) {
-    --background-color: var(--color-background);
-    --foreground-color: var(--color-text);
-    --border-style: dashed;
+    --foreground-color: var(--color-foreground);
 }
 
 button,
@@ -228,12 +228,6 @@ a {
     &:disabled,
     &[disabled] {
         cursor: not-allowed;
-    }
-
-    &:not(:disabled):not([disabled]):focus-visible {
-        outline-offset: 2px;
-        outline-color: var(--focus);
-        outline-style: solid;
     }
 }
 

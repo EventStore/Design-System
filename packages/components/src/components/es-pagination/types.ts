@@ -1,6 +1,1 @@
-export const enum PageChangeEventType {
-    First = 'first',
-    Previous = 'previous',
-    Next = 'next',
-    Last = 'last',
-}
+export type PageChangeEventType = 'first' | 'previous' | 'next' | 'last';

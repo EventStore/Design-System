@@ -1,7 +1,10 @@
 import { Component, h, State } from '@stencil/core';
 import type { TableCells } from '../types';
 
-/** Basic table cell variant demo. */
+/**
+ * Table Cell Variants
+ * @group Tables
+ */
 @Component({
     tag: 'es-table-variants',
     styleUrl: './table-basic.css',

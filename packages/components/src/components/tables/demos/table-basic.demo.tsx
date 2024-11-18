@@ -8,7 +8,10 @@ interface DummyData {
     amount: number;
 }
 
-/** Basic es-table demo. */
+/**
+ * Table
+ * @group Tables
+ */
 @Component({
     tag: 'es-table-basic-demo',
     styleUrl: './table-basic.css',

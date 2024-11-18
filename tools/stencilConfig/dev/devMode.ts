@@ -157,7 +157,7 @@ const buildIndex = ({ name, devComponents }: IndexBuilder) => `
                 }
 
                 body ul.links a {
-                    color: #435261;
+                    color: var(--color-link);
                     text-decoration: none;
                     font-size: 18px;
                 }

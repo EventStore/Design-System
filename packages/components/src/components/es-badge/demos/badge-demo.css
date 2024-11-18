@@ -1,0 +1,11 @@
+:host {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 40px;
+    grid-area: body;
+}

@@ -11,7 +11,7 @@ import {
     Fragment,
 } from '@stencil/core';
 import { searchParam, type SearchParamTracker } from '@eventstore-ui/router';
-import { theme } from '@eventstore-ui/theme';
+import { theme } from '@kurrent-ui/theme';
 
 import type { Tab } from './types';
 import type { IconDescription } from '../es-icon/types';

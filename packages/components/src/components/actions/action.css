@@ -35,7 +35,7 @@
         &:focus {
             outline: none;
             --background-color: var(--color-shade-30);
-            --foreground-color: var(--color-secondary);
+            --foreground-color: var(--color-highlight);
         }
     }
 }

@@ -80,10 +80,10 @@ section {
         font-size: 16px;
         font-weight: 400;
         margin: 0;
-        color: var(--color-text);
+        color: var(--color-foreground);
 
         & .step {
-            color: var(--color-secondary);
+            color: var(--color-highlight);
             margin-right: 14px;
         }
     }

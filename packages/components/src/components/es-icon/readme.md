@@ -73,13 +73,11 @@ Type: `Promise<void>`
  - [es-action-dropdown](../actions/es-action-dropdown)
  - [es-action-link](../actions/es-action-link)
  - [es-action-with-confirmation](../actions/es-action-with-confirmation)
- - [es-callout](../es-callout)
  - [es-copy](../es-copy)
  - [es-loading-dots](../es-loading-dots)
  - [es-modal](../modals/es-modal)
  - [es-pagination](../es-pagination)
  - [es-progression](../es-progression)
- - es-status
  - [es-table](../tables/es-table)
  - [es-table-nested](../tables/es-table-nested)
  - [es-table-virtualized](../tables/es-table-virtualized)
@@ -95,13 +93,11 @@ graph TD;
   es-action-dropdown --> es-icon
   es-action-link --> es-icon
   es-action-with-confirmation --> es-icon
-  es-callout --> es-icon
   es-copy --> es-icon
   es-loading-dots --> es-icon
   es-modal --> es-icon
   es-pagination --> es-icon
   es-progression --> es-icon
-  es-status --> es-icon
   es-table --> es-icon
   es-table-nested --> es-icon
   es-table-virtualized --> es-icon
