@@ -21,7 +21,7 @@
 
     &.checked {
         & .switch {
-            color: var(--color-secondary);
+            color: var(--color-highlight);
 
             & .handle {
                 transform: translateX(29px);
@@ -29,7 +29,7 @@
         }
 
         & .checkbox {
-            color: var(--color-secondary);
+            color: var(--color-highlight);
         }
     }
 

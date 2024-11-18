@@ -19,7 +19,7 @@
     }
 
     &:focus-visible .checkbox {
-        box-shadow: 0 0 0px 1px var(--color-secondary);
+        box-shadow: 0 0 0px 1px var(--color-highlight);
     }
 }
 
@@ -28,7 +28,7 @@
     position: absolute;
 
     &:checked ~ .checkbox {
-        color: var(--color-secondary);
+        color: var(--color-highlight);
     }
 
     &:disabled ~ .checkbox {

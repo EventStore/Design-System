@@ -3,6 +3,7 @@ import type { IconDescription } from '@eventstore-ui/components';
 
 import type { ValidationMessages } from 'types';
 import { ICON_NAMESPACE } from 'icons/namespace';
+import { theme } from '@kurrent-ui/theme';
 
 /** Display messages under fields. */
 @Component({
@@ -29,26 +30,28 @@ export class EsValidationMessages {
         }
 
         return (
-            <ul class={'messages'}>
-                {error.map((message) => (
-                    <li class={'error'}>
-                        <es-icon icon={this.errorIcon} size={16} />
-                        {typeof message === 'string' ? message : message(h)}
-                    </li>
-                ))}
-                {warning.map((message) => (
-                    <li class={'warning'}>
-                        <es-icon icon={this.warningIcon} size={16} />
-                        {typeof message === 'string' ? message : message(h)}
-                    </li>
-                ))}
-                {info.map((message) => (
-                    <li class={'info'}>
-                        <es-icon icon={this.infoIcon} size={16} />
-                        {typeof message === 'string' ? message : message(h)}
-                    </li>
-                ))}
-            </ul>
+            <Host high-contrast={theme.isHighContrast()}>
+                <ul class={'messages'}>
+                    {error.map((message) => (
+                        <li class={'error'}>
+                            <es-icon icon={this.errorIcon} size={16} />
+                            {typeof message === 'string' ? message : message(h)}
+                        </li>
+                    ))}
+                    {warning.map((message) => (
+                        <li class={'warning'}>
+                            <es-icon icon={this.warningIcon} size={16} />
+                            {typeof message === 'string' ? message : message(h)}
+                        </li>
+                    ))}
+                    {info.map((message) => (
+                        <li class={'info'}>
+                            <es-icon icon={this.infoIcon} size={16} />
+                            {typeof message === 'string' ? message : message(h)}
+                        </li>
+                    ))}
+                </ul>
+            </Host>
         );
     }
 }

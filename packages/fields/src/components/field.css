@@ -33,7 +33,7 @@
 }
 
 .label {
-    color: var(--color-text);
+    color: var(--color-foreground);
     font-weight: 400;
     font-size: 16px;
     display: flex;
@@ -43,8 +43,12 @@
 
 ::slotted([slot='documentation']),
 .documentation {
-    color: var(--color-text);
-    color: color-mix(in lab, var(--color-text), var(--color-background) 30%);
+    color: var(--color-foreground);
+    color: color-mix(
+        in lab,
+        var(--color-foreground),
+        var(--color-background) 30%
+    );
     font-size: 14px;
 }
 

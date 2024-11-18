@@ -17,6 +17,6 @@
 
 .add_item {
     margin-left: auto;
-    --text-color: var(--color-text);
+    --text-color: var(--color-foreground);
     --border-radius: 20px;
 }

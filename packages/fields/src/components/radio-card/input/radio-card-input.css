@@ -119,7 +119,7 @@ input {
 
 .label {
     display: block;
-    color: var(--color-text);
+    color: var(--color-foreground);
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 10px;
@@ -127,7 +127,7 @@ input {
 
 .description {
     display: block;
-    color: var(--color-text);
+    color: var(--color-foreground);
     font-size: 26px;
     font-weight: 100;
 }
@@ -135,7 +135,7 @@ input {
 .group-title {
     font-size: 16px;
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--color-foreground);
     line-height: 1.5;
 
     text-align: left;
