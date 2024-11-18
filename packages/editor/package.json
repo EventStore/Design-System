@@ -63,14 +63,14 @@
     },
     "peerDependencies": {
         "@eventstore-ui/components": "^1.0.0",
-        "@eventstore-ui/theme": "^1.0.0",
-        "@eventstore-ui/utils": "^1.0.0"
+        "@eventstore-ui/utils": "^1.0.0",
+        "@kurrent-ui/theme": "^1.0.0"
     },
     "devDependencies": {
         "@eventstore-ui/components": "workspace:*",
         "@eventstore-ui/configs": "workspace:*",
-        "@eventstore-ui/theme": "workspace:*",
         "@eventstore-ui/utils": "workspace:*",
+        "@kurrent-ui/theme": "workspace:*",
         "@stencil-community/postcss": "^2.2.0",
         "@stencil/core": "4.22.0",
         "jest": "^27.4.5",
