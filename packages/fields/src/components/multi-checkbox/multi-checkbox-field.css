@@ -13,7 +13,7 @@
     position: absolute;
 
     &:checked ~ .multi-checkbox {
-        color: var(--color-secondary);
+        color: var(--color-highlight);
     }
 
     &:disabled ~ .multi-checkbox {
@@ -22,7 +22,7 @@
     }
 
     &:focus ~ .multi-checkbox {
-        border-color: var(--color-secondary);
+        border-color: var(--color-highlight);
     }
 }
 
@@ -51,7 +51,7 @@ label {
     }
 
     &:focus-visible es-icon {
-        box-shadow: 0 0 0px 1px var(--color-secondary);
+        box-shadow: 0 0 0px 1px var(--color-highlight);
     }
 
     &.disabled {

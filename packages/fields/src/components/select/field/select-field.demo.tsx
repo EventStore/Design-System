@@ -76,10 +76,10 @@ export class Demo {
                         }
                         documentationLinkText={"Don't click on this"}
                         renderOption={(h, { name, value }) => (
-                            <es-select-option-demo name={name} value={value} />
+                            <select-option-demo name={name} value={value} />
                         )}
                         renderValue={(h, { name, value }) => (
-                            <es-select-option-demo name={name} value={value} />
+                            <select-option-demo name={name} value={value} />
                         )}
                         options={this.options}
                         {...this.form.connect('something')}
@@ -90,7 +90,7 @@ export class Demo {
                         placeholder={'Something'}
                         options={this.options}
                         renderOption={(h, { name, value }) => (
-                            <es-select-option-demo name={name} value={value} />
+                            <select-option-demo name={name} value={value} />
                         )}
                         {...this.form.connect('something')}
                     >
