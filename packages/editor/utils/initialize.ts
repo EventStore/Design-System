@@ -1,5 +1,5 @@
 import * as monaco from '@eventstore-ui/monaco-editor';
-import { addChildTheme, theme } from '@eventstore-ui/theme';
+import { addChildTheme, theme } from '@kurrent-ui/theme';
 import { createLogger } from '@eventstore-ui/utils';
 
 declare global {
