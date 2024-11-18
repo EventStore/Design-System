@@ -1,10 +1,10 @@
 import { Component, forceUpdate, h, Host, State } from '@stencil/core';
-import type { CounterVariant, CounterColor } from './types';
+import type { CounterVariant, CounterColor } from '../types';
 
 const random = (max: number, min: number = 0) =>
     Math.floor(Math.random() * (max - min + 1)) + min;
 
-/** es-counter demo. */
+/** Counter */
 @Component({
     tag: 'es-counter-demo',
     shadow: true,
@@ -43,7 +43,13 @@ export class Counter {
 
     render() {
         return (
-            <Host style={{ padding: '10px', display: 'block' }}>
+            <Host
+                style={{
+                    padding: '10px',
+                    display: 'block',
+                    'grid-area': 'body',
+                }}
+            >
                 <h1>Button color inheritance</h1>
                 <div style={{ display: 'flex', gap: '20px' }}>
                     <es-button onClick={() => (this.btn0Count += 1)}>

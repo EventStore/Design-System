@@ -18,7 +18,6 @@ import { CounterColor, CounterVariant } from "./components/es-counter/types";
 import { PageChangeEventType } from "./components/es-pagination/types";
 import { Constrain, Placement } from "./components/es-popover/types";
 import { Checkpoint, CheckpointState } from "./components/es-progression/types";
-import { Status } from "./components/es-status/es-status";
 import { ClickRow, JumpOptions, LoadWindow, TableCells, TableSort } from "./components/tables/types";
 import { Tab } from "./components/es-tabs/types";
 import { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
@@ -36,7 +35,6 @@ export { CounterColor, CounterVariant } from "./components/es-counter/types";
 export { PageChangeEventType } from "./components/es-pagination/types";
 export { Constrain, Placement } from "./components/es-popover/types";
 export { Checkpoint, CheckpointState } from "./components/es-progression/types";
-export { Status } from "./components/es-status/es-status";
 export { ClickRow, JumpOptions, LoadWindow, TableCells, TableSort } from "./components/tables/types";
 export { Tab } from "./components/es-tabs/types";
 export { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
@@ -54,6 +52,11 @@ export namespace Components {
           * Display numbered counters beside each title.
          */
         "steps": boolean;
+    }
+    /**
+     * Accordian
+     */
+    interface EsAccordianDemo {
     }
     /**
      * A generic button action.
@@ -157,6 +160,11 @@ export namespace Components {
      */
     interface EsActions {
     }
+    /**
+     * Actions
+     */
+    interface EsActionsDemo {
+    }
     interface EsBackdrop {
         "cancelClose": () => Promise<void>;
         "close": () => Promise<boolean>;
@@ -188,6 +196,11 @@ export namespace Components {
           * Select the display variant of the badge
          */
         "variant": BadgeVariant;
+    }
+    /**
+     * Badge
+     */
+    interface EsBadgeDemo {
     }
     /**
      * A button.
@@ -256,6 +269,12 @@ export namespace Components {
         "variant": ButtonVariant;
     }
     /**
+     * Button Link
+     * @group Buttons
+     */
+    interface EsButtonLinkDemo {
+    }
+    /**
      * A button with a confirmation modal.
      */
     interface EsButtonWithConfirmation {
@@ -285,6 +304,18 @@ export namespace Components {
         "variant": ButtonVariant;
     }
     /**
+     * Button With Confirmation
+     * @group Buttons
+     */
+    interface EsButtonWithConfirmationDemo {
+    }
+    /**
+     * Button
+     * @group Buttons
+     */
+    interface EsButtonsDemo {
+    }
+    /**
      * Calls out a piece of information.
      */
     interface EsCallout {
@@ -300,6 +331,11 @@ export namespace Components {
           * Which color set to use.
          */
         "variant": EsCalloutVariant;
+    }
+    /**
+     * Callout
+     */
+    interface EsCalloutDemo {
     }
     /**
      * A modal to confirm an action.
@@ -335,6 +371,13 @@ export namespace Components {
         "warning"?: string;
     }
     /**
+     * Confirm Modal
+     * @group Modals
+     */
+    interface EsConfirmModalDemo {
+        "open": boolean;
+    }
+    /**
      * Copies the text passed as a child when clicked.
      */
     interface EsCopy {
@@ -342,6 +385,11 @@ export namespace Components {
           * Manually triggers the copy of the inner text.
          */
         "copy": () => Promise<void>;
+    }
+    /**
+     * Copy
+     */
+    interface EsCopyDemo {
     }
     /**
      * Display a banner with text in the corner.
@@ -359,6 +407,11 @@ export namespace Components {
           * Y location of the banner
          */
         "y": 'top' | 'bottom';
+    }
+    /**
+     * Corner Banner
+     */
+    interface EsCornerBannerDemo {
     }
     /**
      * A pill display of an number, that pulses on change. Caps out at 999.
@@ -380,6 +433,11 @@ export namespace Components {
           * The display style of the counter.
          */
         "variant": CounterVariant;
+    }
+    /**
+     * Counter
+     */
+    interface EsCounterDemo {
     }
     /**
      * Punches a hole through all parent shadow DOMs into the light DOM.
@@ -423,9 +481,20 @@ export namespace Components {
         "spinEnd": () => Promise<void>;
     }
     /**
+     * Icon
+     */
+    interface EsIconDemo {
+    }
+    /**
      * Display a row of five pulsing dots, to indicate loading.
      */
     interface EsLoadingDots {
+    }
+    /**
+     * Loading Dots
+     * @group Loading
+     */
+    interface EsLoadingDotsDemo {
     }
     /**
      * Displays a grey block to placehold loading text.
@@ -439,6 +508,12 @@ export namespace Components {
           * Adds a random number of chars (up to the passed amount)
          */
         "variance"?: number;
+    }
+    /**
+     * Loading Text
+     * @group Loading
+     */
+    interface EsLoadingTextDemo {
     }
     /**
      * A pop up modal for overlaying information, warnings and confirmations.
@@ -456,6 +531,12 @@ export namespace Components {
         "header": boolean;
     }
     /**
+     * Modal
+     * @group Modals
+     */
+    interface EsModalDemo {
+    }
+    /**
      * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
      */
     interface EsPagination {
@@ -467,6 +548,11 @@ export namespace Components {
           * Number of pages.
          */
         "pageCount"?: number;
+    }
+    /**
+     * Pagination
+     */
+    interface EsPaginationDemo {
     }
     /**
      * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
@@ -553,6 +639,11 @@ export namespace Components {
          */
         "zIndex"?: number;
     }
+    /**
+     * Popover
+     */
+    interface EsPopoverDemo {
+    }
     interface EsPopper {
         "backdrop": boolean;
         "loaded": () => Promise<boolean>;
@@ -592,6 +683,12 @@ export namespace Components {
         "target": string;
     }
     /**
+     * Portal
+     * @group Modals
+     */
+    interface EsPortalDemo {
+    }
+    /**
      * A wizard progression bar.
      */
     interface EsProgression {
@@ -617,12 +714,14 @@ export namespace Components {
         "readonly"?: boolean;
     }
     /**
+     * Progression
+     */
+    interface EsProgressionDemo {
+    }
+    /**
      * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
      */
     interface EsResizeObserver {
-    }
-    interface EsStatus {
-        "status": Status;
     }
     /**
      * Create a table from data.
@@ -699,6 +798,24 @@ export namespace Components {
         "stickyHeader": boolean;
     }
     /**
+     * Table Cell Align
+     * @group Tables
+     */
+    interface EsTableAlign {
+    }
+    /**
+     * Table
+     * @group Tables
+     */
+    interface EsTableBasicDemo {
+    }
+    /**
+     * Table Loading
+     * @group Tables
+     */
+    interface EsTableBasicLoadingDemo {
+    }
+    /**
      * Render a single row data as a grid of information.
      */
     interface EsTableDetail {
@@ -724,6 +841,12 @@ export namespace Components {
         "loading"?: boolean;
     }
     /**
+     * Table Detail
+     * @group Tables
+     */
+    interface EsTableDetailBasicDemo {
+    }
+    /**
      * A default header for [`es-table-detail`](/components/components/es-table-detail).
      */
     interface EsTableDetailHeader {
@@ -747,6 +870,18 @@ export namespace Components {
           * Which cell to place as the title
          */
         "titleCell": string;
+    }
+    /**
+     * Table Detail Loading
+     * @group Tables
+     */
+    interface EsTableDetailLoadingDemo {
+    }
+    /**
+     * Table Header Grouping
+     * @group Tables
+     */
+    interface EsTableGroupedDemo {
     }
     /**
      * Create a nested table from data.
@@ -865,6 +1000,30 @@ export namespace Components {
         "toggleRowOnClick": boolean;
     }
     /**
+     * Nested Table
+     * @group Tables
+     */
+    interface EsTableNestedDemo {
+    }
+    /**
+     * Nested Table Loading
+     * @group Tables
+     */
+    interface EsTableNestedLoadingDemo {
+    }
+    /**
+     * Table Sorting
+     * @group Tables
+     */
+    interface EsTableSortDemo {
+    }
+    /**
+     * Table Cell Variants
+     * @group Tables
+     */
+    interface EsTableVariants {
+    }
+    /**
      * Create a virtualized table from data.
      */
     interface EsTableVirtualized {
@@ -970,6 +1129,18 @@ export namespace Components {
         "windowSize": number;
     }
     /**
+     * Virtualized Table
+     * @group Tables
+     */
+    interface EsTableVirtualizedDemo {
+    }
+    /**
+     * Table Header Grouping (Virtualized)
+     * @group Tables
+     */
+    interface EsTableVirtualizedGroupedDemo {
+    }
+    /**
      * A tabbed panel. Each panel can be targeted via a slot.
      */
     interface EsTabs {
@@ -993,6 +1164,11 @@ export namespace Components {
           * A list of tabs.
          */
         "tabs": Tab[];
+    }
+    /**
+     * Tabs
+     */
+    interface EsTabsDemo {
     }
     /**
      * A button with an icon that displays the state of a async action on click.
@@ -1056,6 +1232,11 @@ export namespace Components {
           * Offset the scroll to top on page change
          */
         "scrollOffset": number;
+    }
+    /**
+     * Wizard
+     */
+    interface EsWizardDemo {
     }
 }
 export interface EsBackdropCustomEvent<T> extends CustomEvent<T> {
@@ -1121,6 +1302,15 @@ declare global {
         new (): HTMLEsAccordianElement;
     };
     /**
+     * Accordian
+     */
+    interface HTMLEsAccordianDemoElement extends Components.EsAccordianDemo, HTMLStencilElement {
+    }
+    var HTMLEsAccordianDemoElement: {
+        prototype: HTMLEsAccordianDemoElement;
+        new (): HTMLEsAccordianDemoElement;
+    };
+    /**
      * A generic button action.
      */
     interface HTMLEsActionElement extends Components.EsAction, HTMLStencilElement {
@@ -1166,6 +1356,15 @@ declare global {
         prototype: HTMLEsActionsElement;
         new (): HTMLEsActionsElement;
     };
+    /**
+     * Actions
+     */
+    interface HTMLEsActionsDemoElement extends Components.EsActionsDemo, HTMLStencilElement {
+    }
+    var HTMLEsActionsDemoElement: {
+        prototype: HTMLEsActionsDemoElement;
+        new (): HTMLEsActionsDemoElement;
+    };
     interface HTMLEsBackdropElementEventMap {
         "requestClose": any;
         "closed": any;
@@ -1194,6 +1393,15 @@ declare global {
         new (): HTMLEsBadgeElement;
     };
     /**
+     * Badge
+     */
+    interface HTMLEsBadgeDemoElement extends Components.EsBadgeDemo, HTMLStencilElement {
+    }
+    var HTMLEsBadgeDemoElement: {
+        prototype: HTMLEsBadgeDemoElement;
+        new (): HTMLEsBadgeDemoElement;
+    };
+    /**
      * A button.
      */
     interface HTMLEsButtonElement extends Components.EsButton, HTMLStencilElement {
@@ -1212,6 +1420,16 @@ declare global {
         new (): HTMLEsButtonLinkElement;
     };
     /**
+     * Button Link
+     * @group Buttons
+     */
+    interface HTMLEsButtonLinkDemoElement extends Components.EsButtonLinkDemo, HTMLStencilElement {
+    }
+    var HTMLEsButtonLinkDemoElement: {
+        prototype: HTMLEsButtonLinkDemoElement;
+        new (): HTMLEsButtonLinkDemoElement;
+    };
+    /**
      * A button with a confirmation modal.
      */
     interface HTMLEsButtonWithConfirmationElement extends Components.EsButtonWithConfirmation, HTMLStencilElement {
@@ -1221,6 +1439,26 @@ declare global {
         new (): HTMLEsButtonWithConfirmationElement;
     };
     /**
+     * Button With Confirmation
+     * @group Buttons
+     */
+    interface HTMLEsButtonWithConfirmationDemoElement extends Components.EsButtonWithConfirmationDemo, HTMLStencilElement {
+    }
+    var HTMLEsButtonWithConfirmationDemoElement: {
+        prototype: HTMLEsButtonWithConfirmationDemoElement;
+        new (): HTMLEsButtonWithConfirmationDemoElement;
+    };
+    /**
+     * Button
+     * @group Buttons
+     */
+    interface HTMLEsButtonsDemoElement extends Components.EsButtonsDemo, HTMLStencilElement {
+    }
+    var HTMLEsButtonsDemoElement: {
+        prototype: HTMLEsButtonsDemoElement;
+        new (): HTMLEsButtonsDemoElement;
+    };
+    /**
      * Calls out a piece of information.
      */
     interface HTMLEsCalloutElement extends Components.EsCallout, HTMLStencilElement {
@@ -1228,6 +1466,15 @@ declare global {
     var HTMLEsCalloutElement: {
         prototype: HTMLEsCalloutElement;
         new (): HTMLEsCalloutElement;
+    };
+    /**
+     * Callout
+     */
+    interface HTMLEsCalloutDemoElement extends Components.EsCalloutDemo, HTMLStencilElement {
+    }
+    var HTMLEsCalloutDemoElement: {
+        prototype: HTMLEsCalloutDemoElement;
+        new (): HTMLEsCalloutDemoElement;
     };
     interface HTMLEsConfirmModalElementEventMap {
         "requestClose": any;
@@ -1251,6 +1498,16 @@ declare global {
         new (): HTMLEsConfirmModalElement;
     };
     /**
+     * Confirm Modal
+     * @group Modals
+     */
+    interface HTMLEsConfirmModalDemoElement extends Components.EsConfirmModalDemo, HTMLStencilElement {
+    }
+    var HTMLEsConfirmModalDemoElement: {
+        prototype: HTMLEsConfirmModalDemoElement;
+        new (): HTMLEsConfirmModalDemoElement;
+    };
+    /**
      * Copies the text passed as a child when clicked.
      */
     interface HTMLEsCopyElement extends Components.EsCopy, HTMLStencilElement {
@@ -1258,6 +1515,15 @@ declare global {
     var HTMLEsCopyElement: {
         prototype: HTMLEsCopyElement;
         new (): HTMLEsCopyElement;
+    };
+    /**
+     * Copy
+     */
+    interface HTMLEsCopyDemoElement extends Components.EsCopyDemo, HTMLStencilElement {
+    }
+    var HTMLEsCopyDemoElement: {
+        prototype: HTMLEsCopyDemoElement;
+        new (): HTMLEsCopyDemoElement;
     };
     /**
      * Display a banner with text in the corner.
@@ -1269,6 +1535,15 @@ declare global {
         new (): HTMLEsCornerBannerElement;
     };
     /**
+     * Corner Banner
+     */
+    interface HTMLEsCornerBannerDemoElement extends Components.EsCornerBannerDemo, HTMLStencilElement {
+    }
+    var HTMLEsCornerBannerDemoElement: {
+        prototype: HTMLEsCornerBannerDemoElement;
+        new (): HTMLEsCornerBannerDemoElement;
+    };
+    /**
      * A pill display of an number, that pulses on change. Caps out at 999.
      */
     interface HTMLEsCounterElement extends Components.EsCounter, HTMLStencilElement {
@@ -1276,6 +1551,15 @@ declare global {
     var HTMLEsCounterElement: {
         prototype: HTMLEsCounterElement;
         new (): HTMLEsCounterElement;
+    };
+    /**
+     * Counter
+     */
+    interface HTMLEsCounterDemoElement extends Components.EsCounterDemo, HTMLStencilElement {
+    }
+    var HTMLEsCounterDemoElement: {
+        prototype: HTMLEsCounterDemoElement;
+        new (): HTMLEsCounterDemoElement;
     };
     /**
      * Punches a hole through all parent shadow DOMs into the light DOM.
@@ -1299,6 +1583,15 @@ declare global {
         new (): HTMLEsIconElement;
     };
     /**
+     * Icon
+     */
+    interface HTMLEsIconDemoElement extends Components.EsIconDemo, HTMLStencilElement {
+    }
+    var HTMLEsIconDemoElement: {
+        prototype: HTMLEsIconDemoElement;
+        new (): HTMLEsIconDemoElement;
+    };
+    /**
      * Display a row of five pulsing dots, to indicate loading.
      */
     interface HTMLEsLoadingDotsElement extends Components.EsLoadingDots, HTMLStencilElement {
@@ -1308,6 +1601,16 @@ declare global {
         new (): HTMLEsLoadingDotsElement;
     };
     /**
+     * Loading Dots
+     * @group Loading
+     */
+    interface HTMLEsLoadingDotsDemoElement extends Components.EsLoadingDotsDemo, HTMLStencilElement {
+    }
+    var HTMLEsLoadingDotsDemoElement: {
+        prototype: HTMLEsLoadingDotsDemoElement;
+        new (): HTMLEsLoadingDotsDemoElement;
+    };
+    /**
      * Displays a grey block to placehold loading text.
      */
     interface HTMLEsLoadingTextElement extends Components.EsLoadingText, HTMLStencilElement {
@@ -1315,6 +1618,16 @@ declare global {
     var HTMLEsLoadingTextElement: {
         prototype: HTMLEsLoadingTextElement;
         new (): HTMLEsLoadingTextElement;
+    };
+    /**
+     * Loading Text
+     * @group Loading
+     */
+    interface HTMLEsLoadingTextDemoElement extends Components.EsLoadingTextDemo, HTMLStencilElement {
+    }
+    var HTMLEsLoadingTextDemoElement: {
+        prototype: HTMLEsLoadingTextDemoElement;
+        new (): HTMLEsLoadingTextDemoElement;
     };
     interface HTMLEsModalElementEventMap {
         "requestClose": void;
@@ -1338,6 +1651,16 @@ declare global {
         prototype: HTMLEsModalElement;
         new (): HTMLEsModalElement;
     };
+    /**
+     * Modal
+     * @group Modals
+     */
+    interface HTMLEsModalDemoElement extends Components.EsModalDemo, HTMLStencilElement {
+    }
+    var HTMLEsModalDemoElement: {
+        prototype: HTMLEsModalDemoElement;
+        new (): HTMLEsModalDemoElement;
+    };
     interface HTMLEsPaginationElementEventMap {
         "update": PageChangeEventType;
     }
@@ -1358,6 +1681,15 @@ declare global {
         prototype: HTMLEsPaginationElement;
         new (): HTMLEsPaginationElement;
     };
+    /**
+     * Pagination
+     */
+    interface HTMLEsPaginationDemoElement extends Components.EsPaginationDemo, HTMLStencilElement {
+    }
+    var HTMLEsPaginationDemoElement: {
+        prototype: HTMLEsPaginationDemoElement;
+        new (): HTMLEsPaginationDemoElement;
+    };
     interface HTMLEsPopoverElementEventMap {
         "requestClose": any;
     }
@@ -1377,6 +1709,15 @@ declare global {
     var HTMLEsPopoverElement: {
         prototype: HTMLEsPopoverElement;
         new (): HTMLEsPopoverElement;
+    };
+    /**
+     * Popover
+     */
+    interface HTMLEsPopoverDemoElement extends Components.EsPopoverDemo, HTMLStencilElement {
+    }
+    var HTMLEsPopoverDemoElement: {
+        prototype: HTMLEsPopoverDemoElement;
+        new (): HTMLEsPopoverDemoElement;
     };
     interface HTMLEsPopperElementEventMap {
         "requestClose": any;
@@ -1433,6 +1774,16 @@ declare global {
         prototype: HTMLEsPortalElement;
         new (): HTMLEsPortalElement;
     };
+    /**
+     * Portal
+     * @group Modals
+     */
+    interface HTMLEsPortalDemoElement extends Components.EsPortalDemo, HTMLStencilElement {
+    }
+    var HTMLEsPortalDemoElement: {
+        prototype: HTMLEsPortalDemoElement;
+        new (): HTMLEsPortalDemoElement;
+    };
     interface HTMLEsProgressionElementEventMap {
         "progressionRequest": string;
     }
@@ -1453,6 +1804,15 @@ declare global {
         prototype: HTMLEsProgressionElement;
         new (): HTMLEsProgressionElement;
     };
+    /**
+     * Progression
+     */
+    interface HTMLEsProgressionDemoElement extends Components.EsProgressionDemo, HTMLStencilElement {
+    }
+    var HTMLEsProgressionDemoElement: {
+        prototype: HTMLEsProgressionDemoElement;
+        new (): HTMLEsProgressionDemoElement;
+    };
     interface HTMLEsResizeObserverElementEventMap {
         "sizeChanged": DOMRectReadOnly;
     }
@@ -1472,12 +1832,6 @@ declare global {
     var HTMLEsResizeObserverElement: {
         prototype: HTMLEsResizeObserverElement;
         new (): HTMLEsResizeObserverElement;
-    };
-    interface HTMLEsStatusElement extends Components.EsStatus, HTMLStencilElement {
-    }
-    var HTMLEsStatusElement: {
-        prototype: HTMLEsStatusElement;
-        new (): HTMLEsStatusElement;
     };
     interface HTMLEsTableElementEventMap {
         "clickRow": ClickRow<any>;
@@ -1501,6 +1855,36 @@ declare global {
         new (): HTMLEsTableElement;
     };
     /**
+     * Table Cell Align
+     * @group Tables
+     */
+    interface HTMLEsTableAlignElement extends Components.EsTableAlign, HTMLStencilElement {
+    }
+    var HTMLEsTableAlignElement: {
+        prototype: HTMLEsTableAlignElement;
+        new (): HTMLEsTableAlignElement;
+    };
+    /**
+     * Table
+     * @group Tables
+     */
+    interface HTMLEsTableBasicDemoElement extends Components.EsTableBasicDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableBasicDemoElement: {
+        prototype: HTMLEsTableBasicDemoElement;
+        new (): HTMLEsTableBasicDemoElement;
+    };
+    /**
+     * Table Loading
+     * @group Tables
+     */
+    interface HTMLEsTableBasicLoadingDemoElement extends Components.EsTableBasicLoadingDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableBasicLoadingDemoElement: {
+        prototype: HTMLEsTableBasicLoadingDemoElement;
+        new (): HTMLEsTableBasicLoadingDemoElement;
+    };
+    /**
      * Render a single row data as a grid of information.
      */
     interface HTMLEsTableDetailElement extends Components.EsTableDetail, HTMLStencilElement {
@@ -1510,6 +1894,16 @@ declare global {
         new (): HTMLEsTableDetailElement;
     };
     /**
+     * Table Detail
+     * @group Tables
+     */
+    interface HTMLEsTableDetailBasicDemoElement extends Components.EsTableDetailBasicDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableDetailBasicDemoElement: {
+        prototype: HTMLEsTableDetailBasicDemoElement;
+        new (): HTMLEsTableDetailBasicDemoElement;
+    };
+    /**
      * A default header for [`es-table-detail`](/components/components/es-table-detail).
      */
     interface HTMLEsTableDetailHeaderElement extends Components.EsTableDetailHeader, HTMLStencilElement {
@@ -1517,6 +1911,26 @@ declare global {
     var HTMLEsTableDetailHeaderElement: {
         prototype: HTMLEsTableDetailHeaderElement;
         new (): HTMLEsTableDetailHeaderElement;
+    };
+    /**
+     * Table Detail Loading
+     * @group Tables
+     */
+    interface HTMLEsTableDetailLoadingDemoElement extends Components.EsTableDetailLoadingDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableDetailLoadingDemoElement: {
+        prototype: HTMLEsTableDetailLoadingDemoElement;
+        new (): HTMLEsTableDetailLoadingDemoElement;
+    };
+    /**
+     * Table Header Grouping
+     * @group Tables
+     */
+    interface HTMLEsTableGroupedDemoElement extends Components.EsTableGroupedDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableGroupedDemoElement: {
+        prototype: HTMLEsTableGroupedDemoElement;
+        new (): HTMLEsTableGroupedDemoElement;
     };
     interface HTMLEsTableNestedElementEventMap {
         "clickRow": any;
@@ -1538,6 +1952,46 @@ declare global {
     var HTMLEsTableNestedElement: {
         prototype: HTMLEsTableNestedElement;
         new (): HTMLEsTableNestedElement;
+    };
+    /**
+     * Nested Table
+     * @group Tables
+     */
+    interface HTMLEsTableNestedDemoElement extends Components.EsTableNestedDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableNestedDemoElement: {
+        prototype: HTMLEsTableNestedDemoElement;
+        new (): HTMLEsTableNestedDemoElement;
+    };
+    /**
+     * Nested Table Loading
+     * @group Tables
+     */
+    interface HTMLEsTableNestedLoadingDemoElement extends Components.EsTableNestedLoadingDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableNestedLoadingDemoElement: {
+        prototype: HTMLEsTableNestedLoadingDemoElement;
+        new (): HTMLEsTableNestedLoadingDemoElement;
+    };
+    /**
+     * Table Sorting
+     * @group Tables
+     */
+    interface HTMLEsTableSortDemoElement extends Components.EsTableSortDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableSortDemoElement: {
+        prototype: HTMLEsTableSortDemoElement;
+        new (): HTMLEsTableSortDemoElement;
+    };
+    /**
+     * Table Cell Variants
+     * @group Tables
+     */
+    interface HTMLEsTableVariantsElement extends Components.EsTableVariants, HTMLStencilElement {
+    }
+    var HTMLEsTableVariantsElement: {
+        prototype: HTMLEsTableVariantsElement;
+        new (): HTMLEsTableVariantsElement;
     };
     interface HTMLEsTableVirtualizedElementEventMap {
         "clickRow": ClickRow;
@@ -1563,6 +2017,26 @@ declare global {
         prototype: HTMLEsTableVirtualizedElement;
         new (): HTMLEsTableVirtualizedElement;
     };
+    /**
+     * Virtualized Table
+     * @group Tables
+     */
+    interface HTMLEsTableVirtualizedDemoElement extends Components.EsTableVirtualizedDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableVirtualizedDemoElement: {
+        prototype: HTMLEsTableVirtualizedDemoElement;
+        new (): HTMLEsTableVirtualizedDemoElement;
+    };
+    /**
+     * Table Header Grouping (Virtualized)
+     * @group Tables
+     */
+    interface HTMLEsTableVirtualizedGroupedDemoElement extends Components.EsTableVirtualizedGroupedDemo, HTMLStencilElement {
+    }
+    var HTMLEsTableVirtualizedGroupedDemoElement: {
+        prototype: HTMLEsTableVirtualizedGroupedDemoElement;
+        new (): HTMLEsTableVirtualizedGroupedDemoElement;
+    };
     interface HTMLEsTabsElementEventMap {
         "tabChange": string;
     }
@@ -1582,6 +2056,15 @@ declare global {
     var HTMLEsTabsElement: {
         prototype: HTMLEsTabsElement;
         new (): HTMLEsTabsElement;
+    };
+    /**
+     * Tabs
+     */
+    interface HTMLEsTabsDemoElement extends Components.EsTabsDemo, HTMLStencilElement {
+    }
+    var HTMLEsTabsDemoElement: {
+        prototype: HTMLEsTabsDemoElement;
+        new (): HTMLEsTabsDemoElement;
     };
     /**
      * A button with an icon that displays the state of a async action on click.
@@ -1613,48 +2096,89 @@ declare global {
         prototype: HTMLEsWizardElement;
         new (): HTMLEsWizardElement;
     };
+    /**
+     * Wizard
+     */
+    interface HTMLEsWizardDemoElement extends Components.EsWizardDemo, HTMLStencilElement {
+    }
+    var HTMLEsWizardDemoElement: {
+        prototype: HTMLEsWizardDemoElement;
+        new (): HTMLEsWizardDemoElement;
+    };
     interface HTMLElementTagNameMap {
         "es-accordian": HTMLEsAccordianElement;
+        "es-accordian-demo": HTMLEsAccordianDemoElement;
         "es-action": HTMLEsActionElement;
         "es-action-dropdown": HTMLEsActionDropdownElement;
         "es-action-link": HTMLEsActionLinkElement;
         "es-action-with-confirmation": HTMLEsActionWithConfirmationElement;
         "es-actions": HTMLEsActionsElement;
+        "es-actions-demo": HTMLEsActionsDemoElement;
         "es-backdrop": HTMLEsBackdropElement;
         "es-badge": HTMLEsBadgeElement;
+        "es-badge-demo": HTMLEsBadgeDemoElement;
         "es-button": HTMLEsButtonElement;
         "es-button-link": HTMLEsButtonLinkElement;
+        "es-button-link-demo": HTMLEsButtonLinkDemoElement;
         "es-button-with-confirmation": HTMLEsButtonWithConfirmationElement;
+        "es-button-with-confirmation-demo": HTMLEsButtonWithConfirmationDemoElement;
+        "es-buttons-demo": HTMLEsButtonsDemoElement;
         "es-callout": HTMLEsCalloutElement;
+        "es-callout-demo": HTMLEsCalloutDemoElement;
         "es-confirm-modal": HTMLEsConfirmModalElement;
+        "es-confirm-modal-demo": HTMLEsConfirmModalDemoElement;
         "es-copy": HTMLEsCopyElement;
+        "es-copy-demo": HTMLEsCopyDemoElement;
         "es-corner-banner": HTMLEsCornerBannerElement;
+        "es-corner-banner-demo": HTMLEsCornerBannerDemoElement;
         "es-counter": HTMLEsCounterElement;
+        "es-counter-demo": HTMLEsCounterDemoElement;
         "es-hole-puncher": HTMLEsHolePuncherElement;
         "es-icon": HTMLEsIconElement;
+        "es-icon-demo": HTMLEsIconDemoElement;
         "es-loading-dots": HTMLEsLoadingDotsElement;
+        "es-loading-dots-demo": HTMLEsLoadingDotsDemoElement;
         "es-loading-text": HTMLEsLoadingTextElement;
+        "es-loading-text-demo": HTMLEsLoadingTextDemoElement;
         "es-modal": HTMLEsModalElement;
+        "es-modal-demo": HTMLEsModalDemoElement;
         "es-pagination": HTMLEsPaginationElement;
+        "es-pagination-demo": HTMLEsPaginationDemoElement;
         "es-popover": HTMLEsPopoverElement;
+        "es-popover-demo": HTMLEsPopoverDemoElement;
         "es-popper": HTMLEsPopperElement;
         "es-popper-inner": HTMLEsPopperInnerElement;
         "es-popper-x": HTMLEsPopperXElement;
         "es-popper-y": HTMLEsPopperYElement;
         "es-portal": HTMLEsPortalElement;
+        "es-portal-demo": HTMLEsPortalDemoElement;
         "es-progression": HTMLEsProgressionElement;
+        "es-progression-demo": HTMLEsProgressionDemoElement;
         "es-resize-observer": HTMLEsResizeObserverElement;
-        "es-status": HTMLEsStatusElement;
         "es-table": HTMLEsTableElement;
+        "es-table-align": HTMLEsTableAlignElement;
+        "es-table-basic-demo": HTMLEsTableBasicDemoElement;
+        "es-table-basic-loading-demo": HTMLEsTableBasicLoadingDemoElement;
         "es-table-detail": HTMLEsTableDetailElement;
+        "es-table-detail-basic-demo": HTMLEsTableDetailBasicDemoElement;
         "es-table-detail-header": HTMLEsTableDetailHeaderElement;
+        "es-table-detail-loading-demo": HTMLEsTableDetailLoadingDemoElement;
+        "es-table-grouped-demo": HTMLEsTableGroupedDemoElement;
         "es-table-nested": HTMLEsTableNestedElement;
+        "es-table-nested-demo": HTMLEsTableNestedDemoElement;
+        "es-table-nested-loading-demo": HTMLEsTableNestedLoadingDemoElement;
+        "es-table-sort-demo": HTMLEsTableSortDemoElement;
+        "es-table-variants": HTMLEsTableVariantsElement;
         "es-table-virtualized": HTMLEsTableVirtualizedElement;
+        "es-table-virtualized-demo": HTMLEsTableVirtualizedDemoElement;
+        "es-table-virtualized-grouped-demo": HTMLEsTableVirtualizedGroupedDemoElement;
         "es-tabs": HTMLEsTabsElement;
+        "es-tabs-demo": HTMLEsTabsDemoElement;
         "es-thinking-button": HTMLEsThinkingButtonElement;
         "es-toast": HTMLEsToastElement;
         "es-toaster": HTMLEsToasterElement;
         "es-wizard": HTMLEsWizardElement;
+        "es-wizard-demo": HTMLEsWizardDemoElement;
     }
 }
 declare namespace LocalJSX {
@@ -1670,6 +2194,11 @@ declare namespace LocalJSX {
           * Display numbered counters beside each title.
          */
         "steps"?: boolean;
+    }
+    /**
+     * Accordian
+     */
+    interface EsAccordianDemo {
     }
     /**
      * A generic button action.
@@ -1773,6 +2302,11 @@ declare namespace LocalJSX {
      */
     interface EsActions {
     }
+    /**
+     * Actions
+     */
+    interface EsActionsDemo {
+    }
     interface EsBackdrop {
         "onClosed"?: (event: EsBackdropCustomEvent<any>) => void;
         "onRequestClose"?: (event: EsBackdropCustomEvent<any>) => void;
@@ -1803,6 +2337,11 @@ declare namespace LocalJSX {
           * Select the display variant of the badge
          */
         "variant"?: BadgeVariant;
+    }
+    /**
+     * Badge
+     */
+    interface EsBadgeDemo {
     }
     /**
      * A button.
@@ -1871,6 +2410,12 @@ declare namespace LocalJSX {
         "variant"?: ButtonVariant;
     }
     /**
+     * Button Link
+     * @group Buttons
+     */
+    interface EsButtonLinkDemo {
+    }
+    /**
      * A button with a confirmation modal.
      */
     interface EsButtonWithConfirmation {
@@ -1900,6 +2445,18 @@ declare namespace LocalJSX {
         "variant"?: ButtonVariant;
     }
     /**
+     * Button With Confirmation
+     * @group Buttons
+     */
+    interface EsButtonWithConfirmationDemo {
+    }
+    /**
+     * Button
+     * @group Buttons
+     */
+    interface EsButtonsDemo {
+    }
+    /**
      * Calls out a piece of information.
      */
     interface EsCallout {
@@ -1915,6 +2472,11 @@ declare namespace LocalJSX {
           * Which color set to use.
          */
         "variant"?: EsCalloutVariant;
+    }
+    /**
+     * Callout
+     */
+    interface EsCalloutDemo {
     }
     /**
      * A modal to confirm an action.
@@ -1958,9 +2520,21 @@ declare namespace LocalJSX {
         "warning"?: string;
     }
     /**
+     * Confirm Modal
+     * @group Modals
+     */
+    interface EsConfirmModalDemo {
+        "open"?: boolean;
+    }
+    /**
      * Copies the text passed as a child when clicked.
      */
     interface EsCopy {
+    }
+    /**
+     * Copy
+     */
+    interface EsCopyDemo {
     }
     /**
      * Display a banner with text in the corner.
@@ -1978,6 +2552,11 @@ declare namespace LocalJSX {
           * Y location of the banner
          */
         "y"?: 'top' | 'bottom';
+    }
+    /**
+     * Corner Banner
+     */
+    interface EsCornerBannerDemo {
     }
     /**
      * A pill display of an number, that pulses on change. Caps out at 999.
@@ -1999,6 +2578,11 @@ declare namespace LocalJSX {
           * The display style of the counter.
          */
         "variant"?: CounterVariant;
+    }
+    /**
+     * Counter
+     */
+    interface EsCounterDemo {
     }
     /**
      * Punches a hole through all parent shadow DOMs into the light DOM.
@@ -2038,9 +2622,20 @@ declare namespace LocalJSX {
         "spinDirection"?: 'clockwise' | 'antiClockwise';
     }
     /**
+     * Icon
+     */
+    interface EsIconDemo {
+    }
+    /**
      * Display a row of five pulsing dots, to indicate loading.
      */
     interface EsLoadingDots {
+    }
+    /**
+     * Loading Dots
+     * @group Loading
+     */
+    interface EsLoadingDotsDemo {
     }
     /**
      * Displays a grey block to placehold loading text.
@@ -2054,6 +2649,12 @@ declare namespace LocalJSX {
           * Adds a random number of chars (up to the passed amount)
          */
         "variance"?: number;
+    }
+    /**
+     * Loading Text
+     * @group Loading
+     */
+    interface EsLoadingTextDemo {
     }
     /**
      * A pop up modal for overlaying information, warnings and confirmations.
@@ -2075,6 +2676,12 @@ declare namespace LocalJSX {
         "onRequestClose"?: (event: EsModalCustomEvent<void>) => void;
     }
     /**
+     * Modal
+     * @group Modals
+     */
+    interface EsModalDemo {
+    }
+    /**
      * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
      */
     interface EsPagination {
@@ -2090,6 +2697,11 @@ declare namespace LocalJSX {
           * Number of pages.
          */
         "pageCount"?: number;
+    }
+    /**
+     * Pagination
+     */
+    interface EsPaginationDemo {
     }
     /**
      * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
@@ -2180,6 +2792,11 @@ declare namespace LocalJSX {
          */
         "zIndex"?: number;
     }
+    /**
+     * Popover
+     */
+    interface EsPopoverDemo {
+    }
     interface EsPopper {
         "backdrop"?: boolean;
         "onRequestClose"?: (event: EsPopperCustomEvent<any>) => void;
@@ -2221,6 +2838,12 @@ declare namespace LocalJSX {
         "target"?: string;
     }
     /**
+     * Portal
+     * @group Modals
+     */
+    interface EsPortalDemo {
+    }
+    /**
      * A wizard progression bar.
      */
     interface EsProgression {
@@ -2250,6 +2873,11 @@ declare namespace LocalJSX {
         "readonly"?: boolean;
     }
     /**
+     * Progression
+     */
+    interface EsProgressionDemo {
+    }
+    /**
      * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
      */
     interface EsResizeObserver {
@@ -2257,9 +2885,6 @@ declare namespace LocalJSX {
           * Triggered when the size of the element changes.
          */
         "onSizeChanged"?: (event: EsResizeObserverCustomEvent<DOMRectReadOnly>) => void;
-    }
-    interface EsStatus {
-        "status": Status;
     }
     /**
      * Create a table from data.
@@ -2344,6 +2969,24 @@ declare namespace LocalJSX {
         "stickyHeader"?: boolean;
     }
     /**
+     * Table Cell Align
+     * @group Tables
+     */
+    interface EsTableAlign {
+    }
+    /**
+     * Table
+     * @group Tables
+     */
+    interface EsTableBasicDemo {
+    }
+    /**
+     * Table Loading
+     * @group Tables
+     */
+    interface EsTableBasicLoadingDemo {
+    }
+    /**
      * Render a single row data as a grid of information.
      */
     interface EsTableDetail {
@@ -2369,6 +3012,12 @@ declare namespace LocalJSX {
         "loading"?: boolean;
     }
     /**
+     * Table Detail
+     * @group Tables
+     */
+    interface EsTableDetailBasicDemo {
+    }
+    /**
      * A default header for [`es-table-detail`](/components/components/es-table-detail).
      */
     interface EsTableDetailHeader {
@@ -2392,6 +3041,18 @@ declare namespace LocalJSX {
           * Which cell to place as the title
          */
         "titleCell"?: string;
+    }
+    /**
+     * Table Detail Loading
+     * @group Tables
+     */
+    interface EsTableDetailLoadingDemo {
+    }
+    /**
+     * Table Header Grouping
+     * @group Tables
+     */
+    interface EsTableGroupedDemo {
     }
     /**
      * Create a nested table from data.
@@ -2518,6 +3179,30 @@ declare namespace LocalJSX {
         "toggleRowOnClick"?: boolean;
     }
     /**
+     * Nested Table
+     * @group Tables
+     */
+    interface EsTableNestedDemo {
+    }
+    /**
+     * Nested Table Loading
+     * @group Tables
+     */
+    interface EsTableNestedLoadingDemo {
+    }
+    /**
+     * Table Sorting
+     * @group Tables
+     */
+    interface EsTableSortDemo {
+    }
+    /**
+     * Table Cell Variants
+     * @group Tables
+     */
+    interface EsTableVariants {
+    }
+    /**
      * Create a virtualized table from data.
      */
     interface EsTableVirtualized {
@@ -2639,6 +3324,18 @@ declare namespace LocalJSX {
         "windowSize"?: number;
     }
     /**
+     * Virtualized Table
+     * @group Tables
+     */
+    interface EsTableVirtualizedDemo {
+    }
+    /**
+     * Table Header Grouping (Virtualized)
+     * @group Tables
+     */
+    interface EsTableVirtualizedGroupedDemo {
+    }
+    /**
      * A tabbed panel. Each panel can be targeted via a slot.
      */
     interface EsTabs {
@@ -2666,6 +3363,11 @@ declare namespace LocalJSX {
           * A list of tabs.
          */
         "tabs": Tab[];
+    }
+    /**
+     * Tabs
+     */
+    interface EsTabsDemo {
     }
     /**
      * A button with an icon that displays the state of a async action on click.
@@ -2728,48 +3430,85 @@ declare namespace LocalJSX {
          */
         "scrollOffset"?: number;
     }
+    /**
+     * Wizard
+     */
+    interface EsWizardDemo {
+    }
     interface IntrinsicElements {
         "es-accordian": EsAccordian;
+        "es-accordian-demo": EsAccordianDemo;
         "es-action": EsAction;
         "es-action-dropdown": EsActionDropdown;
         "es-action-link": EsActionLink;
         "es-action-with-confirmation": EsActionWithConfirmation;
         "es-actions": EsActions;
+        "es-actions-demo": EsActionsDemo;
         "es-backdrop": EsBackdrop;
         "es-badge": EsBadge;
+        "es-badge-demo": EsBadgeDemo;
         "es-button": EsButton;
         "es-button-link": EsButtonLink;
+        "es-button-link-demo": EsButtonLinkDemo;
         "es-button-with-confirmation": EsButtonWithConfirmation;
+        "es-button-with-confirmation-demo": EsButtonWithConfirmationDemo;
+        "es-buttons-demo": EsButtonsDemo;
         "es-callout": EsCallout;
+        "es-callout-demo": EsCalloutDemo;
         "es-confirm-modal": EsConfirmModal;
+        "es-confirm-modal-demo": EsConfirmModalDemo;
         "es-copy": EsCopy;
+        "es-copy-demo": EsCopyDemo;
         "es-corner-banner": EsCornerBanner;
+        "es-corner-banner-demo": EsCornerBannerDemo;
         "es-counter": EsCounter;
+        "es-counter-demo": EsCounterDemo;
         "es-hole-puncher": EsHolePuncher;
         "es-icon": EsIcon;
+        "es-icon-demo": EsIconDemo;
         "es-loading-dots": EsLoadingDots;
+        "es-loading-dots-demo": EsLoadingDotsDemo;
         "es-loading-text": EsLoadingText;
+        "es-loading-text-demo": EsLoadingTextDemo;
         "es-modal": EsModal;
+        "es-modal-demo": EsModalDemo;
         "es-pagination": EsPagination;
+        "es-pagination-demo": EsPaginationDemo;
         "es-popover": EsPopover;
+        "es-popover-demo": EsPopoverDemo;
         "es-popper": EsPopper;
         "es-popper-inner": EsPopperInner;
         "es-popper-x": EsPopperX;
         "es-popper-y": EsPopperY;
         "es-portal": EsPortal;
+        "es-portal-demo": EsPortalDemo;
         "es-progression": EsProgression;
+        "es-progression-demo": EsProgressionDemo;
         "es-resize-observer": EsResizeObserver;
-        "es-status": EsStatus;
         "es-table": EsTable;
+        "es-table-align": EsTableAlign;
+        "es-table-basic-demo": EsTableBasicDemo;
+        "es-table-basic-loading-demo": EsTableBasicLoadingDemo;
         "es-table-detail": EsTableDetail;
+        "es-table-detail-basic-demo": EsTableDetailBasicDemo;
         "es-table-detail-header": EsTableDetailHeader;
+        "es-table-detail-loading-demo": EsTableDetailLoadingDemo;
+        "es-table-grouped-demo": EsTableGroupedDemo;
         "es-table-nested": EsTableNested;
+        "es-table-nested-demo": EsTableNestedDemo;
+        "es-table-nested-loading-demo": EsTableNestedLoadingDemo;
+        "es-table-sort-demo": EsTableSortDemo;
+        "es-table-variants": EsTableVariants;
         "es-table-virtualized": EsTableVirtualized;
+        "es-table-virtualized-demo": EsTableVirtualizedDemo;
+        "es-table-virtualized-grouped-demo": EsTableVirtualizedGroupedDemo;
         "es-tabs": EsTabs;
+        "es-tabs-demo": EsTabsDemo;
         "es-thinking-button": EsThinkingButton;
         "es-toast": EsToast;
         "es-toaster": EsToaster;
         "es-wizard": EsWizard;
+        "es-wizard-demo": EsWizardDemo;
     }
 }
 export { LocalJSX as JSX };
@@ -2780,6 +3519,10 @@ declare module "@stencil/core" {
              * Optionally collapsible sectioned view. Each section can be targeted via a part.
              */
             "es-accordian": LocalJSX.EsAccordian & JSXBase.HTMLAttributes<HTMLEsAccordianElement>;
+            /**
+             * Accordian
+             */
+            "es-accordian-demo": LocalJSX.EsAccordianDemo & JSXBase.HTMLAttributes<HTMLEsAccordianDemoElement>;
             /**
              * A generic button action.
              */
@@ -2801,11 +3544,19 @@ declare module "@stencil/core" {
              * A container for `es-aciton-*` elements, to be used in tables or panel headers.
              */
             "es-actions": LocalJSX.EsActions & JSXBase.HTMLAttributes<HTMLEsActionsElement>;
+            /**
+             * Actions
+             */
+            "es-actions-demo": LocalJSX.EsActionsDemo & JSXBase.HTMLAttributes<HTMLEsActionsDemoElement>;
             "es-backdrop": LocalJSX.EsBackdrop & JSXBase.HTMLAttributes<HTMLEsBackdropElement>;
             /**
              * Display a counter or dot beside a component to indicate action being required.
              */
             "es-badge": LocalJSX.EsBadge & JSXBase.HTMLAttributes<HTMLEsBadgeElement>;
+            /**
+             * Badge
+             */
+            "es-badge-demo": LocalJSX.EsBadgeDemo & JSXBase.HTMLAttributes<HTMLEsBadgeDemoElement>;
             /**
              * A button.
              */
@@ -2815,29 +3566,65 @@ declare module "@stencil/core" {
              */
             "es-button-link": LocalJSX.EsButtonLink & JSXBase.HTMLAttributes<HTMLEsButtonLinkElement>;
             /**
+             * Button Link
+             * @group Buttons
+             */
+            "es-button-link-demo": LocalJSX.EsButtonLinkDemo & JSXBase.HTMLAttributes<HTMLEsButtonLinkDemoElement>;
+            /**
              * A button with a confirmation modal.
              */
             "es-button-with-confirmation": LocalJSX.EsButtonWithConfirmation & JSXBase.HTMLAttributes<HTMLEsButtonWithConfirmationElement>;
+            /**
+             * Button With Confirmation
+             * @group Buttons
+             */
+            "es-button-with-confirmation-demo": LocalJSX.EsButtonWithConfirmationDemo & JSXBase.HTMLAttributes<HTMLEsButtonWithConfirmationDemoElement>;
+            /**
+             * Button
+             * @group Buttons
+             */
+            "es-buttons-demo": LocalJSX.EsButtonsDemo & JSXBase.HTMLAttributes<HTMLEsButtonsDemoElement>;
             /**
              * Calls out a piece of information.
              */
             "es-callout": LocalJSX.EsCallout & JSXBase.HTMLAttributes<HTMLEsCalloutElement>;
             /**
+             * Callout
+             */
+            "es-callout-demo": LocalJSX.EsCalloutDemo & JSXBase.HTMLAttributes<HTMLEsCalloutDemoElement>;
+            /**
              * A modal to confirm an action.
              */
             "es-confirm-modal": LocalJSX.EsConfirmModal & JSXBase.HTMLAttributes<HTMLEsConfirmModalElement>;
+            /**
+             * Confirm Modal
+             * @group Modals
+             */
+            "es-confirm-modal-demo": LocalJSX.EsConfirmModalDemo & JSXBase.HTMLAttributes<HTMLEsConfirmModalDemoElement>;
             /**
              * Copies the text passed as a child when clicked.
              */
             "es-copy": LocalJSX.EsCopy & JSXBase.HTMLAttributes<HTMLEsCopyElement>;
             /**
+             * Copy
+             */
+            "es-copy-demo": LocalJSX.EsCopyDemo & JSXBase.HTMLAttributes<HTMLEsCopyDemoElement>;
+            /**
              * Display a banner with text in the corner.
              */
             "es-corner-banner": LocalJSX.EsCornerBanner & JSXBase.HTMLAttributes<HTMLEsCornerBannerElement>;
             /**
+             * Corner Banner
+             */
+            "es-corner-banner-demo": LocalJSX.EsCornerBannerDemo & JSXBase.HTMLAttributes<HTMLEsCornerBannerDemoElement>;
+            /**
              * A pill display of an number, that pulses on change. Caps out at 999.
              */
             "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
+            /**
+             * Counter
+             */
+            "es-counter-demo": LocalJSX.EsCounterDemo & JSXBase.HTMLAttributes<HTMLEsCounterDemoElement>;
             /**
              * Punches a hole through all parent shadow DOMs into the light DOM.
              * Any slotted chlid will be moved into the light, and a chain of slots
@@ -2850,13 +3637,27 @@ declare module "@stencil/core" {
              */
             "es-icon": LocalJSX.EsIcon & JSXBase.HTMLAttributes<HTMLEsIconElement>;
             /**
+             * Icon
+             */
+            "es-icon-demo": LocalJSX.EsIconDemo & JSXBase.HTMLAttributes<HTMLEsIconDemoElement>;
+            /**
              * Display a row of five pulsing dots, to indicate loading.
              */
             "es-loading-dots": LocalJSX.EsLoadingDots & JSXBase.HTMLAttributes<HTMLEsLoadingDotsElement>;
             /**
+             * Loading Dots
+             * @group Loading
+             */
+            "es-loading-dots-demo": LocalJSX.EsLoadingDotsDemo & JSXBase.HTMLAttributes<HTMLEsLoadingDotsDemoElement>;
+            /**
              * Displays a grey block to placehold loading text.
              */
             "es-loading-text": LocalJSX.EsLoadingText & JSXBase.HTMLAttributes<HTMLEsLoadingTextElement>;
+            /**
+             * Loading Text
+             * @group Loading
+             */
+            "es-loading-text-demo": LocalJSX.EsLoadingTextDemo & JSXBase.HTMLAttributes<HTMLEsLoadingTextDemoElement>;
             /**
              * A pop up modal for overlaying information, warnings and confirmations.
              * Traps focus within the modal, and returns focus to previous location when closed.
@@ -2864,13 +3665,26 @@ declare module "@stencil/core" {
              */
             "es-modal": LocalJSX.EsModal & JSXBase.HTMLAttributes<HTMLEsModalElement>;
             /**
+             * Modal
+             * @group Modals
+             */
+            "es-modal-demo": LocalJSX.EsModalDemo & JSXBase.HTMLAttributes<HTMLEsModalDemoElement>;
+            /**
              * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
              */
             "es-pagination": LocalJSX.EsPagination & JSXBase.HTMLAttributes<HTMLEsPaginationElement>;
             /**
+             * Pagination
+             */
+            "es-pagination-demo": LocalJSX.EsPaginationDemo & JSXBase.HTMLAttributes<HTMLEsPaginationDemoElement>;
+            /**
              * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
              */
             "es-popover": LocalJSX.EsPopover & JSXBase.HTMLAttributes<HTMLEsPopoverElement>;
+            /**
+             * Popover
+             */
+            "es-popover-demo": LocalJSX.EsPopoverDemo & JSXBase.HTMLAttributes<HTMLEsPopoverDemoElement>;
             "es-popper": LocalJSX.EsPopper & JSXBase.HTMLAttributes<HTMLEsPopperElement>;
             "es-popper-inner": LocalJSX.EsPopperInner & JSXBase.HTMLAttributes<HTMLEsPopperInnerElement>;
             "es-popper-x": LocalJSX.EsPopperX & JSXBase.HTMLAttributes<HTMLEsPopperXElement>;
@@ -2880,38 +3694,110 @@ declare module "@stencil/core" {
              */
             "es-portal": LocalJSX.EsPortal & JSXBase.HTMLAttributes<HTMLEsPortalElement>;
             /**
+             * Portal
+             * @group Modals
+             */
+            "es-portal-demo": LocalJSX.EsPortalDemo & JSXBase.HTMLAttributes<HTMLEsPortalDemoElement>;
+            /**
              * A wizard progression bar.
              */
             "es-progression": LocalJSX.EsProgression & JSXBase.HTMLAttributes<HTMLEsProgressionElement>;
             /**
+             * Progression
+             */
+            "es-progression-demo": LocalJSX.EsProgressionDemo & JSXBase.HTMLAttributes<HTMLEsProgressionDemoElement>;
+            /**
              * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
              */
             "es-resize-observer": LocalJSX.EsResizeObserver & JSXBase.HTMLAttributes<HTMLEsResizeObserverElement>;
-            "es-status": LocalJSX.EsStatus & JSXBase.HTMLAttributes<HTMLEsStatusElement>;
             /**
              * Create a table from data.
              */
             "es-table": LocalJSX.EsTable & JSXBase.HTMLAttributes<HTMLEsTableElement>;
             /**
+             * Table Cell Align
+             * @group Tables
+             */
+            "es-table-align": LocalJSX.EsTableAlign & JSXBase.HTMLAttributes<HTMLEsTableAlignElement>;
+            /**
+             * Table
+             * @group Tables
+             */
+            "es-table-basic-demo": LocalJSX.EsTableBasicDemo & JSXBase.HTMLAttributes<HTMLEsTableBasicDemoElement>;
+            /**
+             * Table Loading
+             * @group Tables
+             */
+            "es-table-basic-loading-demo": LocalJSX.EsTableBasicLoadingDemo & JSXBase.HTMLAttributes<HTMLEsTableBasicLoadingDemoElement>;
+            /**
              * Render a single row data as a grid of information.
              */
             "es-table-detail": LocalJSX.EsTableDetail & JSXBase.HTMLAttributes<HTMLEsTableDetailElement>;
+            /**
+             * Table Detail
+             * @group Tables
+             */
+            "es-table-detail-basic-demo": LocalJSX.EsTableDetailBasicDemo & JSXBase.HTMLAttributes<HTMLEsTableDetailBasicDemoElement>;
             /**
              * A default header for [`es-table-detail`](/components/components/es-table-detail).
              */
             "es-table-detail-header": LocalJSX.EsTableDetailHeader & JSXBase.HTMLAttributes<HTMLEsTableDetailHeaderElement>;
             /**
+             * Table Detail Loading
+             * @group Tables
+             */
+            "es-table-detail-loading-demo": LocalJSX.EsTableDetailLoadingDemo & JSXBase.HTMLAttributes<HTMLEsTableDetailLoadingDemoElement>;
+            /**
+             * Table Header Grouping
+             * @group Tables
+             */
+            "es-table-grouped-demo": LocalJSX.EsTableGroupedDemo & JSXBase.HTMLAttributes<HTMLEsTableGroupedDemoElement>;
+            /**
              * Create a nested table from data.
              */
             "es-table-nested": LocalJSX.EsTableNested & JSXBase.HTMLAttributes<HTMLEsTableNestedElement>;
+            /**
+             * Nested Table
+             * @group Tables
+             */
+            "es-table-nested-demo": LocalJSX.EsTableNestedDemo & JSXBase.HTMLAttributes<HTMLEsTableNestedDemoElement>;
+            /**
+             * Nested Table Loading
+             * @group Tables
+             */
+            "es-table-nested-loading-demo": LocalJSX.EsTableNestedLoadingDemo & JSXBase.HTMLAttributes<HTMLEsTableNestedLoadingDemoElement>;
+            /**
+             * Table Sorting
+             * @group Tables
+             */
+            "es-table-sort-demo": LocalJSX.EsTableSortDemo & JSXBase.HTMLAttributes<HTMLEsTableSortDemoElement>;
+            /**
+             * Table Cell Variants
+             * @group Tables
+             */
+            "es-table-variants": LocalJSX.EsTableVariants & JSXBase.HTMLAttributes<HTMLEsTableVariantsElement>;
             /**
              * Create a virtualized table from data.
              */
             "es-table-virtualized": LocalJSX.EsTableVirtualized & JSXBase.HTMLAttributes<HTMLEsTableVirtualizedElement>;
             /**
+             * Virtualized Table
+             * @group Tables
+             */
+            "es-table-virtualized-demo": LocalJSX.EsTableVirtualizedDemo & JSXBase.HTMLAttributes<HTMLEsTableVirtualizedDemoElement>;
+            /**
+             * Table Header Grouping (Virtualized)
+             * @group Tables
+             */
+            "es-table-virtualized-grouped-demo": LocalJSX.EsTableVirtualizedGroupedDemo & JSXBase.HTMLAttributes<HTMLEsTableVirtualizedGroupedDemoElement>;
+            /**
              * A tabbed panel. Each panel can be targeted via a slot.
              */
             "es-tabs": LocalJSX.EsTabs & JSXBase.HTMLAttributes<HTMLEsTabsElement>;
+            /**
+             * Tabs
+             */
+            "es-tabs-demo": LocalJSX.EsTabsDemo & JSXBase.HTMLAttributes<HTMLEsTabsDemoElement>;
             /**
              * A button with an icon that displays the state of a async action on click.
              */
@@ -2922,6 +3808,10 @@ declare module "@stencil/core" {
              * A multi step wizard. Each step can be targeted via a slot.
              */
             "es-wizard": LocalJSX.EsWizard & JSXBase.HTMLAttributes<HTMLEsWizardElement>;
+            /**
+             * Wizard
+             */
+            "es-wizard-demo": LocalJSX.EsWizardDemo & JSXBase.HTMLAttributes<HTMLEsWizardDemoElement>;
         }
     }
 }

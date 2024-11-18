@@ -1,7 +1,6 @@
-import { Component, Fragment, h, Host, State } from '@stencil/core';
+import { Component, Fragment, h, State } from '@stencil/core';
 import { router } from '@eventstore-ui/router';
 import type { NestedTableExtraProps, TableCells, TableSort } from '../types';
-import { theme } from '@eventstore-ui/theme';
 import { ICON_NAMESPACE } from '../../../icons/namespace';
 
 interface DummyData {
@@ -22,7 +21,10 @@ function alphabet(num: number) {
     return s;
 }
 
-/** es-table-nested demo. */
+/**
+ * Nested Table
+ * @group Tables
+ */
 @Component({
     tag: 'es-table-nested-demo',
     styleUrl: './table-basic.css',
@@ -67,33 +69,28 @@ export class Demo {
 
     render() {
         return (
-            <Host>
-                <es-table-nested
-                    stickyHeader
-                    toggleRowOnClick
-                    cells={this.cells}
-                    rows={this.keys}
-                    getCellData={(id) => this.data.get(id)}
-                    canExpand={(id) => !!this.data.get(id)?.children?.length}
-                    getNestedRows={(id) => this.data.get(id)!.children}
-                    getNestedCellData={(id) => this.data.get(id)}
-                    nestedIdentifier={'nested'}
-                    columns={[
-                        'name',
-                        'type',
-                        'sent_rate',
-                        'sent_current',
-                        'sent_pending',
-                        'lorem',
-                        'received_rate',
-                        'received_current',
-                        'received_pending',
-                    ]}
-                />
-                <es-button onClick={this.toggleTheme} class={'toggle_theme'}>
-                    {theme.name.replace(/_/g, ' ')}
-                </es-button>
-            </Host>
+            <es-table-nested
+                stickyHeader
+                toggleRowOnClick
+                cells={this.cells}
+                rows={this.keys}
+                getCellData={(id) => this.data.get(id)}
+                canExpand={(id) => !!this.data.get(id)?.children?.length}
+                getNestedRows={(id) => this.data.get(id)!.children}
+                getNestedCellData={(id) => this.data.get(id)}
+                nestedIdentifier={'nested'}
+                columns={[
+                    'name',
+                    'type',
+                    'sent_rate',
+                    'sent_current',
+                    'sent_pending',
+                    'lorem',
+                    'received_rate',
+                    'received_current',
+                    'received_pending',
+                ]}
+            />
         );
     }
 
@@ -159,15 +156,5 @@ export class Demo {
             width: 'max-content',
             cell: (_, { data }) => data.value,
         },
-    };
-
-    private toggleTheme = () => {
-        const themes = [
-            'light',
-            'dark',
-            'high_contrast_light',
-            'high_contrast_dark',
-        ];
-        theme.select(themes[(themes.indexOf(theme.name) + 1) % 4]);
     };
 }

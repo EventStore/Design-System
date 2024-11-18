@@ -1,0 +1,16 @@
+:host {
+    grid-area: body;
+    display: block;
+    padding: 20px;
+}
+
+p {
+    line-height: 1.5;
+}
+
+pre {
+    display: inline;
+    color: var(--color-info);
+    background-color: var(--color-shade-20);
+    padding: 1px;
+}

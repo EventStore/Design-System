@@ -1,0 +1,15 @@
+:host {
+    grid-area: body;
+    padding: 20px;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px 0;
+}
+
+footer es-button {
+    margin-left: 20px;
+}

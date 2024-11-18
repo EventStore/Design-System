@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+}
+
+:host {
+    grid-area: body;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+    box-sizing: border-box;
+    height: var(--layout-min-body-height);
+}
+
+.wrapper {
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.attachment {
+    background-color: var(--color-warning);
+    color: var(--color-warning-contrast);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.inner {
+    opacity: 0;
+    transition: opacity 400ms ease;
+    background-color: var(--color-info);
+    color: var(--color-info-contrast);
+    box-shadow: none;
+    position: relative;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner.entered {
+    opacity: 1;
+}
+
+.arrow::after {
+    background-color: var(--color-error);
+}
+
+.options {
+    width: 300px;
+    border: 1px solid var(--color-shade-30);
+    padding: 10px;
+    border-radius: 8px;
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    & > label {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        &:has([type='checkbox']) {
+            flex-direction: row;
+        }
+    }
+}

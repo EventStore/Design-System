@@ -25,7 +25,10 @@ function alpha(num: number) {
     return s;
 }
 
-/** Basic es-table demo. */
+/**
+ * Table Sorting
+ * @group Tables
+ */
 @Component({
     tag: 'es-table-sort-demo',
     styleUrl: './table-basic.css',
