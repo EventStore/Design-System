@@ -47,7 +47,6 @@ export class Counter {
                 style={{
                     padding: '10px',
                     display: 'block',
-                    'grid-area': 'body',
                 }}
             >
                 <h1>Button color inheritance</h1>
