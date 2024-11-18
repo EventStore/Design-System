@@ -18,7 +18,6 @@ export class Counter {
                 style={{
                     padding: '10px',
                     display: 'block',
-                    'grid-area': 'body',
                 }}
             >
                 <h1>Basic progression</h1>

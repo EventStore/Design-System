@@ -3,14 +3,13 @@
 }
 
 :host {
-    grid-area: body;
     display: flex;
     align-items: flex-start;
     width: 100%;
     padding: 20px;
-    padding-top: 0;
+
     box-sizing: border-box;
-    height: var(--layout-min-body-height);
+    height: 100vh;
 }
 
 .wrapper {
