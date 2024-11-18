@@ -155,8 +155,8 @@ export class Progression {
         this.defaultColors[state];
 
     private defaultColors: Record<CheckpointState, string> = {
-        active: 'var(--color-secondary)',
-        complete: 'var(--color-secondary)',
+        active: 'var(--color-highlight)',
+        complete: 'var(--color-highlight)',
         inactive: 'var(--color-shade-30)',
     };
 }

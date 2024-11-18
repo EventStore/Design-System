@@ -41,7 +41,7 @@
         font-family: inherit;
         font-weight: 400;
         font-size: 16px;
-        color: var(--color-text);
+        color: var(--color-foreground);
         background-color: var(--color-background);
 
         &:disabled {
@@ -52,7 +52,7 @@
         }
 
         &:focus {
-            border-color: var(--color-secondary);
+            border-color: var(--color-highlight);
         }
 
         &::placeholder {
@@ -68,7 +68,7 @@
     position: relative;
     box-shadow: none;
     padding: 10px;
-    background-color: var(--color-text);
+    background-color: var(--color-foreground);
     color: var(--color-background);
 
     &.entered {

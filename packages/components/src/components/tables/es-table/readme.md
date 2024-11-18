@@ -65,7 +65,7 @@ export default () => (
 }
 
 *[role='row']:hover {
-    color: var(--color-secondary);
+    color: var(--color-highlight);
 }
 ```
 

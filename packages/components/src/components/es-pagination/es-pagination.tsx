@@ -6,7 +6,7 @@ import {
     Host,
     type EventEmitter,
 } from '@stencil/core';
-import { PageChangeEventType } from './types';
+import type { PageChangeEventType } from './types';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 
 /**
@@ -42,7 +42,7 @@ export class Pagination {
                         <es-icon
                             icon={[ICON_NAMESPACE, 'chevron-double']}
                             angle={90}
-                            size={12}
+                            size={20}
                         />
                     </es-button>
                 )}
@@ -57,7 +57,7 @@ export class Pagination {
                     <es-icon
                         icon={[ICON_NAMESPACE, 'chevron']}
                         angle={90}
-                        size={12}
+                        size={20}
                     />
                 </es-button>
 
@@ -78,7 +78,7 @@ export class Pagination {
                     <es-icon
                         icon={[ICON_NAMESPACE, 'chevron']}
                         angle={-90}
-                        size={12}
+                        size={20}
                     />
                 </es-button>
 
@@ -93,7 +93,7 @@ export class Pagination {
                         <es-icon
                             icon={[ICON_NAMESPACE, 'chevron-double']}
                             angle={-90}
-                            size={12}
+                            size={20}
                         />
                     </es-button>
                 )}
@@ -101,23 +101,12 @@ export class Pagination {
         );
     }
 
-    private triggerPageChange = (e: PageChangeEventType) => {
-        this.update.emit(e);
+    private pageChangeEmitter = (type: PageChangeEventType) => () => {
+        this.update.emit(type);
     };
 
-    private first = () => {
-        this.triggerPageChange(PageChangeEventType.First);
-    };
-
-    private previous = () => {
-        this.triggerPageChange(PageChangeEventType.Previous);
-    };
-
-    private next = () => {
-        this.triggerPageChange(PageChangeEventType.Next);
-    };
-
-    private last = () => {
-        this.triggerPageChange(PageChangeEventType.Last);
-    };
+    private first = this.pageChangeEmitter('first');
+    private previous = this.pageChangeEmitter('previous');
+    private next = this.pageChangeEmitter('next');
+    private last = this.pageChangeEmitter('last');
 }

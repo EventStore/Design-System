@@ -1,10 +1,14 @@
 :host {
     display: inline-block;
-    background-color: var(--color-text);
+    background-color: var(--color-foreground);
     opacity: 0.1;
     border-radius: 12px;
     white-space: pre;
     color: transparent;
     user-select: none;
     max-width: 100%;
+}
+
+:host([dark]) {
+    opacity: 0.2;
 }

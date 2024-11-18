@@ -1,7 +1,10 @@
 import { Component, h, State } from '@stencil/core';
 import type { TableCells } from '../types';
 
-/** Basic table cell align demo. */
+/**
+ * Table Cell Align
+ * @group Tables
+ */
 @Component({
     tag: 'es-table-align',
     styleUrl: './table-basic.css',

@@ -2,7 +2,8 @@ import { Component, h, Host, State } from '@stencil/core';
 import { LoadingText } from '../LoadingText';
 
 /**
- * es-loading-text & LoadingText demo
+ * Loading Text
+ * @group Loading
  */
 @Component({
     tag: 'es-loading-text-demo',
@@ -28,7 +29,13 @@ export class LoadingTextDemo {
 
     render() {
         return (
-            <Host style={{ display: 'block', padding: '20px' }}>
+            <Host
+                style={{
+                    display: 'block',
+                    padding: '20px',
+                    'grid-area': 'body',
+                }}
+            >
                 <h1>{'Basic usage'}</h1>
                 <es-loading-text expectedLength={12} />
                 <h1>{'Variance'}</h1>

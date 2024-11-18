@@ -65,9 +65,9 @@ export default () => (
 
 ## Events
 
-| Event    | Description                                   | Type                                                                                                                             |
-| -------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `update` | Triggered when a pagination button is clicked | `CustomEvent<PageChangeEventType.First \| PageChangeEventType.Last \| PageChangeEventType.Next \| PageChangeEventType.Previous>` |
+| Event    | Description                                   | Type                                                     |
+| -------- | --------------------------------------------- | -------------------------------------------------------- |
+| `update` | Triggered when a pagination button is clicked | `CustomEvent<"first" \| "last" \| "next" \| "previous">` |
 
 
 ## Dependencies

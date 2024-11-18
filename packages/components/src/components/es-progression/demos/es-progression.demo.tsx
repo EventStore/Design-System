@@ -1,8 +1,8 @@
 import { Component, h, Host, State } from '@stencil/core';
-import { ICON_NAMESPACE } from '../../icons/namespace';
-import type { Checkpoint } from './types';
+import { ICON_NAMESPACE } from '../../../icons/namespace';
+import type { Checkpoint } from '../types';
 
-/** es-progression demo. */
+/** Progression */
 @Component({
     tag: 'es-progression-demo',
     shadow: true,
@@ -14,7 +14,13 @@ export class Counter {
 
     render() {
         return (
-            <Host style={{ padding: '10px', display: 'block' }}>
+            <Host
+                style={{
+                    padding: '10px',
+                    display: 'block',
+                    'grid-area': 'body',
+                }}
+            >
                 <h1>Basic progression</h1>
                 <div style={{ display: 'flex', gap: '20px' }}>
                     <es-progression

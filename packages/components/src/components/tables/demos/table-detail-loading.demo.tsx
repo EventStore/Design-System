@@ -8,7 +8,10 @@ interface DummyData {
     amount: number;
 }
 
-/** Basic es-table-detail demo with loading set to true. */
+/**
+ * Table Detail Loading
+ * @group Tables
+ */
 @Component({
     tag: 'es-table-detail-loading-demo',
     styleUrl: './table-basic.css',

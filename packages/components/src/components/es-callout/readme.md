@@ -78,25 +78,12 @@ export default () => (
 
 ## CSS Custom Properties
 
-| Name             | Description                                                                  |
-| ---------------- | ---------------------------------------------------------------------------- |
-| `--strong-color` | Header, icon and border color. Can be set to a default via the variant prop. |
-| `--text-color`   | Color of the body text.                                                      |
-| `--weak-color`   | Background color. Can be set to a default via the variant prop.              |
+| Name                 | Description                                                     |
+| -------------------- | --------------------------------------------------------------- |
+| `--background-color` | Background color. Can be set to a default via the variant prop. |
+| `--border-color`     | Border color. Can be set to a default via the variant prop.     |
+| `--foreground-color` | Text color. Can be set to a default via the variant prop.       |
 
-
-## Dependencies
-
-### Depends on
-
-- [es-icon](../es-icon)
-
-### Graph
-```mermaid
-graph TD;
-  es-callout --> es-icon
-  style es-callout fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

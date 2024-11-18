@@ -1,14 +1,23 @@
 import { Component, h, Host, Fragment } from '@stencil/core';
+import { router } from '@eventstore-ui/router';
+
 import type { ButtonVariant } from '../types';
 import { ES_COMPONENTS_ICON_NAMESPACE, type IconDescription } from '../../..';
 
-/** Basic button demon. */
+/**
+ * Button Link
+ * @group Buttons
+ */
 @Component({
-    tag: 'es-buttons-demo',
-    styleUrl: './buttons-demo.css',
+    tag: 'es-button-link-demo',
+    styleUrl: './button-demo.css',
     shadow: true,
 })
-export class LoadingTextDemo {
+export class Demo {
+    componentWillLoad() {
+        router.init({ root: '/es-button-link-demo/' });
+    }
+
     private variants: ButtonVariant[] = [
         'default',
         'filled',
@@ -24,31 +33,22 @@ export class LoadingTextDemo {
             <Host>
                 {this.variants.map((variant) => (
                     <>
-                        <es-button variant={variant} onClick={this.handleClick}>
+                        <es-button-link variant={variant} url={'/'}>
                             <es-icon icon={this.randomIcon()} slot={'after'} />
                             {`${variant} variant`}
-                        </es-button>
-                        <es-button variant={variant} onClick={this.handleClick}>
+                        </es-button-link>
+                        <es-button-link variant={variant} url={'/'}>
                             <es-icon icon={this.randomIcon()} size={22} />
-                        </es-button>
-                        <es-button
-                            variant={variant}
-                            onClick={this.handleClick}
-                            disabled
-                        >
+                        </es-button-link>
+                        <es-button-link variant={variant} url={'/'} disabled>
                             <es-icon icon={this.randomIcon()} slot={'after'} />
                             {`${variant} (disabled)`}
-                        </es-button>
+                        </es-button-link>
                     </>
                 ))}
             </Host>
         );
     }
-
-    private handleClick = (...args: unknown[]) => {
-        // eslint-disable-next-line no-console
-        console.log(...args);
-    };
 
     private icons = [
         'check',
