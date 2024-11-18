@@ -8,7 +8,7 @@ import {
     Watch,
     Host,
 } from '@stencil/core';
-import { theme } from '@eventstore-ui/theme';
+import { theme } from '@kurrent-ui/theme';
 
 import type { FieldChange, RenderFunction } from 'types';
 import type {

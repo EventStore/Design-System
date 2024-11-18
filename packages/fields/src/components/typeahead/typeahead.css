@@ -92,7 +92,7 @@ f2-typeahead {
 .empty_message,
 .option {
     --background-color: transparent;
-    --foreground-color: var(--color-text);
+    --foreground-color: var(--color-foreground);
 
     display: flex;
     align-items: center;
@@ -122,8 +122,8 @@ f2-typeahead {
     }
 
     &.active {
-        --background-color: var(--color-secondary);
-        --foreground-color: var(--color-secondary-contrast);
+        --background-color: var(--color-highlight);
+        --foreground-color: var(--color-highlight-contrast);
     }
 }
 
@@ -139,19 +139,19 @@ f2-typeahead {
 .list[high-contrast] .option {
     &:hover {
         --background-color: transparent;
-        --foreground-color: var(--color-secondary);
+        --foreground-color: var(--color-highlight);
     }
 
     &:focus {
         --background-color: transparent;
         outline: dashed;
         outline-offset: -3px;
-        outline-color: var(--color-text);
+        outline-color: var(--color-foreground);
     }
 
     &.active {
-        --background-color: var(--color-secondary);
-        --foreground-color: var(--color-secondary-contrast);
+        --background-color: var(--color-highlight);
+        --foreground-color: var(--color-highlight-contrast);
     }
 }
 

@@ -24,7 +24,7 @@
     color: var(--color-error);
 }
 .warning {
-    color: var(--color-warning);
+    color: var(--color-warning-alt);
 }
 .info {
     color: var(--color-info);
@@ -32,4 +32,8 @@
 
 es-icon {
     margin-right: var(--spacing-1, 8px);
+}
+
+:host([high-contrast]) :is(.error, .warning, .info) {
+    color: var(--color-foreground);
 }

@@ -1,4 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
 :host {
+    grid-area: body;
     display: block;
 }
 
