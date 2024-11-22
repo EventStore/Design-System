@@ -11,9 +11,9 @@
     position: relative;
     flex-direction: column;
 
-    --tab-color: var(--color-title-2);
+    --tab-color: var(--color-foreground);
     --active-color: var(--color-highlight);
-    --focus-color: var(--color-primary-alt);
+    --focus-color: var(--color-focus);
     --focus-indicator-color: var(--color-shade-40);
     --border-color: var(--color-shade-30);
 }

@@ -3,20 +3,17 @@
 
 ```tsx
 const baseScheme = {
-    basic: ['background', 'contrast'],
-    text: ['text', 'title_1', 'title_2', 'title_3'],
-    scheme: [
-        'primary',
-        'primary_alt',
-        'primary_contrast',
-
-        'secondary',
-        'secondary_alt',
-        'secondary_contrast',
-
+    basic: [
+        'background',
+        'foreground',
+        'title',
+        'title_contrast',
         'highlight',
-        'highlight_alt',
         'highlight_contrast',
+        'link',
+        'link_contrast',
+        'focus',
+        'focus_contrast',
     ],
     levels: [
         'error',
@@ -47,18 +44,7 @@ const baseScheme = {
         'shade_50',
         'shade_60',
     ],
-    special: [
-        'header',
-        'header_alt',
-        'header_contrast',
-
-        'overlay',
-
-        'focus',
-        'disabled',
-        'disabled_border',
-        'disabled_contrast',
-    ],
+    special: ['overlay', 'disabled', 'disabled_border', 'disabled_contrast'],
 };
 
 const asVar = (key: string) => `--color-${key.replace(/_/g, '-')}`;
@@ -105,10 +91,6 @@ export default () => (
     grid-template-columns: repeat(2, 1fr);
 }
 
-.text {
-    grid-template-columns: repeat(4, 1fr);
-}
-
 .scheme {
     grid-template-columns: repeat(3, 1fr);
 }
@@ -128,7 +110,7 @@ export default () => (
 .swatch {
     display: flex;
     align-items: flex-end;
-    border: 1px solid var(--color-contrast);
+    border: 1px solid var(--color-foreground);
     border-radius: 4px;
     overflow: hidden;
 }
@@ -136,10 +118,10 @@ export default () => (
 .swatch span {
     display: inline-block;
     background-color: var(--color-background);
-    color: var(--color-text);
+    color: var(--color-foreground);
     padding: 5px 10px;
     border-style: solid;
-    border-color: var(--color-contrast);
+    border-color: var(--color-foreground);
     border-width: 1px 1px 0 0;
     border-top-right-radius: 4px;
 }
