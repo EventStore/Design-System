@@ -17,8 +17,8 @@
         "@eventstore-ui/layout": "workspace:*",
         "@eventstore-ui/router": "workspace:*",
         "@eventstore-ui/stores": "workspace:*",
-        "@eventstore-ui/theme": "workspace:*",
-        "@eventstore-ui/utils": "workspace:*"
+        "@eventstore-ui/utils": "workspace:*",
+        "@kurrent-ui/theme": "workspace:*"
     },
     "devDependencies": {
         "@eventstore-ui/assets": "workspace:*",

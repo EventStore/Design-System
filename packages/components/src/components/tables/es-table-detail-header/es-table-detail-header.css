@@ -17,7 +17,7 @@ es-table-detail-header {
 .header_title {
     font-size: 22px;
     font-weight: 300;
-    color: var(--color-title-2);
+    color: var(--color-foreground);
     margin: 0;
 }
 

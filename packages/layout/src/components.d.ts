@@ -25,23 +25,6 @@ export { NavNode, NavTree } from "./components/es-nav/types";
 export { ClosedMode, PanelDetailsListener, PanelMode as PanelMode1, TargetableArea, TargetableEdge } from "./components/panel/types";
 export namespace Components {
     /**
-     * Breadcrumb
-     */
-    interface BreadcrumbDemo {
-    }
-    /**
-     * Display Error
-     * @group Page State
-     */
-    interface DisplayErrorDemo {
-    }
-    /**
-     * Empty State
-     * @group Page State
-     */
-    interface EmptyStateDemo {
-    }
-    /**
      * A list of breadcrumbs to the current page
      */
     interface EsBreadcrumb {
@@ -177,12 +160,6 @@ export namespace Components {
           * When deciding the active child, if multiple are active, the highest priority wins.
          */
         "priority": number;
-    }
-    /**
-     * Button and link collapsing
-     * @group Panels
-     */
-    interface EsLayoutButtonCollapsedDemo {
     }
     /**
      * A horizontal rule
@@ -382,27 +359,9 @@ export namespace Components {
         "start"?: TargetableEdge;
     }
     /**
-     * All panel placements
-     * @group Panels
-     */
-    interface EsPanelAllDemo {
-    }
-    /**
-     * Panel closing
-     * @group Panels
-     */
-    interface EsPanelCloseDemo {
-    }
-    /**
      * A header for `es-panel`.
      */
     interface EsPanelHeader {
-    }
-    /**
-     * Panel placement
-     * @group Panels
-     */
-    interface EsPanelPlacementDemo {
     }
     /**
      * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
@@ -441,18 +400,6 @@ export namespace Components {
         "start"?: TargetableEdge;
     }
     /**
-     * All sized panel placements
-     * @group Sized Panels
-     */
-    interface EsSizedPanelDemo {
-    }
-    /**
-     * Sized panel placement
-     * @group Sized panels
-     */
-    interface EsSizedPanelPlacementDemo {
-    }
-    /**
      * A theme picker dropdown for the header
      */
     interface EsThemeDropdown {
@@ -468,52 +415,6 @@ export namespace Components {
      */
     interface EsToolbar {
     }
-    /**
-     * Everything Demo
-     */
-    interface EverythingDemo {
-    }
-    /**
-     * Header
-     * @group Layout
-     */
-    interface HeaderDemo {
-    }
-    /**
-     * Header Dropdown
-     * @group Layout
-     */
-    interface HeaderDropdownDemo {
-    }
-    /**
-     * Layout Button
-     * @group Buttons
-     */
-    interface LayoutButtonDemo {
-    }
-    /**
-     * Layout Link
-     * @group Buttons
-     */
-    interface LayoutLinkDemo {
-    }
-    /**
-     * Page Title
-     */
-    interface PageTitleDemo {
-    }
-    /**
-     * Sidebar
-     * @group Layout
-     */
-    interface SidebarDemo {
-    }
-    /**
-     * Toolbar
-     * @group Layout
-     */
-    interface ToolbarDemo {
-    }
 }
 export interface EsLayoutButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -524,35 +425,6 @@ export interface EsPanelCustomEvent<T> extends CustomEvent<T> {
     target: HTMLEsPanelElement;
 }
 declare global {
-    /**
-     * Breadcrumb
-     */
-    interface HTMLBreadcrumbDemoElement extends Components.BreadcrumbDemo, HTMLStencilElement {
-    }
-    var HTMLBreadcrumbDemoElement: {
-        prototype: HTMLBreadcrumbDemoElement;
-        new (): HTMLBreadcrumbDemoElement;
-    };
-    /**
-     * Display Error
-     * @group Page State
-     */
-    interface HTMLDisplayErrorDemoElement extends Components.DisplayErrorDemo, HTMLStencilElement {
-    }
-    var HTMLDisplayErrorDemoElement: {
-        prototype: HTMLDisplayErrorDemoElement;
-        new (): HTMLDisplayErrorDemoElement;
-    };
-    /**
-     * Empty State
-     * @group Page State
-     */
-    interface HTMLEmptyStateDemoElement extends Components.EmptyStateDemo, HTMLStencilElement {
-    }
-    var HTMLEmptyStateDemoElement: {
-        prototype: HTMLEmptyStateDemoElement;
-        new (): HTMLEmptyStateDemoElement;
-    };
     /**
      * A list of breadcrumbs to the current page
      */
@@ -624,16 +496,6 @@ declare global {
     var HTMLEsLayoutButtonElement: {
         prototype: HTMLEsLayoutButtonElement;
         new (): HTMLEsLayoutButtonElement;
-    };
-    /**
-     * Button and link collapsing
-     * @group Panels
-     */
-    interface HTMLEsLayoutButtonCollapsedDemoElement extends Components.EsLayoutButtonCollapsedDemo, HTMLStencilElement {
-    }
-    var HTMLEsLayoutButtonCollapsedDemoElement: {
-        prototype: HTMLEsLayoutButtonCollapsedDemoElement;
-        new (): HTMLEsLayoutButtonCollapsedDemoElement;
     };
     /**
      * A horizontal rule
@@ -739,26 +601,6 @@ declare global {
         new (): HTMLEsPanelElement;
     };
     /**
-     * All panel placements
-     * @group Panels
-     */
-    interface HTMLEsPanelAllDemoElement extends Components.EsPanelAllDemo, HTMLStencilElement {
-    }
-    var HTMLEsPanelAllDemoElement: {
-        prototype: HTMLEsPanelAllDemoElement;
-        new (): HTMLEsPanelAllDemoElement;
-    };
-    /**
-     * Panel closing
-     * @group Panels
-     */
-    interface HTMLEsPanelCloseDemoElement extends Components.EsPanelCloseDemo, HTMLStencilElement {
-    }
-    var HTMLEsPanelCloseDemoElement: {
-        prototype: HTMLEsPanelCloseDemoElement;
-        new (): HTMLEsPanelCloseDemoElement;
-    };
-    /**
      * A header for `es-panel`.
      */
     interface HTMLEsPanelHeaderElement extends Components.EsPanelHeader, HTMLStencilElement {
@@ -766,16 +608,6 @@ declare global {
     var HTMLEsPanelHeaderElement: {
         prototype: HTMLEsPanelHeaderElement;
         new (): HTMLEsPanelHeaderElement;
-    };
-    /**
-     * Panel placement
-     * @group Panels
-     */
-    interface HTMLEsPanelPlacementDemoElement extends Components.EsPanelPlacementDemo, HTMLStencilElement {
-    }
-    var HTMLEsPanelPlacementDemoElement: {
-        prototype: HTMLEsPanelPlacementDemoElement;
-        new (): HTMLEsPanelPlacementDemoElement;
     };
     /**
      * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
@@ -806,26 +638,6 @@ declare global {
         new (): HTMLEsSizedPanelElement;
     };
     /**
-     * All sized panel placements
-     * @group Sized Panels
-     */
-    interface HTMLEsSizedPanelDemoElement extends Components.EsSizedPanelDemo, HTMLStencilElement {
-    }
-    var HTMLEsSizedPanelDemoElement: {
-        prototype: HTMLEsSizedPanelDemoElement;
-        new (): HTMLEsSizedPanelDemoElement;
-    };
-    /**
-     * Sized panel placement
-     * @group Sized panels
-     */
-    interface HTMLEsSizedPanelPlacementDemoElement extends Components.EsSizedPanelPlacementDemo, HTMLStencilElement {
-    }
-    var HTMLEsSizedPanelPlacementDemoElement: {
-        prototype: HTMLEsSizedPanelPlacementDemoElement;
-        new (): HTMLEsSizedPanelPlacementDemoElement;
-    };
-    /**
      * A theme picker dropdown for the header
      */
     interface HTMLEsThemeDropdownElement extends Components.EsThemeDropdown, HTMLStencilElement {
@@ -849,88 +661,7 @@ declare global {
         prototype: HTMLEsToolbarElement;
         new (): HTMLEsToolbarElement;
     };
-    /**
-     * Everything Demo
-     */
-    interface HTMLEverythingDemoElement extends Components.EverythingDemo, HTMLStencilElement {
-    }
-    var HTMLEverythingDemoElement: {
-        prototype: HTMLEverythingDemoElement;
-        new (): HTMLEverythingDemoElement;
-    };
-    /**
-     * Header
-     * @group Layout
-     */
-    interface HTMLHeaderDemoElement extends Components.HeaderDemo, HTMLStencilElement {
-    }
-    var HTMLHeaderDemoElement: {
-        prototype: HTMLHeaderDemoElement;
-        new (): HTMLHeaderDemoElement;
-    };
-    /**
-     * Header Dropdown
-     * @group Layout
-     */
-    interface HTMLHeaderDropdownDemoElement extends Components.HeaderDropdownDemo, HTMLStencilElement {
-    }
-    var HTMLHeaderDropdownDemoElement: {
-        prototype: HTMLHeaderDropdownDemoElement;
-        new (): HTMLHeaderDropdownDemoElement;
-    };
-    /**
-     * Layout Button
-     * @group Buttons
-     */
-    interface HTMLLayoutButtonDemoElement extends Components.LayoutButtonDemo, HTMLStencilElement {
-    }
-    var HTMLLayoutButtonDemoElement: {
-        prototype: HTMLLayoutButtonDemoElement;
-        new (): HTMLLayoutButtonDemoElement;
-    };
-    /**
-     * Layout Link
-     * @group Buttons
-     */
-    interface HTMLLayoutLinkDemoElement extends Components.LayoutLinkDemo, HTMLStencilElement {
-    }
-    var HTMLLayoutLinkDemoElement: {
-        prototype: HTMLLayoutLinkDemoElement;
-        new (): HTMLLayoutLinkDemoElement;
-    };
-    /**
-     * Page Title
-     */
-    interface HTMLPageTitleDemoElement extends Components.PageTitleDemo, HTMLStencilElement {
-    }
-    var HTMLPageTitleDemoElement: {
-        prototype: HTMLPageTitleDemoElement;
-        new (): HTMLPageTitleDemoElement;
-    };
-    /**
-     * Sidebar
-     * @group Layout
-     */
-    interface HTMLSidebarDemoElement extends Components.SidebarDemo, HTMLStencilElement {
-    }
-    var HTMLSidebarDemoElement: {
-        prototype: HTMLSidebarDemoElement;
-        new (): HTMLSidebarDemoElement;
-    };
-    /**
-     * Toolbar
-     * @group Layout
-     */
-    interface HTMLToolbarDemoElement extends Components.ToolbarDemo, HTMLStencilElement {
-    }
-    var HTMLToolbarDemoElement: {
-        prototype: HTMLToolbarDemoElement;
-        new (): HTMLToolbarDemoElement;
-    };
     interface HTMLElementTagNameMap {
-        "breadcrumb-demo": HTMLBreadcrumbDemoElement;
-        "display-error-demo": HTMLDisplayErrorDemoElement;
-        "empty-state-demo": HTMLEmptyStateDemoElement;
         "es-breadcrumb": HTMLEsBreadcrumbElement;
         "es-display-error": HTMLEsDisplayErrorElement;
         "es-empty-state": HTMLEsEmptyStateElement;
@@ -938,7 +669,6 @@ declare global {
         "es-header-dropdown": HTMLEsHeaderDropdownElement;
         "es-layout-auto-label": HTMLEsLayoutAutoLabelElement;
         "es-layout-button": HTMLEsLayoutButtonElement;
-        "es-layout-button-collapsed-demo": HTMLEsLayoutButtonCollapsedDemoElement;
         "es-layout-hr": HTMLEsLayoutHrElement;
         "es-layout-link": HTMLEsLayoutLinkElement;
         "es-layout-section": HTMLEsLayoutSectionElement;
@@ -950,46 +680,16 @@ declare global {
         "es-nav-node-2": HTMLEsNavNode2Element;
         "es-page-title": HTMLEsPageTitleElement;
         "es-panel": HTMLEsPanelElement;
-        "es-panel-all-demo": HTMLEsPanelAllDemoElement;
-        "es-panel-close-demo": HTMLEsPanelCloseDemoElement;
         "es-panel-header": HTMLEsPanelHeaderElement;
-        "es-panel-placement-demo": HTMLEsPanelPlacementDemoElement;
         "es-sidebar": HTMLEsSidebarElement;
         "es-sidebar-dropdown": HTMLEsSidebarDropdownElement;
         "es-sized-panel": HTMLEsSizedPanelElement;
-        "es-sized-panel-demo": HTMLEsSizedPanelDemoElement;
-        "es-sized-panel-placement-demo": HTMLEsSizedPanelPlacementDemoElement;
         "es-theme-dropdown": HTMLEsThemeDropdownElement;
         "es-theme-picker": HTMLEsThemePickerElement;
         "es-toolbar": HTMLEsToolbarElement;
-        "everything-demo": HTMLEverythingDemoElement;
-        "header-demo": HTMLHeaderDemoElement;
-        "header-dropdown-demo": HTMLHeaderDropdownDemoElement;
-        "layout-button-demo": HTMLLayoutButtonDemoElement;
-        "layout-link-demo": HTMLLayoutLinkDemoElement;
-        "page-title-demo": HTMLPageTitleDemoElement;
-        "sidebar-demo": HTMLSidebarDemoElement;
-        "toolbar-demo": HTMLToolbarDemoElement;
     }
 }
 declare namespace LocalJSX {
-    /**
-     * Breadcrumb
-     */
-    interface BreadcrumbDemo {
-    }
-    /**
-     * Display Error
-     * @group Page State
-     */
-    interface DisplayErrorDemo {
-    }
-    /**
-     * Empty State
-     * @group Page State
-     */
-    interface EmptyStateDemo {
-    }
     /**
      * A list of breadcrumbs to the current page
      */
@@ -1126,12 +826,6 @@ declare namespace LocalJSX {
           * When deciding the active child, if multiple are active, the highest priority wins.
          */
         "priority"?: number;
-    }
-    /**
-     * Button and link collapsing
-     * @group Panels
-     */
-    interface EsLayoutButtonCollapsedDemo {
     }
     /**
      * A horizontal rule
@@ -1325,27 +1019,9 @@ declare namespace LocalJSX {
         "start"?: TargetableEdge;
     }
     /**
-     * All panel placements
-     * @group Panels
-     */
-    interface EsPanelAllDemo {
-    }
-    /**
-     * Panel closing
-     * @group Panels
-     */
-    interface EsPanelCloseDemo {
-    }
-    /**
      * A header for `es-panel`.
      */
     interface EsPanelHeader {
-    }
-    /**
-     * Panel placement
-     * @group Panels
-     */
-    interface EsPanelPlacementDemo {
     }
     /**
      * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
@@ -1384,18 +1060,6 @@ declare namespace LocalJSX {
         "start"?: TargetableEdge;
     }
     /**
-     * All sized panel placements
-     * @group Sized Panels
-     */
-    interface EsSizedPanelDemo {
-    }
-    /**
-     * Sized panel placement
-     * @group Sized panels
-     */
-    interface EsSizedPanelPlacementDemo {
-    }
-    /**
      * A theme picker dropdown for the header
      */
     interface EsThemeDropdown {
@@ -1411,56 +1075,7 @@ declare namespace LocalJSX {
      */
     interface EsToolbar {
     }
-    /**
-     * Everything Demo
-     */
-    interface EverythingDemo {
-    }
-    /**
-     * Header
-     * @group Layout
-     */
-    interface HeaderDemo {
-    }
-    /**
-     * Header Dropdown
-     * @group Layout
-     */
-    interface HeaderDropdownDemo {
-    }
-    /**
-     * Layout Button
-     * @group Buttons
-     */
-    interface LayoutButtonDemo {
-    }
-    /**
-     * Layout Link
-     * @group Buttons
-     */
-    interface LayoutLinkDemo {
-    }
-    /**
-     * Page Title
-     */
-    interface PageTitleDemo {
-    }
-    /**
-     * Sidebar
-     * @group Layout
-     */
-    interface SidebarDemo {
-    }
-    /**
-     * Toolbar
-     * @group Layout
-     */
-    interface ToolbarDemo {
-    }
     interface IntrinsicElements {
-        "breadcrumb-demo": BreadcrumbDemo;
-        "display-error-demo": DisplayErrorDemo;
-        "empty-state-demo": EmptyStateDemo;
         "es-breadcrumb": EsBreadcrumb;
         "es-display-error": EsDisplayError;
         "es-empty-state": EsEmptyState;
@@ -1468,7 +1083,6 @@ declare namespace LocalJSX {
         "es-header-dropdown": EsHeaderDropdown;
         "es-layout-auto-label": EsLayoutAutoLabel;
         "es-layout-button": EsLayoutButton;
-        "es-layout-button-collapsed-demo": EsLayoutButtonCollapsedDemo;
         "es-layout-hr": EsLayoutHr;
         "es-layout-link": EsLayoutLink;
         "es-layout-section": EsLayoutSection;
@@ -1480,46 +1094,19 @@ declare namespace LocalJSX {
         "es-nav-node-2": EsNavNode2;
         "es-page-title": EsPageTitle;
         "es-panel": EsPanel;
-        "es-panel-all-demo": EsPanelAllDemo;
-        "es-panel-close-demo": EsPanelCloseDemo;
         "es-panel-header": EsPanelHeader;
-        "es-panel-placement-demo": EsPanelPlacementDemo;
         "es-sidebar": EsSidebar;
         "es-sidebar-dropdown": EsSidebarDropdown;
         "es-sized-panel": EsSizedPanel;
-        "es-sized-panel-demo": EsSizedPanelDemo;
-        "es-sized-panel-placement-demo": EsSizedPanelPlacementDemo;
         "es-theme-dropdown": EsThemeDropdown;
         "es-theme-picker": EsThemePicker;
         "es-toolbar": EsToolbar;
-        "everything-demo": EverythingDemo;
-        "header-demo": HeaderDemo;
-        "header-dropdown-demo": HeaderDropdownDemo;
-        "layout-button-demo": LayoutButtonDemo;
-        "layout-link-demo": LayoutLinkDemo;
-        "page-title-demo": PageTitleDemo;
-        "sidebar-demo": SidebarDemo;
-        "toolbar-demo": ToolbarDemo;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            /**
-             * Breadcrumb
-             */
-            "breadcrumb-demo": LocalJSX.BreadcrumbDemo & JSXBase.HTMLAttributes<HTMLBreadcrumbDemoElement>;
-            /**
-             * Display Error
-             * @group Page State
-             */
-            "display-error-demo": LocalJSX.DisplayErrorDemo & JSXBase.HTMLAttributes<HTMLDisplayErrorDemoElement>;
-            /**
-             * Empty State
-             * @group Page State
-             */
-            "empty-state-demo": LocalJSX.EmptyStateDemo & JSXBase.HTMLAttributes<HTMLEmptyStateDemoElement>;
             /**
              * A list of breadcrumbs to the current page
              */
@@ -1546,11 +1133,6 @@ declare module "@stencil/core" {
              * A button for the sidebar, sidebar-dropdown, and header-dropdown.
              */
             "es-layout-button": LocalJSX.EsLayoutButton & JSXBase.HTMLAttributes<HTMLEsLayoutButtonElement>;
-            /**
-             * Button and link collapsing
-             * @group Panels
-             */
-            "es-layout-button-collapsed-demo": LocalJSX.EsLayoutButtonCollapsedDemo & JSXBase.HTMLAttributes<HTMLEsLayoutButtonCollapsedDemoElement>;
             /**
              * A horizontal rule
              */
@@ -1589,24 +1171,9 @@ declare module "@stencil/core" {
              */
             "es-panel": LocalJSX.EsPanel & JSXBase.HTMLAttributes<HTMLEsPanelElement>;
             /**
-             * All panel placements
-             * @group Panels
-             */
-            "es-panel-all-demo": LocalJSX.EsPanelAllDemo & JSXBase.HTMLAttributes<HTMLEsPanelAllDemoElement>;
-            /**
-             * Panel closing
-             * @group Panels
-             */
-            "es-panel-close-demo": LocalJSX.EsPanelCloseDemo & JSXBase.HTMLAttributes<HTMLEsPanelCloseDemoElement>;
-            /**
              * A header for `es-panel`.
              */
             "es-panel-header": LocalJSX.EsPanelHeader & JSXBase.HTMLAttributes<HTMLEsPanelHeaderElement>;
-            /**
-             * Panel placement
-             * @group Panels
-             */
-            "es-panel-placement-demo": LocalJSX.EsPanelPlacementDemo & JSXBase.HTMLAttributes<HTMLEsPanelPlacementDemoElement>;
             /**
              * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
              */
@@ -1621,16 +1188,6 @@ declare module "@stencil/core" {
              */
             "es-sized-panel": LocalJSX.EsSizedPanel & JSXBase.HTMLAttributes<HTMLEsSizedPanelElement>;
             /**
-             * All sized panel placements
-             * @group Sized Panels
-             */
-            "es-sized-panel-demo": LocalJSX.EsSizedPanelDemo & JSXBase.HTMLAttributes<HTMLEsSizedPanelDemoElement>;
-            /**
-             * Sized panel placement
-             * @group Sized panels
-             */
-            "es-sized-panel-placement-demo": LocalJSX.EsSizedPanelPlacementDemo & JSXBase.HTMLAttributes<HTMLEsSizedPanelPlacementDemoElement>;
-            /**
              * A theme picker dropdown for the header
              */
             "es-theme-dropdown": LocalJSX.EsThemeDropdown & JSXBase.HTMLAttributes<HTMLEsThemeDropdownElement>;
@@ -1639,44 +1196,6 @@ declare module "@stencil/core" {
              * Placed in the toolbar area of the layout. Automatically sets `--layout-toolbar-width` based on it's own width.
              */
             "es-toolbar": LocalJSX.EsToolbar & JSXBase.HTMLAttributes<HTMLEsToolbarElement>;
-            /**
-             * Everything Demo
-             */
-            "everything-demo": LocalJSX.EverythingDemo & JSXBase.HTMLAttributes<HTMLEverythingDemoElement>;
-            /**
-             * Header
-             * @group Layout
-             */
-            "header-demo": LocalJSX.HeaderDemo & JSXBase.HTMLAttributes<HTMLHeaderDemoElement>;
-            /**
-             * Header Dropdown
-             * @group Layout
-             */
-            "header-dropdown-demo": LocalJSX.HeaderDropdownDemo & JSXBase.HTMLAttributes<HTMLHeaderDropdownDemoElement>;
-            /**
-             * Layout Button
-             * @group Buttons
-             */
-            "layout-button-demo": LocalJSX.LayoutButtonDemo & JSXBase.HTMLAttributes<HTMLLayoutButtonDemoElement>;
-            /**
-             * Layout Link
-             * @group Buttons
-             */
-            "layout-link-demo": LocalJSX.LayoutLinkDemo & JSXBase.HTMLAttributes<HTMLLayoutLinkDemoElement>;
-            /**
-             * Page Title
-             */
-            "page-title-demo": LocalJSX.PageTitleDemo & JSXBase.HTMLAttributes<HTMLPageTitleDemoElement>;
-            /**
-             * Sidebar
-             * @group Layout
-             */
-            "sidebar-demo": LocalJSX.SidebarDemo & JSXBase.HTMLAttributes<HTMLSidebarDemoElement>;
-            /**
-             * Toolbar
-             * @group Layout
-             */
-            "toolbar-demo": LocalJSX.ToolbarDemo & JSXBase.HTMLAttributes<HTMLToolbarDemoElement>;
         }
     }
 }

@@ -5,33 +5,16 @@
 
 :host {
     display: block;
+
     --primary-color: var(--color-background);
     --secondary-color: var(--color-foreground);
-    --tertiary-color: var(--color-shade-60);
+    --tertiary-color: var(--color-foreground);
 }
 
 :host([variant='highlight']) {
     --primary-color: var(--color-background);
     --secondary-color: var(--color-highlight);
     --tertiary-color: var(--color-highlight);
-}
-
-.header_button {
-    --spacing: 10px;
-
-    &.circle {
-        --spacing: 6px;
-    }
-
-    &[disabled] {
-        --background-color: var(--primary-color);
-        --foreground-color: var(--color-shade-30);
-        --border-color: var(--color-shade-30);
-
-        &[high-contrast] {
-            --foreground-color: var(--color-foreground);
-        }
-    }
 }
 
 .caret {
@@ -56,6 +39,7 @@
 
     &.high-contrast {
         border-width: 2px 1px;
+        background-color: var(--color-background);
     }
 
     &.entered {
@@ -70,7 +54,7 @@
 .open {
     --background-color: var(--secondary-color);
     --foreground-color: var(--primary-color);
-    --border-color: var(--primary-color);
+    --border-color: var(--secondary-color);
 }
 
 es-layout-button,
