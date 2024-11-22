@@ -1,5 +1,5 @@
 import { Component, h, Host } from '@stencil/core';
-import { theme } from '@eventstore-ui/theme';
+import { theme } from '@kurrent-ui/theme';
 
 /**
  * Displays Scheduled Backups illustration.
