@@ -1,9 +1,3 @@
 docs-root {
     display: contents;
 }
-
-es-header > es-button-link {
-    --primary-color: var(--color-layout-base);
-    --secondary-color: var(--color-layout-contrast);
-    --tertiary-color: var(--color-layout-shade-60);
-}

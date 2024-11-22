@@ -16,8 +16,6 @@ export { SomeReflection } from "./utils/typedoc/types";
 export { SomeType } from "typedoc";
 export { LocationSegments, Router } from "@eventstore-ui/router";
 export namespace Components {
-    interface DocsBackground {
-    }
     interface DocsComponentDocs {
         "comp": JsonDocs['components'][0];
         "lib": Lib;
@@ -88,12 +86,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLDocsBackgroundElement extends Components.DocsBackground, HTMLStencilElement {
-    }
-    var HTMLDocsBackgroundElement: {
-        prototype: HTMLDocsBackgroundElement;
-        new (): HTMLDocsBackgroundElement;
-    };
     interface HTMLDocsComponentDocsElement extends Components.DocsComponentDocs, HTMLStencilElement {
     }
     var HTMLDocsComponentDocsElement: {
@@ -221,7 +213,6 @@ declare global {
         new (): HTMLWizardExampleElement;
     };
     interface HTMLElementTagNameMap {
-        "docs-background": HTMLDocsBackgroundElement;
         "docs-component-docs": HTMLDocsComponentDocsElement;
         "docs-events-table": HTMLDocsEventsTableElement;
         "docs-functional-component-docs": HTMLDocsFunctionalComponentDocsElement;
@@ -246,8 +237,6 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface DocsBackground {
-    }
     interface DocsComponentDocs {
         "comp": JsonDocs['components'][0];
         "lib": Lib;
@@ -317,7 +306,6 @@ declare namespace LocalJSX {
     interface WizardExample {
     }
     interface IntrinsicElements {
-        "docs-background": DocsBackground;
         "docs-component-docs": DocsComponentDocs;
         "docs-events-table": DocsEventsTable;
         "docs-functional-component-docs": DocsFunctionalComponentDocs;
@@ -345,7 +333,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "docs-background": LocalJSX.DocsBackground & JSXBase.HTMLAttributes<HTMLDocsBackgroundElement>;
             "docs-component-docs": LocalJSX.DocsComponentDocs & JSXBase.HTMLAttributes<HTMLDocsComponentDocsElement>;
             "docs-events-table": LocalJSX.DocsEventsTable & JSXBase.HTMLAttributes<HTMLDocsEventsTableElement>;
             "docs-functional-component-docs": LocalJSX.DocsFunctionalComponentDocs & JSXBase.HTMLAttributes<HTMLDocsFunctionalComponentDocsElement>;

@@ -314,7 +314,7 @@
             "name": "theme",
             "component": "Theme",
             "path": "./components/Theme.tsx",
-            "aliases": ["@eventstore-ui/theme"]
+            "aliases": ["@kurrent-ui/theme"]
         },
         "trash": {
             "name": "trash",
