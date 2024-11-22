@@ -57,7 +57,6 @@ export class HeaderDropdown {
                     class={{
                         header_button: true,
                         open: this.dropdownOpen,
-                        circle: !this.buttonText && !this.caret,
                     }}
                     disabled={this.disabled}
                 >

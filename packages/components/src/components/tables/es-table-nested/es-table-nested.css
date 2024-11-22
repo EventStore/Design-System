@@ -54,16 +54,16 @@ es-table-nested {
         height: 100%;
         width: 100%;
 
-        --current-color: var(--color-primary-dark);
+        --current-color: var(--color-foreground);
     }
 
     & .expand_more {
         width: 100%;
         grid-column: 1 / -1;
         background-color: var(--row-color);
-        border-bottom: 1px solid var(--color-primary-extra-light);
+        border-bottom: 1px solid var(--color-foreground);
 
-        --current-color: var(--color-primary-dark);
+        --current-color: var(--color-foreground);
     }
 
     & :where([role='row'].can_expand) {
