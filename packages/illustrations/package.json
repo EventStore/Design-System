@@ -40,10 +40,10 @@
         }
     },
     "peerDependencies": {
-        "@eventstore-ui/theme": "^1.0.0"
+        "@kurrent-ui/theme": "^1.0.0"
     },
     "devDependencies": {
-        "@eventstore-ui/theme": "workspace:*",
+        "@kurrent-ui/theme": "workspace:*",
         "@stencil-community/postcss": "^2.2.0",
         "@stencil/core": "4.22.0",
         "case-anything": "^2.1.10",

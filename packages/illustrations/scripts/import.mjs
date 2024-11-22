@@ -129,9 +129,10 @@ export const optimiseSVG = (svg, name) => {
                                 if (node.name !== 'style') return;
                                 const text = node.children[0].value;
                                 css = [css, text].join('\n');
-                                parentNode.children = parentNode.children.filter(
-                                    (child) => child !== node,
-                                );
+                                parentNode.children =
+                                    parentNode.children.filter(
+                                        (child) => child !== node,
+                                    );
                             },
                         },
                     };
@@ -148,7 +149,7 @@ const createComponent = ({ title, light, dark }, noCss) => {
 
     return `
 import { Component, h, Host } from '@stencil/core';
-import { theme } from '@eventstore-ui/theme';
+import { theme } from '@kurrent-ui/theme';
 
 /** 
  * Displays ${capitalCase(title)} illustration. 
