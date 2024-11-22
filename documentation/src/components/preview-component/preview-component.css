@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-text);
+    color: var(--color-foreground);
     animation: fade-in 500ms ease-in-out;
 }
 

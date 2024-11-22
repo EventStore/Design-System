@@ -31,13 +31,13 @@ section {
     overflow: hidden;
 
     & es-corner-banner {
-        --background-color: var(--color-text);
+        --background-color: var(--color-foreground);
         --foreground-color: var(--color-background);
     }
 
     & a {
         padding: 20px;
-        color: var(--color-text);
+        color: var(--color-foreground);
         text-decoration: none;
         display: grid;
 

@@ -239,7 +239,7 @@ iconStore.addIcons({
     get theme() {
         return import('./components/Theme').then(({ Theme }) => Theme);
     },
-    get '@eventstore-ui/theme'() {
+    get '@kurrent-ui/theme'() {
         return this['theme'];
     },
     get trash() {
