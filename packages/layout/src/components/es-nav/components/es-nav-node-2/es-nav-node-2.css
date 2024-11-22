@@ -7,7 +7,7 @@
 }
 
 .node {
-    color: var(--color-layout-contrast);
+    color: var(--color-foreground);
     padding: 6px 20px 6px 48px;
     text-align: left;
 
@@ -22,25 +22,25 @@
         left: 29px;
         width: 2px;
         height: auto;
-        background-color: var(--color-layout-base);
+        background-color: var(--color-background);
         transition: background-color 500ms ease;
     }
 
     &:hover,
     &:focus {
-        color: var(--color-layout-highlight);
+        color: var(--color-highlight);
     }
 
     &[disabled] {
         &:hover,
         &:focus,
         & {
-            color: var(--color-layout-contrast);
+            color: var(--color-foreground);
         }
     }
 }
 
 :host(.active_within) .node::after,
 .link-active.node::after {
-    background-color: var(--color-layout-highlight);
+    background-color: var(--color-highlight);
 }

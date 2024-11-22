@@ -1,15 +1,17 @@
 import { Component, h, Host, State } from '@stencil/core';
 
 import { Route, router, Switch } from '@eventstore-ui/router';
-import { Page, type PageState } from '../Page/Page';
+import { Page, type PageState } from '../../components/Page/Page';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import { requestClose } from '@eventstore-ui/components';
 import { logger } from '../../utils/logger';
 
-/** @internal */
+/**
+ * Everything Demo
+ */
 @Component({
-    tag: 'dev-root',
-    styleUrl: 'dev-root.css',
+    tag: 'everything-demo',
+    styleUrl: 'everything.css',
     shadow: true,
 })
 export class DevRoot {

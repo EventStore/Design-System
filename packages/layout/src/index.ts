@@ -1,6 +1,5 @@
 export type { Components, JSX } from './components';
 export type { Crumb } from './components/es-breadcrumb/types';
-export type { LayoutColorScheme } from './utils/layoutThemes';
 export type {
     NavParentNode,
     NavLeafNode,

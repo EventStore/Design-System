@@ -9,7 +9,7 @@ import {
 } from '@stencil/core';
 import { Link, router } from '@eventstore-ui/router';
 import type { IconDescription } from '@eventstore-ui/components';
-import { theme } from '@eventstore-ui/theme';
+import { theme } from '@kurrent-ui/theme';
 
 import { bindPanelDetails, type PanelMode } from '../../panel';
 

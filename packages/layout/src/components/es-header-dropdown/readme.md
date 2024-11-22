@@ -67,12 +67,12 @@ export default () => (
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: var(--color-layout-shade-20);
-    color: var(--color-layout-contrast);
+    background-color: var(--color-shade-20);
+    color: var(--color-foreground);
 }
 
 .user_dropdown_header es-icon {
-    color: var(--color-layout-highlight);
+    color: var(--color-highlight);
 }
 
 .user_dropdown_header h1 {

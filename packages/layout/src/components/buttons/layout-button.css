@@ -7,13 +7,13 @@
     --icon-size: 24px;
     --vertical-spacing: 20px;
 
-    --default-color: var(--color-text);
+    --default-color: var(--color-foreground);
     --disabled-color: var(--color-shade-50);
 
-    --active-color: var(--color-secondary);
+    --active-color: var(--color-highlight);
     --active-background-color: transparent;
 
-    --highlight-color: var(--color-text);
+    --highlight-color: var(--color-foreground);
     --highlight-background-color: transparent;
     --highlight-decoration: underline;
 }
@@ -51,7 +51,6 @@ button {
     text-decoration: none;
     position: relative;
     overflow: hidden;
-    outline-offset: -1px;
     gap: var(--icon-gap);
     transition:
         color 500ms ease,
@@ -101,6 +100,7 @@ button {
         color: var(--highlight-color);
         background-color: var(--highlight-background-color);
         text-decoration: var(--highlight-decoration);
+        outline: none;
 
         &::before {
             transform: translateX(25%);
