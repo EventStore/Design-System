@@ -33,7 +33,7 @@ thead th {
     text-align: left;
     font-weight: 700;
     font-size: 16px;
-    color: var(--color-primary);
+    color: var(--color-highlight);
     border-color: var(--color-shade-20);
     border-style: solid;
     border-width: 0;
