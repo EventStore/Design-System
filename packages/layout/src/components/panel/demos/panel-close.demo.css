@@ -11,7 +11,7 @@ main {
 .header {
     grid-area: header;
     background-color: #fbf8cc;
-    color: var(--color-title-1);
+    color: var(--color-title);
     padding: 16px;
     font-size: 20px;
 }

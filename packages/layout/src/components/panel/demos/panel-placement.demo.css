@@ -9,7 +9,7 @@ main {
 }
 
 .area {
-    color: var(--color-title-1);
+    color: var(--color-title);
     padding: 16px;
     font-size: 20px;
 

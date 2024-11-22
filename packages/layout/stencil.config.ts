@@ -11,4 +11,7 @@ export const config = packageConfig({
             warn: true,
         },
     ],
+    devServer: {
+        includeLayoutGrid: true,
+    },
 });

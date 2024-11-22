@@ -4,7 +4,7 @@
 
 .inner {
     pointer-events: none;
-    background-color: var(--color-text);
+    background-color: var(--color-foreground);
     color: var(--color-background);
     padding: 5px 10px;
     opacity: 0;
@@ -28,25 +28,25 @@
     &[data-placement^='right']:after {
         border-top: 12px solid transparent;
         border-bottom: 12px solid transparent;
-        border-right: 12px solid var(--color-text);
+        border-right: 12px solid var(--color-foreground);
     }
 
     &[data-placement^='left']:after {
         border-top: 12px solid transparent;
         border-bottom: 12px solid transparent;
-        border-left: 12px solid var(--color-text);
+        border-left: 12px solid var(--color-foreground);
     }
 
     &[data-placement^='top']:after {
         border-left: 12px solid transparent;
         border-right: 12px solid transparent;
-        border-top: 12px solid var(--color-text);
+        border-top: 12px solid var(--color-foreground);
     }
 
     &[data-placement^='bottom']:after {
         border-left: 12px solid transparent;
         border-right: 12px solid transparent;
-        border-bottom: 12px solid var(--color-text);
+        border-bottom: 12px solid var(--color-foreground);
     }
 }
 

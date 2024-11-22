@@ -1,0 +1,30 @@
+:host {
+    display: contents;
+}
+
+.user_dropdown_header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: var(--color-shade-20);
+    color: var(--color-foreground);
+}
+
+.user_dropdown_header es-icon {
+    color: var(--color-highlight);
+}
+
+.user_dropdown_header h1 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 17px;
+    margin-bottom: 5px;
+}
+
+.user_dropdown_header h2 {
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0;
+}

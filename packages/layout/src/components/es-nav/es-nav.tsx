@@ -1,5 +1,5 @@
 import { router } from '@eventstore-ui/router';
-import { theme } from '@eventstore-ui/theme';
+import { theme } from '@kurrent-ui/theme';
 import {
     Component,
     h,
