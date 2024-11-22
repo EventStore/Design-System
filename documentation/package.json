@@ -47,8 +47,8 @@
         "@eventstore-ui/layout": "workspace:*",
         "@eventstore-ui/router": "workspace:*",
         "@eventstore-ui/stores": "workspace:*",
-        "@eventstore-ui/theme": "workspace:*",
         "@eventstore-ui/utils": "workspace:*",
+        "@kurrent-ui/theme": "workspace:*",
         "highlight.js": "11.2.0",
         "markdown-it": "12.3.2",
         "markdown-it-anchor": "8.6.4"

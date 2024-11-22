@@ -20,7 +20,6 @@ export class Root {
                     <es-button-link
                         external
                         slot={'right'}
-                        variant={'outline'}
                         url={'https://github.com/EventStore/Design-System'}
                     >
                         <es-icon icon={'github'} />

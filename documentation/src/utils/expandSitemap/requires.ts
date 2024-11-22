@@ -48,8 +48,8 @@ import storesPackageJson from '@eventstore-ui/stores/package.json';
 import storesReadme from '@eventstore-ui/stores/readme.md';
 import storesTypeDocs from '../../../generated/stores.typedoc.json';
 
-import themePackageJson from '@eventstore-ui/theme/package.json';
-import themeReadme from '@eventstore-ui/theme/readme.md';
+import themePackageJson from '@kurrent-ui/theme/package.json';
+import themeReadme from '@kurrent-ui/theme/readme.md';
 import themeTypeDocs from '../../../generated/theme.typedoc.json';
 
 import utilsPackageJson from '@eventstore-ui/utils/package.json';
