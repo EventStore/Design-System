@@ -23,8 +23,8 @@ export const themes: Record<string, ThemeDefinition> = {
         },
     },
     dark: {
-        title: 'Light',
-        name: 'light',
+        title: 'Dark',
+        name: 'dark',
         prefix: 'color',
         scheme: dark,
         meta: {
@@ -83,7 +83,11 @@ export const addChildTheme = <T extends object>(
     children: Record<BaseThemeKey, T>,
 ) => {
     for (const [key, scheme] of Object.entries(children)) {
-        childThemes[key as BaseThemeKey]?.push({ prefix, scheme });
+        if (childThemes[key] == null) {
+            childThemes[key] = [];
+        }
+
+        childThemes[key].push({ prefix, scheme });
     }
 
     logger.log(`Added child theme "${prefix}"`);

@@ -2040,9 +2040,9 @@ __metadata:
     "@eventstore-ui/configs": "workspace:*"
     "@eventstore-ui/icon-manager": "workspace:*"
     "@eventstore-ui/router": "workspace:*"
-    "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@floating-ui/dom": "npm:0.4.1"
+    "@kurrent-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
     "@stencil/core": "npm:4.22.0"
     jest: "npm:^27.4.5"
@@ -2052,8 +2052,8 @@ __metadata:
     typescript: "npm:5.1.6"
   peerDependencies:
     "@eventstore-ui/router": ^1.0.0
-    "@eventstore-ui/theme": ^1.0.0
     "@eventstore-ui/utils": ^1.0.0
+    "@kurrent-ui/theme": ^1.0.0
   languageName: unknown
   linkType: soft
 
@@ -2090,8 +2090,8 @@ __metadata:
     "@eventstore-ui/preview-builder": "workspace:*"
     "@eventstore-ui/router": "workspace:*"
     "@eventstore-ui/stores": "workspace:*"
-    "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
+    "@kurrent-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
     "@stencil/core": "npm:4.22.0"
     "@types/jest": "npm:^27.0.3"
@@ -2120,8 +2120,8 @@ __metadata:
     "@eventstore-ui/components": "workspace:*"
     "@eventstore-ui/configs": "workspace:*"
     "@eventstore-ui/monaco-editor": "workspace:*"
-    "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
+    "@kurrent-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
     "@stencil/core": "npm:4.22.0"
     jest: "npm:^27.4.5"
@@ -2134,8 +2134,8 @@ __metadata:
     typescript: "npm:5.1.6"
   peerDependencies:
     "@eventstore-ui/components": ^1.0.0
-    "@eventstore-ui/theme": ^1.0.0
     "@eventstore-ui/utils": ^1.0.0
+    "@kurrent-ui/theme": ^1.0.0
   languageName: unknown
   linkType: soft
 
@@ -2147,8 +2147,8 @@ __metadata:
     "@eventstore-ui/configs": "workspace:*"
     "@eventstore-ui/forms": "workspace:*"
     "@eventstore-ui/icon-manager": "workspace:*"
-    "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
+    "@kurrent-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
     "@stencil/core": "npm:4.22.0"
     imask: "npm:7.6.1"
@@ -2159,8 +2159,8 @@ __metadata:
     typescript: "npm:5.1.6"
   peerDependencies:
     "@eventstore-ui/components": ^1.0.0
-    "@eventstore-ui/theme": ^1.0.0
     "@eventstore-ui/utils": ^1.0.0
+    "@kurrent-ui/theme": ^1.0.0
   languageName: unknown
   linkType: soft
 
@@ -2213,7 +2213,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/illustrations@workspace:packages/illustrations"
   dependencies:
-    "@eventstore-ui/theme": "workspace:*"
+    "@kurrent-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
     "@stencil/core": "npm:4.22.0"
     case-anything: "npm:^2.1.10"
@@ -2226,7 +2226,7 @@ __metadata:
     typescript: "npm:5.1.6"
     yargs: "npm:^15.3.1"
   peerDependencies:
-    "@eventstore-ui/theme": ^1.0.0
+    "@kurrent-ui/theme": ^1.0.0
   languageName: unknown
   linkType: soft
 
@@ -2239,8 +2239,8 @@ __metadata:
     "@eventstore-ui/icon-manager": "workspace:*"
     "@eventstore-ui/illustrations": "workspace:*"
     "@eventstore-ui/router": "workspace:*"
-    "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
+    "@kurrent-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
     "@stencil/core": "npm:4.22.0"
     jest: "npm:^27.4.5"
@@ -2252,8 +2252,8 @@ __metadata:
     "@eventstore-ui/components": ^1.0.0
     "@eventstore-ui/illustrations": ^1.0.0
     "@eventstore-ui/router": ^1.0.0
-    "@eventstore-ui/theme": ^1.0.0
     "@eventstore-ui/utils": ^1.0.0
+    "@kurrent-ui/theme": ^1.0.0
   languageName: unknown
   linkType: soft
 
@@ -2317,25 +2317,6 @@ __metadata:
     babel-jest: "npm:^27.5.1"
     jest: "npm:^27.4.5"
     npm-run-all: "npm:^4.1.5"
-    rollup: "npm:^4.24.0"
-    typedoc: "npm:0.24.8"
-    typescript: "npm:5.1.6"
-  peerDependencies:
-    "@eventstore-ui/utils": ^1.0.0
-  languageName: unknown
-  linkType: soft
-
-"@eventstore-ui/theme@workspace:*, @eventstore-ui/theme@workspace:packages/theme":
-  version: 0.0.0-use.local
-  resolution: "@eventstore-ui/theme@workspace:packages/theme"
-  dependencies:
-    "@babel/core": "npm:^7.12.10"
-    "@babel/preset-env": "npm:^7.12.11"
-    "@babel/preset-typescript": "npm:^7.12.7"
-    "@eventstore-ui/utils": "workspace:*"
-    "@stencil/core": "npm:4.22.0"
-    babel-jest: "npm:^27.5.1"
-    jest: "npm:^27.4.5"
     rollup: "npm:^4.24.0"
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
@@ -2693,6 +2674,25 @@ __metadata:
   checksum: dced32160a44b49d531b80a4a2159dceab6b3ddf0c8e95a0deae4b0e894b172defa63d5ac52a19c2068e1fe7d31ea4ba931fbeec103233ecb4208953967120fc
   languageName: node
   linkType: hard
+
+"@kurrent-ui/theme@workspace:*, @kurrent-ui/theme@workspace:packages/theme":
+  version: 0.0.0-use.local
+  resolution: "@kurrent-ui/theme@workspace:packages/theme"
+  dependencies:
+    "@babel/core": "npm:^7.12.10"
+    "@babel/preset-env": "npm:^7.12.11"
+    "@babel/preset-typescript": "npm:^7.12.7"
+    "@eventstore-ui/utils": "workspace:*"
+    "@stencil/core": "npm:4.22.0"
+    babel-jest: "npm:^27.5.1"
+    jest: "npm:^27.4.5"
+    rollup: "npm:^4.24.0"
+    typedoc: "npm:0.24.8"
+    typescript: "npm:5.1.6"
+  peerDependencies:
+    "@eventstore-ui/utils": ^1.0.0
+  languageName: unknown
+  linkType: soft
 
 "@manypkg/find-root@npm:^1.1.0":
   version: 1.1.0
@@ -5782,8 +5782,8 @@ __metadata:
     "@eventstore-ui/layout": "workspace:*"
     "@eventstore-ui/router": "workspace:*"
     "@eventstore-ui/stores": "workspace:*"
-    "@eventstore-ui/theme": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
+    "@kurrent-ui/theme": "workspace:*"
     "@stencil/core": "npm:4.22.0"
   languageName: unknown
   linkType: soft

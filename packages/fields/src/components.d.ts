@@ -23,11 +23,6 @@ export { RenderSelectValue } from "./components/select/types";
 export { OptionFilter as OptionFilter1, RenderTypeaheadInput, RenderTypeaheadOption as RenderTypeaheadOption1, TypeaheadOption as TypeaheadOption1 } from "./components/typeahead/types";
 export namespace Components {
     /**
-     * checkbox
-     */
-    interface CheckboxDemo {
-    }
-    /**
      * A checkbox component
      */
     interface F2Checkbox {
@@ -949,111 +944,6 @@ export namespace Components {
          */
         "warningIcon": IconDescription;
     }
-    /**
-     * masked-text-field
-     * @group fields
-     */
-    interface MaskedTextFieldDemo {
-    }
-    /**
-     * masked-text-input
-     * @group inputs
-     */
-    interface MaskedTextInputDemo {
-    }
-    /**
-     * multi-checkbox-field
-     * @group fields
-     */
-    interface MultiCheckboxFieldDemo {
-    }
-    /**
-     * number-field
-     * @group fields
-     */
-    interface NumberFieldDemo {
-    }
-    /**
-     * number-input
-     * @group inputs
-     */
-    interface NumberInputDemo {
-    }
-    /**
-     * radio-card-field
-     * @group fields
-     */
-    interface RadioCardFieldDemo {
-    }
-    /**
-     * radio-card-input
-     * @group inputs
-     */
-    interface RadioCardInputDemo {
-    }
-    /**
-     * select-field
-     * @group fields
-     */
-    interface SelectFieldDemo {
-    }
-    /**
-     * select-input
-     * @group inputs
-     */
-    interface SelectInputDemo {
-    }
-    /**
-     * select-list-field
-     * @group fields
-     */
-    interface SelectListFieldDemo {
-    }
-    interface SelectOptionDemo {
-        "name": string;
-        "value": string;
-    }
-    /**
-     * switch
-     */
-    interface SwitchDemo {
-    }
-    /**
-     * Templated form
-     * @group examples
-     */
-    interface TemplatedFormDemo {
-    }
-    /**
-     * text-field
-     * @group fields
-     */
-    interface TextFieldDemo {
-    }
-    /**
-     * text-input
-     * @group inputs
-     */
-    interface TextInputDemo {
-    }
-    /**
-     * text-list-field
-     * @group fields
-     */
-    interface TextListFieldDemo {
-    }
-    /**
-     * textarea-field
-     * @group fields
-     */
-    interface TextareaFieldDemo {
-    }
-    /**
-     * textarea-input
-     * @group inputs
-     */
-    interface TextareaInputDemo {
-    }
 }
 export interface F2CheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1128,15 +1018,6 @@ export interface F2TypeaheadCustomEvent<T> extends CustomEvent<T> {
     target: HTMLF2TypeaheadElement;
 }
 declare global {
-    /**
-     * checkbox
-     */
-    interface HTMLCheckboxDemoElement extends Components.CheckboxDemo, HTMLStencilElement {
-    }
-    var HTMLCheckboxDemoElement: {
-        prototype: HTMLCheckboxDemoElement;
-        new (): HTMLCheckboxDemoElement;
-    };
     interface HTMLF2CheckboxElementEventMap {
         "fieldchange": FieldChange<boolean>;
     }
@@ -1539,183 +1420,7 @@ declare global {
         prototype: HTMLF2ValidationMessagesElement;
         new (): HTMLF2ValidationMessagesElement;
     };
-    /**
-     * masked-text-field
-     * @group fields
-     */
-    interface HTMLMaskedTextFieldDemoElement extends Components.MaskedTextFieldDemo, HTMLStencilElement {
-    }
-    var HTMLMaskedTextFieldDemoElement: {
-        prototype: HTMLMaskedTextFieldDemoElement;
-        new (): HTMLMaskedTextFieldDemoElement;
-    };
-    /**
-     * masked-text-input
-     * @group inputs
-     */
-    interface HTMLMaskedTextInputDemoElement extends Components.MaskedTextInputDemo, HTMLStencilElement {
-    }
-    var HTMLMaskedTextInputDemoElement: {
-        prototype: HTMLMaskedTextInputDemoElement;
-        new (): HTMLMaskedTextInputDemoElement;
-    };
-    /**
-     * multi-checkbox-field
-     * @group fields
-     */
-    interface HTMLMultiCheckboxFieldDemoElement extends Components.MultiCheckboxFieldDemo, HTMLStencilElement {
-    }
-    var HTMLMultiCheckboxFieldDemoElement: {
-        prototype: HTMLMultiCheckboxFieldDemoElement;
-        new (): HTMLMultiCheckboxFieldDemoElement;
-    };
-    /**
-     * number-field
-     * @group fields
-     */
-    interface HTMLNumberFieldDemoElement extends Components.NumberFieldDemo, HTMLStencilElement {
-    }
-    var HTMLNumberFieldDemoElement: {
-        prototype: HTMLNumberFieldDemoElement;
-        new (): HTMLNumberFieldDemoElement;
-    };
-    /**
-     * number-input
-     * @group inputs
-     */
-    interface HTMLNumberInputDemoElement extends Components.NumberInputDemo, HTMLStencilElement {
-    }
-    var HTMLNumberInputDemoElement: {
-        prototype: HTMLNumberInputDemoElement;
-        new (): HTMLNumberInputDemoElement;
-    };
-    /**
-     * radio-card-field
-     * @group fields
-     */
-    interface HTMLRadioCardFieldDemoElement extends Components.RadioCardFieldDemo, HTMLStencilElement {
-    }
-    var HTMLRadioCardFieldDemoElement: {
-        prototype: HTMLRadioCardFieldDemoElement;
-        new (): HTMLRadioCardFieldDemoElement;
-    };
-    /**
-     * radio-card-input
-     * @group inputs
-     */
-    interface HTMLRadioCardInputDemoElement extends Components.RadioCardInputDemo, HTMLStencilElement {
-    }
-    var HTMLRadioCardInputDemoElement: {
-        prototype: HTMLRadioCardInputDemoElement;
-        new (): HTMLRadioCardInputDemoElement;
-    };
-    /**
-     * select-field
-     * @group fields
-     */
-    interface HTMLSelectFieldDemoElement extends Components.SelectFieldDemo, HTMLStencilElement {
-    }
-    var HTMLSelectFieldDemoElement: {
-        prototype: HTMLSelectFieldDemoElement;
-        new (): HTMLSelectFieldDemoElement;
-    };
-    /**
-     * select-input
-     * @group inputs
-     */
-    interface HTMLSelectInputDemoElement extends Components.SelectInputDemo, HTMLStencilElement {
-    }
-    var HTMLSelectInputDemoElement: {
-        prototype: HTMLSelectInputDemoElement;
-        new (): HTMLSelectInputDemoElement;
-    };
-    /**
-     * select-list-field
-     * @group fields
-     */
-    interface HTMLSelectListFieldDemoElement extends Components.SelectListFieldDemo, HTMLStencilElement {
-    }
-    var HTMLSelectListFieldDemoElement: {
-        prototype: HTMLSelectListFieldDemoElement;
-        new (): HTMLSelectListFieldDemoElement;
-    };
-    interface HTMLSelectOptionDemoElement extends Components.SelectOptionDemo, HTMLStencilElement {
-    }
-    var HTMLSelectOptionDemoElement: {
-        prototype: HTMLSelectOptionDemoElement;
-        new (): HTMLSelectOptionDemoElement;
-    };
-    /**
-     * switch
-     */
-    interface HTMLSwitchDemoElement extends Components.SwitchDemo, HTMLStencilElement {
-    }
-    var HTMLSwitchDemoElement: {
-        prototype: HTMLSwitchDemoElement;
-        new (): HTMLSwitchDemoElement;
-    };
-    /**
-     * Templated form
-     * @group examples
-     */
-    interface HTMLTemplatedFormDemoElement extends Components.TemplatedFormDemo, HTMLStencilElement {
-    }
-    var HTMLTemplatedFormDemoElement: {
-        prototype: HTMLTemplatedFormDemoElement;
-        new (): HTMLTemplatedFormDemoElement;
-    };
-    /**
-     * text-field
-     * @group fields
-     */
-    interface HTMLTextFieldDemoElement extends Components.TextFieldDemo, HTMLStencilElement {
-    }
-    var HTMLTextFieldDemoElement: {
-        prototype: HTMLTextFieldDemoElement;
-        new (): HTMLTextFieldDemoElement;
-    };
-    /**
-     * text-input
-     * @group inputs
-     */
-    interface HTMLTextInputDemoElement extends Components.TextInputDemo, HTMLStencilElement {
-    }
-    var HTMLTextInputDemoElement: {
-        prototype: HTMLTextInputDemoElement;
-        new (): HTMLTextInputDemoElement;
-    };
-    /**
-     * text-list-field
-     * @group fields
-     */
-    interface HTMLTextListFieldDemoElement extends Components.TextListFieldDemo, HTMLStencilElement {
-    }
-    var HTMLTextListFieldDemoElement: {
-        prototype: HTMLTextListFieldDemoElement;
-        new (): HTMLTextListFieldDemoElement;
-    };
-    /**
-     * textarea-field
-     * @group fields
-     */
-    interface HTMLTextareaFieldDemoElement extends Components.TextareaFieldDemo, HTMLStencilElement {
-    }
-    var HTMLTextareaFieldDemoElement: {
-        prototype: HTMLTextareaFieldDemoElement;
-        new (): HTMLTextareaFieldDemoElement;
-    };
-    /**
-     * textarea-input
-     * @group inputs
-     */
-    interface HTMLTextareaInputDemoElement extends Components.TextareaInputDemo, HTMLStencilElement {
-    }
-    var HTMLTextareaInputDemoElement: {
-        prototype: HTMLTextareaInputDemoElement;
-        new (): HTMLTextareaInputDemoElement;
-    };
     interface HTMLElementTagNameMap {
-        "checkbox-demo": HTMLCheckboxDemoElement;
         "f2-checkbox": HTMLF2CheckboxElement;
         "f2-form": HTMLF2FormElement;
         "f2-form-section-divider": HTMLF2FormSectionDividerElement;
@@ -1737,32 +1442,9 @@ declare global {
         "f2-textarea-input": HTMLF2TextareaInputElement;
         "f2-typeahead": HTMLF2TypeaheadElement;
         "f2-validation-messages": HTMLF2ValidationMessagesElement;
-        "masked-text-field-demo": HTMLMaskedTextFieldDemoElement;
-        "masked-text-input-demo": HTMLMaskedTextInputDemoElement;
-        "multi-checkbox-field-demo": HTMLMultiCheckboxFieldDemoElement;
-        "number-field-demo": HTMLNumberFieldDemoElement;
-        "number-input-demo": HTMLNumberInputDemoElement;
-        "radio-card-field-demo": HTMLRadioCardFieldDemoElement;
-        "radio-card-input-demo": HTMLRadioCardInputDemoElement;
-        "select-field-demo": HTMLSelectFieldDemoElement;
-        "select-input-demo": HTMLSelectInputDemoElement;
-        "select-list-field-demo": HTMLSelectListFieldDemoElement;
-        "select-option-demo": HTMLSelectOptionDemoElement;
-        "switch-demo": HTMLSwitchDemoElement;
-        "templated-form-demo": HTMLTemplatedFormDemoElement;
-        "text-field-demo": HTMLTextFieldDemoElement;
-        "text-input-demo": HTMLTextInputDemoElement;
-        "text-list-field-demo": HTMLTextListFieldDemoElement;
-        "textarea-field-demo": HTMLTextareaFieldDemoElement;
-        "textarea-input-demo": HTMLTextareaInputDemoElement;
     }
 }
 declare namespace LocalJSX {
-    /**
-     * checkbox
-     */
-    interface CheckboxDemo {
-    }
     /**
      * A checkbox component
      */
@@ -2811,113 +2493,7 @@ declare namespace LocalJSX {
          */
         "warningIcon"?: IconDescription;
     }
-    /**
-     * masked-text-field
-     * @group fields
-     */
-    interface MaskedTextFieldDemo {
-    }
-    /**
-     * masked-text-input
-     * @group inputs
-     */
-    interface MaskedTextInputDemo {
-    }
-    /**
-     * multi-checkbox-field
-     * @group fields
-     */
-    interface MultiCheckboxFieldDemo {
-    }
-    /**
-     * number-field
-     * @group fields
-     */
-    interface NumberFieldDemo {
-    }
-    /**
-     * number-input
-     * @group inputs
-     */
-    interface NumberInputDemo {
-    }
-    /**
-     * radio-card-field
-     * @group fields
-     */
-    interface RadioCardFieldDemo {
-    }
-    /**
-     * radio-card-input
-     * @group inputs
-     */
-    interface RadioCardInputDemo {
-    }
-    /**
-     * select-field
-     * @group fields
-     */
-    interface SelectFieldDemo {
-    }
-    /**
-     * select-input
-     * @group inputs
-     */
-    interface SelectInputDemo {
-    }
-    /**
-     * select-list-field
-     * @group fields
-     */
-    interface SelectListFieldDemo {
-    }
-    interface SelectOptionDemo {
-        "name"?: string;
-        "value"?: string;
-    }
-    /**
-     * switch
-     */
-    interface SwitchDemo {
-    }
-    /**
-     * Templated form
-     * @group examples
-     */
-    interface TemplatedFormDemo {
-    }
-    /**
-     * text-field
-     * @group fields
-     */
-    interface TextFieldDemo {
-    }
-    /**
-     * text-input
-     * @group inputs
-     */
-    interface TextInputDemo {
-    }
-    /**
-     * text-list-field
-     * @group fields
-     */
-    interface TextListFieldDemo {
-    }
-    /**
-     * textarea-field
-     * @group fields
-     */
-    interface TextareaFieldDemo {
-    }
-    /**
-     * textarea-input
-     * @group inputs
-     */
-    interface TextareaInputDemo {
-    }
     interface IntrinsicElements {
-        "checkbox-demo": CheckboxDemo;
         "f2-checkbox": F2Checkbox;
         "f2-form": F2Form;
         "f2-form-section-divider": F2FormSectionDivider;
@@ -2939,34 +2515,12 @@ declare namespace LocalJSX {
         "f2-textarea-input": F2TextareaInput;
         "f2-typeahead": F2Typeahead;
         "f2-validation-messages": F2ValidationMessages;
-        "masked-text-field-demo": MaskedTextFieldDemo;
-        "masked-text-input-demo": MaskedTextInputDemo;
-        "multi-checkbox-field-demo": MultiCheckboxFieldDemo;
-        "number-field-demo": NumberFieldDemo;
-        "number-input-demo": NumberInputDemo;
-        "radio-card-field-demo": RadioCardFieldDemo;
-        "radio-card-input-demo": RadioCardInputDemo;
-        "select-field-demo": SelectFieldDemo;
-        "select-input-demo": SelectInputDemo;
-        "select-list-field-demo": SelectListFieldDemo;
-        "select-option-demo": SelectOptionDemo;
-        "switch-demo": SwitchDemo;
-        "templated-form-demo": TemplatedFormDemo;
-        "text-field-demo": TextFieldDemo;
-        "text-input-demo": TextInputDemo;
-        "text-list-field-demo": TextListFieldDemo;
-        "textarea-field-demo": TextareaFieldDemo;
-        "textarea-input-demo": TextareaInputDemo;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            /**
-             * checkbox
-             */
-            "checkbox-demo": LocalJSX.CheckboxDemo & JSXBase.HTMLAttributes<HTMLCheckboxDemoElement>;
             /**
              * A checkbox component
              */
@@ -3050,91 +2604,6 @@ declare module "@stencil/core" {
              * Display messages under fields.
              */
             "f2-validation-messages": LocalJSX.F2ValidationMessages & JSXBase.HTMLAttributes<HTMLF2ValidationMessagesElement>;
-            /**
-             * masked-text-field
-             * @group fields
-             */
-            "masked-text-field-demo": LocalJSX.MaskedTextFieldDemo & JSXBase.HTMLAttributes<HTMLMaskedTextFieldDemoElement>;
-            /**
-             * masked-text-input
-             * @group inputs
-             */
-            "masked-text-input-demo": LocalJSX.MaskedTextInputDemo & JSXBase.HTMLAttributes<HTMLMaskedTextInputDemoElement>;
-            /**
-             * multi-checkbox-field
-             * @group fields
-             */
-            "multi-checkbox-field-demo": LocalJSX.MultiCheckboxFieldDemo & JSXBase.HTMLAttributes<HTMLMultiCheckboxFieldDemoElement>;
-            /**
-             * number-field
-             * @group fields
-             */
-            "number-field-demo": LocalJSX.NumberFieldDemo & JSXBase.HTMLAttributes<HTMLNumberFieldDemoElement>;
-            /**
-             * number-input
-             * @group inputs
-             */
-            "number-input-demo": LocalJSX.NumberInputDemo & JSXBase.HTMLAttributes<HTMLNumberInputDemoElement>;
-            /**
-             * radio-card-field
-             * @group fields
-             */
-            "radio-card-field-demo": LocalJSX.RadioCardFieldDemo & JSXBase.HTMLAttributes<HTMLRadioCardFieldDemoElement>;
-            /**
-             * radio-card-input
-             * @group inputs
-             */
-            "radio-card-input-demo": LocalJSX.RadioCardInputDemo & JSXBase.HTMLAttributes<HTMLRadioCardInputDemoElement>;
-            /**
-             * select-field
-             * @group fields
-             */
-            "select-field-demo": LocalJSX.SelectFieldDemo & JSXBase.HTMLAttributes<HTMLSelectFieldDemoElement>;
-            /**
-             * select-input
-             * @group inputs
-             */
-            "select-input-demo": LocalJSX.SelectInputDemo & JSXBase.HTMLAttributes<HTMLSelectInputDemoElement>;
-            /**
-             * select-list-field
-             * @group fields
-             */
-            "select-list-field-demo": LocalJSX.SelectListFieldDemo & JSXBase.HTMLAttributes<HTMLSelectListFieldDemoElement>;
-            "select-option-demo": LocalJSX.SelectOptionDemo & JSXBase.HTMLAttributes<HTMLSelectOptionDemoElement>;
-            /**
-             * switch
-             */
-            "switch-demo": LocalJSX.SwitchDemo & JSXBase.HTMLAttributes<HTMLSwitchDemoElement>;
-            /**
-             * Templated form
-             * @group examples
-             */
-            "templated-form-demo": LocalJSX.TemplatedFormDemo & JSXBase.HTMLAttributes<HTMLTemplatedFormDemoElement>;
-            /**
-             * text-field
-             * @group fields
-             */
-            "text-field-demo": LocalJSX.TextFieldDemo & JSXBase.HTMLAttributes<HTMLTextFieldDemoElement>;
-            /**
-             * text-input
-             * @group inputs
-             */
-            "text-input-demo": LocalJSX.TextInputDemo & JSXBase.HTMLAttributes<HTMLTextInputDemoElement>;
-            /**
-             * text-list-field
-             * @group fields
-             */
-            "text-list-field-demo": LocalJSX.TextListFieldDemo & JSXBase.HTMLAttributes<HTMLTextListFieldDemoElement>;
-            /**
-             * textarea-field
-             * @group fields
-             */
-            "textarea-field-demo": LocalJSX.TextareaFieldDemo & JSXBase.HTMLAttributes<HTMLTextareaFieldDemoElement>;
-            /**
-             * textarea-input
-             * @group inputs
-             */
-            "textarea-input-demo": LocalJSX.TextareaInputDemo & JSXBase.HTMLAttributes<HTMLTextareaInputDemoElement>;
         }
     }
 }
