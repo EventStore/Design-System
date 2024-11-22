@@ -167,4 +167,4 @@
     -   @eventstore-ui/illustrations@1.0.0
     -   @eventstore-ui/components@1.0.0
     -   @eventstore-ui/router@1.0.0
-    -   @eventstore-ui/theme@1.0.0
+    -   @kurrent-ui/theme@1.0.0

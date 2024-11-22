@@ -9,7 +9,7 @@ main {
 }
 
 .area {
-    color: var(--color-title-1);
+    color: var(--color-title);
     font-size: 20px;
     overflow: hidden;
 

@@ -7,15 +7,15 @@ svg {
 }
 
 [part='ouroboros'] {
-    fill: var(--color-layout-highlight);
+    fill: var(--color-highlight);
 }
 
 [part='text'] {
-    fill: var(--color-layout-contrast);
+    fill: var(--color-foreground);
 }
 
 :host([high-contrast]) {
     & [part='ouroboros'] {
-        fill: var(--color-layout-contrast);
+        fill: var(--color-foreground);
     }
 }

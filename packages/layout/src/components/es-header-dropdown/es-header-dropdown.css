@@ -5,15 +5,15 @@
 
 :host {
     display: block;
-    --primary-color: var(--color-layout-base);
-    --secondary-color: var(--color-layout-contrast);
-    --tertiary-color: var(--color-layout-shade-60);
+    --primary-color: var(--color-background);
+    --secondary-color: var(--color-foreground);
+    --tertiary-color: var(--color-shade-60);
 }
 
 :host([variant='highlight']) {
-    --primary-color: var(--color-layout-highlight);
-    --secondary-color: var(--color-layout-contrast);
-    --tertiary-color: var(--color-layout-contrast);
+    --primary-color: var(--color-background);
+    --secondary-color: var(--color-highlight);
+    --tertiary-color: var(--color-highlight);
 }
 
 .header_button {
@@ -25,11 +25,11 @@
 
     &[disabled] {
         --background-color: var(--primary-color);
-        --foreground-color: var(--color-layout-shade-30);
-        --border-color: var(--color-layout-shade-30);
+        --foreground-color: var(--color-shade-30);
+        --border-color: var(--color-shade-30);
 
         &[high-contrast] {
-            --foreground-color: var(--color-layout-contrast);
+            --foreground-color: var(--color-foreground);
         }
     }
 }
@@ -47,9 +47,9 @@
     border-radius: 0px;
     opacity: 0;
     transition: opacity 400ms ease;
-    background-color: var(--color-layout-shade-10);
+    background-color: var(--color-shade-10);
     border-style: solid;
-    border-color: var(--color-layout-contrast);
+    border-color: var(--color-foreground);
     border-width: 2px 0px;
     box-shadow: none;
     position: relative;
@@ -64,7 +64,7 @@
 }
 
 .arrow::after {
-    background-color: var(--color-layout-contrast);
+    background-color: var(--color-foreground);
 }
 
 .open {
@@ -76,10 +76,10 @@
 es-layout-button,
 es-layout-link {
     --blob-size: 24px;
-    --default-color: var(--color-layout-contrast);
-    --active-color: var(--color-layout-highlight);
-    --disabled-color: var(--color-layout-shade-50);
-    --active-background-color: var(--color-layout-shade-20);
+    --default-color: var(--color-foreground);
+    --active-color: var(--color-highlight);
+    --disabled-color: var(--color-shade-50);
+    --active-background-color: var(--color-shade-20);
 
     &::part(link) {
         outline-offset: -3px;
@@ -90,7 +90,7 @@ es-layout-section {
     margin-bottom: 6px;
 
     &::part(header) {
-        color: var(--color-layout-contrast);
+        color: var(--color-foreground);
         padding: 16px 20px;
     }
 

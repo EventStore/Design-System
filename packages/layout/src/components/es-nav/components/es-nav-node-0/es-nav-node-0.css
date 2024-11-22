@@ -8,7 +8,7 @@
 
 .node {
     padding: 20px;
-    color: var(--color-layout-contrast);
+    color: var(--color-foreground);
     outline-offset: -4px;
     white-space: nowrap;
 
@@ -33,7 +33,7 @@
 
     &:hover,
     &:focus {
-        color: var(--color-layout-highlight);
+        color: var(--color-highlight);
 
         &::after {
             transform: translateY(-5px);
@@ -45,7 +45,7 @@
         &:hover,
         &:focus,
         & {
-            color: var(--color-layout-contrast);
+            color: var(--color-foreground);
 
             &::after {
                 display: none;
@@ -57,7 +57,7 @@
 :host(.open) .node::after,
 :host(.active_within) .node::after,
 .link-active.node::after {
-    color: var(--color-layout-highlight);
+    color: var(--color-highlight);
     transform: translateY(-10px);
     opacity: 1;
 }
@@ -68,9 +68,9 @@ nav {
     left: 10px;
     top: 100%;
     flex-direction: column;
-    border: 1px solid var(--color-layout-shade-20);
-    border-top: 2px solid var(--color-layout-highlight);
-    background-color: var(--color-layout-shade-20);
+    border: 1px solid var(--color-shade-20);
+    border-top: 2px solid var(--color-highlight);
+    background-color: var(--color-shade-20);
     min-width: 200px;
     overflow: hidden;
     transition: height 300ms ease;

@@ -43,7 +43,7 @@
     align-items: center;
     justify-content: center;
 
-    color: var(--color-contrast);
+    color: var(--color-foreground);
     z-index: 100;
     user-select: none;
 }
@@ -80,7 +80,7 @@
 :host([area='cookie']) {
     & .handle {
         top: 0;
-        border-top: 4px solid var(--color-shade-20);
+        border-top: 2px solid var(--color-shade-20);
     }
 }
 
@@ -89,7 +89,7 @@
 :host([area='banner']) {
     & .handle {
         bottom: 0;
-        border-bottom: 4px solid var(--color-shade-20);
+        border-bottom: 2px solid var(--color-shade-20);
     }
 }
 
@@ -117,7 +117,7 @@
 :host([area='sidebar']) {
     & .handle {
         right: 0;
-        border-right: 4px solid var(--color-shade-20);
+        border-right: 2px solid var(--color-shade-20);
     }
 }
 
@@ -125,7 +125,7 @@
 :host([area='toolbar']) {
     & .handle {
         left: 0;
-        border-left: 4px solid var(--color-shade-20);
+        border-left: 2px solid var(--color-shade-20);
     }
 }
 

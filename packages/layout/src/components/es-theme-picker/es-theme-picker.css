@@ -1,8 +1,8 @@
 :host {
     display: block;
     padding: 20px;
-    background-color: var(--color-layout-shade-20);
-    color: var(--color-layout-contrast);
+    background-color: var(--color-shade-20);
+    color: var(--color-foreground);
     width: 260px;
 }
 
@@ -38,7 +38,7 @@ label {
 
     &.selected {
         & svg {
-            border-color: var(--color-layout-highlight);
+            border-color: var(--color-highlight);
         }
     }
 }
@@ -58,7 +58,7 @@ label {
     padding: 0;
     &.checked {
         & .switch {
-            color: var(--color-layout-highlight);
+            color: var(--color-highlight);
 
             & .handle {
                 transform: translateX(29px);
@@ -66,7 +66,7 @@ label {
         }
 
         & .checkbox {
-            color: var(--color-layout-highlight);
+            color: var(--color-highlight);
         }
     }
 
@@ -110,13 +110,13 @@ input[type='radio'] {
     flex: none;
     border-radius: 100%;
     appearance: none;
-    border: 1px solid var(--color-layout-contrast);
+    border: 1px solid var(--color-foreground);
 }
 
 input[type='radio']:checked {
-    background: var(--color-layout-highlight);
-    border: 1px solid var(--color-layout-highlight);
-    box-shadow: inset 0 0 0 4px var(--color-layout-shade-20);
+    background: var(--color-highlight);
+    border: 1px solid var(--color-highlight);
+    box-shadow: inset 0 0 0 4px var(--color-shade-20);
     padding: 6px;
 }
 

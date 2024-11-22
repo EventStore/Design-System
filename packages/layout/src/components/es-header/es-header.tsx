@@ -1,5 +1,5 @@
 import { Link } from '@eventstore-ui/router';
-import { theme } from '@eventstore-ui/theme';
+import { theme } from '@kurrent-ui/theme';
 import { Component, h, Host, State } from '@stencil/core';
 import { bannerHeight, headerUnderHeight } from '../../utils/LayoutVar';
 /**
@@ -29,8 +29,8 @@ export class Header {
     private unsubscribe?: () => void;
 
     componentWillLoad() {
-        // eslint-disable-next-line no-console
         this.unsubscribe = bannerHeight.observe(this.bannerChange);
+        this.underObserver.disconnect();
     }
 
     disconnectedCallback() {
@@ -80,15 +80,33 @@ export class Header {
     private underSlotChange = (e: Event) => {
         if (!e.target) return;
         const target = e.target as HTMLSlotElement;
-        const totalHeight = target
-            .assignedElements()
-            .reduce((total, element) => {
-                return total + element.clientHeight;
-            }, 0);
+        const elements = target.assignedElements();
+
+        this.underObserver.disconnect();
+        for (const element of elements) {
+            this.underObserver.observe(element);
+        }
+
+        const totalHeight = elements.reduce(
+            (total, element) => total + element.clientHeight,
+            0,
+        );
 
         headerUnderHeight.set(totalHeight);
         this.under = totalHeight !== 0;
     };
+
+    private underSizeChange: ResizeObserverCallback = (entries) => {
+        let totalHeight = 0;
+        for (const {
+            borderBoxSize: [size],
+        } of entries) {
+            totalHeight += size.blockSize;
+        }
+        headerUnderHeight.set(totalHeight);
+        this.under = totalHeight !== 0;
+    };
+    private underObserver = new ResizeObserver(this.underSizeChange);
 
     private backdropSlotChange = (e: Event) => {
         if (!e.target) return;

@@ -18,7 +18,7 @@
 
 h1 {
     display: block;
-    color: var(--color-title-1);
+    color: var(--color-title);
     font-size: 36px;
     font-weight: 100;
     margin: 0;
@@ -43,7 +43,7 @@ slot[name='illustration'] > *,
     gap: 20px;
 
     & h1 {
-        color: var(--color-text);
+        color: var(--color-foreground);
         font-size: 22px;
     }
 
@@ -68,7 +68,7 @@ slot[name='illustration'] > *,
     }
 
     & h1 {
-        color: var(--color-text);
+        color: var(--color-foreground);
         font-size: 22px;
     }
 

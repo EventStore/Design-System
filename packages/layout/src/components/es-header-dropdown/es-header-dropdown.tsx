@@ -3,7 +3,7 @@ import type { IconDescription } from '@eventstore-ui/components';
 
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import { router } from '@eventstore-ui/router';
-import { theme } from '@eventstore-ui/theme';
+import { theme } from '@kurrent-ui/theme';
 import type { HeaderDropdownButtonVariant } from './types';
 
 /**

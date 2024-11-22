@@ -1,8 +1,4 @@
 @import url('./css/root.css');
 
-:root {
-    --layout-header-base-height: 0px;
-}
-
 @import url('~@eventstore-ui/assets/spacing.css');
 @import url('~@eventstore-ui/assets/font-face.css');
