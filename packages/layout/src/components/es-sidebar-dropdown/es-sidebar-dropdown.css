@@ -23,7 +23,7 @@
     &:focus,
     &:focus-within {
         text-decoration: none;
-        --text-color: var(--color-primary);
+        --text-color: var(--color-focus);
         --border-color: var(--color-shade-50);
     }
 }
@@ -47,9 +47,9 @@
     border-radius: 0px;
     opacity: 0;
     transition: opacity 400ms ease;
-    background-color: var(--color-layout-shade-10);
+    background-color: var(--color-shade-10);
     border-style: solid;
-    border-color: var(--color-layout-highlight);
+    border-color: var(--color-highlight);
     border-width: 2px 0px;
     box-shadow: none;
     position: relative;
@@ -66,10 +66,10 @@
 es-layout-button,
 es-layout-link {
     --blob-size: 24px;
-    --default-color: var(--color-layout-contrast);
-    --active-color: var(--color-layout-highlight);
-    --disabled-color: var(--color-layout-shade-50);
-    --active-background-color: var(--color-layout-shade-20);
+    --default-color: var(--color-foreground);
+    --active-color: var(--color-highlight);
+    --disabled-color: var(--color-shade-50);
+    --active-background-color: var(--color-shade-20);
 
     &::part(button),
     &::part(link) {
@@ -81,7 +81,7 @@ es-layout-section {
     margin-bottom: 6px;
 
     &::part(header) {
-        color: var(--color-layout-contrast);
+        color: var(--color-foreground);
         padding: 16px 20px;
     }
 

@@ -8,7 +8,7 @@ header {
     flex-direction: row;
     align-items: center;
     padding: 12px 30px;
-    color: var(--color-text);
+    color: var(--color-foreground);
 
     &.collapsable {
         cursor: pointer;
@@ -22,7 +22,7 @@ header {
         margin: 0;
 
         & .step {
-            color: var(--color-secondary);
+            color: var(--color-highlight);
             margin-right: 14px;
         }
     }

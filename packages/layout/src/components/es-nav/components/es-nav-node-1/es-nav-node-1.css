@@ -7,7 +7,7 @@
 }
 
 .node {
-    color: var(--color-layout-contrast);
+    color: var(--color-foreground);
     padding: 20px;
     text-align: left;
 
@@ -32,7 +32,7 @@
 
     &:hover,
     &:focus {
-        color: var(--color-layout-highlight);
+        color: var(--color-highlight);
 
         &::after {
             opacity: 0.5;
@@ -44,7 +44,7 @@
         &:hover,
         &:focus,
         & {
-            color: var(--color-layout-contrast);
+            color: var(--color-foreground);
 
             &::after {
                 display: none;
@@ -56,7 +56,7 @@
 :host(.open) .node::after,
 :host(.active_within) .node::after,
 .link-active.node::after {
-    color: var(--color-layout-highlight);
+    color: var(--color-highlight);
     transform: translateX(10px);
     opacity: 1;
 }

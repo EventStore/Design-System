@@ -1,0 +1,8 @@
+:host {
+    display: contents;
+}
+
+main {
+    grid-area: body;
+    padding: 20px;
+}

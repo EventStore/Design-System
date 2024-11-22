@@ -1,7 +1,7 @@
 import { Component, h, Host } from '@stencil/core';
-import { theme } from '@eventstore-ui/theme';
-import { themes } from '@eventstore-ui/theme/dist/themes';
-import type { ThemeDefinition } from '@eventstore-ui/theme/dist/types';
+import { theme } from '@kurrent-ui/theme';
+import { themes } from '@kurrent-ui/theme/dist/themes';
+import type { ThemeDefinition } from '@kurrent-ui/theme/dist/types';
 @Component({
     tag: 'es-theme-picker',
     styleUrl: 'es-theme-picker.css',
@@ -28,7 +28,7 @@ export class ThemePicker {
                         />
                         <path
                             d="M94 0H6C2.7 0 0 2.7 0 6v9h100V6c0-3.3-2.7-6-6-6Z"
-                            fill="var(--color-layout-base)"
+                            fill="var(--color-background)"
                         />
                         <path
                             d="M61 5h30c1.7 0 3 1.3 3 3s-1.3 3-3 3H61c-1.7 0-3-1.3-3-3s1.3-3 3-3Z"
@@ -44,7 +44,7 @@ export class ThemePicker {
                             rx="3"
                             ry="3"
                             fill="transparent"
-                            stroke={theme.scheme.text}
+                            stroke={theme.scheme.foreground}
                             stroke-linejoin="round"
                         />
                         <rect
@@ -55,7 +55,7 @@ export class ThemePicker {
                             rx="3"
                             ry="3"
                             fill="transparent"
-                            stroke={theme.scheme.text}
+                            stroke={theme.scheme.foreground}
                             stroke-linejoin="round"
                         />
                         <path
