@@ -134,7 +134,7 @@ const index: RequestHandler =
                 import { icons, namespace } from '/icons.js';
 
                 const $main = document.querySelector('main');
-                for (const { icon, status } of icons) {
+                for (const { icon, status, aliases } of icons) {
                     const $div = document.createElement('div');
                     $div.classList.add('icon');
                     if (status) {
@@ -143,12 +143,23 @@ const index: RequestHandler =
                     
                     const $icon = document.createElement('es-icon');
                     $icon.icon = namespace ? [namespace, icon] : icon;
+
+                    const $names = document.createElement('div');
+                    $names.classList.add("names"); 
                     
                     const $name = document.createElement('pre');
                     $name.innerText = icon;
+                    $names.append($name);
 
+                    for (const alias of aliases ?? []) {
+                        const $alias = document.createElement('pre');
+                        $alias.classList.add('alias');
+                        $alias.innerText = alias;
+                        $names.append($alias);
+                    }
+                        
                     $div.append($icon);
-                    $div.append($name);
+                    $div.append($names);
                     $main.append($div);
                 }
             </script>
@@ -188,10 +199,15 @@ const index: RequestHandler =
                     margin: 0;
                 }
 
+                pre.alias {
+                    font-size: 15px;
+                    color: gray;
+                }
+
                 :is(
                     .untracked,
                     .added
-                ) pre {
+                ) .names {
                     color: green;
                 }
 
@@ -201,7 +217,7 @@ const index: RequestHandler =
                     .renamed,
                     .updated,
                     .copied
-                ) pre {
+                ) .names {
                     color: orange;
                 }
 
@@ -246,12 +262,14 @@ const iconDetails: RequestHandler =
                 indexFile.namespace ? 'ICON_NAMESPACE' : 'false'
             };
             export const icons = ${JSON.stringify(
-                Array.from(indexFile.indexMap, ([_, { name, path }]) => {
-                    return {
+                Array.from(
+                    indexFile.indexMap,
+                    ([_, { name, path, aliases }]) => ({
                         icon: name,
                         status: statuses.get(path),
-                    };
-                }),
+                        aliases,
+                    }),
+                ),
             )};
         `);
         } catch (error: any) {
