@@ -2,15 +2,7 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const More = (h: typeof JSXFactory) => (props: any) => (
-    <svg
-        {...props}
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        fill="transparent"
-    >
-        <circle cx="12" cy="5" r="2" />
-        <circle cx="12" cy="12" r="2" />
-        <circle cx="12" cy="19" r="2" />
+    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 16a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m0-6a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m0-6a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2Z" />
     </svg>
 );

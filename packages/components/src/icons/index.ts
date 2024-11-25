@@ -22,12 +22,6 @@ iconStore.addIcons(ICON_NAMESPACE, {
     get copy() {
         return import('./components/Copy').then(({ Copy }) => Copy);
     },
-    get critical() {
-        return import('./components/Critical').then(({ Critical }) => Critical);
-    },
-    get degraded() {
-        return import('./components/Degraded').then(({ Degraded }) => Degraded);
-    },
     get dot() {
         return import('./components/Dot').then(({ Dot }) => Dot);
     },
@@ -45,16 +39,8 @@ iconStore.addIcons(ICON_NAMESPACE, {
     get info() {
         return import('./components/Info').then(({ Info }) => Info);
     },
-    get lightbulb() {
-        return import('./components/Lightbulb').then(
-            ({ Lightbulb }) => Lightbulb,
-        );
-    },
     get more() {
         return import('./components/More').then(({ More }) => More);
-    },
-    get okay() {
-        return import('./components/Okay').then(({ Okay }) => Okay);
     },
     get sort() {
         return import('./components/Sort').then(({ Sort }) => Sort);
