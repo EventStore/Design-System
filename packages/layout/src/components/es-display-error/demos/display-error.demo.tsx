@@ -1,6 +1,6 @@
 import { router } from '@eventstore-ui/router';
 import { Component, h } from '@stencil/core';
-import '@eventstore-ui/illustrations';
+import '@kurrent-ui/sequences';
 
 /**
  * Display Error

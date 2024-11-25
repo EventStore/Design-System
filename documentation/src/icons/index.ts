@@ -126,14 +126,6 @@ iconStore.addIcons({
     get 'id-card'() {
         return import('./components/IdCard').then(({ IdCard }) => IdCard);
     },
-    get illustrations() {
-        return import('./components/Illustrations').then(
-            ({ Illustrations }) => Illustrations,
-        );
-    },
-    get '@eventstore-ui/illustrations'() {
-        return this['illustrations'];
-    },
     get info() {
         return import('./components/Info').then(({ Info }) => Info);
     },
@@ -211,6 +203,14 @@ iconStore.addIcons({
     },
     get scroll() {
         return import('./components/Scroll').then(({ Scroll }) => Scroll);
+    },
+    get sequences() {
+        return import('./components/Sequences').then(
+            ({ Sequences }) => Sequences,
+        );
+    },
+    get '@kurrent-ui/sequences'() {
+        return this['sequences'];
     },
     get shadow() {
         return import('./components/Shadow').then(({ Shadow }) => Shadow);

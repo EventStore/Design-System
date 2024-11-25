@@ -164,7 +164,7 @@
 ### Patch Changes
 
 -   Updated dependencies [[`1069a5d`](https://github.com/EventStore/Design-System/commit/1069a5d3af7986c56fd616049402315a59bc438c)]:
-    -   @eventstore-ui/illustrations@1.0.0
+    -   @kurrent-ui/sequences@1.0.0
     -   @eventstore-ui/components@1.0.0
     -   @eventstore-ui/router@1.0.0
     -   @kurrent-ui/theme@1.0.0

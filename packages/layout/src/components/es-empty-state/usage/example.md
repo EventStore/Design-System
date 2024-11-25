@@ -1,8 +1,7 @@
 ```tsx
-
-export default () =>
+export default () => (
     <es-empty-state header={'Create a new group'}>
-        <es-illustration-group slot={'illustration'} />
+        <kurrent-sequence slot={'illustration'} />
         {
             'Creating a new group will allow for the grouping of members with the same access.'
         }
@@ -11,5 +10,5 @@ export default () =>
             <es-icon icon={'plus'} slot={'after'} />
         </es-button>
     </es-empty-state>
-        
+);
 ```
