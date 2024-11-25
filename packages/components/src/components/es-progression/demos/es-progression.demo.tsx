@@ -127,7 +127,7 @@ export class Counter {
                     case 'inactive':
                         return [ICON_NAMESPACE, 'close'];
                     case 'active':
-                        return [ICON_NAMESPACE, 'lightbulb'];
+                        return [ICON_NAMESPACE, 'info'];
                     case 'complete':
                         return [ICON_NAMESPACE, 'check'];
                 }

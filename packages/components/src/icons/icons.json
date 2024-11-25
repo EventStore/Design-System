@@ -33,16 +33,6 @@
             "component": "Copy",
             "path": "./components/Copy.tsx"
         },
-        "critical": {
-            "name": "critical",
-            "component": "Critical",
-            "path": "./components/Critical.tsx"
-        },
-        "degraded": {
-            "name": "degraded",
-            "component": "Degraded",
-            "path": "./components/Degraded.tsx"
-        },
         "dot": {
             "name": "dot",
             "component": "Dot",
@@ -59,20 +49,10 @@
             "component": "Info",
             "path": "./components/Info.tsx"
         },
-        "lightbulb": {
-            "name": "lightbulb",
-            "component": "Lightbulb",
-            "path": "./components/Lightbulb.tsx"
-        },
         "more": {
             "name": "more",
             "component": "More",
             "path": "./components/More.tsx"
-        },
-        "okay": {
-            "name": "okay",
-            "component": "Okay",
-            "path": "./components/Okay.tsx"
         },
         "sort": {
             "name": "sort",

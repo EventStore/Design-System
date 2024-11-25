@@ -85,7 +85,7 @@ export class LoadingTextDemo {
             cell: (h, { data: { name } }) => (
                 <es-actions>
                     <es-action
-                        icon={[ICON_NAMESPACE, 'lightbulb']}
+                        icon={[ICON_NAMESPACE, 'info']}
                         action={() =>
                             toast.success({
                                 title: name,
@@ -131,7 +131,7 @@ export class LoadingTextDemo {
                     <es-action-dropdown>
                         <es-action
                             dropdownItem
-                            icon={[ICON_NAMESPACE, 'lightbulb']}
+                            icon={[ICON_NAMESPACE, 'info']}
                             action={() =>
                                 toast.success({
                                     title: name,
