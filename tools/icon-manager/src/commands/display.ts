@@ -7,8 +7,11 @@ import {
     isAbsolute,
     extname,
     basename,
+    relative,
 } from 'node:path';
 import { readFile, stat } from 'node:fs/promises';
+import { promisify } from 'node:util';
+import { exec as execCb } from 'node:child_process';
 import { watch } from 'node:fs';
 import { cwd } from 'node:process';
 import type { AddressInfo } from 'node:net';
@@ -24,6 +27,8 @@ import {
     readIndexFileDetails,
 } from '../utils/indexFile.js';
 import { debounce } from '../utils/debounce.js';
+
+const exec = promisify(execCb);
 
 interface DisplayOptions {
     dir: string;
@@ -129,13 +134,19 @@ const index: RequestHandler =
                 import { icons, namespace } from '/icons.js';
 
                 const $main = document.querySelector('main');
-                for (const icon of icons) {
+                for (const { icon, status } of icons) {
                     const $div = document.createElement('div');
                     $div.classList.add('icon');
+                    if (status) {
+                        $div.classList.add(status);
+                    }
+                    
                     const $icon = document.createElement('es-icon');
                     $icon.icon = namespace ? [namespace, icon] : icon;
-                    const $name = document.createElement('span');
+                    
+                    const $name = document.createElement('pre');
                     $name.innerText = icon;
+
                     $div.append($icon);
                     $div.append($name);
                     $main.append($div);
@@ -153,14 +164,16 @@ const index: RequestHandler =
                     min-height: 100vh;
                     margin: auto;
                     max-width: 800px;
+                    justify-content: space-around;
                 }
             
                 main {
                     display: grid;
-                    grid-template-columns: repeat(auto-fill, 80px);
-                    gap: 20px;
-                    max-width: 100%;
+                    grid-template-columns: repeat(auto-fill, 120px);
+                    gap: 40px 20px;
+                    width: 100%;
                 }
+
                 .icon {
                     display: flex;
                     flex-direction: column;
@@ -168,6 +181,35 @@ const index: RequestHandler =
                     min-width: 80px;
                     align-items: center;
                     text-align: center;
+                }
+
+                pre {
+                    font-size: 16px;
+                    margin: 0;
+                }
+
+                :is(
+                    .untracked,
+                    .added
+                ) pre {
+                    color: green;
+                }
+
+                :is(
+                    .modified,
+                    .file_type_changed
+                    .renamed,
+                    .updated,
+                    .copied
+                ) pre {
+                    color: orange;
+                }
+
+                :is(
+                    .ignored,
+                    .deleted
+                ) pre {
+                    color: red;
                 }
             </style>
         </head>
@@ -186,9 +228,11 @@ const index: RequestHandler =
     };
 
 const iconDetails: RequestHandler =
-    ({ indexFile }) =>
+    ({ indexFile, directory }) =>
     async (_req, res) => {
         try {
+            const statuses = await getStatuses(directory);
+
             res.writeHead(200, {
                 'Content-Type': 'text/javascript; charset=utf-8',
             });
@@ -202,7 +246,12 @@ const iconDetails: RequestHandler =
                 indexFile.namespace ? 'ICON_NAMESPACE' : 'false'
             };
             export const icons = ${JSON.stringify(
-                Array.from(indexFile.indexMap, ([_, { name }]) => name),
+                Array.from(indexFile.indexMap, ([_, { name, path }]) => {
+                    return {
+                        icon: name,
+                        status: statuses.get(path),
+                    };
+                }),
             )};
         `);
         } catch (error: any) {
@@ -302,3 +351,45 @@ const hotReload: RequestHandler =
             res.end(error.toString());
         }
     };
+
+const STATUS = /(?<x>[A-Z? ])(?<y>[A-Z? ])\s(?<path>.*)/;
+//  We only care about the y component
+// https://git-scm.com/docs/git-status#_short_format
+const shortCodes: Record<string, string> = {
+    '?': 'untracked',
+    '!': 'ignored',
+    M: 'modified',
+    T: 'file_type_changed',
+    A: 'added',
+    D: 'deleted',
+    R: 'renamed',
+    C: 'copied',
+    U: 'updated',
+};
+
+const getStatuses = async (directory: string): Promise<Map<string, string>> => {
+    const statuses = new Map<string, string>();
+
+    try {
+        const topLevel = await exec('git rev-parse --show-toplevel');
+        const root = topLevel.stdout.trim();
+
+        const r = await exec(`git status --porcelain ${directory}`);
+
+        for (const line of r.stdout.split('\n')) {
+            const match = line.match(STATUS);
+            if (!match || !match.groups) continue;
+
+            const { path, y } = match.groups;
+
+            const fullPath = resolve(root, path);
+            const localPath = relative(directory, fullPath);
+
+            statuses.set(`./${localPath}`, shortCodes[y] ?? 'unknown');
+        }
+    } catch (error) {
+        console.log('Git icon statuses unavailable');
+    }
+
+    return statuses;
+};

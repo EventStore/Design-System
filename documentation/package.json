@@ -56,8 +56,8 @@
     "devDependencies": {
         "@eventstore-ui/assets": "workspace:*",
         "@eventstore-ui/configs": "workspace:*",
-        "@eventstore-ui/icon-manager": "workspace:*",
         "@eventstore-ui/preview-builder": "workspace:*",
+        "@kurrent-ui/icon-manager": "workspace:*",
         "@stencil-community/postcss": "^2.2.0",
         "@stencil/core": "4.22.0",
         "@types/jest": "^27.0.3",

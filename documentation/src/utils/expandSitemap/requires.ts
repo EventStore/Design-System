@@ -27,8 +27,8 @@ import formsPackageJson from '@eventstore-ui/forms/package.json';
 import formsReadme from '@eventstore-ui/forms/readme.md';
 import formsTypeDocs from '../../../generated/forms.typedoc.json';
 
-import iconManagerPackageJson from '@eventstore-ui/icon-manager/package.json';
-import iconManagerReadme from '@eventstore-ui/icon-manager/readme.md';
+import iconManagerPackageJson from '@kurrent-ui/icon-manager/package.json';
+import iconManagerReadme from '@kurrent-ui/icon-manager/readme.md';
 
 import illustrationsPackageJson from '@eventstore-ui/illustrations/package.json';
 import illustrationsReadme from '@eventstore-ui/illustrations/readme.md';
