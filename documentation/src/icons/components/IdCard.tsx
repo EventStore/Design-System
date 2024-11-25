@@ -2,15 +2,7 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const IdCard = (h: typeof JSXFactory) => (props: any) => (
-    <svg
-        {...props}
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        stroke="currentColor"
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-    >
-        <path d="M21 4H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1Z" />
-        <path d="M18 8h-4v4h4V8ZM6 16h12M6 8h3M6 12h3" />
+    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M2 3h20c1.05 0 2 .95 2 2v14c0 1.05-.95 2-2 2H2c-1.05 0-2-.95-2-2V5c0-1.05.95-2 2-2m12 3v1h8V6h-8m0 2v1h8V8h-8m0 2v1h7v-1h-7m-6 3.91C6 13.91 2 15 2 17v1h12v-1c0-2-4-3.09-6-3.09M8 6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3Z" />
     </svg>
 );

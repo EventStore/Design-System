@@ -2,14 +2,7 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const GoBack = (h: typeof JSXFactory) => (props: any) => (
-    <svg
-        {...props}
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        stroke="currentColor"
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-    >
-        <path d="m17 18-6-6 6-6M7 6v12" />
+    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M2 12A10 10 0 0 1 12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12m16-1h-8l3.5-3.5-1.42-1.42L6.16 12l5.92 5.92 1.42-1.42L10 13h8v-2Z" />
     </svg>
 );

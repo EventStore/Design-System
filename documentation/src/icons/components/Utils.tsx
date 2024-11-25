@@ -2,14 +2,7 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const Utils = (h: typeof JSXFactory) => (props: any) => (
-    <svg
-        {...props}
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        stroke="currentColor"
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-    >
-        <path d="M3 7c0-5 4-5 4-5v10H3V7ZM21 5H7v3h14V5ZM3 15h18s0 4-3 4h-3.5l1 3h-9l1-3H3v-4Z" />
+    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 5v5c4.03 2.47-.56 4.97-3 6v3h15v-3c-6.41-2.73-3.53-7 1-8V5H9M2 6c.81 2.13 2.42 3.5 5 4V6H2Z" />
     </svg>
 );

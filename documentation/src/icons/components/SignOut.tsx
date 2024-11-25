@@ -2,14 +2,7 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const SignOut = (h: typeof JSXFactory) => (props: any) => (
-    <svg
-        {...props}
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        stroke="currentColor"
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-    >
-        <path d="M11.996 3H3v18h9M16.5 16.5 21 12l-4.5-4.5M8 11.996h13" />
+    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
+        <path d="m17 7-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5M4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5Z" />
     </svg>
 );
