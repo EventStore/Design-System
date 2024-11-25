@@ -22,10 +22,13 @@ export class Demo {
                     renderElement={this.renderModal}
                 />
                 <p>
-                    Despite being intended to be used with{' '}
-                    <pre>es-action-with-confirmation</pre> or{' '}
-                    <pre>es-button-with-confirmation</pre>,{' '}
-                    <pre>es-confirm-modal</pre> can be used standalone.
+                    {'Despite being intended to be used with '}
+                    <pre>{'es-action-with-confirmation'}</pre>
+                    {' or '}
+                    <pre>{'es-button-with-confirmation'}</pre>
+                    {', '}
+                    <pre>{'es-confirm-modal'}</pre>
+                    {' can be used standalone.'}
                 </p>
                 <es-button variant={'outline'} onClick={this.openModal}>
                     {'Open confirm modal'}
