@@ -2,15 +2,7 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const Stores = (h: typeof JSXFactory) => (props: any) => (
-    <svg
-        {...props}
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        fill="none"
-        stroke="currentColor"
-    >
-        <path d="M6 19.5h16v-16H6v4" />
-        <path d="M14 11.5v-4H2v12h12" />
-        <path d="M18 11.5h-8v8h8v-8z" />
+    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 18H6v-4h6m9 0v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6m0-10H4v2h16V4Z" />
     </svg>
 );

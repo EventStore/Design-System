@@ -2,13 +2,7 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const Fields = (h: typeof JSXFactory) => (props: any) => (
-    <svg
-        {...props}
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        fill="none"
-        stroke="currentColor"
-    >
-        <path d="M21 4H3c-.6 0-1 .4-1 1v14c0 .6.4 1 1 1h18c.6 0 1-.4 1-1V5c0-.6-.4-1-1-1zM2 14.5h20M2 9.5h20M8.5 20V9.5M2 19V8.5M22 19V8.5M15.5 20V9.5M4.5 20h15" />
+    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M17 7h5v10h-5v2a1 1 0 0 0 1 1h2v2h-2.5c-.55 0-1.5-.45-1.5-1 0 .55-.95 1-1.5 1H12v-2h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-2V2h2.5c.55 0 1.5.45 1.5 1 0-.55.95-1 1.5-1H20v2h-2a1 1 0 0 0-1 1v2M2 7h11v2H4v6h9v2H2V7m18 8V9h-3v6h3Z" />
     </svg>
 );
