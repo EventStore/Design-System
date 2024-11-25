@@ -164,12 +164,6 @@
             "component": "IdCard",
             "path": "./components/IdCard.tsx"
         },
-        "illustrations": {
-            "name": "illustrations",
-            "component": "Illustrations",
-            "path": "./components/Illustrations.tsx",
-            "aliases": ["@eventstore-ui/illustrations"]
-        },
         "info": {
             "name": "info",
             "component": "Info",
@@ -273,6 +267,12 @@
             "name": "scroll",
             "component": "Scroll",
             "path": "./components/Scroll.tsx"
+        },
+        "sequences": {
+            "name": "sequences",
+            "component": "Sequences",
+            "path": "./components/Sequences.tsx",
+            "aliases": ["@kurrent-ui/sequences"]
         },
         "shadow": {
             "name": "shadow",

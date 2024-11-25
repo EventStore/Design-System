@@ -59,7 +59,7 @@ export class DisplayError {
         return (
             <Host>
                 <slot name={'illustration'}>
-                    <es-illustration-poo />
+                    <kurrent-sequence />
                 </slot>
                 <div class={'inner'}>
                     <h1>{this.title}</h1>

@@ -1,4 +1,4 @@
-# @eventstore-ui/illustrations
+# @kurrent-ui/sequences
 
 ## 1.0.1
 

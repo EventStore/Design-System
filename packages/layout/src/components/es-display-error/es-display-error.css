@@ -35,8 +35,8 @@ span {
 
 slot[name='illustration'] > *,
 ::slotted([slot='illustration']) {
-    height: 150px;
-    width: 150px;
+    height: 500px;
+    width: 500px;
 }
 
 :host([variant='small']) {
