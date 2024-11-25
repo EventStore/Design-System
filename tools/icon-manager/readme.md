@@ -1,11 +1,11 @@
-# @eventstore-ui/icon-manager
+# @kurrent-ui/icon-manager
 
-Automated icon inclusion for Event Store design system.
+Automated icon inclusion for Kurrent design system.
 
 ## Install
 
 ```shell
-yarn add --dev @eventstore-ui/icon-manager
+yarn add --dev @kurrent-ui/icon-manager
 ```
 
 ## Usage

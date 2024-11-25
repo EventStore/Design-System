@@ -120,7 +120,7 @@ iconStore.addIcons({
             ({ IconManager }) => IconManager,
         );
     },
-    get '@eventstore-ui/icon-manager'() {
+    get '@kurrent-ui/icon-manager'() {
         return this['icon-manager'];
     },
     get 'id-card'() {
