@@ -2,15 +2,7 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const SignIn = (h: typeof JSXFactory) => (props: any) => (
-    <svg
-        {...props}
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        stroke="currentColor"
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-    >
-        <path d="M11.996 3H3v18h9" />
-        <path d="M12.5 16.5 8 12l4.5-4.5M21 11.996H8" />
+    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11 7 9.6 8.4l2.6 2.6H2v2h10.2l-2.6 2.6L11 17l5-5-5-5m9 12h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-8v2h8v14Z" />
     </svg>
 );
