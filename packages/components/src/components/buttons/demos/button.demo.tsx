@@ -63,7 +63,7 @@ export class Demo {
         'critical',
         'degraded',
         'dot',
-        'exclamation-mark',
+        'check',
         'info',
         'lightbulb',
         'more',
