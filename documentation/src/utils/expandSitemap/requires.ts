@@ -30,10 +30,10 @@ import formsTypeDocs from '../../../generated/forms.typedoc.json';
 import iconManagerPackageJson from '@kurrent-ui/icon-manager/package.json';
 import iconManagerReadme from '@kurrent-ui/icon-manager/readme.md';
 
-import illustrationsPackageJson from '@eventstore-ui/illustrations/package.json';
-import illustrationsReadme from '@eventstore-ui/illustrations/readme.md';
-import illustrationsStencilDocs from '../../../generated/illustrations.stencil.json';
-import illustrationsTypeDocs from '../../../generated/illustrations.typedoc.json';
+import sequencesPackageJson from '@kurrent-ui/sequences/package.json';
+import sequencesReadme from '@kurrent-ui/sequences/readme.md';
+import sequencesStencilDocs from '../../../generated/sequences.stencil.json';
+import sequencesTypeDocs from '../../../generated/sequences.typedoc.json';
 
 import layoutPackageJson from '@eventstore-ui/layout/package.json';
 import layoutReadme from '@eventstore-ui/layout/readme.md';
@@ -63,7 +63,7 @@ const packageJsons: Record<string, PackageJson> = {
     editor: editorPackageJson,
     fields: fieldsPackageJson,
     forms: formsPackageJson,
-    illustrations: illustrationsPackageJson,
+    sequences: sequencesPackageJson,
     'icon-manager': iconManagerPackageJson,
     layout: layoutPackageJson,
     router: routerPackageJson,
@@ -79,7 +79,7 @@ const readmes: Record<string, string> = {
     editor: editorReadme,
     fields: fieldsReadme,
     forms: formsReadme,
-    illustrations: illustrationsReadme,
+    sequences: sequencesReadme,
     'icon-manager': iconManagerReadme,
     layout: layoutReadme,
     router: routerReadme,
@@ -92,7 +92,7 @@ const stencilDocs: Record<string, JsonDocs> = {
     components: componentsStencilDocs,
     editor: editorStencilDocs,
     fields: fieldsStencilDocs,
-    illustrations: illustrationsStencilDocs,
+    sequences: sequencesStencilDocs,
     layout: layoutStencilDocs,
 } as any;
 
@@ -101,7 +101,7 @@ const typeDocs: Record<string, ProjectReflection> = {
     editor: editorTypeDocs,
     fields: fieldsTypeDocs,
     forms: formsTypeDocs,
-    illustrations: illustrationsTypeDocs,
+    sequences: sequencesTypeDocs,
     layout: layoutTypeDocs,
     router: routerTypeDocs,
     stores: storesTypeDocs,

@@ -1,6 +1,6 @@
 import { router } from '@eventstore-ui/router';
 import { Component, h } from '@stencil/core';
-import '@eventstore-ui/illustrations';
+import '@kurrent-ui/sequences';
 
 /**
  * Empty State
@@ -19,7 +19,7 @@ export class Demo {
     render() {
         return (
             <es-empty-state header={'Create a new group'}>
-                <es-illustration-group slot={'illustration'} />
+                <kurrent-sequence slot={'illustration'} />
                 {
                     'Creating a new group will allow for the grouping of members with the same access.'
                 }

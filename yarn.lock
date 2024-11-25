@@ -2084,13 +2084,13 @@ __metadata:
     "@eventstore-ui/editor": "workspace:*"
     "@eventstore-ui/fields": "workspace:*"
     "@eventstore-ui/forms": "workspace:*"
-    "@eventstore-ui/illustrations": "workspace:*"
     "@eventstore-ui/layout": "workspace:*"
     "@eventstore-ui/preview-builder": "workspace:*"
     "@eventstore-ui/router": "workspace:*"
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
+    "@kurrent-ui/sequences": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
     "@stencil/core": "npm:4.22.0"
@@ -2189,37 +2189,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eventstore-ui/illustrations@workspace:*, @eventstore-ui/illustrations@workspace:packages/illustrations":
-  version: 0.0.0-use.local
-  resolution: "@eventstore-ui/illustrations@workspace:packages/illustrations"
-  dependencies:
-    "@kurrent-ui/theme": "workspace:*"
-    "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:4.22.0"
-    case-anything: "npm:^2.1.10"
-    jest: "npm:^27.4.5"
-    npm-run-all: "npm:^4.1.5"
-    prettier: "npm:3.0.0"
-    puppeteer: "npm:^19.5.0"
-    svgo: "npm:^2.8.0"
-    typedoc: "npm:0.24.8"
-    typescript: "npm:5.1.6"
-    yargs: "npm:^15.3.1"
-  peerDependencies:
-    "@kurrent-ui/theme": ^1.0.0
-  languageName: unknown
-  linkType: soft
-
 "@eventstore-ui/layout@workspace:*, @eventstore-ui/layout@workspace:packages/layout":
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/layout@workspace:packages/layout"
   dependencies:
     "@eventstore-ui/components": "workspace:*"
     "@eventstore-ui/configs": "workspace:*"
-    "@eventstore-ui/illustrations": "workspace:*"
     "@eventstore-ui/router": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
+    "@kurrent-ui/sequences": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
     "@stencil/core": "npm:4.22.0"
@@ -2230,9 +2209,9 @@ __metadata:
     typescript: "npm:5.1.6"
   peerDependencies:
     "@eventstore-ui/components": ^1.0.0
-    "@eventstore-ui/illustrations": ^1.0.0
     "@eventstore-ui/router": ^1.0.0
     "@eventstore-ui/utils": ^1.0.0
+    "@kurrent-ui/sequences": ^1.0.0
     "@kurrent-ui/theme": ^1.0.0
   languageName: unknown
   linkType: soft
@@ -2672,6 +2651,27 @@ __metadata:
     yargs: "npm:^15.3.1"
   bin:
     icon: ./dist/index.js
+  languageName: unknown
+  linkType: soft
+
+"@kurrent-ui/sequences@workspace:*, @kurrent-ui/sequences@workspace:packages/sequences":
+  version: 0.0.0-use.local
+  resolution: "@kurrent-ui/sequences@workspace:packages/sequences"
+  dependencies:
+    "@kurrent-ui/theme": "workspace:*"
+    "@stencil-community/postcss": "npm:^2.2.0"
+    "@stencil/core": "npm:4.22.0"
+    case-anything: "npm:^2.1.10"
+    jest: "npm:^27.4.5"
+    npm-run-all: "npm:^4.1.5"
+    prettier: "npm:3.0.0"
+    puppeteer: "npm:^19.5.0"
+    svgo: "npm:^2.8.0"
+    typedoc: "npm:0.24.8"
+    typescript: "npm:5.1.6"
+    yargs: "npm:^15.3.1"
+  peerDependencies:
+    "@kurrent-ui/theme": ^1.0.0
   languageName: unknown
   linkType: soft
 
