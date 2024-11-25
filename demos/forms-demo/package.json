@@ -23,7 +23,7 @@
     "devDependencies": {
         "@eventstore-ui/assets": "workspace:*",
         "@eventstore-ui/configs": "workspace:*",
-        "@eventstore-ui/icon-manager": "workspace:*",
+        "@kurrent-ui/icon-manager": "workspace:*",
         "@stencil/core": "4.22.0"
     }
 }

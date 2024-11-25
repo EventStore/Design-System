@@ -1,7 +1,7 @@
 {
-    "name": "@eventstore-ui/icon-manager",
+    "name": "@kurrent-ui/icon-manager",
     "version": "1.0.2",
-    "description": "Automated icon inclusion for Event Store design system",
+    "description": "Automated icon inclusion for Kurrent design system",
     "license": "Apache-2.0",
     "type": "module",
     "bin": {
