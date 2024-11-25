@@ -2,14 +2,7 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const Refresh = (h: typeof JSXFactory) => (props: any) => (
-    <svg
-        {...props}
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        fill="none"
-        stroke="currentColor"
-    >
-        <path d="M5.6 18.4c3.5 3.5 9.2 3.5 12.7 0s3.5-9.2 0-12.7-9.2-3.5-12.7 0C4.8 6.5 3 8.5 3 8.5" />
-        <path d="M3 4.5v4h4" />
+    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M17.65 6.35A7.958 7.958 0 0 0 12 4a8 8 0 0 0-8 8 8 8 0 0 0 8 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18a6 6 0 0 1-6-6 6 6 0 0 1 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35Z" />
     </svg>
 );
