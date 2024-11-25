@@ -10,7 +10,7 @@ export const sitemap = expandSitemap([
             'Fields',
             'Router',
             'Editor',
-            'Illustrations',
+            'Sequences',
         ],
     },
     {
