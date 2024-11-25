@@ -157,7 +157,7 @@
             "name": "icon-manager",
             "component": "IconManager",
             "path": "./components/IconManager.tsx",
-            "aliases": ["@eventstore-ui/icon-manager"]
+            "aliases": ["@kurrent-ui/icon-manager"]
         },
         "id-card": {
             "name": "id-card",
