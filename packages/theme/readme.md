@@ -32,4 +32,4 @@ import { theme } from '@kurrent-ui/theme';
 theme.select('high_contrast_dark');
 ```
 
-Additionally, `@eventstore-ui/layout` contains components for selecting a theme.
+Additionally, `@kurrent-ui/layout` contains components for selecting a theme.

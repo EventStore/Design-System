@@ -1,0 +1,35 @@
+```tsx
+import { randomIcon } from 'utils/helpers';
+
+export default () => (
+    <l2-toolbar>
+        <menu>
+            <li>
+                <es-button>
+                    <es-icon icon={randomIcon()} />
+                </es-button>
+            </li>
+            <li>
+                <es-button>
+                    <es-icon icon={randomIcon()} />
+                </es-button>
+            </li>
+        </menu>
+    </l2-toolbar>
+);
+```
+
+```css
+menu {
+    all: unset;
+    display: block;
+    padding: 10px;
+    padding-top: 32px;
+}
+
+li {
+    all: unset;
+    display: block;
+    margin-bottom: 10px;
+}
+```

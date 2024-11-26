@@ -27,9 +27,9 @@ export class DevRoot {
     render() {
         return (
             <Host>
-                <es-header>
-                    <es-nav navTree={this.navTree} slot={'under'} />
-                    <es-header-dropdown
+                <l2-header>
+                    <l2-nav navTree={this.navTree} slot={'under'} />
+                    <l2-header-dropdown
                         slot={'right'}
                         icon={[ICON_NAMESPACE, 'dark-low-theme']}
                         buttonText={'JJJ'}
@@ -42,15 +42,15 @@ export class DevRoot {
                             <h1>{'John John Johnson'}</h1>
                             <h2>{'jjj@johnson.com'}</h2>
                         </header>
-                        <es-layout-link
+                        <l2-layout-link
                             matchExact
                             url={'/'}
                             count={22}
                             alertLevel={'error'}
                         >
                             {'Hello!'}
-                        </es-layout-link>
-                        <es-layout-button
+                        </l2-layout-link>
+                        <l2-layout-button
                             onClick={(e) => {
                                 logger.log('hello');
                                 requestClose(e.target);
@@ -58,44 +58,17 @@ export class DevRoot {
                             icon={[ICON_NAMESPACE, 'dark-low-theme']}
                         >
                             {'Go away'}
-                        </es-layout-button>
-                        <es-layout-link
+                        </l2-layout-button>
+                        <l2-layout-link
                             url={'/somewhere'}
                             icon={[ICON_NAMESPACE, 'dark-high-theme']}
                         >
                             {'Go somewhere'}
-                        </es-layout-link>
-                    </es-header-dropdown>
-                    <es-theme-dropdown slot={'right'} />
-                    <svg
-                        slot={'backdrop'}
-                        width={1920}
-                        height={1080}
-                        viewBox={'0 0 1280 800'}
-                        preserveAspectRatio={'xMidYMin meet'}
-                        xmlns={'http://www.w3.org/2000/svg'}
-                    >
-                        <circle
-                            class={'circle_1'}
-                            r={1280}
-                            cx={1848}
-                            cy={400}
-                        />
-                        <circle
-                            class={'circle_2'}
-                            r={400}
-                            cx={1150}
-                            cy={-250}
-                        />
-                        <circle
-                            class={'circle_3'}
-                            r={600}
-                            cx={-200}
-                            cy={1200}
-                        />
-                    </svg>
-                </es-header>
-                <es-loading-bar name={'page'} />
+                        </l2-layout-link>
+                    </l2-header-dropdown>
+                    <l2-theme-dropdown slot={'right'} />
+                </l2-header>
+                <l2-loading-bar name={'page'} />
 
                 <Switch>
                     <Route url={'/error'}>
@@ -107,21 +80,21 @@ export class DevRoot {
                         </Page>
                     </Route>
                     <Route>
-                        <es-sidebar>
-                            <es-layout-section title={'Dropdown'}>
-                                <es-sidebar-dropdown
+                        <l2-sidebar>
+                            <l2-layout-section title={'Dropdown'}>
+                                <l2-sidebar-dropdown
                                     defaultIcon={[
                                         ICON_NAMESPACE,
                                         'light-low-theme',
                                     ]}
                                     defaultTitle={'Hello there'}
                                 >
-                                    <es-layout-section
+                                    <l2-layout-section
                                         collapsable
                                         defaultCollapsed
                                         title={'Night Time'}
                                     >
-                                        <es-layout-button
+                                        <l2-layout-button
                                             onClick={(e) => {
                                                 logger.log('hello');
                                                 requestClose(e.target);
@@ -132,8 +105,8 @@ export class DevRoot {
                                             ]}
                                         >
                                             {'Go away'}
-                                        </es-layout-button>
-                                        <es-layout-link
+                                        </l2-layout-button>
+                                        <l2-layout-link
                                             matchExact
                                             url={'/'}
                                             icon={[
@@ -142,8 +115,8 @@ export class DevRoot {
                                             ]}
                                         >
                                             {'Hello!'}
-                                        </es-layout-link>
-                                        <es-layout-link
+                                        </l2-layout-link>
+                                        <l2-layout-link
                                             url={'/somewhere'}
                                             icon={[
                                                 ICON_NAMESPACE,
@@ -151,13 +124,13 @@ export class DevRoot {
                                             ]}
                                         >
                                             {'Go somewhere'}
-                                        </es-layout-link>
-                                    </es-layout-section>
-                                    <es-layout-section
+                                        </l2-layout-link>
+                                    </l2-layout-section>
+                                    <l2-layout-section
                                         collapsable
                                         title={'Day Time'}
                                     >
-                                        <es-layout-link
+                                        <l2-layout-link
                                             url={'/good-morning'}
                                             icon={[
                                                 ICON_NAMESPACE,
@@ -165,8 +138,8 @@ export class DevRoot {
                                             ]}
                                         >
                                             {'Good morning!'}
-                                        </es-layout-link>
-                                        <es-layout-link
+                                        </l2-layout-link>
+                                        <l2-layout-link
                                             url={'/work'}
                                             icon={[
                                                 ICON_NAMESPACE,
@@ -174,15 +147,15 @@ export class DevRoot {
                                             ]}
                                         >
                                             {'Go to work'}
-                                        </es-layout-link>
-                                    </es-layout-section>
-                                    <es-layout-section
+                                        </l2-layout-link>
+                                    </l2-layout-section>
+                                    <l2-layout-section
                                         collapsable
                                         defaultCollapsed
                                         title={'Another Time'}
                                     >
                                         {Array.from({ length: 200 }, (_, i) => (
-                                            <es-layout-link
+                                            <l2-layout-link
                                                 url={`/another-${i}`}
                                                 icon={[
                                                     ICON_NAMESPACE,
@@ -190,32 +163,32 @@ export class DevRoot {
                                                 ]}
                                             >
                                                 {`Link ${1}`}
-                                            </es-layout-link>
+                                            </l2-layout-link>
                                         ))}
-                                    </es-layout-section>
-                                </es-sidebar-dropdown>
-                            </es-layout-section>
-                            <es-layout-section title={'My Section'}>
-                                <es-layout-link
+                                    </l2-layout-section>
+                                </l2-sidebar-dropdown>
+                            </l2-layout-section>
+                            <l2-layout-section title={'My Section'}>
+                                <l2-layout-link
                                     matchExact
                                     url={'/'}
                                     icon={[ICON_NAMESPACE, 'dark-high-theme']}
                                 >
                                     {'Hello!'}
-                                </es-layout-link>
-                                <es-layout-button
+                                </l2-layout-link>
+                                <l2-layout-button
                                     icon={[ICON_NAMESPACE, 'dark-high-theme']}
                                 >
                                     {'Go somewhere'}
-                                </es-layout-button>
-                                <es-layout-link
+                                </l2-layout-button>
+                                <l2-layout-link
                                     url={'/somewhere'}
                                     icon={[ICON_NAMESPACE, 'dark-high-theme']}
                                 >
                                     {'Go somewhere'}
-                                </es-layout-link>
-                            </es-layout-section>
-                        </es-sidebar>
+                                </l2-layout-link>
+                            </l2-layout-section>
+                        </l2-sidebar>
                         <Switch>
                             <Route exact url={'/'}>
                                 <Page
@@ -226,7 +199,7 @@ export class DevRoot {
                                     <div class={'padder'} />
                                     {'hello'}
                                     <div class={'padder'} />
-                                    <es-toolbar>
+                                    <l2-toolbar>
                                         <menu>
                                             <li>
                                                 <es-button>
@@ -249,9 +222,9 @@ export class DevRoot {
                                                 </es-button>
                                             </li>
                                         </menu>
-                                    </es-toolbar>
-                                    <es-panel>
-                                        <es-panel-header>
+                                    </l2-toolbar>
+                                    <l2-panel>
+                                        <l2-panel-header>
                                             {'Hello there'}
                                             <es-button
                                                 variant={'minimal'}
@@ -277,8 +250,8 @@ export class DevRoot {
                                                     size={20}
                                                 />
                                             </es-button>
-                                        </es-panel-header>
-                                    </es-panel>
+                                        </l2-panel-header>
+                                    </l2-panel>
                                 </Page>
                             </Route>
                             <Route url={'/somewhere'}>

@@ -14,10 +14,10 @@
         "@eventstore-ui/components": "workspace:*",
         "@eventstore-ui/fields": "workspace:*",
         "@eventstore-ui/forms": "workspace:*",
-        "@eventstore-ui/layout": "workspace:*",
         "@eventstore-ui/router": "workspace:*",
         "@eventstore-ui/stores": "workspace:*",
         "@eventstore-ui/utils": "workspace:*",
+        "@kurrent-ui/layout": "workspace:*",
         "@kurrent-ui/theme": "workspace:*"
     },
     "devDependencies": {

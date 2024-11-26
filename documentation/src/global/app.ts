@@ -1,6 +1,6 @@
 import './polyfills';
 import '@eventstore-ui/components';
-import '@eventstore-ui/layout';
+import '@kurrent-ui/layout';
 import '@kurrent-ui/editor';
 import '@eventstore-ui/fields';
 import '@kurrent-ui/theme';

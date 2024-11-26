@@ -16,7 +16,7 @@ export class Root {
     render() {
         return (
             <Host>
-                <es-header>
+                <l2-header>
                     <es-button-link
                         external
                         slot={'right'}
@@ -24,8 +24,8 @@ export class Root {
                     >
                         <es-icon icon={'github'} />
                     </es-button-link>
-                    <es-theme-dropdown slot={'right'} />
-                </es-header>
+                    <l2-theme-dropdown slot={'right'} />
+                </l2-header>
                 <Switch>
                     <Route exact url={'/'} routeRender={() => <docs-home />} />
                     {sitemap.sections.map((section) =>

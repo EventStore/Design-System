@@ -1,5 +1,5 @@
 import { Component, h, Prop } from '@stencil/core';
-import { Page } from '@eventstore-ui/layout';
+import { Page } from '@kurrent-ui/layout';
 import type { Lib } from 'sitemap';
 
 @Component({
