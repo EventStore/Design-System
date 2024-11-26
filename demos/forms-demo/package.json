@@ -14,9 +14,9 @@
         "@eventstore-ui/components": "workspace:*",
         "@eventstore-ui/fields": "workspace:*",
         "@eventstore-ui/router": "workspace:*",
-        "@eventstore-ui/stores": "workspace:*",
         "@kurrent-ui/forms": "workspace:*",
         "@kurrent-ui/layout": "workspace:*",
+        "@kurrent-ui/stores": "workspace:*",
         "@kurrent-ui/theme": "workspace:*",
         "@kurrent-ui/utils": "workspace:*"
     },

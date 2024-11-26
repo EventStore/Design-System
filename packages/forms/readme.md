@@ -7,7 +7,7 @@ Form validation library for the Event Store design system.
 ### Add to your project
 
 ```sh
-yarn add @eventstore-ui/stores
+yarn add @kurrent-ui/stores
 ```
 
 Also, include the peer dependencies:

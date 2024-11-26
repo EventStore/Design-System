@@ -1,5 +1,5 @@
 ```tsx
-import { createStore } from '@eventstore-ui/stores';
+import { createStore } from '@kurrent-ui/stores';
 
 interface CountStore {
     error: number;
