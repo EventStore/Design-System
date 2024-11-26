@@ -1,5 +1,5 @@
 import { Component, h, Element, Prop } from '@stencil/core';
-import type { editor } from '@eventstore-ui/monaco-editor';
+import type { editor } from '@kurrent-ui/monaco-editor';
 import { MONACO } from '../utils/globals';
 import { logger } from '../utils/logger';
 
@@ -7,12 +7,12 @@ import { logger } from '../utils/logger';
  * Monaco editor wrapped in a web component. Handles re-layout on container resize
  */
 @Component({
-    tag: 'es-editor',
-    styleUrl: 'es-editor.css',
+    tag: 'e3-editor',
+    styleUrl: 'editor.css',
     shadow: true,
 })
-export class YEditor {
-    @Element() host!: HTMLEsEditorElement;
+export class Editor {
+    @Element() host!: HTMLElement;
 
     /** Editor options. see [monaco docs](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandaloneeditorconstructionoptions.html) for details. */
     @Prop() options: editor.IStandaloneEditorConstructionOptions = {};
@@ -35,7 +35,7 @@ export class YEditor {
     render() {
         return (
             <es-resize-observer onSizeChanged={this.resize} class={'container'}>
-                <es-hole-puncher namePrefix={'es-editor'}>
+                <es-hole-puncher namePrefix={'e3-editor'}>
                     <div ref={this.captureContainer} />
                 </es-hole-puncher>
             </es-resize-observer>

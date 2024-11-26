@@ -1,4 +1,4 @@
-import * as monaco from '@eventstore-ui/monaco-editor';
+import * as monaco from '@kurrent-ui/monaco-editor';
 import { addChildTheme, theme } from '@kurrent-ui/theme';
 import { createLogger } from '@eventstore-ui/utils';
 
@@ -11,7 +11,7 @@ declare global {
 const MONACO = Symbol.for('monaco');
 
 const logger = createLogger(
-    '@eventstore-ui/editor',
+    '@kurrent-ui/editor',
     'linear-gradient(90deg, #A100FFFF 0%, #71C4FFFF 100%)',
 );
 
@@ -177,4 +177,4 @@ const defineThemes = () => {
     }, true);
 };
 
-export type { Environment } from '@eventstore-ui/monaco-editor';
+export type { Environment } from '@kurrent-ui/monaco-editor';

@@ -43,6 +43,6 @@ es-tabs::part(panel) {
     background-color: var(--code-bg);
 }
 
-es-editor {
+e3-editor {
     --editor-height: calc(100% - 10px);
 }

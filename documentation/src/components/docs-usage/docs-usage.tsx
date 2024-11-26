@@ -67,7 +67,7 @@ export class DocsUsage {
                         onTabChange={this.tabChange}
                     >
                         {!Build.isServer && (
-                            <es-editor
+                            <e3-editor
                                 key={`${this.identifier}-${this.active}`}
                                 slot={this.active}
                                 options={{
