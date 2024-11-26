@@ -1,6 +1,6 @@
 import type { Config } from '@stencil/core';
 import { postcss } from '@stencil-community/postcss';
-import { assetsPath } from '@eventstore-ui/assets';
+import { assetsPath } from '@kurrent-ui/assets';
 import postcssPresetEnv from 'postcss-preset-env';
 
 import { string } from 'rollup-plugin-string';
@@ -30,6 +30,7 @@ export const config: Config = {
                     src: assetsPath,
                     dest: 'assets',
                 },
+                { src: 'site.manifest', dest: 'assets/site.manifest' },
             ],
         },
     ],

@@ -1,6 +1,6 @@
 import { join, dirname } from 'path';
 
-const root = dirname(require.resolve('@eventstore-ui/assets/package.json'));
+const root = dirname(require.resolve('@kurrent-ui/assets/package.json'));
 
 /**
  * Path to the location of all assets

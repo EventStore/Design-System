@@ -2,8 +2,8 @@ import type { JsonDocs } from '@stencil/core/internal';
 import type { ProjectReflection } from 'typedoc';
 import type { PackageJson } from '.';
 
-import assetsPackageJson from '@eventstore-ui/assets/package.json';
-import assetsReadme from '@eventstore-ui/assets/readme.md';
+import assetsPackageJson from '@kurrent-ui/assets/package.json';
+import assetsReadme from '@kurrent-ui/assets/readme.md';
 
 import componentsPackageJson from '@eventstore-ui/components/package.json';
 import componentsReadme from '@eventstore-ui/components/readme.md';
