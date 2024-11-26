@@ -119,7 +119,7 @@
             "name": "fields",
             "component": "Fields",
             "path": "./components/Fields.tsx",
-            "aliases": ["@eventstore-ui/fields"]
+            "aliases": ["@kurrent-ui/fields"]
         },
         "folder": {
             "name": "folder",

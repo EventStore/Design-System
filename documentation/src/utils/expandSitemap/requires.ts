@@ -18,8 +18,8 @@ import editorReadme from '@kurrent-ui/editor/readme.md';
 import editorStencilDocs from '../../../generated/editor.stencil.json';
 import editorTypeDocs from '../../../generated/editor.typedoc.json';
 
-import fieldsPackageJson from '@eventstore-ui/fields/package.json';
-import fieldsReadme from '@eventstore-ui/fields/readme.md';
+import fieldsPackageJson from '@kurrent-ui/fields/package.json';
+import fieldsReadme from '@kurrent-ui/fields/readme.md';
 import fieldsStencilDocs from '../../../generated/fields.stencil.json';
 import fieldsTypeDocs from '../../../generated/fields.typedoc.json';
 

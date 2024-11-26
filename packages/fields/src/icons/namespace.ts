@@ -1,1 +1,1 @@
-export const ICON_NAMESPACE = 'es-fields';
+export const ICON_NAMESPACE = 'k-fields';

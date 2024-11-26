@@ -2056,10 +2056,10 @@ __metadata:
   resolution: "@eventstore-ui/docs@workspace:documentation"
   dependencies:
     "@eventstore-ui/components": "workspace:*"
-    "@eventstore-ui/fields": "workspace:*"
     "@kurrent-ui/assets": "workspace:*"
     "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/editor": "workspace:*"
+    "@kurrent-ui/fields": "workspace:*"
     "@kurrent-ui/forms": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/layout": "workspace:*"
@@ -2087,31 +2087,6 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
     workbox-build: "npm:6.5.4"
-  languageName: unknown
-  linkType: soft
-
-"@eventstore-ui/fields@workspace:*, @eventstore-ui/fields@workspace:packages/fields":
-  version: 0.0.0-use.local
-  resolution: "@eventstore-ui/fields@workspace:packages/fields"
-  dependencies:
-    "@eventstore-ui/components": "workspace:*"
-    "@kurrent-ui/configs": "workspace:*"
-    "@kurrent-ui/forms": "workspace:*"
-    "@kurrent-ui/icon-manager": "workspace:*"
-    "@kurrent-ui/theme": "workspace:*"
-    "@kurrent-ui/utils": "workspace:*"
-    "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:4.22.0"
-    imask: "npm:7.6.1"
-    jest: "npm:^27.4.5"
-    npm-run-all: "npm:^4.1.5"
-    puppeteer: "npm:^19.5.0"
-    typedoc: "npm:0.24.8"
-    typescript: "npm:5.1.6"
-  peerDependencies:
-    "@eventstore-ui/components": ^1.0.0
-    "@kurrent-ui/theme": ^1.0.0
-    "@kurrent-ui/utils": ^1.0.0
   languageName: unknown
   linkType: soft
 
@@ -2476,6 +2451,31 @@ __metadata:
     rollup: "npm:^4.24.0"
     rollup-plugin-copy: "npm:3.5.0"
     rollup-plugin-import-css: "npm:3.5.0"
+    typedoc: "npm:0.24.8"
+    typescript: "npm:5.1.6"
+  peerDependencies:
+    "@eventstore-ui/components": ^1.0.0
+    "@kurrent-ui/theme": ^1.0.0
+    "@kurrent-ui/utils": ^1.0.0
+  languageName: unknown
+  linkType: soft
+
+"@kurrent-ui/fields@workspace:*, @kurrent-ui/fields@workspace:packages/fields":
+  version: 0.0.0-use.local
+  resolution: "@kurrent-ui/fields@workspace:packages/fields"
+  dependencies:
+    "@eventstore-ui/components": "workspace:*"
+    "@kurrent-ui/configs": "workspace:*"
+    "@kurrent-ui/forms": "workspace:*"
+    "@kurrent-ui/icon-manager": "workspace:*"
+    "@kurrent-ui/theme": "workspace:*"
+    "@kurrent-ui/utils": "workspace:*"
+    "@stencil-community/postcss": "npm:^2.2.0"
+    "@stencil/core": "npm:4.22.0"
+    imask: "npm:7.6.1"
+    jest: "npm:^27.4.5"
+    npm-run-all: "npm:^4.1.5"
+    puppeteer: "npm:^19.5.0"
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
@@ -5774,9 +5774,9 @@ __metadata:
   resolution: "forms-demo@workspace:demos/forms-demo"
   dependencies:
     "@eventstore-ui/components": "workspace:*"
-    "@eventstore-ui/fields": "workspace:*"
     "@kurrent-ui/assets": "workspace:*"
     "@kurrent-ui/configs": "workspace:*"
+    "@kurrent-ui/fields": "workspace:*"
     "@kurrent-ui/forms": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/layout": "workspace:*"

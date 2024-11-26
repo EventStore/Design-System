@@ -1,4 +1,4 @@
-# @eventstore-ui/fields
+# @kurrent-ui/fields
 
 Form field web components for the Event Store design system.
 
@@ -9,7 +9,7 @@ The components are designed to be used in conjuction with `@kurrent-ui/forms` to
 ### Add to your project
 
 ```sh
-yarn add @eventstore-ui/fields
+yarn add @kurrent-ui/fields
 ```
 
 Also, include the peer dependencies:
@@ -26,7 +26,7 @@ In your `globalScript` file, add the imports:
 // Add the core web components to the global pool
 import '@eventstore-ui/components';
 // Add the field web components to the global pool
-import '@eventstore-ui/fields';
+import '@kurrent-ui/fields';
 ```
 
 Then you can use the element anywhere in your JSX, html, templates etc.
