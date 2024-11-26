@@ -51,18 +51,18 @@
     "peerDependencies": {
         "@eventstore-ui/components": "^1.0.0",
         "@eventstore-ui/router": "^1.0.0",
-        "@eventstore-ui/utils": "^1.0.0",
         "@kurrent-ui/sequences": "^1.0.0",
-        "@kurrent-ui/theme": "^1.0.0"
+        "@kurrent-ui/theme": "^1.0.0",
+        "@kurrent-ui/utils": "^1.0.0"
     },
     "devDependencies": {
         "@eventstore-ui/components": "workspace:*",
         "@eventstore-ui/router": "workspace:*",
-        "@eventstore-ui/utils": "workspace:*",
         "@kurrent-ui/configs": "workspace:*",
         "@kurrent-ui/icon-manager": "workspace:*",
         "@kurrent-ui/sequences": "workspace:*",
         "@kurrent-ui/theme": "workspace:*",
+        "@kurrent-ui/utils": "workspace:*",
         "@stencil-community/postcss": "^2.2.0",
         "@stencil/core": "4.22.0",
         "jest": "^27.4.5",

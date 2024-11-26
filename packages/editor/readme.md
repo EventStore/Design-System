@@ -13,7 +13,7 @@ yarn add @kurrent-ui/editor
 Also, include the peer dependencies:
 
 ```sh
-yarn add @eventstore-ui/components @eventstore-ui/utils
+yarn add @eventstore-ui/components @kurrent-ui/utils
 ```
 
 ## Set up within a Stencil project:

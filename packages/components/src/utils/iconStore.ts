@@ -1,5 +1,5 @@
 import type { FunctionalComponent, h as JSXFactory } from '@stencil/core';
-import { createLogger } from '@eventstore-ui/utils';
+import { createLogger } from '@kurrent-ui/utils';
 import type { JSXBase } from '@stencil/core/internal';
 
 const ICON_STORE = Symbol.for('es-icon-store');

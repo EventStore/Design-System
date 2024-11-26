@@ -12,7 +12,7 @@ import {
 } from '@stencil/core';
 import { Link, router } from '@eventstore-ui/router';
 import { theme } from '@kurrent-ui/theme';
-import { debounce, rateLimit } from '@eventstore-ui/utils';
+import { debounce, rateLimit } from '@kurrent-ui/utils';
 
 import type {
     ClickRow,

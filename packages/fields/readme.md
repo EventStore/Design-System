@@ -15,7 +15,7 @@ yarn add @eventstore-ui/fields
 Also, include the peer dependencies:
 
 ```sh
-yarn add @eventstore-ui/components @kurrent-ui/theme @eventstore-ui/utils
+yarn add @eventstore-ui/components @kurrent-ui/theme @kurrent-ui/utils
 ```
 
 ## Usage within a stencil project

@@ -14,7 +14,7 @@ All child actions must have the `dropdownItem` prop set.
 
 ```tsx
 import { ActionCopy, ActionDelete } from '@eventstore-ui/components';
-import { createLogger } from '@eventstore-ui/utils';
+import { createLogger } from '@kurrent-ui/utils';
 
 const logger = createLogger('es-action-dropdown');
 
