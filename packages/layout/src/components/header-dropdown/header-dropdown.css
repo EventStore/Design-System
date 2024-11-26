@@ -5,16 +5,6 @@
 
 :host {
     display: block;
-
-    --primary-color: var(--color-background);
-    --secondary-color: var(--color-foreground);
-    --tertiary-color: var(--color-foreground);
-}
-
-:host([variant='highlight']) {
-    --primary-color: var(--color-background);
-    --secondary-color: var(--color-highlight);
-    --tertiary-color: var(--color-highlight);
 }
 
 .caret {
@@ -52,9 +42,9 @@
 }
 
 .open {
-    --background-color: var(--secondary-color);
-    --foreground-color: var(--primary-color);
-    --border-color: var(--secondary-color);
+    --background-color: var(---secondary);
+    --foreground-color: var(---primary);
+    --border-color: var(---secondary);
 }
 
 l2-layout-button,

@@ -102,7 +102,6 @@ export default () => (
 | `disabled`   | `disabled`    | If the button should be disabled.                              | `boolean`                                                            | `false`     |
 | `icon`       | `icon`        | Icon for use in the button.                                    | `[namespace: string \| symbol, name: string] \| string \| undefined` | `undefined` |
 | `level`      | `level`       | Apply an indent to the left of the button, for basic nesting.  | `number \| undefined`                                                | `undefined` |
-| `variant`    | `variant`     | Which styling variant to use.                                  | `"default" \| "highlight"`                                           | `'default'` |
 
 
 ## Shadow Parts

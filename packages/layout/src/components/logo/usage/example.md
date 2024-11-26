@@ -7,6 +7,5 @@ export default () => <l2-logo />;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #09254a;
 }
 ```
