@@ -4,7 +4,6 @@ import type { IconDescription } from '@eventstore-ui/components';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import { router } from '@eventstore-ui/router';
 import { theme } from '@kurrent-ui/theme';
-import type { HeaderDropdownButtonVariant } from './types';
 
 /**
  * A dropdown for the header.
@@ -18,8 +17,6 @@ import type { HeaderDropdownButtonVariant } from './types';
 export class HeaderDropdown {
     @Element() host!: HTMLL2HeaderDropdownElement;
 
-    /** Which styling variant to use. */
-    @Prop({ reflect: true }) variant: HeaderDropdownButtonVariant = 'default';
     /** Icon for use in the button. */
     @Prop() icon?: IconDescription;
     /** text for use in the button. */
