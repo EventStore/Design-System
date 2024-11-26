@@ -12,7 +12,7 @@ A pill display of an number, that pulses on change. Caps out at 999.
 ### Example
 
 ```tsx
-import { createStore } from '@eventstore-ui/stores';
+import { createStore } from '@kurrent-ui/stores';
 import { random } from 'utils/helpers';
 
 const { state } = createStore(Array.from({ length: 144 }, () => random(800)));

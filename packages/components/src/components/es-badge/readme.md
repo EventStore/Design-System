@@ -12,7 +12,7 @@ Display a counter or dot beside a component to indicate action being required.
 ### Example
 
 ```tsx
-import { createStore } from '@eventstore-ui/stores';
+import { createStore } from '@kurrent-ui/stores';
 
 interface CountStore {
     error: number;

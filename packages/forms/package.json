@@ -36,7 +36,7 @@
     },
     "peerDependencies": {
         "@eventstore-ui/components": "^1.0.0",
-        "@eventstore-ui/stores": "^1.0.0",
+        "@kurrent-ui/stores": "^1.0.0",
         "@kurrent-ui/utils": "^1.0.0"
     },
     "devDependencies": {
@@ -44,7 +44,7 @@
         "@babel/preset-env": "^7.12.11",
         "@babel/preset-typescript": "^7.12.7",
         "@eventstore-ui/components": "workspace:*",
-        "@eventstore-ui/stores": "workspace:*",
+        "@kurrent-ui/stores": "workspace:*",
         "@kurrent-ui/utils": "workspace:*",
         "@stencil/core": "4.22.0",
         "@types/jest": "^27.0.3",

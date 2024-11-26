@@ -2,7 +2,7 @@
     "name": "stores-demo",
     "version": "0.1.0-alpha",
     "private": true,
-    "description": "Demo for @eventstore-ui/stores",
+    "description": "Demo for @kurrent-ui/stores",
     "scripts": {
         "build": "stencil build",
         "start": "stencil build --dev --watch --serve --no-open",
@@ -12,7 +12,7 @@
         "fix": "yarn g:fix"
     },
     "dependencies": {
-        "@eventstore-ui/stores": "workspace:*",
+        "@kurrent-ui/stores": "workspace:*",
         "@kurrent-ui/utils": "workspace:*"
     },
     "devDependencies": {

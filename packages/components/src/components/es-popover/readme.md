@@ -12,7 +12,7 @@ Attaches a portaled popover, attached to the parent node. Can be used to create 
 ### Example
 
 ```tsx
-import { createStore } from '@eventstore-ui/stores';
+import { createStore } from '@kurrent-ui/stores';
 import type { FieldChange } from '@eventstore-ui/fields';
 
 interface PopoverStore {

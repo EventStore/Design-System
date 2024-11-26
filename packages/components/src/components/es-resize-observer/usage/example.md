@@ -1,5 +1,5 @@
 ```tsx
-import { createStore } from '@eventstore-ui/stores';
+import { createStore } from '@kurrent-ui/stores';
 
 const { state } = createStore<{ height: number; width: number }>({
     height: 0,
