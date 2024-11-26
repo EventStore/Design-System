@@ -1,4 +1,4 @@
-import type * as monaco from '@eventstore-ui/monaco-editor';
+import type * as monaco from '@kurrent-ui/monaco-editor';
 
 export const MONACO = Symbol.for('monaco');
 

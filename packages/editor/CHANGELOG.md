@@ -1,4 +1,4 @@
-# @eventstore-ui/editor
+# @kurrent-ui/editor
 
 ## 2.0.2
 
@@ -13,13 +13,13 @@
 -   [`13df770`](https://github.com/EventStore/Design-System/commit/13df7704117fdc1fc483bd2d3c05925e6229b061) - Fix publishing
 
 -   Updated dependencies [[`13df770`](https://github.com/EventStore/Design-System/commit/13df7704117fdc1fc483bd2d3c05925e6229b061)]:
-    -   @eventstore-ui/monaco-editor@1.0.1
+    -   @kurrent-ui/monaco-editor@1.0.1
 
 ## 2.0.0
 
 ### Major Changes
 
--   [`20dcceb`](https://github.com/EventStore/Design-System/commit/20dccebe11067986fd5eb31aa7f9e5bf03063017) - Monaco editor has been moved to a seperate package: `@eventstore-ui/monaco-editor`.
+-   [`20dcceb`](https://github.com/EventStore/Design-System/commit/20dccebe11067986fd5eb31aa7f9e5bf03063017) - Monaco editor has been moved to a seperate package: `@kurrent-ui/monaco-editor`.
 
     ## Breaking changes:
 
@@ -28,7 +28,7 @@
     You must now also copy `assetsPath` as well as `workersPath`, into your served assets.
 
     ```ts
-    import * as editor from '@eventstore-ui/editor/configure';
+    import * as editor from '@kurrent-ui/editor/configure';
 
     // ...
 

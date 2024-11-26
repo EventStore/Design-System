@@ -103,7 +103,7 @@
             "name": "editor",
             "component": "Editor",
             "path": "./components/Editor.tsx",
-            "aliases": ["@eventstore-ui/editor"]
+            "aliases": ["@kurrent-ui/editor"]
         },
         "error": {
             "name": "error",
