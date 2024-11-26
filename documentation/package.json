@@ -54,9 +54,9 @@
         "markdown-it-anchor": "8.6.4"
     },
     "devDependencies": {
-        "@eventstore-ui/configs": "workspace:*",
         "@eventstore-ui/preview-builder": "workspace:*",
         "@kurrent-ui/assets": "workspace:*",
+        "@kurrent-ui/configs": "workspace:*",
         "@kurrent-ui/icon-manager": "workspace:*",
         "@stencil-community/postcss": "^2.2.0",
         "@stencil/core": "4.22.0",

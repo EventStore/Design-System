@@ -1,4 +1,4 @@
-# @eventstore-ui/configs
+# @kurrent-ui/configs
 
 ## 1.1.1
 
