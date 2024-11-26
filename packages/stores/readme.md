@@ -1,8 +1,8 @@
-# @eventstore-ui/stores
+# @kurrent-ui/stores
 
 Data stores for stencil.
 
-`@eventstore-ui/stores` builds upon [`@stencil/store`](https://github.com/ionic-team/stencil-store), with a few key differences:
+`@kurrent-ui/stores` builds upon [`@stencil/store`](https://github.com/ionic-team/stencil-store), with a few key differences:
 
 -   Support for removing keys (and their values) from the store, allowing arbitrary key value records.
 
@@ -26,7 +26,7 @@ Data stores for stencil.
 ### Add to your project
 
 ```sh
-yarn add @eventstore-ui/stores
+yarn add @kurrent-ui/stores
 ```
 
 Also, include the peer dependencies:

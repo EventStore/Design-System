@@ -233,7 +233,7 @@ iconStore.addIcons({
     get stores() {
         return import('./components/Stores').then(({ Stores }) => Stores);
     },
-    get '@eventstore-ui/stores'() {
+    get '@kurrent-ui/stores'() {
         return this['stores'];
     },
     get theme() {

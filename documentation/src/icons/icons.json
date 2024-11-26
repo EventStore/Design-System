@@ -308,7 +308,7 @@
             "name": "stores",
             "component": "Stores",
             "path": "./components/Stores.tsx",
-            "aliases": ["@eventstore-ui/stores"]
+            "aliases": ["@kurrent-ui/stores"]
         },
         "theme": {
             "name": "theme",

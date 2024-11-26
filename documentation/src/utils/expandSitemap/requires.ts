@@ -44,8 +44,8 @@ import routerPackageJson from '@eventstore-ui/router/package.json';
 import routerReadme from '@eventstore-ui/router/readme.md';
 import routerTypeDocs from '../../../generated/router.typedoc.json';
 
-import storesPackageJson from '@eventstore-ui/stores/package.json';
-import storesReadme from '@eventstore-ui/stores/readme.md';
+import storesPackageJson from '@kurrent-ui/stores/package.json';
+import storesReadme from '@kurrent-ui/stores/readme.md';
 import storesTypeDocs from '../../../generated/stores.typedoc.json';
 
 import themePackageJson from '@kurrent-ui/theme/package.json';

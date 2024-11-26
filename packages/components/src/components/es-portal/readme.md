@@ -13,7 +13,7 @@ Portals the passed node to a different part of the document. Note that portal do
 
 ```tsx
 import type { FunctionalComponent } from '@stencil/core';
-import { createStore } from '@eventstore-ui/stores';
+import { createStore } from '@kurrent-ui/stores';
 
 const { state } = createStore<{ open: boolean }>({
     open: false,
