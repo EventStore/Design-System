@@ -1,7 +1,7 @@
 import { logger } from './logger';
 
-const LAYOUT_OBSERVER = Symbol.for('es-layout-observer');
-const LAYOUT_OBSERVERS = Symbol.for('es-layout-observers');
+const LAYOUT_OBSERVER = Symbol.for('k-layout-observer');
+const LAYOUT_OBSERVERS = Symbol.for('k-layout-observers');
 
 type Observer = [varName: string, fn: (val: string) => void];
 
@@ -25,7 +25,7 @@ window[LAYOUT_OBSERVER] =
                     fn(val);
                 }
 
-                window.dispatchEvent(new CustomEvent('es-layout-change'));
+                window.dispatchEvent(new CustomEvent('k-layout-change'));
             }
         });
 

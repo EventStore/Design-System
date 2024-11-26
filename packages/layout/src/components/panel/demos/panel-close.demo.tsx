@@ -1,7 +1,7 @@
 import { Component, Host, State, h } from '@stencil/core';
 import { router } from '@eventstore-ui/router';
 
-import { ES_LAYOUT_ICON_NAMESPACE, Page } from '../../../../';
+import { K_LAYOUT_ICON_NAMESPACE, Page } from '../../../../';
 import { areas } from './validPositions';
 import type { PanelMode } from '../types';
 
@@ -10,7 +10,7 @@ import type { PanelMode } from '../types';
  * @group Panels
  */
 @Component({
-    tag: 'es-panel-close-demo',
+    tag: 'panel-close-demo',
     styleUrl: 'panel-close.demo.css',
     shadow: true,
 })
@@ -22,7 +22,7 @@ export class PanelPlacementDemo {
     @State() currentMode: PanelMode = 'inline';
 
     componentWillLoad() {
-        router.init({ root: '/es-panel-close-demo/' });
+        router.init({ root: '/panel-close-demo/' });
     }
 
     render() {
@@ -84,7 +84,7 @@ export class PanelPlacementDemo {
                         />
                     </label>
 
-                    <es-panel
+                    <l2-panel
                         defaultSize={200}
                         area={area}
                         start={start}
@@ -100,21 +100,21 @@ export class PanelPlacementDemo {
                                 >
                                     <es-icon
                                         icon={[
-                                            ES_LAYOUT_ICON_NAMESPACE,
+                                            K_LAYOUT_ICON_NAMESPACE,
                                             'chevron',
                                         ]}
                                     />
                                     {area}
                                     <es-icon
                                         icon={[
-                                            ES_LAYOUT_ICON_NAMESPACE,
+                                            K_LAYOUT_ICON_NAMESPACE,
                                             'chevron',
                                         ]}
                                     />
                                 </div>
                             )}
                         <p>{'Some content for the panel'}</p>
-                    </es-panel>
+                    </l2-panel>
                 </Page>
             </Host>
         );

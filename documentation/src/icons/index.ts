@@ -135,7 +135,7 @@ iconStore.addIcons({
     get layout() {
         return import('./components/Layout').then(({ Layout }) => Layout);
     },
-    get '@eventstore-ui/layout'() {
+    get '@kurrent-ui/layout'() {
         return this['layout'];
     },
     get light() {

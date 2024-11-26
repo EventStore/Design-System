@@ -1,4 +1,4 @@
-# @eventstore-ui/layout
+# @kurrent-ui/layout
 
 Page layout components for the Event Store design system.
 
@@ -7,7 +7,7 @@ Page layout components for the Event Store design system.
 ### Add to your project
 
 ```sh
-yarn add @eventstore-ui/layout
+yarn add @kurrent-ui/layout
 ```
 
 Also, include the peer dependencies:
@@ -21,7 +21,7 @@ yarn add @eventstore-ui/router @eventstore-ui/utils
 In your `globalScript` file, add an import:
 
 ```ts
-import '@eventstore-ui/layout';
+import '@kurrent-ui/layout';
 ```
 
 Then you can use the elements anywhere in your JSX, html, templates etc.
@@ -29,7 +29,7 @@ Then you can use the elements anywhere in your JSX, html, templates etc.
 In your `globalStyle` file, add an import:
 
 ```css
-@import url('~@eventstore-ui/layout/css/root.css');
+@import url('~@kurrent-ui/layout/css/root.css');
 ```
 
 This sets up the base styles and css vars needed for layout components.

@@ -49,7 +49,7 @@
     opacity: 0.2;
 }
 
-es-toolbar {
+l2-toolbar {
     & menu {
         all: unset;
         display: block;
