@@ -2058,7 +2058,6 @@ __metadata:
     "@eventstore-ui/components": "workspace:*"
     "@eventstore-ui/fields": "workspace:*"
     "@eventstore-ui/forms": "workspace:*"
-    "@eventstore-ui/preview-builder": "workspace:*"
     "@eventstore-ui/router": "workspace:*"
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
@@ -2067,6 +2066,7 @@ __metadata:
     "@kurrent-ui/editor": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/layout": "workspace:*"
+    "@kurrent-ui/preview-builder": "workspace:*"
     "@kurrent-ui/sequences": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
@@ -2140,17 +2140,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eventstore-ui/preview-builder@workspace:*, @eventstore-ui/preview-builder@workspace:tools/preview-builder":
-  version: 0.0.0-use.local
-  resolution: "@eventstore-ui/preview-builder@workspace:tools/preview-builder"
-  dependencies:
-    "@types/node": "npm:^18.11.18"
-    typescript: "npm:5.1.6"
-  bin:
-    build-previews: ./dist/index.js
-  languageName: unknown
-  linkType: soft
-
 "@eventstore-ui/router@workspace:*, @eventstore-ui/router@workspace:packages/router":
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/router@workspace:packages/router"
@@ -2189,18 +2178,6 @@ __metadata:
     typescript: "npm:5.1.6"
   peerDependencies:
     "@eventstore-ui/utils": ^1.0.0
-  languageName: unknown
-  linkType: soft
-
-"@eventstore-ui/typedoc-plugin-usage@workspace:tools/typedoc-plugin-usage":
-  version: 0.0.0-use.local
-  resolution: "@eventstore-ui/typedoc-plugin-usage@workspace:tools/typedoc-plugin-usage"
-  dependencies:
-    "@types/node": "npm:^18.11.18"
-    typedoc: "npm:0.24.8"
-    typescript: "npm:5.1.6"
-  peerDependencies:
-    typedoc: ">=0.21.0"
   languageName: unknown
   linkType: soft
 
@@ -2654,6 +2631,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kurrent-ui/preview-builder@workspace:*, @kurrent-ui/preview-builder@workspace:tools/preview-builder":
+  version: 0.0.0-use.local
+  resolution: "@kurrent-ui/preview-builder@workspace:tools/preview-builder"
+  dependencies:
+    "@types/node": "npm:^18.11.18"
+    typescript: "npm:5.1.6"
+  bin:
+    build-previews: ./dist/index.js
+  languageName: unknown
+  linkType: soft
+
 "@kurrent-ui/sequences@workspace:*, @kurrent-ui/sequences@workspace:packages/sequences":
   version: 0.0.0-use.local
   resolution: "@kurrent-ui/sequences@workspace:packages/sequences"
@@ -2691,6 +2679,18 @@ __metadata:
     typescript: "npm:5.1.6"
   peerDependencies:
     "@eventstore-ui/utils": ^1.0.0
+  languageName: unknown
+  linkType: soft
+
+"@kurrent-ui/typedoc-plugin-usage@workspace:tools/typedoc-plugin-usage":
+  version: 0.0.0-use.local
+  resolution: "@kurrent-ui/typedoc-plugin-usage@workspace:tools/typedoc-plugin-usage"
+  dependencies:
+    "@types/node": "npm:^18.11.18"
+    typedoc: "npm:0.24.8"
+    typescript: "npm:5.1.6"
+  peerDependencies:
+    typedoc: ">=0.21.0"
   languageName: unknown
   linkType: soft
 
