@@ -6,4 +6,4 @@ declare global {
     }
 }
 
-export const INTERNAL_ROUTER = Symbol.for('es-internal-router');
+export const INTERNAL_ROUTER = Symbol.for('internal-router');

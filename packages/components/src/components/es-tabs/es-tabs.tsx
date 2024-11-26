@@ -10,7 +10,7 @@ import {
     State,
     Fragment,
 } from '@stencil/core';
-import { searchParam, type SearchParamTracker } from '@eventstore-ui/router';
+import { searchParam, type SearchParamTracker } from '@kurrent-ui/router';
 import { theme } from '@kurrent-ui/theme';
 
 import type { Tab } from './types';

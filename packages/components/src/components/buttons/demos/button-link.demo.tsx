@@ -1,5 +1,5 @@
 import { Component, h, Host, Fragment } from '@stencil/core';
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 
 import type { ButtonVariant } from '../types';
 import { ES_COMPONENTS_ICON_NAMESPACE, type IconDescription } from '../../..';

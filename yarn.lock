@@ -2031,10 +2031,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/components@workspace:packages/components"
   dependencies:
-    "@eventstore-ui/router": "workspace:*"
     "@floating-ui/dom": "npm:0.4.1"
     "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
+    "@kurrent-ui/router": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
     "@kurrent-ui/utils": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
@@ -2045,7 +2045,7 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
-    "@eventstore-ui/router": ^1.0.0
+    "@kurrent-ui/router": ^1.0.0
     "@kurrent-ui/theme": ^1.0.0
     "@kurrent-ui/utils": ^1.0.0
   languageName: unknown
@@ -2057,7 +2057,6 @@ __metadata:
   dependencies:
     "@eventstore-ui/components": "workspace:*"
     "@eventstore-ui/fields": "workspace:*"
-    "@eventstore-ui/router": "workspace:*"
     "@kurrent-ui/assets": "workspace:*"
     "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/editor": "workspace:*"
@@ -2065,6 +2064,7 @@ __metadata:
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/layout": "workspace:*"
     "@kurrent-ui/preview-builder": "workspace:*"
+    "@kurrent-ui/router": "workspace:*"
     "@kurrent-ui/sequences": "workspace:*"
     "@kurrent-ui/stores": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
@@ -2111,26 +2111,6 @@ __metadata:
   peerDependencies:
     "@eventstore-ui/components": ^1.0.0
     "@kurrent-ui/theme": ^1.0.0
-    "@kurrent-ui/utils": ^1.0.0
-  languageName: unknown
-  linkType: soft
-
-"@eventstore-ui/router@workspace:*, @eventstore-ui/router@workspace:packages/router":
-  version: 0.0.0-use.local
-  resolution: "@eventstore-ui/router@workspace:packages/router"
-  dependencies:
-    "@babel/core": "npm:^7.12.10"
-    "@babel/preset-env": "npm:^7.12.11"
-    "@babel/preset-typescript": "npm:^7.12.7"
-    "@kurrent-ui/utils": "workspace:*"
-    "@stencil/core": "npm:4.22.0"
-    "@types/jest": "npm:^27.0.3"
-    babel-jest: "npm:^27.5.1"
-    jest: "npm:^27.4.5"
-    rollup: "npm:^4.24.0"
-    typedoc: "npm:0.24.8"
-    typescript: "npm:5.1.6"
-  peerDependencies:
     "@kurrent-ui/utils": ^1.0.0
   languageName: unknown
   linkType: soft
@@ -2555,9 +2535,9 @@ __metadata:
   resolution: "@kurrent-ui/layout@workspace:packages/layout"
   dependencies:
     "@eventstore-ui/components": "workspace:*"
-    "@eventstore-ui/router": "workspace:*"
     "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
+    "@kurrent-ui/router": "workspace:*"
     "@kurrent-ui/sequences": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
     "@kurrent-ui/utils": "workspace:*"
@@ -2570,7 +2550,7 @@ __metadata:
     typescript: "npm:5.1.6"
   peerDependencies:
     "@eventstore-ui/components": ^1.0.0
-    "@eventstore-ui/router": ^1.0.0
+    "@kurrent-ui/router": ^1.0.0
     "@kurrent-ui/sequences": ^1.0.0
     "@kurrent-ui/theme": ^1.0.0
     "@kurrent-ui/utils": ^1.0.0
@@ -2601,6 +2581,26 @@ __metadata:
     typescript: "npm:5.1.6"
   bin:
     build-previews: ./dist/index.js
+  languageName: unknown
+  linkType: soft
+
+"@kurrent-ui/router@workspace:*, @kurrent-ui/router@workspace:packages/router":
+  version: 0.0.0-use.local
+  resolution: "@kurrent-ui/router@workspace:packages/router"
+  dependencies:
+    "@babel/core": "npm:^7.12.10"
+    "@babel/preset-env": "npm:^7.12.11"
+    "@babel/preset-typescript": "npm:^7.12.7"
+    "@kurrent-ui/utils": "workspace:*"
+    "@stencil/core": "npm:4.22.0"
+    "@types/jest": "npm:^27.0.3"
+    babel-jest: "npm:^27.5.1"
+    jest: "npm:^27.4.5"
+    rollup: "npm:^4.24.0"
+    typedoc: "npm:0.24.8"
+    typescript: "npm:5.1.6"
+  peerDependencies:
+    "@kurrent-ui/utils": ^1.0.0
   languageName: unknown
   linkType: soft
 
@@ -5775,12 +5775,12 @@ __metadata:
   dependencies:
     "@eventstore-ui/components": "workspace:*"
     "@eventstore-ui/fields": "workspace:*"
-    "@eventstore-ui/router": "workspace:*"
     "@kurrent-ui/assets": "workspace:*"
     "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/forms": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/layout": "workspace:*"
+    "@kurrent-ui/router": "workspace:*"
     "@kurrent-ui/stores": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
     "@kurrent-ui/utils": "workspace:*"
@@ -9793,7 +9793,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "router-demo@workspace:demos/router-demo"
   dependencies:
-    "@eventstore-ui/router": "workspace:*"
+    "@kurrent-ui/router": "workspace:*"
     "@stencil/core": "npm:4.22.0"
   languageName: unknown
   linkType: soft

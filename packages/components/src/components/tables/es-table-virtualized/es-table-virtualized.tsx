@@ -10,7 +10,7 @@ import {
     Method,
     Watch,
 } from '@stencil/core';
-import { Link, router } from '@eventstore-ui/router';
+import { Link, router } from '@kurrent-ui/router';
 import { theme } from '@kurrent-ui/theme';
 import { debounce, rateLimit } from '@kurrent-ui/utils';
 
