@@ -1,6 +1,6 @@
 ```tsx
 import { createValidatedForm } from '@kurrent-ui/forms';
-import type { RadioCardOption } from '@eventstore-ui/fields';
+import type { RadioCardOption } from '@kurrent-ui/fields';
 
 interface Example {
     best: string | null;
