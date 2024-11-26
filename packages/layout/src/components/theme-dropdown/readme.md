@@ -38,13 +38,6 @@ export default () => (
 
 
 
-## Properties
-
-| Property  | Attribute | Description                   | Type                       | Default     |
-| --------- | --------- | ----------------------------- | -------------------------- | ----------- |
-| `variant` | `variant` | Which styling variant to use. | `"default" \| "highlight"` | `'default'` |
-
-
 ## Dependencies
 
 ### Depends on
