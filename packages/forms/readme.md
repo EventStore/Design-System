@@ -1,4 +1,4 @@
-# @eventstore-ui/forms
+# @kurrent-ui/forms
 
 Form validation library for the Event Store design system.
 

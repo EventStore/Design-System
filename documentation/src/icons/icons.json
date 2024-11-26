@@ -130,7 +130,7 @@
             "name": "forms",
             "component": "Forms",
             "path": "./components/Forms.tsx",
-            "aliases": ["@eventstore-ui/forms"]
+            "aliases": ["@kurrent-ui/forms"]
         },
         "gift": {
             "name": "gift",

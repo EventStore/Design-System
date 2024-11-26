@@ -23,8 +23,8 @@ import fieldsReadme from '@eventstore-ui/fields/readme.md';
 import fieldsStencilDocs from '../../../generated/fields.stencil.json';
 import fieldsTypeDocs from '../../../generated/fields.typedoc.json';
 
-import formsPackageJson from '@eventstore-ui/forms/package.json';
-import formsReadme from '@eventstore-ui/forms/readme.md';
+import formsPackageJson from '@kurrent-ui/forms/package.json';
+import formsReadme from '@kurrent-ui/forms/readme.md';
 import formsTypeDocs from '../../../generated/forms.typedoc.json';
 
 import iconManagerPackageJson from '@kurrent-ui/icon-manager/package.json';

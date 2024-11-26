@@ -1,7 +1,5 @@
 # f2-select-input
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -14,7 +12,7 @@ A searchable select dropdown.
 ### Example
 
 ```tsx
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 
 interface Example {
     name: string | null;

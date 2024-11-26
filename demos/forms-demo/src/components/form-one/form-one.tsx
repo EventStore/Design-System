@@ -3,7 +3,7 @@ import { Component, h } from '@stencil/core';
 import { Page } from '@kurrent-ui/layout';
 import { HTTPError } from '@kurrent-ui/utils';
 
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 import { logger } from '../../utils/logger';
 
 interface MyForm {

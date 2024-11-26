@@ -1,7 +1,5 @@
 # f2-hr
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -15,7 +13,7 @@ Can optionally have a title slotted
 ### Example
 
 ```tsx
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 
 interface Example {
     something: string;
