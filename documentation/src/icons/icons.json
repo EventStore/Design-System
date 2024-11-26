@@ -77,7 +77,7 @@
             "name": "configs",
             "component": "Configs",
             "path": "./components/Configs.tsx",
-            "aliases": ["@eventstore-ui/configs"]
+            "aliases": ["@kurrent-ui/configs"]
         },
         "copy": {
             "name": "copy",

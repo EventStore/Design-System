@@ -56,7 +56,7 @@ iconStore.addIcons({
     get configs() {
         return import('./components/Configs').then(({ Configs }) => Configs);
     },
-    get '@eventstore-ui/configs'() {
+    get '@kurrent-ui/configs'() {
         return this['configs'];
     },
     get copy() {
