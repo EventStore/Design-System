@@ -1,5 +1,5 @@
 import { forceUpdate, getElement, getRenderingRef } from '@stencil/core';
-import { debounce } from '@eventstore-ui/utils';
+import { debounce } from '@kurrent-ui/utils';
 
 import type { BaseScheme, Contrast, Shade, Theme } from './types';
 import { themeCore } from './themeCore';

@@ -1,4 +1,4 @@
-import { createLogger } from '@eventstore-ui/utils';
+import { createLogger } from '@kurrent-ui/utils';
 
 export const logger = createLogger(
     '@kurrent-ui/editor',

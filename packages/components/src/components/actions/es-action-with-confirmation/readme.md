@@ -12,7 +12,7 @@ An action with a confirmation modal.
 ### Example
 
 ```tsx
-import { createLogger } from '@eventstore-ui/utils';
+import { createLogger } from '@kurrent-ui/utils';
 
 const logger = createLogger('es-actions');
 

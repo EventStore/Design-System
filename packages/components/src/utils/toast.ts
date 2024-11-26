@@ -1,4 +1,4 @@
-import { HTTPError } from '@eventstore-ui/utils';
+import { HTTPError } from '@kurrent-ui/utils';
 import type { ToastOptions, ToastLevel } from '../components/toast/types';
 
 const popToast =

@@ -1,6 +1,6 @@
 import { Component, h, Element, Host, State, Prop } from '@stencil/core';
 
-import { slottedQuerySelectorAll } from '@eventstore-ui/utils';
+import { slottedQuerySelectorAll } from '@kurrent-ui/utils';
 import type { Placement } from '@eventstore-ui/components';
 
 @Component({

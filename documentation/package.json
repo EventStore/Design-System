@@ -44,11 +44,11 @@
         "@eventstore-ui/forms": "workspace:*",
         "@eventstore-ui/router": "workspace:*",
         "@eventstore-ui/stores": "workspace:*",
-        "@eventstore-ui/utils": "workspace:*",
         "@kurrent-ui/editor": "workspace:*",
         "@kurrent-ui/layout": "workspace:*",
         "@kurrent-ui/sequences": "workspace:*",
         "@kurrent-ui/theme": "workspace:*",
+        "@kurrent-ui/utils": "workspace:*",
         "highlight.js": "11.2.0",
         "markdown-it": "12.3.2",
         "markdown-it-anchor": "8.6.4"

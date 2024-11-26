@@ -52,8 +52,8 @@ import themePackageJson from '@kurrent-ui/theme/package.json';
 import themeReadme from '@kurrent-ui/theme/readme.md';
 import themeTypeDocs from '../../../generated/theme.typedoc.json';
 
-import utilsPackageJson from '@eventstore-ui/utils/package.json';
-import utilsReadme from '@eventstore-ui/utils/readme.md';
+import utilsPackageJson from '@kurrent-ui/utils/package.json';
+import utilsReadme from '@kurrent-ui/utils/readme.md';
 import utilsTypeDocs from '../../../generated/utils.typedoc.json';
 
 const packageJsons: Record<string, PackageJson> = {
