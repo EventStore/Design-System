@@ -1,4 +1,4 @@
-import { createLogger } from '@eventstore-ui/utils';
+import { createLogger } from '@kurrent-ui/utils';
 
 import type { SearchParamTracker } from '../types';
 import { INTERNAL_ROUTER } from './globals';

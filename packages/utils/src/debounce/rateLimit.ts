@@ -15,7 +15,7 @@ interface RateLimit<T extends (...args: any[]) => any> {
  * Example:
  *
  * ```ts
- * import { rateLimit } from '@eventstore-ui/utils';
+ * import { rateLimit } from '@kurrent-ui/utils';
  * const rateLimitedLog = rateLimit(console.log, 200);
  *
  * for (let i = 0; i < 1000; i++) {
@@ -37,7 +37,7 @@ interface RateLimit<T extends (...args: any[]) => any> {
  * Example:
  *
  * ```ts
- * import { rateLimit } from '@eventstore-ui/utils';
+ * import { rateLimit } from '@kurrent-ui/utils';
  * const rateLimitedLog = rateLimit(console.log, 200);
  * rateLimitedLog('hello');
  * rateLimitedLog('hello');
@@ -53,7 +53,7 @@ interface RateLimit<T extends (...args: any[]) => any> {
  * Example:
  *
  * ```ts
- * import { rateLimit } from '@eventstore-ui/utils';
+ * import { rateLimit } from '@kurrent-ui/utils';
  * const rateLimitedLog = rateLimit(console.log, 200);
  * rateLimitedLog('hello');
  * rateLimitedLog('hello');

@@ -22,7 +22,7 @@ import {
     allowFocus,
     shadowMutationObserver,
     getScrollParent,
-} from '@eventstore-ui/utils';
+} from '@kurrent-ui/utils';
 
 import type { Constrain, Placement } from './types';
 

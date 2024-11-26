@@ -276,7 +276,7 @@ iconStore.addIcons({
     get utils() {
         return import('./components/Utils').then(({ Utils }) => Utils);
     },
-    get '@eventstore-ui/utils'() {
+    get '@kurrent-ui/utils'() {
         return this['utils'];
     },
     get warning() {

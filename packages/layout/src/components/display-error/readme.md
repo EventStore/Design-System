@@ -25,10 +25,10 @@ export default () => (
 
 ## Properties
 
-| Property  | Attribute | Description                                                                                                                                                                  | Type                               | Default     |
-| --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ----------- |
-| `error`   | --        | The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore-ui/utils` the details title and description will be shown. | `unknown`                          | `undefined` |
-| `variant` | `variant` | Which styling variant to use.                                                                                                                                                | `"landscape" \| "page" \| "small"` | `'page'`    |
+| Property  | Attribute | Description                                                                                                                                                               | Type                               | Default     |
+| --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ----------- |
+| `error`   | --        | The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@kurrent-ui/utils` the details title and description will be shown. | `unknown`                          | `undefined` |
+| `variant` | `variant` | Which styling variant to use.                                                                                                                                             | `"landscape" \| "page" \| "small"` | `'page'`    |
 
 
 ## Slots

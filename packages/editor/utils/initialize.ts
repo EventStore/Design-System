@@ -1,6 +1,6 @@
 import * as monaco from '@kurrent-ui/monaco-editor';
 import { addChildTheme, theme } from '@kurrent-ui/theme';
-import { createLogger } from '@eventstore-ui/utils';
+import { createLogger } from '@kurrent-ui/utils';
 
 declare global {
     interface Window {

@@ -361,7 +361,7 @@
             "name": "utils",
             "component": "Utils",
             "path": "./components/Utils.tsx",
-            "aliases": ["@eventstore-ui/utils"]
+            "aliases": ["@kurrent-ui/utils"]
         },
         "warning": {
             "name": "warning",

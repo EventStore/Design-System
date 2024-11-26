@@ -15,7 +15,7 @@ interface Debounce<T extends (...args: any[]) => any> {
  * Example:
  *
  * ```ts
- * import { debounce } from '@eventstore-ui/utils';
+ * import { debounce } from '@kurrent-ui/utils';
  *
  * const debouncedLog = debounce(console.log, 200);
  *
@@ -35,7 +35,7 @@ interface Debounce<T extends (...args: any[]) => any> {
  * Example:
  *
  * ```ts
- * import { debounce } from '@eventstore-ui/utils';
+ * import { debounce } from '@kurrent-ui/utils';
  *
  * const debouncedLog = debounce(console.log, 200);
  *
@@ -55,7 +55,7 @@ interface Debounce<T extends (...args: any[]) => any> {
  * Example:
  *
  * ```ts
- * import { debounce } from '@eventstore-ui/utils';
+ * import { debounce } from '@kurrent-ui/utils';
  *
  * const debouncedLog = debounce(console.log, 200);
  *

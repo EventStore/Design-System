@@ -13,7 +13,7 @@
     },
     "dependencies": {
         "@eventstore-ui/stores": "workspace:*",
-        "@eventstore-ui/utils": "workspace:*"
+        "@kurrent-ui/utils": "workspace:*"
     },
     "devDependencies": {
         "@stencil/core": "4.22.0"

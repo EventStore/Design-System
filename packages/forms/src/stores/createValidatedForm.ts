@@ -1,4 +1,4 @@
-import { delegateFocus, HTTPError } from '@eventstore-ui/utils';
+import { delegateFocus, HTTPError } from '@kurrent-ui/utils';
 import { toast } from '@eventstore-ui/components';
 
 import type {

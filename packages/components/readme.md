@@ -13,7 +13,7 @@ yarn add @eventstore-ui/components
 Also, include the peer dependencies:
 
 ```sh
-yarn add @eventstore-ui/router @eventstore-ui/utils
+yarn add @eventstore-ui/router @kurrent-ui/utils
 ```
 
 ## Usage within a stencil project

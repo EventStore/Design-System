@@ -1,7 +1,7 @@
 {
-    "name": "@eventstore-ui/utils",
+    "name": "@kurrent-ui/utils",
     "version": "1.2.2",
-    "description": "Utilities for Event Store Design System",
+    "description": "Utilities for Kurrent Design System",
     "license": "Apache-2.0",
     "main": "dist/index.js",
     "module": "dist/index.mjs",

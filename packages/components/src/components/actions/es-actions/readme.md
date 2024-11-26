@@ -13,7 +13,7 @@ A container for `es-aciton-*` elements, to be used in tables or panel headers.
 
 ```tsx
 import { ActionCopy, ActionDelete } from '@eventstore-ui/components';
-import { createLogger } from '@eventstore-ui/utils';
+import { createLogger } from '@kurrent-ui/utils';
 
 const logger = createLogger('es-actions');
 
