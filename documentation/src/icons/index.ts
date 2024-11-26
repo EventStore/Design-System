@@ -88,7 +88,7 @@ iconStore.addIcons({
     get fields() {
         return import('./components/Fields').then(({ Fields }) => Fields);
     },
-    get '@eventstore-ui/fields'() {
+    get '@kurrent-ui/fields'() {
         return this['fields'];
     },
     get folder() {
