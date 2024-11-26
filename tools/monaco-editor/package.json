@@ -1,5 +1,5 @@
 {
-    "name": "@eventstore-ui/monaco-editor",
+    "name": "@kurrent-ui/monaco-editor",
     "version": "1.0.1",
     "description": "Pre-compiled Monaco Editor",
     "license": "Apache-2.0",

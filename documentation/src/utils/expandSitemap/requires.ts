@@ -13,8 +13,8 @@ import componentsTypeDocs from '../../../generated/components.typedoc.json';
 import configsPackageJson from '@eventstore-ui/configs/package.json';
 import configsReadme from '@eventstore-ui/configs/readme.md';
 
-import editorPackageJson from '@eventstore-ui/editor/package.json';
-import editorReadme from '@eventstore-ui/editor/readme.md';
+import editorPackageJson from '@kurrent-ui/editor/package.json';
+import editorReadme from '@kurrent-ui/editor/readme.md';
 import editorStencilDocs from '../../../generated/editor.stencil.json';
 import editorTypeDocs from '../../../generated/editor.typedoc.json';
 

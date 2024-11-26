@@ -4,7 +4,7 @@ import { assetsPath } from '@kurrent-ui/assets';
 import postcssPresetEnv from 'postcss-preset-env';
 
 import { string } from 'rollup-plugin-string';
-import * as editor from '@eventstore-ui/editor/configure';
+import * as editor from '@kurrent-ui/editor/configure';
 
 export const config: Config = {
     globalStyle: 'src/global/app.css',

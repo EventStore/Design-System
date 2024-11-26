@@ -1,7 +1,7 @@
 {
-    "name": "@eventstore-ui/editor",
+    "name": "@kurrent-ui/editor",
     "version": "2.0.2",
-    "description": "Monaco Editor for Event Store Design System",
+    "description": "Monaco Editor for Kurrent Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
     "module": "dist/index.js",
@@ -59,7 +59,7 @@
         }
     },
     "dependencies": {
-        "@eventstore-ui/monaco-editor": "workspace:*"
+        "@kurrent-ui/monaco-editor": "workspace:*"
     },
     "peerDependencies": {
         "@eventstore-ui/components": "^1.0.0",

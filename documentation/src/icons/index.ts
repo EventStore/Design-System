@@ -76,7 +76,7 @@ iconStore.addIcons({
     get editor() {
         return import('./components/Editor').then(({ Editor }) => Editor);
     },
-    get '@eventstore-ui/editor'() {
+    get '@kurrent-ui/editor'() {
         return this['editor'];
     },
     get error() {

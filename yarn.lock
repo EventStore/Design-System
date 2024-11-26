@@ -2074,7 +2074,6 @@ __metadata:
   dependencies:
     "@eventstore-ui/components": "workspace:*"
     "@eventstore-ui/configs": "workspace:*"
-    "@eventstore-ui/editor": "workspace:*"
     "@eventstore-ui/fields": "workspace:*"
     "@eventstore-ui/forms": "workspace:*"
     "@eventstore-ui/layout": "workspace:*"
@@ -2083,6 +2082,7 @@ __metadata:
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@kurrent-ui/assets": "workspace:*"
+    "@kurrent-ui/editor": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/sequences": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
@@ -2104,32 +2104,6 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
     workbox-build: "npm:6.5.4"
-  languageName: unknown
-  linkType: soft
-
-"@eventstore-ui/editor@workspace:*, @eventstore-ui/editor@workspace:packages/editor":
-  version: 0.0.0-use.local
-  resolution: "@eventstore-ui/editor@workspace:packages/editor"
-  dependencies:
-    "@eventstore-ui/components": "workspace:*"
-    "@eventstore-ui/configs": "workspace:*"
-    "@eventstore-ui/monaco-editor": "workspace:*"
-    "@eventstore-ui/utils": "workspace:*"
-    "@kurrent-ui/theme": "workspace:*"
-    "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:4.22.0"
-    jest: "npm:^27.4.5"
-    npm-run-all: "npm:^4.1.5"
-    puppeteer: "npm:^19.5.0"
-    rollup: "npm:^4.24.0"
-    rollup-plugin-copy: "npm:3.5.0"
-    rollup-plugin-import-css: "npm:3.5.0"
-    typedoc: "npm:0.24.8"
-    typescript: "npm:5.1.6"
-  peerDependencies:
-    "@eventstore-ui/components": ^1.0.0
-    "@eventstore-ui/utils": ^1.0.0
-    "@kurrent-ui/theme": ^1.0.0
   languageName: unknown
   linkType: soft
 
@@ -2207,22 +2181,6 @@ __metadata:
     "@eventstore-ui/utils": ^1.0.0
     "@kurrent-ui/sequences": ^1.0.0
     "@kurrent-ui/theme": ^1.0.0
-  languageName: unknown
-  linkType: soft
-
-"@eventstore-ui/monaco-editor@workspace:*, @eventstore-ui/monaco-editor@workspace:tools/monaco-editor":
-  version: 0.0.0-use.local
-  resolution: "@eventstore-ui/monaco-editor@workspace:tools/monaco-editor"
-  dependencies:
-    "@babel/core": "npm:7.24.6"
-    "@babel/plugin-transform-class-static-block": "npm:7.24.6"
-    "@rollup/plugin-babel": "npm:6.0.4"
-    "@rollup/plugin-replace": "npm:5.0.7"
-    monaco-editor: "npm:0.47.0"
-    npm-run-all: "npm:^4.1.5"
-    rollup: "npm:^4.24.0"
-    rollup-plugin-copy: "npm:3.5.0"
-    rollup-plugin-import-css: "npm:3.5.0"
   languageName: unknown
   linkType: soft
 
@@ -2634,6 +2592,32 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kurrent-ui/editor@workspace:*, @kurrent-ui/editor@workspace:packages/editor":
+  version: 0.0.0-use.local
+  resolution: "@kurrent-ui/editor@workspace:packages/editor"
+  dependencies:
+    "@eventstore-ui/components": "workspace:*"
+    "@eventstore-ui/configs": "workspace:*"
+    "@eventstore-ui/utils": "workspace:*"
+    "@kurrent-ui/monaco-editor": "workspace:*"
+    "@kurrent-ui/theme": "workspace:*"
+    "@stencil-community/postcss": "npm:^2.2.0"
+    "@stencil/core": "npm:4.22.0"
+    jest: "npm:^27.4.5"
+    npm-run-all: "npm:^4.1.5"
+    puppeteer: "npm:^19.5.0"
+    rollup: "npm:^4.24.0"
+    rollup-plugin-copy: "npm:3.5.0"
+    rollup-plugin-import-css: "npm:3.5.0"
+    typedoc: "npm:0.24.8"
+    typescript: "npm:5.1.6"
+  peerDependencies:
+    "@eventstore-ui/components": ^1.0.0
+    "@eventstore-ui/utils": ^1.0.0
+    "@kurrent-ui/theme": ^1.0.0
+  languageName: unknown
+  linkType: soft
+
 "@kurrent-ui/icon-manager@workspace:*, @kurrent-ui/icon-manager@workspace:tools/icon-manager":
   version: 0.0.0-use.local
   resolution: "@kurrent-ui/icon-manager@workspace:tools/icon-manager"
@@ -2651,6 +2635,22 @@ __metadata:
     yargs: "npm:^15.3.1"
   bin:
     icon: ./dist/index.js
+  languageName: unknown
+  linkType: soft
+
+"@kurrent-ui/monaco-editor@workspace:*, @kurrent-ui/monaco-editor@workspace:tools/monaco-editor":
+  version: 0.0.0-use.local
+  resolution: "@kurrent-ui/monaco-editor@workspace:tools/monaco-editor"
+  dependencies:
+    "@babel/core": "npm:7.24.6"
+    "@babel/plugin-transform-class-static-block": "npm:7.24.6"
+    "@rollup/plugin-babel": "npm:6.0.4"
+    "@rollup/plugin-replace": "npm:5.0.7"
+    monaco-editor: "npm:0.47.0"
+    npm-run-all: "npm:^4.1.5"
+    rollup: "npm:^4.24.0"
+    rollup-plugin-copy: "npm:3.5.0"
+    rollup-plugin-import-css: "npm:3.5.0"
   languageName: unknown
   linkType: soft
 
