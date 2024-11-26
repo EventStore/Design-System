@@ -12,7 +12,7 @@ Create a list from a fixed set of values.
 ### Example
 
 ```tsx
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 
 interface Example {
     names: string[];

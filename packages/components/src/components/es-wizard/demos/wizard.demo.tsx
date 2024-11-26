@@ -1,6 +1,6 @@
 import { h, Component, State, Fragment, Host } from '@stencil/core';
 import '@eventstore-ui/fields';
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 import { type WizardPage, toast } from '../../../';
 import { ICON_NAMESPACE } from '../../../icons/namespace';
 

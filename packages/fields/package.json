@@ -51,8 +51,8 @@
     },
     "devDependencies": {
         "@eventstore-ui/components": "workspace:*",
-        "@eventstore-ui/forms": "workspace:*",
         "@kurrent-ui/configs": "workspace:*",
+        "@kurrent-ui/forms": "workspace:*",
         "@kurrent-ui/icon-manager": "workspace:*",
         "@kurrent-ui/theme": "workspace:*",
         "@kurrent-ui/utils": "workspace:*",

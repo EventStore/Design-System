@@ -2,7 +2,7 @@
 
 Form field web components for the Event Store design system.
 
-The components are designed to be used in conjuction with `@eventstore-ui/forms` to provide validation and data orchestration, but can be used independantly by directly listening to the `fieldchange` events, and passing validation messages via the `message` prop.
+The components are designed to be used in conjuction with `@kurrent-ui/forms` to provide validation and data orchestration, but can be used independantly by directly listening to the `fieldchange` events, and passing validation messages via the `message` prop.
 
 ## Install
 
