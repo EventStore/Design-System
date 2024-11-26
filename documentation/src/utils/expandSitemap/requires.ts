@@ -10,8 +10,8 @@ import componentsReadme from '@eventstore-ui/components/readme.md';
 import componentsStencilDocs from '../../../generated/components.stencil.json';
 import componentsTypeDocs from '../../../generated/components.typedoc.json';
 
-import configsPackageJson from '@eventstore-ui/configs/package.json';
-import configsReadme from '@eventstore-ui/configs/readme.md';
+import configsPackageJson from '@kurrent-ui/configs/package.json';
+import configsReadme from '@kurrent-ui/configs/readme.md';
 
 import editorPackageJson from '@kurrent-ui/editor/package.json';
 import editorReadme from '@kurrent-ui/editor/readme.md';
