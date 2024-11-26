@@ -56,11 +56,11 @@
     );
 
     /** The sans serif font family */
-    --font-family-sans: 'Open Sans', Arial, sans-serif;
+    --font-family-sans: 'Work Sans', Arial, sans-serif;
     /** The sans serif font styles */
     --font-sans: 400 16px var(--font-family-sans);
     /** The monospace font family */
-    --font-family-monospace: 'Source Code Pro', monospace;
+    --font-family-monospace: 'Spline Sans Mono', monospace;
     /** The monospace font styles */
     --font-monospace: 400 16px var(--font-family-monospace);
 }
