@@ -97,7 +97,7 @@ iconStore.addIcons({
     get forms() {
         return import('./components/Forms').then(({ Forms }) => Forms);
     },
-    get '@eventstore-ui/forms'() {
+    get '@kurrent-ui/forms'() {
         return this['forms'];
     },
     get gift() {

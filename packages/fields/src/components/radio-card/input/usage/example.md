@@ -1,5 +1,5 @@
 ```tsx
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 import type { RadioCardOption } from '@eventstore-ui/fields';
 
 interface Example {
