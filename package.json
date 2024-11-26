@@ -10,7 +10,7 @@
         "tools/*",
         "demos/*"
     ],
-    "prettier": "@eventstore-ui/configs/prettier",
+    "prettier": "@kurrent-ui/configs/prettier",
     "scripts": {
         "build": "nx run-many --target=build --exclude=\"docs,*-demo\"",
         "lint": "nx run-many --target=lint",
@@ -25,7 +25,7 @@
     "devDependencies": {
         "@changesets/cli": "^2.26.2",
         "@changesets/get-github-info": "^0.5.2",
-        "@eventstore-ui/configs": "workspace:*",
+        "@kurrent-ui/configs": "workspace:*",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
         "@typescript-eslint/parser": "^6.0.0",
         "dotenv": "^16.3.1",

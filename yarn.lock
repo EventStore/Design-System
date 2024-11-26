@@ -2031,10 +2031,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/components@workspace:packages/components"
   dependencies:
-    "@eventstore-ui/configs": "workspace:*"
     "@eventstore-ui/router": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@floating-ui/dom": "npm:0.4.1"
+    "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
@@ -2051,29 +2051,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@eventstore-ui/configs@workspace:*, @eventstore-ui/configs@workspace:tools/configs":
-  version: 0.0.0-use.local
-  resolution: "@eventstore-ui/configs@workspace:tools/configs"
-  dependencies:
-    "@typescript-eslint/eslint-plugin": "npm:^6.0.0"
-    "@typescript-eslint/parser": "npm:^6.0.0"
-    eslint: "npm:^8.4.0"
-    prettier: "npm:3.0.0"
-    typescript: "npm:5.1.6"
-  peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^6.x
-    "@typescript-eslint/parser": ^6.x
-    eslint: ^8.x
-    prettier: ^3.x
-  languageName: unknown
-  linkType: soft
-
 "@eventstore-ui/docs@workspace:documentation":
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/docs@workspace:documentation"
   dependencies:
     "@eventstore-ui/components": "workspace:*"
-    "@eventstore-ui/configs": "workspace:*"
     "@eventstore-ui/fields": "workspace:*"
     "@eventstore-ui/forms": "workspace:*"
     "@eventstore-ui/preview-builder": "workspace:*"
@@ -2081,6 +2063,7 @@ __metadata:
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@kurrent-ui/assets": "workspace:*"
+    "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/editor": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/layout": "workspace:*"
@@ -2112,9 +2095,9 @@ __metadata:
   resolution: "@eventstore-ui/fields@workspace:packages/fields"
   dependencies:
     "@eventstore-ui/components": "workspace:*"
-    "@eventstore-ui/configs": "workspace:*"
     "@eventstore-ui/forms": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
+    "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
@@ -2228,7 +2211,7 @@ __metadata:
     "@babel/core": "npm:^7.12.10"
     "@babel/preset-env": "npm:^7.12.11"
     "@babel/preset-typescript": "npm:^7.12.7"
-    "@eventstore-ui/configs": "workspace:*"
+    "@kurrent-ui/configs": "workspace:*"
     babel-jest: "npm:^27.5.1"
     jest: "npm:^27.4.5"
     npm-run-all: "npm:^4.1.5"
@@ -2565,13 +2548,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kurrent-ui/configs@workspace:*, @kurrent-ui/configs@workspace:tools/configs":
+  version: 0.0.0-use.local
+  resolution: "@kurrent-ui/configs@workspace:tools/configs"
+  dependencies:
+    "@typescript-eslint/eslint-plugin": "npm:^6.0.0"
+    "@typescript-eslint/parser": "npm:^6.0.0"
+    eslint: "npm:^8.4.0"
+    prettier: "npm:3.0.0"
+    typescript: "npm:5.1.6"
+  peerDependencies:
+    "@typescript-eslint/eslint-plugin": ^6.x
+    "@typescript-eslint/parser": ^6.x
+    eslint: ^8.x
+    prettier: ^3.x
+  languageName: unknown
+  linkType: soft
+
 "@kurrent-ui/editor@workspace:*, @kurrent-ui/editor@workspace:packages/editor":
   version: 0.0.0-use.local
   resolution: "@kurrent-ui/editor@workspace:packages/editor"
   dependencies:
     "@eventstore-ui/components": "workspace:*"
-    "@eventstore-ui/configs": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
+    "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/monaco-editor": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
     "@stencil-community/postcss": "npm:^2.2.0"
@@ -2616,9 +2616,9 @@ __metadata:
   resolution: "@kurrent-ui/layout@workspace:packages/layout"
   dependencies:
     "@eventstore-ui/components": "workspace:*"
-    "@eventstore-ui/configs": "workspace:*"
     "@eventstore-ui/router": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
+    "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/sequences": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
@@ -5774,13 +5774,13 @@ __metadata:
   resolution: "forms-demo@workspace:demos/forms-demo"
   dependencies:
     "@eventstore-ui/components": "workspace:*"
-    "@eventstore-ui/configs": "workspace:*"
     "@eventstore-ui/fields": "workspace:*"
     "@eventstore-ui/forms": "workspace:*"
     "@eventstore-ui/router": "workspace:*"
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
     "@kurrent-ui/assets": "workspace:*"
+    "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/layout": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
@@ -9777,7 +9777,7 @@ __metadata:
   dependencies:
     "@changesets/cli": "npm:^2.26.2"
     "@changesets/get-github-info": "npm:^0.5.2"
-    "@eventstore-ui/configs": "workspace:*"
+    "@kurrent-ui/configs": "workspace:*"
     "@typescript-eslint/eslint-plugin": "npm:^6.0.0"
     "@typescript-eslint/parser": "npm:^6.0.0"
     dotenv: "npm:^16.3.1"
