@@ -1,7 +1,5 @@
 # es-resize-observer
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -14,7 +12,7 @@ Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/Resize
 ### Example
 
 ```tsx
-import { createStore } from '@eventstore-ui/stores';
+import { createStore } from '@kurrent-ui/stores';
 
 const { state } = createStore<{ height: number; width: number }>({
     height: 0,

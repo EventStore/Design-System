@@ -2,7 +2,7 @@
 // Despite being intended to be used with `es-action-with-confirmation` or
 // `es-button-with-confirmation, `es-confirm-modal` can be used standalone.
 
-import { createStore } from '@eventstore-ui/stores';
+import { createStore } from '@kurrent-ui/stores';
 
 const { state } = createStore<{ open: boolean }>({
     open: false,

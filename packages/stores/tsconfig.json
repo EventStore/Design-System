@@ -18,7 +18,7 @@
         "jsxFactory": "h"
     },
     "typedocOptions": {
-        "name": "@eventstore-ui/stores",
+        "name": "@kurrent-ui/stores",
         "plugin": ["@kurrent-ui/typedoc-plugin-usage"],
         "entryPoints": ["./src/index.ts"]
     },

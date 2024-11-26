@@ -1,5 +1,5 @@
 ```tsx
-import { createStore } from '@eventstore-ui/stores';
+import { createStore } from '@kurrent-ui/stores';
 import type { FieldChange } from '@eventstore-ui/fields';
 
 interface PopoverStore {
