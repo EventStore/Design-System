@@ -1,11 +1,11 @@
-# @eventstore-ui/assets
+# @kurrent-ui/assets
 
 Fonts and favicons for use in Event Store sites
 
 ## Add to your project
 
 ```sh
-yarn add @eventstore-ui/assets
+yarn add @kurrent-ui/assets
 ```
 
 ## Set up within a Stencil project:
@@ -14,7 +14,7 @@ In your stencil config, add the assets to your [copy task](https://stenciljs.com
 
 ```tsx
 // import the path to the workers
-import { assetsPath } from '@eventstore-ui/assets';
+import { assetsPath } from '@kurrent-ui/assets';
 
 export const config: Config = {
     // ...
@@ -36,7 +36,7 @@ export const config: Config = {
 In your `globalStyle` css file, import the fonts:
 
 ```css
-@import url('~@eventstore-ui/assets/font-face.css');
+@import url('~@kurrent-ui/assets/font-face.css');
 ```
 
 In your `index.html`, reference the favicons

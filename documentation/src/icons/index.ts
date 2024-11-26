@@ -7,7 +7,7 @@ iconStore.addIcons({
     get assets() {
         return import('./components/Assets').then(({ Assets }) => Assets);
     },
-    get '@eventstore-ui/assets'() {
+    get '@kurrent-ui/assets'() {
         return this['assets'];
     },
     get backups() {

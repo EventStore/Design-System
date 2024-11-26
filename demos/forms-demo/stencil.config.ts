@@ -1,5 +1,5 @@
-import { Config } from '@stencil/core';
-import { assetsPath } from '@eventstore-ui/assets';
+import type { Config } from '@stencil/core';
+import { assetsPath } from '@kurrent-ui/assets';
 
 // https://stenciljs.com/docs/config
 

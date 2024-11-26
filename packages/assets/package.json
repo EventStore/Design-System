@@ -1,12 +1,11 @@
 {
-    "name": "@eventstore-ui/assets",
+    "name": "@kurrent-ui/assets",
     "version": "1.1.0",
-    "description": "Assets for use with the Event Store Design System",
+    "description": "Assets for use with the Kurrent Design System",
     "license": "Apache-2.0",
     "files": [
         "assets/",
-        "font-face.css",
-        "spacing.css",
+        "css/",
         "index.ts"
     ],
     "repository": {

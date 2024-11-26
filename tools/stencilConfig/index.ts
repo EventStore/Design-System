@@ -10,7 +10,7 @@ import {
 import { postcss } from '@stencil-community/postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 
-import { assetsPath } from '@eventstore-ui/assets';
+import { assetsPath } from '@kurrent-ui/assets';
 import { devMode } from './dev/devMode';
 
 export const flags = parseFlags(process.argv.slice(2));
