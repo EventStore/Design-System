@@ -4,11 +4,11 @@
     display: contents;
 }
 
-es-logo::part(text) {
+l2-logo::part(text) {
     fill: var(--color-foreground);
 }
 
-es-panel {
+l2-panel {
     &::part(inner) {
         padding: 0;
     }

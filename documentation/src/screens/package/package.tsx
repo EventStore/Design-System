@@ -45,99 +45,99 @@ export class DocsPackage {
 
         return (
             <Host>
-                <es-sidebar>
-                    <es-layout-section sectionTitle={'Package'}>
-                        <es-sidebar-dropdown
+                <l2-sidebar>
+                    <l2-layout-section sectionTitle={'Package'}>
+                        <l2-sidebar-dropdown
                             defaultTitle={'Package'}
                             defaultIcon={'gift'}
                         >
                             {sitemap.sections.map(({ title, children }) => (
-                                <es-layout-section title={title}>
+                                <l2-layout-section title={title}>
                                     {children.map((lib) => {
                                         const { title, packageJson, slug } =
                                             sitemap.libs[lib];
                                         return (
-                                            <es-layout-link
+                                            <l2-layout-link
                                                 url={`/${slug}`}
                                                 icon={packageJson.name}
                                             >
                                                 {title}
-                                            </es-layout-link>
+                                            </l2-layout-link>
                                         );
                                     })}
-                                </es-layout-section>
+                                </l2-layout-section>
                             ))}
-                        </es-sidebar-dropdown>
-                    </es-layout-section>
+                        </l2-sidebar-dropdown>
+                    </l2-layout-section>
                     {lib.stencilDocs && (
-                        <es-layout-section sectionTitle={'Components'}>
+                        <l2-layout-section sectionTitle={'Components'}>
                             {lib.stencilDocs.components.map(({ tag }) => (
-                                <es-layout-link
+                                <l2-layout-link
                                     key={tag}
                                     url={`/${
                                         this.slug
                                     }/components/${tag.toLowerCase()}`}
                                 >
                                     {tag}
-                                </es-layout-link>
+                                </l2-layout-link>
                             ))}
-                        </es-layout-section>
+                        </l2-layout-section>
                     )}
                     {this.functionalComponents && (
-                        <es-layout-section
+                        <l2-layout-section
                             sectionTitle={'Functional Components'}
                         >
                             {this.functionalComponents.map(({ name }) => (
-                                <es-layout-link
+                                <l2-layout-link
                                     key={name}
                                     url={`/${
                                         this.slug
                                     }/functional-components/${name.toLowerCase()}`}
                                 >
                                     {name}
-                                </es-layout-link>
+                                </l2-layout-link>
                             ))}
-                        </es-layout-section>
+                        </l2-layout-section>
                     )}
                     {this.utils && (
-                        <es-layout-section sectionTitle={'Utils'}>
+                        <l2-layout-section sectionTitle={'Utils'}>
                             {this.utils.map(({ name }) => (
-                                <es-layout-link
+                                <l2-layout-link
                                     key={name}
                                     url={`/${
                                         this.slug
                                     }/utils/${name.toLowerCase()}`}
                                 >
                                     {name}
-                                </es-layout-link>
+                                </l2-layout-link>
                             ))}
-                        </es-layout-section>
+                        </l2-layout-section>
                     )}
                     {this.types && (
-                        <es-layout-section sectionTitle={'Types'}>
+                        <l2-layout-section sectionTitle={'Types'}>
                             {this.types.map(({ name }) => (
-                                <es-layout-link
+                                <l2-layout-link
                                     key={name}
                                     url={`/${
                                         this.slug
                                     }/types/${name.toLowerCase()}`}
                                 >
                                     {name}
-                                </es-layout-link>
+                                </l2-layout-link>
                             ))}
-                        </es-layout-section>
+                        </l2-layout-section>
                     )}
 
                     {this.anchors?.map(({ id, name, level }) => (
-                        <es-layout-link
+                        <l2-layout-link
                             level={level - 1}
                             key={id}
                             url={`#${id}`}
                         >
                             {name}
-                        </es-layout-link>
+                        </l2-layout-link>
                     ))}
-                </es-sidebar>
+                </l2-sidebar>
                 <Switch>
                     <Route exact url={`/${this.slug}`}>
                         <docs-readme lib={lib} />

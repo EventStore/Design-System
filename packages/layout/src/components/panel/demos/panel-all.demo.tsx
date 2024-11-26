@@ -7,20 +7,20 @@ import {
 } from '@stencil/core';
 import { router } from '@eventstore-ui/router';
 
-import { Page, ES_LAYOUT_ICON_NAMESPACE } from '../../../../';
+import { Page, K_LAYOUT_ICON_NAMESPACE } from '../../../../';
 
 /**
  * All panel placements
  * @group Panels
  */
 @Component({
-    tag: 'es-panel-all-demo',
+    tag: 'panel-all-demo',
     styleUrl: 'panel-all.demo.css',
     shadow: true,
 })
 export class PanelPlacementDemo {
     componentWillLoad() {
-        router.init({ root: '/es-panel-all-demo/' });
+        router.init({ root: '/panel-all-demo/' });
     }
 
     render() {
@@ -28,24 +28,24 @@ export class PanelPlacementDemo {
             <Host>
                 <Page pageTitle={'All Panels'}>
                     {'hello'}
-                    <es-panel area={'header'}>
+                    <l2-panel area={'header'}>
                         <Inner>{'Header Panel'}</Inner>
-                    </es-panel>
-                    <es-panel area={'cookie'}>
+                    </l2-panel>
+                    <l2-panel area={'cookie'}>
                         <Inner>{'Cookie Panel'}</Inner>
-                    </es-panel>
-                    <es-panel>
+                    </l2-panel>
+                    <l2-panel>
                         <Inner>{'Panel Panel'}</Inner>
-                    </es-panel>
-                    <es-panel area="banner">
+                    </l2-panel>
+                    <l2-panel area="banner">
                         <Inner>{'Banner Panel'}</Inner>
-                    </es-panel>
-                    <es-panel area="sidebar">
+                    </l2-panel>
+                    <l2-panel area="sidebar">
                         <Inner>{'Sidebar Panel'}</Inner>
-                    </es-panel>
-                    <es-panel area="toolbar">
+                    </l2-panel>
+                    <l2-panel area="toolbar">
                         <Inner>{'Toolbar Panel'}</Inner>
-                    </es-panel>
+                    </l2-panel>
                 </Page>
             </Host>
         );
@@ -54,21 +54,21 @@ export class PanelPlacementDemo {
 
 const Inner: FunctionalComponent = (_, children) => (
     <>
-        <es-panel-header>
+        <l2-panel-header>
             {children}
             <es-button variant={'minimal'} slot={'actions'}>
                 <es-icon
-                    icon={[ES_LAYOUT_ICON_NAMESPACE, 'dark-high-theme']}
+                    icon={[K_LAYOUT_ICON_NAMESPACE, 'dark-high-theme']}
                     size={20}
                 />
             </es-button>
             <es-button variant={'minimal'} slot={'actions'}>
                 <es-icon
-                    icon={[ES_LAYOUT_ICON_NAMESPACE, 'light-high-theme']}
+                    icon={[K_LAYOUT_ICON_NAMESPACE, 'light-high-theme']}
                     size={20}
                 />
             </es-button>
-        </es-panel-header>
+        </l2-panel-header>
         <p>{'Some content'}</p>
     </>
 );

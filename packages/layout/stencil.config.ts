@@ -1,7 +1,7 @@
 import { packageConfig, flags } from '../../tools/stencilConfig';
 
 export const config = packageConfig({
-    namespace: 'es-layout',
+    namespace: 'k-layout',
     globalScript: 'src/init.ts',
     globalStyle: flags.dev ? 'src/dev.css' : undefined,
     copy: [

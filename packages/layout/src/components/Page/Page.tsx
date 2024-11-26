@@ -6,7 +6,7 @@ import {
     Fragment,
 } from '@stencil/core';
 import { PageTitle } from '@eventstore-ui/router';
-import { setProgress } from '../es-loading-bar/utils/setProgress';
+import { setProgress } from '../loading-bar/utils/setProgress';
 import { PageView } from '../PageView/PageView';
 
 export type PageState = 'loading' | 'ready' | ['error', unknown];
@@ -18,8 +18,8 @@ export interface ErrorStateProps {
 export interface PageProps {
     /** Sets the title of the document. */
     pageTitle: string;
-    /** Displays breadcrumbs via `<es-breadcrumb />` */
-    crumbs?: HTMLEsBreadcrumbElement['crumbs'];
+    /** Displays breadcrumbs via `<l2-breadcrumb />` */
+    crumbs?: HTMLL2BreadcrumbElement['crumbs'];
     /**
      * The current state of the page, used to decide what to render.
      * When the state of a page changes, a `pageStateChange` event is fired.
@@ -85,7 +85,7 @@ const updateState = (progressBarId: string, state: PageState) => {
 };
 
 const BasicErrorState: FunctionalComponent<ErrorStateProps> = ({ error }) => (
-    <es-display-error error={error} />
+    <l2-display-error error={error} />
 );
 
 const PageBody: FunctionalComponent<PageProps> = (
@@ -115,7 +115,7 @@ const PageBody: FunctionalComponent<PageProps> = (
             {(!!headerTitle || !!HeaderRight) && (
                 <header>
                     {!!headerTitle && (
-                        <es-page-title>{headerTitle}</es-page-title>
+                        <l2-page-title>{headerTitle}</l2-page-title>
                     )}
                     {HeaderRight && (
                         <div class={'header_right'}>
@@ -131,7 +131,7 @@ const PageBody: FunctionalComponent<PageProps> = (
 
 /**
  * Create a standard page.
- * Add `@import url('~@eventstore-ui/layout/css/page.css')` to the containing web component for styles.
+ * Add `@import url('~@kurrent-ui/layout/css/page.css')` to the containing web component for styles.
  * @usage ./Page.usage.md
  */
 export const Page: FunctionalComponent<PageProps> = (props, children) => (
@@ -141,7 +141,7 @@ export const Page: FunctionalComponent<PageProps> = (props, children) => (
             ref={(ref) => ((document as any).main = ref)}
             class={{ loading: props.state === 'loading' }}
         >
-            {props.crumbs && <es-breadcrumb crumbs={props.crumbs} />}
+            {props.crumbs && <l2-breadcrumb crumbs={props.crumbs} />}
             <PageBody {...props}>{children}</PageBody>
         </main>
         <PageView title={props.pageTitle} />

@@ -5,29 +5,63 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Crumb } from "./components/es-breadcrumb/types";
-import { DisplayErrorVariant } from "./components/es-display-error/types";
-import { EmptyStateLayout } from "./components/es-empty-state/types";
-import { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/types";
+import { Crumb } from "./components/breadcrumb/types";
+import { DisplayErrorVariant } from "./components/display-error/types";
+import { EmptyStateLayout } from "./components/empty-state/types";
+import { HeaderDropdownButtonVariant } from "./components/header-dropdown/types";
 import { IconDescription, Placement } from "@eventstore-ui/components";
 import { PanelMode } from "./components/panel";
-import { LoadingBarStatus } from "./components/es-loading-bar/types";
-import { NavNode, NavTree } from "./components/es-nav/types";
+import { LoadingBarStatus } from "./components/loading-bar/types";
+import { NavNode, NavTree } from "./components/nav/types";
 import { ClosedMode, PanelDetailsListener, PanelMode as PanelMode1, TargetableArea, TargetableEdge } from "./components/panel/types";
-export { Crumb } from "./components/es-breadcrumb/types";
-export { DisplayErrorVariant } from "./components/es-display-error/types";
-export { EmptyStateLayout } from "./components/es-empty-state/types";
-export { HeaderDropdownButtonVariant } from "./components/es-header-dropdown/types";
+export { Crumb } from "./components/breadcrumb/types";
+export { DisplayErrorVariant } from "./components/display-error/types";
+export { EmptyStateLayout } from "./components/empty-state/types";
+export { HeaderDropdownButtonVariant } from "./components/header-dropdown/types";
 export { IconDescription, Placement } from "@eventstore-ui/components";
 export { PanelMode } from "./components/panel";
-export { LoadingBarStatus } from "./components/es-loading-bar/types";
-export { NavNode, NavTree } from "./components/es-nav/types";
+export { LoadingBarStatus } from "./components/loading-bar/types";
+export { NavNode, NavTree } from "./components/nav/types";
 export { ClosedMode, PanelDetailsListener, PanelMode as PanelMode1, TargetableArea, TargetableEdge } from "./components/panel/types";
 export namespace Components {
     /**
+     * Breadcrumb
+     */
+    interface BreadcrumbDemo {
+    }
+    /**
+     * Display Error
+     * @group Page State
+     */
+    interface DisplayErrorDemo {
+    }
+    /**
+     * Empty State
+     * @group Page State
+     */
+    interface EmptyStateDemo {
+    }
+    /**
+     * Everything Demo
+     */
+    interface EverythingDemo {
+    }
+    /**
+     * Header
+     * @group Layout
+     */
+    interface HeaderDemo {
+    }
+    /**
+     * Header Dropdown
+     * @group Layout
+     */
+    interface HeaderDropdownDemo {
+    }
+    /**
      * A list of breadcrumbs to the current page
      */
-    interface EsBreadcrumb {
+    interface L2Breadcrumb {
         /**
           * The breadcrumbs to the current page.
          */
@@ -40,7 +74,7 @@ export namespace Components {
     /**
      * Display an error to the user, with title and detail. Will automatically extract from HTTPError.
      */
-    interface EsDisplayError {
+    interface L2DisplayError {
         /**
           * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore-ui/utils` the details title and description will be shown.
          */
@@ -54,7 +88,7 @@ export namespace Components {
      * Display an empty state with an illustration and a message.
      * Intended for use as `Page`'s `renderEmptyState`.
      */
-    interface EsEmptyState {
+    interface L2EmptyState {
         /**
           * The header of the empty state.
          */
@@ -67,12 +101,12 @@ export namespace Components {
     /**
      * A site header for applications.
      */
-    interface EsHeader {
+    interface L2Header {
     }
     /**
      * A dropdown for the header.
      */
-    interface EsHeaderDropdown {
+    interface L2HeaderDropdown {
         /**
           * Display a dot on the icon, to attract attention to the button.
          */
@@ -106,7 +140,7 @@ export namespace Components {
          */
         "variant": HeaderDropdownButtonVariant;
     }
-    interface EsLayoutAutoLabel {
+    interface L2LayoutAutoLabel {
         /**
           * How to extract the label text
          */
@@ -123,7 +157,7 @@ export namespace Components {
     /**
      * A button for the sidebar, sidebar-dropdown, and header-dropdown.
      */
-    interface EsLayoutButton {
+    interface L2LayoutButton {
         /**
           * If the button should display as active
          */
@@ -164,12 +198,12 @@ export namespace Components {
     /**
      * A horizontal rule
      */
-    interface EsLayoutHr {
+    interface L2LayoutHr {
     }
     /**
      * A link for the sidebar, sidebar-dropdown, and header-dropdown.
      */
-    interface EsLayoutLink {
+    interface L2LayoutLink {
         /**
           * Display a dot on the icon, to attract attention to the link.
          */
@@ -230,7 +264,7 @@ export namespace Components {
     /**
      * A section with an optional title for containing layout-links
      */
-    interface EsLayoutSection {
+    interface L2LayoutSection {
         /**
           * If the section should label it's contents with a popover
          */
@@ -253,7 +287,7 @@ export namespace Components {
      * The bar can be externally controlled via the `setProgress` util.
      * Add a bar named `page` for automatic control from `Page`.
      */
-    interface EsLoadingBar {
+    interface L2LoadingBar {
         /**
           * The bar's name, for use in `setProgress`
          */
@@ -266,13 +300,13 @@ export namespace Components {
     /**
      * The Event Store logo.
      */
-    interface EsLogo {
+    interface L2Logo {
         /**
           * Height to constrain by.
          */
         "height": number;
         /**
-          * If the eventstore text should be displayed.
+          * If the kurrent text should be displayed.
          */
         "mode": 'full' | 'icon';
         /**
@@ -283,34 +317,34 @@ export namespace Components {
     /**
      * Constructs a navigation from a NavTree.
      */
-    interface EsNav {
+    interface L2Nav {
         /**
           * The `NavTree` data structure that the navigation menu will be built from..
          */
         "navTree": NavTree;
     }
-    interface EsNavNode0 {
+    interface L2NavNode0 {
         "active": boolean;
         "node": NavNode;
         "toggleRequest": () => void;
     }
-    interface EsNavNode1 {
+    interface L2NavNode1 {
         "active": boolean;
         "node": NavNode;
         "toggleRequest": () => void;
     }
-    interface EsNavNode2 {
+    interface L2NavNode2 {
         "node": NavNode;
     }
     /**
      * Standard page title
      */
-    interface EsPageTitle {
+    interface L2PageTitle {
     }
     /**
      * A resizable panel. Automatically sets the relevant layout var based on it's size and when resized.
      */
-    interface EsPanel {
+    interface L2Panel {
         /**
           * Where to place the panel.
          */
@@ -359,25 +393,25 @@ export namespace Components {
         "start"?: TargetableEdge;
     }
     /**
-     * A header for `es-panel`.
+     * A header for `l2-panel`.
      */
-    interface EsPanelHeader {
+    interface L2PanelHeader {
     }
     /**
      * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
      */
-    interface EsSidebar {
+    interface L2Sidebar {
     }
     /**
-     * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `es-layout-link` or `es-layout-button`.
+     * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `l2-layout-link` or `l2-layout-button`.
      */
-    interface EsSidebarDropdown {
+    interface L2SidebarDropdown {
         /**
-          * The icon to display if no nested es-layout-link or es-layout-button is active
+          * The icon to display if no nested l2-layout-link or l2-layout-button is active
          */
         "defaultIcon": IconDescription;
         /**
-          * The title to display if no nested es-layout-link or es-layout-button is active
+          * The title to display if no nested l2-layout-link or l2-layout-button is active
          */
         "defaultTitle": string;
     }
@@ -385,7 +419,7 @@ export namespace Components {
      * A panel that takes the size of it's content.
      * Automatically sets the relevant layout var based on it's size.
      */
-    interface EsSizedPanel {
+    interface L2SizedPanel {
         /**
           * Where to place the panel.
          */
@@ -402,298 +436,596 @@ export namespace Components {
     /**
      * A theme picker dropdown for the header
      */
-    interface EsThemeDropdown {
+    interface L2ThemeDropdown {
         /**
           * Which styling variant to use.
          */
         "variant": HeaderDropdownButtonVariant;
     }
-    interface EsThemePicker {
+    interface L2ThemePicker {
     }
     /**
      * Placed in the toolbar area of the layout. Automatically sets `--layout-toolbar-width` based on it's own width.
      */
-    interface EsToolbar {
+    interface L2Toolbar {
+    }
+    /**
+     * Button and link collapsing
+     * @group Panels
+     */
+    interface LayoutButtonCollapsedDemo {
+    }
+    /**
+     * Layout Button
+     * @group Buttons
+     */
+    interface LayoutButtonDemo {
+    }
+    /**
+     * Layout Link
+     * @group Buttons
+     */
+    interface LayoutLinkDemo {
+    }
+    /**
+     * Logo
+     */
+    interface LogoDemo {
+    }
+    /**
+     * Page Title
+     */
+    interface PageTitleDemo {
+    }
+    /**
+     * All panel placements
+     * @group Panels
+     */
+    interface PanelAllDemo {
+    }
+    /**
+     * Panel closing
+     * @group Panels
+     */
+    interface PanelCloseDemo {
+    }
+    /**
+     * Panel placement
+     * @group Panels
+     */
+    interface PanelPlacementDemo {
+    }
+    /**
+     * Sidebar
+     * @group Layout
+     */
+    interface SidebarDemo {
+    }
+    /**
+     * All sized panel placements
+     * @group Sized Panels
+     */
+    interface SizedPanelDemo {
+    }
+    /**
+     * Sized panel placement
+     * @group Sized panels
+     */
+    interface SizedPanelPlacementDemo {
+    }
+    /**
+     * Toolbar
+     * @group Layout
+     */
+    interface ToolbarDemo {
     }
 }
-export interface EsLayoutButtonCustomEvent<T> extends CustomEvent<T> {
+export interface L2LayoutButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsLayoutButtonElement;
+    target: HTMLL2LayoutButtonElement;
 }
-export interface EsPanelCustomEvent<T> extends CustomEvent<T> {
+export interface L2PanelCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsPanelElement;
+    target: HTMLL2PanelElement;
 }
 declare global {
     /**
+     * Breadcrumb
+     */
+    interface HTMLBreadcrumbDemoElement extends Components.BreadcrumbDemo, HTMLStencilElement {
+    }
+    var HTMLBreadcrumbDemoElement: {
+        prototype: HTMLBreadcrumbDemoElement;
+        new (): HTMLBreadcrumbDemoElement;
+    };
+    /**
+     * Display Error
+     * @group Page State
+     */
+    interface HTMLDisplayErrorDemoElement extends Components.DisplayErrorDemo, HTMLStencilElement {
+    }
+    var HTMLDisplayErrorDemoElement: {
+        prototype: HTMLDisplayErrorDemoElement;
+        new (): HTMLDisplayErrorDemoElement;
+    };
+    /**
+     * Empty State
+     * @group Page State
+     */
+    interface HTMLEmptyStateDemoElement extends Components.EmptyStateDemo, HTMLStencilElement {
+    }
+    var HTMLEmptyStateDemoElement: {
+        prototype: HTMLEmptyStateDemoElement;
+        new (): HTMLEmptyStateDemoElement;
+    };
+    /**
+     * Everything Demo
+     */
+    interface HTMLEverythingDemoElement extends Components.EverythingDemo, HTMLStencilElement {
+    }
+    var HTMLEverythingDemoElement: {
+        prototype: HTMLEverythingDemoElement;
+        new (): HTMLEverythingDemoElement;
+    };
+    /**
+     * Header
+     * @group Layout
+     */
+    interface HTMLHeaderDemoElement extends Components.HeaderDemo, HTMLStencilElement {
+    }
+    var HTMLHeaderDemoElement: {
+        prototype: HTMLHeaderDemoElement;
+        new (): HTMLHeaderDemoElement;
+    };
+    /**
+     * Header Dropdown
+     * @group Layout
+     */
+    interface HTMLHeaderDropdownDemoElement extends Components.HeaderDropdownDemo, HTMLStencilElement {
+    }
+    var HTMLHeaderDropdownDemoElement: {
+        prototype: HTMLHeaderDropdownDemoElement;
+        new (): HTMLHeaderDropdownDemoElement;
+    };
+    /**
      * A list of breadcrumbs to the current page
      */
-    interface HTMLEsBreadcrumbElement extends Components.EsBreadcrumb, HTMLStencilElement {
+    interface HTMLL2BreadcrumbElement extends Components.L2Breadcrumb, HTMLStencilElement {
     }
-    var HTMLEsBreadcrumbElement: {
-        prototype: HTMLEsBreadcrumbElement;
-        new (): HTMLEsBreadcrumbElement;
+    var HTMLL2BreadcrumbElement: {
+        prototype: HTMLL2BreadcrumbElement;
+        new (): HTMLL2BreadcrumbElement;
     };
     /**
      * Display an error to the user, with title and detail. Will automatically extract from HTTPError.
      */
-    interface HTMLEsDisplayErrorElement extends Components.EsDisplayError, HTMLStencilElement {
+    interface HTMLL2DisplayErrorElement extends Components.L2DisplayError, HTMLStencilElement {
     }
-    var HTMLEsDisplayErrorElement: {
-        prototype: HTMLEsDisplayErrorElement;
-        new (): HTMLEsDisplayErrorElement;
+    var HTMLL2DisplayErrorElement: {
+        prototype: HTMLL2DisplayErrorElement;
+        new (): HTMLL2DisplayErrorElement;
     };
     /**
      * Display an empty state with an illustration and a message.
      * Intended for use as `Page`'s `renderEmptyState`.
      */
-    interface HTMLEsEmptyStateElement extends Components.EsEmptyState, HTMLStencilElement {
+    interface HTMLL2EmptyStateElement extends Components.L2EmptyState, HTMLStencilElement {
     }
-    var HTMLEsEmptyStateElement: {
-        prototype: HTMLEsEmptyStateElement;
-        new (): HTMLEsEmptyStateElement;
+    var HTMLL2EmptyStateElement: {
+        prototype: HTMLL2EmptyStateElement;
+        new (): HTMLL2EmptyStateElement;
     };
     /**
      * A site header for applications.
      */
-    interface HTMLEsHeaderElement extends Components.EsHeader, HTMLStencilElement {
+    interface HTMLL2HeaderElement extends Components.L2Header, HTMLStencilElement {
     }
-    var HTMLEsHeaderElement: {
-        prototype: HTMLEsHeaderElement;
-        new (): HTMLEsHeaderElement;
+    var HTMLL2HeaderElement: {
+        prototype: HTMLL2HeaderElement;
+        new (): HTMLL2HeaderElement;
     };
     /**
      * A dropdown for the header.
      */
-    interface HTMLEsHeaderDropdownElement extends Components.EsHeaderDropdown, HTMLStencilElement {
+    interface HTMLL2HeaderDropdownElement extends Components.L2HeaderDropdown, HTMLStencilElement {
     }
-    var HTMLEsHeaderDropdownElement: {
-        prototype: HTMLEsHeaderDropdownElement;
-        new (): HTMLEsHeaderDropdownElement;
+    var HTMLL2HeaderDropdownElement: {
+        prototype: HTMLL2HeaderDropdownElement;
+        new (): HTMLL2HeaderDropdownElement;
     };
-    interface HTMLEsLayoutAutoLabelElement extends Components.EsLayoutAutoLabel, HTMLStencilElement {
+    interface HTMLL2LayoutAutoLabelElement extends Components.L2LayoutAutoLabel, HTMLStencilElement {
     }
-    var HTMLEsLayoutAutoLabelElement: {
-        prototype: HTMLEsLayoutAutoLabelElement;
-        new (): HTMLEsLayoutAutoLabelElement;
+    var HTMLL2LayoutAutoLabelElement: {
+        prototype: HTMLL2LayoutAutoLabelElement;
+        new (): HTMLL2LayoutAutoLabelElement;
     };
-    interface HTMLEsLayoutButtonElementEventMap {
+    interface HTMLL2LayoutButtonElementEventMap {
         "requestClose": any;
     }
     /**
      * A button for the sidebar, sidebar-dropdown, and header-dropdown.
      */
-    interface HTMLEsLayoutButtonElement extends Components.EsLayoutButton, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsLayoutButtonElementEventMap>(type: K, listener: (this: HTMLEsLayoutButtonElement, ev: EsLayoutButtonCustomEvent<HTMLEsLayoutButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLL2LayoutButtonElement extends Components.L2LayoutButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLL2LayoutButtonElementEventMap>(type: K, listener: (this: HTMLL2LayoutButtonElement, ev: L2LayoutButtonCustomEvent<HTMLL2LayoutButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsLayoutButtonElementEventMap>(type: K, listener: (this: HTMLEsLayoutButtonElement, ev: EsLayoutButtonCustomEvent<HTMLEsLayoutButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLL2LayoutButtonElementEventMap>(type: K, listener: (this: HTMLL2LayoutButtonElement, ev: L2LayoutButtonCustomEvent<HTMLL2LayoutButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsLayoutButtonElement: {
-        prototype: HTMLEsLayoutButtonElement;
-        new (): HTMLEsLayoutButtonElement;
+    var HTMLL2LayoutButtonElement: {
+        prototype: HTMLL2LayoutButtonElement;
+        new (): HTMLL2LayoutButtonElement;
     };
     /**
      * A horizontal rule
      */
-    interface HTMLEsLayoutHrElement extends Components.EsLayoutHr, HTMLStencilElement {
+    interface HTMLL2LayoutHrElement extends Components.L2LayoutHr, HTMLStencilElement {
     }
-    var HTMLEsLayoutHrElement: {
-        prototype: HTMLEsLayoutHrElement;
-        new (): HTMLEsLayoutHrElement;
+    var HTMLL2LayoutHrElement: {
+        prototype: HTMLL2LayoutHrElement;
+        new (): HTMLL2LayoutHrElement;
     };
     /**
      * A link for the sidebar, sidebar-dropdown, and header-dropdown.
      */
-    interface HTMLEsLayoutLinkElement extends Components.EsLayoutLink, HTMLStencilElement {
+    interface HTMLL2LayoutLinkElement extends Components.L2LayoutLink, HTMLStencilElement {
     }
-    var HTMLEsLayoutLinkElement: {
-        prototype: HTMLEsLayoutLinkElement;
-        new (): HTMLEsLayoutLinkElement;
+    var HTMLL2LayoutLinkElement: {
+        prototype: HTMLL2LayoutLinkElement;
+        new (): HTMLL2LayoutLinkElement;
     };
     /**
      * A section with an optional title for containing layout-links
      */
-    interface HTMLEsLayoutSectionElement extends Components.EsLayoutSection, HTMLStencilElement {
+    interface HTMLL2LayoutSectionElement extends Components.L2LayoutSection, HTMLStencilElement {
     }
-    var HTMLEsLayoutSectionElement: {
-        prototype: HTMLEsLayoutSectionElement;
-        new (): HTMLEsLayoutSectionElement;
+    var HTMLL2LayoutSectionElement: {
+        prototype: HTMLL2LayoutSectionElement;
+        new (): HTMLL2LayoutSectionElement;
     };
     /**
      * An animated loading bar, with coloured states.
      * The bar can be externally controlled via the `setProgress` util.
      * Add a bar named `page` for automatic control from `Page`.
      */
-    interface HTMLEsLoadingBarElement extends Components.EsLoadingBar, HTMLStencilElement {
+    interface HTMLL2LoadingBarElement extends Components.L2LoadingBar, HTMLStencilElement {
     }
-    var HTMLEsLoadingBarElement: {
-        prototype: HTMLEsLoadingBarElement;
-        new (): HTMLEsLoadingBarElement;
+    var HTMLL2LoadingBarElement: {
+        prototype: HTMLL2LoadingBarElement;
+        new (): HTMLL2LoadingBarElement;
     };
     /**
      * The Event Store logo.
      */
-    interface HTMLEsLogoElement extends Components.EsLogo, HTMLStencilElement {
+    interface HTMLL2LogoElement extends Components.L2Logo, HTMLStencilElement {
     }
-    var HTMLEsLogoElement: {
-        prototype: HTMLEsLogoElement;
-        new (): HTMLEsLogoElement;
+    var HTMLL2LogoElement: {
+        prototype: HTMLL2LogoElement;
+        new (): HTMLL2LogoElement;
     };
     /**
      * Constructs a navigation from a NavTree.
      */
-    interface HTMLEsNavElement extends Components.EsNav, HTMLStencilElement {
+    interface HTMLL2NavElement extends Components.L2Nav, HTMLStencilElement {
     }
-    var HTMLEsNavElement: {
-        prototype: HTMLEsNavElement;
-        new (): HTMLEsNavElement;
+    var HTMLL2NavElement: {
+        prototype: HTMLL2NavElement;
+        new (): HTMLL2NavElement;
     };
-    interface HTMLEsNavNode0Element extends Components.EsNavNode0, HTMLStencilElement {
+    interface HTMLL2NavNode0Element extends Components.L2NavNode0, HTMLStencilElement {
     }
-    var HTMLEsNavNode0Element: {
-        prototype: HTMLEsNavNode0Element;
-        new (): HTMLEsNavNode0Element;
+    var HTMLL2NavNode0Element: {
+        prototype: HTMLL2NavNode0Element;
+        new (): HTMLL2NavNode0Element;
     };
-    interface HTMLEsNavNode1Element extends Components.EsNavNode1, HTMLStencilElement {
+    interface HTMLL2NavNode1Element extends Components.L2NavNode1, HTMLStencilElement {
     }
-    var HTMLEsNavNode1Element: {
-        prototype: HTMLEsNavNode1Element;
-        new (): HTMLEsNavNode1Element;
+    var HTMLL2NavNode1Element: {
+        prototype: HTMLL2NavNode1Element;
+        new (): HTMLL2NavNode1Element;
     };
-    interface HTMLEsNavNode2Element extends Components.EsNavNode2, HTMLStencilElement {
+    interface HTMLL2NavNode2Element extends Components.L2NavNode2, HTMLStencilElement {
     }
-    var HTMLEsNavNode2Element: {
-        prototype: HTMLEsNavNode2Element;
-        new (): HTMLEsNavNode2Element;
+    var HTMLL2NavNode2Element: {
+        prototype: HTMLL2NavNode2Element;
+        new (): HTMLL2NavNode2Element;
     };
     /**
      * Standard page title
      */
-    interface HTMLEsPageTitleElement extends Components.EsPageTitle, HTMLStencilElement {
+    interface HTMLL2PageTitleElement extends Components.L2PageTitle, HTMLStencilElement {
     }
-    var HTMLEsPageTitleElement: {
-        prototype: HTMLEsPageTitleElement;
-        new (): HTMLEsPageTitleElement;
+    var HTMLL2PageTitleElement: {
+        prototype: HTMLL2PageTitleElement;
+        new (): HTMLL2PageTitleElement;
     };
-    interface HTMLEsPanelElementEventMap {
+    interface HTMLL2PanelElementEventMap {
         "modeChange": PanelMode1;
     }
     /**
      * A resizable panel. Automatically sets the relevant layout var based on it's size and when resized.
      */
-    interface HTMLEsPanelElement extends Components.EsPanel, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsPanelElementEventMap>(type: K, listener: (this: HTMLEsPanelElement, ev: EsPanelCustomEvent<HTMLEsPanelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLL2PanelElement extends Components.L2Panel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLL2PanelElementEventMap>(type: K, listener: (this: HTMLL2PanelElement, ev: L2PanelCustomEvent<HTMLL2PanelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsPanelElementEventMap>(type: K, listener: (this: HTMLEsPanelElement, ev: EsPanelCustomEvent<HTMLEsPanelElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLL2PanelElementEventMap>(type: K, listener: (this: HTMLL2PanelElement, ev: L2PanelCustomEvent<HTMLL2PanelElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsPanelElement: {
-        prototype: HTMLEsPanelElement;
-        new (): HTMLEsPanelElement;
+    var HTMLL2PanelElement: {
+        prototype: HTMLL2PanelElement;
+        new (): HTMLL2PanelElement;
     };
     /**
-     * A header for `es-panel`.
+     * A header for `l2-panel`.
      */
-    interface HTMLEsPanelHeaderElement extends Components.EsPanelHeader, HTMLStencilElement {
+    interface HTMLL2PanelHeaderElement extends Components.L2PanelHeader, HTMLStencilElement {
     }
-    var HTMLEsPanelHeaderElement: {
-        prototype: HTMLEsPanelHeaderElement;
-        new (): HTMLEsPanelHeaderElement;
+    var HTMLL2PanelHeaderElement: {
+        prototype: HTMLL2PanelHeaderElement;
+        new (): HTMLL2PanelHeaderElement;
     };
     /**
      * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
      */
-    interface HTMLEsSidebarElement extends Components.EsSidebar, HTMLStencilElement {
+    interface HTMLL2SidebarElement extends Components.L2Sidebar, HTMLStencilElement {
     }
-    var HTMLEsSidebarElement: {
-        prototype: HTMLEsSidebarElement;
-        new (): HTMLEsSidebarElement;
+    var HTMLL2SidebarElement: {
+        prototype: HTMLL2SidebarElement;
+        new (): HTMLL2SidebarElement;
     };
     /**
-     * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `es-layout-link` or `es-layout-button`.
+     * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `l2-layout-link` or `l2-layout-button`.
      */
-    interface HTMLEsSidebarDropdownElement extends Components.EsSidebarDropdown, HTMLStencilElement {
+    interface HTMLL2SidebarDropdownElement extends Components.L2SidebarDropdown, HTMLStencilElement {
     }
-    var HTMLEsSidebarDropdownElement: {
-        prototype: HTMLEsSidebarDropdownElement;
-        new (): HTMLEsSidebarDropdownElement;
+    var HTMLL2SidebarDropdownElement: {
+        prototype: HTMLL2SidebarDropdownElement;
+        new (): HTMLL2SidebarDropdownElement;
     };
     /**
      * A panel that takes the size of it's content.
      * Automatically sets the relevant layout var based on it's size.
      */
-    interface HTMLEsSizedPanelElement extends Components.EsSizedPanel, HTMLStencilElement {
+    interface HTMLL2SizedPanelElement extends Components.L2SizedPanel, HTMLStencilElement {
     }
-    var HTMLEsSizedPanelElement: {
-        prototype: HTMLEsSizedPanelElement;
-        new (): HTMLEsSizedPanelElement;
+    var HTMLL2SizedPanelElement: {
+        prototype: HTMLL2SizedPanelElement;
+        new (): HTMLL2SizedPanelElement;
     };
     /**
      * A theme picker dropdown for the header
      */
-    interface HTMLEsThemeDropdownElement extends Components.EsThemeDropdown, HTMLStencilElement {
+    interface HTMLL2ThemeDropdownElement extends Components.L2ThemeDropdown, HTMLStencilElement {
     }
-    var HTMLEsThemeDropdownElement: {
-        prototype: HTMLEsThemeDropdownElement;
-        new (): HTMLEsThemeDropdownElement;
+    var HTMLL2ThemeDropdownElement: {
+        prototype: HTMLL2ThemeDropdownElement;
+        new (): HTMLL2ThemeDropdownElement;
     };
-    interface HTMLEsThemePickerElement extends Components.EsThemePicker, HTMLStencilElement {
+    interface HTMLL2ThemePickerElement extends Components.L2ThemePicker, HTMLStencilElement {
     }
-    var HTMLEsThemePickerElement: {
-        prototype: HTMLEsThemePickerElement;
-        new (): HTMLEsThemePickerElement;
+    var HTMLL2ThemePickerElement: {
+        prototype: HTMLL2ThemePickerElement;
+        new (): HTMLL2ThemePickerElement;
     };
     /**
      * Placed in the toolbar area of the layout. Automatically sets `--layout-toolbar-width` based on it's own width.
      */
-    interface HTMLEsToolbarElement extends Components.EsToolbar, HTMLStencilElement {
+    interface HTMLL2ToolbarElement extends Components.L2Toolbar, HTMLStencilElement {
     }
-    var HTMLEsToolbarElement: {
-        prototype: HTMLEsToolbarElement;
-        new (): HTMLEsToolbarElement;
+    var HTMLL2ToolbarElement: {
+        prototype: HTMLL2ToolbarElement;
+        new (): HTMLL2ToolbarElement;
+    };
+    /**
+     * Button and link collapsing
+     * @group Panels
+     */
+    interface HTMLLayoutButtonCollapsedDemoElement extends Components.LayoutButtonCollapsedDemo, HTMLStencilElement {
+    }
+    var HTMLLayoutButtonCollapsedDemoElement: {
+        prototype: HTMLLayoutButtonCollapsedDemoElement;
+        new (): HTMLLayoutButtonCollapsedDemoElement;
+    };
+    /**
+     * Layout Button
+     * @group Buttons
+     */
+    interface HTMLLayoutButtonDemoElement extends Components.LayoutButtonDemo, HTMLStencilElement {
+    }
+    var HTMLLayoutButtonDemoElement: {
+        prototype: HTMLLayoutButtonDemoElement;
+        new (): HTMLLayoutButtonDemoElement;
+    };
+    /**
+     * Layout Link
+     * @group Buttons
+     */
+    interface HTMLLayoutLinkDemoElement extends Components.LayoutLinkDemo, HTMLStencilElement {
+    }
+    var HTMLLayoutLinkDemoElement: {
+        prototype: HTMLLayoutLinkDemoElement;
+        new (): HTMLLayoutLinkDemoElement;
+    };
+    /**
+     * Logo
+     */
+    interface HTMLLogoDemoElement extends Components.LogoDemo, HTMLStencilElement {
+    }
+    var HTMLLogoDemoElement: {
+        prototype: HTMLLogoDemoElement;
+        new (): HTMLLogoDemoElement;
+    };
+    /**
+     * Page Title
+     */
+    interface HTMLPageTitleDemoElement extends Components.PageTitleDemo, HTMLStencilElement {
+    }
+    var HTMLPageTitleDemoElement: {
+        prototype: HTMLPageTitleDemoElement;
+        new (): HTMLPageTitleDemoElement;
+    };
+    /**
+     * All panel placements
+     * @group Panels
+     */
+    interface HTMLPanelAllDemoElement extends Components.PanelAllDemo, HTMLStencilElement {
+    }
+    var HTMLPanelAllDemoElement: {
+        prototype: HTMLPanelAllDemoElement;
+        new (): HTMLPanelAllDemoElement;
+    };
+    /**
+     * Panel closing
+     * @group Panels
+     */
+    interface HTMLPanelCloseDemoElement extends Components.PanelCloseDemo, HTMLStencilElement {
+    }
+    var HTMLPanelCloseDemoElement: {
+        prototype: HTMLPanelCloseDemoElement;
+        new (): HTMLPanelCloseDemoElement;
+    };
+    /**
+     * Panel placement
+     * @group Panels
+     */
+    interface HTMLPanelPlacementDemoElement extends Components.PanelPlacementDemo, HTMLStencilElement {
+    }
+    var HTMLPanelPlacementDemoElement: {
+        prototype: HTMLPanelPlacementDemoElement;
+        new (): HTMLPanelPlacementDemoElement;
+    };
+    /**
+     * Sidebar
+     * @group Layout
+     */
+    interface HTMLSidebarDemoElement extends Components.SidebarDemo, HTMLStencilElement {
+    }
+    var HTMLSidebarDemoElement: {
+        prototype: HTMLSidebarDemoElement;
+        new (): HTMLSidebarDemoElement;
+    };
+    /**
+     * All sized panel placements
+     * @group Sized Panels
+     */
+    interface HTMLSizedPanelDemoElement extends Components.SizedPanelDemo, HTMLStencilElement {
+    }
+    var HTMLSizedPanelDemoElement: {
+        prototype: HTMLSizedPanelDemoElement;
+        new (): HTMLSizedPanelDemoElement;
+    };
+    /**
+     * Sized panel placement
+     * @group Sized panels
+     */
+    interface HTMLSizedPanelPlacementDemoElement extends Components.SizedPanelPlacementDemo, HTMLStencilElement {
+    }
+    var HTMLSizedPanelPlacementDemoElement: {
+        prototype: HTMLSizedPanelPlacementDemoElement;
+        new (): HTMLSizedPanelPlacementDemoElement;
+    };
+    /**
+     * Toolbar
+     * @group Layout
+     */
+    interface HTMLToolbarDemoElement extends Components.ToolbarDemo, HTMLStencilElement {
+    }
+    var HTMLToolbarDemoElement: {
+        prototype: HTMLToolbarDemoElement;
+        new (): HTMLToolbarDemoElement;
     };
     interface HTMLElementTagNameMap {
-        "es-breadcrumb": HTMLEsBreadcrumbElement;
-        "es-display-error": HTMLEsDisplayErrorElement;
-        "es-empty-state": HTMLEsEmptyStateElement;
-        "es-header": HTMLEsHeaderElement;
-        "es-header-dropdown": HTMLEsHeaderDropdownElement;
-        "es-layout-auto-label": HTMLEsLayoutAutoLabelElement;
-        "es-layout-button": HTMLEsLayoutButtonElement;
-        "es-layout-hr": HTMLEsLayoutHrElement;
-        "es-layout-link": HTMLEsLayoutLinkElement;
-        "es-layout-section": HTMLEsLayoutSectionElement;
-        "es-loading-bar": HTMLEsLoadingBarElement;
-        "es-logo": HTMLEsLogoElement;
-        "es-nav": HTMLEsNavElement;
-        "es-nav-node-0": HTMLEsNavNode0Element;
-        "es-nav-node-1": HTMLEsNavNode1Element;
-        "es-nav-node-2": HTMLEsNavNode2Element;
-        "es-page-title": HTMLEsPageTitleElement;
-        "es-panel": HTMLEsPanelElement;
-        "es-panel-header": HTMLEsPanelHeaderElement;
-        "es-sidebar": HTMLEsSidebarElement;
-        "es-sidebar-dropdown": HTMLEsSidebarDropdownElement;
-        "es-sized-panel": HTMLEsSizedPanelElement;
-        "es-theme-dropdown": HTMLEsThemeDropdownElement;
-        "es-theme-picker": HTMLEsThemePickerElement;
-        "es-toolbar": HTMLEsToolbarElement;
+        "breadcrumb-demo": HTMLBreadcrumbDemoElement;
+        "display-error-demo": HTMLDisplayErrorDemoElement;
+        "empty-state-demo": HTMLEmptyStateDemoElement;
+        "everything-demo": HTMLEverythingDemoElement;
+        "header-demo": HTMLHeaderDemoElement;
+        "header-dropdown-demo": HTMLHeaderDropdownDemoElement;
+        "l2-breadcrumb": HTMLL2BreadcrumbElement;
+        "l2-display-error": HTMLL2DisplayErrorElement;
+        "l2-empty-state": HTMLL2EmptyStateElement;
+        "l2-header": HTMLL2HeaderElement;
+        "l2-header-dropdown": HTMLL2HeaderDropdownElement;
+        "l2-layout-auto-label": HTMLL2LayoutAutoLabelElement;
+        "l2-layout-button": HTMLL2LayoutButtonElement;
+        "l2-layout-hr": HTMLL2LayoutHrElement;
+        "l2-layout-link": HTMLL2LayoutLinkElement;
+        "l2-layout-section": HTMLL2LayoutSectionElement;
+        "l2-loading-bar": HTMLL2LoadingBarElement;
+        "l2-logo": HTMLL2LogoElement;
+        "l2-nav": HTMLL2NavElement;
+        "l2-nav-node-0": HTMLL2NavNode0Element;
+        "l2-nav-node-1": HTMLL2NavNode1Element;
+        "l2-nav-node-2": HTMLL2NavNode2Element;
+        "l2-page-title": HTMLL2PageTitleElement;
+        "l2-panel": HTMLL2PanelElement;
+        "l2-panel-header": HTMLL2PanelHeaderElement;
+        "l2-sidebar": HTMLL2SidebarElement;
+        "l2-sidebar-dropdown": HTMLL2SidebarDropdownElement;
+        "l2-sized-panel": HTMLL2SizedPanelElement;
+        "l2-theme-dropdown": HTMLL2ThemeDropdownElement;
+        "l2-theme-picker": HTMLL2ThemePickerElement;
+        "l2-toolbar": HTMLL2ToolbarElement;
+        "layout-button-collapsed-demo": HTMLLayoutButtonCollapsedDemoElement;
+        "layout-button-demo": HTMLLayoutButtonDemoElement;
+        "layout-link-demo": HTMLLayoutLinkDemoElement;
+        "logo-demo": HTMLLogoDemoElement;
+        "page-title-demo": HTMLPageTitleDemoElement;
+        "panel-all-demo": HTMLPanelAllDemoElement;
+        "panel-close-demo": HTMLPanelCloseDemoElement;
+        "panel-placement-demo": HTMLPanelPlacementDemoElement;
+        "sidebar-demo": HTMLSidebarDemoElement;
+        "sized-panel-demo": HTMLSizedPanelDemoElement;
+        "sized-panel-placement-demo": HTMLSizedPanelPlacementDemoElement;
+        "toolbar-demo": HTMLToolbarDemoElement;
     }
 }
 declare namespace LocalJSX {
     /**
+     * Breadcrumb
+     */
+    interface BreadcrumbDemo {
+    }
+    /**
+     * Display Error
+     * @group Page State
+     */
+    interface DisplayErrorDemo {
+    }
+    /**
+     * Empty State
+     * @group Page State
+     */
+    interface EmptyStateDemo {
+    }
+    /**
+     * Everything Demo
+     */
+    interface EverythingDemo {
+    }
+    /**
+     * Header
+     * @group Layout
+     */
+    interface HeaderDemo {
+    }
+    /**
+     * Header Dropdown
+     * @group Layout
+     */
+    interface HeaderDropdownDemo {
+    }
+    /**
      * A list of breadcrumbs to the current page
      */
-    interface EsBreadcrumb {
+    interface L2Breadcrumb {
         /**
           * The breadcrumbs to the current page.
          */
@@ -706,7 +1038,7 @@ declare namespace LocalJSX {
     /**
      * Display an error to the user, with title and detail. Will automatically extract from HTTPError.
      */
-    interface EsDisplayError {
+    interface L2DisplayError {
         /**
           * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore-ui/utils` the details title and description will be shown.
          */
@@ -720,7 +1052,7 @@ declare namespace LocalJSX {
      * Display an empty state with an illustration and a message.
      * Intended for use as `Page`'s `renderEmptyState`.
      */
-    interface EsEmptyState {
+    interface L2EmptyState {
         /**
           * The header of the empty state.
          */
@@ -733,12 +1065,12 @@ declare namespace LocalJSX {
     /**
      * A site header for applications.
      */
-    interface EsHeader {
+    interface L2Header {
     }
     /**
      * A dropdown for the header.
      */
-    interface EsHeaderDropdown {
+    interface L2HeaderDropdown {
         /**
           * Display a dot on the icon, to attract attention to the button.
          */
@@ -772,7 +1104,7 @@ declare namespace LocalJSX {
          */
         "variant"?: HeaderDropdownButtonVariant;
     }
-    interface EsLayoutAutoLabel {
+    interface L2LayoutAutoLabel {
         /**
           * How to extract the label text
          */
@@ -789,7 +1121,7 @@ declare namespace LocalJSX {
     /**
      * A button for the sidebar, sidebar-dropdown, and header-dropdown.
      */
-    interface EsLayoutButton {
+    interface L2LayoutButton {
         /**
           * If the button should display as active
          */
@@ -821,7 +1153,7 @@ declare namespace LocalJSX {
         /**
           * Triggers the parent popup to close.
          */
-        "onRequestClose"?: (event: EsLayoutButtonCustomEvent<any>) => void;
+        "onRequestClose"?: (event: L2LayoutButtonCustomEvent<any>) => void;
         /**
           * When deciding the active child, if multiple are active, the highest priority wins.
          */
@@ -830,12 +1162,12 @@ declare namespace LocalJSX {
     /**
      * A horizontal rule
      */
-    interface EsLayoutHr {
+    interface L2LayoutHr {
     }
     /**
      * A link for the sidebar, sidebar-dropdown, and header-dropdown.
      */
-    interface EsLayoutLink {
+    interface L2LayoutLink {
         /**
           * Display a dot on the icon, to attract attention to the link.
          */
@@ -892,7 +1224,7 @@ declare namespace LocalJSX {
     /**
      * A section with an optional title for containing layout-links
      */
-    interface EsLayoutSection {
+    interface L2LayoutSection {
         /**
           * If the section should label it's contents with a popover
          */
@@ -915,7 +1247,7 @@ declare namespace LocalJSX {
      * The bar can be externally controlled via the `setProgress` util.
      * Add a bar named `page` for automatic control from `Page`.
      */
-    interface EsLoadingBar {
+    interface L2LoadingBar {
         /**
           * The bar's name, for use in `setProgress`
          */
@@ -924,13 +1256,13 @@ declare namespace LocalJSX {
     /**
      * The Event Store logo.
      */
-    interface EsLogo {
+    interface L2Logo {
         /**
           * Height to constrain by.
          */
         "height"?: number;
         /**
-          * If the eventstore text should be displayed.
+          * If the kurrent text should be displayed.
          */
         "mode"?: 'full' | 'icon';
         /**
@@ -941,34 +1273,34 @@ declare namespace LocalJSX {
     /**
      * Constructs a navigation from a NavTree.
      */
-    interface EsNav {
+    interface L2Nav {
         /**
           * The `NavTree` data structure that the navigation menu will be built from..
          */
         "navTree": NavTree;
     }
-    interface EsNavNode0 {
+    interface L2NavNode0 {
         "active": boolean;
         "node": NavNode;
         "toggleRequest": () => void;
     }
-    interface EsNavNode1 {
+    interface L2NavNode1 {
         "active": boolean;
         "node": NavNode;
         "toggleRequest": () => void;
     }
-    interface EsNavNode2 {
+    interface L2NavNode2 {
         "node": NavNode;
     }
     /**
      * Standard page title
      */
-    interface EsPageTitle {
+    interface L2PageTitle {
     }
     /**
      * A resizable panel. Automatically sets the relevant layout var based on it's size and when resized.
      */
-    interface EsPanel {
+    interface L2Panel {
         /**
           * Where to place the panel.
          */
@@ -1004,7 +1336,7 @@ declare namespace LocalJSX {
         /**
           * Triggers when the panel's mode changes.
          */
-        "onModeChange"?: (event: EsPanelCustomEvent<PanelMode1>) => void;
+        "onModeChange"?: (event: L2PanelCustomEvent<PanelMode1>) => void;
         /**
           * If the last mode of the panel should be kept in local storage.
          */
@@ -1019,25 +1351,25 @@ declare namespace LocalJSX {
         "start"?: TargetableEdge;
     }
     /**
-     * A header for `es-panel`.
+     * A header for `l2-panel`.
      */
-    interface EsPanelHeader {
+    interface L2PanelHeader {
     }
     /**
      * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
      */
-    interface EsSidebar {
+    interface L2Sidebar {
     }
     /**
-     * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `es-layout-link` or `es-layout-button`.
+     * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `l2-layout-link` or `l2-layout-button`.
      */
-    interface EsSidebarDropdown {
+    interface L2SidebarDropdown {
         /**
-          * The icon to display if no nested es-layout-link or es-layout-button is active
+          * The icon to display if no nested l2-layout-link or l2-layout-button is active
          */
         "defaultIcon": IconDescription;
         /**
-          * The title to display if no nested es-layout-link or es-layout-button is active
+          * The title to display if no nested l2-layout-link or l2-layout-button is active
          */
         "defaultTitle": string;
     }
@@ -1045,7 +1377,7 @@ declare namespace LocalJSX {
      * A panel that takes the size of it's content.
      * Automatically sets the relevant layout var based on it's size.
      */
-    interface EsSizedPanel {
+    interface L2SizedPanel {
         /**
           * Where to place the panel.
          */
@@ -1062,45 +1394,133 @@ declare namespace LocalJSX {
     /**
      * A theme picker dropdown for the header
      */
-    interface EsThemeDropdown {
+    interface L2ThemeDropdown {
         /**
           * Which styling variant to use.
          */
         "variant"?: HeaderDropdownButtonVariant;
     }
-    interface EsThemePicker {
+    interface L2ThemePicker {
     }
     /**
      * Placed in the toolbar area of the layout. Automatically sets `--layout-toolbar-width` based on it's own width.
      */
-    interface EsToolbar {
+    interface L2Toolbar {
+    }
+    /**
+     * Button and link collapsing
+     * @group Panels
+     */
+    interface LayoutButtonCollapsedDemo {
+    }
+    /**
+     * Layout Button
+     * @group Buttons
+     */
+    interface LayoutButtonDemo {
+    }
+    /**
+     * Layout Link
+     * @group Buttons
+     */
+    interface LayoutLinkDemo {
+    }
+    /**
+     * Logo
+     */
+    interface LogoDemo {
+    }
+    /**
+     * Page Title
+     */
+    interface PageTitleDemo {
+    }
+    /**
+     * All panel placements
+     * @group Panels
+     */
+    interface PanelAllDemo {
+    }
+    /**
+     * Panel closing
+     * @group Panels
+     */
+    interface PanelCloseDemo {
+    }
+    /**
+     * Panel placement
+     * @group Panels
+     */
+    interface PanelPlacementDemo {
+    }
+    /**
+     * Sidebar
+     * @group Layout
+     */
+    interface SidebarDemo {
+    }
+    /**
+     * All sized panel placements
+     * @group Sized Panels
+     */
+    interface SizedPanelDemo {
+    }
+    /**
+     * Sized panel placement
+     * @group Sized panels
+     */
+    interface SizedPanelPlacementDemo {
+    }
+    /**
+     * Toolbar
+     * @group Layout
+     */
+    interface ToolbarDemo {
     }
     interface IntrinsicElements {
-        "es-breadcrumb": EsBreadcrumb;
-        "es-display-error": EsDisplayError;
-        "es-empty-state": EsEmptyState;
-        "es-header": EsHeader;
-        "es-header-dropdown": EsHeaderDropdown;
-        "es-layout-auto-label": EsLayoutAutoLabel;
-        "es-layout-button": EsLayoutButton;
-        "es-layout-hr": EsLayoutHr;
-        "es-layout-link": EsLayoutLink;
-        "es-layout-section": EsLayoutSection;
-        "es-loading-bar": EsLoadingBar;
-        "es-logo": EsLogo;
-        "es-nav": EsNav;
-        "es-nav-node-0": EsNavNode0;
-        "es-nav-node-1": EsNavNode1;
-        "es-nav-node-2": EsNavNode2;
-        "es-page-title": EsPageTitle;
-        "es-panel": EsPanel;
-        "es-panel-header": EsPanelHeader;
-        "es-sidebar": EsSidebar;
-        "es-sidebar-dropdown": EsSidebarDropdown;
-        "es-sized-panel": EsSizedPanel;
-        "es-theme-dropdown": EsThemeDropdown;
-        "es-theme-picker": EsThemePicker;
-        "es-toolbar": EsToolbar;
+        "breadcrumb-demo": BreadcrumbDemo;
+        "display-error-demo": DisplayErrorDemo;
+        "empty-state-demo": EmptyStateDemo;
+        "everything-demo": EverythingDemo;
+        "header-demo": HeaderDemo;
+        "header-dropdown-demo": HeaderDropdownDemo;
+        "l2-breadcrumb": L2Breadcrumb;
+        "l2-display-error": L2DisplayError;
+        "l2-empty-state": L2EmptyState;
+        "l2-header": L2Header;
+        "l2-header-dropdown": L2HeaderDropdown;
+        "l2-layout-auto-label": L2LayoutAutoLabel;
+        "l2-layout-button": L2LayoutButton;
+        "l2-layout-hr": L2LayoutHr;
+        "l2-layout-link": L2LayoutLink;
+        "l2-layout-section": L2LayoutSection;
+        "l2-loading-bar": L2LoadingBar;
+        "l2-logo": L2Logo;
+        "l2-nav": L2Nav;
+        "l2-nav-node-0": L2NavNode0;
+        "l2-nav-node-1": L2NavNode1;
+        "l2-nav-node-2": L2NavNode2;
+        "l2-page-title": L2PageTitle;
+        "l2-panel": L2Panel;
+        "l2-panel-header": L2PanelHeader;
+        "l2-sidebar": L2Sidebar;
+        "l2-sidebar-dropdown": L2SidebarDropdown;
+        "l2-sized-panel": L2SizedPanel;
+        "l2-theme-dropdown": L2ThemeDropdown;
+        "l2-theme-picker": L2ThemePicker;
+        "l2-toolbar": L2Toolbar;
+        "layout-button-collapsed-demo": LayoutButtonCollapsedDemo;
+        "layout-button-demo": LayoutButtonDemo;
+        "layout-link-demo": LayoutLinkDemo;
+        "logo-demo": LogoDemo;
+        "page-title-demo": PageTitleDemo;
+        "panel-all-demo": PanelAllDemo;
+        "panel-close-demo": PanelCloseDemo;
+        "panel-placement-demo": PanelPlacementDemo;
+        "sidebar-demo": SidebarDemo;
+        "sized-panel-demo": SizedPanelDemo;
+        "sized-panel-placement-demo": SizedPanelPlacementDemo;
+        "toolbar-demo": ToolbarDemo;
     }
 }
 export { LocalJSX as JSX };
@@ -1108,94 +1528,180 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             /**
+             * Breadcrumb
+             */
+            "breadcrumb-demo": LocalJSX.BreadcrumbDemo & JSXBase.HTMLAttributes<HTMLBreadcrumbDemoElement>;
+            /**
+             * Display Error
+             * @group Page State
+             */
+            "display-error-demo": LocalJSX.DisplayErrorDemo & JSXBase.HTMLAttributes<HTMLDisplayErrorDemoElement>;
+            /**
+             * Empty State
+             * @group Page State
+             */
+            "empty-state-demo": LocalJSX.EmptyStateDemo & JSXBase.HTMLAttributes<HTMLEmptyStateDemoElement>;
+            /**
+             * Everything Demo
+             */
+            "everything-demo": LocalJSX.EverythingDemo & JSXBase.HTMLAttributes<HTMLEverythingDemoElement>;
+            /**
+             * Header
+             * @group Layout
+             */
+            "header-demo": LocalJSX.HeaderDemo & JSXBase.HTMLAttributes<HTMLHeaderDemoElement>;
+            /**
+             * Header Dropdown
+             * @group Layout
+             */
+            "header-dropdown-demo": LocalJSX.HeaderDropdownDemo & JSXBase.HTMLAttributes<HTMLHeaderDropdownDemoElement>;
+            /**
              * A list of breadcrumbs to the current page
              */
-            "es-breadcrumb": LocalJSX.EsBreadcrumb & JSXBase.HTMLAttributes<HTMLEsBreadcrumbElement>;
+            "l2-breadcrumb": LocalJSX.L2Breadcrumb & JSXBase.HTMLAttributes<HTMLL2BreadcrumbElement>;
             /**
              * Display an error to the user, with title and detail. Will automatically extract from HTTPError.
              */
-            "es-display-error": LocalJSX.EsDisplayError & JSXBase.HTMLAttributes<HTMLEsDisplayErrorElement>;
+            "l2-display-error": LocalJSX.L2DisplayError & JSXBase.HTMLAttributes<HTMLL2DisplayErrorElement>;
             /**
              * Display an empty state with an illustration and a message.
              * Intended for use as `Page`'s `renderEmptyState`.
              */
-            "es-empty-state": LocalJSX.EsEmptyState & JSXBase.HTMLAttributes<HTMLEsEmptyStateElement>;
+            "l2-empty-state": LocalJSX.L2EmptyState & JSXBase.HTMLAttributes<HTMLL2EmptyStateElement>;
             /**
              * A site header for applications.
              */
-            "es-header": LocalJSX.EsHeader & JSXBase.HTMLAttributes<HTMLEsHeaderElement>;
+            "l2-header": LocalJSX.L2Header & JSXBase.HTMLAttributes<HTMLL2HeaderElement>;
             /**
              * A dropdown for the header.
              */
-            "es-header-dropdown": LocalJSX.EsHeaderDropdown & JSXBase.HTMLAttributes<HTMLEsHeaderDropdownElement>;
-            "es-layout-auto-label": LocalJSX.EsLayoutAutoLabel & JSXBase.HTMLAttributes<HTMLEsLayoutAutoLabelElement>;
+            "l2-header-dropdown": LocalJSX.L2HeaderDropdown & JSXBase.HTMLAttributes<HTMLL2HeaderDropdownElement>;
+            "l2-layout-auto-label": LocalJSX.L2LayoutAutoLabel & JSXBase.HTMLAttributes<HTMLL2LayoutAutoLabelElement>;
             /**
              * A button for the sidebar, sidebar-dropdown, and header-dropdown.
              */
-            "es-layout-button": LocalJSX.EsLayoutButton & JSXBase.HTMLAttributes<HTMLEsLayoutButtonElement>;
+            "l2-layout-button": LocalJSX.L2LayoutButton & JSXBase.HTMLAttributes<HTMLL2LayoutButtonElement>;
             /**
              * A horizontal rule
              */
-            "es-layout-hr": LocalJSX.EsLayoutHr & JSXBase.HTMLAttributes<HTMLEsLayoutHrElement>;
+            "l2-layout-hr": LocalJSX.L2LayoutHr & JSXBase.HTMLAttributes<HTMLL2LayoutHrElement>;
             /**
              * A link for the sidebar, sidebar-dropdown, and header-dropdown.
              */
-            "es-layout-link": LocalJSX.EsLayoutLink & JSXBase.HTMLAttributes<HTMLEsLayoutLinkElement>;
+            "l2-layout-link": LocalJSX.L2LayoutLink & JSXBase.HTMLAttributes<HTMLL2LayoutLinkElement>;
             /**
              * A section with an optional title for containing layout-links
              */
-            "es-layout-section": LocalJSX.EsLayoutSection & JSXBase.HTMLAttributes<HTMLEsLayoutSectionElement>;
+            "l2-layout-section": LocalJSX.L2LayoutSection & JSXBase.HTMLAttributes<HTMLL2LayoutSectionElement>;
             /**
              * An animated loading bar, with coloured states.
              * The bar can be externally controlled via the `setProgress` util.
              * Add a bar named `page` for automatic control from `Page`.
              */
-            "es-loading-bar": LocalJSX.EsLoadingBar & JSXBase.HTMLAttributes<HTMLEsLoadingBarElement>;
+            "l2-loading-bar": LocalJSX.L2LoadingBar & JSXBase.HTMLAttributes<HTMLL2LoadingBarElement>;
             /**
              * The Event Store logo.
              */
-            "es-logo": LocalJSX.EsLogo & JSXBase.HTMLAttributes<HTMLEsLogoElement>;
+            "l2-logo": LocalJSX.L2Logo & JSXBase.HTMLAttributes<HTMLL2LogoElement>;
             /**
              * Constructs a navigation from a NavTree.
              */
-            "es-nav": LocalJSX.EsNav & JSXBase.HTMLAttributes<HTMLEsNavElement>;
-            "es-nav-node-0": LocalJSX.EsNavNode0 & JSXBase.HTMLAttributes<HTMLEsNavNode0Element>;
-            "es-nav-node-1": LocalJSX.EsNavNode1 & JSXBase.HTMLAttributes<HTMLEsNavNode1Element>;
-            "es-nav-node-2": LocalJSX.EsNavNode2 & JSXBase.HTMLAttributes<HTMLEsNavNode2Element>;
+            "l2-nav": LocalJSX.L2Nav & JSXBase.HTMLAttributes<HTMLL2NavElement>;
+            "l2-nav-node-0": LocalJSX.L2NavNode0 & JSXBase.HTMLAttributes<HTMLL2NavNode0Element>;
+            "l2-nav-node-1": LocalJSX.L2NavNode1 & JSXBase.HTMLAttributes<HTMLL2NavNode1Element>;
+            "l2-nav-node-2": LocalJSX.L2NavNode2 & JSXBase.HTMLAttributes<HTMLL2NavNode2Element>;
             /**
              * Standard page title
              */
-            "es-page-title": LocalJSX.EsPageTitle & JSXBase.HTMLAttributes<HTMLEsPageTitleElement>;
+            "l2-page-title": LocalJSX.L2PageTitle & JSXBase.HTMLAttributes<HTMLL2PageTitleElement>;
             /**
              * A resizable panel. Automatically sets the relevant layout var based on it's size and when resized.
              */
-            "es-panel": LocalJSX.EsPanel & JSXBase.HTMLAttributes<HTMLEsPanelElement>;
+            "l2-panel": LocalJSX.L2Panel & JSXBase.HTMLAttributes<HTMLL2PanelElement>;
             /**
-             * A header for `es-panel`.
+             * A header for `l2-panel`.
              */
-            "es-panel-header": LocalJSX.EsPanelHeader & JSXBase.HTMLAttributes<HTMLEsPanelHeaderElement>;
+            "l2-panel-header": LocalJSX.L2PanelHeader & JSXBase.HTMLAttributes<HTMLL2PanelHeaderElement>;
             /**
              * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
              */
-            "es-sidebar": LocalJSX.EsSidebar & JSXBase.HTMLAttributes<HTMLEsSidebarElement>;
+            "l2-sidebar": LocalJSX.L2Sidebar & JSXBase.HTMLAttributes<HTMLL2SidebarElement>;
             /**
-             * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `es-layout-link` or `es-layout-button`.
+             * A dropdown for the sidebar. Will automatically take the title and icon of the first active nested `l2-layout-link` or `l2-layout-button`.
              */
-            "es-sidebar-dropdown": LocalJSX.EsSidebarDropdown & JSXBase.HTMLAttributes<HTMLEsSidebarDropdownElement>;
+            "l2-sidebar-dropdown": LocalJSX.L2SidebarDropdown & JSXBase.HTMLAttributes<HTMLL2SidebarDropdownElement>;
             /**
              * A panel that takes the size of it's content.
              * Automatically sets the relevant layout var based on it's size.
              */
-            "es-sized-panel": LocalJSX.EsSizedPanel & JSXBase.HTMLAttributes<HTMLEsSizedPanelElement>;
+            "l2-sized-panel": LocalJSX.L2SizedPanel & JSXBase.HTMLAttributes<HTMLL2SizedPanelElement>;
             /**
              * A theme picker dropdown for the header
              */
-            "es-theme-dropdown": LocalJSX.EsThemeDropdown & JSXBase.HTMLAttributes<HTMLEsThemeDropdownElement>;
-            "es-theme-picker": LocalJSX.EsThemePicker & JSXBase.HTMLAttributes<HTMLEsThemePickerElement>;
+            "l2-theme-dropdown": LocalJSX.L2ThemeDropdown & JSXBase.HTMLAttributes<HTMLL2ThemeDropdownElement>;
+            "l2-theme-picker": LocalJSX.L2ThemePicker & JSXBase.HTMLAttributes<HTMLL2ThemePickerElement>;
             /**
              * Placed in the toolbar area of the layout. Automatically sets `--layout-toolbar-width` based on it's own width.
              */
-            "es-toolbar": LocalJSX.EsToolbar & JSXBase.HTMLAttributes<HTMLEsToolbarElement>;
+            "l2-toolbar": LocalJSX.L2Toolbar & JSXBase.HTMLAttributes<HTMLL2ToolbarElement>;
+            /**
+             * Button and link collapsing
+             * @group Panels
+             */
+            "layout-button-collapsed-demo": LocalJSX.LayoutButtonCollapsedDemo & JSXBase.HTMLAttributes<HTMLLayoutButtonCollapsedDemoElement>;
+            /**
+             * Layout Button
+             * @group Buttons
+             */
+            "layout-button-demo": LocalJSX.LayoutButtonDemo & JSXBase.HTMLAttributes<HTMLLayoutButtonDemoElement>;
+            /**
+             * Layout Link
+             * @group Buttons
+             */
+            "layout-link-demo": LocalJSX.LayoutLinkDemo & JSXBase.HTMLAttributes<HTMLLayoutLinkDemoElement>;
+            /**
+             * Logo
+             */
+            "logo-demo": LocalJSX.LogoDemo & JSXBase.HTMLAttributes<HTMLLogoDemoElement>;
+            /**
+             * Page Title
+             */
+            "page-title-demo": LocalJSX.PageTitleDemo & JSXBase.HTMLAttributes<HTMLPageTitleDemoElement>;
+            /**
+             * All panel placements
+             * @group Panels
+             */
+            "panel-all-demo": LocalJSX.PanelAllDemo & JSXBase.HTMLAttributes<HTMLPanelAllDemoElement>;
+            /**
+             * Panel closing
+             * @group Panels
+             */
+            "panel-close-demo": LocalJSX.PanelCloseDemo & JSXBase.HTMLAttributes<HTMLPanelCloseDemoElement>;
+            /**
+             * Panel placement
+             * @group Panels
+             */
+            "panel-placement-demo": LocalJSX.PanelPlacementDemo & JSXBase.HTMLAttributes<HTMLPanelPlacementDemoElement>;
+            /**
+             * Sidebar
+             * @group Layout
+             */
+            "sidebar-demo": LocalJSX.SidebarDemo & JSXBase.HTMLAttributes<HTMLSidebarDemoElement>;
+            /**
+             * All sized panel placements
+             * @group Sized Panels
+             */
+            "sized-panel-demo": LocalJSX.SizedPanelDemo & JSXBase.HTMLAttributes<HTMLSizedPanelDemoElement>;
+            /**
+             * Sized panel placement
+             * @group Sized panels
+             */
+            "sized-panel-placement-demo": LocalJSX.SizedPanelPlacementDemo & JSXBase.HTMLAttributes<HTMLSizedPanelPlacementDemoElement>;
+            /**
+             * Toolbar
+             * @group Layout
+             */
+            "toolbar-demo": LocalJSX.ToolbarDemo & JSXBase.HTMLAttributes<HTMLToolbarDemoElement>;
         }
     }
 }

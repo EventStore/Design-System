@@ -48,7 +48,7 @@ export class PreviewComponent {
         }
 
         if (this.status === 'error') {
-            return <es-display-error error={this.error} />;
+            return <l2-display-error error={this.error} />;
         }
 
         const { component: Usage, grow, showLocation, styles } = this.preview!;

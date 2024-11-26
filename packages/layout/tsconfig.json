@@ -17,7 +17,7 @@
         "jsxFragmentFactory": "Fragment"
     },
     "typedocOptions": {
-        "name": "@eventstore-ui/layout",
+        "name": "@kurrent-ui/layout",
         "plugin": ["@eventstore-ui/typedoc-plugin-usage"],
         "entryPoints": ["./src/index.ts"],
         "exclude": ["./src/components.d.ts"]

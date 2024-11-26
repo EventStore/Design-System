@@ -16,104 +16,104 @@ export class Demo {
     render() {
         return (
             <Host>
-                <es-sidebar>
-                    <es-layout-section sectionTitle={'Buttons'}>
-                        <es-layout-button onClick={logger.log}>
+                <l2-sidebar>
+                    <l2-layout-section sectionTitle={'Buttons'}>
+                        <l2-layout-button onClick={logger.log}>
                             {'Example button'}
-                        </es-layout-button>
-                        <es-layout-button active onClick={logger.log}>
+                        </l2-layout-button>
+                        <l2-layout-button active onClick={logger.log}>
                             {'I am active'}
-                        </es-layout-button>
-                        <es-layout-button onClick={logger.log}>
+                        </l2-layout-button>
+                        <l2-layout-button onClick={logger.log}>
                             {'Example button'}
-                        </es-layout-button>
-                        <es-layout-button disabled onClick={logger.log}>
+                        </l2-layout-button>
+                        <l2-layout-button disabled onClick={logger.log}>
                             {'Disabled example  '}
-                        </es-layout-button>
-                    </es-layout-section>
-                    <es-layout-section sectionTitle={'With Icon'}>
-                        <es-layout-button
+                        </l2-layout-button>
+                    </l2-layout-section>
+                    <l2-layout-section sectionTitle={'With Icon'}>
+                        <l2-layout-button
                             onClick={logger.log}
                             icon={this.randomIcon()}
                         >
                             {'With Icon'}
-                        </es-layout-button>
-                        <es-layout-button
+                        </l2-layout-button>
+                        <l2-layout-button
                             disabled
                             onClick={logger.log}
                             icon={this.randomIcon()}
                         >
                             {'Disabled'}
-                        </es-layout-button>
-                        <es-layout-button
+                        </l2-layout-button>
+                        <l2-layout-button
                             onClick={logger.log}
                             icon={this.randomIcon()}
                         >
                             {'Another'}
-                        </es-layout-button>
-                        <es-layout-button
+                        </l2-layout-button>
+                        <l2-layout-button
                             onClick={logger.log}
                             icon={this.randomIcon()}
                         >
                             {'More Icon'}
-                        </es-layout-button>
-                    </es-layout-section>
-                    <es-layout-section sectionTitle={'Alert levels'}>
-                        <es-layout-button
+                        </l2-layout-button>
+                    </l2-layout-section>
+                    <l2-layout-section sectionTitle={'Alert levels'}>
+                        <l2-layout-button
                             alertLevel={'error'}
                             onClick={logger.log}
                             icon={this.randomIcon()}
                         >
                             {'Error'}
-                        </es-layout-button>
-                        <es-layout-button
+                        </l2-layout-button>
+                        <l2-layout-button
                             alertLevel={'warning'}
                             onClick={logger.log}
                             icon={this.randomIcon()}
                         >
                             {'Warning'}
-                        </es-layout-button>
-                        <es-layout-button
+                        </l2-layout-button>
+                        <l2-layout-button
                             alertLevel={'okay'}
                             onClick={logger.log}
                             icon={this.randomIcon()}
                         >
                             {'Okay'}
-                        </es-layout-button>
-                        <es-layout-button onClick={logger.log} count={12}>
+                        </l2-layout-button>
+                        <l2-layout-button onClick={logger.log} count={12}>
                             {'Counter'}
-                        </es-layout-button>
-                    </es-layout-section>
-                    <es-layout-section sectionTitle={'Level Example'}>
-                        <es-layout-button onClick={logger.log} level={1}>
+                        </l2-layout-button>
+                    </l2-layout-section>
+                    <l2-layout-section sectionTitle={'Level Example'}>
+                        <l2-layout-button onClick={logger.log} level={1}>
                             {'Level 1'}
-                        </es-layout-button>
-                        <es-layout-button onClick={logger.log} level={1}>
+                        </l2-layout-button>
+                        <l2-layout-button onClick={logger.log} level={1}>
                             {'Level 1'}
-                        </es-layout-button>
-                        <es-layout-button onClick={logger.log} level={2}>
+                        </l2-layout-button>
+                        <l2-layout-button onClick={logger.log} level={2}>
                             {'Level 2'}
-                        </es-layout-button>
-                        <es-layout-button onClick={logger.log} level={2}>
+                        </l2-layout-button>
+                        <l2-layout-button onClick={logger.log} level={2}>
                             {'Level 2'}
-                        </es-layout-button>
-                        <es-layout-button onClick={logger.log} level={1}>
+                        </l2-layout-button>
+                        <l2-layout-button onClick={logger.log} level={1}>
                             {'Level 1'}
-                        </es-layout-button>
-                        <es-layout-button onClick={logger.log} level={2}>
+                        </l2-layout-button>
+                        <l2-layout-button onClick={logger.log} level={2}>
                             {'Level 2'}
-                        </es-layout-button>
-                        <es-layout-button onClick={logger.log} level={3}>
+                        </l2-layout-button>
+                        <l2-layout-button onClick={logger.log} level={3}>
                             {'Level 3'}
-                        </es-layout-button>
-                        <es-layout-button onClick={logger.log} level={3}>
+                        </l2-layout-button>
+                        <l2-layout-button onClick={logger.log} level={3}>
                             {'Level 3'}
-                        </es-layout-button>
-                        <es-layout-button onClick={logger.log} level={1}>
+                        </l2-layout-button>
+                        <l2-layout-button onClick={logger.log} level={1}>
                             {'Level 1'}
-                        </es-layout-button>
-                    </es-layout-section>
-                </es-sidebar>
+                        </l2-layout-button>
+                    </l2-layout-section>
+                </l2-sidebar>
             </Host>
         );
     }

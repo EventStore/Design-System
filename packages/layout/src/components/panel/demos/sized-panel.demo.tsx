@@ -9,13 +9,13 @@ import { areas } from './validPositions';
  * @group Sized Panels
  */
 @Component({
-    tag: 'es-sized-panel-demo',
+    tag: 'sized-panel-demo',
     styleUrl: 'sized-panel.demo.css',
     shadow: true,
 })
 export class PanelPlacementDemo {
     componentWillLoad() {
-        router.init({ root: '/es-panel-all-demo/' });
+        router.init({ root: '/sized-panel-demo/' });
     }
 
     render() {
@@ -25,14 +25,14 @@ export class PanelPlacementDemo {
                     {'hello'}
 
                     {areas.map(([area]) => (
-                        <es-sized-panel area={area} key={area}>
+                        <l2-sized-panel area={area} key={area}>
                             {area}
                             <img
                                 src={`https://picsum.photos/400/200?area=${area}`}
                                 height={200}
                                 width={400}
                             />
-                        </es-sized-panel>
+                        </l2-sized-panel>
                     ))}
                 </Page>
             </Host>

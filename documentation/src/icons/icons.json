@@ -178,7 +178,7 @@
             "name": "layout",
             "component": "Layout",
             "path": "./components/Layout.tsx",
-            "aliases": ["@eventstore-ui/layout"]
+            "aliases": ["@kurrent-ui/layout"]
         },
         "light": {
             "name": "light",
