@@ -3,7 +3,7 @@
     "include": ["."],
     "typedocOptions": {
         "name": "@kurrent-ui/editor",
-        "plugin": ["@eventstore-ui/typedoc-plugin-usage"],
+        "plugin": ["@kurrent-ui/typedoc-plugin-usage"],
         "entryPoints": ["./initialize.ts"]
     }
 }
