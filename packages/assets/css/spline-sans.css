@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'Spline Sans Mono';
+    src: url('../assets/fonts/SplineSansMono/SplineSansMono-Light.ttf')
+        format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spline Sans Mono';
+    src: url('../assets/fonts/SplineSansMono/SplineSansMono-LightItalic.ttf')
+        format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Spline Sans Mono';
+    src: url('../assets/fonts/SplineSansMono/SplineSansMono-Regular.ttf')
+        format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spline Sans Mono';
+    src: url('../assets/fonts/SplineSansMono/SplineSansMono-Italic.ttf')
+        format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Spline Sans Mono';
+    src: url('../assets/fonts/SplineSansMono/SplineSansMono-Medium.ttf')
+        format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spline Sans Mono';
+    src: url('../assets/fonts/SplineSansMono/SplineSansMono-MediumItalic.ttf')
+        format('opentype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Spline Sans Mono';
+    src: url('../assets/fonts/SplineSansMono/SplineSansMono-Semibold.ttf')
+        format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spline Sans Mono';
+    src: url('../assets/fonts/SplineSansMono/SplineSansMono-SemiboldItalic.ttf')
+        format('opentype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Spline Sans Mono';
+    src: url('../assets/fonts/SplineSansMono/SplineSansMono-Bold.ttf')
+        format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spline Sans Mono';
+    src: url('../assets/fonts/SplineSansMono/SplineSansMono-BoldItalic.ttf')
+        format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
