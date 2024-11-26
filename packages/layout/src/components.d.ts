@@ -40,7 +40,7 @@ export namespace Components {
      */
     interface L2DisplayError {
         /**
-          * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore-ui/utils` the details title and description will be shown.
+          * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@kurrent-ui/utils` the details title and description will be shown.
          */
         "error": unknown;
         /**
@@ -698,7 +698,7 @@ declare namespace LocalJSX {
      */
     interface L2DisplayError {
         /**
-          * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@eventstore-ui/utils` the details title and description will be shown.
+          * The unrecoverable error. For a normal error, error.message will be displayed. For a `HTTPError` from `@kurrent-ui/utils` the details title and description will be shown.
          */
         "error"?: unknown;
         /**

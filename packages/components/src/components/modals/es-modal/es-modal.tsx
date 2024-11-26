@@ -8,7 +8,7 @@ import {
     getElement,
     Listen,
 } from '@stencil/core';
-import { delegateFocus, trapFocus } from '@eventstore-ui/utils';
+import { delegateFocus, trapFocus } from '@kurrent-ui/utils';
 import { ICON_NAMESPACE } from '../../../icons/namespace';
 
 /**

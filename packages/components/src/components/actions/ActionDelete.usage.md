@@ -1,6 +1,6 @@
 ```tsx
 import { ActionDelete } from '@eventstore-ui/components';
-import { createLogger } from '@eventstore-ui/utils';
+import { createLogger } from '@kurrent-ui/utils';
 
 const logger = createLogger('es-actions');
 

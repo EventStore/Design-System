@@ -13,5 +13,5 @@ yarn add @eventstore-ui/stores
 Also, include the peer dependencies:
 
 ```sh
-yarn add @eventstore-ui/utils
+yarn add @kurrent-ui/utils
 ```

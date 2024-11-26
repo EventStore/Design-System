@@ -2,7 +2,7 @@
 
 ```tsx usage.tsx
 import { Uri, editor, languages } from '@kurrent-ui/editor/monaco';
-import { debounce } from '@eventstore-ui/utils';
+import { debounce } from '@kurrent-ui/utils';
 
 // Create a model for the editor to use.
 const model = editor.createModel('Hello!', undefined, Uri.parse('example.md'));

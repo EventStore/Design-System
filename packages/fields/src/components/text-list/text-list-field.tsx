@@ -9,7 +9,7 @@ import {
     Watch,
 } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
-import { focusFirst } from '@eventstore-ui/utils';
+import { focusFirst } from '@kurrent-ui/utils';
 
 import type { FieldChange, ValidationMessages, Templated } from 'types';
 import { ICON_NAMESPACE } from 'icons/namespace';

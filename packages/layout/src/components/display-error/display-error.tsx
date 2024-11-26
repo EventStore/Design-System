@@ -1,4 +1,4 @@
-import { HTTPError } from '@eventstore-ui/utils';
+import { HTTPError } from '@kurrent-ui/utils';
 import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
 import type { DisplayErrorVariant } from './types';
 
@@ -15,7 +15,7 @@ export class DisplayError {
     /**
      * The unrecoverable error.
      * For a normal error, error.message will be displayed.
-     * For a `HTTPError` from `@eventstore-ui/utils` the details title and description will be shown.
+     * For a `HTTPError` from `@kurrent-ui/utils` the details title and description will be shown.
      */
     @Prop() error: unknown;
 

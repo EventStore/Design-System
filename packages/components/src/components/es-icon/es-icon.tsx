@@ -8,7 +8,7 @@ import {
     State,
     Watch,
 } from '@stencil/core';
-import { createLogger } from '@eventstore-ui/utils';
+import { createLogger } from '@kurrent-ui/utils';
 import { iconStore, type SVGProps } from '../../utils/iconStore';
 import type { IconDescription } from './types';
 
