@@ -1,3 +1,4 @@
-@import url('~@eventstore-ui/assets/spacing.css');
+@import url('~@kurrent-ui/assets/css/spacing.css');
+@import url('~@kurrent-ui/assets/css/work-sans.css');
+@import url('~@kurrent-ui/assets/css/spline-sans.css');
 @import url('~@eventstore-ui/layout/css/root.css');
-@import url('~@eventstore-ui/assets/font-face.css');

@@ -1,4 +1,4 @@
-# @eventstore-ui/assets
+# @kurrent-ui/assets
 
 ## 1.1.0
 

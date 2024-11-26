@@ -21,8 +21,8 @@
         "@kurrent-ui/theme": "workspace:*"
     },
     "devDependencies": {
-        "@eventstore-ui/assets": "workspace:*",
         "@eventstore-ui/configs": "workspace:*",
+        "@kurrent-ui/assets": "workspace:*",
         "@kurrent-ui/icon-manager": "workspace:*",
         "@stencil/core": "4.22.0"
     }

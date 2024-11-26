@@ -10,7 +10,7 @@
             "name": "assets",
             "component": "Assets",
             "path": "./components/Assets.tsx",
-            "aliases": ["@eventstore-ui/assets"]
+            "aliases": ["@kurrent-ui/assets"]
         },
         "backups": {
             "name": "backups",
