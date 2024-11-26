@@ -1,6 +1,6 @@
 import { Component, h, Host, Prop, State, Element } from '@stencil/core';
 import type { IconDescription } from '@eventstore-ui/components';
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 import { theme } from '@kurrent-ui/theme';
 
 import { ICON_NAMESPACE } from '../../icons/namespace';

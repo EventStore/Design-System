@@ -1,5 +1,5 @@
 import { Component, Host, h } from '@stencil/core';
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 
 import { Page } from '../../../../';
 import { areas } from './validPositions';

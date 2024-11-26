@@ -198,7 +198,7 @@ iconStore.addIcons({
     get router() {
         return import('./components/Router').then(({ Router }) => Router);
     },
-    get '@eventstore-ui/router'() {
+    get '@kurrent-ui/router'() {
         return this['router'];
     },
     get scroll() {

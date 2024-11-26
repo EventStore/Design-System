@@ -40,8 +40,8 @@ import layoutReadme from '@kurrent-ui/layout/readme.md';
 import layoutStencilDocs from '../../../generated/layout.stencil.json';
 import layoutTypeDocs from '../../../generated/layout.typedoc.json';
 
-import routerPackageJson from '@eventstore-ui/router/package.json';
-import routerReadme from '@eventstore-ui/router/readme.md';
+import routerPackageJson from '@kurrent-ui/router/package.json';
+import routerReadme from '@kurrent-ui/router/readme.md';
 import routerTypeDocs from '../../../generated/router.typedoc.json';
 
 import storesPackageJson from '@kurrent-ui/stores/package.json';

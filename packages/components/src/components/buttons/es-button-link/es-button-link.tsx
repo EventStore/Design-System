@@ -1,11 +1,11 @@
 import { Component, h, Prop, Host } from '@stencil/core';
 import { theme } from '@kurrent-ui/theme';
-import { Link } from '@eventstore-ui/router';
+import { Link } from '@kurrent-ui/router';
 
 import type { ButtonVariant } from '../types';
 
 /**
- * Anchor link version of es-button, wraps a `Link` from `@eventstore-ui/router`.
+ * Anchor link version of es-button, wraps a `Link` from `@kurrent-ui/router`.
  * @slot before - Placed before the main content with correct padding.
  * @slot after -  Placed after the main content with correct padding.
  * @part link - The internal a element.

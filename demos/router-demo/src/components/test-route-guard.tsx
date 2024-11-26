@@ -9,7 +9,7 @@ import {
     type RouterHistory,
     type MatchResults,
     Link,
-} from '@eventstore-ui/router';
+} from '@kurrent-ui/router';
 
 @Component({
     tag: 'test-route-guard',

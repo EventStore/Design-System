@@ -1,5 +1,5 @@
 import { Component, Fragment, h, State } from '@stencil/core';
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 import type { NestedTableExtraProps, TableCells, TableSort } from '../types';
 import { ICON_NAMESPACE } from '../../../icons/namespace';
 

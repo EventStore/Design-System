@@ -205,7 +205,7 @@ export namespace Components {
         "variant": ButtonVariant;
     }
     /**
-     * Anchor link version of es-button, wraps a `Link` from `@eventstore-ui/router`.
+     * Anchor link version of es-button, wraps a `Link` from `@kurrent-ui/router`.
      */
     interface EsButtonLink {
         /**
@@ -1198,7 +1198,7 @@ declare global {
         new (): HTMLEsButtonElement;
     };
     /**
-     * Anchor link version of es-button, wraps a `Link` from `@eventstore-ui/router`.
+     * Anchor link version of es-button, wraps a `Link` from `@kurrent-ui/router`.
      */
     interface HTMLEsButtonLinkElement extends Components.EsButtonLink, HTMLStencilElement {
     }
@@ -1810,7 +1810,7 @@ declare namespace LocalJSX {
         "variant"?: ButtonVariant;
     }
     /**
-     * Anchor link version of es-button, wraps a `Link` from `@eventstore-ui/router`.
+     * Anchor link version of es-button, wraps a `Link` from `@kurrent-ui/router`.
      */
     interface EsButtonLink {
         /**
@@ -2795,7 +2795,7 @@ declare module "@stencil/core" {
              */
             "es-button": LocalJSX.EsButton & JSXBase.HTMLAttributes<HTMLEsButtonElement>;
             /**
-             * Anchor link version of es-button, wraps a `Link` from `@eventstore-ui/router`.
+             * Anchor link version of es-button, wraps a `Link` from `@kurrent-ui/router`.
              */
             "es-button-link": LocalJSX.EsButtonLink & JSXBase.HTMLAttributes<HTMLEsButtonLinkElement>;
             /**

@@ -261,7 +261,7 @@
             "name": "router",
             "component": "Router",
             "path": "./components/Router.tsx",
-            "aliases": ["@eventstore-ui/router"]
+            "aliases": ["@kurrent-ui/router"]
         },
         "scroll": {
             "name": "scroll",

@@ -1,5 +1,5 @@
 import { h, Component, Prop } from '@stencil/core';
-import { type MatchResults, Route, Link } from '@eventstore-ui/router';
+import { type MatchResults, Route, Link } from '@kurrent-ui/router';
 
 @Component({
     tag: 'test-demo-six',

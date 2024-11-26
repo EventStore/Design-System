@@ -1,5 +1,5 @@
 import { h, type FunctionalComponent } from '@stencil/core';
-import { Action } from '@eventstore-ui/router';
+import { Action } from '@kurrent-ui/router';
 import { dispatchPageViewEvent } from '../../utils/pageView';
 
 export interface PageViewProps {
