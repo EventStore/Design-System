@@ -1,6 +1,4 @@
-# es-editor
-
-
+# e3-editor
 
 <!-- Auto Generated Below -->
 
@@ -16,7 +14,7 @@ Monaco editor wrapped in a web component. Handles re-layout on container resize
 <!-- no-preview -->
 
 ```tsx usage.tsx
-import { Uri, editor, languages } from '@eventstore-ui/editor/monaco';
+import { Uri, editor, languages } from '@kurrent-ui/editor/monaco';
 import { debounce } from '@eventstore-ui/utils';
 
 // Create a model for the editor to use.
@@ -29,22 +27,22 @@ const onChange = debounce(() => console.log(model.getValue()), 500);
 model.onDidChangeContent(onChange);
 
 // Pass your model to the web component
-export default () => <es-editor options={{ model }} />;
+export default () => <e3-editor options={{ model }} />;
 ```
 
 ```tsx main.ts
 // add the web components to the global pool
-import '@eventstore-ui/editor';
+import '@kurrent-ui/editor';
 
 // import the monaco initialization code
-import { initialize } from '@eventstore-ui/editor/initialize';
+import { initialize } from '@kurrent-ui/editor/initialize';
 
 // initialize the monaco library (with options, if required)
 initialize();
 ```
 
 ```ts stencil.config.ts
-import { workerPath } from '@eventstore-ui/editor/configure';
+import { workerPath } from '@kurrent-ui/editor/configure';
 
 export const config: Config = {
     // ...

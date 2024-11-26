@@ -2,7 +2,7 @@
     "extends": "../tsconfig.json",
     "include": ["."],
     "typedocOptions": {
-        "name": "@eventstore-ui/editor",
+        "name": "@kurrent-ui/editor",
         "plugin": ["@eventstore-ui/typedoc-plugin-usage"],
         "entryPoints": ["./initialize.ts"]
     }
