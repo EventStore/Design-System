@@ -2,7 +2,7 @@ import './polyfills';
 import '@eventstore-ui/components';
 import '@kurrent-ui/layout';
 import '@kurrent-ui/editor';
-import '@eventstore-ui/fields';
+import '@kurrent-ui/fields';
 import '@kurrent-ui/theme';
 import '@kurrent-ui/sequences';
 import '../icons';

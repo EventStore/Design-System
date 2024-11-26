@@ -1,6 +1,6 @@
 {
     "version": "1.0.2",
-    "namespace": "es-fields",
+    "namespace": "k-fields",
     "icons": {
         "check": {
             "name": "check",

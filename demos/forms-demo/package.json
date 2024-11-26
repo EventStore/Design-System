@@ -12,7 +12,7 @@
     },
     "dependencies": {
         "@eventstore-ui/components": "workspace:*",
-        "@eventstore-ui/fields": "workspace:*",
+        "@kurrent-ui/fields": "workspace:*",
         "@kurrent-ui/forms": "workspace:*",
         "@kurrent-ui/layout": "workspace:*",
         "@kurrent-ui/router": "workspace:*",
