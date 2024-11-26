@@ -1,7 +1,7 @@
 {
-    "name": "@eventstore-ui/preview-builder",
+    "name": "@kurrent-ui/preview-builder",
     "version": "0.0.1",
-    "description": "Automated icon inclusion for Event Store design system",
+    "description": "Build previews for Kurrent Design System documentation",
     "license": "Apache-2.0",
     "private": true,
     "bin": {
