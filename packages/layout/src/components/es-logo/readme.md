@@ -42,6 +42,7 @@ export default () => <es-logo />;
 | Part          | Description                                     |
 | ------------- | ----------------------------------------------- |
 | `"ouroboros"` | The g element wrapping the ouroboros logo mark. |
+| `"sequence"`  |                                                 |
 | `"text"`      | the g element wrapping the Event Store text.    |
 
 
