@@ -1,6 +1,6 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
 
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 
 import { ParentNode, LeafNode, ParentNodeStatus } from '../NavNodes';
 

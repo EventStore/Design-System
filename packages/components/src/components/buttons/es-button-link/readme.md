@@ -5,7 +5,7 @@
 
 ## Overview
 
-Anchor link version of es-button, wraps a `Link` from `@eventstore-ui/router`.
+Anchor link version of es-button, wraps a `Link` from `@kurrent-ui/router`.
 
 ## Usage
 

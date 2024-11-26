@@ -1,5 +1,5 @@
 {
-    "name": "@eventstore-ui/router",
+    "name": "@kurrent-ui/router",
     "version": "1.0.5",
     "description": "Router for Stencil",
     "license": "Apache-2.0",

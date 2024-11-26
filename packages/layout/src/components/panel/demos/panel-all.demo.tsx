@@ -5,7 +5,7 @@ import {
     type FunctionalComponent,
     Fragment,
 } from '@stencil/core';
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 
 import { Page, K_LAYOUT_ICON_NAMESPACE } from '../../../../';
 

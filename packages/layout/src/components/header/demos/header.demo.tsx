@@ -1,5 +1,5 @@
 import { Component, h, Host, State } from '@stencil/core';
-import { Link, router } from '@eventstore-ui/router';
+import { Link, router } from '@kurrent-ui/router';
 
 /**
  * Header

@@ -12,7 +12,7 @@ A site header for applications.
 ### Example
 
 ```tsx
-import { Link } from '@eventstore-ui/router';
+import { Link } from '@kurrent-ui/router';
 
 export default () => (
     <l2-header>

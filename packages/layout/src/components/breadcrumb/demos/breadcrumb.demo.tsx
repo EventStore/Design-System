@@ -1,4 +1,4 @@
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 import { Component, h } from '@stencil/core';
 
 /** Breadcrumb */

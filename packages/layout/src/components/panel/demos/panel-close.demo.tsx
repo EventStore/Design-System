@@ -1,5 +1,5 @@
 import { Component, Host, State, h } from '@stencil/core';
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 
 import { K_LAYOUT_ICON_NAMESPACE, Page } from '../../../../';
 import { areas } from './validPositions';
