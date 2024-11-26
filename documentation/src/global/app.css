@@ -1,5 +1,6 @@
 @import url('~@eventstore-ui/layout/css/root.css');
-@import url('~@eventstore-ui/assets/font-face.css');
+@import url('~@kurrent-ui/assets/css/work-sans.css');
+@import url('~@kurrent-ui/assets/css/spline-sans.css');
 
 .monaco-aria-container {
     display: none;

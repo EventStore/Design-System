@@ -2027,12 +2027,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eventstore-ui/assets@workspace:*, @eventstore-ui/assets@workspace:packages/assets":
-  version: 0.0.0-use.local
-  resolution: "@eventstore-ui/assets@workspace:packages/assets"
-  languageName: unknown
-  linkType: soft
-
 "@eventstore-ui/components@workspace:*, @eventstore-ui/components@workspace:packages/components":
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/components@workspace:packages/components"
@@ -2078,7 +2072,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/docs@workspace:documentation"
   dependencies:
-    "@eventstore-ui/assets": "workspace:*"
     "@eventstore-ui/components": "workspace:*"
     "@eventstore-ui/configs": "workspace:*"
     "@eventstore-ui/editor": "workspace:*"
@@ -2089,6 +2082,7 @@ __metadata:
     "@eventstore-ui/router": "workspace:*"
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
+    "@kurrent-ui/assets": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/sequences": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
@@ -2633,6 +2627,12 @@ __metadata:
   checksum: dced32160a44b49d531b80a4a2159dceab6b3ddf0c8e95a0deae4b0e894b172defa63d5ac52a19c2068e1fe7d31ea4ba931fbeec103233ecb4208953967120fc
   languageName: node
   linkType: hard
+
+"@kurrent-ui/assets@workspace:*, @kurrent-ui/assets@workspace:packages/assets":
+  version: 0.0.0-use.local
+  resolution: "@kurrent-ui/assets@workspace:packages/assets"
+  languageName: unknown
+  linkType: soft
 
 "@kurrent-ui/icon-manager@workspace:*, @kurrent-ui/icon-manager@workspace:tools/icon-manager":
   version: 0.0.0-use.local
@@ -5773,7 +5773,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "forms-demo@workspace:demos/forms-demo"
   dependencies:
-    "@eventstore-ui/assets": "workspace:*"
     "@eventstore-ui/components": "workspace:*"
     "@eventstore-ui/configs": "workspace:*"
     "@eventstore-ui/fields": "workspace:*"
@@ -5782,6 +5781,7 @@ __metadata:
     "@eventstore-ui/router": "workspace:*"
     "@eventstore-ui/stores": "workspace:*"
     "@eventstore-ui/utils": "workspace:*"
+    "@kurrent-ui/assets": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
     "@stencil/core": "npm:4.22.0"
