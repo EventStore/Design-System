@@ -24,23 +24,6 @@ export class Demo {
                 <l2-header-dropdown
                     slot={'right'}
                     icon={[ICON_NAMESPACE, 'dark-high-theme']}
-                    buttonText={'Highlight'}
-                    variant={'highlight'}
-                >
-                    {this.renderContent()}
-                </l2-header-dropdown>
-                <l2-header-dropdown
-                    slot={'right'}
-                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
-                    buttonText={'Highlight Disabled'}
-                    variant={'highlight'}
-                    disabled
-                >
-                    {this.renderContent()}
-                </l2-header-dropdown>
-                <l2-header-dropdown
-                    slot={'right'}
-                    icon={[ICON_NAMESPACE, 'dark-high-theme']}
                     buttonText={'Default'}
                 >
                     {this.renderContent()}

@@ -8,7 +8,6 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Crumb } from "./components/breadcrumb/types";
 import { DisplayErrorVariant } from "./components/display-error/types";
 import { EmptyStateLayout } from "./components/empty-state/types";
-import { HeaderDropdownButtonVariant } from "./components/header-dropdown/types";
 import { IconDescription, Placement } from "@eventstore-ui/components";
 import { PanelMode } from "./components/panel";
 import { LoadingBarStatus } from "./components/loading-bar/types";
@@ -17,47 +16,12 @@ import { ClosedMode, PanelDetailsListener, PanelMode as PanelMode1, TargetableAr
 export { Crumb } from "./components/breadcrumb/types";
 export { DisplayErrorVariant } from "./components/display-error/types";
 export { EmptyStateLayout } from "./components/empty-state/types";
-export { HeaderDropdownButtonVariant } from "./components/header-dropdown/types";
 export { IconDescription, Placement } from "@eventstore-ui/components";
 export { PanelMode } from "./components/panel";
 export { LoadingBarStatus } from "./components/loading-bar/types";
 export { NavNode, NavTree } from "./components/nav/types";
 export { ClosedMode, PanelDetailsListener, PanelMode as PanelMode1, TargetableArea, TargetableEdge } from "./components/panel/types";
 export namespace Components {
-    /**
-     * Breadcrumb
-     */
-    interface BreadcrumbDemo {
-    }
-    /**
-     * Display Error
-     * @group Page State
-     */
-    interface DisplayErrorDemo {
-    }
-    /**
-     * Empty State
-     * @group Page State
-     */
-    interface EmptyStateDemo {
-    }
-    /**
-     * Everything Demo
-     */
-    interface EverythingDemo {
-    }
-    /**
-     * Header
-     * @group Layout
-     */
-    interface HeaderDemo {
-    }
-    /**
-     * Header Dropdown
-     * @group Layout
-     */
-    interface HeaderDropdownDemo {
-    }
     /**
      * A list of breadcrumbs to the current page
      */
@@ -135,10 +99,6 @@ export namespace Components {
           * Apply an indent to the left of the button, for basic nesting.
          */
         "level"?: number;
-        /**
-          * Which styling variant to use.
-         */
-        "variant": HeaderDropdownButtonVariant;
     }
     interface L2LayoutAutoLabel {
         /**
@@ -437,10 +397,6 @@ export namespace Components {
      * A theme picker dropdown for the header
      */
     interface L2ThemeDropdown {
-        /**
-          * Which styling variant to use.
-         */
-        "variant": HeaderDropdownButtonVariant;
     }
     interface L2ThemePicker {
     }
@@ -448,76 +404,6 @@ export namespace Components {
      * Placed in the toolbar area of the layout. Automatically sets `--layout-toolbar-width` based on it's own width.
      */
     interface L2Toolbar {
-    }
-    /**
-     * Button and link collapsing
-     * @group Panels
-     */
-    interface LayoutButtonCollapsedDemo {
-    }
-    /**
-     * Layout Button
-     * @group Buttons
-     */
-    interface LayoutButtonDemo {
-    }
-    /**
-     * Layout Link
-     * @group Buttons
-     */
-    interface LayoutLinkDemo {
-    }
-    /**
-     * Logo
-     */
-    interface LogoDemo {
-    }
-    /**
-     * Page Title
-     */
-    interface PageTitleDemo {
-    }
-    /**
-     * All panel placements
-     * @group Panels
-     */
-    interface PanelAllDemo {
-    }
-    /**
-     * Panel closing
-     * @group Panels
-     */
-    interface PanelCloseDemo {
-    }
-    /**
-     * Panel placement
-     * @group Panels
-     */
-    interface PanelPlacementDemo {
-    }
-    /**
-     * Sidebar
-     * @group Layout
-     */
-    interface SidebarDemo {
-    }
-    /**
-     * All sized panel placements
-     * @group Sized Panels
-     */
-    interface SizedPanelDemo {
-    }
-    /**
-     * Sized panel placement
-     * @group Sized panels
-     */
-    interface SizedPanelPlacementDemo {
-    }
-    /**
-     * Toolbar
-     * @group Layout
-     */
-    interface ToolbarDemo {
     }
 }
 export interface L2LayoutButtonCustomEvent<T> extends CustomEvent<T> {
@@ -529,64 +415,6 @@ export interface L2PanelCustomEvent<T> extends CustomEvent<T> {
     target: HTMLL2PanelElement;
 }
 declare global {
-    /**
-     * Breadcrumb
-     */
-    interface HTMLBreadcrumbDemoElement extends Components.BreadcrumbDemo, HTMLStencilElement {
-    }
-    var HTMLBreadcrumbDemoElement: {
-        prototype: HTMLBreadcrumbDemoElement;
-        new (): HTMLBreadcrumbDemoElement;
-    };
-    /**
-     * Display Error
-     * @group Page State
-     */
-    interface HTMLDisplayErrorDemoElement extends Components.DisplayErrorDemo, HTMLStencilElement {
-    }
-    var HTMLDisplayErrorDemoElement: {
-        prototype: HTMLDisplayErrorDemoElement;
-        new (): HTMLDisplayErrorDemoElement;
-    };
-    /**
-     * Empty State
-     * @group Page State
-     */
-    interface HTMLEmptyStateDemoElement extends Components.EmptyStateDemo, HTMLStencilElement {
-    }
-    var HTMLEmptyStateDemoElement: {
-        prototype: HTMLEmptyStateDemoElement;
-        new (): HTMLEmptyStateDemoElement;
-    };
-    /**
-     * Everything Demo
-     */
-    interface HTMLEverythingDemoElement extends Components.EverythingDemo, HTMLStencilElement {
-    }
-    var HTMLEverythingDemoElement: {
-        prototype: HTMLEverythingDemoElement;
-        new (): HTMLEverythingDemoElement;
-    };
-    /**
-     * Header
-     * @group Layout
-     */
-    interface HTMLHeaderDemoElement extends Components.HeaderDemo, HTMLStencilElement {
-    }
-    var HTMLHeaderDemoElement: {
-        prototype: HTMLHeaderDemoElement;
-        new (): HTMLHeaderDemoElement;
-    };
-    /**
-     * Header Dropdown
-     * @group Layout
-     */
-    interface HTMLHeaderDropdownDemoElement extends Components.HeaderDropdownDemo, HTMLStencilElement {
-    }
-    var HTMLHeaderDropdownDemoElement: {
-        prototype: HTMLHeaderDropdownDemoElement;
-        new (): HTMLHeaderDropdownDemoElement;
-    };
     /**
      * A list of breadcrumbs to the current page
      */
@@ -823,131 +651,7 @@ declare global {
         prototype: HTMLL2ToolbarElement;
         new (): HTMLL2ToolbarElement;
     };
-    /**
-     * Button and link collapsing
-     * @group Panels
-     */
-    interface HTMLLayoutButtonCollapsedDemoElement extends Components.LayoutButtonCollapsedDemo, HTMLStencilElement {
-    }
-    var HTMLLayoutButtonCollapsedDemoElement: {
-        prototype: HTMLLayoutButtonCollapsedDemoElement;
-        new (): HTMLLayoutButtonCollapsedDemoElement;
-    };
-    /**
-     * Layout Button
-     * @group Buttons
-     */
-    interface HTMLLayoutButtonDemoElement extends Components.LayoutButtonDemo, HTMLStencilElement {
-    }
-    var HTMLLayoutButtonDemoElement: {
-        prototype: HTMLLayoutButtonDemoElement;
-        new (): HTMLLayoutButtonDemoElement;
-    };
-    /**
-     * Layout Link
-     * @group Buttons
-     */
-    interface HTMLLayoutLinkDemoElement extends Components.LayoutLinkDemo, HTMLStencilElement {
-    }
-    var HTMLLayoutLinkDemoElement: {
-        prototype: HTMLLayoutLinkDemoElement;
-        new (): HTMLLayoutLinkDemoElement;
-    };
-    /**
-     * Logo
-     */
-    interface HTMLLogoDemoElement extends Components.LogoDemo, HTMLStencilElement {
-    }
-    var HTMLLogoDemoElement: {
-        prototype: HTMLLogoDemoElement;
-        new (): HTMLLogoDemoElement;
-    };
-    /**
-     * Page Title
-     */
-    interface HTMLPageTitleDemoElement extends Components.PageTitleDemo, HTMLStencilElement {
-    }
-    var HTMLPageTitleDemoElement: {
-        prototype: HTMLPageTitleDemoElement;
-        new (): HTMLPageTitleDemoElement;
-    };
-    /**
-     * All panel placements
-     * @group Panels
-     */
-    interface HTMLPanelAllDemoElement extends Components.PanelAllDemo, HTMLStencilElement {
-    }
-    var HTMLPanelAllDemoElement: {
-        prototype: HTMLPanelAllDemoElement;
-        new (): HTMLPanelAllDemoElement;
-    };
-    /**
-     * Panel closing
-     * @group Panels
-     */
-    interface HTMLPanelCloseDemoElement extends Components.PanelCloseDemo, HTMLStencilElement {
-    }
-    var HTMLPanelCloseDemoElement: {
-        prototype: HTMLPanelCloseDemoElement;
-        new (): HTMLPanelCloseDemoElement;
-    };
-    /**
-     * Panel placement
-     * @group Panels
-     */
-    interface HTMLPanelPlacementDemoElement extends Components.PanelPlacementDemo, HTMLStencilElement {
-    }
-    var HTMLPanelPlacementDemoElement: {
-        prototype: HTMLPanelPlacementDemoElement;
-        new (): HTMLPanelPlacementDemoElement;
-    };
-    /**
-     * Sidebar
-     * @group Layout
-     */
-    interface HTMLSidebarDemoElement extends Components.SidebarDemo, HTMLStencilElement {
-    }
-    var HTMLSidebarDemoElement: {
-        prototype: HTMLSidebarDemoElement;
-        new (): HTMLSidebarDemoElement;
-    };
-    /**
-     * All sized panel placements
-     * @group Sized Panels
-     */
-    interface HTMLSizedPanelDemoElement extends Components.SizedPanelDemo, HTMLStencilElement {
-    }
-    var HTMLSizedPanelDemoElement: {
-        prototype: HTMLSizedPanelDemoElement;
-        new (): HTMLSizedPanelDemoElement;
-    };
-    /**
-     * Sized panel placement
-     * @group Sized panels
-     */
-    interface HTMLSizedPanelPlacementDemoElement extends Components.SizedPanelPlacementDemo, HTMLStencilElement {
-    }
-    var HTMLSizedPanelPlacementDemoElement: {
-        prototype: HTMLSizedPanelPlacementDemoElement;
-        new (): HTMLSizedPanelPlacementDemoElement;
-    };
-    /**
-     * Toolbar
-     * @group Layout
-     */
-    interface HTMLToolbarDemoElement extends Components.ToolbarDemo, HTMLStencilElement {
-    }
-    var HTMLToolbarDemoElement: {
-        prototype: HTMLToolbarDemoElement;
-        new (): HTMLToolbarDemoElement;
-    };
     interface HTMLElementTagNameMap {
-        "breadcrumb-demo": HTMLBreadcrumbDemoElement;
-        "display-error-demo": HTMLDisplayErrorDemoElement;
-        "empty-state-demo": HTMLEmptyStateDemoElement;
-        "everything-demo": HTMLEverythingDemoElement;
-        "header-demo": HTMLHeaderDemoElement;
-        "header-dropdown-demo": HTMLHeaderDropdownDemoElement;
         "l2-breadcrumb": HTMLL2BreadcrumbElement;
         "l2-display-error": HTMLL2DisplayErrorElement;
         "l2-empty-state": HTMLL2EmptyStateElement;
@@ -973,55 +677,9 @@ declare global {
         "l2-theme-dropdown": HTMLL2ThemeDropdownElement;
         "l2-theme-picker": HTMLL2ThemePickerElement;
         "l2-toolbar": HTMLL2ToolbarElement;
-        "layout-button-collapsed-demo": HTMLLayoutButtonCollapsedDemoElement;
-        "layout-button-demo": HTMLLayoutButtonDemoElement;
-        "layout-link-demo": HTMLLayoutLinkDemoElement;
-        "logo-demo": HTMLLogoDemoElement;
-        "page-title-demo": HTMLPageTitleDemoElement;
-        "panel-all-demo": HTMLPanelAllDemoElement;
-        "panel-close-demo": HTMLPanelCloseDemoElement;
-        "panel-placement-demo": HTMLPanelPlacementDemoElement;
-        "sidebar-demo": HTMLSidebarDemoElement;
-        "sized-panel-demo": HTMLSizedPanelDemoElement;
-        "sized-panel-placement-demo": HTMLSizedPanelPlacementDemoElement;
-        "toolbar-demo": HTMLToolbarDemoElement;
     }
 }
 declare namespace LocalJSX {
-    /**
-     * Breadcrumb
-     */
-    interface BreadcrumbDemo {
-    }
-    /**
-     * Display Error
-     * @group Page State
-     */
-    interface DisplayErrorDemo {
-    }
-    /**
-     * Empty State
-     * @group Page State
-     */
-    interface EmptyStateDemo {
-    }
-    /**
-     * Everything Demo
-     */
-    interface EverythingDemo {
-    }
-    /**
-     * Header
-     * @group Layout
-     */
-    interface HeaderDemo {
-    }
-    /**
-     * Header Dropdown
-     * @group Layout
-     */
-    interface HeaderDropdownDemo {
-    }
     /**
      * A list of breadcrumbs to the current page
      */
@@ -1099,10 +757,6 @@ declare namespace LocalJSX {
           * Apply an indent to the left of the button, for basic nesting.
          */
         "level"?: number;
-        /**
-          * Which styling variant to use.
-         */
-        "variant"?: HeaderDropdownButtonVariant;
     }
     interface L2LayoutAutoLabel {
         /**
@@ -1395,10 +1049,6 @@ declare namespace LocalJSX {
      * A theme picker dropdown for the header
      */
     interface L2ThemeDropdown {
-        /**
-          * Which styling variant to use.
-         */
-        "variant"?: HeaderDropdownButtonVariant;
     }
     interface L2ThemePicker {
     }
@@ -1407,83 +1057,7 @@ declare namespace LocalJSX {
      */
     interface L2Toolbar {
     }
-    /**
-     * Button and link collapsing
-     * @group Panels
-     */
-    interface LayoutButtonCollapsedDemo {
-    }
-    /**
-     * Layout Button
-     * @group Buttons
-     */
-    interface LayoutButtonDemo {
-    }
-    /**
-     * Layout Link
-     * @group Buttons
-     */
-    interface LayoutLinkDemo {
-    }
-    /**
-     * Logo
-     */
-    interface LogoDemo {
-    }
-    /**
-     * Page Title
-     */
-    interface PageTitleDemo {
-    }
-    /**
-     * All panel placements
-     * @group Panels
-     */
-    interface PanelAllDemo {
-    }
-    /**
-     * Panel closing
-     * @group Panels
-     */
-    interface PanelCloseDemo {
-    }
-    /**
-     * Panel placement
-     * @group Panels
-     */
-    interface PanelPlacementDemo {
-    }
-    /**
-     * Sidebar
-     * @group Layout
-     */
-    interface SidebarDemo {
-    }
-    /**
-     * All sized panel placements
-     * @group Sized Panels
-     */
-    interface SizedPanelDemo {
-    }
-    /**
-     * Sized panel placement
-     * @group Sized panels
-     */
-    interface SizedPanelPlacementDemo {
-    }
-    /**
-     * Toolbar
-     * @group Layout
-     */
-    interface ToolbarDemo {
-    }
     interface IntrinsicElements {
-        "breadcrumb-demo": BreadcrumbDemo;
-        "display-error-demo": DisplayErrorDemo;
-        "empty-state-demo": EmptyStateDemo;
-        "everything-demo": EverythingDemo;
-        "header-demo": HeaderDemo;
-        "header-dropdown-demo": HeaderDropdownDemo;
         "l2-breadcrumb": L2Breadcrumb;
         "l2-display-error": L2DisplayError;
         "l2-empty-state": L2EmptyState;
@@ -1509,52 +1083,12 @@ declare namespace LocalJSX {
         "l2-theme-dropdown": L2ThemeDropdown;
         "l2-theme-picker": L2ThemePicker;
         "l2-toolbar": L2Toolbar;
-        "layout-button-collapsed-demo": LayoutButtonCollapsedDemo;
-        "layout-button-demo": LayoutButtonDemo;
-        "layout-link-demo": LayoutLinkDemo;
-        "logo-demo": LogoDemo;
-        "page-title-demo": PageTitleDemo;
-        "panel-all-demo": PanelAllDemo;
-        "panel-close-demo": PanelCloseDemo;
-        "panel-placement-demo": PanelPlacementDemo;
-        "sidebar-demo": SidebarDemo;
-        "sized-panel-demo": SizedPanelDemo;
-        "sized-panel-placement-demo": SizedPanelPlacementDemo;
-        "toolbar-demo": ToolbarDemo;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            /**
-             * Breadcrumb
-             */
-            "breadcrumb-demo": LocalJSX.BreadcrumbDemo & JSXBase.HTMLAttributes<HTMLBreadcrumbDemoElement>;
-            /**
-             * Display Error
-             * @group Page State
-             */
-            "display-error-demo": LocalJSX.DisplayErrorDemo & JSXBase.HTMLAttributes<HTMLDisplayErrorDemoElement>;
-            /**
-             * Empty State
-             * @group Page State
-             */
-            "empty-state-demo": LocalJSX.EmptyStateDemo & JSXBase.HTMLAttributes<HTMLEmptyStateDemoElement>;
-            /**
-             * Everything Demo
-             */
-            "everything-demo": LocalJSX.EverythingDemo & JSXBase.HTMLAttributes<HTMLEverythingDemoElement>;
-            /**
-             * Header
-             * @group Layout
-             */
-            "header-demo": LocalJSX.HeaderDemo & JSXBase.HTMLAttributes<HTMLHeaderDemoElement>;
-            /**
-             * Header Dropdown
-             * @group Layout
-             */
-            "header-dropdown-demo": LocalJSX.HeaderDropdownDemo & JSXBase.HTMLAttributes<HTMLHeaderDropdownDemoElement>;
             /**
              * A list of breadcrumbs to the current page
              */
@@ -1644,64 +1178,6 @@ declare module "@stencil/core" {
              * Placed in the toolbar area of the layout. Automatically sets `--layout-toolbar-width` based on it's own width.
              */
             "l2-toolbar": LocalJSX.L2Toolbar & JSXBase.HTMLAttributes<HTMLL2ToolbarElement>;
-            /**
-             * Button and link collapsing
-             * @group Panels
-             */
-            "layout-button-collapsed-demo": LocalJSX.LayoutButtonCollapsedDemo & JSXBase.HTMLAttributes<HTMLLayoutButtonCollapsedDemoElement>;
-            /**
-             * Layout Button
-             * @group Buttons
-             */
-            "layout-button-demo": LocalJSX.LayoutButtonDemo & JSXBase.HTMLAttributes<HTMLLayoutButtonDemoElement>;
-            /**
-             * Layout Link
-             * @group Buttons
-             */
-            "layout-link-demo": LocalJSX.LayoutLinkDemo & JSXBase.HTMLAttributes<HTMLLayoutLinkDemoElement>;
-            /**
-             * Logo
-             */
-            "logo-demo": LocalJSX.LogoDemo & JSXBase.HTMLAttributes<HTMLLogoDemoElement>;
-            /**
-             * Page Title
-             */
-            "page-title-demo": LocalJSX.PageTitleDemo & JSXBase.HTMLAttributes<HTMLPageTitleDemoElement>;
-            /**
-             * All panel placements
-             * @group Panels
-             */
-            "panel-all-demo": LocalJSX.PanelAllDemo & JSXBase.HTMLAttributes<HTMLPanelAllDemoElement>;
-            /**
-             * Panel closing
-             * @group Panels
-             */
-            "panel-close-demo": LocalJSX.PanelCloseDemo & JSXBase.HTMLAttributes<HTMLPanelCloseDemoElement>;
-            /**
-             * Panel placement
-             * @group Panels
-             */
-            "panel-placement-demo": LocalJSX.PanelPlacementDemo & JSXBase.HTMLAttributes<HTMLPanelPlacementDemoElement>;
-            /**
-             * Sidebar
-             * @group Layout
-             */
-            "sidebar-demo": LocalJSX.SidebarDemo & JSXBase.HTMLAttributes<HTMLSidebarDemoElement>;
-            /**
-             * All sized panel placements
-             * @group Sized Panels
-             */
-            "sized-panel-demo": LocalJSX.SizedPanelDemo & JSXBase.HTMLAttributes<HTMLSizedPanelDemoElement>;
-            /**
-             * Sized panel placement
-             * @group Sized panels
-             */
-            "sized-panel-placement-demo": LocalJSX.SizedPanelPlacementDemo & JSXBase.HTMLAttributes<HTMLSizedPanelPlacementDemoElement>;
-            /**
-             * Toolbar
-             * @group Layout
-             */
-            "toolbar-demo": LocalJSX.ToolbarDemo & JSXBase.HTMLAttributes<HTMLToolbarDemoElement>;
         }
     }
 }

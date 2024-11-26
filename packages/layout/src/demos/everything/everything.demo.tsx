@@ -33,7 +33,6 @@ export class DevRoot {
                         slot={'right'}
                         icon={[ICON_NAMESPACE, 'dark-low-theme']}
                         buttonText={'JJJ'}
-                        variant={'highlight'}
                     >
                         <header class={'user_dropdown_header'}>
                             <es-icon
