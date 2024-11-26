@@ -1,6 +1,6 @@
 import { Component, h, Host, State } from '@stencil/core';
 
-import { Route, router, Switch } from '@eventstore-ui/router';
+import { Route, router, Switch } from '@kurrent-ui/router';
 import { Page, type PageState } from '../../components/Page/Page';
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import { requestClose } from '@eventstore-ui/components';

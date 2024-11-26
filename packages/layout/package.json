@@ -50,16 +50,16 @@
     },
     "peerDependencies": {
         "@eventstore-ui/components": "^1.0.0",
-        "@eventstore-ui/router": "^1.0.0",
+        "@kurrent-ui/router": "^1.0.0",
         "@kurrent-ui/sequences": "^1.0.0",
         "@kurrent-ui/theme": "^1.0.0",
         "@kurrent-ui/utils": "^1.0.0"
     },
     "devDependencies": {
         "@eventstore-ui/components": "workspace:*",
-        "@eventstore-ui/router": "workspace:*",
         "@kurrent-ui/configs": "workspace:*",
         "@kurrent-ui/icon-manager": "workspace:*",
+        "@kurrent-ui/router": "workspace:*",
         "@kurrent-ui/sequences": "workspace:*",
         "@kurrent-ui/theme": "workspace:*",
         "@kurrent-ui/utils": "workspace:*",

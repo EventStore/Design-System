@@ -1,4 +1,4 @@
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 import { theme } from '@kurrent-ui/theme';
 import {
     Component,

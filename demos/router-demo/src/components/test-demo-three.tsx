@@ -4,7 +4,7 @@ import {
     Route,
     router,
     type RouterHistory,
-} from '@eventstore-ui/router';
+} from '@kurrent-ui/router';
 
 @Component({
     tag: 'test-demo-three',

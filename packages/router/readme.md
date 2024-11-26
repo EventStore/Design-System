@@ -1,4 +1,4 @@
-# @eventstore-ui/router
+# @kurrent-ui/router
 
 Stencil router using only Functional Components.
 
@@ -7,7 +7,7 @@ Stencil router using only Functional Components.
 ### Add to your project
 
 ```sh
-yarn add @eventstore-ui/router
+yarn add @kurrent-ui/router
 ```
 
 Also, include the peer dependencies:
@@ -21,7 +21,7 @@ yarn add @kurrent-ui/utils
 Initialize the router with your options, in the `componentWillLoad` of the root component.
 
 ```ts
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 
 @Component({
     tag: 'ui-root',
@@ -39,5 +39,5 @@ export class Root {
 Import the functional components directly, and use them within your components:
 
 ```ts
-import { Link } from '@eventstore-ui/router';
+import { Link } from '@kurrent-ui/router';
 ```

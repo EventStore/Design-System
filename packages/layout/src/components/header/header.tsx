@@ -1,4 +1,4 @@
-import { Link } from '@eventstore-ui/router';
+import { Link } from '@kurrent-ui/router';
 import { theme } from '@kurrent-ui/theme';
 import { Component, h, Host, State } from '@stencil/core';
 import { bannerHeight, headerUnderHeight } from '../../utils/LayoutVar';

@@ -1,5 +1,5 @@
 import { Component, h, State, Host, Element } from '@stencil/core';
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 import { usages, type PreviewSettings } from '../../../generated/usage';
 
 type Status = 'loading' | 'ready' | 'error';

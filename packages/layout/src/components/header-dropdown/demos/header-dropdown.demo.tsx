@@ -1,5 +1,5 @@
 import { Component, h, State, Fragment } from '@stencil/core';
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 import { ICON_NAMESPACE } from '../../../icons/namespace';
 
 /**

@@ -1,7 +1,7 @@
 <!-- show-location -->
 
 ```tsx
-import { searchParam } from '@eventstore-ui/router';
+import { searchParam } from '@kurrent-ui/router';
 
 const myParam = searchParam('hello');
 

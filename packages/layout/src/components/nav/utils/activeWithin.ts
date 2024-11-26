@@ -1,4 +1,4 @@
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 import type { NavParentNode } from '../types';
 
 export const activeWithin = (node: NavParentNode): boolean => {

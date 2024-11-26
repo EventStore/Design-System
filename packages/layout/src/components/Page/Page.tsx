@@ -5,7 +5,7 @@ import {
     getElement,
     Fragment,
 } from '@stencil/core';
-import { PageTitle } from '@eventstore-ui/router';
+import { PageTitle } from '@kurrent-ui/router';
 import { setProgress } from '../loading-bar/utils/setProgress';
 import { PageView } from '../PageView/PageView';
 
