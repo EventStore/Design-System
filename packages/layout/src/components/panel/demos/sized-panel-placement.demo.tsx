@@ -10,7 +10,7 @@ import { areas } from './validPositions';
  * @group Sized panels
  */
 @Component({
-    tag: 'es-sized-panel-placement-demo',
+    tag: 'sized-panel-placement-demo',
     styleUrl: 'sized-panel-placement.demo.css',
     shadow: true,
 })
@@ -22,7 +22,7 @@ export class SizedPanelPlacementDemo {
     @State() endIndex?: number;
 
     componentWillLoad() {
-        router.init({ root: '/es-panel-placement-demo/' });
+        router.init({ root: '/sized-panel-placement-demo/' });
     }
 
     disconnectedCallback() {
@@ -91,13 +91,13 @@ export class SizedPanelPlacementDemo {
                         />
                     </label>
 
-                    <es-sized-panel area={area} start={start} end={end}>
+                    <l2-sized-panel area={area} start={start} end={end}>
                         <img
                             src={'https://picsum.photos/400/200'}
                             height={200}
                             width={400}
                         />
-                    </es-sized-panel>
+                    </l2-sized-panel>
                 </Page>
                 <div class={'area panel'}>{'panel'}</div>
                 <div class={'area toolbar'}>{'toolbar'}</div>

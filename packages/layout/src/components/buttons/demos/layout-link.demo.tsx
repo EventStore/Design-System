@@ -20,104 +20,104 @@ export class Demo {
     render() {
         return (
             <Host>
-                <es-sidebar>
-                    <es-layout-section sectionTitle={'Links'}>
-                        <es-layout-link url={'/no-icon-1'}>
+                <l2-sidebar>
+                    <l2-layout-section sectionTitle={'Links'}>
+                        <l2-layout-link url={'/no-icon-1'}>
                             {'Example link'}
-                        </es-layout-link>
-                        <es-layout-link url={'/preview'}>
+                        </l2-layout-link>
+                        <l2-layout-link url={'/preview'}>
                             {'I am active'}
-                        </es-layout-link>
-                        <es-layout-link url={'/no-icon-1'}>
+                        </l2-layout-link>
+                        <l2-layout-link url={'/no-icon-1'}>
                             {'Example link'}
-                        </es-layout-link>
-                        <es-layout-link disabled url={'/no-icon-2'}>
+                        </l2-layout-link>
+                        <l2-layout-link disabled url={'/no-icon-2'}>
                             {'Disabled example  '}
-                        </es-layout-link>
-                    </es-layout-section>
-                    <es-layout-section sectionTitle={'With Icon'}>
-                        <es-layout-link
+                        </l2-layout-link>
+                    </l2-layout-section>
+                    <l2-layout-section sectionTitle={'With Icon'}>
+                        <l2-layout-link
                             url={'/icon-1'}
                             icon={this.randomIcon()}
                         >
                             {'With Icon'}
-                        </es-layout-link>
-                        <es-layout-link
+                        </l2-layout-link>
+                        <l2-layout-link
                             disabled
                             url={'/icon-2'}
                             icon={this.randomIcon()}
                         >
                             {'Disabled'}
-                        </es-layout-link>
-                        <es-layout-link
+                        </l2-layout-link>
+                        <l2-layout-link
                             url={'/icon-1'}
                             icon={this.randomIcon()}
                         >
                             {'Another'}
-                        </es-layout-link>
-                        <es-layout-link
+                        </l2-layout-link>
+                        <l2-layout-link
                             url={'/icon-1'}
                             icon={this.randomIcon()}
                         >
                             {'More Icon'}
-                        </es-layout-link>
-                    </es-layout-section>
-                    <es-layout-section sectionTitle={'Alert levels'}>
-                        <es-layout-link
+                        </l2-layout-link>
+                    </l2-layout-section>
+                    <l2-layout-section sectionTitle={'Alert levels'}>
+                        <l2-layout-link
                             alertLevel={'error'}
                             url={'/icon-1'}
                             icon={this.randomIcon()}
                         >
                             {'Error'}
-                        </es-layout-link>
-                        <es-layout-link
+                        </l2-layout-link>
+                        <l2-layout-link
                             alertLevel={'warning'}
                             url={'/icon-1'}
                             icon={this.randomIcon()}
                         >
                             {'Warning'}
-                        </es-layout-link>
-                        <es-layout-link
+                        </l2-layout-link>
+                        <l2-layout-link
                             alertLevel={'okay'}
                             url={'/icon-1'}
                             icon={this.randomIcon()}
                         >
                             {'Okay'}
-                        </es-layout-link>
-                        <es-layout-link url={'/icon-1'} count={12}>
+                        </l2-layout-link>
+                        <l2-layout-link url={'/icon-1'} count={12}>
                             {'Counter'}
-                        </es-layout-link>
-                    </es-layout-section>
-                    <es-layout-section sectionTitle={'Level Example'}>
-                        <es-layout-link url={'/icon-1'} level={1}>
+                        </l2-layout-link>
+                    </l2-layout-section>
+                    <l2-layout-section sectionTitle={'Level Example'}>
+                        <l2-layout-link url={'/icon-1'} level={1}>
                             {'Level 1'}
-                        </es-layout-link>
-                        <es-layout-link url={'/icon-1'} level={1}>
+                        </l2-layout-link>
+                        <l2-layout-link url={'/icon-1'} level={1}>
                             {'Level 1'}
-                        </es-layout-link>
-                        <es-layout-link url={'/icon-1'} level={2}>
+                        </l2-layout-link>
+                        <l2-layout-link url={'/icon-1'} level={2}>
                             {'Level 2'}
-                        </es-layout-link>
-                        <es-layout-link url={'/icon-1'} level={2}>
+                        </l2-layout-link>
+                        <l2-layout-link url={'/icon-1'} level={2}>
                             {'Level 2'}
-                        </es-layout-link>
-                        <es-layout-link url={'/icon-1'} level={1}>
+                        </l2-layout-link>
+                        <l2-layout-link url={'/icon-1'} level={1}>
                             {'Level 1'}
-                        </es-layout-link>
-                        <es-layout-link url={'/icon-1'} level={2}>
+                        </l2-layout-link>
+                        <l2-layout-link url={'/icon-1'} level={2}>
                             {'Level 2'}
-                        </es-layout-link>
-                        <es-layout-link url={'/icon-1'} level={3}>
+                        </l2-layout-link>
+                        <l2-layout-link url={'/icon-1'} level={3}>
                             {'Level 3'}
-                        </es-layout-link>
-                        <es-layout-link url={'/icon-1'} level={3}>
+                        </l2-layout-link>
+                        <l2-layout-link url={'/icon-1'} level={3}>
                             {'Level 3'}
-                        </es-layout-link>
-                        <es-layout-link url={'/icon-1'} level={1}>
+                        </l2-layout-link>
+                        <l2-layout-link url={'/icon-1'} level={1}>
                             {'Level 1'}
-                        </es-layout-link>
-                    </es-layout-section>
-                </es-sidebar>
+                        </l2-layout-link>
+                    </l2-layout-section>
+                </l2-sidebar>
             </Host>
         );
     }

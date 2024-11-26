@@ -1,6 +1,6 @@
 import { Component, h } from '@stencil/core';
 
-import { Page } from '@eventstore-ui/layout';
+import { Page } from '@kurrent-ui/layout';
 import { HTTPError } from '@eventstore-ui/utils';
 
 import { createValidatedForm } from '@eventstore-ui/forms';

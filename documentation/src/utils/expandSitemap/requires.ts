@@ -35,8 +35,8 @@ import sequencesReadme from '@kurrent-ui/sequences/readme.md';
 import sequencesStencilDocs from '../../../generated/sequences.stencil.json';
 import sequencesTypeDocs from '../../../generated/sequences.typedoc.json';
 
-import layoutPackageJson from '@eventstore-ui/layout/package.json';
-import layoutReadme from '@eventstore-ui/layout/readme.md';
+import layoutPackageJson from '@kurrent-ui/layout/package.json';
+import layoutReadme from '@kurrent-ui/layout/readme.md';
 import layoutStencilDocs from '../../../generated/layout.stencil.json';
 import layoutTypeDocs from '../../../generated/layout.typedoc.json';
 

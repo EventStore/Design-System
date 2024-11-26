@@ -1,7 +1,7 @@
 {
-    "name": "@eventstore-ui/layout",
+    "name": "@kurrent-ui/layout",
     "version": "1.7.1",
-    "description": "Page layout components for Event Store Design System",
+    "description": "Page layout components for Kurrent Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
     "module": "dist/index.js",
