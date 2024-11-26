@@ -6,16 +6,10 @@ svg {
     display: block;
 }
 
-[part='ouroboros'] {
-    fill: var(--color-highlight);
+[part='sequence'] {
+    fill: var(--color-title);
 }
 
 [part='text'] {
-    fill: var(--color-foreground);
-}
-
-:host([high-contrast]) {
-    & [part='ouroboros'] {
-        fill: var(--color-foreground);
-    }
+    fill: var(--color-title);
 }
