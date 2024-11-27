@@ -1,6 +1,6 @@
 {
     "name": "@kurrent-ui/sequences",
-    "version": "1.0.1",
+    "version": "2.0.0-alpha.0",
     "description": "Sequence Illustration Component",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
@@ -39,7 +39,7 @@
         }
     },
     "peerDependencies": {
-        "@kurrent-ui/theme": "^1.0.0"
+        "@kurrent-ui/theme": "^2.0.0"
     },
     "devDependencies": {
         "@kurrent-ui/theme": "workspace:*",

@@ -1,6 +1,6 @@
 {
     "name": "@kurrent-ui/theme",
-    "version": "1.0.4",
+    "version": "2.0.0-alpha.0",
     "description": "Themes and theming utilities for Kurrent Design System",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
@@ -32,7 +32,7 @@
         }
     },
     "peerDependencies": {
-        "@kurrent-ui/utils": "^1.0.0"
+        "@kurrent-ui/utils": "^2.0.0"
     },
     "devDependencies": {
         "@babel/core": "^7.12.10",
