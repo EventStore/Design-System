@@ -1,6 +1,6 @@
 # @kurrent-ui/theme
 
-Theming for the Event Store design system.
+Theming for the Kurrent design system.
 
 ## Install
 

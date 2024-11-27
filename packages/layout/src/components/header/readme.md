@@ -49,7 +49,7 @@ export default () => (
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | `"backdrop"` | Slot an svg to use as a backdrop                                                                                                             |
 | `"center"`   | The center of the header. Place some navigational elements.                                                                                  |
-| `"left"`     | The left of the header. By default shows an eventstore logo, linking to '/'.                                                                 |
+| `"left"`     | The left of the header. By default shows a kurrent logo, linking to '/'.                                                                     |
 | `"right"`    | The right of the header. Place some navigational elements.                                                                                   |
 | `"under"`    | Underneath the header. Place an l2-nav or other. Automatically sets the `layout-header-under-height` css var with the height of the content. |
 

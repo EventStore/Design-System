@@ -122,10 +122,10 @@ export const codeTheme = {
     },
 };
 
-const ES_LIGHT = 'es-light';
-const ES_DARK = 'es-dark';
-const ES_HIGH_CONTRAST_LIGHT = 'es-high-contrast-light';
-const ES_HIGH_CONTRAST_DARK = 'es-high-contrast-dark';
+const K_LIGHT = 'k-light';
+const K_DARK = 'k-dark';
+const K_HIGH_CONTRAST_LIGHT = 'k-high-contrast-light';
+const K_HIGH_CONTRAST_DARK = 'k-high-contrast-dark';
 
 const defineTheme = (
     themeName: string,
@@ -151,28 +151,24 @@ const defineTheme = (
 const defineThemes = () => {
     addChildTheme<CodeColorScheme>('code', codeTheme);
 
-    defineTheme(ES_LIGHT, 'vs', codeTheme.light);
-    defineTheme(ES_DARK, 'vs-dark', codeTheme.dark);
+    defineTheme(K_LIGHT, 'vs', codeTheme.light);
+    defineTheme(K_DARK, 'vs-dark', codeTheme.dark);
     defineTheme(
-        ES_HIGH_CONTRAST_LIGHT,
+        K_HIGH_CONTRAST_LIGHT,
         'hc-light',
         codeTheme.high_contrast_light,
     );
-    defineTheme(
-        ES_HIGH_CONTRAST_DARK,
-        'hc-black',
-        codeTheme.high_contrast_dark,
-    );
+    defineTheme(K_HIGH_CONTRAST_DARK, 'hc-black', codeTheme.high_contrast_dark);
 
     theme.onThemeChange(({ meta: { contrast, shade } }) => {
         if (contrast === 'high' && shade === 'dark') {
-            monaco.editor.setTheme(ES_HIGH_CONTRAST_DARK);
+            monaco.editor.setTheme(K_HIGH_CONTRAST_DARK);
         } else if (contrast === 'high' && shade === 'light') {
-            monaco.editor.setTheme(ES_HIGH_CONTRAST_LIGHT);
+            monaco.editor.setTheme(K_HIGH_CONTRAST_LIGHT);
         } else if (shade === 'dark') {
-            monaco.editor.setTheme(ES_DARK);
+            monaco.editor.setTheme(K_DARK);
         } else {
-            monaco.editor.setTheme(ES_LIGHT);
+            monaco.editor.setTheme(K_LIGHT);
         }
     }, true);
 };

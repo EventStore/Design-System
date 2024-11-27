@@ -1,4 +1,4 @@
-# @eventstore-ui/layout
+# @kurrent-ui/layout
 
 ## 1.7.1
 
@@ -100,7 +100,7 @@
     -   `es-panel` will now share it's panel mode with it's decendants, allowing them to change in response.
     -   `es-layout-button` & `es-layout-link` will change to a "collapsed" mode an ancestral `es-panel` is collapsed.
     -   `es-layout-section` will apply a popover label to collapsed `es-layout-button` & `es-layout-link`, and style itself for collapsing.
-    -   `c2-icon` can now be used as an ouroboros, without text.
+    -   `es-logo` can now be used as an ouroboros, without text.
 
     Bug fixes:
 
@@ -164,7 +164,7 @@
 ### Patch Changes
 
 -   Updated dependencies [[`1069a5d`](https://github.com/EventStore/Design-System/commit/1069a5d3af7986c56fd616049402315a59bc438c)]:
-    -   @kurrent-ui/sequences@1.0.0
+    -   @eventstore-ui/sequences@1.0.0
     -   @eventstore-ui/components@1.0.0
     -   @eventstore-ui/router@1.0.0
-    -   @kurrent-ui/theme@1.0.0
+    -   @eventstore-ui/theme@1.0.0
