@@ -68,6 +68,6 @@ class IconStore {
 
 /**
  * Register icons for `c2-icon` to reference by name.
- * It is recommended to use [`@eventstore-ui/icon-manager`](/icon-manager) to manage your icons.
+ * It is recommended to use [`@kurrent-ui/icon-manager`](/icon-manager) to manage your icons.
  */
 export const iconStore = window[ICON_STORE] ?? new IconStore();

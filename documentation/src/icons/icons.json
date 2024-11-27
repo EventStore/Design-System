@@ -230,12 +230,6 @@
             "component": "Plus",
             "path": "./components/Plus.tsx"
         },
-        "postcss-palette-plugin": {
-            "name": "postcss-palette-plugin",
-            "component": "PostcssPalettePlugin",
-            "path": "./components/PostcssPalettePlugin.tsx",
-            "aliases": ["@eventstore-ui/postcss-palette-plugin"]
-        },
         "reflect-to-attr": {
             "name": "reflect-to-attr",
             "component": "ReflectToAttr",
