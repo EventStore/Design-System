@@ -11,40 +11,33 @@
     transform: translateX(100%);
     --background-color: var(--color-background);
     --text-color: var(--color-foreground);
+    --shadow-color: color-mix(in hsl, var(--color-overlay), transparent 90%);
+    --weak-color: var(--background-color);
 }
 
-:host([dark]:not([high-contrast])) {
-    --background-color: var(--color-foreground);
-    --text-color: var(--color-background);
+:host([dark]) {
+    --shadow-color: color-mix(in hsl, var(--color-overlay), transparent 60%);
 }
 
 :host(.error) {
-    --weak-color: var(--color-error-alt);
-    --strong-color: var(--color-error);
+    --strong-color: var(--color-error-alt);
 }
 
 :host(.warning) {
-    --weak-color: var(--color-warning-alt);
-    --strong-color: var(--color-warning);
+    --strong-color: var(--color-warning-alt);
 }
 
 :host(.info) {
-    --weak-color: var(--color-info-alt);
-    --strong-color: var(--color-info);
+    --strong-color: var(--color-info-alt);
 }
 
 :host(.success) {
-    --weak-color: var(--color-success-alt);
-    --strong-color: var(--color-success);
+    --strong-color: var(--color-success-alt);
 }
 
-:host([high-contrast]) {
-    --weak-color: var(--background-color);
-
-    & .inner {
-        border: 2px solid var(--strong-color);
-        border-right: 0;
-    }
+:host([high-contrast]).inner {
+    border: 2px solid var(--strong-color);
+    border-right: 0;
 }
 
 :host(.clickable) {
@@ -75,7 +68,7 @@
     flex-direction: row;
     background-color: var(--background-color);
     color: var(--text-color);
-    box-shadow: rgba(0, 0, 0, 0.05) 1px 1px 5px 5px;
+    box-shadow: var(--shadow-color) 1px 1px 5px 5px;
     margin-bottom: 12px;
     padding-left: 10px;
     border-top-left-radius: 30px;

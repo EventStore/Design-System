@@ -35,7 +35,7 @@ export class Demo {
 
     clickToClose = async () => {
         const close = await toast.info({
-            icon: [K_COMPONENTS_ICON_NAMESPACE],
+            icon: [K_COMPONENTS_ICON_NAMESPACE, 'spinner'],
             title: 'Long notification',
             message: 'Click to close.',
             duration: 20_000_000,
@@ -46,15 +46,11 @@ export class Demo {
     render() {
         return (
             <Host>
-                <c2-accordian sections={this.sections}>
-                    <p slot={'section-1'}>{'I am in section 1'}</p>
-                    <p slot={'section-2'}>{'You can collapse this section'}</p>
-                    <p slot={'section-3'}>
-                        {
-                            'Hello 👋. You can alt-click to collapse or open all sections.'
-                        }
-                    </p>
-                </c2-accordian>
+                <c2-button onClick={this.success}>{'Success'}</c2-button>
+                <c2-button onClick={this.info}>{'Info'}</c2-button>
+                <c2-button onClick={this.warning}>{'Warning'}</c2-button>
+                <c2-button onClick={this.error}>{'Error'}</c2-button>
+                <c2-button onClick={this.clickToClose}>{'Dismiss'}</c2-button>
             </Host>
         );
     }
