@@ -20,7 +20,7 @@ export default () => (
             groupBy={'group'}
             {...form.connect('another')}
         />
-        <es-button
+        <c2-button
             onClick={() => {
                 form.submit((data) => {
                     console.log(data);
@@ -28,7 +28,7 @@ export default () => (
             }}
         >
             {'Submit'}
-        </es-button>
+        </c2-button>
     </f2-form>
 );
 

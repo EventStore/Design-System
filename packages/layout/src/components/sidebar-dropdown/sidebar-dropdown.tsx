@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop, State, Element } from '@stencil/core';
-import type { IconDescription } from '@eventstore-ui/components';
+import type { IconDescription } from '@kurrent-ui/components';
 import { router } from '@kurrent-ui/router';
 import { theme } from '@kurrent-ui/theme';
 
@@ -53,12 +53,12 @@ export class SidebarDropdown {
     render() {
         return (
             <Host>
-                <es-button
+                <c2-button
                     onClick={this.toggleDropdown}
                     class={{ sidebar_button: true, open: this.dropdownOpen }}
                     variant={'minimal'}
                 >
-                    <es-icon
+                    <c2-icon
                         key={
                             Array.isArray(this.activeIcon)
                                 ? this.activeIcon.join('-')
@@ -68,14 +68,14 @@ export class SidebarDropdown {
                         slot={'before'}
                     />
                     <span class={'truncate'}>{this.activeTitle}</span>
-                    <es-icon
+                    <c2-icon
                         icon={[ICON_NAMESPACE, 'caret']}
                         slot={'after'}
                         class={{ caret: true, open: this.dropdownOpen }}
                         size={14}
                     />
-                </es-button>
-                <es-popover
+                </c2-button>
+                <c2-popover
                     arrow
                     trapFocus
                     closeOnEsc
@@ -89,7 +89,7 @@ export class SidebarDropdown {
                     offset={14}
                 >
                     <slot />
-                </es-popover>
+                </c2-popover>
             </Host>
         );
     }

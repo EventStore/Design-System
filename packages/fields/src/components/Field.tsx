@@ -74,7 +74,7 @@ export const Field: FunctionalComponent<FieldProps> = (
                                 rel={'noopener'}
                             >
                                 {documentationLinkText ?? 'Find out more'}
-                                <es-icon
+                                <c2-icon
                                     size={14}
                                     icon={[ICON_NAMESPACE, 'external-link']}
                                 />
@@ -92,9 +92,9 @@ export const Field: FunctionalComponent<FieldProps> = (
                     </span>
                 </slot>
                 {templated !== 'no-edit' && (
-                    <es-button onClick={requestToEdit}>
-                        <es-icon icon={[ICON_NAMESPACE, 'edit']} />
-                    </es-button>
+                    <c2-button onClick={requestToEdit}>
+                        <c2-icon icon={[ICON_NAMESPACE, 'edit']} />
+                    </c2-button>
                 )}
             </div>
         ) : (

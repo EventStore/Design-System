@@ -6,7 +6,7 @@ import type { TableCells } from '../types';
  * @group Tables
  */
 @Component({
-    tag: 'es-table-variants',
+    tag: 'c2-table-variants',
     styleUrl: './table-basic.css',
     shadow: true,
 })
@@ -17,7 +17,7 @@ export class TableVariant {
     render() {
         if (this.mode === 'table') {
             return (
-                <es-table
+                <c2-table
                     cells={this.cells}
                     rows={this.data}
                     onClickRow={() => (this.mode = 'virtualized')}
@@ -27,7 +27,7 @@ export class TableVariant {
 
         if (this.mode === 'virtualized') {
             return (
-                <es-table-virtualized
+                <c2-table-virtualized
                     cells={this.cells}
                     rowCount={4}
                     getCellData={() => 'hello'}
@@ -39,7 +39,7 @@ export class TableVariant {
 
         if (this.mode === 'detail') {
             return (
-                <es-table-detail
+                <c2-table-detail
                     cells={this.cells}
                     data={''}
                     columns={['default', 'no-pad', 'full-width', 'exclude']}

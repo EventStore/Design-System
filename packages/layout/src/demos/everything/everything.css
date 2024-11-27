@@ -17,7 +17,7 @@
     background-color: var(--color-layout-shade-20);
     color: var(--color-layout-contrast);
 
-    & es-icon {
+    & c2-icon {
         color: var(--color-layout-highlight);
     }
 

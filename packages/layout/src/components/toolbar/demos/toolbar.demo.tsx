@@ -54,18 +54,18 @@ export class Demo {
                 <l2-toolbar>
                     <menu>
                         <li>
-                            <es-button>
-                                <es-icon
+                            <c2-button>
+                                <c2-icon
                                     icon={[ICON_NAMESPACE, 'dark-high-theme']}
                                 />
-                            </es-button>
+                            </c2-button>
                         </li>
                         <li>
-                            <es-button>
-                                <es-icon
+                            <c2-button>
+                                <c2-icon
                                     icon={[ICON_NAMESPACE, 'dark-high-theme']}
                                 />
-                            </es-button>
+                            </c2-button>
                         </li>
                     </menu>
                 </l2-toolbar>

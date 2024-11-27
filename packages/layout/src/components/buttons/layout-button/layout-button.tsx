@@ -10,7 +10,7 @@ import {
     Element,
     State,
 } from '@stencil/core';
-import type { IconDescription } from '@eventstore-ui/components';
+import type { IconDescription } from '@kurrent-ui/components';
 import { theme } from '@kurrent-ui/theme';
 
 import { bindPanelDetails, type PanelMode } from '../../panel';
@@ -39,7 +39,7 @@ export class LayoutButton {
     /** Apply an indent to the left of the button, for basic nesting. */
     @Prop({ reflect: true }) level?: number;
     /** Display a dot on the icon, to attract attention to the button.  */
-    @Prop() alertLevel?: HTMLEsBadgeElement['color'];
+    @Prop() alertLevel?: HTMLC2BadgeElement['color'];
     /** Display a counter in place of the icon. */
     @Prop() count?: number;
     /** If the parent popup should close when clicked. */
@@ -93,7 +93,7 @@ export class LayoutButton {
                     part={'button'}
                 >
                     {this.count != null ? (
-                        <es-counter
+                        <c2-counter
                             part={'counter'}
                             count={this.count}
                             variant={'filled'}
@@ -101,14 +101,14 @@ export class LayoutButton {
                         />
                     ) : (
                         !!this.icon && (
-                            <es-badge
+                            <c2-badge
                                 count={this.alertLevel ? 1 : 0}
                                 variant={'dot'}
                                 color={this.alertLevel}
                                 part={'badge'}
                             >
-                                <es-icon part={'icon'} icon={this.icon} />
-                            </es-badge>
+                                <c2-icon part={'icon'} icon={this.icon} />
+                            </c2-badge>
                         )
                     )}
                     {this.panelMode === 'inline' && (

@@ -9,7 +9,7 @@
     position: relative;
 }
 
-:host(.no_preview) es-tabs {
+:host(.no_preview) c2-tabs {
     width: 100%;
     flex: 0 0 100%;
     margin-left: 0;
@@ -30,14 +30,14 @@ iframe {
     flex: 0 0 50%;
 }
 
-es-tabs {
+c2-tabs {
     width: 50%;
     flex: 0 0 50%;
     width: 50%;
     margin-left: 10px;
 }
 
-es-tabs::part(panel) {
+c2-tabs::part(panel) {
     padding: 10px;
     padding-left: 2px;
     background-color: var(--code-bg);

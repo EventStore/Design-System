@@ -183,7 +183,7 @@ icon namespace --help
 icon upgrade
 ```
 
-Upgrades from an earlier version on `icon-manager` & `@eventstore-ui/components`
+Upgrades from an earlier version on `icon-manager` & `@kurrent-ui/components`
 
 **Options**
 

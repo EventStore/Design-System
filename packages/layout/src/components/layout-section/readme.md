@@ -54,19 +54,19 @@ export default () => (
 
 ### Depends on
 
-- es-icon
+- c2-icon
 - [l2-layout-auto-label](../layout-auto-label)
 
 ### Graph
 ```mermaid
 graph TD;
-  l2-layout-section --> es-icon
+  l2-layout-section --> c2-icon
   l2-layout-section --> l2-layout-auto-label
-  l2-layout-auto-label --> es-popover
-  es-popover --> es-popper
-  es-popover --> es-popper-inner
-  es-popover --> es-popper-x
-  es-popover --> es-popper-y
+  l2-layout-auto-label --> c2-popover
+  c2-popover --> c2-popper
+  c2-popover --> c2-popper-inner
+  c2-popover --> c2-popper-x
+  c2-popover --> c2-popper-y
   style l2-layout-section fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

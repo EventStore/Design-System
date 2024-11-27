@@ -1,0 +1,57 @@
+/**
+ * @prop --badge-background-color: Background color of the badge. Can be set to a default via the color prop.
+ * @prop --badge-foreground-color: Foreground (text) color of the badge. Can be set to a default via the color prop.
+ */
+
+:host {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+:host(.okay) {
+    --badge-background-color: var(--color-info);
+    --badge-foreground-color: var(--color-info-contrast);
+}
+
+:host(.warning) {
+    --badge-background-color: var(--color-warning);
+    --badge-foreground-color: var(--color-warning-contrast);
+}
+
+:host(.error) {
+    --badge-background-color: var(--color-error);
+    --badge-foreground-color: var(--color-error-contrast);
+}
+
+.dot,
+c2-counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(50%) translateY(-50%) scale(0);
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+
+    &.active {
+        opacity: 1;
+        transform: translateX(50%) translateY(-50%) scale(1);
+    }
+}
+
+c2-counter {
+    /* This is correct, dispite the strange naming */
+    --text-color: var(--badge-background-color);
+    --background-color: var(--badge-foreground-color);
+}
+
+.dot {
+    display: block;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: var(--badge-background-color);
+}

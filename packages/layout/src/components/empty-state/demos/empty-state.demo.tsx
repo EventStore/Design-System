@@ -23,9 +23,9 @@ export class Demo {
                 {
                     'Creating a new group will allow for the grouping of members with the same access.'
                 }
-                <es-button slot={'foot'} variant={'outline'}>
+                <c2-button slot={'foot'} variant={'outline'}>
                     {'New group'}
-                </es-button>
+                </c2-button>
             </l2-empty-state>
         );
     }

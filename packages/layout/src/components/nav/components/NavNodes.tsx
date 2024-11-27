@@ -42,7 +42,7 @@ export const ParentNode: FunctionalComponent<ParentNodeProps> = (
             onClick={onPress}
         >
             {node.title}
-            <es-icon
+            <c2-icon
                 icon={[ICON_NAMESPACE, 'caret']}
                 size={12}
                 class={'caret'}

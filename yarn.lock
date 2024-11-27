@@ -2027,36 +2027,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eventstore-ui/components@workspace:*, @eventstore-ui/components@workspace:packages/components":
-  version: 0.0.0-use.local
-  resolution: "@eventstore-ui/components@workspace:packages/components"
-  dependencies:
-    "@floating-ui/dom": "npm:0.4.1"
-    "@kurrent-ui/configs": "workspace:*"
-    "@kurrent-ui/icon-manager": "workspace:*"
-    "@kurrent-ui/router": "workspace:*"
-    "@kurrent-ui/theme": "workspace:*"
-    "@kurrent-ui/utils": "workspace:*"
-    "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:4.22.0"
-    jest: "npm:^27.4.5"
-    npm-run-all: "npm:^4.1.5"
-    puppeteer: "npm:^19.5.0"
-    typedoc: "npm:0.24.8"
-    typescript: "npm:5.1.6"
-  peerDependencies:
-    "@kurrent-ui/router": ^1.0.0
-    "@kurrent-ui/theme": ^1.0.0
-    "@kurrent-ui/utils": ^1.0.0
-  languageName: unknown
-  linkType: soft
-
 "@eventstore-ui/docs@workspace:documentation":
   version: 0.0.0-use.local
   resolution: "@eventstore-ui/docs@workspace:documentation"
   dependencies:
-    "@eventstore-ui/components": "workspace:*"
     "@kurrent-ui/assets": "workspace:*"
+    "@kurrent-ui/components": "workspace:*"
     "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/editor": "workspace:*"
     "@kurrent-ui/fields": "workspace:*"
@@ -2417,6 +2393,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kurrent-ui/components@workspace:*, @kurrent-ui/components@workspace:packages/components":
+  version: 0.0.0-use.local
+  resolution: "@kurrent-ui/components@workspace:packages/components"
+  dependencies:
+    "@floating-ui/dom": "npm:0.4.1"
+    "@kurrent-ui/configs": "workspace:*"
+    "@kurrent-ui/icon-manager": "workspace:*"
+    "@kurrent-ui/router": "workspace:*"
+    "@kurrent-ui/theme": "workspace:*"
+    "@kurrent-ui/utils": "workspace:*"
+    "@stencil-community/postcss": "npm:^2.2.0"
+    "@stencil/core": "npm:4.22.0"
+    jest: "npm:^27.4.5"
+    npm-run-all: "npm:^4.1.5"
+    puppeteer: "npm:^19.5.0"
+    typedoc: "npm:0.24.8"
+    typescript: "npm:5.1.6"
+  peerDependencies:
+    "@kurrent-ui/router": ^1.0.0
+    "@kurrent-ui/theme": ^1.0.0
+    "@kurrent-ui/utils": ^1.0.0
+  languageName: unknown
+  linkType: soft
+
 "@kurrent-ui/configs@workspace:*, @kurrent-ui/configs@workspace:tools/configs":
   version: 0.0.0-use.local
   resolution: "@kurrent-ui/configs@workspace:tools/configs"
@@ -2438,7 +2438,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@kurrent-ui/editor@workspace:packages/editor"
   dependencies:
-    "@eventstore-ui/components": "workspace:*"
+    "@kurrent-ui/components": "workspace:*"
     "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/monaco-editor": "workspace:*"
     "@kurrent-ui/theme": "workspace:*"
@@ -2454,7 +2454,7 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
-    "@eventstore-ui/components": ^1.0.0
+    "@kurrent-ui/components": ^1.0.0
     "@kurrent-ui/theme": ^1.0.0
     "@kurrent-ui/utils": ^1.0.0
   languageName: unknown
@@ -2464,7 +2464,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@kurrent-ui/fields@workspace:packages/fields"
   dependencies:
-    "@eventstore-ui/components": "workspace:*"
+    "@kurrent-ui/components": "workspace:*"
     "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/forms": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
@@ -2479,7 +2479,7 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
-    "@eventstore-ui/components": ^1.0.0
+    "@kurrent-ui/components": ^1.0.0
     "@kurrent-ui/theme": ^1.0.0
     "@kurrent-ui/utils": ^1.0.0
   languageName: unknown
@@ -2492,7 +2492,7 @@ __metadata:
     "@babel/core": "npm:^7.12.10"
     "@babel/preset-env": "npm:^7.12.11"
     "@babel/preset-typescript": "npm:^7.12.7"
-    "@eventstore-ui/components": "workspace:*"
+    "@kurrent-ui/components": "workspace:*"
     "@kurrent-ui/stores": "workspace:*"
     "@kurrent-ui/utils": "workspace:*"
     "@stencil/core": "npm:4.22.0"
@@ -2504,7 +2504,7 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
-    "@eventstore-ui/components": ^1.0.0
+    "@kurrent-ui/components": ^1.0.0
     "@kurrent-ui/stores": ^1.0.0
     "@kurrent-ui/utils": ^1.0.0
   languageName: unknown
@@ -2534,7 +2534,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@kurrent-ui/layout@workspace:packages/layout"
   dependencies:
-    "@eventstore-ui/components": "workspace:*"
+    "@kurrent-ui/components": "workspace:*"
     "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/icon-manager": "workspace:*"
     "@kurrent-ui/router": "workspace:*"
@@ -2549,7 +2549,7 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
-    "@eventstore-ui/components": ^1.0.0
+    "@kurrent-ui/components": ^1.0.0
     "@kurrent-ui/router": ^1.0.0
     "@kurrent-ui/sequences": ^1.0.0
     "@kurrent-ui/theme": ^1.0.0
@@ -5773,8 +5773,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "forms-demo@workspace:demos/forms-demo"
   dependencies:
-    "@eventstore-ui/components": "workspace:*"
     "@kurrent-ui/assets": "workspace:*"
+    "@kurrent-ui/components": "workspace:*"
     "@kurrent-ui/configs": "workspace:*"
     "@kurrent-ui/fields": "workspace:*"
     "@kurrent-ui/forms": "workspace:*"

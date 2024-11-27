@@ -54,16 +54,16 @@ export class MyGreatPage {
 
     renderErrorState = (error: Error) => (
         <l2-display-error error={error}>
-            <es-button-link url={'/'}>{'Go home'}</es-button-link>
+            <c2-button-link url={'/'}>{'Go home'}</c2-button-link>
         </l2-display-error>
     );
 
     renderEmptyState = () => (
         <>
             {'No Data yet!'}
-            <es-button-link url={'./make-data'}>
+            <c2-button-link url={'./make-data'}>
                 {'Get started making some data!'}
-            </es-button-link>
+            </c2-button-link>
         </>
     );
 }

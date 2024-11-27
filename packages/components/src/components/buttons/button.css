@@ -250,13 +250,13 @@ span {
     flex: 1 1 100%;
 }
 
-::slotted(:where(es-icon, es-badge):not([slot]):only-child) {
+::slotted(:where(c2-icon, c2-badge):not([slot]):only-child) {
     margin-left: calc(0px - calc(var(--spacing) - var(--border-width)));
     margin-right: calc(0px - calc(var(--spacing) - var(--border-width)));
     width: calc(var(--height) - calc(var(--border-width) * 2));
 }
 
 :host([variant='link'])
-    ::slotted(:where(es-icon, es-badge):not([slot]):only-child) {
+    ::slotted(:where(c2-icon, c2-badge):not([slot]):only-child) {
     margin: 0;
 }

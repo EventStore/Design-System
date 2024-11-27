@@ -1,0 +1,81 @@
+c2-table-nested {
+    & c2-table.nested {
+        display: contents;
+
+        & .odd,
+        & :where([role='rowgroup']) {
+            --row-color: inherit;
+        }
+
+        & :where([role='cell']) {
+            --border-bottom-color: var(--color-shade-30);
+
+            &:first-child:not(.borderless) {
+                padding-left: 42px;
+                position: relative;
+                overflow: visible;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    background-color: var(--row-color);
+                    border-right: 2px solid var(--color-highlight);
+
+                    width: 20px;
+                    left: 0;
+                    top: -1px;
+                    bottom: -1px;
+                }
+            }
+        }
+
+        & .borderless + .group_first {
+            overflow: visible;
+            --border-group-color: var(--color-highlight);
+
+            &::after {
+                content: '';
+                position: absolute;
+                border-left: 2px solid var(--border-group-color);
+                left: -2px;
+                top: -1px;
+                bottom: -1px;
+            }
+        }
+
+        & :where(.selectable) {
+            & [role='cell']:first-child:not(.borderless)::before {
+                right: calc(100% - 20px);
+            }
+        }
+    }
+
+    & .expander {
+        height: 100%;
+        width: 100%;
+
+        --current-color: var(--color-foreground);
+    }
+
+    & .expand_more {
+        width: 100%;
+        grid-column: 1 / -1;
+        background-color: var(--row-color);
+        border-bottom: 1px solid var(--color-foreground);
+
+        --current-color: var(--color-foreground);
+    }
+
+    & :where([role='row'].can_expand) {
+        font-weight: bold;
+        transition: --row-color ease 1000ms;
+    }
+
+    & :where([role='row'].click_to_toggle) {
+        cursor: pointer;
+    }
+
+    & :where([role='row'].expanded) {
+        --border-bottom-color: var(--color-shade-30);
+    }
+}

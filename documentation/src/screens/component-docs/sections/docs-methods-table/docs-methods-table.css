@@ -20,7 +20,7 @@ pre {
 .extras {
     align-items: flex-end;
 
-    & es-icon {
+    & c2-icon {
         margin-left: 10px;
     }
 }

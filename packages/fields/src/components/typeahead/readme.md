@@ -103,15 +103,15 @@ export default () => (
 
 ### Depends on
 
--   es-popover
+-   c2-popover
 
 ### Graph
 
 ```mermaid
 graph TD;
-  es-typeahead --> es-popover
-  es-popover --> es-popper
-  es-popover --> es-popper-inner
+  es-typeahead --> c2-popover
+  c2-popover --> c2-popper
+  c2-popover --> c2-popper-inner
   es-list-creator --> es-typeahead
   es-select --> es-typeahead
   style es-typeahead fill:#f9f,stroke:#333,stroke-width:4px

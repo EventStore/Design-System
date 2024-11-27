@@ -1,7 +1,7 @@
 import { packageConfig } from '../../tools/stencilConfig';
 
 export const config = packageConfig({
-    namespace: 'es-components',
+    namespace: 'k-components',
     globalScript: 'src/init.ts',
     copy: [
         {
