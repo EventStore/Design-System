@@ -2409,9 +2409,9 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
-    "@kurrent-ui/router": ^1.0.0
-    "@kurrent-ui/theme": ^1.0.0
-    "@kurrent-ui/utils": ^1.0.0
+    "@kurrent-ui/router": ^2.0.0
+    "@kurrent-ui/theme": ^2.0.0
+    "@kurrent-ui/utils": ^2.0.0
   languageName: unknown
   linkType: soft
 
@@ -2491,9 +2491,9 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
-    "@kurrent-ui/components": ^1.0.0
-    "@kurrent-ui/theme": ^1.0.0
-    "@kurrent-ui/utils": ^1.0.0
+    "@kurrent-ui/components": ^2.0.0
+    "@kurrent-ui/theme": ^2.0.0
+    "@kurrent-ui/utils": ^2.0.0
   languageName: unknown
   linkType: soft
 
@@ -2516,9 +2516,9 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
-    "@kurrent-ui/components": ^1.0.0
-    "@kurrent-ui/theme": ^1.0.0
-    "@kurrent-ui/utils": ^1.0.0
+    "@kurrent-ui/components": ^2.0.0
+    "@kurrent-ui/theme": ^2.0.0
+    "@kurrent-ui/utils": ^2.0.0
   languageName: unknown
   linkType: soft
 
@@ -2541,9 +2541,9 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
-    "@kurrent-ui/components": ^1.0.0
-    "@kurrent-ui/stores": ^1.0.0
-    "@kurrent-ui/utils": ^1.0.0
+    "@kurrent-ui/components": ^2.0.0
+    "@kurrent-ui/stores": ^2.0.0
+    "@kurrent-ui/utils": ^2.0.0
   languageName: unknown
   linkType: soft
 
@@ -2586,11 +2586,11 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
-    "@kurrent-ui/components": ^1.0.0
-    "@kurrent-ui/router": ^1.0.0
-    "@kurrent-ui/sequences": ^1.0.0
-    "@kurrent-ui/theme": ^1.0.0
-    "@kurrent-ui/utils": ^1.0.0
+    "@kurrent-ui/components": ^2.0.0
+    "@kurrent-ui/router": ^2.0.0
+    "@kurrent-ui/sequences": ^2.0.0
+    "@kurrent-ui/theme": ^2.0.0
+    "@kurrent-ui/utils": ^2.0.0
   languageName: unknown
   linkType: soft
 
@@ -2637,7 +2637,7 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
-    "@kurrent-ui/utils": ^1.0.0
+    "@kurrent-ui/utils": ^2.0.0
   languageName: unknown
   linkType: soft
 
@@ -2658,7 +2658,7 @@ __metadata:
     typescript: "npm:5.1.6"
     yargs: "npm:^15.3.1"
   peerDependencies:
-    "@kurrent-ui/theme": ^1.0.0
+    "@kurrent-ui/theme": ^2.0.0
   languageName: unknown
   linkType: soft
 
@@ -2679,7 +2679,7 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
-    "@kurrent-ui/utils": ^1.0.0
+    "@kurrent-ui/utils": ^2.0.0
   languageName: unknown
   linkType: soft
 
@@ -2698,7 +2698,7 @@ __metadata:
     typedoc: "npm:0.24.8"
     typescript: "npm:5.1.6"
   peerDependencies:
-    "@kurrent-ui/utils": ^1.0.0
+    "@kurrent-ui/utils": ^2.0.0
   languageName: unknown
   linkType: soft
 
