@@ -5,6 +5,10 @@
     gap: 20px;
 }
 
+p {
+    margin-bottom: var(--spacing-2);
+}
+
 .custom {
     --background-color: yellow;
     --foreground-color: #35363a;

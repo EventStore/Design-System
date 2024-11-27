@@ -11,8 +11,8 @@
     transform: translateX(100%);
     --background-color: var(--color-background);
     --text-color: var(--color-foreground);
+    --weak-color: var(--color-background);
     --shadow-color: color-mix(in hsl, var(--color-overlay), transparent 90%);
-    --weak-color: var(--background-color);
 }
 
 :host([dark]) {
@@ -20,19 +20,19 @@
 }
 
 :host(.error) {
-    --strong-color: var(--color-error-alt);
+    --strong-color: var(--color-error);
 }
 
 :host(.warning) {
-    --strong-color: var(--color-warning-alt);
+    --strong-color: var(--color-warning);
 }
 
 :host(.info) {
-    --strong-color: var(--color-info-alt);
+    --strong-color: var(--color-info);
 }
 
 :host(.success) {
-    --strong-color: var(--color-success-alt);
+    --strong-color: var(--color-success);
 }
 
 :host([high-contrast]).inner {
