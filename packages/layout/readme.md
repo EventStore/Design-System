@@ -1,6 +1,6 @@
 # @kurrent-ui/layout
 
-Page layout components for the Event Store design system.
+Page layout components for the Kurrent design system.
 
 ## Install
 

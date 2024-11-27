@@ -9,7 +9,7 @@ import { sitemap } from 'sitemap';
 export class Root {
     componentWillLoad() {
         router.init({
-            titleSuffix: ' - Event Store Design System',
+            titleSuffix: ' - Kurrent Design System',
         });
     }
 

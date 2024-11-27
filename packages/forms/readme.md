@@ -1,6 +1,6 @@
 # @kurrent-ui/forms
 
-Form validation library for the Event Store design system.
+Form validation library for the Kurrent design system.
 
 ## Install
 

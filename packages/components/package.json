@@ -1,7 +1,7 @@
 {
     "name": "@kurrent-ui/components",
     "version": "1.10.0",
-    "description": "Core components for Event Store Design System",
+    "description": "Core components for Kurrent Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
     "module": "dist/index.js",

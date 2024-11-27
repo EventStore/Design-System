@@ -1,6 +1,6 @@
 # @kurrent-ui/utils
 
-Helpful utilities for the Event Store design system. These utililities are used across the design system, and should be provided as a peer dependancy.
+Helpful utilities for the Kurrent design system. These utililities are used across the design system, and should be provided as a peer dependancy.
 
 ## Install
 
