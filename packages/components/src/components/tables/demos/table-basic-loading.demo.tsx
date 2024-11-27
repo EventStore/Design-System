@@ -13,7 +13,7 @@ interface DummyData {
  * @group Tables
  */
 @Component({
-    tag: 'es-table-basic-loading-demo',
+    tag: 'table-basic-loading-demo',
     styleUrl: './table-basic.css',
     shadow: true,
 })
@@ -47,7 +47,7 @@ export class TableBasicLoadingDemo {
 
     render() {
         return (
-            <es-table
+            <c2-table
                 cells={this.cells}
                 rows={this.data}
                 linkRowTo={() => '#'}

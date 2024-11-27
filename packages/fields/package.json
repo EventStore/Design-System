@@ -42,7 +42,7 @@
         }
     },
     "peerDependencies": {
-        "@eventstore-ui/components": "^1.0.0",
+        "@kurrent-ui/components": "^1.0.0",
         "@kurrent-ui/theme": "^1.0.0",
         "@kurrent-ui/utils": "^1.0.0"
     },
@@ -50,7 +50,7 @@
         "imask": "7.6.1"
     },
     "devDependencies": {
-        "@eventstore-ui/components": "workspace:*",
+        "@kurrent-ui/components": "workspace:*",
         "@kurrent-ui/configs": "workspace:*",
         "@kurrent-ui/forms": "workspace:*",
         "@kurrent-ui/icon-manager": "workspace:*",

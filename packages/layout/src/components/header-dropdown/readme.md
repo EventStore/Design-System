@@ -22,7 +22,7 @@ export default () => (
             buttonText={'JJJ'}
         >
             <header class={'user_dropdown_header'}>
-                <es-icon icon={randomIcon()} />
+                <c2-icon icon={randomIcon()} />
                 <h1>{'John John Johnson'}</h1>
                 <h2>{'jjj@johnson.com'}</h2>
             </header>
@@ -71,7 +71,7 @@ export default () => (
     color: var(--color-foreground);
 }
 
-.user_dropdown_header es-icon {
+.user_dropdown_header c2-icon {
     color: var(--color-highlight);
 }
 
@@ -119,25 +119,25 @@ export default () => (
 
 ### Depends on
 
-- es-button
-- es-counter
-- es-badge
-- es-icon
-- es-popover
+- c2-button
+- c2-counter
+- c2-badge
+- c2-icon
+- c2-popover
 
 ### Graph
 ```mermaid
 graph TD;
-  l2-header-dropdown --> es-button
-  l2-header-dropdown --> es-counter
-  l2-header-dropdown --> es-badge
-  l2-header-dropdown --> es-icon
-  l2-header-dropdown --> es-popover
-  es-badge --> es-counter
-  es-popover --> es-popper
-  es-popover --> es-popper-inner
-  es-popover --> es-popper-x
-  es-popover --> es-popper-y
+  l2-header-dropdown --> c2-button
+  l2-header-dropdown --> c2-counter
+  l2-header-dropdown --> c2-badge
+  l2-header-dropdown --> c2-icon
+  l2-header-dropdown --> c2-popover
+  c2-badge --> c2-counter
+  c2-popover --> c2-popper
+  c2-popover --> c2-popper-inner
+  c2-popover --> c2-popper-x
+  c2-popover --> c2-popper-y
   l2-theme-dropdown --> l2-header-dropdown
   style l2-header-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```

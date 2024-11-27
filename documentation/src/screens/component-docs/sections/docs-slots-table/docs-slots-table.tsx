@@ -1,6 +1,6 @@
 import { Component, h, Prop } from '@stencil/core';
 import { Host, type JsonDocsSlot } from '@stencil/core/internal';
-import type { TableCells } from '@eventstore-ui/components';
+import type { TableCells } from '@kurrent-ui/components';
 
 @Component({
     tag: 'docs-slots-table',
@@ -15,7 +15,7 @@ export class DocsSlotsTable {
         return (
             <Host>
                 <h2>{'Slots'}</h2>
-                <es-table cells={this.cells} rows={this.slots} />
+                <c2-table cells={this.cells} rows={this.slots} />
             </Host>
         );
     }

@@ -71,7 +71,7 @@
             "name": "components",
             "component": "Components",
             "path": "./components/Components.tsx",
-            "aliases": ["@eventstore-ui/components"]
+            "aliases": ["@kurrent-ui/components"]
         },
         "configs": {
             "name": "configs",

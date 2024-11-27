@@ -50,7 +50,7 @@ export interface TableCell<T, X = {}> {
      * - `default`: The default styling.
      * - `no-pad`: Removes padding.
      * - `borderless`: Removes border, if set.
-     * - `full-width`: Breaks the cell onto its own row, taking the full width. **Only use on last cell of row, or in es-table-detail. Not supported in es-table-virtualized **
+     * - `full-width`: Breaks the cell onto its own row, taking the full width. **Only use on last cell of row, or in c2-table-detail. Not supported in c2-table-virtualized **
      * - `exclude`: Disables the cell.
      */
     variant?: TableCellVariant | TableCellVariant[];
@@ -68,7 +68,7 @@ export interface TableCell<T, X = {}> {
         | Record<string, boolean>;
     /** If the table can be sorted by this column */
     sortable?: boolean;
-    /** The anticipated length of the loaded text to be provided to es-loading-text. */
+    /** The anticipated length of the loaded text to be provided to c2-loading-text. */
     expectedLength?: number;
     /** Appends a random number of characters (up to the specified amount) to the expectedLength. */
     variance?: number;

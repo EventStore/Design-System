@@ -14,7 +14,7 @@
 
 -   [`fb12b852`](https://github.com/EventStore/Design-System/commit/fb12b852960312a25b681349a93a674a08cbddea) - Improve button styles
 
--   [`4d8bb497`](https://github.com/EventStore/Design-System/commit/4d8bb497c229564da79111667386cf683369a302) - `es-tabs`: Ensure that the active tab exists.
+-   [`4d8bb497`](https://github.com/EventStore/Design-System/commit/4d8bb497c229564da79111667386cf683369a302) - `c2-tabs`: Ensure that the active tab exists.
 
 ## 1.9.1
 
@@ -26,7 +26,7 @@
 
 ### Minor Changes
 
--   [`5a90a4aa`](https://github.com/EventStore/Design-System/commit/5a90a4aa916ad50c6a79bcadaac11cecc022f409) - Adds es-button-with-confirmation, for confirming actions on standard buttons.
+-   [`5a90a4aa`](https://github.com/EventStore/Design-System/commit/5a90a4aa916ad50c6a79bcadaac11cecc022f409) - Adds c2-button-with-confirmation, for confirming actions on standard buttons.
 
 ## 1.8.2
 
@@ -44,13 +44,13 @@
 
 ### Minor Changes
 
--   [`20dcceb`](https://github.com/EventStore/Design-System/commit/20dccebe11067986fd5eb31aa7f9e5bf03063017) - Adds the `es-hole-puncher` element, to pass children through to the light DOM.
+-   [`20dcceb`](https://github.com/EventStore/Design-System/commit/20dccebe11067986fd5eb31aa7f9e5bf03063017) - Adds the `c2-hole-puncher` element, to pass children through to the light DOM.
 
 ## 1.7.1
 
 ### Patch Changes
 
--   [`032ca21`](https://github.com/EventStore/Design-System/commit/032ca212ff5c4b72fb80df8d726aba1fb334091a) - Prevent es-loading-text from overflowing it's parents
+-   [`032ca21`](https://github.com/EventStore/Design-System/commit/032ca212ff5c4b72fb80df8d726aba1fb334091a) - Prevent c2-loading-text from overflowing it's parents
 
 ## 1.7.0
 
@@ -59,8 +59,8 @@
 -   [`a55cd76`](https://github.com/EventStore/Design-System/commit/a55cd76f8a7390867fc0b6d85e8ab8ea4153a75d) - Improvements:
 
     -   `renderLoadingState` prop in the `Page` component now accepts false to render normally.
-    -   `TableCell` props `exptectedLength` and `variance` for `<es-loading-text />` rendering.
-    -   `es-table` prop `loading` added to indicate `<es-loading-text />` rendering,.with `loadingRows` props to specify the number of rows to render.
+    -   `TableCell` props `exptectedLength` and `variance` for `<c2-loading-text />` rendering.
+    -   `c2-table` prop `loading` added to indicate `<c2-loading-text />` rendering,.with `loadingRows` props to specify the number of rows to render.
 
     Bug fixes:
 
@@ -72,7 +72,7 @@
 
 -   [`afe6084`](https://github.com/EventStore/Design-System/commit/afe60846eb2e388c60b67a5acdd705d79a98545e) - Add missing `confirmVariant` to `ConfirmModalOptions`
 
--   [`59d3f19`](https://github.com/EventStore/Design-System/commit/59d3f19e254e80fc501f3457a6a19dd45175ef2a) - Add missing disabled prop to `es-action-dropdown`
+-   [`59d3f19`](https://github.com/EventStore/Design-System/commit/59d3f19e254e80fc501f3457a6a19dd45175ef2a) - Add missing disabled prop to `c2-action-dropdown`
 
 ## 1.6.0
 
@@ -80,18 +80,18 @@
 
 -   [`389e7e2`](https://github.com/EventStore/Design-System/commit/389e7e26d2e558c853da0d08323b6447109fa2aa) - Add `actions` for use in tables and panel headers
 
-    `es-actions` - Action container.
-    `es-action` - Generic button action.
-    `es-action-with-confirmation` - An action button with confirmation modal.
-    `es-action-link` - Link action.
-    `es-action-dropdown` - A dropdown to contain more actions.
+    `c2-actions` - Action container.
+    `c2-action` - Generic button action.
+    `c2-action-with-confirmation` - An action button with confirmation modal.
+    `c2-action-link` - Link action.
+    `c2-action-dropdown` - A dropdown to contain more actions.
     `ActionCopy` - Copy some text.
     `ActionDelete` - Delete icon and confirmation modal.
     `action.css` - Styles for creating custom actions.
 
 ### Patch Changes
 
--   [`918e384`](https://github.com/EventStore/Design-System/commit/918e384300a018ce4e048040b8efadf235db87d6) - Bug fix: Persist portaled elements when parent `es-portal` is moved in the DOM.
+-   [`918e384`](https://github.com/EventStore/Design-System/commit/918e384300a018ce4e048040b8efadf235db87d6) - Bug fix: Persist portaled elements when parent `c2-portal` is moved in the DOM.
 
 ## 1.5.0
 
@@ -99,18 +99,18 @@
 
 -   [`14620f6`](https://github.com/EventStore/Design-System/commit/14620f66117e6a1e2484f99236b523832958e695) - Previously, when passing data directly to a table's rows (rather than passing strings and using `getCellData`), the data objects were being used as keys, causing unnecessary re-renders.
 
-    `es-table` will now warn when this is happening, and exposes a new prop `getRowKey` to allow you to convert the data into a stable key.
+    `c2-table` will now warn when this is happening, and exposes a new prop `getRowKey` to allow you to convert the data into a stable key.
 
     `renderExpansion` is now more accurately typed to have the passed row as `any` and and additionally recieves this converted key, as well as the index of the row.
     `rowClass` is also more accurately typed to have the passed row as `any`.
 
-    `es-table-nested` exposes both `getRowKey` and `getNestedRowKey` for the nested table.
+    `c2-table-nested` exposes both `getRowKey` and `getNestedRowKey` for the nested table.
 
 ## 1.4.0
 
 ### Minor Changes
 
--   [`600322d`](https://github.com/EventStore/Design-System/commit/600322d89f8920bf74aeadc577eb423702f34ffc) - `es-tabs`
+-   [`600322d`](https://github.com/EventStore/Design-System/commit/600322d89f8920bf74aeadc577eb423702f34ffc) - `c2-tabs`
 
     **Features**
 
@@ -130,29 +130,29 @@
 
 ### Minor Changes
 
--   [`e1ee71d`](https://github.com/EventStore/Design-System/commit/e1ee71dcc4f3c6769d20ef247f5cb1f6d4d470f8) - `es-popover` improvements
+-   [`e1ee71d`](https://github.com/EventStore/Design-System/commit/e1ee71dcc4f3c6769d20ef247f5cb1f6d4d470f8) - `c2-popover` improvements
 
     Bug Fixes:
 
     -   Prevent the popover from getting stuck closed when opening and closing too quickly
-    -   Fix modifier css selectors on `es-popper-inner`
+    -   Fix modifier css selectors on `c2-popper-inner`
 
     Improvements:
 
-    -   Split out x and y translations to `es-popover-x` and `es-popover-y` to allow transitioning each individuallly.
-    -   Export `es-popover` types from index
+    -   Split out x and y translations to `c2-popover-x` and `c2-popover-y` to allow transitioning each individuallly.
+    -   Export `c2-popover` types from index
 
 ## 1.2.0
 
 ### Minor Changes
 
--   [`6314c62`](https://github.com/EventStore/Design-System/commit/6314c6281b989b968e9a27a002c35f01e3de3362) - Prevent mouse interractions on readonly es-progressions
+-   [`6314c62`](https://github.com/EventStore/Design-System/commit/6314c6281b989b968e9a27a002c35f01e3de3362) - Prevent mouse interractions on readonly c2-progressions
 
 ## 1.1.0
 
 ### Minor Changes
 
--   [`e54766e`](https://github.com/EventStore/Design-System/commit/e54766ee33543eedbe591f2a56a089a19e800afd) - New props on es-popover
+-   [`e54766e`](https://github.com/EventStore/Design-System/commit/e54766ee33543eedbe591f2a56a089a19e800afd) - New props on c2-popover
 
     | Property              | Attribute                | Description                                                                            | Type      | Default |
     | --------------------- | ------------------------ | -------------------------------------------------------------------------------------- | --------- | ------- |
@@ -217,7 +217,7 @@
 
 ### Patch Changes
 
--   [`1f46d53`](https://github.com/EventStore/Design-System/commit/1f46d53e04f3bb51f3757c902ae9429a5ea2b883) - [bug] Prevent `es-popover` from losing attachment when layout is changed (e.g. resizing `es-panel`)
+-   [`1f46d53`](https://github.com/EventStore/Design-System/commit/1f46d53e04f3bb51f3757c902ae9429a5ea2b883) - [bug] Prevent `c2-popover` from losing attachment when layout is changed (e.g. resizing `es-panel`)
 
 ## 1.0.0
 

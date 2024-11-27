@@ -50,17 +50,17 @@
     }
 }
 
-es-popper-inner.entered {
+c2-popper-inner.entered {
     &[data-placement^='right'],
     &[data-placement^='left'] {
-        & es-popper-y {
+        & c2-popper-y {
             transition: transform 400ms ease;
         }
     }
 
     &[data-placement^='top'],
     &[data-placement^='bottom'] {
-        & es-popper-x {
+        & c2-popper-x {
             transition: transform 400ms ease;
         }
     }

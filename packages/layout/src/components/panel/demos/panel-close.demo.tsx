@@ -98,14 +98,14 @@ export class PanelPlacementDemo {
                                     slot={'handle'}
                                     class={`collapsed ${area}`}
                                 >
-                                    <es-icon
+                                    <c2-icon
                                         icon={[
                                             K_LAYOUT_ICON_NAMESPACE,
                                             'chevron',
                                         ]}
                                     />
                                     {area}
-                                    <es-icon
+                                    <c2-icon
                                         icon={[
                                             K_LAYOUT_ICON_NAMESPACE,
                                             'chevron',

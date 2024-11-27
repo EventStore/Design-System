@@ -9,12 +9,12 @@ import { JsonDocs, JsonDocsEvent, JsonDocsMethod, JsonDocsPart, JsonDocsProp, Js
 import { Lib } from "./sitemap";
 import { SomeReflection } from "./utils/typedoc/types";
 import { SomeType } from "typedoc";
-import { LocationSegments, Router } from "@eventstore-ui/router";
+import { LocationSegments, Router } from "@kurrent-ui/router";
 export { JsonDocs, JsonDocsEvent, JsonDocsMethod, JsonDocsPart, JsonDocsProp, JsonDocsSlot, JsonDocsStyle } from "@stencil/core/internal";
 export { Lib } from "./sitemap";
 export { SomeReflection } from "./utils/typedoc/types";
 export { SomeType } from "typedoc";
-export { LocationSegments, Router } from "@eventstore-ui/router";
+export { LocationSegments, Router } from "@kurrent-ui/router";
 export namespace Components {
     interface DocsComponentDocs {
         "comp": JsonDocs['components'][0];

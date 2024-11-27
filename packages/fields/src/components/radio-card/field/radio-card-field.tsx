@@ -7,7 +7,7 @@ import {
     AttachInternals,
     Watch,
 } from '@stencil/core';
-import type { IconDescription } from '@eventstore-ui/components';
+import type { IconDescription } from '@kurrent-ui/components';
 
 import { Field } from 'components/Field';
 import { ICON_NAMESPACE } from 'icons/namespace';

@@ -25,11 +25,11 @@ export class DocsHome {
                                     >
                                         <Link url={`/${slug}`}>
                                             {packageJson.deprecated && (
-                                                <es-corner-banner x={'right'}>
+                                                <c2-corner-banner x={'right'}>
                                                     {'deprecated'}
-                                                </es-corner-banner>
+                                                </c2-corner-banner>
                                             )}
-                                            <es-icon
+                                            <c2-icon
                                                 icon={packageJson.name}
                                                 size={24}
                                             />

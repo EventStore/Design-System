@@ -2,20 +2,20 @@ import { Component, h, Host, Fragment } from '@stencil/core';
 import { router } from '@kurrent-ui/router';
 
 import type { ButtonVariant } from '../types';
-import { ES_COMPONENTS_ICON_NAMESPACE, type IconDescription } from '../../..';
+import { K_COMPONENTS_ICON_NAMESPACE, type IconDescription } from '../../..';
 
 /**
  * Button Link
  * @group Buttons
  */
 @Component({
-    tag: 'es-button-link-demo',
+    tag: 'button-link-demo',
     styleUrl: './button-demo.css',
     shadow: true,
 })
 export class Demo {
     componentWillLoad() {
-        router.init({ root: '/es-button-link-demo/' });
+        router.init({ root: '/button-link-demo/' });
     }
 
     private variants: ButtonVariant[] = [
@@ -33,17 +33,17 @@ export class Demo {
             <Host>
                 {this.variants.map((variant) => (
                     <>
-                        <es-button-link variant={variant} url={'/'}>
-                            <es-icon icon={this.randomIcon()} slot={'after'} />
+                        <c2-button-link variant={variant} url={'/'}>
+                            <c2-icon icon={this.randomIcon()} slot={'after'} />
                             {`${variant} variant`}
-                        </es-button-link>
-                        <es-button-link variant={variant} url={'/'}>
-                            <es-icon icon={this.randomIcon()} size={22} />
-                        </es-button-link>
-                        <es-button-link variant={variant} url={'/'} disabled>
-                            <es-icon icon={this.randomIcon()} slot={'after'} />
+                        </c2-button-link>
+                        <c2-button-link variant={variant} url={'/'}>
+                            <c2-icon icon={this.randomIcon()} size={22} />
+                        </c2-button-link>
+                        <c2-button-link variant={variant} url={'/'} disabled>
+                            <c2-icon icon={this.randomIcon()} slot={'after'} />
                             {`${variant} (disabled)`}
-                        </es-button-link>
+                        </c2-button-link>
                     </>
                 ))}
             </Host>
@@ -69,7 +69,7 @@ export class Demo {
     ];
 
     private randomIcon = (): IconDescription => [
-        ES_COMPONENTS_ICON_NAMESPACE,
+        K_COMPONENTS_ICON_NAMESPACE,
         this.icons[Math.floor(Math.random() * (this.icons.length - 2))],
     ];
 }

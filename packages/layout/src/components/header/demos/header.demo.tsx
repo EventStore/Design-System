@@ -46,13 +46,13 @@ export class Demo {
                     )}
                 </l2-header>
                 <main>
-                    <es-button
+                    <c2-button
                         onClick={() => {
                             this.showNav = !this.showNav;
                         }}
                     >
                         {this.showNav ? 'Hide Nav' : 'Show Nav'}
-                    </es-button>
+                    </c2-button>
                 </main>
             </Host>
         );

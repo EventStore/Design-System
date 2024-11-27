@@ -15,7 +15,7 @@ interface DummyData {
 
 /** Actions */
 @Component({
-    tag: 'es-actions-demo',
+    tag: 'actions-demo',
     styleUrl: './actions-demo.css',
     shadow: true,
 })
@@ -49,13 +49,13 @@ export class LoadingTextDemo {
 
     componentWillLoad() {
         router.init({
-            root: '/es-actions-demo',
+            root: '/actions-demo',
         });
     }
 
     render() {
         return (
-            <es-table
+            <c2-table
                 cells={this.cells}
                 rows={this.data}
                 getRowKey={({ name }) => name}
@@ -83,8 +83,8 @@ export class LoadingTextDemo {
             variant: 'no-pad',
             width: 'max-content',
             cell: (h, { data: { name } }) => (
-                <es-actions>
-                    <es-action
+                <c2-actions>
+                    <c2-action
                         icon={[ICON_NAMESPACE, 'info']}
                         action={() =>
                             toast.success({
@@ -94,13 +94,13 @@ export class LoadingTextDemo {
                         }
                     >
                         {'Generic action'}
-                    </es-action>
-                    <es-action-link
+                    </c2-action>
+                    <c2-action-link
                         url={'/cheese'}
                         icon={[ICON_NAMESPACE, 'chevron-double']}
                     >
                         {'Link action'}
-                    </es-action-link>
+                    </c2-action-link>
                     <ActionCopy
                         value={name}
                         toast={{
@@ -128,8 +128,8 @@ export class LoadingTextDemo {
                         }}
                     />
 
-                    <es-action-dropdown>
-                        <es-action
+                    <c2-action-dropdown>
+                        <c2-action
                             dropdownItem
                             icon={[ICON_NAMESPACE, 'info']}
                             action={() =>
@@ -141,14 +141,14 @@ export class LoadingTextDemo {
                             }
                         >
                             {'Generic action'}
-                        </es-action>
-                        <es-action-link
+                        </c2-action>
+                        <c2-action-link
                             dropdownItem
                             url={'/cheese'}
                             icon={[ICON_NAMESPACE, 'chevron-double']}
                         >
                             {'Link action'}
-                        </es-action-link>
+                        </c2-action-link>
                         <ActionCopy
                             dropdownItem
                             value={name}
@@ -177,8 +177,8 @@ export class LoadingTextDemo {
                                 message: `Successfully deleted ${name}`,
                             }}
                         />
-                    </es-action-dropdown>
-                </es-actions>
+                    </c2-action-dropdown>
+                </c2-actions>
             ),
         },
     };

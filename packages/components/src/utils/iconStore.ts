@@ -2,7 +2,7 @@ import type { FunctionalComponent, h as JSXFactory } from '@stencil/core';
 import { createLogger } from '@kurrent-ui/utils';
 import type { JSXBase } from '@stencil/core/internal';
 
-const ICON_STORE = Symbol.for('es-icon-store');
+const ICON_STORE = Symbol.for('c2-icon-store');
 const ROOT = ':root';
 const logger = createLogger('iconStore', 'orange');
 
@@ -67,7 +67,7 @@ class IconStore {
 }
 
 /**
- * Register icons for `es-icon` to reference by name.
+ * Register icons for `c2-icon` to reference by name.
  * It is recommended to use [`@eventstore-ui/icon-manager`](/icon-manager) to manage your icons.
  */
 export const iconStore = window[ICON_STORE] ?? new IconStore();

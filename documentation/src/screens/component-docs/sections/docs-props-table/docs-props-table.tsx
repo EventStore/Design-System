@@ -1,6 +1,6 @@
 import { Component, h, Prop, Fragment, Host } from '@stencil/core';
 import type { JsonDocsProp } from '@stencil/core/internal';
-import type { TableCells } from '@eventstore-ui/components';
+import type { TableCells } from '@kurrent-ui/components';
 
 @Component({
     tag: 'docs-props-table',
@@ -16,7 +16,7 @@ export class DocsPropsTable {
         return (
             <Host>
                 <h2>{'Props'}</h2>
-                <es-table
+                <c2-table
                     cells={this.cells}
                     rows={this.props}
                     rowClass={this.rowClass}
@@ -71,11 +71,11 @@ export class DocsPropsTable {
             cell: (h, { data: { mutable, reflectToAttr, required, attr } }) => (
                 <>
                     {required && (
-                        <es-icon icon={'required'} title={'Required'} />
+                        <c2-icon icon={'required'} title={'Required'} />
                     )}
-                    {mutable && <es-icon icon={'mutable'} title={'Mutable'} />}
+                    {mutable && <c2-icon icon={'mutable'} title={'Mutable'} />}
                     {reflectToAttr && (
-                        <es-icon
+                        <c2-icon
                             icon={'reflect-to-attr'}
                             title={`Reflects To Attribute: "${attr}"`}
                         />

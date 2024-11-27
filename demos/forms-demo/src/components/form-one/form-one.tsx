@@ -110,9 +110,9 @@ export class DemoRoot {
                 <es-checkbox {...this.form.connect('agreeToTOS')}>
                     {'do you agree'}
                 </es-checkbox>
-                <es-button onClick={this.submit} disabled={this.form.frozen}>
+                <c2-button onClick={this.submit} disabled={this.form.frozen}>
                     {'Submit'}
-                </es-button>
+                </c2-button>
             </Page>
         );
     }

@@ -11,7 +11,7 @@
         "fix": "yarn g:fix"
     },
     "dependencies": {
-        "@eventstore-ui/components": "workspace:*",
+        "@kurrent-ui/components": "workspace:*",
         "@kurrent-ui/fields": "workspace:*",
         "@kurrent-ui/forms": "workspace:*",
         "@kurrent-ui/layout": "workspace:*",

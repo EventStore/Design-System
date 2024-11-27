@@ -4,10 +4,10 @@ import type { ToastOptions, ToastLevel } from '../components/toast/types';
 const popToast =
     (level: ToastLevel) =>
     (options: ToastOptions, targetDocument: Document = document) => {
-        let toaster = targetDocument.querySelector('es-toaster');
+        let toaster = targetDocument.querySelector('c2-toaster');
 
         if (!toaster) {
-            toaster = targetDocument.createElement('es-toaster');
+            toaster = targetDocument.createElement('c2-toaster');
             targetDocument.body.appendChild(toaster);
         }
 

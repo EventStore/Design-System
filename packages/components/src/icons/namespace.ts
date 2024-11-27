@@ -1,1 +1,1 @@
-export const ICON_NAMESPACE = 'es-components';
+export const ICON_NAMESPACE = 'k-components';

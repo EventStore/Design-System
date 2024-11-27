@@ -24,7 +24,7 @@ function alphabet(num: number) {
  * @group Tables
  */
 @Component({
-    tag: 'es-table-virtualized-grouped-demo',
+    tag: 'table-virtualized-grouped-demo',
     styleUrl: './table-basic.css',
     shadow: true,
 })
@@ -51,7 +51,7 @@ export class Demo {
     render() {
         return (
             <Host>
-                <es-table-virtualized
+                <c2-table-virtualized
                     stickyHeader
                     ref={this.captureTable}
                     cells={this.cells}
@@ -73,18 +73,18 @@ export class Demo {
                         'lorem',
                     ]}
                 />
-                <es-button
+                <c2-button
                     onClick={this.jumpToRandom}
                     style={{ position: 'fixed', bottom: '20px', right: '20px' }}
                 >
                     {'Jump to random'}
-                </es-button>
+                </c2-button>
             </Host>
         );
     }
 
-    private table?: HTMLEsTableVirtualizedElement;
-    private captureTable = (r?: HTMLEsTableVirtualizedElement) => {
+    private table?: HTMLC2TableVirtualizedElement;
+    private captureTable = (r?: HTMLC2TableVirtualizedElement) => {
         this.table = r;
     };
 

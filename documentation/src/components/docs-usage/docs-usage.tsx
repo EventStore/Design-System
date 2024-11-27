@@ -19,7 +19,7 @@ export class DocsUsage {
     @State() contentHeight = 500;
 
     @State() models: Models = {};
-    @State() tabs: HTMLEsTabsElement['tabs'] = [];
+    @State() tabs: HTMLC2TabsElement['tabs'] = [];
 
     @Watch('usage')
     componentWillLoad() {
@@ -60,7 +60,7 @@ export class DocsUsage {
                     />
                 )}
                 {this.options.code && (
-                    <es-tabs
+                    <c2-tabs
                         tabs={this.tabs}
                         active={this.active}
                         activeParam={false}
@@ -77,7 +77,7 @@ export class DocsUsage {
                                 }}
                             />
                         )}
-                    </es-tabs>
+                    </c2-tabs>
                 )}
             </Host>
         );

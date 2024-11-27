@@ -2,7 +2,7 @@ import type { IndexMap } from '../utils/indexFile.js';
 
 export const convertToLoader = (
     indexMap: IndexMap,
-    iconStoreImportPath: string = '@eventstore-ui/components',
+    iconStoreImportPath: string = '@kurrent-ui/components',
     namespaced?: boolean,
 ) => `\
 import { iconStore } from '${iconStoreImportPath}';

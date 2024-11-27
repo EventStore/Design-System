@@ -71,15 +71,15 @@ export default () => (
 ### Depends on
 
 - [f2-text-input](../text/input)
-- es-button
-- es-icon
+- c2-button
+- c2-icon
 
 ### Graph
 ```mermaid
 graph TD;
   f2-text-list-field --> f2-text-input
-  f2-text-list-field --> es-button
-  f2-text-list-field --> es-icon
+  f2-text-list-field --> c2-button
+  f2-text-list-field --> c2-icon
   style f2-text-list-field fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Crumb } from "./components/breadcrumb/types";
 import { DisplayErrorVariant } from "./components/display-error/types";
 import { EmptyStateLayout } from "./components/empty-state/types";
-import { IconDescription, Placement } from "@eventstore-ui/components";
+import { IconDescription, Placement } from "@kurrent-ui/components";
 import { PanelMode } from "./components/panel";
 import { LoadingBarStatus } from "./components/loading-bar/types";
 import { NavNode, NavTree } from "./components/nav/types";
@@ -16,7 +16,7 @@ import { ClosedMode, PanelDetailsListener, PanelMode as PanelMode1, TargetableAr
 export { Crumb } from "./components/breadcrumb/types";
 export { DisplayErrorVariant } from "./components/display-error/types";
 export { EmptyStateLayout } from "./components/empty-state/types";
-export { IconDescription, Placement } from "@eventstore-ui/components";
+export { IconDescription, Placement } from "@kurrent-ui/components";
 export { PanelMode } from "./components/panel";
 export { LoadingBarStatus } from "./components/loading-bar/types";
 export { NavNode, NavTree } from "./components/nav/types";
@@ -74,7 +74,7 @@ export namespace Components {
         /**
           * Display a dot on the icon, to attract attention to the button.
          */
-        "alertLevel"?: HTMLEsBadgeElement['color'];
+        "alertLevel"?: HTMLC2BadgeElement['color'];
         /**
           * text for use in the button.
          */
@@ -125,7 +125,7 @@ export namespace Components {
         /**
           * Display a dot on the icon, to attract attention to the button.
          */
-        "alertLevel"?: HTMLEsBadgeElement['color'];
+        "alertLevel"?: HTMLC2BadgeElement['color'];
         /**
           * If the parent popup should close when clicked.
          */
@@ -167,7 +167,7 @@ export namespace Components {
         /**
           * Display a dot on the icon, to attract attention to the link.
          */
-        "alertLevel"?: HTMLEsBadgeElement['color'];
+        "alertLevel"?: HTMLC2BadgeElement['color'];
         /**
           * Display a counter in place of the icon.
          */
@@ -732,7 +732,7 @@ declare namespace LocalJSX {
         /**
           * Display a dot on the icon, to attract attention to the button.
          */
-        "alertLevel"?: HTMLEsBadgeElement['color'];
+        "alertLevel"?: HTMLC2BadgeElement['color'];
         /**
           * text for use in the button.
          */
@@ -783,7 +783,7 @@ declare namespace LocalJSX {
         /**
           * Display a dot on the icon, to attract attention to the button.
          */
-        "alertLevel"?: HTMLEsBadgeElement['color'];
+        "alertLevel"?: HTMLC2BadgeElement['color'];
         /**
           * If the parent popup should close when clicked.
          */
@@ -825,7 +825,7 @@ declare namespace LocalJSX {
         /**
           * Display a dot on the icon, to attract attention to the link.
          */
-        "alertLevel"?: HTMLEsBadgeElement['color'];
+        "alertLevel"?: HTMLC2BadgeElement['color'];
         /**
           * Display a counter in place of the icon.
          */

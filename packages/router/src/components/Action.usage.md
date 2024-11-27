@@ -2,7 +2,7 @@
 
 ```tsx
 import { Action, Link, Route, Switch } from '@kurrent-ui/router';
-import { toast } from '@eventstore-ui/components';
+import { toast } from '@kurrent-ui/components';
 
 export default () => (
     <>
