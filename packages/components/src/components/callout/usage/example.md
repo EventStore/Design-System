@@ -27,6 +27,11 @@ export default () => (
 ```
 
 ```css
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
 .custom {
     --strong-color: yellow;
     --weak-color: #35363a;
