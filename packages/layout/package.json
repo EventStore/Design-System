@@ -1,6 +1,6 @@
 {
     "name": "@kurrent-ui/layout",
-    "version": "1.7.1",
+    "version": "2.0.0-alpha.0",
     "description": "Page layout components for Kurrent Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
@@ -49,11 +49,11 @@
         }
     },
     "peerDependencies": {
-        "@kurrent-ui/components": "^1.0.0",
-        "@kurrent-ui/router": "^1.0.0",
-        "@kurrent-ui/sequences": "^1.0.0",
-        "@kurrent-ui/theme": "^1.0.0",
-        "@kurrent-ui/utils": "^1.0.0"
+        "@kurrent-ui/components": "^2.0.0",
+        "@kurrent-ui/router": "^2.0.0",
+        "@kurrent-ui/sequences": "^2.0.0",
+        "@kurrent-ui/theme": "^2.0.0",
+        "@kurrent-ui/utils": "^2.0.0"
     },
     "devDependencies": {
         "@kurrent-ui/components": "workspace:*",
