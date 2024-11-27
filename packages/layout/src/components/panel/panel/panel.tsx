@@ -152,7 +152,7 @@ export class Panel {
             onDblClick={this.handleDoubleClick}
         >
             <slot name={'handle'}>
-                <es-icon
+                <c2-icon
                     icon={[ICON_NAMESPACE, 'grip-lines']}
                     part={'handle_icon'}
                 />

@@ -62,12 +62,12 @@
         "@kurrent-ui/monaco-editor": "workspace:*"
     },
     "peerDependencies": {
-        "@eventstore-ui/components": "^1.0.0",
+        "@kurrent-ui/components": "^1.0.0",
         "@kurrent-ui/theme": "^1.0.0",
         "@kurrent-ui/utils": "^1.0.0"
     },
     "devDependencies": {
-        "@eventstore-ui/components": "workspace:*",
+        "@kurrent-ui/components": "workspace:*",
         "@kurrent-ui/configs": "workspace:*",
         "@kurrent-ui/theme": "workspace:*",
         "@kurrent-ui/utils": "workspace:*",

@@ -31,7 +31,7 @@ export default () => (
             unit={'🐁'}
             {...form.connect('mice')}
         />
-        <es-button
+        <c2-button
             onClick={() => {
                 form.submit((data) => {
                     console.log(data);
@@ -39,7 +39,7 @@ export default () => (
             }}
         >
             {'Submit'}
-        </es-button>
+        </c2-button>
     </f2-form>
 );
 ```
@@ -52,7 +52,7 @@ export default () => (
     justify-content: center;
 }
 
-es-button {
+c2-button {
     margin-left: auto;
 }
 ```

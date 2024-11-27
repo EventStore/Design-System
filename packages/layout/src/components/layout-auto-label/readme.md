@@ -1,4 +1,4 @@
-# es-popover-group
+# c2-popover-group
 
 <!-- Auto Generated Below -->
 
@@ -20,16 +20,16 @@
 
 ### Depends on
 
-- es-popover
+- c2-popover
 
 ### Graph
 ```mermaid
 graph TD;
-  l2-layout-auto-label --> es-popover
-  es-popover --> es-popper
-  es-popover --> es-popper-inner
-  es-popover --> es-popper-x
-  es-popover --> es-popper-y
+  l2-layout-auto-label --> c2-popover
+  c2-popover --> c2-popper
+  c2-popover --> c2-popper-inner
+  c2-popover --> c2-popper-x
+  c2-popover --> c2-popper-y
   l2-layout-section --> l2-layout-auto-label
   style l2-layout-auto-label fill:#f9f,stroke:#333,stroke-width:4px
 ```

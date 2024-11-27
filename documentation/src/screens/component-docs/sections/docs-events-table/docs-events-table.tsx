@@ -1,6 +1,6 @@
 import { Component, h, Prop, Fragment } from '@stencil/core';
 import { Host, type JsonDocsEvent } from '@stencil/core/internal';
-import type { TableCells } from '@eventstore-ui/components';
+import type { TableCells } from '@kurrent-ui/components';
 
 @Component({
     tag: 'docs-events-table',
@@ -15,7 +15,7 @@ export class DocsEventsTable {
         return (
             <Host>
                 <h2>{'Events'}</h2>
-                <es-table cells={this.cells} rows={this.events} />
+                <c2-table cells={this.cells} rows={this.events} />
             </Host>
         );
     }
@@ -49,12 +49,12 @@ export class DocsEventsTable {
             width: 'fit-content(100%)',
             cell: (h, { data: { bubbles, cancelable, composed } }) => (
                 <>
-                    {bubbles && <es-icon icon={'bubbles'} title={'Bubbles'} />}
+                    {bubbles && <c2-icon icon={'bubbles'} title={'Bubbles'} />}
                     {cancelable && (
-                        <es-icon icon={'cancelable'} title={'Cancelable'} />
+                        <c2-icon icon={'cancelable'} title={'Cancelable'} />
                     )}
                     {composed && (
-                        <es-icon icon={'composed'} title={'Composed'} />
+                        <c2-icon icon={'composed'} title={'Composed'} />
                     )}
                 </>
             ),

@@ -62,7 +62,7 @@ export class Demo {
         return (
             <>
                 <header class={'user_dropdown_header'}>
-                    <es-icon icon={[ICON_NAMESPACE, 'dark-high-theme']} />
+                    <c2-icon icon={[ICON_NAMESPACE, 'dark-high-theme']} />
                     <h1>{'John John Johnson'}</h1>
                     <h2>{'jjj@johnson.com'}</h2>
                 </header>

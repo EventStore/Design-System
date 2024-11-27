@@ -26,7 +26,7 @@ function alphabet(num: number) {
  * @group Tables
  */
 @Component({
-    tag: 'es-table-nested-demo',
+    tag: 'table-nested-demo',
     styleUrl: './table-basic.css',
     shadow: true,
 })
@@ -69,7 +69,7 @@ export class Demo {
 
     render() {
         return (
-            <es-table-nested
+            <c2-table-nested
                 stickyHeader
                 toggleRowOnClick
                 cells={this.cells}
@@ -101,7 +101,7 @@ export class Demo {
                 <>
                     {data.name}
                     {canExpand && (
-                        <es-icon
+                        <c2-icon
                             class={'expand_icon'}
                             size={18}
                             icon={[ICON_NAMESPACE, 'chevron']}

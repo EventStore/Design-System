@@ -96,12 +96,12 @@ export class Demo {
                         groupBy={'tag'}
                         {...this.form.connect('size')}
                     >
-                        <es-callout
+                        <c2-callout
                             heading={'Some details'}
                             style={{ margin: '0', flex: '1 1 400px' }}
                         >
                             {'Hello!'}
-                        </es-callout>
+                        </c2-callout>
                     </f2-radio-card-input>
 
                     <f2-radio-card-input
@@ -116,7 +116,7 @@ export class Demo {
                                     padding: '12px',
                                 }}
                             >
-                                <es-icon icon={option.icon} size={40} />
+                                <c2-icon icon={option.icon} size={40} />
                                 <span class={'name'}>{option.name}</span>
                             </div>
                         )}

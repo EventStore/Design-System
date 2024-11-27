@@ -71,8 +71,8 @@
 -   [`a55cd76`](https://github.com/EventStore/Design-System/commit/a55cd76f8a7390867fc0b6d85e8ab8ea4153a75d) - Improvements:
 
     -   `renderLoadingState` prop in the `Page` component now accepts false to render normally.
-    -   `TableCell` props `exptectedLength` and `variance` for `<es-loading-text />` rendering.
-    -   `es-table` prop `loading` added to indicate `<es-loading-text />` rendering,.with `loadingRows` props to specify the number of rows to render.
+    -   `TableCell` props `exptectedLength` and `variance` for `<c2-loading-text />` rendering.
+    -   `c2-table` prop `loading` added to indicate `<c2-loading-text />` rendering,.with `loadingRows` props to specify the number of rows to render.
 
     Bug fixes:
 
@@ -100,7 +100,7 @@
     -   `es-panel` will now share it's panel mode with it's decendants, allowing them to change in response.
     -   `es-layout-button` & `es-layout-link` will change to a "collapsed" mode an ancestral `es-panel` is collapsed.
     -   `es-layout-section` will apply a popover label to collapsed `es-layout-button` & `es-layout-link`, and style itself for collapsing.
-    -   `es-icon` can now be used as an ouroboros, without text.
+    -   `c2-icon` can now be used as an ouroboros, without text.
 
     Bug fixes:
 
@@ -151,7 +151,7 @@
 
 -   [`3e6c5b1`](https://github.com/EventStore/Design-System/commit/3e6c5b171bf3e1319ee1a5871a42d92483ff3eec) - Removed z-index workarounds for z-index stacking in @eventstore-ui/components
 
--   [`1f46d53`](https://github.com/EventStore/Design-System/commit/1f46d53e04f3bb51f3757c902ae9429a5ea2b883) - [bug] Prevent `es-popover` from losing attachment when layout is changed (e.g. resizing `es-panel`)
+-   [`1f46d53`](https://github.com/EventStore/Design-System/commit/1f46d53e04f3bb51f3757c902ae9429a5ea2b883) - [bug] Prevent `c2-popover` from losing attachment when layout is changed (e.g. resizing `es-panel`)
 
 -   [`46a1ad7`](https://github.com/EventStore/Design-System/commit/46a1ad7192cee02e65aa9af3663e0a00fa579342) - [bug] Prevent multiple header and sidebar dropdowns from opening at the same time
 

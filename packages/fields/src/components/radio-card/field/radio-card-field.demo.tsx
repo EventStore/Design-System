@@ -118,7 +118,7 @@ export class Demo {
                                     padding: '12px',
                                 }}
                             >
-                                <es-icon
+                                <c2-icon
                                     icon={option.icon}
                                     size={40}
                                     part={`card-icon ${active ? 'active' : ''}`}

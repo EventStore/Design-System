@@ -1,7 +1,7 @@
 import { Component, h, Element, Host, State, Prop } from '@stencil/core';
 
 import { slottedQuerySelectorAll } from '@kurrent-ui/utils';
-import type { Placement } from '@eventstore-ui/components';
+import type { Placement } from '@kurrent-ui/components';
 
 @Component({
     tag: 'l2-layout-auto-label',
@@ -39,14 +39,14 @@ export class EsLayoutAutoLabel {
         return (
             <Host>
                 <slot />
-                <es-popover
+                <c2-popover
                     arrow
                     open={this.open}
                     attachTo={this.target}
                     placement={this.placement}
                 >
                     {this.label}
-                </es-popover>
+                </c2-popover>
             </Host>
         );
     }

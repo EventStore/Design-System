@@ -8,7 +8,7 @@ import {
     AttachInternals,
     Host,
 } from '@stencil/core';
-import type { IconDescription } from '@eventstore-ui/components';
+import type { IconDescription } from '@kurrent-ui/components';
 
 import { ICON_NAMESPACE } from 'icons/namespace';
 import type { FieldChange } from 'types';
@@ -96,7 +96,7 @@ export class RadioCardInput {
                                                 disabled={option.disabled}
                                             />
                                             {this.renderCard(h, option, active)}
-                                            <es-icon
+                                            <c2-icon
                                                 class={'check_icon'}
                                                 icon={this.checkIcon}
                                             />

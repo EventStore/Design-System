@@ -88,21 +88,21 @@ export default () => (
 
 ### Depends on
 
-- es-icon
+- c2-icon
 - f2-typeahead
-- es-button
+- c2-button
 
 ### Graph
 ```mermaid
 graph TD;
-  f2-select-list-field --> es-icon
+  f2-select-list-field --> c2-icon
   f2-select-list-field --> f2-typeahead
-  f2-select-list-field --> es-button
-  f2-typeahead --> es-popover
-  es-popover --> es-popper
-  es-popover --> es-popper-inner
-  es-popover --> es-popper-x
-  es-popover --> es-popper-y
+  f2-select-list-field --> c2-button
+  f2-typeahead --> c2-popover
+  c2-popover --> c2-popper
+  c2-popover --> c2-popper-inner
+  c2-popover --> c2-popper-x
+  c2-popover --> c2-popper-y
   style f2-select-list-field fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

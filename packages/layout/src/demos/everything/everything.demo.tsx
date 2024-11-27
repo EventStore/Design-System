@@ -3,7 +3,7 @@ import { Component, h, Host, State } from '@stencil/core';
 import { Route, router, Switch } from '@kurrent-ui/router';
 import { Page, type PageState } from '../../components/Page/Page';
 import { ICON_NAMESPACE } from '../../icons/namespace';
-import { requestClose } from '@eventstore-ui/components';
+import { requestClose } from '@kurrent-ui/components';
 import { logger } from '../../utils/logger';
 
 /**
@@ -35,7 +35,7 @@ export class DevRoot {
                         buttonText={'JJJ'}
                     >
                         <header class={'user_dropdown_header'}>
-                            <es-icon
+                            <c2-icon
                                 icon={[ICON_NAMESPACE, 'dark-low-theme']}
                             />
                             <h1>{'John John Johnson'}</h1>
@@ -201,54 +201,54 @@ export class DevRoot {
                                     <l2-toolbar>
                                         <menu>
                                             <li>
-                                                <es-button>
-                                                    <es-icon
+                                                <c2-button>
+                                                    <c2-icon
                                                         icon={[
                                                             ICON_NAMESPACE,
                                                             'dark-high-theme',
                                                         ]}
                                                     />
-                                                </es-button>
+                                                </c2-button>
                                             </li>
                                             <li>
-                                                <es-button>
-                                                    <es-icon
+                                                <c2-button>
+                                                    <c2-icon
                                                         icon={[
                                                             ICON_NAMESPACE,
                                                             'light-high-theme',
                                                         ]}
                                                     />
-                                                </es-button>
+                                                </c2-button>
                                             </li>
                                         </menu>
                                     </l2-toolbar>
                                     <l2-panel>
                                         <l2-panel-header>
                                             {'Hello there'}
-                                            <es-button
+                                            <c2-button
                                                 variant={'minimal'}
                                                 slot={'actions'}
                                             >
-                                                <es-icon
+                                                <c2-icon
                                                     icon={[
                                                         ICON_NAMESPACE,
                                                         'dark-high-theme',
                                                     ]}
                                                     size={20}
                                                 />
-                                            </es-button>
-                                            <es-button
+                                            </c2-button>
+                                            <c2-button
                                                 variant={'minimal'}
                                                 slot={'actions'}
                                             >
-                                                <es-icon
+                                                <c2-icon
                                                     icon={[
                                                         ICON_NAMESPACE,
                                                         'light-high-theme',
                                                     ]}
                                                     size={20}
                                                 />
-                                            </es-button>
+                                            </c2-button>
                                         </l2-panel-header>
                                     </l2-panel>
                                 </Page>
@@ -269,9 +269,9 @@ export class DevRoot {
                                     renderLoadingState={false}
                                 >
                                     <div>{'Welcome to something'}</div>
-                                    <es-button-link url={'/something/deeper'}>
+                                    <c2-button-link url={'/something/deeper'}>
                                         {'Go Deeper'}
-                                    </es-button-link>
+                                    </c2-button-link>
                                 </Page>
                             </Route>
                             <Route>

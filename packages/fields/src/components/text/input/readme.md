@@ -41,7 +41,7 @@ export default () => (
             placeholder={'Something'}
             {...form.connect('something')}
         />
-        <es-button type={'submit'}>{'submit'}</es-button>
+        <c2-button type={'submit'}>{'submit'}</c2-button>
     </f2-form>
 );
 ```

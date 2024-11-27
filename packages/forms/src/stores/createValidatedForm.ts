@@ -1,5 +1,5 @@
 import { delegateFocus, HTTPError } from '@kurrent-ui/utils';
-import { toast } from '@eventstore-ui/components';
+import { toast } from '@kurrent-ui/components';
 
 import type {
     ValidatedFormOptions,

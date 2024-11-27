@@ -18,14 +18,14 @@ export default () => (
     <l2-toolbar>
         <menu>
             <li>
-                <es-button>
-                    <es-icon icon={randomIcon()} />
-                </es-button>
+                <c2-button>
+                    <c2-icon icon={randomIcon()} />
+                </c2-button>
             </li>
             <li>
-                <es-button>
-                    <es-icon icon={randomIcon()} />
-                </es-button>
+                <c2-button>
+                    <c2-icon icon={randomIcon()} />
+                </c2-button>
             </li>
         </menu>
     </l2-toolbar>

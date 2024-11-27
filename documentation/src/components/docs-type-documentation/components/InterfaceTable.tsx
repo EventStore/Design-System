@@ -1,5 +1,5 @@
 import { h, type FunctionalComponent, Fragment } from '@stencil/core';
-import type { TableCells } from '@eventstore-ui/components';
+import type { TableCells } from '@kurrent-ui/components';
 import type { DeclarationReflection } from 'typedoc';
 import type { SomeReflection } from 'utils/typedoc/types';
 
@@ -11,7 +11,7 @@ export const InterfaceTable: FunctionalComponent<{
     );
 
     return (
-        <es-table
+        <c2-table
             rows={expandAndFilterSignatures(declaration.children!)}
             columns={props ? undefined : ['name', 'docs', 'type']}
             cells={cells}
@@ -95,7 +95,7 @@ const cells: TableCells<DeclarationReflection> = {
         cell: (h, { data: { flags } }) => (
             <>
                 {!flags.isOptional && (
-                    <es-icon icon={'required'} title={'Required'} />
+                    <c2-icon icon={'required'} title={'Required'} />
                 )}
             </>
         ),

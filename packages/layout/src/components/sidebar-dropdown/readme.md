@@ -91,20 +91,20 @@ export default () => (
 
 ### Depends on
 
-- es-button
-- es-icon
-- es-popover
+- c2-button
+- c2-icon
+- c2-popover
 
 ### Graph
 ```mermaid
 graph TD;
-  l2-sidebar-dropdown --> es-button
-  l2-sidebar-dropdown --> es-icon
-  l2-sidebar-dropdown --> es-popover
-  es-popover --> es-popper
-  es-popover --> es-popper-inner
-  es-popover --> es-popper-x
-  es-popover --> es-popper-y
+  l2-sidebar-dropdown --> c2-button
+  l2-sidebar-dropdown --> c2-icon
+  l2-sidebar-dropdown --> c2-popover
+  c2-popover --> c2-popper
+  c2-popover --> c2-popper-inner
+  c2-popover --> c2-popper-x
+  c2-popover --> c2-popper-y
   style l2-sidebar-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

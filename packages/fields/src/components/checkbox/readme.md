@@ -63,12 +63,12 @@ export default () => (
 
 ### Depends on
 
-- es-icon
+- c2-icon
 
 ### Graph
 ```mermaid
 graph TD;
-  f2-checkbox --> es-icon
+  f2-checkbox --> c2-icon
   style f2-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

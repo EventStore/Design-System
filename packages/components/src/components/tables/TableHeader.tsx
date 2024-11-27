@@ -42,7 +42,7 @@ export const TableHeader: FunctionalComponent<TableHeaderProps> = ({
         if (variantMatches(variant, 'full-width')) return;
         if (sortable) {
             return (
-                <es-button
+                <c2-button
                     role={'columnheader'}
                     aria-sort={sortKey === name ? order : 'none'}
                     variant={'minimal'}
@@ -51,7 +51,7 @@ export const TableHeader: FunctionalComponent<TableHeaderProps> = ({
                     {...props}
                 >
                     {title ?? ''}
-                    <es-icon
+                    <c2-icon
                         size={20}
                         icon={[
                             ICON_NAMESPACE,
@@ -60,7 +60,7 @@ export const TableHeader: FunctionalComponent<TableHeaderProps> = ({
                         slot={'after'}
                         angle={order === 'ascending' ? 0 : -180}
                     />
-                </es-button>
+                </c2-button>
             );
         }
         return (

@@ -10,7 +10,7 @@ import {
 import { ICON_NAMESPACE } from '../../icons/namespace';
 
 import { bindPanelDetails, type PanelDetails, type PanelMode } from '../panel';
-import type { Placement } from '@eventstore-ui/components';
+import type { Placement } from '@kurrent-ui/components';
 
 /**
  * A section with an optional title for containing layout-links
@@ -77,7 +77,7 @@ export class LayoutSection {
                     >
                         <h1 part={'title'}>{this.sectionTitle}</h1>
                         {this.collapsable && (
-                            <es-icon
+                            <c2-icon
                                 icon={[ICON_NAMESPACE, 'chevron']}
                                 size={14}
                             />

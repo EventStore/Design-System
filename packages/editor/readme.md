@@ -13,7 +13,7 @@ yarn add @kurrent-ui/editor
 Also, include the peer dependencies:
 
 ```sh
-yarn add @eventstore-ui/components @kurrent-ui/utils
+yarn add @kurrent-ui/components @kurrent-ui/utils
 ```
 
 ## Set up within a Stencil project:
@@ -45,7 +45,7 @@ In your `globalScript` file:
 
 ```tsx
 // Add the core web components to the global pool
-import '@eventstore-ui/components';
+import '@kurrent-ui/components';
 // add the editor web components to the global pool
 import '@kurrent-ui/editor';
 

@@ -5,8 +5,8 @@ import type { PackageJson } from '.';
 import assetsPackageJson from '@kurrent-ui/assets/package.json';
 import assetsReadme from '@kurrent-ui/assets/readme.md';
 
-import componentsPackageJson from '@eventstore-ui/components/package.json';
-import componentsReadme from '@eventstore-ui/components/readme.md';
+import componentsPackageJson from '@kurrent-ui/components/package.json';
+import componentsReadme from '@kurrent-ui/components/readme.md';
 import componentsStencilDocs from '../../../generated/components.stencil.json';
 import componentsTypeDocs from '../../../generated/components.typedoc.json';
 

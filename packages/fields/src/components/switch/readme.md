@@ -85,12 +85,12 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- es-icon
+- c2-icon
 
 ### Graph
 ```mermaid
 graph TD;
-  f2-switch --> es-icon
+  f2-switch --> c2-icon
   style f2-switch fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

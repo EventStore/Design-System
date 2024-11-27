@@ -19,10 +19,10 @@ export default () => (
         {
             'Creating a new group will allow for the grouping of members with the same access.'
         }
-        <es-button slot={'foot'} variant={'outline'}>
+        <c2-button slot={'foot'} variant={'outline'}>
             {'New group'}
-            <es-icon icon={'plus'} slot={'after'} />
-        </es-button>
+            <c2-icon icon={'plus'} slot={'after'} />
+        </c2-button>
     </l2-empty-state>
 );
 ```

@@ -1,4 +1,4 @@
-import { iconStore } from '@eventstore-ui/components';
+import { iconStore } from '@kurrent-ui/components';
 
 iconStore.addIcons({
     get arrow() {
@@ -50,7 +50,7 @@ iconStore.addIcons({
             ({ Components }) => Components,
         );
     },
-    get '@eventstore-ui/components'() {
+    get '@kurrent-ui/components'() {
         return this['components'];
     },
     get configs() {

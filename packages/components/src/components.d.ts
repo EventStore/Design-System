@@ -5,45 +5,45 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordianSection } from "./components/es-accordian/types";
-import { IconDescription } from "./components/es-icon/types";
-import { ConfirmModalOptions } from "./components/modals/es-confirm-modal/types";
+import { AccordianSection } from "./components/accordian/types";
+import { IconDescription } from "./components/icon/types";
+import { ConfirmModalOptions } from "./components/modals/confirm-modal/types";
 import { RenderFunction } from "./types";
-import { BadgeVariant } from "./components/es-badge/es-badge";
+import { BadgeVariant } from "./components/badge/badge";
 import { ButtonVariant } from "./components/buttons/types";
-import { EsCalloutVariant } from "./components/es-callout/es-callout";
+import { EsCalloutVariant } from "./components/callout/callout";
 import { FunctionalComponent } from "@stencil/core";
-import { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
-import { CounterColor, CounterVariant } from "./components/es-counter/types";
-import { PageChangeEventType } from "./components/es-pagination/types";
-import { Constrain, Placement } from "./components/es-popover/types";
-import { Checkpoint, CheckpointState } from "./components/es-progression/types";
+import { CornerBannerVariant } from "./components/corner-banner/corner-banner";
+import { CounterColor, CounterVariant } from "./components/counter/types";
+import { PageChangeEventType } from "./components/pagination/types";
+import { Constrain, Placement } from "./components/popover/types";
+import { Checkpoint, CheckpointState } from "./components/progression/types";
 import { ClickRow, JumpOptions, LoadWindow, TableCells, TableSort } from "./components/tables/types";
-import { Tab } from "./components/es-tabs/types";
+import { Tab } from "./components/tabs/types";
 import { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
-import { WizardPage } from "./components/es-wizard/types";
-export { AccordianSection } from "./components/es-accordian/types";
-export { IconDescription } from "./components/es-icon/types";
-export { ConfirmModalOptions } from "./components/modals/es-confirm-modal/types";
+import { WizardPage } from "./components/wizard/types";
+export { AccordianSection } from "./components/accordian/types";
+export { IconDescription } from "./components/icon/types";
+export { ConfirmModalOptions } from "./components/modals/confirm-modal/types";
 export { RenderFunction } from "./types";
-export { BadgeVariant } from "./components/es-badge/es-badge";
+export { BadgeVariant } from "./components/badge/badge";
 export { ButtonVariant } from "./components/buttons/types";
-export { EsCalloutVariant } from "./components/es-callout/es-callout";
+export { EsCalloutVariant } from "./components/callout/callout";
 export { FunctionalComponent } from "@stencil/core";
-export { CornerBannerVariant } from "./components/es-corner-banner/es-corner-banner";
-export { CounterColor, CounterVariant } from "./components/es-counter/types";
-export { PageChangeEventType } from "./components/es-pagination/types";
-export { Constrain, Placement } from "./components/es-popover/types";
-export { Checkpoint, CheckpointState } from "./components/es-progression/types";
+export { CornerBannerVariant } from "./components/corner-banner/corner-banner";
+export { CounterColor, CounterVariant } from "./components/counter/types";
+export { PageChangeEventType } from "./components/pagination/types";
+export { Constrain, Placement } from "./components/popover/types";
+export { Checkpoint, CheckpointState } from "./components/progression/types";
 export { ClickRow, JumpOptions, LoadWindow, TableCells, TableSort } from "./components/tables/types";
-export { Tab } from "./components/es-tabs/types";
+export { Tab } from "./components/tabs/types";
 export { Toast, ToastLevel, ToastOptions } from "./components/toast/types";
-export { WizardPage } from "./components/es-wizard/types";
+export { WizardPage } from "./components/wizard/types";
 export namespace Components {
     /**
      * Optionally collapsible sectioned view. Each section can be targeted via a part.
      */
-    interface EsAccordian {
+    interface C2Accordian {
         /**
           * An array of sections to display.
          */
@@ -56,7 +56,7 @@ export namespace Components {
     /**
      * A generic button action.
      */
-    interface EsAction {
+    interface C2Action {
         /**
           * The action to take when the button is clicked.
          */
@@ -68,9 +68,9 @@ export namespace Components {
         /**
           * If a dot should be shown on the action, to indicate attention being required.
          */
-        "dot"?: HTMLEsBadgeElement['color'];
+        "dot"?: HTMLC2BadgeElement['color'];
         /**
-          * If the action is within an `es-action-dropdown`.
+          * If the action is within an `c2-action-dropdown`.
          */
         "dropdownItem": boolean;
         /**
@@ -82,7 +82,7 @@ export namespace Components {
      * A dropdown to display more actions than can be reasonably fit in a row.
      * All child actions must have the `dropdownItem` prop set.
      */
-    interface EsActionDropdown {
+    interface C2ActionDropdown {
         /**
           * If the dropdown should be disabled.
          */
@@ -95,7 +95,7 @@ export namespace Components {
     /**
      * A link action.
      */
-    interface EsActionLink {
+    interface C2ActionLink {
         /**
           * If the action should be disabled.
          */
@@ -103,9 +103,9 @@ export namespace Components {
         /**
           * If a dot should be shown on the action, to indicate attention being required.
          */
-        "dot"?: HTMLEsBadgeElement['color'];
+        "dot"?: HTMLC2BadgeElement['color'];
         /**
-          * If the action is within an `es-action-dropdown`.
+          * If the action is within an `c2-action-dropdown`.
          */
         "dropdownItem": boolean;
         /**
@@ -120,7 +120,7 @@ export namespace Components {
     /**
      * An action with a confirmation modal.
      */
-    interface EsActionWithConfirmation {
+    interface C2ActionWithConfirmation {
         /**
           * The action to take when the button is clicked.
          */
@@ -132,9 +132,9 @@ export namespace Components {
         /**
           * If a dot should be shown on the action, to indicate attention being required.
          */
-        "dot"?: HTMLEsBadgeElement['color'];
+        "dot"?: HTMLC2BadgeElement['color'];
         /**
-          * If the action is within an `es-action-dropdown`.
+          * If the action is within an `c2-action-dropdown`.
          */
         "dropdownItem": boolean;
         /**
@@ -151,11 +151,11 @@ export namespace Components {
         "typeToConfirm"?: string;
     }
     /**
-     * A container for `es-aciton-*` elements, to be used in tables or panel headers.
+     * A container for `c2-action-*` elements, to be used in tables or panel headers.
      */
-    interface EsActions {
+    interface C2Actions {
     }
-    interface EsBackdrop {
+    interface C2Backdrop {
         "cancelClose": () => Promise<void>;
         "close": () => Promise<boolean>;
         "preventOverscroll": boolean;
@@ -165,11 +165,11 @@ export namespace Components {
     /**
      * Display a counter or dot beside a component to indicate action being required.
      */
-    interface EsBadge {
+    interface C2Badge {
         /**
           * Choose the color variant of the badge
          */
-        "color": HTMLEsCounterElement['color'];
+        "color": HTMLC2CounterElement['color'];
         /**
           * What number to display in the counter (or if the dot should display)
          */
@@ -190,7 +190,7 @@ export namespace Components {
     /**
      * A button.
      */
-    interface EsButton {
+    interface C2Button {
         /**
           * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
          */
@@ -205,9 +205,9 @@ export namespace Components {
         "variant": ButtonVariant;
     }
     /**
-     * Anchor link version of es-button, wraps a `Link` from `@kurrent-ui/router`.
+     * Anchor link version of c2-button, wraps a `Link` from `@kurrent-ui/router`.
      */
-    interface EsButtonLink {
+    interface C2ButtonLink {
         /**
           * Class for the contained anchor element
          */
@@ -256,7 +256,7 @@ export namespace Components {
     /**
      * A button with a confirmation modal.
      */
-    interface EsButtonWithConfirmation {
+    interface C2ButtonWithConfirmation {
         /**
           * The action to be called on click.
          */
@@ -285,7 +285,7 @@ export namespace Components {
     /**
      * Calls out a piece of information.
      */
-    interface EsCallout {
+    interface C2Callout {
         /**
           * Heading text.
          */
@@ -302,7 +302,7 @@ export namespace Components {
     /**
      * A modal to confirm an action.
      */
-    interface EsConfirmModal {
+    interface C2ConfirmModal {
         /**
           * Text or component to display in the body of the modal.
          */
@@ -335,7 +335,7 @@ export namespace Components {
     /**
      * Copies the text passed as a child when clicked.
      */
-    interface EsCopy {
+    interface C2Copy {
         /**
           * Manually triggers the copy of the inner text.
          */
@@ -344,7 +344,7 @@ export namespace Components {
     /**
      * Display a banner with text in the corner.
      */
-    interface EsCornerBanner {
+    interface C2CornerBanner {
         /**
           * Which styling variant to use.
          */
@@ -361,7 +361,7 @@ export namespace Components {
     /**
      * A pill display of an number, that pulses on change. Caps out at 999.
      */
-    interface EsCounter {
+    interface C2Counter {
         /**
           * Choose the color variant of the counter
          */
@@ -384,7 +384,7 @@ export namespace Components {
      * Any slotted chlid will be moved into the light, and a chain of slots
      * brings the slotted children back into position.
      */
-    interface EsHolePuncher {
+    interface C2HolePuncher {
         /**
           * Prefix the generated slot name, to allow easier identification in the DOM
          */
@@ -394,7 +394,7 @@ export namespace Components {
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
      * See [IconStore](/components/variables/iconStore) for details on how to load icons.
      */
-    interface EsIcon {
+    interface C2Icon {
         /**
           * Rotate the icon to a speciied angle.
          */
@@ -423,12 +423,12 @@ export namespace Components {
     /**
      * Display a row of five pulsing dots, to indicate loading.
      */
-    interface EsLoadingDots {
+    interface C2LoadingDots {
     }
     /**
      * Displays a grey block to placehold loading text.
      */
-    interface EsLoadingText {
+    interface C2LoadingText {
         /**
           * The expected loaded text length.
          */
@@ -441,9 +441,9 @@ export namespace Components {
     /**
      * A pop up modal for overlaying information, warnings and confirmations.
      * Traps focus within the modal, and returns focus to previous location when closed.
-     * Pair with an [`es-portal`](/components/components/es-portal) to open and close.
+     * Pair with an [`c2-portal`](/components/components/portal) to open and close.
      */
-    interface EsModal {
+    interface C2Modal {
         /**
           * If the modal should have a footer.
          */
@@ -456,7 +456,7 @@ export namespace Components {
     /**
      * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
      */
-    interface EsPagination {
+    interface C2Pagination {
         /**
           * Current Page.
          */
@@ -469,7 +469,7 @@ export namespace Components {
     /**
      * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
      */
-    interface EsPopover {
+    interface C2Popover {
         /**
           * If the popover should render an arrow.
          */
@@ -551,21 +551,21 @@ export namespace Components {
          */
         "zIndex"?: number;
     }
-    interface EsPopper {
+    interface C2Popper {
         "backdrop": boolean;
         "loaded": () => Promise<boolean>;
         "trapFocus": boolean;
     }
-    interface EsPopperInner {
+    interface C2PopperInner {
     }
-    interface EsPopperX {
+    interface C2PopperX {
     }
-    interface EsPopperY {
+    interface C2PopperY {
     }
     /**
-     * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
+     * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `c2-popover`, so any portaled elements should be self contained.
      */
-    interface EsPortal {
+    interface C2Portal {
         "attachElement": () => Promise<void>;
         /**
           * If the portal should overlay a backdrop, to prevent external clicks.
@@ -592,7 +592,7 @@ export namespace Components {
     /**
      * A wizard progression bar.
      */
-    interface EsProgression {
+    interface C2Progression {
         /**
           * A list of checkpoints to display.
          */
@@ -617,12 +617,12 @@ export namespace Components {
     /**
      * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
      */
-    interface EsResizeObserver {
+    interface C2ResizeObserver {
     }
     /**
      * Create a table from data.
      */
-    interface EsTable {
+    interface C2Table {
         /**
           * A record of table cell definitions.
          */
@@ -696,7 +696,7 @@ export namespace Components {
     /**
      * Render a single row data as a grid of information.
      */
-    interface EsTableDetail {
+    interface C2TableDetail {
         /**
           * A record of table cell definitions.
          */
@@ -719,9 +719,9 @@ export namespace Components {
         "loading"?: boolean;
     }
     /**
-     * A default header for [`es-table-detail`](/components/components/es-table-detail).
+     * A default header for [`c2-table-detail`](/components/components/table-detail).
      */
-    interface EsTableDetailHeader {
+    interface C2TableDetailHeader {
         /**
           * Which cell to place in the top right as a list of actions.
          */
@@ -746,7 +746,7 @@ export namespace Components {
     /**
      * Create a nested table from data.
      */
-    interface EsTableNested {
+    interface C2TableNested {
         /**
           * A path to a the currently active row, to auto expand its parent and show it as selected.
          */
@@ -862,7 +862,7 @@ export namespace Components {
     /**
      * Create a virtualized table from data.
      */
-    interface EsTableVirtualized {
+    interface C2TableVirtualized {
         /**
           * The height (in pixels) of the after
          */
@@ -967,7 +967,7 @@ export namespace Components {
     /**
      * A tabbed panel. Each panel can be targeted via a slot.
      */
-    interface EsTabs {
+    interface C2Tabs {
         /**
           * The currently active panel. By default it will take from the passed activeParam, or the first tab.
          */
@@ -992,7 +992,7 @@ export namespace Components {
     /**
      * A button with an icon that displays the state of a async action on click.
      */
-    interface EsThinkingButton {
+    interface C2ThinkingButton {
         /**
           * The async action to be called on click.
          */
@@ -1024,21 +1024,21 @@ export namespace Components {
         /**
           * Which styling variant to use.
          */
-        "variant": HTMLEsButtonElement['variant'];
+        "variant": HTMLC2ButtonElement['variant'];
     }
-    interface EsToast {
+    interface C2Toast {
         "close": () => Promise<void>;
         "count": Toast['count'];
         "icon": Toast['icon'];
         "level": ToastLevel;
     }
-    interface EsToaster {
+    interface C2Toaster {
         "popToast": (level: ToastLevel | undefined, { message, title, duration, icon, onClick, }: ToastOptions) => Promise<() => void>;
     }
     /**
      * A multi step wizard. Each step can be targeted via a slot.
      */
-    interface EsWizard {
+    interface C2Wizard {
         /**
           * The currently active page
          */
@@ -1053,482 +1053,482 @@ export namespace Components {
         "scrollOffset": number;
     }
 }
-export interface EsBackdropCustomEvent<T> extends CustomEvent<T> {
+export interface C2BackdropCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsBackdropElement;
+    target: HTMLC2BackdropElement;
 }
-export interface EsConfirmModalCustomEvent<T> extends CustomEvent<T> {
+export interface C2ConfirmModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsConfirmModalElement;
+    target: HTMLC2ConfirmModalElement;
 }
-export interface EsModalCustomEvent<T> extends CustomEvent<T> {
+export interface C2ModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsModalElement;
+    target: HTMLC2ModalElement;
 }
-export interface EsPaginationCustomEvent<T> extends CustomEvent<T> {
+export interface C2PaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsPaginationElement;
+    target: HTMLC2PaginationElement;
 }
-export interface EsPopoverCustomEvent<T> extends CustomEvent<T> {
+export interface C2PopoverCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsPopoverElement;
+    target: HTMLC2PopoverElement;
 }
-export interface EsPopperCustomEvent<T> extends CustomEvent<T> {
+export interface C2PopperCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsPopperElement;
+    target: HTMLC2PopperElement;
 }
-export interface EsPortalCustomEvent<T> extends CustomEvent<T> {
+export interface C2PortalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsPortalElement;
+    target: HTMLC2PortalElement;
 }
-export interface EsProgressionCustomEvent<T> extends CustomEvent<T> {
+export interface C2ProgressionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsProgressionElement;
+    target: HTMLC2ProgressionElement;
 }
-export interface EsResizeObserverCustomEvent<T> extends CustomEvent<T> {
+export interface C2ResizeObserverCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsResizeObserverElement;
+    target: HTMLC2ResizeObserverElement;
 }
-export interface EsTableCustomEvent<T> extends CustomEvent<T> {
+export interface C2TableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsTableElement;
+    target: HTMLC2TableElement;
 }
-export interface EsTableNestedCustomEvent<T> extends CustomEvent<T> {
+export interface C2TableNestedCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsTableNestedElement;
+    target: HTMLC2TableNestedElement;
 }
-export interface EsTableVirtualizedCustomEvent<T> extends CustomEvent<T> {
+export interface C2TableVirtualizedCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsTableVirtualizedElement;
+    target: HTMLC2TableVirtualizedElement;
 }
-export interface EsTabsCustomEvent<T> extends CustomEvent<T> {
+export interface C2TabsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLEsTabsElement;
+    target: HTMLC2TabsElement;
 }
 declare global {
     /**
      * Optionally collapsible sectioned view. Each section can be targeted via a part.
      */
-    interface HTMLEsAccordianElement extends Components.EsAccordian, HTMLStencilElement {
+    interface HTMLC2AccordianElement extends Components.C2Accordian, HTMLStencilElement {
     }
-    var HTMLEsAccordianElement: {
-        prototype: HTMLEsAccordianElement;
-        new (): HTMLEsAccordianElement;
+    var HTMLC2AccordianElement: {
+        prototype: HTMLC2AccordianElement;
+        new (): HTMLC2AccordianElement;
     };
     /**
      * A generic button action.
      */
-    interface HTMLEsActionElement extends Components.EsAction, HTMLStencilElement {
+    interface HTMLC2ActionElement extends Components.C2Action, HTMLStencilElement {
     }
-    var HTMLEsActionElement: {
-        prototype: HTMLEsActionElement;
-        new (): HTMLEsActionElement;
+    var HTMLC2ActionElement: {
+        prototype: HTMLC2ActionElement;
+        new (): HTMLC2ActionElement;
     };
     /**
      * A dropdown to display more actions than can be reasonably fit in a row.
      * All child actions must have the `dropdownItem` prop set.
      */
-    interface HTMLEsActionDropdownElement extends Components.EsActionDropdown, HTMLStencilElement {
+    interface HTMLC2ActionDropdownElement extends Components.C2ActionDropdown, HTMLStencilElement {
     }
-    var HTMLEsActionDropdownElement: {
-        prototype: HTMLEsActionDropdownElement;
-        new (): HTMLEsActionDropdownElement;
+    var HTMLC2ActionDropdownElement: {
+        prototype: HTMLC2ActionDropdownElement;
+        new (): HTMLC2ActionDropdownElement;
     };
     /**
      * A link action.
      */
-    interface HTMLEsActionLinkElement extends Components.EsActionLink, HTMLStencilElement {
+    interface HTMLC2ActionLinkElement extends Components.C2ActionLink, HTMLStencilElement {
     }
-    var HTMLEsActionLinkElement: {
-        prototype: HTMLEsActionLinkElement;
-        new (): HTMLEsActionLinkElement;
+    var HTMLC2ActionLinkElement: {
+        prototype: HTMLC2ActionLinkElement;
+        new (): HTMLC2ActionLinkElement;
     };
     /**
      * An action with a confirmation modal.
      */
-    interface HTMLEsActionWithConfirmationElement extends Components.EsActionWithConfirmation, HTMLStencilElement {
+    interface HTMLC2ActionWithConfirmationElement extends Components.C2ActionWithConfirmation, HTMLStencilElement {
     }
-    var HTMLEsActionWithConfirmationElement: {
-        prototype: HTMLEsActionWithConfirmationElement;
-        new (): HTMLEsActionWithConfirmationElement;
+    var HTMLC2ActionWithConfirmationElement: {
+        prototype: HTMLC2ActionWithConfirmationElement;
+        new (): HTMLC2ActionWithConfirmationElement;
     };
     /**
-     * A container for `es-aciton-*` elements, to be used in tables or panel headers.
+     * A container for `c2-action-*` elements, to be used in tables or panel headers.
      */
-    interface HTMLEsActionsElement extends Components.EsActions, HTMLStencilElement {
+    interface HTMLC2ActionsElement extends Components.C2Actions, HTMLStencilElement {
     }
-    var HTMLEsActionsElement: {
-        prototype: HTMLEsActionsElement;
-        new (): HTMLEsActionsElement;
+    var HTMLC2ActionsElement: {
+        prototype: HTMLC2ActionsElement;
+        new (): HTMLC2ActionsElement;
     };
-    interface HTMLEsBackdropElementEventMap {
+    interface HTMLC2BackdropElementEventMap {
         "requestClose": any;
         "closed": any;
     }
-    interface HTMLEsBackdropElement extends Components.EsBackdrop, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsBackdropElementEventMap>(type: K, listener: (this: HTMLEsBackdropElement, ev: EsBackdropCustomEvent<HTMLEsBackdropElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLC2BackdropElement extends Components.C2Backdrop, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLC2BackdropElementEventMap>(type: K, listener: (this: HTMLC2BackdropElement, ev: C2BackdropCustomEvent<HTMLC2BackdropElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsBackdropElementEventMap>(type: K, listener: (this: HTMLEsBackdropElement, ev: EsBackdropCustomEvent<HTMLEsBackdropElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLC2BackdropElementEventMap>(type: K, listener: (this: HTMLC2BackdropElement, ev: C2BackdropCustomEvent<HTMLC2BackdropElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsBackdropElement: {
-        prototype: HTMLEsBackdropElement;
-        new (): HTMLEsBackdropElement;
+    var HTMLC2BackdropElement: {
+        prototype: HTMLC2BackdropElement;
+        new (): HTMLC2BackdropElement;
     };
     /**
      * Display a counter or dot beside a component to indicate action being required.
      */
-    interface HTMLEsBadgeElement extends Components.EsBadge, HTMLStencilElement {
+    interface HTMLC2BadgeElement extends Components.C2Badge, HTMLStencilElement {
     }
-    var HTMLEsBadgeElement: {
-        prototype: HTMLEsBadgeElement;
-        new (): HTMLEsBadgeElement;
+    var HTMLC2BadgeElement: {
+        prototype: HTMLC2BadgeElement;
+        new (): HTMLC2BadgeElement;
     };
     /**
      * A button.
      */
-    interface HTMLEsButtonElement extends Components.EsButton, HTMLStencilElement {
+    interface HTMLC2ButtonElement extends Components.C2Button, HTMLStencilElement {
     }
-    var HTMLEsButtonElement: {
-        prototype: HTMLEsButtonElement;
-        new (): HTMLEsButtonElement;
+    var HTMLC2ButtonElement: {
+        prototype: HTMLC2ButtonElement;
+        new (): HTMLC2ButtonElement;
     };
     /**
-     * Anchor link version of es-button, wraps a `Link` from `@kurrent-ui/router`.
+     * Anchor link version of c2-button, wraps a `Link` from `@kurrent-ui/router`.
      */
-    interface HTMLEsButtonLinkElement extends Components.EsButtonLink, HTMLStencilElement {
+    interface HTMLC2ButtonLinkElement extends Components.C2ButtonLink, HTMLStencilElement {
     }
-    var HTMLEsButtonLinkElement: {
-        prototype: HTMLEsButtonLinkElement;
-        new (): HTMLEsButtonLinkElement;
+    var HTMLC2ButtonLinkElement: {
+        prototype: HTMLC2ButtonLinkElement;
+        new (): HTMLC2ButtonLinkElement;
     };
     /**
      * A button with a confirmation modal.
      */
-    interface HTMLEsButtonWithConfirmationElement extends Components.EsButtonWithConfirmation, HTMLStencilElement {
+    interface HTMLC2ButtonWithConfirmationElement extends Components.C2ButtonWithConfirmation, HTMLStencilElement {
     }
-    var HTMLEsButtonWithConfirmationElement: {
-        prototype: HTMLEsButtonWithConfirmationElement;
-        new (): HTMLEsButtonWithConfirmationElement;
+    var HTMLC2ButtonWithConfirmationElement: {
+        prototype: HTMLC2ButtonWithConfirmationElement;
+        new (): HTMLC2ButtonWithConfirmationElement;
     };
     /**
      * Calls out a piece of information.
      */
-    interface HTMLEsCalloutElement extends Components.EsCallout, HTMLStencilElement {
+    interface HTMLC2CalloutElement extends Components.C2Callout, HTMLStencilElement {
     }
-    var HTMLEsCalloutElement: {
-        prototype: HTMLEsCalloutElement;
-        new (): HTMLEsCalloutElement;
+    var HTMLC2CalloutElement: {
+        prototype: HTMLC2CalloutElement;
+        new (): HTMLC2CalloutElement;
     };
-    interface HTMLEsConfirmModalElementEventMap {
+    interface HTMLC2ConfirmModalElementEventMap {
         "requestClose": any;
         "requestDeletion": any;
     }
     /**
      * A modal to confirm an action.
      */
-    interface HTMLEsConfirmModalElement extends Components.EsConfirmModal, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsConfirmModalElementEventMap>(type: K, listener: (this: HTMLEsConfirmModalElement, ev: EsConfirmModalCustomEvent<HTMLEsConfirmModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLC2ConfirmModalElement extends Components.C2ConfirmModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLC2ConfirmModalElementEventMap>(type: K, listener: (this: HTMLC2ConfirmModalElement, ev: C2ConfirmModalCustomEvent<HTMLC2ConfirmModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsConfirmModalElementEventMap>(type: K, listener: (this: HTMLEsConfirmModalElement, ev: EsConfirmModalCustomEvent<HTMLEsConfirmModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLC2ConfirmModalElementEventMap>(type: K, listener: (this: HTMLC2ConfirmModalElement, ev: C2ConfirmModalCustomEvent<HTMLC2ConfirmModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsConfirmModalElement: {
-        prototype: HTMLEsConfirmModalElement;
-        new (): HTMLEsConfirmModalElement;
+    var HTMLC2ConfirmModalElement: {
+        prototype: HTMLC2ConfirmModalElement;
+        new (): HTMLC2ConfirmModalElement;
     };
     /**
      * Copies the text passed as a child when clicked.
      */
-    interface HTMLEsCopyElement extends Components.EsCopy, HTMLStencilElement {
+    interface HTMLC2CopyElement extends Components.C2Copy, HTMLStencilElement {
     }
-    var HTMLEsCopyElement: {
-        prototype: HTMLEsCopyElement;
-        new (): HTMLEsCopyElement;
+    var HTMLC2CopyElement: {
+        prototype: HTMLC2CopyElement;
+        new (): HTMLC2CopyElement;
     };
     /**
      * Display a banner with text in the corner.
      */
-    interface HTMLEsCornerBannerElement extends Components.EsCornerBanner, HTMLStencilElement {
+    interface HTMLC2CornerBannerElement extends Components.C2CornerBanner, HTMLStencilElement {
     }
-    var HTMLEsCornerBannerElement: {
-        prototype: HTMLEsCornerBannerElement;
-        new (): HTMLEsCornerBannerElement;
+    var HTMLC2CornerBannerElement: {
+        prototype: HTMLC2CornerBannerElement;
+        new (): HTMLC2CornerBannerElement;
     };
     /**
      * A pill display of an number, that pulses on change. Caps out at 999.
      */
-    interface HTMLEsCounterElement extends Components.EsCounter, HTMLStencilElement {
+    interface HTMLC2CounterElement extends Components.C2Counter, HTMLStencilElement {
     }
-    var HTMLEsCounterElement: {
-        prototype: HTMLEsCounterElement;
-        new (): HTMLEsCounterElement;
+    var HTMLC2CounterElement: {
+        prototype: HTMLC2CounterElement;
+        new (): HTMLC2CounterElement;
     };
     /**
      * Punches a hole through all parent shadow DOMs into the light DOM.
      * Any slotted chlid will be moved into the light, and a chain of slots
      * brings the slotted children back into position.
      */
-    interface HTMLEsHolePuncherElement extends Components.EsHolePuncher, HTMLStencilElement {
+    interface HTMLC2HolePuncherElement extends Components.C2HolePuncher, HTMLStencilElement {
     }
-    var HTMLEsHolePuncherElement: {
-        prototype: HTMLEsHolePuncherElement;
-        new (): HTMLEsHolePuncherElement;
+    var HTMLC2HolePuncherElement: {
+        prototype: HTMLC2HolePuncherElement;
+        new (): HTMLC2HolePuncherElement;
     };
     /**
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
      * See [IconStore](/components/variables/iconStore) for details on how to load icons.
      */
-    interface HTMLEsIconElement extends Components.EsIcon, HTMLStencilElement {
+    interface HTMLC2IconElement extends Components.C2Icon, HTMLStencilElement {
     }
-    var HTMLEsIconElement: {
-        prototype: HTMLEsIconElement;
-        new (): HTMLEsIconElement;
+    var HTMLC2IconElement: {
+        prototype: HTMLC2IconElement;
+        new (): HTMLC2IconElement;
     };
     /**
      * Display a row of five pulsing dots, to indicate loading.
      */
-    interface HTMLEsLoadingDotsElement extends Components.EsLoadingDots, HTMLStencilElement {
+    interface HTMLC2LoadingDotsElement extends Components.C2LoadingDots, HTMLStencilElement {
     }
-    var HTMLEsLoadingDotsElement: {
-        prototype: HTMLEsLoadingDotsElement;
-        new (): HTMLEsLoadingDotsElement;
+    var HTMLC2LoadingDotsElement: {
+        prototype: HTMLC2LoadingDotsElement;
+        new (): HTMLC2LoadingDotsElement;
     };
     /**
      * Displays a grey block to placehold loading text.
      */
-    interface HTMLEsLoadingTextElement extends Components.EsLoadingText, HTMLStencilElement {
+    interface HTMLC2LoadingTextElement extends Components.C2LoadingText, HTMLStencilElement {
     }
-    var HTMLEsLoadingTextElement: {
-        prototype: HTMLEsLoadingTextElement;
-        new (): HTMLEsLoadingTextElement;
+    var HTMLC2LoadingTextElement: {
+        prototype: HTMLC2LoadingTextElement;
+        new (): HTMLC2LoadingTextElement;
     };
-    interface HTMLEsModalElementEventMap {
+    interface HTMLC2ModalElementEventMap {
         "requestClose": void;
     }
     /**
      * A pop up modal for overlaying information, warnings and confirmations.
      * Traps focus within the modal, and returns focus to previous location when closed.
-     * Pair with an [`es-portal`](/components/components/es-portal) to open and close.
+     * Pair with an [`c2-portal`](/components/components/portal) to open and close.
      */
-    interface HTMLEsModalElement extends Components.EsModal, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsModalElementEventMap>(type: K, listener: (this: HTMLEsModalElement, ev: EsModalCustomEvent<HTMLEsModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLC2ModalElement extends Components.C2Modal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLC2ModalElementEventMap>(type: K, listener: (this: HTMLC2ModalElement, ev: C2ModalCustomEvent<HTMLC2ModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsModalElementEventMap>(type: K, listener: (this: HTMLEsModalElement, ev: EsModalCustomEvent<HTMLEsModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLC2ModalElementEventMap>(type: K, listener: (this: HTMLC2ModalElement, ev: C2ModalCustomEvent<HTMLC2ModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsModalElement: {
-        prototype: HTMLEsModalElement;
-        new (): HTMLEsModalElement;
+    var HTMLC2ModalElement: {
+        prototype: HTMLC2ModalElement;
+        new (): HTMLC2ModalElement;
     };
-    interface HTMLEsPaginationElementEventMap {
+    interface HTMLC2PaginationElementEventMap {
         "update": PageChangeEventType;
     }
     /**
      * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
      */
-    interface HTMLEsPaginationElement extends Components.EsPagination, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsPaginationElementEventMap>(type: K, listener: (this: HTMLEsPaginationElement, ev: EsPaginationCustomEvent<HTMLEsPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLC2PaginationElement extends Components.C2Pagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLC2PaginationElementEventMap>(type: K, listener: (this: HTMLC2PaginationElement, ev: C2PaginationCustomEvent<HTMLC2PaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsPaginationElementEventMap>(type: K, listener: (this: HTMLEsPaginationElement, ev: EsPaginationCustomEvent<HTMLEsPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLC2PaginationElementEventMap>(type: K, listener: (this: HTMLC2PaginationElement, ev: C2PaginationCustomEvent<HTMLC2PaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsPaginationElement: {
-        prototype: HTMLEsPaginationElement;
-        new (): HTMLEsPaginationElement;
+    var HTMLC2PaginationElement: {
+        prototype: HTMLC2PaginationElement;
+        new (): HTMLC2PaginationElement;
     };
-    interface HTMLEsPopoverElementEventMap {
+    interface HTMLC2PopoverElementEventMap {
         "requestClose": any;
     }
     /**
      * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
      */
-    interface HTMLEsPopoverElement extends Components.EsPopover, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsPopoverElementEventMap>(type: K, listener: (this: HTMLEsPopoverElement, ev: EsPopoverCustomEvent<HTMLEsPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLC2PopoverElement extends Components.C2Popover, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLC2PopoverElementEventMap>(type: K, listener: (this: HTMLC2PopoverElement, ev: C2PopoverCustomEvent<HTMLC2PopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsPopoverElementEventMap>(type: K, listener: (this: HTMLEsPopoverElement, ev: EsPopoverCustomEvent<HTMLEsPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLC2PopoverElementEventMap>(type: K, listener: (this: HTMLC2PopoverElement, ev: C2PopoverCustomEvent<HTMLC2PopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsPopoverElement: {
-        prototype: HTMLEsPopoverElement;
-        new (): HTMLEsPopoverElement;
+    var HTMLC2PopoverElement: {
+        prototype: HTMLC2PopoverElement;
+        new (): HTMLC2PopoverElement;
     };
-    interface HTMLEsPopperElementEventMap {
+    interface HTMLC2PopperElementEventMap {
         "requestClose": any;
     }
-    interface HTMLEsPopperElement extends Components.EsPopper, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsPopperElementEventMap>(type: K, listener: (this: HTMLEsPopperElement, ev: EsPopperCustomEvent<HTMLEsPopperElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLC2PopperElement extends Components.C2Popper, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLC2PopperElementEventMap>(type: K, listener: (this: HTMLC2PopperElement, ev: C2PopperCustomEvent<HTMLC2PopperElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsPopperElementEventMap>(type: K, listener: (this: HTMLEsPopperElement, ev: EsPopperCustomEvent<HTMLEsPopperElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLC2PopperElementEventMap>(type: K, listener: (this: HTMLC2PopperElement, ev: C2PopperCustomEvent<HTMLC2PopperElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsPopperElement: {
-        prototype: HTMLEsPopperElement;
-        new (): HTMLEsPopperElement;
+    var HTMLC2PopperElement: {
+        prototype: HTMLC2PopperElement;
+        new (): HTMLC2PopperElement;
     };
-    interface HTMLEsPopperInnerElement extends Components.EsPopperInner, HTMLStencilElement {
+    interface HTMLC2PopperInnerElement extends Components.C2PopperInner, HTMLStencilElement {
     }
-    var HTMLEsPopperInnerElement: {
-        prototype: HTMLEsPopperInnerElement;
-        new (): HTMLEsPopperInnerElement;
+    var HTMLC2PopperInnerElement: {
+        prototype: HTMLC2PopperInnerElement;
+        new (): HTMLC2PopperInnerElement;
     };
-    interface HTMLEsPopperXElement extends Components.EsPopperX, HTMLStencilElement {
+    interface HTMLC2PopperXElement extends Components.C2PopperX, HTMLStencilElement {
     }
-    var HTMLEsPopperXElement: {
-        prototype: HTMLEsPopperXElement;
-        new (): HTMLEsPopperXElement;
+    var HTMLC2PopperXElement: {
+        prototype: HTMLC2PopperXElement;
+        new (): HTMLC2PopperXElement;
     };
-    interface HTMLEsPopperYElement extends Components.EsPopperY, HTMLStencilElement {
+    interface HTMLC2PopperYElement extends Components.C2PopperY, HTMLStencilElement {
     }
-    var HTMLEsPopperYElement: {
-        prototype: HTMLEsPopperYElement;
-        new (): HTMLEsPopperYElement;
+    var HTMLC2PopperYElement: {
+        prototype: HTMLC2PopperYElement;
+        new (): HTMLC2PopperYElement;
     };
-    interface HTMLEsPortalElementEventMap {
+    interface HTMLC2PortalElementEventMap {
         "requestClose": any;
     }
     /**
-     * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
+     * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `c2-popover`, so any portaled elements should be self contained.
      */
-    interface HTMLEsPortalElement extends Components.EsPortal, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsPortalElementEventMap>(type: K, listener: (this: HTMLEsPortalElement, ev: EsPortalCustomEvent<HTMLEsPortalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLC2PortalElement extends Components.C2Portal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLC2PortalElementEventMap>(type: K, listener: (this: HTMLC2PortalElement, ev: C2PortalCustomEvent<HTMLC2PortalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsPortalElementEventMap>(type: K, listener: (this: HTMLEsPortalElement, ev: EsPortalCustomEvent<HTMLEsPortalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLC2PortalElementEventMap>(type: K, listener: (this: HTMLC2PortalElement, ev: C2PortalCustomEvent<HTMLC2PortalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsPortalElement: {
-        prototype: HTMLEsPortalElement;
-        new (): HTMLEsPortalElement;
+    var HTMLC2PortalElement: {
+        prototype: HTMLC2PortalElement;
+        new (): HTMLC2PortalElement;
     };
-    interface HTMLEsProgressionElementEventMap {
+    interface HTMLC2ProgressionElementEventMap {
         "progressionRequest": string;
     }
     /**
      * A wizard progression bar.
      */
-    interface HTMLEsProgressionElement extends Components.EsProgression, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsProgressionElementEventMap>(type: K, listener: (this: HTMLEsProgressionElement, ev: EsProgressionCustomEvent<HTMLEsProgressionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLC2ProgressionElement extends Components.C2Progression, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLC2ProgressionElementEventMap>(type: K, listener: (this: HTMLC2ProgressionElement, ev: C2ProgressionCustomEvent<HTMLC2ProgressionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsProgressionElementEventMap>(type: K, listener: (this: HTMLEsProgressionElement, ev: EsProgressionCustomEvent<HTMLEsProgressionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLC2ProgressionElementEventMap>(type: K, listener: (this: HTMLC2ProgressionElement, ev: C2ProgressionCustomEvent<HTMLC2ProgressionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsProgressionElement: {
-        prototype: HTMLEsProgressionElement;
-        new (): HTMLEsProgressionElement;
+    var HTMLC2ProgressionElement: {
+        prototype: HTMLC2ProgressionElement;
+        new (): HTMLC2ProgressionElement;
     };
-    interface HTMLEsResizeObserverElementEventMap {
+    interface HTMLC2ResizeObserverElementEventMap {
         "sizeChanged": DOMRectReadOnly;
     }
     /**
      * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
      */
-    interface HTMLEsResizeObserverElement extends Components.EsResizeObserver, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsResizeObserverElementEventMap>(type: K, listener: (this: HTMLEsResizeObserverElement, ev: EsResizeObserverCustomEvent<HTMLEsResizeObserverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLC2ResizeObserverElement extends Components.C2ResizeObserver, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLC2ResizeObserverElementEventMap>(type: K, listener: (this: HTMLC2ResizeObserverElement, ev: C2ResizeObserverCustomEvent<HTMLC2ResizeObserverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsResizeObserverElementEventMap>(type: K, listener: (this: HTMLEsResizeObserverElement, ev: EsResizeObserverCustomEvent<HTMLEsResizeObserverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLC2ResizeObserverElementEventMap>(type: K, listener: (this: HTMLC2ResizeObserverElement, ev: C2ResizeObserverCustomEvent<HTMLC2ResizeObserverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsResizeObserverElement: {
-        prototype: HTMLEsResizeObserverElement;
-        new (): HTMLEsResizeObserverElement;
+    var HTMLC2ResizeObserverElement: {
+        prototype: HTMLC2ResizeObserverElement;
+        new (): HTMLC2ResizeObserverElement;
     };
-    interface HTMLEsTableElementEventMap {
+    interface HTMLC2TableElementEventMap {
         "clickRow": ClickRow<any>;
         "clickSort": string;
     }
     /**
      * Create a table from data.
      */
-    interface HTMLEsTableElement extends Components.EsTable, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsTableElementEventMap>(type: K, listener: (this: HTMLEsTableElement, ev: EsTableCustomEvent<HTMLEsTableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLC2TableElement extends Components.C2Table, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLC2TableElementEventMap>(type: K, listener: (this: HTMLC2TableElement, ev: C2TableCustomEvent<HTMLC2TableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsTableElementEventMap>(type: K, listener: (this: HTMLEsTableElement, ev: EsTableCustomEvent<HTMLEsTableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLC2TableElementEventMap>(type: K, listener: (this: HTMLC2TableElement, ev: C2TableCustomEvent<HTMLC2TableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsTableElement: {
-        prototype: HTMLEsTableElement;
-        new (): HTMLEsTableElement;
+    var HTMLC2TableElement: {
+        prototype: HTMLC2TableElement;
+        new (): HTMLC2TableElement;
     };
     /**
      * Render a single row data as a grid of information.
      */
-    interface HTMLEsTableDetailElement extends Components.EsTableDetail, HTMLStencilElement {
+    interface HTMLC2TableDetailElement extends Components.C2TableDetail, HTMLStencilElement {
     }
-    var HTMLEsTableDetailElement: {
-        prototype: HTMLEsTableDetailElement;
-        new (): HTMLEsTableDetailElement;
+    var HTMLC2TableDetailElement: {
+        prototype: HTMLC2TableDetailElement;
+        new (): HTMLC2TableDetailElement;
     };
     /**
-     * A default header for [`es-table-detail`](/components/components/es-table-detail).
+     * A default header for [`c2-table-detail`](/components/components/table-detail).
      */
-    interface HTMLEsTableDetailHeaderElement extends Components.EsTableDetailHeader, HTMLStencilElement {
+    interface HTMLC2TableDetailHeaderElement extends Components.C2TableDetailHeader, HTMLStencilElement {
     }
-    var HTMLEsTableDetailHeaderElement: {
-        prototype: HTMLEsTableDetailHeaderElement;
-        new (): HTMLEsTableDetailHeaderElement;
+    var HTMLC2TableDetailHeaderElement: {
+        prototype: HTMLC2TableDetailHeaderElement;
+        new (): HTMLC2TableDetailHeaderElement;
     };
-    interface HTMLEsTableNestedElementEventMap {
+    interface HTMLC2TableNestedElementEventMap {
         "clickRow": any;
         "expansion": { data: any; key: string };
     }
     /**
      * Create a nested table from data.
      */
-    interface HTMLEsTableNestedElement extends Components.EsTableNested, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsTableNestedElementEventMap>(type: K, listener: (this: HTMLEsTableNestedElement, ev: EsTableNestedCustomEvent<HTMLEsTableNestedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLC2TableNestedElement extends Components.C2TableNested, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLC2TableNestedElementEventMap>(type: K, listener: (this: HTMLC2TableNestedElement, ev: C2TableNestedCustomEvent<HTMLC2TableNestedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsTableNestedElementEventMap>(type: K, listener: (this: HTMLEsTableNestedElement, ev: EsTableNestedCustomEvent<HTMLEsTableNestedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLC2TableNestedElementEventMap>(type: K, listener: (this: HTMLC2TableNestedElement, ev: C2TableNestedCustomEvent<HTMLC2TableNestedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsTableNestedElement: {
-        prototype: HTMLEsTableNestedElement;
-        new (): HTMLEsTableNestedElement;
+    var HTMLC2TableNestedElement: {
+        prototype: HTMLC2TableNestedElement;
+        new (): HTMLC2TableNestedElement;
     };
-    interface HTMLEsTableVirtualizedElementEventMap {
+    interface HTMLC2TableVirtualizedElementEventMap {
         "clickRow": ClickRow;
         "clickSort": string;
         "loadBlock": LoadWindow;
@@ -1538,118 +1538,118 @@ declare global {
     /**
      * Create a virtualized table from data.
      */
-    interface HTMLEsTableVirtualizedElement extends Components.EsTableVirtualized, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsTableVirtualizedElementEventMap>(type: K, listener: (this: HTMLEsTableVirtualizedElement, ev: EsTableVirtualizedCustomEvent<HTMLEsTableVirtualizedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLC2TableVirtualizedElement extends Components.C2TableVirtualized, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLC2TableVirtualizedElementEventMap>(type: K, listener: (this: HTMLC2TableVirtualizedElement, ev: C2TableVirtualizedCustomEvent<HTMLC2TableVirtualizedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsTableVirtualizedElementEventMap>(type: K, listener: (this: HTMLEsTableVirtualizedElement, ev: EsTableVirtualizedCustomEvent<HTMLEsTableVirtualizedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLC2TableVirtualizedElementEventMap>(type: K, listener: (this: HTMLC2TableVirtualizedElement, ev: C2TableVirtualizedCustomEvent<HTMLC2TableVirtualizedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsTableVirtualizedElement: {
-        prototype: HTMLEsTableVirtualizedElement;
-        new (): HTMLEsTableVirtualizedElement;
+    var HTMLC2TableVirtualizedElement: {
+        prototype: HTMLC2TableVirtualizedElement;
+        new (): HTMLC2TableVirtualizedElement;
     };
-    interface HTMLEsTabsElementEventMap {
+    interface HTMLC2TabsElementEventMap {
         "tabChange": string;
     }
     /**
      * A tabbed panel. Each panel can be targeted via a slot.
      */
-    interface HTMLEsTabsElement extends Components.EsTabs, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLEsTabsElementEventMap>(type: K, listener: (this: HTMLEsTabsElement, ev: EsTabsCustomEvent<HTMLEsTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLC2TabsElement extends Components.C2Tabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLC2TabsElementEventMap>(type: K, listener: (this: HTMLC2TabsElement, ev: C2TabsCustomEvent<HTMLC2TabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLEsTabsElementEventMap>(type: K, listener: (this: HTMLEsTabsElement, ev: EsTabsCustomEvent<HTMLEsTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLC2TabsElementEventMap>(type: K, listener: (this: HTMLC2TabsElement, ev: C2TabsCustomEvent<HTMLC2TabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLEsTabsElement: {
-        prototype: HTMLEsTabsElement;
-        new (): HTMLEsTabsElement;
+    var HTMLC2TabsElement: {
+        prototype: HTMLC2TabsElement;
+        new (): HTMLC2TabsElement;
     };
     /**
      * A button with an icon that displays the state of a async action on click.
      */
-    interface HTMLEsThinkingButtonElement extends Components.EsThinkingButton, HTMLStencilElement {
+    interface HTMLC2ThinkingButtonElement extends Components.C2ThinkingButton, HTMLStencilElement {
     }
-    var HTMLEsThinkingButtonElement: {
-        prototype: HTMLEsThinkingButtonElement;
-        new (): HTMLEsThinkingButtonElement;
+    var HTMLC2ThinkingButtonElement: {
+        prototype: HTMLC2ThinkingButtonElement;
+        new (): HTMLC2ThinkingButtonElement;
     };
-    interface HTMLEsToastElement extends Components.EsToast, HTMLStencilElement {
+    interface HTMLC2ToastElement extends Components.C2Toast, HTMLStencilElement {
     }
-    var HTMLEsToastElement: {
-        prototype: HTMLEsToastElement;
-        new (): HTMLEsToastElement;
+    var HTMLC2ToastElement: {
+        prototype: HTMLC2ToastElement;
+        new (): HTMLC2ToastElement;
     };
-    interface HTMLEsToasterElement extends Components.EsToaster, HTMLStencilElement {
+    interface HTMLC2ToasterElement extends Components.C2Toaster, HTMLStencilElement {
     }
-    var HTMLEsToasterElement: {
-        prototype: HTMLEsToasterElement;
-        new (): HTMLEsToasterElement;
+    var HTMLC2ToasterElement: {
+        prototype: HTMLC2ToasterElement;
+        new (): HTMLC2ToasterElement;
     };
     /**
      * A multi step wizard. Each step can be targeted via a slot.
      */
-    interface HTMLEsWizardElement extends Components.EsWizard, HTMLStencilElement {
+    interface HTMLC2WizardElement extends Components.C2Wizard, HTMLStencilElement {
     }
-    var HTMLEsWizardElement: {
-        prototype: HTMLEsWizardElement;
-        new (): HTMLEsWizardElement;
+    var HTMLC2WizardElement: {
+        prototype: HTMLC2WizardElement;
+        new (): HTMLC2WizardElement;
     };
     interface HTMLElementTagNameMap {
-        "es-accordian": HTMLEsAccordianElement;
-        "es-action": HTMLEsActionElement;
-        "es-action-dropdown": HTMLEsActionDropdownElement;
-        "es-action-link": HTMLEsActionLinkElement;
-        "es-action-with-confirmation": HTMLEsActionWithConfirmationElement;
-        "es-actions": HTMLEsActionsElement;
-        "es-backdrop": HTMLEsBackdropElement;
-        "es-badge": HTMLEsBadgeElement;
-        "es-button": HTMLEsButtonElement;
-        "es-button-link": HTMLEsButtonLinkElement;
-        "es-button-with-confirmation": HTMLEsButtonWithConfirmationElement;
-        "es-callout": HTMLEsCalloutElement;
-        "es-confirm-modal": HTMLEsConfirmModalElement;
-        "es-copy": HTMLEsCopyElement;
-        "es-corner-banner": HTMLEsCornerBannerElement;
-        "es-counter": HTMLEsCounterElement;
-        "es-hole-puncher": HTMLEsHolePuncherElement;
-        "es-icon": HTMLEsIconElement;
-        "es-loading-dots": HTMLEsLoadingDotsElement;
-        "es-loading-text": HTMLEsLoadingTextElement;
-        "es-modal": HTMLEsModalElement;
-        "es-pagination": HTMLEsPaginationElement;
-        "es-popover": HTMLEsPopoverElement;
-        "es-popper": HTMLEsPopperElement;
-        "es-popper-inner": HTMLEsPopperInnerElement;
-        "es-popper-x": HTMLEsPopperXElement;
-        "es-popper-y": HTMLEsPopperYElement;
-        "es-portal": HTMLEsPortalElement;
-        "es-progression": HTMLEsProgressionElement;
-        "es-resize-observer": HTMLEsResizeObserverElement;
-        "es-table": HTMLEsTableElement;
-        "es-table-detail": HTMLEsTableDetailElement;
-        "es-table-detail-header": HTMLEsTableDetailHeaderElement;
-        "es-table-nested": HTMLEsTableNestedElement;
-        "es-table-virtualized": HTMLEsTableVirtualizedElement;
-        "es-tabs": HTMLEsTabsElement;
-        "es-thinking-button": HTMLEsThinkingButtonElement;
-        "es-toast": HTMLEsToastElement;
-        "es-toaster": HTMLEsToasterElement;
-        "es-wizard": HTMLEsWizardElement;
+        "c2-accordian": HTMLC2AccordianElement;
+        "c2-action": HTMLC2ActionElement;
+        "c2-action-dropdown": HTMLC2ActionDropdownElement;
+        "c2-action-link": HTMLC2ActionLinkElement;
+        "c2-action-with-confirmation": HTMLC2ActionWithConfirmationElement;
+        "c2-actions": HTMLC2ActionsElement;
+        "c2-backdrop": HTMLC2BackdropElement;
+        "c2-badge": HTMLC2BadgeElement;
+        "c2-button": HTMLC2ButtonElement;
+        "c2-button-link": HTMLC2ButtonLinkElement;
+        "c2-button-with-confirmation": HTMLC2ButtonWithConfirmationElement;
+        "c2-callout": HTMLC2CalloutElement;
+        "c2-confirm-modal": HTMLC2ConfirmModalElement;
+        "c2-copy": HTMLC2CopyElement;
+        "c2-corner-banner": HTMLC2CornerBannerElement;
+        "c2-counter": HTMLC2CounterElement;
+        "c2-hole-puncher": HTMLC2HolePuncherElement;
+        "c2-icon": HTMLC2IconElement;
+        "c2-loading-dots": HTMLC2LoadingDotsElement;
+        "c2-loading-text": HTMLC2LoadingTextElement;
+        "c2-modal": HTMLC2ModalElement;
+        "c2-pagination": HTMLC2PaginationElement;
+        "c2-popover": HTMLC2PopoverElement;
+        "c2-popper": HTMLC2PopperElement;
+        "c2-popper-inner": HTMLC2PopperInnerElement;
+        "c2-popper-x": HTMLC2PopperXElement;
+        "c2-popper-y": HTMLC2PopperYElement;
+        "c2-portal": HTMLC2PortalElement;
+        "c2-progression": HTMLC2ProgressionElement;
+        "c2-resize-observer": HTMLC2ResizeObserverElement;
+        "c2-table": HTMLC2TableElement;
+        "c2-table-detail": HTMLC2TableDetailElement;
+        "c2-table-detail-header": HTMLC2TableDetailHeaderElement;
+        "c2-table-nested": HTMLC2TableNestedElement;
+        "c2-table-virtualized": HTMLC2TableVirtualizedElement;
+        "c2-tabs": HTMLC2TabsElement;
+        "c2-thinking-button": HTMLC2ThinkingButtonElement;
+        "c2-toast": HTMLC2ToastElement;
+        "c2-toaster": HTMLC2ToasterElement;
+        "c2-wizard": HTMLC2WizardElement;
     }
 }
 declare namespace LocalJSX {
     /**
      * Optionally collapsible sectioned view. Each section can be targeted via a part.
      */
-    interface EsAccordian {
+    interface C2Accordian {
         /**
           * An array of sections to display.
          */
@@ -1662,7 +1662,7 @@ declare namespace LocalJSX {
     /**
      * A generic button action.
      */
-    interface EsAction {
+    interface C2Action {
         /**
           * The action to take when the button is clicked.
          */
@@ -1674,9 +1674,9 @@ declare namespace LocalJSX {
         /**
           * If a dot should be shown on the action, to indicate attention being required.
          */
-        "dot"?: HTMLEsBadgeElement['color'];
+        "dot"?: HTMLC2BadgeElement['color'];
         /**
-          * If the action is within an `es-action-dropdown`.
+          * If the action is within an `c2-action-dropdown`.
          */
         "dropdownItem"?: boolean;
         /**
@@ -1688,7 +1688,7 @@ declare namespace LocalJSX {
      * A dropdown to display more actions than can be reasonably fit in a row.
      * All child actions must have the `dropdownItem` prop set.
      */
-    interface EsActionDropdown {
+    interface C2ActionDropdown {
         /**
           * If the dropdown should be disabled.
          */
@@ -1701,7 +1701,7 @@ declare namespace LocalJSX {
     /**
      * A link action.
      */
-    interface EsActionLink {
+    interface C2ActionLink {
         /**
           * If the action should be disabled.
          */
@@ -1709,9 +1709,9 @@ declare namespace LocalJSX {
         /**
           * If a dot should be shown on the action, to indicate attention being required.
          */
-        "dot"?: HTMLEsBadgeElement['color'];
+        "dot"?: HTMLC2BadgeElement['color'];
         /**
-          * If the action is within an `es-action-dropdown`.
+          * If the action is within an `c2-action-dropdown`.
          */
         "dropdownItem"?: boolean;
         /**
@@ -1726,7 +1726,7 @@ declare namespace LocalJSX {
     /**
      * An action with a confirmation modal.
      */
-    interface EsActionWithConfirmation {
+    interface C2ActionWithConfirmation {
         /**
           * The action to take when the button is clicked.
          */
@@ -1738,9 +1738,9 @@ declare namespace LocalJSX {
         /**
           * If a dot should be shown on the action, to indicate attention being required.
          */
-        "dot"?: HTMLEsBadgeElement['color'];
+        "dot"?: HTMLC2BadgeElement['color'];
         /**
-          * If the action is within an `es-action-dropdown`.
+          * If the action is within an `c2-action-dropdown`.
          */
         "dropdownItem"?: boolean;
         /**
@@ -1757,24 +1757,24 @@ declare namespace LocalJSX {
         "typeToConfirm"?: string;
     }
     /**
-     * A container for `es-aciton-*` elements, to be used in tables or panel headers.
+     * A container for `c2-action-*` elements, to be used in tables or panel headers.
      */
-    interface EsActions {
+    interface C2Actions {
     }
-    interface EsBackdrop {
-        "onClosed"?: (event: EsBackdropCustomEvent<any>) => void;
-        "onRequestClose"?: (event: EsBackdropCustomEvent<any>) => void;
+    interface C2Backdrop {
+        "onClosed"?: (event: C2BackdropCustomEvent<any>) => void;
+        "onRequestClose"?: (event: C2BackdropCustomEvent<any>) => void;
         "preventOverscroll"?: boolean;
         "showBackdrop"?: boolean;
     }
     /**
      * Display a counter or dot beside a component to indicate action being required.
      */
-    interface EsBadge {
+    interface C2Badge {
         /**
           * Choose the color variant of the badge
          */
-        "color"?: HTMLEsCounterElement['color'];
+        "color"?: HTMLC2CounterElement['color'];
         /**
           * What number to display in the counter (or if the dot should display)
          */
@@ -1795,7 +1795,7 @@ declare namespace LocalJSX {
     /**
      * A button.
      */
-    interface EsButton {
+    interface C2Button {
         /**
           * If the button is disabled. Prevents the user from interacting with the button: it cannot be pressed or focused.
          */
@@ -1810,9 +1810,9 @@ declare namespace LocalJSX {
         "variant"?: ButtonVariant;
     }
     /**
-     * Anchor link version of es-button, wraps a `Link` from `@kurrent-ui/router`.
+     * Anchor link version of c2-button, wraps a `Link` from `@kurrent-ui/router`.
      */
-    interface EsButtonLink {
+    interface C2ButtonLink {
         /**
           * Class for the contained anchor element
          */
@@ -1861,7 +1861,7 @@ declare namespace LocalJSX {
     /**
      * A button with a confirmation modal.
      */
-    interface EsButtonWithConfirmation {
+    interface C2ButtonWithConfirmation {
         /**
           * The action to be called on click.
          */
@@ -1890,7 +1890,7 @@ declare namespace LocalJSX {
     /**
      * Calls out a piece of information.
      */
-    interface EsCallout {
+    interface C2Callout {
         /**
           * Heading text.
          */
@@ -1907,7 +1907,7 @@ declare namespace LocalJSX {
     /**
      * A modal to confirm an action.
      */
-    interface EsConfirmModal {
+    interface C2ConfirmModal {
         /**
           * Text or component to display in the body of the modal.
          */
@@ -1927,11 +1927,11 @@ declare namespace LocalJSX {
         /**
           * Triggered when the user has indicated that they want to close the modal.
          */
-        "onRequestClose"?: (event: EsConfirmModalCustomEvent<any>) => void;
+        "onRequestClose"?: (event: C2ConfirmModalCustomEvent<any>) => void;
         /**
           * Triggered when the user has indicated that they want to close the modal.
          */
-        "onRequestDeletion"?: (event: EsConfirmModalCustomEvent<any>) => void;
+        "onRequestDeletion"?: (event: C2ConfirmModalCustomEvent<any>) => void;
         /**
           * Text to display above the heading.
          */
@@ -1948,12 +1948,12 @@ declare namespace LocalJSX {
     /**
      * Copies the text passed as a child when clicked.
      */
-    interface EsCopy {
+    interface C2Copy {
     }
     /**
      * Display a banner with text in the corner.
      */
-    interface EsCornerBanner {
+    interface C2CornerBanner {
         /**
           * Which styling variant to use.
          */
@@ -1970,7 +1970,7 @@ declare namespace LocalJSX {
     /**
      * A pill display of an number, that pulses on change. Caps out at 999.
      */
-    interface EsCounter {
+    interface C2Counter {
         /**
           * Choose the color variant of the counter
          */
@@ -1993,7 +1993,7 @@ declare namespace LocalJSX {
      * Any slotted chlid will be moved into the light, and a chain of slots
      * brings the slotted children back into position.
      */
-    interface EsHolePuncher {
+    interface C2HolePuncher {
         /**
           * Prefix the generated slot name, to allow easier identification in the DOM
          */
@@ -2003,7 +2003,7 @@ declare namespace LocalJSX {
      * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
      * See [IconStore](/components/variables/iconStore) for details on how to load icons.
      */
-    interface EsIcon {
+    interface C2Icon {
         /**
           * Rotate the icon to a speciied angle.
          */
@@ -2028,12 +2028,12 @@ declare namespace LocalJSX {
     /**
      * Display a row of five pulsing dots, to indicate loading.
      */
-    interface EsLoadingDots {
+    interface C2LoadingDots {
     }
     /**
      * Displays a grey block to placehold loading text.
      */
-    interface EsLoadingText {
+    interface C2LoadingText {
         /**
           * The expected loaded text length.
          */
@@ -2046,9 +2046,9 @@ declare namespace LocalJSX {
     /**
      * A pop up modal for overlaying information, warnings and confirmations.
      * Traps focus within the modal, and returns focus to previous location when closed.
-     * Pair with an [`es-portal`](/components/components/es-portal) to open and close.
+     * Pair with an [`c2-portal`](/components/components/portal) to open and close.
      */
-    interface EsModal {
+    interface C2Modal {
         /**
           * If the modal should have a footer.
          */
@@ -2060,12 +2060,12 @@ declare namespace LocalJSX {
         /**
           * Triggers when the modal requests to be closed.
          */
-        "onRequestClose"?: (event: EsModalCustomEvent<void>) => void;
+        "onRequestClose"?: (event: C2ModalCustomEvent<void>) => void;
     }
     /**
      * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
      */
-    interface EsPagination {
+    interface C2Pagination {
         /**
           * Current Page.
          */
@@ -2073,7 +2073,7 @@ declare namespace LocalJSX {
         /**
           * Triggered when a pagination button is clicked
          */
-        "onUpdate"?: (event: EsPaginationCustomEvent<PageChangeEventType>) => void;
+        "onUpdate"?: (event: C2PaginationCustomEvent<PageChangeEventType>) => void;
         /**
           * Number of pages.
          */
@@ -2082,7 +2082,7 @@ declare namespace LocalJSX {
     /**
      * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
      */
-    interface EsPopover {
+    interface C2Popover {
         /**
           * If the popover should render an arrow.
          */
@@ -2142,7 +2142,7 @@ declare namespace LocalJSX {
         /**
           * Triggers when the popover requests to close.
          */
-        "onRequestClose"?: (event: EsPopoverCustomEvent<any>) => void;
+        "onRequestClose"?: (event: C2PopoverCustomEvent<any>) => void;
         /**
           * Toggles if the popover is open or not.
          */
@@ -2168,21 +2168,21 @@ declare namespace LocalJSX {
          */
         "zIndex"?: number;
     }
-    interface EsPopper {
+    interface C2Popper {
         "backdrop"?: boolean;
-        "onRequestClose"?: (event: EsPopperCustomEvent<any>) => void;
+        "onRequestClose"?: (event: C2PopperCustomEvent<any>) => void;
         "trapFocus"?: boolean;
     }
-    interface EsPopperInner {
+    interface C2PopperInner {
     }
-    interface EsPopperX {
+    interface C2PopperX {
     }
-    interface EsPopperY {
+    interface C2PopperY {
     }
     /**
-     * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
+     * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `c2-popover`, so any portaled elements should be self contained.
      */
-    interface EsPortal {
+    interface C2Portal {
         /**
           * If the portal should overlay a backdrop, to prevent external clicks.
          */
@@ -2190,7 +2190,7 @@ declare namespace LocalJSX {
         /**
           * Triggers when the popover requests to close.
          */
-        "onRequestClose"?: (event: EsPortalCustomEvent<any>) => void;
+        "onRequestClose"?: (event: C2PortalCustomEvent<any>) => void;
         /**
           * If the element is portaled or not.
          */
@@ -2211,7 +2211,7 @@ declare namespace LocalJSX {
     /**
      * A wizard progression bar.
      */
-    interface EsProgression {
+    interface C2Progression {
         /**
           * A list of checkpoints to display.
          */
@@ -2231,7 +2231,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when a checkpoint is clicked.
          */
-        "onProgressionRequest"?: (event: EsProgressionCustomEvent<string>) => void;
+        "onProgressionRequest"?: (event: C2ProgressionCustomEvent<string>) => void;
         /**
           * Disable interactivity.
          */
@@ -2240,16 +2240,16 @@ declare namespace LocalJSX {
     /**
      * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
      */
-    interface EsResizeObserver {
+    interface C2ResizeObserver {
         /**
           * Triggered when the size of the element changes.
          */
-        "onSizeChanged"?: (event: EsResizeObserverCustomEvent<DOMRectReadOnly>) => void;
+        "onSizeChanged"?: (event: C2ResizeObserverCustomEvent<DOMRectReadOnly>) => void;
     }
     /**
      * Create a table from data.
      */
-    interface EsTable {
+    interface C2Table {
         /**
           * A record of table cell definitions.
          */
@@ -2293,11 +2293,11 @@ declare namespace LocalJSX {
         /**
           * Triggered whenever a row is clicked.
          */
-        "onClickRow"?: (event: EsTableCustomEvent<ClickRow<any>>) => void;
+        "onClickRow"?: (event: C2TableCustomEvent<ClickRow<any>>) => void;
         /**
           * Triggered whenever a sortable header is clicked
          */
-        "onClickSort"?: (event: EsTableCustomEvent<string>) => void;
+        "onClickSort"?: (event: C2TableCustomEvent<string>) => void;
         /**
           * Allows rendering a node after the row.
          */
@@ -2331,7 +2331,7 @@ declare namespace LocalJSX {
     /**
      * Render a single row data as a grid of information.
      */
-    interface EsTableDetail {
+    interface C2TableDetail {
         /**
           * A record of table cell definitions.
          */
@@ -2354,9 +2354,9 @@ declare namespace LocalJSX {
         "loading"?: boolean;
     }
     /**
-     * A default header for [`es-table-detail`](/components/components/es-table-detail).
+     * A default header for [`c2-table-detail`](/components/components/table-detail).
      */
-    interface EsTableDetailHeader {
+    interface C2TableDetailHeader {
         /**
           * Which cell to place in the top right as a list of actions.
          */
@@ -2381,7 +2381,7 @@ declare namespace LocalJSX {
     /**
      * Create a nested table from data.
      */
-    interface EsTableNested {
+    interface C2TableNested {
         /**
           * A path to a the currently active row, to auto expand its parent and show it as selected.
          */
@@ -2469,11 +2469,11 @@ declare namespace LocalJSX {
         /**
           * Triggered whenever a row (or nested row) is clicked. The `detail` is the item in the row array.
          */
-        "onClickRow"?: (event: EsTableNestedCustomEvent<any>) => void;
+        "onClickRow"?: (event: C2TableNestedCustomEvent<any>) => void;
         /**
           * Triggered whenever a row is expanded.
          */
-        "onExpansion"?: (event: EsTableNestedCustomEvent<{ data: any; key: string }>) => void;
+        "onExpansion"?: (event: C2TableNestedCustomEvent<{ data: any; key: string }>) => void;
         /**
           * Passed to cell renderer as `parent`.
          */
@@ -2505,7 +2505,7 @@ declare namespace LocalJSX {
     /**
      * Create a virtualized table from data.
      */
-    interface EsTableVirtualized {
+    interface C2TableVirtualized {
         /**
           * The height (in pixels) of the after
          */
@@ -2557,23 +2557,23 @@ declare namespace LocalJSX {
         /**
           * Triggered whenever a row is clicked. The `detail` is the item in the row array.
          */
-        "onClickRow"?: (event: EsTableVirtualizedCustomEvent<ClickRow>) => void;
+        "onClickRow"?: (event: C2TableVirtualizedCustomEvent<ClickRow>) => void;
         /**
           * Triggered whenever a sortable header is clicked
          */
-        "onClickSort"?: (event: EsTableVirtualizedCustomEvent<string>) => void;
+        "onClickSort"?: (event: C2TableVirtualizedCustomEvent<string>) => void;
         /**
           * Triggered when the first block is rendered
          */
-        "onFirstBlock"?: (event: EsTableVirtualizedCustomEvent<void>) => void;
+        "onFirstBlock"?: (event: C2TableVirtualizedCustomEvent<void>) => void;
         /**
           * Triggered when the last block is rendered
          */
-        "onLastBlock"?: (event: EsTableVirtualizedCustomEvent<void>) => void;
+        "onLastBlock"?: (event: C2TableVirtualizedCustomEvent<void>) => void;
         /**
           * Triggered when a block is rendered
          */
-        "onLoadBlock"?: (event: EsTableVirtualizedCustomEvent<LoadWindow>) => void;
+        "onLoadBlock"?: (event: C2TableVirtualizedCustomEvent<LoadWindow>) => void;
         /**
           * The size of the grid rows before starting a reflow
          */
@@ -2626,7 +2626,7 @@ declare namespace LocalJSX {
     /**
      * A tabbed panel. Each panel can be targeted via a slot.
      */
-    interface EsTabs {
+    interface C2Tabs {
         /**
           * The currently active panel. By default it will take from the passed activeParam, or the first tab.
          */
@@ -2646,7 +2646,7 @@ declare namespace LocalJSX {
         /**
           * Triggered when the active tab is changed. `detail` is the newly active tab.
          */
-        "onTabChange"?: (event: EsTabsCustomEvent<string>) => void;
+        "onTabChange"?: (event: C2TabsCustomEvent<string>) => void;
         /**
           * A list of tabs.
          */
@@ -2655,7 +2655,7 @@ declare namespace LocalJSX {
     /**
      * A button with an icon that displays the state of a async action on click.
      */
-    interface EsThinkingButton {
+    interface C2ThinkingButton {
         /**
           * The async action to be called on click.
          */
@@ -2687,19 +2687,19 @@ declare namespace LocalJSX {
         /**
           * Which styling variant to use.
          */
-        "variant"?: HTMLEsButtonElement['variant'];
+        "variant"?: HTMLC2ButtonElement['variant'];
     }
-    interface EsToast {
+    interface C2Toast {
         "count": Toast['count'];
         "icon": Toast['icon'];
         "level": ToastLevel;
     }
-    interface EsToaster {
+    interface C2Toaster {
     }
     /**
      * A multi step wizard. Each step can be targeted via a slot.
      */
-    interface EsWizard {
+    interface C2Wizard {
         /**
           * The currently active page
          */
@@ -2714,46 +2714,46 @@ declare namespace LocalJSX {
         "scrollOffset"?: number;
     }
     interface IntrinsicElements {
-        "es-accordian": EsAccordian;
-        "es-action": EsAction;
-        "es-action-dropdown": EsActionDropdown;
-        "es-action-link": EsActionLink;
-        "es-action-with-confirmation": EsActionWithConfirmation;
-        "es-actions": EsActions;
-        "es-backdrop": EsBackdrop;
-        "es-badge": EsBadge;
-        "es-button": EsButton;
-        "es-button-link": EsButtonLink;
-        "es-button-with-confirmation": EsButtonWithConfirmation;
-        "es-callout": EsCallout;
-        "es-confirm-modal": EsConfirmModal;
-        "es-copy": EsCopy;
-        "es-corner-banner": EsCornerBanner;
-        "es-counter": EsCounter;
-        "es-hole-puncher": EsHolePuncher;
-        "es-icon": EsIcon;
-        "es-loading-dots": EsLoadingDots;
-        "es-loading-text": EsLoadingText;
-        "es-modal": EsModal;
-        "es-pagination": EsPagination;
-        "es-popover": EsPopover;
-        "es-popper": EsPopper;
-        "es-popper-inner": EsPopperInner;
-        "es-popper-x": EsPopperX;
-        "es-popper-y": EsPopperY;
-        "es-portal": EsPortal;
-        "es-progression": EsProgression;
-        "es-resize-observer": EsResizeObserver;
-        "es-table": EsTable;
-        "es-table-detail": EsTableDetail;
-        "es-table-detail-header": EsTableDetailHeader;
-        "es-table-nested": EsTableNested;
-        "es-table-virtualized": EsTableVirtualized;
-        "es-tabs": EsTabs;
-        "es-thinking-button": EsThinkingButton;
-        "es-toast": EsToast;
-        "es-toaster": EsToaster;
-        "es-wizard": EsWizard;
+        "c2-accordian": C2Accordian;
+        "c2-action": C2Action;
+        "c2-action-dropdown": C2ActionDropdown;
+        "c2-action-link": C2ActionLink;
+        "c2-action-with-confirmation": C2ActionWithConfirmation;
+        "c2-actions": C2Actions;
+        "c2-backdrop": C2Backdrop;
+        "c2-badge": C2Badge;
+        "c2-button": C2Button;
+        "c2-button-link": C2ButtonLink;
+        "c2-button-with-confirmation": C2ButtonWithConfirmation;
+        "c2-callout": C2Callout;
+        "c2-confirm-modal": C2ConfirmModal;
+        "c2-copy": C2Copy;
+        "c2-corner-banner": C2CornerBanner;
+        "c2-counter": C2Counter;
+        "c2-hole-puncher": C2HolePuncher;
+        "c2-icon": C2Icon;
+        "c2-loading-dots": C2LoadingDots;
+        "c2-loading-text": C2LoadingText;
+        "c2-modal": C2Modal;
+        "c2-pagination": C2Pagination;
+        "c2-popover": C2Popover;
+        "c2-popper": C2Popper;
+        "c2-popper-inner": C2PopperInner;
+        "c2-popper-x": C2PopperX;
+        "c2-popper-y": C2PopperY;
+        "c2-portal": C2Portal;
+        "c2-progression": C2Progression;
+        "c2-resize-observer": C2ResizeObserver;
+        "c2-table": C2Table;
+        "c2-table-detail": C2TableDetail;
+        "c2-table-detail-header": C2TableDetailHeader;
+        "c2-table-nested": C2TableNested;
+        "c2-table-virtualized": C2TableVirtualized;
+        "c2-tabs": C2Tabs;
+        "c2-thinking-button": C2ThinkingButton;
+        "c2-toast": C2Toast;
+        "c2-toaster": C2Toaster;
+        "c2-wizard": C2Wizard;
     }
 }
 export { LocalJSX as JSX };
@@ -2763,148 +2763,148 @@ declare module "@stencil/core" {
             /**
              * Optionally collapsible sectioned view. Each section can be targeted via a part.
              */
-            "es-accordian": LocalJSX.EsAccordian & JSXBase.HTMLAttributes<HTMLEsAccordianElement>;
+            "c2-accordian": LocalJSX.C2Accordian & JSXBase.HTMLAttributes<HTMLC2AccordianElement>;
             /**
              * A generic button action.
              */
-            "es-action": LocalJSX.EsAction & JSXBase.HTMLAttributes<HTMLEsActionElement>;
+            "c2-action": LocalJSX.C2Action & JSXBase.HTMLAttributes<HTMLC2ActionElement>;
             /**
              * A dropdown to display more actions than can be reasonably fit in a row.
              * All child actions must have the `dropdownItem` prop set.
              */
-            "es-action-dropdown": LocalJSX.EsActionDropdown & JSXBase.HTMLAttributes<HTMLEsActionDropdownElement>;
+            "c2-action-dropdown": LocalJSX.C2ActionDropdown & JSXBase.HTMLAttributes<HTMLC2ActionDropdownElement>;
             /**
              * A link action.
              */
-            "es-action-link": LocalJSX.EsActionLink & JSXBase.HTMLAttributes<HTMLEsActionLinkElement>;
+            "c2-action-link": LocalJSX.C2ActionLink & JSXBase.HTMLAttributes<HTMLC2ActionLinkElement>;
             /**
              * An action with a confirmation modal.
              */
-            "es-action-with-confirmation": LocalJSX.EsActionWithConfirmation & JSXBase.HTMLAttributes<HTMLEsActionWithConfirmationElement>;
+            "c2-action-with-confirmation": LocalJSX.C2ActionWithConfirmation & JSXBase.HTMLAttributes<HTMLC2ActionWithConfirmationElement>;
             /**
-             * A container for `es-aciton-*` elements, to be used in tables or panel headers.
+             * A container for `c2-action-*` elements, to be used in tables or panel headers.
              */
-            "es-actions": LocalJSX.EsActions & JSXBase.HTMLAttributes<HTMLEsActionsElement>;
-            "es-backdrop": LocalJSX.EsBackdrop & JSXBase.HTMLAttributes<HTMLEsBackdropElement>;
+            "c2-actions": LocalJSX.C2Actions & JSXBase.HTMLAttributes<HTMLC2ActionsElement>;
+            "c2-backdrop": LocalJSX.C2Backdrop & JSXBase.HTMLAttributes<HTMLC2BackdropElement>;
             /**
              * Display a counter or dot beside a component to indicate action being required.
              */
-            "es-badge": LocalJSX.EsBadge & JSXBase.HTMLAttributes<HTMLEsBadgeElement>;
+            "c2-badge": LocalJSX.C2Badge & JSXBase.HTMLAttributes<HTMLC2BadgeElement>;
             /**
              * A button.
              */
-            "es-button": LocalJSX.EsButton & JSXBase.HTMLAttributes<HTMLEsButtonElement>;
+            "c2-button": LocalJSX.C2Button & JSXBase.HTMLAttributes<HTMLC2ButtonElement>;
             /**
-             * Anchor link version of es-button, wraps a `Link` from `@kurrent-ui/router`.
+             * Anchor link version of c2-button, wraps a `Link` from `@kurrent-ui/router`.
              */
-            "es-button-link": LocalJSX.EsButtonLink & JSXBase.HTMLAttributes<HTMLEsButtonLinkElement>;
+            "c2-button-link": LocalJSX.C2ButtonLink & JSXBase.HTMLAttributes<HTMLC2ButtonLinkElement>;
             /**
              * A button with a confirmation modal.
              */
-            "es-button-with-confirmation": LocalJSX.EsButtonWithConfirmation & JSXBase.HTMLAttributes<HTMLEsButtonWithConfirmationElement>;
+            "c2-button-with-confirmation": LocalJSX.C2ButtonWithConfirmation & JSXBase.HTMLAttributes<HTMLC2ButtonWithConfirmationElement>;
             /**
              * Calls out a piece of information.
              */
-            "es-callout": LocalJSX.EsCallout & JSXBase.HTMLAttributes<HTMLEsCalloutElement>;
+            "c2-callout": LocalJSX.C2Callout & JSXBase.HTMLAttributes<HTMLC2CalloutElement>;
             /**
              * A modal to confirm an action.
              */
-            "es-confirm-modal": LocalJSX.EsConfirmModal & JSXBase.HTMLAttributes<HTMLEsConfirmModalElement>;
+            "c2-confirm-modal": LocalJSX.C2ConfirmModal & JSXBase.HTMLAttributes<HTMLC2ConfirmModalElement>;
             /**
              * Copies the text passed as a child when clicked.
              */
-            "es-copy": LocalJSX.EsCopy & JSXBase.HTMLAttributes<HTMLEsCopyElement>;
+            "c2-copy": LocalJSX.C2Copy & JSXBase.HTMLAttributes<HTMLC2CopyElement>;
             /**
              * Display a banner with text in the corner.
              */
-            "es-corner-banner": LocalJSX.EsCornerBanner & JSXBase.HTMLAttributes<HTMLEsCornerBannerElement>;
+            "c2-corner-banner": LocalJSX.C2CornerBanner & JSXBase.HTMLAttributes<HTMLC2CornerBannerElement>;
             /**
              * A pill display of an number, that pulses on change. Caps out at 999.
              */
-            "es-counter": LocalJSX.EsCounter & JSXBase.HTMLAttributes<HTMLEsCounterElement>;
+            "c2-counter": LocalJSX.C2Counter & JSXBase.HTMLAttributes<HTMLC2CounterElement>;
             /**
              * Punches a hole through all parent shadow DOMs into the light DOM.
              * Any slotted chlid will be moved into the light, and a chain of slots
              * brings the slotted children back into position.
              */
-            "es-hole-puncher": LocalJSX.EsHolePuncher & JSXBase.HTMLAttributes<HTMLEsHolePuncherElement>;
+            "c2-hole-puncher": LocalJSX.C2HolePuncher & JSXBase.HTMLAttributes<HTMLC2HolePuncherElement>;
             /**
              * Displays an icon loaded from the `iconStore`. An icon named "spinner" will automatically spin.
              * See [IconStore](/components/variables/iconStore) for details on how to load icons.
              */
-            "es-icon": LocalJSX.EsIcon & JSXBase.HTMLAttributes<HTMLEsIconElement>;
+            "c2-icon": LocalJSX.C2Icon & JSXBase.HTMLAttributes<HTMLC2IconElement>;
             /**
              * Display a row of five pulsing dots, to indicate loading.
              */
-            "es-loading-dots": LocalJSX.EsLoadingDots & JSXBase.HTMLAttributes<HTMLEsLoadingDotsElement>;
+            "c2-loading-dots": LocalJSX.C2LoadingDots & JSXBase.HTMLAttributes<HTMLC2LoadingDotsElement>;
             /**
              * Displays a grey block to placehold loading text.
              */
-            "es-loading-text": LocalJSX.EsLoadingText & JSXBase.HTMLAttributes<HTMLEsLoadingTextElement>;
+            "c2-loading-text": LocalJSX.C2LoadingText & JSXBase.HTMLAttributes<HTMLC2LoadingTextElement>;
             /**
              * A pop up modal for overlaying information, warnings and confirmations.
              * Traps focus within the modal, and returns focus to previous location when closed.
-             * Pair with an [`es-portal`](/components/components/es-portal) to open and close.
+             * Pair with an [`c2-portal`](/components/components/portal) to open and close.
              */
-            "es-modal": LocalJSX.EsModal & JSXBase.HTMLAttributes<HTMLEsModalElement>;
+            "c2-modal": LocalJSX.C2Modal & JSXBase.HTMLAttributes<HTMLC2ModalElement>;
             /**
              * Page navigation with ability to jump to first and last pages with `pageCount` is provided.
              */
-            "es-pagination": LocalJSX.EsPagination & JSXBase.HTMLAttributes<HTMLEsPaginationElement>;
+            "c2-pagination": LocalJSX.C2Pagination & JSXBase.HTMLAttributes<HTMLC2PaginationElement>;
             /**
              * Attaches a portaled popover, attached to the parent node. Can be used to create dropdowns, tooltips etc. The parent scoped shadow styles are copied to the created portals shadow styles, to allow styling popover contents externally.
              */
-            "es-popover": LocalJSX.EsPopover & JSXBase.HTMLAttributes<HTMLEsPopoverElement>;
-            "es-popper": LocalJSX.EsPopper & JSXBase.HTMLAttributes<HTMLEsPopperElement>;
-            "es-popper-inner": LocalJSX.EsPopperInner & JSXBase.HTMLAttributes<HTMLEsPopperInnerElement>;
-            "es-popper-x": LocalJSX.EsPopperX & JSXBase.HTMLAttributes<HTMLEsPopperXElement>;
-            "es-popper-y": LocalJSX.EsPopperY & JSXBase.HTMLAttributes<HTMLEsPopperYElement>;
+            "c2-popover": LocalJSX.C2Popover & JSXBase.HTMLAttributes<HTMLC2PopoverElement>;
+            "c2-popper": LocalJSX.C2Popper & JSXBase.HTMLAttributes<HTMLC2PopperElement>;
+            "c2-popper-inner": LocalJSX.C2PopperInner & JSXBase.HTMLAttributes<HTMLC2PopperInnerElement>;
+            "c2-popper-x": LocalJSX.C2PopperX & JSXBase.HTMLAttributes<HTMLC2PopperXElement>;
+            "c2-popper-y": LocalJSX.C2PopperY & JSXBase.HTMLAttributes<HTMLC2PopperYElement>;
             /**
-             * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `es-popover`, so any portaled elements should be self contained.
+             * Portals the passed node to a different part of the document. Note that portal does not transfer shadow scoped styles, unlike `c2-popover`, so any portaled elements should be self contained.
              */
-            "es-portal": LocalJSX.EsPortal & JSXBase.HTMLAttributes<HTMLEsPortalElement>;
+            "c2-portal": LocalJSX.C2Portal & JSXBase.HTMLAttributes<HTMLC2PortalElement>;
             /**
              * A wizard progression bar.
              */
-            "es-progression": LocalJSX.EsProgression & JSXBase.HTMLAttributes<HTMLEsProgressionElement>;
+            "c2-progression": LocalJSX.C2Progression & JSXBase.HTMLAttributes<HTMLC2ProgressionElement>;
             /**
              * Wraps a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to allow tracking `DOMRect` dimensions
              */
-            "es-resize-observer": LocalJSX.EsResizeObserver & JSXBase.HTMLAttributes<HTMLEsResizeObserverElement>;
+            "c2-resize-observer": LocalJSX.C2ResizeObserver & JSXBase.HTMLAttributes<HTMLC2ResizeObserverElement>;
             /**
              * Create a table from data.
              */
-            "es-table": LocalJSX.EsTable & JSXBase.HTMLAttributes<HTMLEsTableElement>;
+            "c2-table": LocalJSX.C2Table & JSXBase.HTMLAttributes<HTMLC2TableElement>;
             /**
              * Render a single row data as a grid of information.
              */
-            "es-table-detail": LocalJSX.EsTableDetail & JSXBase.HTMLAttributes<HTMLEsTableDetailElement>;
+            "c2-table-detail": LocalJSX.C2TableDetail & JSXBase.HTMLAttributes<HTMLC2TableDetailElement>;
             /**
-             * A default header for [`es-table-detail`](/components/components/es-table-detail).
+             * A default header for [`c2-table-detail`](/components/components/table-detail).
              */
-            "es-table-detail-header": LocalJSX.EsTableDetailHeader & JSXBase.HTMLAttributes<HTMLEsTableDetailHeaderElement>;
+            "c2-table-detail-header": LocalJSX.C2TableDetailHeader & JSXBase.HTMLAttributes<HTMLC2TableDetailHeaderElement>;
             /**
              * Create a nested table from data.
              */
-            "es-table-nested": LocalJSX.EsTableNested & JSXBase.HTMLAttributes<HTMLEsTableNestedElement>;
+            "c2-table-nested": LocalJSX.C2TableNested & JSXBase.HTMLAttributes<HTMLC2TableNestedElement>;
             /**
              * Create a virtualized table from data.
              */
-            "es-table-virtualized": LocalJSX.EsTableVirtualized & JSXBase.HTMLAttributes<HTMLEsTableVirtualizedElement>;
+            "c2-table-virtualized": LocalJSX.C2TableVirtualized & JSXBase.HTMLAttributes<HTMLC2TableVirtualizedElement>;
             /**
              * A tabbed panel. Each panel can be targeted via a slot.
              */
-            "es-tabs": LocalJSX.EsTabs & JSXBase.HTMLAttributes<HTMLEsTabsElement>;
+            "c2-tabs": LocalJSX.C2Tabs & JSXBase.HTMLAttributes<HTMLC2TabsElement>;
             /**
              * A button with an icon that displays the state of a async action on click.
              */
-            "es-thinking-button": LocalJSX.EsThinkingButton & JSXBase.HTMLAttributes<HTMLEsThinkingButtonElement>;
-            "es-toast": LocalJSX.EsToast & JSXBase.HTMLAttributes<HTMLEsToastElement>;
-            "es-toaster": LocalJSX.EsToaster & JSXBase.HTMLAttributes<HTMLEsToasterElement>;
+            "c2-thinking-button": LocalJSX.C2ThinkingButton & JSXBase.HTMLAttributes<HTMLC2ThinkingButtonElement>;
+            "c2-toast": LocalJSX.C2Toast & JSXBase.HTMLAttributes<HTMLC2ToastElement>;
+            "c2-toaster": LocalJSX.C2Toaster & JSXBase.HTMLAttributes<HTMLC2ToasterElement>;
             /**
              * A multi step wizard. Each step can be targeted via a slot.
              */
-            "es-wizard": LocalJSX.EsWizard & JSXBase.HTMLAttributes<HTMLEsWizardElement>;
+            "c2-wizard": LocalJSX.C2Wizard & JSXBase.HTMLAttributes<HTMLC2WizardElement>;
         }
     }
 }

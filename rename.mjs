@@ -19,7 +19,7 @@ const readDeep = async (path) => {
     }
 };
 
-const path = join(process.cwd(), 'packages/layout/src/components');
+const path = join(process.cwd(), 'packages/components/src/components');
 await readDeep(path);
 
 toRename.sort(([a], [b]) => {
