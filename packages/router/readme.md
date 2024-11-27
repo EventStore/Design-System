@@ -30,7 +30,7 @@ import { router } from '@kurrent-ui/router';
 export class Root {
     componentWillLoad() {
         router.init({
-            titleSuffix: ' - Event Store',
+            titleSuffix: ' - Kurrent',
         });
     }
 }

@@ -1,4 +1,4 @@
-# @eventstore-ui/router
+# @kurrent-ui/router
 
 ## 1.0.5
 

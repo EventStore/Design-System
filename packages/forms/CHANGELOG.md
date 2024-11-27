@@ -1,4 +1,4 @@
-# @eventstore-ui/forms
+# @kurrent-ui/forms
 
 ## 1.0.3
 
