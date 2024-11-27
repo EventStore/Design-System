@@ -1,5 +1,5 @@
 {
-    "name": "@eventstore-ui/docs",
+    "name": "@kurrent-ui/docs",
     "private": true,
     "version": "0.1.0-alpha",
     "description": "Documentation for Event Store Design System",

@@ -170,14 +170,6 @@ iconStore.addIcons({
     get plus() {
         return import('./components/Plus').then(({ Plus }) => Plus);
     },
-    get 'postcss-palette-plugin'() {
-        return import('./components/PostcssPalettePlugin').then(
-            ({ PostcssPalettePlugin }) => PostcssPalettePlugin,
-        );
-    },
-    get '@eventstore-ui/postcss-palette-plugin'() {
-        return this['postcss-palette-plugin'];
-    },
     get 'reflect-to-attr'() {
         return import('./components/ReflectToAttr').then(
             ({ ReflectToAttr }) => ReflectToAttr,
