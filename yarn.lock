@@ -2027,45 +2027,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eventstore-ui/docs@workspace:documentation":
-  version: 0.0.0-use.local
-  resolution: "@eventstore-ui/docs@workspace:documentation"
-  dependencies:
-    "@kurrent-ui/assets": "workspace:*"
-    "@kurrent-ui/components": "workspace:*"
-    "@kurrent-ui/configs": "workspace:*"
-    "@kurrent-ui/editor": "workspace:*"
-    "@kurrent-ui/fields": "workspace:*"
-    "@kurrent-ui/forms": "workspace:*"
-    "@kurrent-ui/icon-manager": "workspace:*"
-    "@kurrent-ui/layout": "workspace:*"
-    "@kurrent-ui/preview-builder": "workspace:*"
-    "@kurrent-ui/router": "workspace:*"
-    "@kurrent-ui/sequences": "workspace:*"
-    "@kurrent-ui/stores": "workspace:*"
-    "@kurrent-ui/theme": "workspace:*"
-    "@kurrent-ui/utils": "workspace:*"
-    "@stencil-community/postcss": "npm:^2.2.0"
-    "@stencil/core": "npm:4.22.0"
-    "@types/jest": "npm:^27.0.3"
-    "@types/markdown-it": "npm:12.0.3"
-    eslint: "npm:^8.4.0"
-    highlight.js: "npm:11.2.0"
-    jest: "npm:^27.4.5"
-    markdown-it: "npm:12.3.2"
-    markdown-it-anchor: "npm:8.6.4"
-    npm-run-all: "npm:^4.1.5"
-    postcss: "npm:^8.4.31"
-    postcss-preset-env: "npm:^9.2.0"
-    puppeteer: "npm:^19.5.0"
-    rollup-plugin-string: "npm:3.0.0"
-    serve: "npm:^14.2.3"
-    typedoc: "npm:0.24.8"
-    typescript: "npm:5.1.6"
-    workbox-build: "npm:6.5.4"
-  languageName: unknown
-  linkType: soft
-
 "@floating-ui/core@npm:^0.6.1":
   version: 0.6.1
   resolution: "@floating-ui/core@npm:0.6.1"
@@ -2431,6 +2392,45 @@ __metadata:
     "@typescript-eslint/parser": ^6.x
     eslint: ^8.x
     prettier: ^3.x
+  languageName: unknown
+  linkType: soft
+
+"@kurrent-ui/docs@workspace:documentation":
+  version: 0.0.0-use.local
+  resolution: "@kurrent-ui/docs@workspace:documentation"
+  dependencies:
+    "@kurrent-ui/assets": "workspace:*"
+    "@kurrent-ui/components": "workspace:*"
+    "@kurrent-ui/configs": "workspace:*"
+    "@kurrent-ui/editor": "workspace:*"
+    "@kurrent-ui/fields": "workspace:*"
+    "@kurrent-ui/forms": "workspace:*"
+    "@kurrent-ui/icon-manager": "workspace:*"
+    "@kurrent-ui/layout": "workspace:*"
+    "@kurrent-ui/preview-builder": "workspace:*"
+    "@kurrent-ui/router": "workspace:*"
+    "@kurrent-ui/sequences": "workspace:*"
+    "@kurrent-ui/stores": "workspace:*"
+    "@kurrent-ui/theme": "workspace:*"
+    "@kurrent-ui/utils": "workspace:*"
+    "@stencil-community/postcss": "npm:^2.2.0"
+    "@stencil/core": "npm:4.22.0"
+    "@types/jest": "npm:^27.0.3"
+    "@types/markdown-it": "npm:12.0.3"
+    eslint: "npm:^8.4.0"
+    highlight.js: "npm:11.2.0"
+    jest: "npm:^27.4.5"
+    markdown-it: "npm:12.3.2"
+    markdown-it-anchor: "npm:8.6.4"
+    npm-run-all: "npm:^4.1.5"
+    postcss: "npm:^8.4.31"
+    postcss-preset-env: "npm:^9.2.0"
+    puppeteer: "npm:^19.5.0"
+    rollup-plugin-string: "npm:3.0.0"
+    serve: "npm:^14.2.3"
+    typedoc: "npm:0.24.8"
+    typescript: "npm:5.1.6"
+    workbox-build: "npm:6.5.4"
   languageName: unknown
   linkType: soft
 
