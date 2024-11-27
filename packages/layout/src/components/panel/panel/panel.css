@@ -103,7 +103,7 @@
         height: 100%;
         cursor: col-resize;
 
-        & es-icon {
+        & c2-icon {
             transform: rotate(90deg);
         }
     }

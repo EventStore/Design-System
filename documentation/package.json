@@ -39,7 +39,7 @@
         }
     },
     "dependencies": {
-        "@eventstore-ui/components": "workspace:*",
+        "@kurrent-ui/components": "workspace:*",
         "@kurrent-ui/editor": "workspace:*",
         "@kurrent-ui/fields": "workspace:*",
         "@kurrent-ui/forms": "workspace:*",

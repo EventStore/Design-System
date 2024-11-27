@@ -1,0 +1,137 @@
+/**
+ * @prop --inactive-color: The inactive text color of the tab;
+ * @prop --active-color: The active text color of the tab, and color of the active indicator;
+ * @prop --focus-color: The focused text color of the tab;
+ * @prop --focus-indicator-color: The color of the focus indicator;
+ * @prop --border-color: The color of border surrounding the tab content;
+ */
+
+:host {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    --tab-color: var(--color-foreground);
+    --active-color: var(--color-highlight);
+    --focus-color: var(--color-focus);
+    --focus-indicator-color: var(--color-shade-40);
+    --border-color: var(--color-shade-30);
+}
+
+:host([high-contrast]) {
+    & .indicator {
+        display: none;
+    }
+
+    & .tab {
+        &:hover::after {
+            height: 2px;
+            background-color: var(--active-color);
+        }
+
+        &.active::after {
+            height: 6px;
+            background-color: var(--active-color);
+        }
+
+        &:focus {
+            outline: solid var(--color-focus);
+            outline-offset: -10px;
+        }
+    }
+}
+
+header {
+    display: flex;
+    overflow: hidden;
+}
+
+.tab {
+    flex: 0 1 auto;
+    position: relative;
+    appearance: none;
+    background-color: transparent;
+    color: var(--tab-color);
+    font-weight: 700;
+    font-size: 16px;
+    border: 0;
+    padding: 20px;
+    cursor: pointer;
+    outline: none;
+    transition-property: color;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+    z-index: 1;
+    overflow: hidden;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: -1px;
+        transform: translateY(50%);
+        height: 0px;
+        background-color: transparent;
+
+        transition-property: background-color, height;
+        transition-duration: 500ms;
+        transition-timing-function: ease;
+    }
+
+    &.drag_over,
+    &:focus-visible {
+        color: var(--focus-color);
+
+        &::after {
+            background-color: var(--focus-indicator-color);
+            height: 4px;
+        }
+    }
+
+    &.active {
+        color: var(--color-highlight);
+    }
+}
+
+.panel {
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 10px 30px;
+    flex: 1 1 100%;
+    position: relative;
+    min-height: 80px;
+
+    &.no_pad {
+        padding: 0;
+        min-height: unset;
+
+        & ::slotted(*) {
+            overflow: hidden;
+            border-radius: 20px;
+        }
+    }
+}
+
+.indicator {
+    display: block;
+    height: 4px;
+    background-color: var(--active-color);
+    transition-property: none;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+    position: absolute;
+    top: -2px;
+    left: 0;
+    z-index: 20000;
+}
+
+c2-badge {
+    align-items: flex-start;
+}
+
+.elipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

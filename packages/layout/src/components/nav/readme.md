@@ -222,10 +222,10 @@ preview-usage-location {
 graph TD;
   l2-nav --> l2-nav-node-0
   l2-nav-node-0 --> l2-nav-node-1
-  l2-nav-node-0 --> es-icon
+  l2-nav-node-0 --> c2-icon
   l2-nav-node-1 --> l2-nav-node-2
-  l2-nav-node-1 --> es-icon
-  l2-nav-node-2 --> es-icon
+  l2-nav-node-1 --> c2-icon
+  l2-nav-node-2 --> c2-icon
   style l2-nav fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -17,13 +17,13 @@ export class Root {
         return (
             <Host>
                 <l2-header>
-                    <es-button-link
+                    <c2-button-link
                         external
                         slot={'right'}
                         url={'https://github.com/EventStore/Design-System'}
                     >
-                        <es-icon icon={'github'} />
-                    </es-button-link>
+                        <c2-icon icon={'github'} />
+                    </c2-button-link>
                     <l2-theme-dropdown slot={'right'} />
                 </l2-header>
                 <Switch>

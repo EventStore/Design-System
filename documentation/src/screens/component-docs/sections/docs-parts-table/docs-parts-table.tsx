@@ -1,6 +1,6 @@
 import { Component, h, Prop } from '@stencil/core';
 import { Host, type JsonDocsPart } from '@stencil/core/internal';
-import type { TableCells } from '@eventstore-ui/components';
+import type { TableCells } from '@kurrent-ui/components';
 
 @Component({
     tag: 'docs-parts-table',
@@ -15,7 +15,7 @@ export class DocsPartsTable {
         return (
             <Host>
                 <h2>{'Parts'}</h2>
-                <es-table cells={this.cells} rows={this.parts} />
+                <c2-table cells={this.cells} rows={this.parts} />
             </Host>
         );
     }

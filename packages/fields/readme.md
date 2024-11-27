@@ -15,7 +15,7 @@ yarn add @kurrent-ui/fields
 Also, include the peer dependencies:
 
 ```sh
-yarn add @eventstore-ui/components @kurrent-ui/theme @kurrent-ui/utils
+yarn add @kurrent-ui/components @kurrent-ui/theme @kurrent-ui/utils
 ```
 
 ## Usage within a stencil project
@@ -24,7 +24,7 @@ In your `globalScript` file, add the imports:
 
 ```ts
 // Add the core web components to the global pool
-import '@eventstore-ui/components';
+import '@kurrent-ui/components';
 // Add the field web components to the global pool
 import '@kurrent-ui/fields';
 ```

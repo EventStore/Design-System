@@ -141,7 +141,7 @@ export class Typeahead {
                     ref: this.captureField,
                 })}
                 {this.open && (
-                    <es-popover
+                    <c2-popover
                         arrow
                         open={this.open}
                         popperClass={'typeahead'}
@@ -171,7 +171,7 @@ export class Typeahead {
                                 {this.renderOptions()}
                             </ul>
                         </div>
-                    </es-popover>
+                    </c2-popover>
                 )}
             </Host>
         );

@@ -1,7 +1,7 @@
 import { Component, h, Host } from '@stencil/core';
 import { logger } from '../../../utils/logger';
 import { ICON_NAMESPACE } from '../../../icons/namespace';
-import type { IconDescription } from '@eventstore-ui/components';
+import type { IconDescription } from '@kurrent-ui/components';
 
 /**
  * Layout Button

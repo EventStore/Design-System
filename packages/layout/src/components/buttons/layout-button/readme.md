@@ -157,17 +157,17 @@ Type: `Promise<boolean>`
 
 ### Depends on
 
-- es-counter
-- es-badge
-- es-icon
+- c2-counter
+- c2-badge
+- c2-icon
 
 ### Graph
 ```mermaid
 graph TD;
-  l2-layout-button --> es-counter
-  l2-layout-button --> es-badge
-  l2-layout-button --> es-icon
-  es-badge --> es-counter
+  l2-layout-button --> c2-counter
+  l2-layout-button --> c2-badge
+  l2-layout-button --> c2-icon
+  c2-badge --> c2-counter
   style l2-layout-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -49,14 +49,14 @@
         }
     },
     "peerDependencies": {
-        "@eventstore-ui/components": "^1.0.0",
+        "@kurrent-ui/components": "^1.0.0",
         "@kurrent-ui/router": "^1.0.0",
         "@kurrent-ui/sequences": "^1.0.0",
         "@kurrent-ui/theme": "^1.0.0",
         "@kurrent-ui/utils": "^1.0.0"
     },
     "devDependencies": {
-        "@eventstore-ui/components": "workspace:*",
+        "@kurrent-ui/components": "workspace:*",
         "@kurrent-ui/configs": "workspace:*",
         "@kurrent-ui/icon-manager": "workspace:*",
         "@kurrent-ui/router": "workspace:*",

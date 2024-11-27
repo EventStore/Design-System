@@ -56,18 +56,18 @@ const Inner: FunctionalComponent = (_, children) => (
     <>
         <l2-panel-header>
             {children}
-            <es-button variant={'minimal'} slot={'actions'}>
-                <es-icon
+            <c2-button variant={'minimal'} slot={'actions'}>
+                <c2-icon
                     icon={[K_LAYOUT_ICON_NAMESPACE, 'dark-high-theme']}
                     size={20}
                 />
-            </es-button>
-            <es-button variant={'minimal'} slot={'actions'}>
-                <es-icon
+            </c2-button>
+            <c2-button variant={'minimal'} slot={'actions'}>
+                <c2-icon
                     icon={[K_LAYOUT_ICON_NAMESPACE, 'light-high-theme']}
                     size={20}
                 />
-            </es-button>
+            </c2-button>
         </l2-panel-header>
         <p>{'Some content'}</p>
     </>

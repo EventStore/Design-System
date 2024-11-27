@@ -1,0 +1,14 @@
+:host {
+    padding: 20px;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px 0;
+}
+
+footer c2-button {
+    margin-left: 20px;
+}

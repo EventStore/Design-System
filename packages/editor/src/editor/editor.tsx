@@ -34,11 +34,11 @@ export class Editor {
 
     render() {
         return (
-            <es-resize-observer onSizeChanged={this.resize} class={'container'}>
-                <es-hole-puncher namePrefix={'e3-editor'}>
+            <c2-resize-observer onSizeChanged={this.resize} class={'container'}>
+                <c2-hole-puncher namePrefix={'e3-editor'}>
                     <div ref={this.captureContainer} />
-                </es-hole-puncher>
-            </es-resize-observer>
+                </c2-hole-puncher>
+            </c2-resize-observer>
         );
     }
 

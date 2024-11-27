@@ -1,0 +1,17 @@
+:host {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+:host(.copied) c2-icon {
+    color: var(--color-success);
+}
+:host(.failed) c2-icon {
+    color: var(--color-error);
+}
+
+c2-icon {
+    margin-left: 14px;
+}

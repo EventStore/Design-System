@@ -9,7 +9,7 @@ export default () => (
             buttonText={'JJJ'}
         >
             <header class={'user_dropdown_header'}>
-                <es-icon icon={randomIcon()} />
+                <c2-icon icon={randomIcon()} />
                 <h1>{'John John Johnson'}</h1>
                 <h2>{'jjj@johnson.com'}</h2>
             </header>
@@ -58,7 +58,7 @@ export default () => (
     color: var(--color-foreground);
 }
 
-.user_dropdown_header es-icon {
+.user_dropdown_header c2-icon {
     color: var(--color-highlight);
 }
 

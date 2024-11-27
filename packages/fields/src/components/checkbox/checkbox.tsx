@@ -7,7 +7,7 @@ import {
     AttachInternals,
     Watch,
 } from '@stencil/core';
-import type { IconDescription } from '@eventstore-ui/components';
+import type { IconDescription } from '@kurrent-ui/components';
 import { ICON_NAMESPACE } from 'icons/namespace';
 import type { FieldChange } from 'types';
 
@@ -58,7 +58,7 @@ export class Checkbox {
                     readonly={this.readonly}
                     checked={this.value}
                 />
-                <es-icon icon={this.icon} class={'checkbox'} size={12} />
+                <c2-icon icon={this.icon} class={'checkbox'} size={12} />
                 <span class={'label'}>
                     <slot />
                 </span>

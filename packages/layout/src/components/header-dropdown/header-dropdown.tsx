@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop, State, Element } from '@stencil/core';
-import type { IconDescription } from '@eventstore-ui/components';
+import type { IconDescription } from '@kurrent-ui/components';
 
 import { ICON_NAMESPACE } from '../../icons/namespace';
 import { router } from '@kurrent-ui/router';
@@ -28,7 +28,7 @@ export class HeaderDropdown {
     /** Apply an indent to the left of the button, for basic nesting. */
     @Prop({ reflect: true }) level?: number;
     /** Display a dot on the icon, to attract attention to the button.  */
-    @Prop() alertLevel?: HTMLEsBadgeElement['color'];
+    @Prop() alertLevel?: HTMLC2BadgeElement['color'];
     /** Display a counter in place of the icon. */
     @Prop() count?: number;
 
@@ -49,7 +49,7 @@ export class HeaderDropdown {
     render() {
         return (
             <Host>
-                <es-button
+                <c2-button
                     onClick={this.toggleDropdown}
                     class={{
                         header_button: true,
@@ -58,7 +58,7 @@ export class HeaderDropdown {
                     disabled={this.disabled}
                 >
                     {this.count != null ? (
-                        <es-counter
+                        <c2-counter
                             count={this.count}
                             variant={'filled'}
                             color={this.alertLevel}
@@ -67,27 +67,27 @@ export class HeaderDropdown {
                         />
                     ) : (
                         !!this.icon && (
-                            <es-badge
+                            <c2-badge
                                 count={this.alertLevel ? 1 : 0}
                                 variant={'dot'}
                                 color={this.alertLevel}
                                 slot={!this.buttonText ? undefined : 'before'}
                             >
-                                <es-icon icon={this.icon} />
-                            </es-badge>
+                                <c2-icon icon={this.icon} />
+                            </c2-badge>
                         )
                     )}
                     {this.buttonText}
                     {this.caret && (
-                        <es-icon
+                        <c2-icon
                             icon={[ICON_NAMESPACE, 'caret']}
                             slot={'after'}
                             class={{ caret: true, open: this.dropdownOpen }}
                             size={14}
                         />
                     )}
-                </es-button>
-                <es-popover
+                </c2-button>
+                <c2-popover
                     arrow
                     trapFocus
                     closeOnEsc
@@ -100,7 +100,7 @@ export class HeaderDropdown {
                     offset={12}
                 >
                     <slot />
-                </es-popover>
+                </c2-popover>
             </Host>
         );
     }

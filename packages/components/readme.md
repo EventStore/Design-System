@@ -1,4 +1,4 @@
-# @eventstore-ui/components
+# @kurrent-ui/components
 
 Base web components for the Event Store design system.
 
@@ -7,7 +7,7 @@ Base web components for the Event Store design system.
 ### Add to your project
 
 ```sh
-yarn add @eventstore-ui/components
+yarn add @kurrent-ui/components
 ```
 
 Also, include the peer dependencies:
@@ -21,7 +21,7 @@ yarn add @kurrent-ui/router @kurrent-ui/utils
 In your `globalScript` file, add an import:
 
 ```ts
-import '@eventstore-ui/components';
+import '@kurrent-ui/components';
 ```
 
 Then you can use the element anywhere in your JSX, html, templates etc.

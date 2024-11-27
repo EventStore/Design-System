@@ -61,12 +61,12 @@ export default () => (
 
 ### Depends on
 
-- es-icon
+- c2-icon
 
 ### Graph
 ```mermaid
 graph TD;
-  l2-panel --> es-icon
+  l2-panel --> c2-icon
   style l2-panel fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
