@@ -2,7 +2,7 @@ import { Host, Component, h, Prop } from '@stencil/core';
 import { theme } from '@kurrent-ui/theme';
 
 /**
- * The Event Store logo.
+ * The Kurrent logo.
  * @part sequence - The path for the logo mark.
  * @part text - The path for the Kurrent text.
  */

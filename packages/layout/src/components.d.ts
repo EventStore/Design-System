@@ -258,7 +258,7 @@ export namespace Components {
         "progress": (completion: number, status?: LoadingBarStatus) => Promise<void>;
     }
     /**
-     * The Event Store logo.
+     * The Kurrent logo.
      */
     interface L2Logo {
         /**
@@ -526,7 +526,7 @@ declare global {
         new (): HTMLL2LoadingBarElement;
     };
     /**
-     * The Event Store logo.
+     * The Kurrent logo.
      */
     interface HTMLL2LogoElement extends Components.L2Logo, HTMLStencilElement {
     }
@@ -908,7 +908,7 @@ declare namespace LocalJSX {
         "name": string;
     }
     /**
-     * The Event Store logo.
+     * The Kurrent logo.
      */
     interface L2Logo {
         /**
@@ -1134,7 +1134,7 @@ declare module "@stencil/core" {
              */
             "l2-loading-bar": LocalJSX.L2LoadingBar & JSXBase.HTMLAttributes<HTMLL2LoadingBarElement>;
             /**
-             * The Event Store logo.
+             * The Kurrent logo.
              */
             "l2-logo": LocalJSX.L2Logo & JSXBase.HTMLAttributes<HTMLL2LogoElement>;
             /**

@@ -24,7 +24,7 @@ const defaultExtractDetails: ExtractDetails = async (response) => {
     }
 };
 
-const ERROR_KEY = Symbol.for('eventstore/HTTPError');
+const ERROR_KEY = Symbol.for('HTTPError');
 
 /** A standardised HTTP request error. Works together with [Working Data](/fields/utils/createWorkingData) to assign HTTPProblemDetails fields to errors on form fields. */
 export class HTTPError extends Error {

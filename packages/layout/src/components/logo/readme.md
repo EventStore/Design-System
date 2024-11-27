@@ -5,7 +5,7 @@
 
 ## Overview
 
-The Event Store logo.
+The Kurrent logo.
 
 ## Usage
 

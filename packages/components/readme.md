@@ -1,6 +1,6 @@
 # @kurrent-ui/components
 
-Base web components for the Event Store design system.
+Base web components for the Kurrent design system.
 
 ## Install
 

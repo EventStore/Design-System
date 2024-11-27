@@ -1,6 +1,6 @@
 # Stencil config
 
-Shared stencil config for use within the eventstore design system.
+Shared stencil config for use within the Kurrent Design System.
 
 ## exports
 
