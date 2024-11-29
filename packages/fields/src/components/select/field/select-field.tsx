@@ -26,7 +26,7 @@ import type { RenderSelectValue } from '../types';
     shadow: true,
 })
 export class SelectField {
-    @AttachInternals() internals!: ElementInternals;
+    @AttachInternals() internals?: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
@@ -75,7 +75,7 @@ export class SelectField {
 
     @Watch('value')
     componentDidLoad() {
-        this.internals.setFormValue(this.value);
+        this.internals?.setFormValue(this.value);
     }
 
     render() {

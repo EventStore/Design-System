@@ -19,7 +19,7 @@ import type { FieldChange, ValidationMessages, Templated } from 'types';
     shadow: true,
 })
 export class TextAreaField {
-    @AttachInternals() internals!: ElementInternals;
+    @AttachInternals() internals?: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
@@ -56,7 +56,7 @@ export class TextAreaField {
 
     @Watch('value')
     componentDidLoad() {
-        this.internals.setFormValue(this.value);
+        this.internals?.setFormValue(this.value);
     }
 
     render() {
@@ -80,6 +80,7 @@ export class TextAreaField {
                     readonly={this.readonly}
                     inputProps={this.inputProps}
                     invalid={this.invalid}
+                    exportparts={'input'}
                 >
                     <slot />
                 </f2-textarea-input>

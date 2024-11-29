@@ -18,7 +18,7 @@ import type { FieldChange } from 'types';
     shadow: true,
 })
 export class TextInput {
-    @AttachInternals() internals!: ElementInternals;
+    @AttachInternals() internals?: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
@@ -41,7 +41,7 @@ export class TextInput {
     @Prop() inputProps?: Record<string, any>;
 
     componentDidLoad() {
-        this.internals.setFormValue(this.value);
+        this.internals?.setFormValue(this.value);
     }
 
     render() {
@@ -72,7 +72,7 @@ export class TextInput {
 
     private onInput = (e: InputEvent) => {
         const value = (e.target as HTMLInputElement).value ?? '';
-        this.internals.setFormValue(value);
+        this.internals?.setFormValue(value);
         this.fieldchange.emit({
             name: this.name,
             value,

@@ -114,6 +114,7 @@ button {
 
         &:hover,
         &:focus-visible {
+            color: var(--disabled-color);
             text-decoration: none;
         }
 

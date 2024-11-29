@@ -25,7 +25,7 @@ import type { MultiCheckboxOption } from './types';
     formAssociated: true,
 })
 export class MultiCheckboxField {
-    @AttachInternals() internals!: ElementInternals;
+    @AttachInternals() internals?: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<
@@ -68,7 +68,7 @@ export class MultiCheckboxField {
         for (const value of this.value) {
             data.append(this.name, value);
         }
-        this.internals.setFormValue(data);
+        this.internals?.setFormValue(data);
     }
 
     render() {

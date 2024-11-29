@@ -21,7 +21,7 @@ import type { MaskOptions } from '../types';
     shadow: true,
 })
 export class MaskedTextInput {
-    @AttachInternals() internals!: ElementInternals;
+    @AttachInternals() internals?: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
@@ -51,7 +51,7 @@ export class MaskedTextInput {
 
     componentDidLoad() {
         this.preparemask();
-        this.internals.setFormValue(this.value);
+        this.internals?.setFormValue(this.value);
     }
 
     componentDidUpdate() {
@@ -155,7 +155,7 @@ export class MaskedTextInput {
     };
 
     private emitValue = (value: string) => {
-        this.internals.setFormValue(value);
+        this.internals?.setFormValue(value);
         this.fieldchange.emit({
             name: this.name,
             value,

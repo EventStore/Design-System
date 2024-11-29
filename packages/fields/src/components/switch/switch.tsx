@@ -24,7 +24,7 @@ import type { FieldChange } from 'types';
     formAssociated: true,
 })
 export class Switch {
-    @AttachInternals() internals!: ElementInternals;
+    @AttachInternals() internals?: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<boolean>>;
@@ -57,7 +57,7 @@ export class Switch {
 
     @Watch('value')
     componentDidLoad() {
-        this.internals.setFormValue(this.value.toString());
+        this.internals?.setFormValue(this.value.toString());
     }
 
     render() {
@@ -132,6 +132,6 @@ export class Switch {
             name: this.name,
             value,
         });
-        this.internals.setFormValue(value.toString());
+        this.internals?.setFormValue(value.toString());
     };
 }
