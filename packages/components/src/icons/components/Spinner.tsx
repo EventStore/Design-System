@@ -2,7 +2,14 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const Spinner = (h: typeof JSXFactory) => (props: any) => (
-    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8Z" />
+    <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        stroke="currentColor"
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+    >
+        <path d="M2 12c0 5.523 4.477 10 10 10s10-4.477 10-10S17.523 2 12 2" />
     </svg>
 );
