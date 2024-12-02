@@ -18,8 +18,8 @@
         "test": "nx run-many --target=test",
         "dev": "nx run dev --project=@kurrent-ui/${0}",
         "release": "yarn workspaces foreach --all --no-private npm publish --tolerate-republish",
-        "docs": "nx run docs:build",
-        "docs:serve": "nx run docs:serve",
+        "docs": "nx run @kurrent-ui/docs:build",
+        "docs:serve": "nx run @kurrent-ui/docs:serve",
         "changelog": "changeset"
     },
     "devDependencies": {
