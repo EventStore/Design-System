@@ -1,9 +1,9 @@
 import { Component, h } from '@stencil/core';
 
-import { Page } from '@eventstore-ui/layout';
-import { HTTPError } from '@eventstore-ui/utils';
+import { Page } from '@kurrent-ui/layout';
+import { HTTPError } from '@kurrent-ui/utils';
 
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 import { logger } from '../../utils/logger';
 
 interface MyForm {
@@ -110,9 +110,9 @@ export class DemoRoot {
                 <es-checkbox {...this.form.connect('agreeToTOS')}>
                     {'do you agree'}
                 </es-checkbox>
-                <es-button onClick={this.submit} disabled={this.form.frozen}>
+                <c2-button onClick={this.submit} disabled={this.form.frozen}>
                     {'Submit'}
-                </es-button>
+                </c2-button>
             </Page>
         );
     }

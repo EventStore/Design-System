@@ -1,5 +1,5 @@
 import { Component, State, h } from '@stencil/core';
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 
 import type { FieldChange } from 'types';
 

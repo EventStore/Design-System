@@ -1,6 +1,6 @@
 import { packageConfig } from '../../tools/stencilConfig';
 
 export const config = packageConfig({
-    namespace: 'es-fields',
+    namespace: 'k-fields',
     globalScript: 'src/init.ts',
 });

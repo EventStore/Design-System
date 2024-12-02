@@ -1,13 +1,13 @@
 import { Component, h, Host, Fragment } from '@stencil/core';
 import type { ButtonVariant } from '../types';
-import { ES_COMPONENTS_ICON_NAMESPACE, type IconDescription } from '../../..';
+import { K_COMPONENTS_ICON_NAMESPACE, type IconDescription } from '../../..';
 
 /**
  * Button
  * @group Buttons
  */
 @Component({
-    tag: 'es-buttons-demo',
+    tag: 'buttons-demo',
     styleUrl: './button-demo.css',
     shadow: true,
 })
@@ -27,21 +27,21 @@ export class Demo {
             <Host>
                 {this.variants.map((variant) => (
                     <>
-                        <es-button variant={variant} onClick={this.handleClick}>
-                            <es-icon icon={this.randomIcon()} slot={'after'} />
+                        <c2-button variant={variant} onClick={this.handleClick}>
+                            <c2-icon icon={this.randomIcon()} slot={'after'} />
                             {`${variant} variant`}
-                        </es-button>
-                        <es-button variant={variant} onClick={this.handleClick}>
-                            <es-icon icon={this.randomIcon()} size={22} />
-                        </es-button>
-                        <es-button
+                        </c2-button>
+                        <c2-button variant={variant} onClick={this.handleClick}>
+                            <c2-icon icon={this.randomIcon()} size={22} />
+                        </c2-button>
+                        <c2-button
                             variant={variant}
                             onClick={this.handleClick}
                             disabled
                         >
-                            <es-icon icon={this.randomIcon()} slot={'after'} />
+                            <c2-icon icon={this.randomIcon()} slot={'after'} />
                             {`${variant} (disabled)`}
-                        </es-button>
+                        </c2-button>
                     </>
                 ))}
             </Host>
@@ -75,7 +75,7 @@ export class Demo {
     ];
 
     private randomIcon = (): IconDescription => [
-        ES_COMPONENTS_ICON_NAMESPACE,
+        K_COMPONENTS_ICON_NAMESPACE,
         this.icons[Math.floor(Math.random() * (this.icons.length - 2))],
     ];
 }

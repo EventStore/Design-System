@@ -1,6 +1,6 @@
 import { Component, h, Host } from '@stencil/core';
 
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 
 interface Example {
     something: string;

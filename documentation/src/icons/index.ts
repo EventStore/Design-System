@@ -1,4 +1,4 @@
-import { iconStore } from '@eventstore-ui/components';
+import { iconStore } from '@kurrent-ui/components';
 
 iconStore.addIcons({
     get arrow() {
@@ -50,13 +50,13 @@ iconStore.addIcons({
             ({ Components }) => Components,
         );
     },
-    get '@eventstore-ui/components'() {
+    get '@kurrent-ui/components'() {
         return this['components'];
     },
     get configs() {
         return import('./components/Configs').then(({ Configs }) => Configs);
     },
-    get '@eventstore-ui/configs'() {
+    get '@kurrent-ui/configs'() {
         return this['configs'];
     },
     get copy() {
@@ -76,7 +76,7 @@ iconStore.addIcons({
     get editor() {
         return import('./components/Editor').then(({ Editor }) => Editor);
     },
-    get '@eventstore-ui/editor'() {
+    get '@kurrent-ui/editor'() {
         return this['editor'];
     },
     get error() {
@@ -88,7 +88,7 @@ iconStore.addIcons({
     get fields() {
         return import('./components/Fields').then(({ Fields }) => Fields);
     },
-    get '@eventstore-ui/fields'() {
+    get '@kurrent-ui/fields'() {
         return this['fields'];
     },
     get folder() {
@@ -97,7 +97,7 @@ iconStore.addIcons({
     get forms() {
         return import('./components/Forms').then(({ Forms }) => Forms);
     },
-    get '@eventstore-ui/forms'() {
+    get '@kurrent-ui/forms'() {
         return this['forms'];
     },
     get gift() {
@@ -135,7 +135,7 @@ iconStore.addIcons({
     get layout() {
         return import('./components/Layout').then(({ Layout }) => Layout);
     },
-    get '@eventstore-ui/layout'() {
+    get '@kurrent-ui/layout'() {
         return this['layout'];
     },
     get light() {
@@ -170,14 +170,6 @@ iconStore.addIcons({
     get plus() {
         return import('./components/Plus').then(({ Plus }) => Plus);
     },
-    get 'postcss-palette-plugin'() {
-        return import('./components/PostcssPalettePlugin').then(
-            ({ PostcssPalettePlugin }) => PostcssPalettePlugin,
-        );
-    },
-    get '@eventstore-ui/postcss-palette-plugin'() {
-        return this['postcss-palette-plugin'];
-    },
     get 'reflect-to-attr'() {
         return import('./components/ReflectToAttr').then(
             ({ ReflectToAttr }) => ReflectToAttr,
@@ -198,7 +190,7 @@ iconStore.addIcons({
     get router() {
         return import('./components/Router').then(({ Router }) => Router);
     },
-    get '@eventstore-ui/router'() {
+    get '@kurrent-ui/router'() {
         return this['router'];
     },
     get scroll() {
@@ -233,7 +225,7 @@ iconStore.addIcons({
     get stores() {
         return import('./components/Stores').then(({ Stores }) => Stores);
     },
-    get '@eventstore-ui/stores'() {
+    get '@kurrent-ui/stores'() {
         return this['stores'];
     },
     get theme() {
@@ -276,7 +268,7 @@ iconStore.addIcons({
     get utils() {
         return import('./components/Utils').then(({ Utils }) => Utils);
     },
-    get '@eventstore-ui/utils'() {
+    get '@kurrent-ui/utils'() {
         return this['utils'];
     },
     get warning() {

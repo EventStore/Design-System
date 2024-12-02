@@ -1,4 +1,4 @@
-import { debounce } from '@eventstore-ui/utils';
+import { debounce } from '@kurrent-ui/utils';
 import { $interestFinders } from '../symbols';
 
 interface Interested {

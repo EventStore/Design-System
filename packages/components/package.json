@@ -1,7 +1,7 @@
 {
-    "name": "@eventstore-ui/components",
+    "name": "@kurrent-ui/components",
     "version": "1.10.0",
-    "description": "Core components for Event Store Design System",
+    "description": "Core components for Kurrent Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
     "module": "dist/index.js",
@@ -45,16 +45,16 @@
         "@floating-ui/dom": "0.4.1"
     },
     "peerDependencies": {
-        "@eventstore-ui/router": "^1.0.0",
-        "@eventstore-ui/utils": "^1.0.0",
-        "@kurrent-ui/theme": "^1.0.0"
+        "@kurrent-ui/router": "^1.0.0",
+        "@kurrent-ui/theme": "^1.0.0",
+        "@kurrent-ui/utils": "^1.0.0"
     },
     "devDependencies": {
-        "@eventstore-ui/configs": "workspace:*",
-        "@eventstore-ui/router": "workspace:*",
-        "@eventstore-ui/utils": "workspace:*",
+        "@kurrent-ui/configs": "workspace:*",
         "@kurrent-ui/icon-manager": "workspace:*",
+        "@kurrent-ui/router": "workspace:*",
         "@kurrent-ui/theme": "workspace:*",
+        "@kurrent-ui/utils": "workspace:*",
         "@stencil-community/postcss": "^2.2.0",
         "@stencil/core": "4.22.0",
         "jest": "^27.4.5",

@@ -1,4 +1,4 @@
-# @eventstore-ui/typedoc-plugin-usage
+# @kurrent-ui/typedoc-plugin-usage
 
 ## 1.0.1
 

@@ -19,7 +19,7 @@ export default () => (
             warning: ['Watch out!', "It's hot!"],
             info: [
                 'It will cool down soon.',
-                (h) => <es-button>{'hello'}</es-button>,
+                (h) => <c2-button>{'hello'}</c2-button>,
             ],
         }}
     />
@@ -42,12 +42,12 @@ export default () => (
 
 ### Depends on
 
-- es-icon
+- c2-icon
 
 ### Graph
 ```mermaid
 graph TD;
-  f2-validation-messages --> es-icon
+  f2-validation-messages --> c2-icon
   style f2-validation-messages fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

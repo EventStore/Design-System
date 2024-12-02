@@ -13,7 +13,7 @@ export class Demo {
     render() {
         return (
             <Host style={{ padding: '2px', display: 'flex', gap: '10px' }}>
-                <es-icon icon={[ICON_NAMESPACE, this.value]} />
+                <c2-icon icon={[ICON_NAMESPACE, this.value]} />
                 {this.name}
             </Host>
         );

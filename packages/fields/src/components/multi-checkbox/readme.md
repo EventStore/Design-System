@@ -12,7 +12,7 @@ A multi-checkbox component
 ### Example
 
 ```tsx
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 
 interface Example {
     options: Set<string>;
@@ -90,12 +90,12 @@ export default () => (
 
 ### Depends on
 
-- es-icon
+- c2-icon
 
 ### Graph
 ```mermaid
 graph TD;
-  f2-multi-checkbox-field --> es-icon
+  f2-multi-checkbox-field --> c2-icon
   style f2-multi-checkbox-field fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

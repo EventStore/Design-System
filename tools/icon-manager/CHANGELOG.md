@@ -1,4 +1,4 @@
-# @eventstore-ui/icon-manager
+# @kurrent-ui/icon-manager
 
 ## 1.0.2
 

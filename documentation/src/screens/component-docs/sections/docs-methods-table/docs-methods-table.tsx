@@ -1,6 +1,6 @@
 import { Component, h, Prop, Fragment } from '@stencil/core';
 import { Host, type JsonDocsMethod } from '@stencil/core/internal';
-import type { TableCells } from '@eventstore-ui/components';
+import type { TableCells } from '@kurrent-ui/components';
 
 @Component({
     tag: 'docs-methods-table',
@@ -15,7 +15,7 @@ export class DocsMethodsTable {
         return (
             <Host>
                 <h2>{'Methods'}</h2>
-                <es-table cells={this.cells} rows={this.methods} />
+                <c2-table cells={this.cells} rows={this.methods} />
             </Host>
         );
     }

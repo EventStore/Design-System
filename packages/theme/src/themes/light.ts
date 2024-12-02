@@ -47,25 +47,25 @@ export const light: BaseScheme = {
     focus_contrast: palette.white,
 
     // levels
-    error: palette.coral,
-    error_contrast: palette.black,
-    error_alt: palette.dusty_rose,
-    error_alt_contrast: palette.white,
+    error: palette.dusty_rose,
+    error_contrast: palette.white,
+    error_alt: palette.rose,
+    error_alt_contrast: palette.black,
 
-    warning: palette.sunflower,
-    warning_contrast: palette.black,
-    warning_alt: palette.olive_green,
-    warning_alt_contrast: palette.white,
+    warning: palette.olive_green,
+    warning_contrast: palette.white,
+    warning_alt: palette.sunbeam,
+    warning_alt_contrast: palette.black,
 
-    success: palette.seaglass_green,
-    success_contrast: palette.black,
-    success_alt: palette.dark_cyan,
-    success_alt_contrast: palette.white,
+    success: palette.dark_cyan,
+    success_contrast: palette.white,
+    success_alt: palette.mint_green,
+    success_alt_contrast: palette.black,
 
-    info: palette.pacific_blue,
-    info_contrast: palette.black,
-    info_alt: palette.cobalt_night,
-    info_alt_contrast: palette.white,
+    info: palette.cobalt_night,
+    info_contrast: palette.white,
+    info_alt: palette.pale_blue,
+    info_alt_contrast: palette.black,
 
     // shades
     ...shades,

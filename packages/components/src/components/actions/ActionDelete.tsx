@@ -2,13 +2,13 @@ import { h, type FunctionalComponent } from '@stencil/core';
 
 import { toast } from '../../utils/toast';
 import { ICON_NAMESPACE } from '../../icons/namespace';
-import type { ConfirmModalOptions } from '../modals/es-confirm-modal/types';
-import type { IconDescription } from '../es-icon/types';
+import type { ConfirmModalOptions } from '../modals/confirm-modal/types';
+import type { IconDescription } from '../icon/types';
 import type { ToastOptions } from '../toast/types';
 
 /** @props */
 export interface ActionDeleteProps {
-    /** If the action is within an `es-action-dropdown`. */
+    /** If the action is within an `c2-action-dropdown`. */
     dropdownItem?: boolean;
     /** The name of the item to delete. */
     description: string;
@@ -40,7 +40,7 @@ export const ActionDelete: FunctionalComponent<ActionDeleteProps> = ({
     modal,
     toast,
 }) => (
-    <es-action-with-confirmation
+    <c2-action-with-confirmation
         dropdownItem={dropdownItem}
         action={handleDeletion({ deleteItem, description, toast })}
         disabled={disabled}
@@ -49,7 +49,7 @@ export const ActionDelete: FunctionalComponent<ActionDeleteProps> = ({
         modal={modal}
     >
         {`Delete ${description}`}
-    </es-action-with-confirmation>
+    </c2-action-with-confirmation>
 );
 
 const handleDeletion =

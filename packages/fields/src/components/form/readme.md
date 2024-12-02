@@ -1,7 +1,5 @@
 # f2-hr
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -14,7 +12,7 @@ A styling component for form fields
 ### Example
 
 ```tsx
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 
 interface Example {
     something: string;
@@ -50,7 +48,7 @@ export default () => (
             placeholder={'Type something here'}
             {...form.connect('something')}
         />
-        <es-button type={'submit'}>{'submit'}</es-button>
+        <c2-button type={'submit'}>{'submit'}</c2-button>
     </f2-form>
 );
 ```

@@ -1,5 +1,5 @@
 import { Component, Fragment, h, State } from '@stencil/core';
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 import type { NestedTableExtraProps, TableCells, TableSort } from '../types';
 import { ICON_NAMESPACE } from '../../../icons/namespace';
 
@@ -26,7 +26,7 @@ function alphabet(num: number) {
  * @group Tables
  */
 @Component({
-    tag: 'es-table-nested-loading-demo',
+    tag: 'table-nested-loading-demo',
     styleUrl: './table-basic.css',
     shadow: true,
 })
@@ -69,7 +69,7 @@ export class TableNestedLoadingDemo {
 
     render() {
         return (
-            <es-table-nested
+            <c2-table-nested
                 stickyHeader
                 toggleRowOnClick
                 cells={this.cells}
@@ -103,7 +103,7 @@ export class TableNestedLoadingDemo {
                 <>
                     {data.name}
                     {canExpand && (
-                        <es-icon
+                        <c2-icon
                             class={'expand_icon'}
                             size={18}
                             icon={[ICON_NAMESPACE, 'chevron']}

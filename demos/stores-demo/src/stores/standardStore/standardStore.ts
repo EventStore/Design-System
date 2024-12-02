@@ -1,4 +1,4 @@
-import { createStore } from '@eventstore-ui/stores';
+import { createStore } from '@kurrent-ui/stores';
 
 export interface StandardStore {
     foo: string;

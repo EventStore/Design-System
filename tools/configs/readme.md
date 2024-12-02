@@ -1,6 +1,6 @@
-# @eventstore-ui/configs
+# @kurrent-ui/configs
 
-Configs for the Event Store design system
+Configs for the Kurrent design system
 
 ## Eslint
 
@@ -15,7 +15,7 @@ Hook up the config by createing a `.eslint.js` file in the root of your project:
 `.eslint.js`
 
 ```js
-module.exports = require('@eventstore-ui/configs/eslint');
+module.exports = require('@kurrent-ui/configs/eslint');
 ```
 
 ## Prettier
@@ -31,5 +31,5 @@ Hook up the config adding the following to your `package.json`:
 `package.json`
 
 ```json
-"prettier": "@eventstore-ui/configs/prettier"
+"prettier": "@kurrent-ui/configs/prettier"
 ```

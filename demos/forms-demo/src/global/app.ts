@@ -1,3 +1,3 @@
-import '@eventstore-ui/components';
-import '@eventstore-ui/layout';
-import '@eventstore-ui/fields';
+import '@kurrent-ui/components';
+import '@kurrent-ui/layout';
+import '@kurrent-ui/fields';

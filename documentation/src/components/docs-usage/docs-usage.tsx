@@ -19,7 +19,7 @@ export class DocsUsage {
     @State() contentHeight = 500;
 
     @State() models: Models = {};
-    @State() tabs: HTMLEsTabsElement['tabs'] = [];
+    @State() tabs: HTMLC2TabsElement['tabs'] = [];
 
     @Watch('usage')
     componentWillLoad() {
@@ -60,14 +60,14 @@ export class DocsUsage {
                     />
                 )}
                 {this.options.code && (
-                    <es-tabs
+                    <c2-tabs
                         tabs={this.tabs}
                         active={this.active}
                         activeParam={false}
                         onTabChange={this.tabChange}
                     >
                         {!Build.isServer && (
-                            <es-editor
+                            <e3-editor
                                 key={`${this.identifier}-${this.active}`}
                                 slot={this.active}
                                 options={{
@@ -77,7 +77,7 @@ export class DocsUsage {
                                 }}
                             />
                         )}
-                    </es-tabs>
+                    </c2-tabs>
                 )}
             </Host>
         );

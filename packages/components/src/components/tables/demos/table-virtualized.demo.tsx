@@ -12,7 +12,7 @@ interface DummyData {
  * @group Tables
  */
 @Component({
-    tag: 'es-table-virtualized-demo',
+    tag: 'table-virtualized-demo',
     styleUrl: './table-basic.css',
     shadow: true,
 })
@@ -20,19 +20,19 @@ export class TableVirtualizedDemo {
     render() {
         return (
             <Host>
-                <es-table-virtualized
+                <c2-table-virtualized
                     stickyHeader
                     cells={this.cells}
                     rowCount={1_000_000}
                     getCellData={this.getCellData}
                     ref={this.captureTable}
                 />
-                <es-button
+                <c2-button
                     onClick={this.jumpToRandom}
                     style={{ position: 'fixed', bottom: '20px', right: '20px' }}
                 >
                     {'Jump to random'}
-                </es-button>
+                </c2-button>
             </Host>
         );
     }
@@ -55,8 +55,8 @@ export class TableVirtualizedDemo {
         value: 'something here',
     });
 
-    private table?: HTMLEsTableVirtualizedElement;
-    private captureTable = (r?: HTMLEsTableVirtualizedElement) => {
+    private table?: HTMLC2TableVirtualizedElement;
+    private captureTable = (r?: HTMLC2TableVirtualizedElement) => {
         this.table = r;
     };
 

@@ -2,12 +2,12 @@ import { h, type FunctionalComponent } from '@stencil/core';
 
 import { toast } from '../../utils/toast';
 import { ICON_NAMESPACE } from '../../icons/namespace';
-import type { IconDescription } from '../es-icon/types';
+import type { IconDescription } from '../icon/types';
 import type { ToastOptions } from '../toast/types';
 
 /** @props */
 export interface ActionCopyProps {
-    /** If the action is within an `es-action-dropdown`. */
+    /** If the action is within an `c2-action-dropdown`. */
     dropdownItem?: boolean;
     /** The value to be copied when clicked. */
     value: string;
@@ -33,14 +33,14 @@ export const ActionCopy: FunctionalComponent<ActionCopyProps> = (
     },
     children,
 ) => (
-    <es-action
+    <c2-action
         dropdownItem={dropdownItem}
         action={copyText({ value, toast })}
         disabled={disabled}
         icon={icon}
     >
         {children}
-    </es-action>
+    </c2-action>
 );
 
 const copyText =

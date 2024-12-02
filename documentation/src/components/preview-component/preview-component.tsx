@@ -1,5 +1,5 @@
 import { Component, h, State, Host, Element } from '@stencil/core';
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 import { usages, type PreviewSettings } from '../../../generated/usage';
 
 type Status = 'loading' | 'ready' | 'error';
@@ -48,7 +48,7 @@ export class PreviewComponent {
         }
 
         if (this.status === 'error') {
-            return <es-display-error error={this.error} />;
+            return <l2-display-error error={this.error} />;
         }
 
         const { component: Usage, grow, showLocation, styles } = this.preview!;

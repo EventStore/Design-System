@@ -1,6 +1,6 @@
-@import url('~@eventstore-ui/layout/css/page.css');
+@import url('~@kurrent-ui/layout/css/page.css');
 
-es-page-title {
+l2-page-title {
     font-family: var(--font-family-monospace);
 
     &::before,

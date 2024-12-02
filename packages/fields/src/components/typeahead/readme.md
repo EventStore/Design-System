@@ -1,16 +1,13 @@
 # es-typeahead
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Usage
 
 ### Example
 
 ```tsx
-import { createWorkingData } from '@eventstore-ui/fields';
+import { createWorkingData } from '@kurrent-ui/fields';
 
 interface Example {
     text: string;
@@ -68,8 +65,6 @@ export default () => (
 }
 ```
 
-
-
 ## Properties
 
 | Property                   | Attribute         | Description | Type                                                                       | Default                                                                                 |
@@ -85,14 +80,12 @@ export default () => (
 | `renderOption`             | --                |             | `(option: TypeaheadOption, chosen: boolean) => string \| VNode \| VNode[]` | `({ name }) => name`                                                                    |
 | `value` _(required)_       | --                |             | `string[]`                                                                 | `undefined`                                                                             |
 
-
 ## Events
 
 | Event         | Description | Type               |
 | ------------- | ----------- | ------------------ |
 | `enter`       |             | `CustomEvent<any>` |
 | `fieldchange` |             | `CustomEvent<any>` |
-
 
 ## Shadow Parts
 
@@ -101,29 +94,27 @@ export default () => (
 | `"list"`   |             |
 | `"option"` |             |
 
-
 ## Dependencies
 
 ### Used by
 
- - [es-list-creator](../es-list-creator)
- - [es-select](../es-select)
+-   [es-list-creator](../es-list-creator)
+-   [es-select](../es-select)
 
 ### Depends on
 
-- es-popover
+-   c2-popover
 
 ### Graph
+
 ```mermaid
 graph TD;
-  es-typeahead --> es-popover
-  es-popover --> es-popper
-  es-popover --> es-popper-inner
+  es-typeahead --> c2-popover
+  c2-popover --> c2-popper
+  c2-popover --> c2-popper-inner
   es-list-creator --> es-typeahead
   es-select --> es-typeahead
   style es-typeahead fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
-
-
+---

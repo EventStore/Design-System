@@ -1,4 +1,4 @@
-import { iconStore } from '@eventstore-ui/components';
+import { iconStore } from '@kurrent-ui/components';
 import { ICON_NAMESPACE } from './namespace';
 
 iconStore.addIcons(ICON_NAMESPACE, {

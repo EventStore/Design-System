@@ -27,7 +27,7 @@ main {
 
     &.cookie,
     &.panel {
-        & es-icon {
+        & c2-icon {
             transform: rotate(180deg);
         }
     }
@@ -35,7 +35,7 @@ main {
         writing-mode: vertical-rl;
         text-orientation: mixed;
 
-        & es-icon {
+        & c2-icon {
             transform: rotate(90deg);
         }
     }
@@ -43,7 +43,7 @@ main {
         writing-mode: vertical-lr;
         text-orientation: mixed;
 
-        & es-icon {
+        & c2-icon {
             transform: rotate(-90deg);
         }
     }

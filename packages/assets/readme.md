@@ -1,6 +1,6 @@
 # @kurrent-ui/assets
 
-Fonts and favicons for use in Event Store sites
+Fonts and favicons for use in Kurrent sites
 
 ## Add to your project
 

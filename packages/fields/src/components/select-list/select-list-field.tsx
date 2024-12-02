@@ -9,7 +9,7 @@ import {
     AttachInternals,
     Watch,
 } from '@stencil/core';
-import type { IconDescription } from '@eventstore-ui/components';
+import type { IconDescription } from '@kurrent-ui/components';
 
 import { ICON_NAMESPACE } from 'icons/namespace';
 import type {
@@ -136,7 +136,7 @@ export class SelectListField {
             {!open || !filter ? (
                 <span class={'placeholder'}>{this.placeholder}</span>
             ) : null}
-            <es-icon class={'chevron'} icon={this.chevronIcon} size={14} />
+            <c2-icon class={'chevron'} icon={this.chevronIcon} size={14} />
         </div>
     );
 
@@ -170,19 +170,19 @@ export class SelectListField {
                                 part={'value-list-item'}
                             >
                                 {!!this.icon && (
-                                    <es-icon
+                                    <c2-icon
                                         icon={this.icon}
                                         class={'value_list_item_icon'}
                                     />
                                 )}
                                 {this.renderItem(h, value)}
-                                <es-button
+                                <c2-button
                                     class={'value_list_item_delete'}
                                     variant={'minimal'}
                                     onClick={this.onDelete(i)}
                                 >
-                                    <es-icon icon={this.deleteIcon} size={20} />
-                                </es-button>
+                                    <c2-icon icon={this.deleteIcon} size={20} />
+                                </c2-button>
                             </li>
                         ))}
                     </ul>

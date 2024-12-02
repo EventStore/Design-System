@@ -1,6 +1,6 @@
 import { Component, h, Host } from '@stencil/core';
 
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 import { ICON_NAMESPACE } from 'icons/namespace';
 
 interface Example {
@@ -85,21 +85,21 @@ export class Demo {
                                 color: 'orange',
                             }}
                         >
-                            <es-icon
+                            <c2-icon
                                 size={14}
                                 icon={[ICON_NAMESPACE, 'trash']}
                                 style={{ color: 'pink' }}
                             />
                             {'I am some special docs'}
-                            <es-icon
+                            <c2-icon
                                 size={14}
                                 icon={[ICON_NAMESPACE, 'trash']}
                                 style={{ color: 'pink' }}
                             />
                         </span>
-                        <es-button>
-                            <es-icon icon={[ICON_NAMESPACE, 'trash']} />
-                        </es-button>
+                        <c2-button>
+                            <c2-icon icon={[ICON_NAMESPACE, 'trash']} />
+                        </c2-button>
                     </f2-masked-text-field>
 
                     <f2-masked-text-field

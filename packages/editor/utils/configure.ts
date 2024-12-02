@@ -1,7 +1,7 @@
 import { join, dirname } from 'path';
 
 const editorRoot = dirname(
-    require.resolve('@eventstore-ui/monaco-editor/package.json'),
+    require.resolve('@kurrent-ui/monaco-editor/package.json'),
 );
 
 /**

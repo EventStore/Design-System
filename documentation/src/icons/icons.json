@@ -71,13 +71,13 @@
             "name": "components",
             "component": "Components",
             "path": "./components/Components.tsx",
-            "aliases": ["@eventstore-ui/components"]
+            "aliases": ["@kurrent-ui/components"]
         },
         "configs": {
             "name": "configs",
             "component": "Configs",
             "path": "./components/Configs.tsx",
-            "aliases": ["@eventstore-ui/configs"]
+            "aliases": ["@kurrent-ui/configs"]
         },
         "copy": {
             "name": "copy",
@@ -103,7 +103,7 @@
             "name": "editor",
             "component": "Editor",
             "path": "./components/Editor.tsx",
-            "aliases": ["@eventstore-ui/editor"]
+            "aliases": ["@kurrent-ui/editor"]
         },
         "error": {
             "name": "error",
@@ -119,7 +119,7 @@
             "name": "fields",
             "component": "Fields",
             "path": "./components/Fields.tsx",
-            "aliases": ["@eventstore-ui/fields"]
+            "aliases": ["@kurrent-ui/fields"]
         },
         "folder": {
             "name": "folder",
@@ -130,7 +130,7 @@
             "name": "forms",
             "component": "Forms",
             "path": "./components/Forms.tsx",
-            "aliases": ["@eventstore-ui/forms"]
+            "aliases": ["@kurrent-ui/forms"]
         },
         "gift": {
             "name": "gift",
@@ -178,7 +178,7 @@
             "name": "layout",
             "component": "Layout",
             "path": "./components/Layout.tsx",
-            "aliases": ["@eventstore-ui/layout"]
+            "aliases": ["@kurrent-ui/layout"]
         },
         "light": {
             "name": "light",
@@ -230,12 +230,6 @@
             "component": "Plus",
             "path": "./components/Plus.tsx"
         },
-        "postcss-palette-plugin": {
-            "name": "postcss-palette-plugin",
-            "component": "PostcssPalettePlugin",
-            "path": "./components/PostcssPalettePlugin.tsx",
-            "aliases": ["@eventstore-ui/postcss-palette-plugin"]
-        },
         "reflect-to-attr": {
             "name": "reflect-to-attr",
             "component": "ReflectToAttr",
@@ -261,7 +255,7 @@
             "name": "router",
             "component": "Router",
             "path": "./components/Router.tsx",
-            "aliases": ["@eventstore-ui/router"]
+            "aliases": ["@kurrent-ui/router"]
         },
         "scroll": {
             "name": "scroll",
@@ -308,7 +302,7 @@
             "name": "stores",
             "component": "Stores",
             "path": "./components/Stores.tsx",
-            "aliases": ["@eventstore-ui/stores"]
+            "aliases": ["@kurrent-ui/stores"]
         },
         "theme": {
             "name": "theme",
@@ -361,7 +355,7 @@
             "name": "utils",
             "component": "Utils",
             "path": "./components/Utils.tsx",
-            "aliases": ["@eventstore-ui/utils"]
+            "aliases": ["@kurrent-ui/utils"]
         },
         "warning": {
             "name": "warning",

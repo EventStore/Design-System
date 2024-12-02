@@ -28,4 +28,4 @@ export type {
     Templated,
 } from './types';
 
-export { ICON_NAMESPACE as ES_FIELDS_ICON_NAMESPACE } from './icons/namespace';
+export { ICON_NAMESPACE as K_FIELDS_ICON_NAMESPACE } from './icons/namespace';

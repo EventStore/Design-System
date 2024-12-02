@@ -1,7 +1,7 @@
 <!-- show-location -->
 
 ```tsx
-import { ConditionalRedirect, Link } from '@eventstore-ui/router';
+import { ConditionalRedirect, Link } from '@kurrent-ui/router';
 
 export default () => (
     <>

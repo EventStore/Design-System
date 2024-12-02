@@ -2,7 +2,7 @@
     "name": "router-demo",
     "version": "0.1.0-alpha",
     "private": true,
-    "description": "Demo for @eventstore-ui/router",
+    "description": "Demo for @kurrent-ui/router",
     "scripts": {
         "build": "stencil build",
         "start": "stencil build --dev --watch --serve --no-open",
@@ -12,7 +12,7 @@
         "fix": "yarn g:fix"
     },
     "dependencies": {
-        "@eventstore-ui/router": "workspace:*"
+        "@kurrent-ui/router": "workspace:*"
     },
     "devDependencies": {
         "@stencil/core": "4.22.0"

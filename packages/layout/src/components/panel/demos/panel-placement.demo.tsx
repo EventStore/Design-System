@@ -1,5 +1,5 @@
 import { Component, Host, h, State } from '@stencil/core';
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 
 import {
     Page,
@@ -18,7 +18,7 @@ import { areas } from './validPositions';
  * @group Panels
  */
 @Component({
-    tag: 'es-panel-placement-demo',
+    tag: 'panel-placement-demo',
     styleUrl: 'panel-placement.demo.css',
     shadow: true,
 })
@@ -30,7 +30,7 @@ export class PanelPlacementDemo {
     @State() endIndex?: number;
 
     componentWillLoad() {
-        router.init({ root: '/es-panel-placement-demo/' });
+        router.init({ root: '/panel-placement-demo/' });
         headerHeight.set(140);
         bannerHeight.set(140);
         cookieHeight.set(140);
@@ -105,7 +105,7 @@ export class PanelPlacementDemo {
                         />
                     </label>
 
-                    <es-panel
+                    <l2-panel
                         defaultSize={140}
                         maximumSize={140}
                         minimumSize={140}

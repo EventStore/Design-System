@@ -10,7 +10,7 @@ Debounce a function, only making the call if the passed timeout is reached.
 Example:
 
 ```ts
-import { debounce } from '@eventstore-ui/utils';
+import { debounce } from '@kurrent-ui/utils';
 
 const debouncedLog = debounce(console.log, 200);
 
@@ -30,7 +30,7 @@ Cancels the queued function call.
 Example:
 
 ```ts
-import { debounce } from '@eventstore-ui/utils';
+import { debounce } from '@kurrent-ui/utils';
 
 const debouncedLog = debounce(console.log, 200);
 
@@ -50,7 +50,7 @@ Immediately calls the queued function call.
 Example:
 
 ```ts
-import { debounce } from '@eventstore-ui/utils';
+import { debounce } from '@kurrent-ui/utils';
 
 const debouncedLog = debounce(console.log, 200);
 
@@ -76,7 +76,7 @@ Rate Limit a function, ignoring subsiquent calls until the timeout has passed.
 Example:
 
 ```ts
-import { rateLimit } from '@eventstore-ui/utils';
+import { rateLimit } from '@kurrent-ui/utils';
 const rateLimitedLog = rateLimit(console.log, 200);
 
 for (let i = 0; i < 1000; i++) {
@@ -98,7 +98,7 @@ Cancels the queued function call.
 Example:
 
 ```ts
-import { rateLimit } from '@eventstore-ui/utils';
+import { rateLimit } from '@kurrent-ui/utils';
 const rateLimitedLog = rateLimit(console.log, 200);
 rateLimitedLog('hello');
 rateLimitedLog('hello');
@@ -114,7 +114,7 @@ Immediately calls the queued function call.
 Example:
 
 ```ts
-import { rateLimit } from '@eventstore-ui/utils';
+import { rateLimit } from '@kurrent-ui/utils';
 const rateLimitedLog = rateLimit(console.log, 200);
 rateLimitedLog('hello');
 rateLimitedLog('hello');

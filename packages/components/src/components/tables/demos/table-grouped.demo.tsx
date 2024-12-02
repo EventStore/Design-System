@@ -1,5 +1,5 @@
 import { Component, h, State } from '@stencil/core';
-import { router } from '@eventstore-ui/router';
+import { router } from '@kurrent-ui/router';
 import type {
     ClickRowEvent,
     ClickSortEvent,
@@ -30,7 +30,7 @@ function alphabet(num: number) {
  * @group Tables
  */
 @Component({
-    tag: 'es-table-grouped-demo',
+    tag: 'table-grouped-demo',
     styleUrl: './table-basic.css',
     shadow: true,
 })
@@ -57,7 +57,7 @@ export class Demo {
 
     render() {
         return (
-            <es-table
+            <c2-table
                 stickyHeader
                 cells={this.cells}
                 rows={this.keys}

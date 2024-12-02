@@ -1,5 +1,5 @@
 ```tsx
-import { toast } from '@eventstore-ui/components';
+import { toast } from '@kurrent-ui/components';
 import { randomIcon } from 'utils/helpers';
 
 const success = () =>
@@ -39,11 +39,11 @@ const clickToClose = async () => {
 
 export default () => (
     <>
-        <es-button onClick={success}>{'Success'}</es-button>
-        <es-button onClick={info}>{'Info'}</es-button>
-        <es-button onClick={warning}>{'Warning'}</es-button>
-        <es-button onClick={error}>{'Error'}</es-button>
-        <es-button onClick={clickToClose}>{'Dismiss'}</es-button>
+        <c2-button onClick={success}>{'Success'}</c2-button>
+        <c2-button onClick={info}>{'Info'}</c2-button>
+        <c2-button onClick={warning}>{'Warning'}</c2-button>
+        <c2-button onClick={error}>{'Error'}</c2-button>
+        <c2-button onClick={clickToClose}>{'Dismiss'}</c2-button>
     </>
 );
 ```

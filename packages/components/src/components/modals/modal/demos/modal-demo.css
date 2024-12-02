@@ -1,0 +1,20 @@
+:host {
+}
+
+.token {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.copy_warning {
+    display: flex;
+    align-items: center;
+}
+
+.copy_warning c2-icon {
+    margin-right: 15px;
+}
+
+.done_button {
+    min-width: 100px;
+}

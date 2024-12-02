@@ -12,7 +12,7 @@ import {
     Watch,
 } from '@stencil/core';
 import { theme } from '@kurrent-ui/theme';
-import type { IconDescription } from '@eventstore-ui/components';
+import type { IconDescription } from '@kurrent-ui/components';
 import { ICON_NAMESPACE } from 'icons/namespace';
 import type { FieldChange } from 'types';
 
@@ -76,7 +76,7 @@ export class Switch {
                 >
                     {theme.isHighContrast() ? (
                         <>
-                            <es-icon
+                            <c2-icon
                                 icon={
                                     this.value
                                         ? this.activeIcon

@@ -1,8 +1,8 @@
 :host {
     display: block;
 
-    & > es-button,
-    & > es-button-link {
+    & > c2-button,
+    & > c2-button-link {
         --current-color: var(--color-shade-60);
         --spacing: 6px;
         --height: 32px;
@@ -15,8 +15,8 @@
 }
 
 :host([dropdown-item]) {
-    & > es-button,
-    & > es-button-link {
+    & > c2-button,
+    & > c2-button-link {
         --border-radius: 0;
         --align-inner: flex-start;
         --height: 46px;

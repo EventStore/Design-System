@@ -1,5 +1,5 @@
 import { Component, h, Host } from '@stencil/core';
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 import type { RadioCardOption } from '../types';
 import { ICON_NAMESPACE } from 'icons/namespace';
 
@@ -118,7 +118,7 @@ export class Demo {
                                     padding: '12px',
                                 }}
                             >
-                                <es-icon
+                                <c2-icon
                                     icon={option.icon}
                                     size={40}
                                     part={`card-icon ${active ? 'active' : ''}`}

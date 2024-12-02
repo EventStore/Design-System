@@ -1,24 +1,24 @@
 {
-    "npmScope": "eventstore-ui",
-    "tasksRunnerOptions": {
-        "default": {
-            "runner": "nx/tasks-runners/default",
-            "options": {
-                "cacheableOperations": ["build", "docs", "test", "lint"]
-            }
-        }
-    },
     "targetDefaults": {
         "build": {
             "dependsOn": ["^build"],
-            "outputs": ["{projectRoot}/dist"]
+            "outputs": ["{projectRoot}/dist"],
+            "cache": true
         },
         "dev": {
             "dependsOn": ["^build"]
         },
         "docs": {
-            "dependsOn": ["^build"]
+            "dependsOn": ["^build"],
+            "cache": true
+        },
+        "test": {
+            "cache": false
+        },
+        "lint": {
+            "cache": false
         }
     },
-    "defaultBase": "main"
+    "defaultBase": "main",
+    "useInferencePlugins": false
 }

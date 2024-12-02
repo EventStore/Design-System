@@ -18,8 +18,8 @@
         "baseUrl": "./src"
     },
     "typedocOptions": {
-        "name": "@eventstore-ui/fields",
-        "plugin": ["@eventstore-ui/typedoc-plugin-usage"],
+        "name": "@kurrent-ui/fields",
+        "plugin": ["@kurrent-ui/typedoc-plugin-usage"],
         "entryPoints": ["./src/index.ts"]
     },
     "include": ["src", "types/jsx.d.ts"],

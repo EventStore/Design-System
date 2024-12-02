@@ -1,5 +1,5 @@
 import { Component, h, Host } from '@stencil/core';
-import { Switch, Route, router } from '@eventstore-ui/router';
+import { Switch, Route, router } from '@kurrent-ui/router';
 import { sitemap } from 'sitemap';
 
 @Component({
@@ -9,23 +9,23 @@ import { sitemap } from 'sitemap';
 export class Root {
     componentWillLoad() {
         router.init({
-            titleSuffix: ' - Event Store Design System',
+            titleSuffix: ' - Kurrent Design System',
         });
     }
 
     render() {
         return (
             <Host>
-                <es-header>
-                    <es-button-link
+                <l2-header>
+                    <c2-button-link
                         external
                         slot={'right'}
                         url={'https://github.com/EventStore/Design-System'}
                     >
-                        <es-icon icon={'github'} />
-                    </es-button-link>
-                    <es-theme-dropdown slot={'right'} />
-                </es-header>
+                        <c2-icon icon={'github'} />
+                    </c2-button-link>
+                    <l2-theme-dropdown slot={'right'} />
+                </l2-header>
                 <Switch>
                     <Route exact url={'/'} routeRender={() => <docs-home />} />
                     {sitemap.sections.map((section) =>

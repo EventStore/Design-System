@@ -1,4 +1,4 @@
-# @eventstore-ui/monaco-editor
+# @kurrent-ui/monaco-editor
 
 ## 1.0.1
 

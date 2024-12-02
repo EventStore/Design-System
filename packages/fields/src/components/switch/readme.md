@@ -1,7 +1,5 @@
 # es-switch
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -14,7 +12,7 @@ A switchable switch.
 ### Example
 
 ```tsx
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 
 interface Example {
     good: boolean;
@@ -87,12 +85,12 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- es-icon
+- c2-icon
 
 ### Graph
 ```mermaid
 graph TD;
-  f2-switch --> es-icon
+  f2-switch --> c2-icon
   style f2-switch fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

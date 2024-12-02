@@ -1,6 +1,6 @@
 # Design System
 
-Event Store component library and frontend utilities
+Kurrent component library and frontend utilities
 
 ## Prerequisites
 

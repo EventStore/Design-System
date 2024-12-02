@@ -6,7 +6,7 @@ export default () => (
             warning: ['Watch out!', "It's hot!"],
             info: [
                 'It will cool down soon.',
-                (h) => <es-button>{'hello'}</es-button>,
+                (h) => <c2-button>{'hello'}</c2-button>,
             ],
         }}
     />

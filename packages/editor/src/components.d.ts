@@ -5,13 +5,13 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { editor } from "@eventstore-ui/monaco-editor";
-export { editor } from "@eventstore-ui/monaco-editor";
+import { editor } from "@kurrent-ui/monaco-editor";
+export { editor } from "@kurrent-ui/monaco-editor";
 export namespace Components {
     /**
      * Monaco editor wrapped in a web component. Handles re-layout on container resize
      */
-    interface EsEditor {
+    interface E3Editor {
         /**
           * An optional callback for getting a reference to the editor, for external control.
          */
@@ -26,21 +26,21 @@ declare global {
     /**
      * Monaco editor wrapped in a web component. Handles re-layout on container resize
      */
-    interface HTMLEsEditorElement extends Components.EsEditor, HTMLStencilElement {
+    interface HTMLE3EditorElement extends Components.E3Editor, HTMLStencilElement {
     }
-    var HTMLEsEditorElement: {
-        prototype: HTMLEsEditorElement;
-        new (): HTMLEsEditorElement;
+    var HTMLE3EditorElement: {
+        prototype: HTMLE3EditorElement;
+        new (): HTMLE3EditorElement;
     };
     interface HTMLElementTagNameMap {
-        "es-editor": HTMLEsEditorElement;
+        "e3-editor": HTMLE3EditorElement;
     }
 }
 declare namespace LocalJSX {
     /**
      * Monaco editor wrapped in a web component. Handles re-layout on container resize
      */
-    interface EsEditor {
+    interface E3Editor {
         /**
           * An optional callback for getting a reference to the editor, for external control.
          */
@@ -51,7 +51,7 @@ declare namespace LocalJSX {
         "options"?: editor.IStandaloneEditorConstructionOptions;
     }
     interface IntrinsicElements {
-        "es-editor": EsEditor;
+        "e3-editor": E3Editor;
     }
 }
 export { LocalJSX as JSX };
@@ -61,7 +61,7 @@ declare module "@stencil/core" {
             /**
              * Monaco editor wrapped in a web component. Handles re-layout on container resize
              */
-            "es-editor": LocalJSX.EsEditor & JSXBase.HTMLAttributes<HTMLEsEditorElement>;
+            "e3-editor": LocalJSX.E3Editor & JSXBase.HTMLAttributes<HTMLE3EditorElement>;
         }
     }
 }

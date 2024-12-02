@@ -1,7 +1,7 @@
 {
     "name": "forms-demo",
     "private": true,
-    "description": "Demo for @eventstore-ui/forms",
+    "description": "Demo for @kurrent-ui/forms",
     "scripts": {
         "build": "stencil build",
         "start": "stencil build --dev --watch --serve --no-open",
@@ -11,18 +11,18 @@
         "fix": "yarn g:fix"
     },
     "dependencies": {
-        "@eventstore-ui/components": "workspace:*",
-        "@eventstore-ui/fields": "workspace:*",
-        "@eventstore-ui/forms": "workspace:*",
-        "@eventstore-ui/layout": "workspace:*",
-        "@eventstore-ui/router": "workspace:*",
-        "@eventstore-ui/stores": "workspace:*",
-        "@eventstore-ui/utils": "workspace:*",
-        "@kurrent-ui/theme": "workspace:*"
+        "@kurrent-ui/components": "workspace:*",
+        "@kurrent-ui/fields": "workspace:*",
+        "@kurrent-ui/forms": "workspace:*",
+        "@kurrent-ui/layout": "workspace:*",
+        "@kurrent-ui/router": "workspace:*",
+        "@kurrent-ui/stores": "workspace:*",
+        "@kurrent-ui/theme": "workspace:*",
+        "@kurrent-ui/utils": "workspace:*"
     },
     "devDependencies": {
-        "@eventstore-ui/configs": "workspace:*",
         "@kurrent-ui/assets": "workspace:*",
+        "@kurrent-ui/configs": "workspace:*",
         "@kurrent-ui/icon-manager": "workspace:*",
         "@stencil/core": "4.22.0"
     }

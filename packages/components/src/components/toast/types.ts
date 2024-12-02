@@ -1,4 +1,4 @@
-import type { IconDescription } from '../../components/es-icon/types';
+import type { IconDescription } from '../../components/icon/types';
 
 export type ToastLevel = 'success' | 'info' | 'warning' | 'error';
 export interface ToastOptions {

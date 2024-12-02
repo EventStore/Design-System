@@ -13,7 +13,7 @@ import {
     PageTitle,
     type RouteRenderProps,
     router,
-} from '@eventstore-ui/router';
+} from '@kurrent-ui/router';
 
 const PrivateRoute: FunctionalComponent<{
     url: string;
@@ -35,7 +35,7 @@ const PrivateRoute: FunctionalComponent<{
 })
 export class RouterDemoApp {
     componentWillLoad() {
-        router.init({ titleSuffix: ' - @eventstore-ui/router' });
+        router.init({ titleSuffix: ' - @kurrent-ui/router' });
     }
 
     render() {

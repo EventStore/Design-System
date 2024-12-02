@@ -50,7 +50,7 @@ label {
         outline: none;
     }
 
-    &:focus-visible es-icon {
+    &:focus-visible c2-icon {
         box-shadow: 0 0 0px 1px var(--color-highlight);
     }
 

@@ -30,7 +30,7 @@ section {
     position: relative;
     overflow: hidden;
 
-    & es-corner-banner {
+    & c2-corner-banner {
         --background-color: var(--color-foreground);
         --foreground-color: var(--color-background);
     }
@@ -51,7 +51,7 @@ section {
         height: 100%;
     }
 
-    & es-icon {
+    & c2-icon {
         grid-area: icon;
         align-self: center;
     }

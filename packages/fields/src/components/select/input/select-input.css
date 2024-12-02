@@ -36,14 +36,14 @@
         background-color: var(--color-disabled);
         border-style: dashed;
 
-        & es-icon {
+        & c2-icon {
             color: var(--color-shade-50);
         }
     }
 
     &.open {
         border-color: transparent;
-        & es-icon {
+        & c2-icon {
             transform: rotate(-180deg);
         }
     }

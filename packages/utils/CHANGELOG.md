@@ -1,4 +1,4 @@
-# @eventstore-ui/utils
+# @kurrent-ui/utils
 
 ## 1.2.2
 

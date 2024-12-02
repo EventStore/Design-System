@@ -1,4 +1,4 @@
-import { Uri, editor, languages } from '@eventstore-ui/editor/monaco';
+import { Uri, editor, languages } from '@kurrent-ui/editor/monaco';
 
 import type { Parts, Models } from './types';
 

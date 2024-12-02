@@ -1,7 +1,5 @@
 # f2-select-input
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -14,7 +12,7 @@ A searchable select dropdown.
 ### Example
 
 ```tsx
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 
 interface Example {
     name: string | null;
@@ -90,19 +88,19 @@ export default () => (
 
 ### Depends on
 
-- es-icon
+- c2-icon
 - f2-typeahead
 
 ### Graph
 ```mermaid
 graph TD;
-  f2-select-input --> es-icon
+  f2-select-input --> c2-icon
   f2-select-input --> f2-typeahead
-  f2-typeahead --> es-popover
-  es-popover --> es-popper
-  es-popover --> es-popper-inner
-  es-popover --> es-popper-x
-  es-popover --> es-popper-y
+  f2-typeahead --> c2-popover
+  c2-popover --> c2-popper
+  c2-popover --> c2-popper-inner
+  c2-popover --> c2-popper-x
+  c2-popover --> c2-popper-y
   f2-select-field --> f2-select-input
   style f2-select-input fill:#f9f,stroke:#333,stroke-width:4px
 ```

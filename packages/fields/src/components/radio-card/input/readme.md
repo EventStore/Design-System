@@ -12,8 +12,8 @@ A card based single select input.
 ### Example
 
 ```tsx
-import { createValidatedForm } from '@eventstore-ui/forms';
-import type { RadioCardOption } from '@eventstore-ui/fields';
+import { createValidatedForm } from '@kurrent-ui/forms';
+import type { RadioCardOption } from '@kurrent-ui/fields';
 
 interface Example {
     best: string | null;
@@ -33,7 +33,7 @@ export default () => (
             groupBy={'group'}
             {...form.connect('another')}
         />
-        <es-button
+        <c2-button
             onClick={() => {
                 form.submit((data) => {
                     console.log(data);
@@ -41,7 +41,7 @@ export default () => (
             }}
         >
             {'Submit'}
-        </es-button>
+        </c2-button>
     </f2-form>
 );
 
@@ -124,12 +124,12 @@ const options: RadioCardOption[] = [
 
 ### Depends on
 
-- es-icon
+- c2-icon
 
 ### Graph
 ```mermaid
 graph TD;
-  f2-radio-card-input --> es-icon
+  f2-radio-card-input --> c2-icon
   f2-radio-card-field --> f2-radio-card-input
   style f2-radio-card-input fill:#f9f,stroke:#333,stroke-width:4px
 ```

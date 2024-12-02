@@ -1,4 +1,4 @@
-# @eventstore-ui/stores
+# @kurrent-ui/stores
 
 ## 1.1.2
 

@@ -5,26 +5,26 @@ import type { PackageJson } from '.';
 import assetsPackageJson from '@kurrent-ui/assets/package.json';
 import assetsReadme from '@kurrent-ui/assets/readme.md';
 
-import componentsPackageJson from '@eventstore-ui/components/package.json';
-import componentsReadme from '@eventstore-ui/components/readme.md';
+import componentsPackageJson from '@kurrent-ui/components/package.json';
+import componentsReadme from '@kurrent-ui/components/readme.md';
 import componentsStencilDocs from '../../../generated/components.stencil.json';
 import componentsTypeDocs from '../../../generated/components.typedoc.json';
 
-import configsPackageJson from '@eventstore-ui/configs/package.json';
-import configsReadme from '@eventstore-ui/configs/readme.md';
+import configsPackageJson from '@kurrent-ui/configs/package.json';
+import configsReadme from '@kurrent-ui/configs/readme.md';
 
-import editorPackageJson from '@eventstore-ui/editor/package.json';
-import editorReadme from '@eventstore-ui/editor/readme.md';
+import editorPackageJson from '@kurrent-ui/editor/package.json';
+import editorReadme from '@kurrent-ui/editor/readme.md';
 import editorStencilDocs from '../../../generated/editor.stencil.json';
 import editorTypeDocs from '../../../generated/editor.typedoc.json';
 
-import fieldsPackageJson from '@eventstore-ui/fields/package.json';
-import fieldsReadme from '@eventstore-ui/fields/readme.md';
+import fieldsPackageJson from '@kurrent-ui/fields/package.json';
+import fieldsReadme from '@kurrent-ui/fields/readme.md';
 import fieldsStencilDocs from '../../../generated/fields.stencil.json';
 import fieldsTypeDocs from '../../../generated/fields.typedoc.json';
 
-import formsPackageJson from '@eventstore-ui/forms/package.json';
-import formsReadme from '@eventstore-ui/forms/readme.md';
+import formsPackageJson from '@kurrent-ui/forms/package.json';
+import formsReadme from '@kurrent-ui/forms/readme.md';
 import formsTypeDocs from '../../../generated/forms.typedoc.json';
 
 import iconManagerPackageJson from '@kurrent-ui/icon-manager/package.json';
@@ -35,25 +35,25 @@ import sequencesReadme from '@kurrent-ui/sequences/readme.md';
 import sequencesStencilDocs from '../../../generated/sequences.stencil.json';
 import sequencesTypeDocs from '../../../generated/sequences.typedoc.json';
 
-import layoutPackageJson from '@eventstore-ui/layout/package.json';
-import layoutReadme from '@eventstore-ui/layout/readme.md';
+import layoutPackageJson from '@kurrent-ui/layout/package.json';
+import layoutReadme from '@kurrent-ui/layout/readme.md';
 import layoutStencilDocs from '../../../generated/layout.stencil.json';
 import layoutTypeDocs from '../../../generated/layout.typedoc.json';
 
-import routerPackageJson from '@eventstore-ui/router/package.json';
-import routerReadme from '@eventstore-ui/router/readme.md';
+import routerPackageJson from '@kurrent-ui/router/package.json';
+import routerReadme from '@kurrent-ui/router/readme.md';
 import routerTypeDocs from '../../../generated/router.typedoc.json';
 
-import storesPackageJson from '@eventstore-ui/stores/package.json';
-import storesReadme from '@eventstore-ui/stores/readme.md';
+import storesPackageJson from '@kurrent-ui/stores/package.json';
+import storesReadme from '@kurrent-ui/stores/readme.md';
 import storesTypeDocs from '../../../generated/stores.typedoc.json';
 
 import themePackageJson from '@kurrent-ui/theme/package.json';
 import themeReadme from '@kurrent-ui/theme/readme.md';
 import themeTypeDocs from '../../../generated/theme.typedoc.json';
 
-import utilsPackageJson from '@eventstore-ui/utils/package.json';
-import utilsReadme from '@eventstore-ui/utils/readme.md';
+import utilsPackageJson from '@kurrent-ui/utils/package.json';
+import utilsReadme from '@kurrent-ui/utils/readme.md';
 import utilsTypeDocs from '../../../generated/utils.typedoc.json';
 
 const packageJsons: Record<string, PackageJson> = {

@@ -1,6 +1,6 @@
 {
     "version": "1.0.2",
-    "namespace": "es-components",
+    "namespace": "k-components",
     "iconStoreImportPath": "../utils/iconStore",
     "icons": {
         "check": {

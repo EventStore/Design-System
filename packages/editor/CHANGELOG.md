@@ -1,4 +1,4 @@
-# @eventstore-ui/editor
+# @kurrent-ui/editor
 
 ## 2.0.2
 

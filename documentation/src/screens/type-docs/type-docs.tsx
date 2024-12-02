@@ -1,6 +1,6 @@
 import { Component, h, Prop, Watch } from '@stencil/core';
 
-import { Page } from '@eventstore-ui/layout';
+import { Page } from '@kurrent-ui/layout';
 
 import type { Lib } from 'sitemap';
 import { findAllReferences } from 'utils/typedoc/findAllReferences';

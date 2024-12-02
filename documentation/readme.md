@@ -1,1 +1,1 @@
-# @eventstore-ui/docs
+# @kurrent-ui/docs

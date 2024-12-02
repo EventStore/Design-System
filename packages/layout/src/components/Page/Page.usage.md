@@ -2,7 +2,7 @@
 
 ```tsx my-great-page.tsx
 import { Component, h, State } from '@stencil/core';
-import { Page, PageState } from '@eventstore-ui/layout';
+import { Page, PageState } from '@kurrent-ui/layout';
 
 import { loadData, Data } from './loadData';
 
@@ -53,22 +53,22 @@ export class MyGreatPage {
     }
 
     renderErrorState = (error: Error) => (
-        <es-display-error error={error}>
-            <es-button-link url={'/'}>{'Go home'}</es-button-link>
-        </es-display-error>
+        <l2-display-error error={error}>
+            <c2-button-link url={'/'}>{'Go home'}</c2-button-link>
+        </l2-display-error>
     );
 
     renderEmptyState = () => (
         <>
             {'No Data yet!'}
-            <es-button-link url={'./make-data'}>
+            <c2-button-link url={'./make-data'}>
                 {'Get started making some data!'}
-            </es-button-link>
+            </c2-button-link>
         </>
     );
 }
 ```
 
 ```css my-great-page.css
-@import url('~@eventstore-ui/layout/css/page.css');
+@import url('~@kurrent-ui/layout/css/page.css');
 ```

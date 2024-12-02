@@ -18,8 +18,8 @@
         "jsxFactory": "h"
     },
     "typedocOptions": {
-        "name": "@eventstore-ui/utils",
-        "plugin": ["@eventstore-ui/typedoc-plugin-usage"],
+        "name": "@kurrent-ui/utils",
+        "plugin": ["@kurrent-ui/typedoc-plugin-usage"],
         "entryPoints": ["./src/index.ts"]
     },
     "include": ["src"],

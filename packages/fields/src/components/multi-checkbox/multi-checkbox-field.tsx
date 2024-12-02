@@ -7,7 +7,7 @@ import {
     AttachInternals,
     Watch,
 } from '@stencil/core';
-import type { IconDescription } from '@eventstore-ui/components';
+import type { IconDescription } from '@kurrent-ui/components';
 
 import type { FieldChange, ValidationMessages, Templated } from 'types';
 import { ICON_NAMESPACE } from 'icons/namespace';
@@ -121,7 +121,7 @@ export class MultiCheckboxField {
                                     readonly={this.readonly}
                                     checked={this.value.has(option.value)}
                                 />
-                                <es-icon
+                                <c2-icon
                                     icon={this.icon}
                                     class={'multi-checkbox'}
                                     size={12}

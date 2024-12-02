@@ -1,7 +1,7 @@
 import { Component, h, Prop } from '@stencil/core';
 import type { JsonDocs } from '@stencil/core/internal';
 
-import { Page } from '@eventstore-ui/layout';
+import { Page } from '@kurrent-ui/layout';
 
 import type { Lib } from 'sitemap';
 import { extractTypes } from 'utils/typedoc/isIntrinsic';
@@ -34,7 +34,7 @@ export class ComponentDocs {
                     },
                 ]}
                 headerRight={() => (
-                    <es-icon
+                    <c2-icon
                         size={45}
                         icon={encapsulation === 'shadow' ? 'shadow' : 'light'}
                         title={
@@ -79,7 +79,7 @@ export class ComponentDocs {
                     methods={this.comp.methods}
                 />
 
-                <docs-styles-table id={'css'} styles={this.comp.styles} />
+                <docs-stylc2-table id={'css'} styles={this.comp.styles} />
                 <docs-parts-table id={'parts'} parts={this.comp.parts} />
             </Page>
         );

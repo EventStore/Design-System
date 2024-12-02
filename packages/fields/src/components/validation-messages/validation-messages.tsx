@@ -1,5 +1,5 @@
 import { Component, h, Prop, Host } from '@stencil/core';
-import type { IconDescription } from '@eventstore-ui/components';
+import type { IconDescription } from '@kurrent-ui/components';
 
 import type { ValidationMessages } from 'types';
 import { ICON_NAMESPACE } from 'icons/namespace';
@@ -34,19 +34,19 @@ export class EsValidationMessages {
                 <ul class={'messages'}>
                     {error.map((message) => (
                         <li class={'error'}>
-                            <es-icon icon={this.errorIcon} size={16} />
+                            <c2-icon icon={this.errorIcon} size={16} />
                             {typeof message === 'string' ? message : message(h)}
                         </li>
                     ))}
                     {warning.map((message) => (
                         <li class={'warning'}>
-                            <es-icon icon={this.warningIcon} size={16} />
+                            <c2-icon icon={this.warningIcon} size={16} />
                             {typeof message === 'string' ? message : message(h)}
                         </li>
                     ))}
                     {info.map((message) => (
                         <li class={'info'}>
-                            <es-icon icon={this.infoIcon} size={16} />
+                            <c2-icon icon={this.infoIcon} size={16} />
                             {typeof message === 'string' ? message : message(h)}
                         </li>
                     ))}

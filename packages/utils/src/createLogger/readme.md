@@ -10,7 +10,7 @@ Create a standardised logger, and subscribe to logs. Used across Design System l
 Example:
 
 ```ts
-import { createLogger } from '@eventstore-ui/utils';
+import { createLogger } from '@kurrent-ui/utils';
 const logger = createLogger('Documentation', 'blue');
 
 logger.log('hello');
@@ -42,7 +42,7 @@ The returned output of `createLogger`. Maps closely to `console`
 Adds a subsciption to all calls to loggers. Returns an unsubscribe function. If a subscription throws an error, it will be silently ignored.
 
 ```ts
-import { createLogger } from '@eventstore-ui/utils';
+import { createLogger } from '@kurrent-ui/utils';
 
 const unsubscribe = createLogger.subscribe((logEvent) => {
     navigator.clipboard.writeText(JSON.stringify(logEvent));

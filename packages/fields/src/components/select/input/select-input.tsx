@@ -8,7 +8,7 @@ import {
     AttachInternals,
     Host,
 } from '@stencil/core';
-import type { IconDescription } from '@eventstore-ui/components';
+import type { IconDescription } from '@kurrent-ui/components';
 
 import type { FieldChange } from 'types';
 import type {
@@ -92,7 +92,7 @@ export class Select {
                       )
                     : this.renderPlaceholder()
                 : null}
-            <es-icon class={'chevron'} icon={this.chevronIcon} size={14} />
+            <c2-icon class={'chevron'} icon={this.chevronIcon} size={14} />
         </div>
     );
 

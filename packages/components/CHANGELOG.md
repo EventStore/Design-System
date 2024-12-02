@@ -1,4 +1,4 @@
-# @eventstore-ui/components
+# @kurrent-ui/components
 
 ## 1.10.0
 

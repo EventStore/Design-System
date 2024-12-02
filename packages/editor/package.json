@@ -1,7 +1,7 @@
 {
-    "name": "@eventstore-ui/editor",
+    "name": "@kurrent-ui/editor",
     "version": "2.0.2",
-    "description": "Monaco Editor for Event Store Design System",
+    "description": "Monaco Editor for Kurrent Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
     "module": "dist/index.js",
@@ -59,18 +59,18 @@
         }
     },
     "dependencies": {
-        "@eventstore-ui/monaco-editor": "workspace:*"
+        "@kurrent-ui/monaco-editor": "workspace:*"
     },
     "peerDependencies": {
-        "@eventstore-ui/components": "^1.0.0",
-        "@eventstore-ui/utils": "^1.0.0",
-        "@kurrent-ui/theme": "^1.0.0"
+        "@kurrent-ui/components": "^1.0.0",
+        "@kurrent-ui/theme": "^1.0.0",
+        "@kurrent-ui/utils": "^1.0.0"
     },
     "devDependencies": {
-        "@eventstore-ui/components": "workspace:*",
-        "@eventstore-ui/configs": "workspace:*",
-        "@eventstore-ui/utils": "workspace:*",
+        "@kurrent-ui/components": "workspace:*",
+        "@kurrent-ui/configs": "workspace:*",
         "@kurrent-ui/theme": "workspace:*",
+        "@kurrent-ui/utils": "workspace:*",
         "@stencil-community/postcss": "^2.2.0",
         "@stencil/core": "4.22.0",
         "jest": "^27.4.5",

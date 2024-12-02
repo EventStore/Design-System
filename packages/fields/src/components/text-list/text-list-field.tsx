@@ -8,8 +8,8 @@ import {
     AttachInternals,
     Watch,
 } from '@stencil/core';
-import type { IconDescription } from '@eventstore-ui/components';
-import { focusFirst } from '@eventstore-ui/utils';
+import type { IconDescription } from '@kurrent-ui/components';
+import { focusFirst } from '@kurrent-ui/utils';
 
 import type { FieldChange, ValidationMessages, Templated } from 'types';
 import { ICON_NAMESPACE } from 'icons/namespace';
@@ -82,13 +82,13 @@ export class TextListField {
             ref={this.captureInput(i)}
             onEnter={this.onAdd}
         >
-            <es-button
+            <c2-button
                 class={'delete_row'}
                 variant={'minimal'}
                 onClick={this.onDelete(i)}
             >
-                <es-icon icon={this.deleteIcon} size={20} />
-            </es-button>
+                <c2-icon icon={this.deleteIcon} size={20} />
+            </c2-button>
         </f2-text-input>
     );
 
@@ -110,18 +110,18 @@ export class TextListField {
                     : this.value.map(this.renderInput)}
                 {!this.disabled && (
                     <div class={'row'}>
-                        <es-button
+                        <c2-button
                             onClick={this.onAdd}
                             variant={'minimal'}
                             class={'add_item'}
                         >
                             {this.additionText}
-                            <es-icon
+                            <c2-icon
                                 icon={this.additionIcon}
                                 slot={'after'}
                                 size={20}
                             />
-                        </es-button>
+                        </c2-button>
                     </div>
                 )}
             </Field>

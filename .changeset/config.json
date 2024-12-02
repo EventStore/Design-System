@@ -11,8 +11,8 @@
     "baseBranch": "main",
     "updateInternalDependencies": "patch",
     "ignore": [
-        "@eventstore-ui/docs",
-        "@eventstore-ui/preview-builder",
+        "@kurrent-ui/docs",
+        "@kurrent-ui/preview-builder",
         "forms-demo",
         "router-demo",
         "stores-demo"

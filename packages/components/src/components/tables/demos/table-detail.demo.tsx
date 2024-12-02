@@ -13,7 +13,7 @@ interface DummyData {
  * @group Tables
  */
 @Component({
-    tag: 'es-table-detail-basic-demo',
+    tag: 'table-detail-basic-demo',
     styleUrl: './table-basic.css',
     shadow: true,
 })
@@ -27,12 +27,12 @@ export class TableDetailDemo {
     render() {
         return (
             <Host>
-                <es-table-detail-header
+                <c2-table-detail-header
                     titleCell={'name'}
                     data={this.data}
                     cells={this.cells}
                 />
-                <es-table-detail data={this.data} cells={this.cells} />
+                <c2-table-detail data={this.data} cells={this.cells} />
             </Host>
         );
     }
@@ -59,7 +59,7 @@ export class TableDetailDemo {
         },
         actions: {
             title: 'Amount',
-            cell: (h) => <es-button>{'Hello'}</es-button>,
+            cell: (h) => <c2-button>{'Hello'}</c2-button>,
         },
     };
 }

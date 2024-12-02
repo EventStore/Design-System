@@ -1,6 +1,6 @@
 ```tsx
-import { createValidatedForm } from '@eventstore-ui/forms';
-import type { RadioCardOption } from '@eventstore-ui/fields';
+import { createValidatedForm } from '@kurrent-ui/forms';
+import type { RadioCardOption } from '@kurrent-ui/fields';
 
 interface Example {
     best: string | null;
@@ -28,7 +28,7 @@ export default () => (
             groupBy={'group'}
             {...form.connect('another')}
         />
-        <es-button
+        <c2-button
             onClick={() => {
                 form.submit((data) => {
                     console.log(data);
@@ -36,7 +36,7 @@ export default () => (
             }}
         >
             {'Submit'}
-        </es-button>
+        </c2-button>
     </f2-form>
 );
 

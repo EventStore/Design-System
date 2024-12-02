@@ -1,9 +1,6 @@
 # es-textarea
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Overview
 
@@ -14,7 +11,7 @@ A textarea input.
 ### Example
 
 ```tsx
-import { createValidatedForm } from '@eventstore-ui/forms';
+import { createValidatedForm } from '@kurrent-ui/forms';
 
 interface Example {
     text: string;
@@ -44,8 +41,6 @@ export default () => (
 }
 ```
 
-
-
 ## Properties
 
 | Property                   | Attribute     | Description                                  | Type                                 | Default     |
@@ -58,27 +53,24 @@ export default () => (
 | `readonly`                 | `readonly`    | If the input is editable.                    | `boolean \| undefined`               | `undefined` |
 | `value` _(required)_       | `value`       | The current value of the input.              | `string`                             | `undefined` |
 
-
 ## Events
 
 | Event         | Description                                     | Type                                       |
 | ------------- | ----------------------------------------------- | ------------------------------------------ |
 | `fieldchange` | Emitted when the value of the field is changed. | `CustomEvent<FieldChange<string, string>>` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [f2-textarea-field](.)
+-   [f2-textarea-field](.)
 
 ### Graph
+
 ```mermaid
 graph TD;
   f2-textarea-field --> f2-textarea-input
   style f2-textarea-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
-
-
+---
