@@ -1,0 +1,8 @@
+@import '../../field.css';
+
+.inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-0_5);
+}
