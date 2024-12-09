@@ -25,7 +25,7 @@ import type { RadioCardOption, RenderCard } from '../types';
     shadow: true,
 })
 export class RadioCardInput {
-    @AttachInternals() internals!: ElementInternals;
+    @AttachInternals() internals?: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
@@ -51,6 +51,8 @@ export class RadioCardInput {
     @Prop({ reflect: true }) name!: string;
     /** The current value of the input. */
     @Prop() value!: string | null;
+    /** The placeholder to show if there are no options. */
+    @Prop() placeholder?: string;
     /** The options to be displayed and chosen from. */
     @Prop() options!: RadioCardOption[];
     /** Group the cards by a key.*/
@@ -66,7 +68,7 @@ export class RadioCardInput {
 
     @Watch('value')
     componentDidLoad() {
-        this.internals.setFormValue(this.value);
+        this.internals?.setFormValue(this.value);
     }
 
     render() {
@@ -87,6 +89,7 @@ export class RadioCardInput {
                 <f2-radio-card-input
                     name={this.name}
                     value={this.value}
+                    placeholder={this.placeholder}
                     options={this.options}
                     groupBy={this.groupBy}
                     disabled={this.disabled}

@@ -1,6 +1,6 @@
 {
     "name": "@kurrent-ui/fields",
-    "version": "2.0.0-alpha.8",
+    "version": "2.0.0-alpha.10",
     "description": "Forms and fields for Kurrent Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
@@ -13,7 +13,8 @@
     "collection:main": "dist/collection/index.js",
     "unpkg": "dist/fields/fields.js",
     "files": [
-        "dist/"
+        "dist/",
+        "css/"
     ],
     "repository": {
         "type": "git",

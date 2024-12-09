@@ -57,6 +57,11 @@ export namespace Components {
     interface F2Form {
     }
     /**
+     * A footer for forms
+     */
+    interface F2FormFooter {
+    }
+    /**
      * A horizontal rule for dividing form sections
      * Can optionally have a title slotted
      */
@@ -317,6 +322,27 @@ export namespace Components {
         "value": string;
     }
     /**
+     * Can be displayed if a field isn't available yet
+     */
+    interface F2PlaceholderField {
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+    }
+    /**
      * A card based single select field.
      */
     interface F2RadioCardField {
@@ -369,6 +395,10 @@ export namespace Components {
          */
         "options": RadioCardOption[];
         /**
+          * The placeholder to show if there are no options.
+         */
+        "placeholder"?: string;
+        /**
           * Overwrite the default card renderer
          */
         "renderCard"?: RenderCard<any>;
@@ -409,6 +439,10 @@ export namespace Components {
           * The options to be displayed and chosen from.
          */
         "options": RadioCardOption[];
+        /**
+          * The placeholder to show if there are no options.
+         */
+        "placeholder"?: string;
         /**
           * Overwrite the default card renderer
          */
@@ -1048,6 +1082,15 @@ declare global {
         new (): HTMLF2FormElement;
     };
     /**
+     * A footer for forms
+     */
+    interface HTMLF2FormFooterElement extends Components.F2FormFooter, HTMLStencilElement {
+    }
+    var HTMLF2FormFooterElement: {
+        prototype: HTMLF2FormFooterElement;
+        new (): HTMLF2FormFooterElement;
+    };
+    /**
      * A horizontal rule for dividing form sections
      * Can optionally have a title slotted
      */
@@ -1163,6 +1206,15 @@ declare global {
     var HTMLF2NumberInputElement: {
         prototype: HTMLF2NumberInputElement;
         new (): HTMLF2NumberInputElement;
+    };
+    /**
+     * Can be displayed if a field isn't available yet
+     */
+    interface HTMLF2PlaceholderFieldElement extends Components.F2PlaceholderField, HTMLStencilElement {
+    }
+    var HTMLF2PlaceholderFieldElement: {
+        prototype: HTMLF2PlaceholderFieldElement;
+        new (): HTMLF2PlaceholderFieldElement;
     };
     interface HTMLF2RadioCardFieldElementEventMap {
         "fieldchange": FieldChange<string>;
@@ -1423,12 +1475,14 @@ declare global {
     interface HTMLElementTagNameMap {
         "f2-checkbox": HTMLF2CheckboxElement;
         "f2-form": HTMLF2FormElement;
+        "f2-form-footer": HTMLF2FormFooterElement;
         "f2-form-section-divider": HTMLF2FormSectionDividerElement;
         "f2-masked-text-field": HTMLF2MaskedTextFieldElement;
         "f2-masked-text-input": HTMLF2MaskedTextInputElement;
         "f2-multi-checkbox-field": HTMLF2MultiCheckboxFieldElement;
         "f2-number-field": HTMLF2NumberFieldElement;
         "f2-number-input": HTMLF2NumberInputElement;
+        "f2-placeholder-field": HTMLF2PlaceholderFieldElement;
         "f2-radio-card-field": HTMLF2RadioCardFieldElement;
         "f2-radio-card-input": HTMLF2RadioCardInputElement;
         "f2-select-field": HTMLF2SelectFieldElement;
@@ -1482,6 +1536,11 @@ declare namespace LocalJSX {
      * A styling component for form fields
      */
     interface F2Form {
+    }
+    /**
+     * A footer for forms
+     */
+    interface F2FormFooter {
     }
     /**
      * A horizontal rule for dividing form sections
@@ -1788,6 +1847,27 @@ declare namespace LocalJSX {
         "value": string;
     }
     /**
+     * Can be displayed if a field isn't available yet
+     */
+    interface F2PlaceholderField {
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+    }
+    /**
      * A card based single select field.
      */
     interface F2RadioCardField {
@@ -1848,6 +1928,10 @@ declare namespace LocalJSX {
          */
         "options": RadioCardOption[];
         /**
+          * The placeholder to show if there are no options.
+         */
+        "placeholder"?: string;
+        /**
           * Overwrite the default card renderer
          */
         "renderCard"?: RenderCard<any>;
@@ -1892,6 +1976,10 @@ declare namespace LocalJSX {
           * The options to be displayed and chosen from.
          */
         "options": RadioCardOption[];
+        /**
+          * The placeholder to show if there are no options.
+         */
+        "placeholder"?: string;
         /**
           * Overwrite the default card renderer
          */
@@ -2496,12 +2584,14 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "f2-checkbox": F2Checkbox;
         "f2-form": F2Form;
+        "f2-form-footer": F2FormFooter;
         "f2-form-section-divider": F2FormSectionDivider;
         "f2-masked-text-field": F2MaskedTextField;
         "f2-masked-text-input": F2MaskedTextInput;
         "f2-multi-checkbox-field": F2MultiCheckboxField;
         "f2-number-field": F2NumberField;
         "f2-number-input": F2NumberInput;
+        "f2-placeholder-field": F2PlaceholderField;
         "f2-radio-card-field": F2RadioCardField;
         "f2-radio-card-input": F2RadioCardInput;
         "f2-select-field": F2SelectField;
@@ -2530,6 +2620,10 @@ declare module "@stencil/core" {
              */
             "f2-form": LocalJSX.F2Form & JSXBase.HTMLAttributes<HTMLF2FormElement>;
             /**
+             * A footer for forms
+             */
+            "f2-form-footer": LocalJSX.F2FormFooter & JSXBase.HTMLAttributes<HTMLF2FormFooterElement>;
+            /**
              * A horizontal rule for dividing form sections
              * Can optionally have a title slotted
              */
@@ -2555,6 +2649,10 @@ declare module "@stencil/core" {
              * Values should be passed around as strings, as numbers can round / floating point / overflow etc if a number type is used.
              */
             "f2-number-input": LocalJSX.F2NumberInput & JSXBase.HTMLAttributes<HTMLF2NumberInputElement>;
+            /**
+             * Can be displayed if a field isn't available yet
+             */
+            "f2-placeholder-field": LocalJSX.F2PlaceholderField & JSXBase.HTMLAttributes<HTMLF2PlaceholderFieldElement>;
             /**
              * A card based single select field.
              */

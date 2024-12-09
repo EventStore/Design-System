@@ -18,7 +18,6 @@ export type {
     RenderTypeaheadFieldParams,
 } from './components/typeahead/types';
 export type { FieldProps } from './components/Field';
-
 export type {
     Severity,
     ValidationMessage,
@@ -28,4 +27,5 @@ export type {
     Templated,
 } from './types';
 
+export { Field } from './components/Field';
 export { ICON_NAMESPACE as K_FIELDS_ICON_NAMESPACE } from './icons/namespace';

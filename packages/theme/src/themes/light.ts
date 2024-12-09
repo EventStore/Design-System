@@ -76,5 +76,5 @@ export const light: BaseScheme = {
 
     disabled: shades.shade_20,
     disabled_border: shades.shade_20,
-    disabled_contrast: palette.powder_blue,
+    disabled_contrast: palette.black,
 };

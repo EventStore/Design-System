@@ -90,16 +90,17 @@ const options: RadioCardOption[] = [
 
 ## Properties
 
-| Property               | Attribute    | Description                                  | Type                                                                                | Default                            |
-| ---------------------- | ------------ | -------------------------------------------- | ----------------------------------------------------------------------------------- | ---------------------------------- |
-| `checkIcon`            | `check-icon` | Icon to display when checked.                | `[namespace: string \| symbol, name: string] \| string`                             | `[ICON_NAMESPACE, 'check']`        |
-| `disabled`             | `disabled`   | If the input is disabled.                    | `boolean \| undefined`                                                              | `undefined`                        |
-| `groupBy`              | `group-by`   | Group the cards by a key.                    | `string \| undefined`                                                               | `undefined`                        |
-| `invalid`              | `invalid`    | If the input is currently in an error state. | `boolean`                                                                           | `false`                            |
-| `name` _(required)_    | `name`       | The name of the input.                       | `string`                                                                            | `undefined`                        |
-| `options` _(required)_ | --           | The options to be displayed and chosen from. | `RadioCardOption[]`                                                                 | `undefined`                        |
-| `renderCard`           | --           | Overwrite the default card renderer          | `(h: typeof h, option: any, active: boolean) => string \| VNode \| VNode[] \| null` | `RadioCardInput.defaultRenderCard` |
-| `value` _(required)_   | `value`      | The current value of the input.              | `null \| string`                                                                    | `undefined`                        |
+| Property               | Attribute     | Description                                      | Type                                                                                | Default                            |
+| ---------------------- | ------------- | ------------------------------------------------ | ----------------------------------------------------------------------------------- | ---------------------------------- |
+| `checkIcon`            | `check-icon`  | Icon to display when checked.                    | `[namespace: string \| symbol, name: string] \| string`                             | `[ICON_NAMESPACE, 'check']`        |
+| `disabled`             | `disabled`    | If the input is disabled.                        | `boolean \| undefined`                                                              | `undefined`                        |
+| `groupBy`              | `group-by`    | Group the cards by a key.                        | `string \| undefined`                                                               | `undefined`                        |
+| `invalid`              | `invalid`     | If the input is currently in an error state.     | `boolean`                                                                           | `false`                            |
+| `name` _(required)_    | `name`        | The name of the input.                           | `string`                                                                            | `undefined`                        |
+| `options` _(required)_ | --            | The options to be displayed and chosen from.     | `RadioCardOption[]`                                                                 | `undefined`                        |
+| `placeholder`          | `placeholder` | The placeholder to show if there are no options. | `string \| undefined`                                                               | `undefined`                        |
+| `renderCard`           | --            | Overwrite the default card renderer              | `(h: typeof h, option: any, active: boolean) => string \| VNode \| VNode[] \| null` | `RadioCardInput.defaultRenderCard` |
+| `value` _(required)_   | `value`       | The current value of the input.                  | `null \| string`                                                                    | `undefined`                        |
 
 
 ## Events
