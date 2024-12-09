@@ -1,0 +1,52 @@
+:host([light]) {
+    & .backups_st0 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #ffffff;
+    }
+    & .backups_st1 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #bbdefb;
+    }
+    & .backups_st2 {
+        fill: #1a4e85;
+    }
+    & .backups_st3 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#backups_SVGID_1_);
+    }
+    & .backups_st4 {
+        fill: none;
+        stroke: #1a4e85;
+        stroke-width: 6;
+        stroke-linejoin: round;
+    }
+}
+:host([dark]) {
+    & .backups_st0 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #ced4db;
+    }
+    & .backups_st1 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #09264a;
+    }
+    & .backups_st2 {
+        fill: #09264a;
+    }
+    & .backups_st3 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#backups_SVGID_1_);
+    }
+    & .backups_st4 {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 6;
+        stroke-linejoin: round;
+    }
+}
