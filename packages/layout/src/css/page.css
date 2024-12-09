@@ -20,7 +20,7 @@ main {
     max-width: var(--layout-content-max-width);
     min-height: var(--layout-min-body-height);
     height: 100%;
-    padding: 30px 40px;
+    padding: var(--spacing-4, 32px);
 }
 
 header {
