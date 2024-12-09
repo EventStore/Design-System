@@ -33,7 +33,7 @@ import type { RenderSelectValue } from '../types';
 })
 export class Select {
     @Element() host!: HTMLElement;
-    @AttachInternals() internals!: ElementInternals;
+    @AttachInternals() internals?: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<
@@ -122,7 +122,7 @@ export class Select {
         e.stopPropagation();
 
         const value = e.detail.value.at(-1) ?? null;
-        this.internals.setFormValue(value);
+        this.internals?.setFormValue(value);
         this.fieldchange.emit({
             name: this.name,
             value,

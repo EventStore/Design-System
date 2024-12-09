@@ -3,7 +3,7 @@
     flex-direction: row;
     font-size: var(--breadcrumb-size, 14px);
     color: var(--color-foreground);
-    margin-bottom: 46px;
+    margin-bottom: var(--spacing-2, 16px);
 }
 
 a {

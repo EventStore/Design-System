@@ -97,13 +97,18 @@ export class Demo {
                     `}
                 </style>
                 <f2-form onSubmit={this.onSubmit}>
+                    <f2-form-section-divider>
+                        {'Grouping'}
+                    </f2-form-section-divider>
                     <f2-radio-card-field
                         label={'Instance Size'}
                         options={sizes}
                         groupBy={'tag'}
                         {...this.form.connect('size')}
                     />
-
+                    <f2-form-section-divider>
+                        {'Custom card'}
+                    </f2-form-section-divider>
                     <f2-radio-card-field
                         label={'Topology'}
                         options={topologies}
@@ -126,6 +131,15 @@ export class Demo {
                                 <span class={'name'}>{option.name}</span>
                             </div>
                         )}
+                        {...this.form.connect('topology')}
+                    />
+                    <f2-form-section-divider>
+                        {'Placeholder'}
+                    </f2-form-section-divider>
+                    <f2-radio-card-field
+                        label={'More Options'}
+                        options={[]}
+                        placeholder={'Select a topology to see options'}
                         {...this.form.connect('topology')}
                     />
                     <pre>{JSON.stringify(this.form.data, null, 2)}</pre>
