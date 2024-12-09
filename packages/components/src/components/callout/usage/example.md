@@ -1,6 +1,4 @@
 ```tsx
-import { randomIcon } from 'utils/helpers';
-
 export default () => (
     <>
         <c2-callout variant={'tip'} heading={'Daily tip.'}>
@@ -15,11 +13,7 @@ export default () => (
         <c2-callout variant={'error'} heading={'We have an error here.'}>
             {'Something has gone horribly wrong.'}
         </c2-callout>
-        <c2-callout
-            class={'custom'}
-            icon={randomIcon()}
-            heading={'I am custom.'}
-        >
+        <c2-callout class={'custom'} heading={'I am custom.'}>
             {'Check the css tab to see the customisations'}
         </c2-callout>
     </>
@@ -30,6 +24,7 @@ export default () => (
 :host {
     display: flex;
     flex-direction: column;
+    gap: 12px;
 }
 
 .custom {
@@ -41,10 +36,5 @@ export default () => (
 
 .custom::part(heading) {
     font-style: italic;
-}
-
-.custom::part(icon) {
-    border-radius: 0;
-    border-width: 5px;
 }
 ```
