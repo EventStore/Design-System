@@ -1,0 +1,50 @@
+:host([light]) {
+    & .notifications_c {
+        fill: #fff;
+    }
+    & .notifications_c,
+    & .notifications_d,
+    & .notifications_e {
+        fill-rule: evenodd;
+    }
+    & .notifications_f {
+        fill: none;
+        stroke: #1a4e85;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 8px;
+    }
+    & .notifications_d {
+        fill: url(#notifications_b);
+    }
+    & .notifications_g {
+        fill: #1a4e85;
+    }
+    & .notifications_e {
+        fill: #bbdefb;
+    }
+}
+:host([dark]) {
+    & .notifications_c,
+    & .notifications_d {
+        fill: #09264a;
+    }
+    & .notifications_d,
+    & .notifications_e,
+    & .notifications_f {
+        fill-rule: evenodd;
+    }
+    & .notifications_g {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 8px;
+    }
+    & .notifications_e {
+        fill: url(#notifications_b);
+    }
+    & .notifications_f {
+        fill: #ced4db;
+    }
+}
