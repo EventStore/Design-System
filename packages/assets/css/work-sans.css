@@ -59,7 +59,7 @@
 
 @font-face {
     font-family: 'Work Sans';
-    src: url('../assets/fonts/WorkSans/WorkSans-Semibold.ttf')
+    src: url('../assets/fonts/WorkSans/WorkSans-SemiBold.ttf')
         format('opentype');
     font-weight: 600;
     font-style: normal;
@@ -67,7 +67,7 @@
 
 @font-face {
     font-family: 'Work Sans';
-    src: url('../assets/fonts/WorkSans/WorkSans-SemiboldItalic.ttf')
+    src: url('../assets/fonts/WorkSans/WorkSans-SemiBoldItalic.ttf')
         format('opentype');
     font-weight: 600;
     font-style: italic;
