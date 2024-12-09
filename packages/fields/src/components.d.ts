@@ -705,6 +705,71 @@ export namespace Components {
         "value": boolean;
     }
     /**
+     * A switch with a label.
+     */
+    interface F2SwitchField {
+        /**
+          * Icon to display when switch is on in high contrast mode.
+         */
+        "activeIcon": IconDescription;
+        /**
+          * Text to display when switch is on in high contrast mode.
+         */
+        "activeText": string;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Icon to display when switch is off in high contrast mode.
+         */
+        "inactiveIcon": IconDescription;
+        /**
+          * Text to display when switch is off in high contrast mode.
+         */
+        "inactiveText": string;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
+          * The current value of the field.
+         */
+        "value": boolean;
+    }
+    /**
      * A text input.
      */
     interface F2TextField {
@@ -1027,6 +1092,10 @@ export interface F2SwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2SwitchElement;
 }
+export interface F2SwitchFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLF2SwitchFieldElement;
+}
 export interface F2TextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLF2TextFieldElement;
@@ -1340,6 +1409,28 @@ declare global {
         prototype: HTMLF2SwitchElement;
         new (): HTMLF2SwitchElement;
     };
+    interface HTMLF2SwitchFieldElementEventMap {
+        "fieldchange": FieldChange<string>;
+        "enter": any;
+        "requestEdit": string;
+    }
+    /**
+     * A switch with a label.
+     */
+    interface HTMLF2SwitchFieldElement extends Components.F2SwitchField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLF2SwitchFieldElementEventMap>(type: K, listener: (this: HTMLF2SwitchFieldElement, ev: F2SwitchFieldCustomEvent<HTMLF2SwitchFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLF2SwitchFieldElementEventMap>(type: K, listener: (this: HTMLF2SwitchFieldElement, ev: F2SwitchFieldCustomEvent<HTMLF2SwitchFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLF2SwitchFieldElement: {
+        prototype: HTMLF2SwitchFieldElement;
+        new (): HTMLF2SwitchFieldElement;
+    };
     interface HTMLF2TextFieldElementEventMap {
         "fieldchange": FieldChange<string>;
         "enter": any;
@@ -1489,6 +1580,7 @@ declare global {
         "f2-select-input": HTMLF2SelectInputElement;
         "f2-select-list-field": HTMLF2SelectListFieldElement;
         "f2-switch": HTMLF2SwitchElement;
+        "f2-switch-field": HTMLF2SwitchFieldElement;
         "f2-text-field": HTMLF2TextFieldElement;
         "f2-text-input": HTMLF2TextInputElement;
         "f2-text-list-field": HTMLF2TextListFieldElement;
@@ -2266,6 +2358,83 @@ declare namespace LocalJSX {
         "value": boolean;
     }
     /**
+     * A switch with a label.
+     */
+    interface F2SwitchField {
+        /**
+          * Icon to display when switch is on in high contrast mode.
+         */
+        "activeIcon"?: IconDescription;
+        /**
+          * Text to display when switch is on in high contrast mode.
+         */
+        "activeText"?: string;
+        /**
+          * If the field is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Inline documentation text.
+         */
+        "documentation"?: string;
+        /**
+          * Inline documentation link.
+         */
+        "documentationLink"?: string;
+        /**
+          * Inline documentation link text.
+         */
+        "documentationLinkText"?: string;
+        /**
+          * Icon to display when switch is off in high contrast mode.
+         */
+        "inactiveIcon"?: IconDescription;
+        /**
+          * Text to display when switch is off in high contrast mode.
+         */
+        "inactiveText"?: string;
+        /**
+          * If the field is currently invalid.
+         */
+        "invalid"?: boolean;
+        /**
+          * The label of the field.
+         */
+        "label": string;
+        /**
+          * The messages to display under the field.
+         */
+        "messages"?: ValidationMessages;
+        /**
+          * The name of the field.
+         */
+        "name": string;
+        /**
+          * Emitted on keyup of enter, if no modifier keys are held.
+         */
+        "onEnter"?: (event: F2SwitchFieldCustomEvent<any>) => void;
+        /**
+          * Emitted when the value of the field is changed.
+         */
+        "onFieldchange"?: (event: F2SwitchFieldCustomEvent<FieldChange<string>>) => void;
+        /**
+          * Emitted when the user requests to edit.
+         */
+        "onRequestEdit"?: (event: F2SwitchFieldCustomEvent<string>) => void;
+        /**
+          * If the field is editable.
+         */
+        "readonly"?: boolean;
+        /**
+          * If the field is templated.
+         */
+        "templated"?: Templated;
+        /**
+          * The current value of the field.
+         */
+        "value": boolean;
+    }
+    /**
      * A text input.
      */
     interface F2TextField {
@@ -2598,6 +2767,7 @@ declare namespace LocalJSX {
         "f2-select-input": F2SelectInput;
         "f2-select-list-field": F2SelectListField;
         "f2-switch": F2Switch;
+        "f2-switch-field": F2SwitchField;
         "f2-text-field": F2TextField;
         "f2-text-input": F2TextInput;
         "f2-text-list-field": F2TextListField;
@@ -2677,6 +2847,10 @@ declare module "@stencil/core" {
              * A switchable switch.
              */
             "f2-switch": LocalJSX.F2Switch & JSXBase.HTMLAttributes<HTMLF2SwitchElement>;
+            /**
+             * A switch with a label.
+             */
+            "f2-switch-field": LocalJSX.F2SwitchField & JSXBase.HTMLAttributes<HTMLF2SwitchFieldElement>;
             /**
              * A text input.
              */
