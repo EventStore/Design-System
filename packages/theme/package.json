@@ -1,6 +1,6 @@
 {
     "name": "@kurrent-ui/theme",
-    "version": "2.0.0-alpha.0",
+    "version": "2.0.0-alpha.2",
     "description": "Themes and theming utilities for Kurrent Design System",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
