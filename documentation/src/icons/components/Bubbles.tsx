@@ -2,7 +2,14 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const Bubbles = (h: typeof JSXFactory) => (props: any) => (
-    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M7.2 11.2c1.77 0 3.2 1.43 3.2 3.2 0 1.77-1.43 3.2-3.2 3.2-1.77 0-3.2-1.43-3.2-3.2 0-1.77 1.43-3.2 3.2-3.2m7.6 4.8a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m.4-12A4.8 4.8 0 0 1 20 8.8c0 2.65-2.15 4.8-4.8 4.8a4.8 4.8 0 0 1-4.8-4.8c0-2.65 2.15-4.8 4.8-4.8Z" />
+    <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        stroke="currentColor"
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+    >
+        <path d="M17 11.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM6 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM14.5 21a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
     </svg>
 );
