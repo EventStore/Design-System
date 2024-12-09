@@ -1,0 +1,69 @@
+:host([light]) {
+    & .cluster_e {
+        fill: #fff;
+    }
+    & .cluster_e,
+    & .cluster_f,
+    & .cluster_g,
+    & .cluster_h,
+    & .cluster_i {
+        fill-rule: evenodd;
+    }
+    & .cluster_f {
+        fill: url(#cluster_c);
+    }
+    & .cluster_j {
+        fill: none;
+        stroke: #1a4e85;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 8px;
+    }
+    & .cluster_g {
+        fill: url(#cluster_b);
+    }
+    & .cluster_h {
+        fill: url(#cluster_d);
+    }
+    & .cluster_k {
+        fill: #1a4e85;
+    }
+    & .cluster_i {
+        fill: #bbdefb;
+    }
+}
+:host([dark]) {
+    & .cluster_e,
+    & .cluster_f {
+        fill: #09264a;
+    }
+    & .cluster_f,
+    & .cluster_g,
+    & .cluster_h,
+    & .cluster_i,
+    & .cluster_j {
+        fill-rule: evenodd;
+    }
+    & .cluster_g {
+        fill: url(#cluster_c);
+    }
+    & .cluster_k {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 8px;
+    }
+    & .cluster_h {
+        fill: url(#cluster_b);
+    }
+    & .cluster_i {
+        fill: #ced4db;
+    }
+    & .cluster_j {
+        fill: url(#cluster_d);
+    }
+    & .cluster_l {
+        fill: #1a4e85;
+    }
+}

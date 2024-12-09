@@ -1,0 +1,72 @@
+:host([light]) {
+    & .token_st0 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#token_SVGID_1_);
+    }
+    & .token_st1 {
+        fill: none;
+        stroke: #1a4e85;
+        stroke-width: 3;
+        stroke-linejoin: round;
+    }
+    & .token_st2 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #ffffff;
+    }
+    & .token_st3 {
+        fill: #1a4e85;
+    }
+    & .token_st4 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #ffffff;
+        stroke: #1a4e85;
+        stroke-width: 7;
+        stroke-linejoin: round;
+    }
+    & .token_st5 {
+        fill: none;
+        stroke: #1a4e85;
+        stroke-width: 6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+}
+:host([dark]) {
+    & .token_st0 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#token_SVGID_1_);
+    }
+    & .token_st1 {
+        fill: none;
+        stroke: #09264a;
+        stroke-width: 3;
+        stroke-linejoin: round;
+    }
+    & .token_st2 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #ced4db;
+    }
+    & .token_st3 {
+        fill: #09264a;
+    }
+    & .token_st4 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #ced4db;
+        stroke: #09264a;
+        stroke-width: 7;
+        stroke-linejoin: round;
+    }
+    & .token_st5 {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+}

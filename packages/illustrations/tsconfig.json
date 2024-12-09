@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "allowUnreachableCode": false,
+        "declaration": false,
+        "experimentalDecorators": true,
+        "lib": ["dom", "es2019"],
+        "moduleResolution": "node",
+        "module": "esnext",
+        "target": "es2017",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "verbatimModuleSyntax": true,
+        "jsx": "react",
+        "jsxFactory": "h",
+        "jsxFragmentFactory": "Fragment"
+    },
+    "typedocOptions": {
+        "name": "@eventstore-ui/components",
+        "plugin": ["@eventstore-ui/typedoc-plugin-usage"],
+        "entryPoints": ["./src/index.ts"],
+        "exclude": ["./src/components.d.ts"]
+    },
+    "include": ["src", "types/jsx.d.ts"]
+}

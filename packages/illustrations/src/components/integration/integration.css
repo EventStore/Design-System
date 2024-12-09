@@ -1,0 +1,149 @@
+:host([light]) {
+    & .integration_st0 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #ffffff;
+    }
+    & .integration_st1 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_1_);
+    }
+    & .integration_st2 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000097494563460930040180000016069898181513254284_);
+    }
+    & .integration_st3 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000106866798838545895240000006325398388772825988_);
+    }
+    & .integration_st4 {
+        fill: url(#integration_SVGID_00000039120723814373763120000003586240768776085438_);
+    }
+    & .integration_st5 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #bbdefb;
+    }
+    & .integration_st6 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000057843859074138167990000008029157481044089268_);
+    }
+    & .integration_st7 {
+        fill: #1a4e85;
+    }
+    & .integration_st8 {
+        fill: #ffffff;
+    }
+    & .integration_st9 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000048487988301963979590000013744018497888763558_);
+    }
+    & .integration_st10 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000141422493823098615200000001455172091296371336_);
+    }
+    & .integration_st11 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000021834202859905104210000014205693392311337351_);
+    }
+    & .integration_st12 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000138535902026059466450000008604309606979692187_);
+    }
+    & .integration_st13 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000167376277169418068960000009628613796350207122_);
+    }
+    & .integration_st14 {
+        fill: none;
+        stroke: #1a4e85;
+        stroke-width: 6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+}
+:host([dark]) {
+    & .integration_st0 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #ced4db;
+    }
+    & .integration_st1 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_1_);
+    }
+    & .integration_st2 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000040564136382062812480000001129536708295799974_);
+    }
+    & .integration_st3 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000033356969406461917040000017621402086829497493_);
+    }
+    & .integration_st4 {
+        fill: url(#integration_SVGID_00000048460444482842048870000011296819477506118545_);
+    }
+    & .integration_st5 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #09264a;
+    }
+    & .integration_st6 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000118359655840363141820000016968265845362125730_);
+    }
+    & .integration_st7 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: #ffffff;
+    }
+    & .integration_st8 {
+        fill: #09264a;
+    }
+    & .integration_st9 {
+        fill: #ced4db;
+    }
+    & .integration_st10 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000093171222433890227570000014647266505854688409_);
+    }
+    & .integration_st11 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000044880172290517132120000002564535541913327792_);
+    }
+    & .integration_st12 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000164485527515832376660000006930381618457165719_);
+    }
+    & .integration_st13 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: url(#integration_SVGID_00000139986182460607389230000017150876855201219249_);
+    }
+    & .integration_st14 {
+        fill: #ffffff;
+    }
+    & .integration_st15 {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+}
