@@ -1,0 +1,56 @@
+:host([light]) {
+    & .policy_d {
+        fill: #fff;
+    }
+    & .policy_d,
+    & .policy_e,
+    & .policy_f,
+    & .policy_g {
+        fill-rule: evenodd;
+    }
+    & .policy_e {
+        fill: url(#policy_c);
+    }
+    & .policy_f {
+        fill: url(#policy_b);
+    }
+    & .policy_h {
+        fill: none;
+        stroke: #1a4e85;
+        stroke-miterlimit: 10;
+        stroke-width: 6px;
+    }
+    & .policy_i {
+        fill: #1a4e85;
+    }
+    & .policy_g {
+        fill: #bbdefb;
+    }
+}
+:host([dark]) {
+    & .policy_d,
+    & .policy_e {
+        fill: #09264a;
+    }
+    & .policy_e,
+    & .policy_f,
+    & .policy_g,
+    & .policy_h {
+        fill-rule: evenodd;
+    }
+    & .policy_f {
+        fill: url(#policy_c);
+    }
+    & .policy_g {
+        fill: url(#policy_b);
+    }
+    & .policy_i {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 6px;
+    }
+    & .policy_h {
+        fill: #ced4db;
+    }
+}

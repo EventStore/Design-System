@@ -1,0 +1,56 @@
+{
+    "name": "@eventstore-ui/illustrations",
+    "version": "2.0.0-transitional.0",
+    "description": "Illustrations for Event Store Design System",
+    "license": "Apache-2.0",
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.js",
+    "es2015": "dist/esm/index.js",
+    "es2017": "dist/esm/index.js",
+    "jsnext:main": "dist/esm/index.js",
+    "types": "dist/types/index.d.ts",
+    "collection": "dist/collection/collection-manifest.json",
+    "collection:main": "dist/collection/index.js",
+    "unpkg": "dist/components/components.js",
+    "files": [
+        "dist/"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:EventStore/Design-System.git",
+        "directory": "packages/illustrations"
+    },
+    "scripts": {
+        "import": "node ./scripts/import.mjs",
+        "build": "stencil build --docs",
+        "dev": "stencil build --dev --watch --serve",
+        "test": "stencil test --spec --e2e --passWithNoTests",
+        "test.watch": "stencil test --spec --e2e --watchAll",
+        "lint": "yarn g:lint",
+        "fix": "yarn g:fix"
+    },
+    "targets": {
+        "docs": {
+            "outputs": [
+                "{workspaceRoot}/documentation/generated/illustrations.*"
+            ]
+        }
+    },
+    "peerDependencies": {
+        "@kurrent-ui/theme": "^2.0.0"
+    },
+    "devDependencies": {
+        "@kurrent-ui/theme": "workspace:*",
+        "@stencil-community/postcss": "^2.2.0",
+        "@stencil/core": "4.22.0",
+        "case-anything": "^2.1.10",
+        "jest": "^27.4.5",
+        "npm-run-all": "^4.1.5",
+        "prettier": "3.0.0",
+        "puppeteer": "^19.5.0",
+        "svgo": "^2.8.0",
+        "typedoc": "0.24.8",
+        "typescript": "5.1.6",
+        "yargs": "^15.3.1"
+    }
+}
