@@ -24,7 +24,7 @@
     color: var(--color-error);
 }
 .warning {
-    color: var(--color-warning-alt);
+    color: var(--color-warning);
 }
 .info {
     color: var(--color-info);
