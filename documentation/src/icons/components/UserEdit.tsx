@@ -2,7 +2,14 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const UserEdit = (h: typeof JSXFactory) => (props: any) => (
-    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
-        <path d="m21.7 13.35-1 1-2.05-2.05 1-1a.55.55 0 0 1 .77 0l1.28 1.28c.21.21.21.56 0 .77M12 18.94l6.06-6.06 2.05 2.05L14.06 21H12v-2.06M12 14c-4.42 0-8 1.79-8 4v2h6v-1.89l4-4c-.66-.08-1.33-.11-2-.11m0-10a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4Z" />
+    <svg
+        {...props}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        fill="none"
+        stroke="currentColor"
+    >
+        <path d="M12 10c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zM17.4 14.8C15.9 13.7 14 13 12 13c-5 0-9 4-9 9M21 22c0-1.8-.5-3.5-1.5-4.9" />
+        <path d="M12.5 21.9h2.2l8-8-2.2-2.2-8 8v2.2zM18.3 13.9l2.2 2.2" />
     </svg>
 );
