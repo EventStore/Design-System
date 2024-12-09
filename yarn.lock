@@ -2072,7 +2072,7 @@ __metadata:
     typescript: "npm:5.1.6"
     yargs: "npm:^15.3.1"
   peerDependencies:
-    "@kurrent-ui/theme": ^1.0.0
+    "@kurrent-ui/theme": ^2.0.0
   languageName: unknown
   linkType: soft
 
