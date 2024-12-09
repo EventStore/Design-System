@@ -1,10 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
 :host {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     grid-area: header;
-    padding: 0 40px;
+    padding: 0;
     height: var(--layout-header-height);
     position: fixed;
     top: 0;
@@ -23,6 +27,7 @@ header {
     display: grid;
     align-items: center;
     grid-template-columns: auto 1fr auto;
+    padding: 0 var(--spacing-3, 24px);
 }
 
 .left {
@@ -30,7 +35,7 @@ header {
     height: 100%;
     align-items: center;
     justify-content: flex-start;
-    gap: 18px;
+    gap: var(--spacing-2, 16px);
 }
 
 .center {
@@ -38,7 +43,7 @@ header {
     height: 100%;
     align-items: center;
     justify-content: center;
-    gap: 18px;
+    gap: var(--spacing-2, 16px);
 }
 
 .right {
@@ -46,7 +51,7 @@ header {
     height: 100%;
     align-items: center;
     justify-content: flex-end;
-    gap: 18px;
+    gap: var(--spacing-2, 16px);
 }
 
 .under {

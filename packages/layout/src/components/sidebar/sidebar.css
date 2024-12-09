@@ -19,6 +19,6 @@
 
 aside {
     padding: 0;
-    padding-top: 32px;
-    padding-bottom: 10px;
+    padding-top: var(--spacing-3, 24px);
+    padding-bottom: var(--spacing-1, 12px);
 }
