@@ -2055,6 +2055,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eventstore-ui/illustrations@workspace:packages/illustrations":
+  version: 0.0.0-use.local
+  resolution: "@eventstore-ui/illustrations@workspace:packages/illustrations"
+  dependencies:
+    "@kurrent-ui/theme": "workspace:*"
+    "@stencil-community/postcss": "npm:^2.2.0"
+    "@stencil/core": "npm:4.22.0"
+    case-anything: "npm:^2.1.10"
+    jest: "npm:^27.4.5"
+    npm-run-all: "npm:^4.1.5"
+    prettier: "npm:3.0.0"
+    puppeteer: "npm:^19.5.0"
+    svgo: "npm:^2.8.0"
+    typedoc: "npm:0.24.8"
+    typescript: "npm:5.1.6"
+    yargs: "npm:^15.3.1"
+  peerDependencies:
+    "@kurrent-ui/theme": ^1.0.0
+  languageName: unknown
+  linkType: soft
+
 "@floating-ui/core@npm:^0.6.1":
   version: 0.6.1
   resolution: "@floating-ui/core@npm:0.6.1"

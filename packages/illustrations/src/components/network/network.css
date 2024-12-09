@@ -1,0 +1,66 @@
+:host([light]) {
+    & .network_e {
+        fill: #fff;
+    }
+    & .network_e,
+    & .network_f,
+    & .network_g,
+    & .network_h,
+    & .network_i {
+        fill-rule: evenodd;
+    }
+    & .network_f {
+        fill: url(#network_c);
+    }
+    & .network_g {
+        fill: url(#network_b);
+    }
+    & .network_j {
+        fill: none;
+        stroke: #1a4e85;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 6px;
+    }
+    & .network_h {
+        fill: url(#network_d);
+    }
+    & .network_k {
+        fill: #1a4e85;
+    }
+    & .network_i {
+        fill: #bbdefb;
+    }
+}
+:host([dark]) {
+    & .network_e,
+    & .network_f {
+        fill: #09264a;
+    }
+    & .network_g {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 6px;
+    }
+    & .network_f,
+    & .network_h,
+    & .network_i,
+    & .network_j,
+    & .network_k {
+        fill-rule: evenodd;
+    }
+    & .network_h {
+        fill: url(#network_c);
+    }
+    & .network_i {
+        fill: url(#network_b);
+    }
+    & .network_j {
+        fill: #ced4db;
+    }
+    & .network_k {
+        fill: url(#network_d);
+    }
+}
