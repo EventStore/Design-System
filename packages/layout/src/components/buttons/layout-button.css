@@ -1,7 +1,7 @@
 :host {
     display: block;
 
-    --blob-size: var(--spacing-2_5, 20px);
+    --blob-size: var(--spacing-3, 24px);
     --gutter-size: var(--spacing-3, 24px);
     --icon-gap: var(--spacing-1_5, 12px);
     --icon-size: 24px;
