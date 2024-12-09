@@ -21,7 +21,7 @@ import type { MaskOptions } from '../types';
     shadow: true,
 })
 export class MaskedTextField {
-    @AttachInternals() internals!: ElementInternals;
+    @AttachInternals() internals?: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
@@ -63,7 +63,7 @@ export class MaskedTextField {
 
     @Watch('value')
     componentDidLoad() {
-        this.internals.setFormValue(this.value);
+        this.internals?.setFormValue(this.value);
     }
 
     render() {
@@ -88,6 +88,7 @@ export class MaskedTextField {
                     inputProps={this.inputProps}
                     invalid={this.invalid}
                     mask={this.mask}
+                    exportparts={'input'}
                 >
                     <slot />
                 </f2-masked-text-input>

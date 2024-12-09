@@ -20,10 +20,12 @@
 .value_list_item {
     display: flex;
     flex-direction: row;
+    gap: var(--spacing-0_5, 4px);
 }
 
 .value_list_item_icon {
     margin-left: auto;
+    width: 40px;
 }
 
 .value {
