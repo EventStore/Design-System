@@ -24,7 +24,7 @@ import { Field } from 'components/Field';
 })
 export class TextListField {
     @Element() host!: HTMLF2TextListFieldElement;
-    @AttachInternals() internals!: ElementInternals;
+    @AttachInternals() internals?: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string[]>>;
@@ -68,7 +68,7 @@ export class TextListField {
             if (value.trim() === '') continue;
             data.append(this.name, value);
         }
-        this.internals.setFormValue(data);
+        this.internals?.setFormValue(data);
     }
 
     renderInput = (v: string, i: number) => (

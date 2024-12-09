@@ -177,7 +177,9 @@ export class InternalRouter {
         noSuffix: boolean,
         document: Document = this.history.win.document,
     ) => {
-        document.title = `${title}${noSuffix ? '' : this.titleSuffix}`;
+        const nextTitle = `${title}${noSuffix ? '' : this.titleSuffix}`;
+        if (document.title === nextTitle) return;
+        document.title = nextTitle;
     };
 
     public push: RouterHistory['push'] = (path, ...args) =>

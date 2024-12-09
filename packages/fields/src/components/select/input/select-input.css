@@ -55,16 +55,13 @@
 
 .true_input {
     position: absolute;
-    top: 0;
-    right: 20px;
-    bottom: 0;
-    left: 20px;
+    inset: 0;
     height: 40px;
-    width: calc(100% - 40px);
+    width: 100%;
     border: transparent;
     outline: transparent;
     background-color: transparent;
-    padding: 0;
+    padding: 0 var(--spacing-2_5, 20px);
     font-family: inherit;
     font-weight: 400;
     font-size: 16px;

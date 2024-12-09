@@ -39,7 +39,7 @@ import { Field } from 'components/Field';
 })
 export class SelectListField {
     @Element() host!: HTMLF2SelectListFieldElement;
-    @AttachInternals() internals!: ElementInternals;
+    @AttachInternals() internals?: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
     @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string[]>>;
@@ -103,7 +103,7 @@ export class SelectListField {
             if (value.trim() === '') continue;
             data.append(this.name, value);
         }
-        this.internals.setFormValue(data);
+        this.internals?.setFormValue(data);
     }
 
     @Watch('value')

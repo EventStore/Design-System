@@ -129,25 +129,25 @@ input {
     display: block;
     color: var(--color-foreground);
     font-size: 26px;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 .group-title {
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--color-foreground);
     line-height: 1.5;
 
     text-align: left;
     text-transform: capitalize;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-2);
     display: block;
 }
 
 .group-inner + .group-title {
-    margin-top: 20px;
+    margin-top: var(--spacing-2);
 }
 
 .default_card {
-    padding: 20px;
+    padding: var(--spacing-2);
 }
