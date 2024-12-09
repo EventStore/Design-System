@@ -1,6 +1,6 @@
 {
     "name": "@kurrent-ui/fields",
-    "version": "2.0.0-alpha.12",
+    "version": "2.0.0-alpha.13",
     "description": "Forms and fields for Kurrent Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",
