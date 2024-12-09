@@ -2,7 +2,16 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const Head = (h: typeof JSXFactory) => (props: any) => (
-    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M13 3C9.2 3 6.2 5.9 6 9.7l-1.9 2.5c-.2.3 0 .8.4.8H6v3c0 1.1.9 2 2 2h1v3h7v-4.7c2.4-1.1 4-3.5 4-6.3 0-3.9-3.1-7-7-7" />
+    <svg
+        {...props}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        stroke="currentColor"
+    >
+        <path
+            fill="none"
+            d="m12.6 22.3-1.5-3.8H8.2S6 18 6 16v-2.3l-1.7-.2 2.1-4.7s-1.1-4 2.9-6.4 14 0 9.5 10.3c0 0-1.7 3.1-.5 5.9l.6 1.2"
+        />
+        <ellipse cx="10.5" cy="9.2" rx=".7" ry=".4" />
     </svg>
 );

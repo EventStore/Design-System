@@ -2,7 +2,14 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const Mutable = (h: typeof JSXFactory) => (props: any) => (
-    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
-        <path d="m19.07 14.88 2.05 2.05L15.06 23H13v-2.06l6.07-6.06m1.97-1.75c.14 0 .27.06.38.17l1.28 1.28c.22.21.22.56 0 .77l-1 1-2.05-2.05 1-1c.11-.11.25-.17.39-.17M21 9h-6v7l-2 2v-2h-2v6H9V9H3V7h18v2m-9-7c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2Z" />
+    <svg
+        {...props}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        fill="none"
+        stroke="currentColor"
+    >
+        <path d="M21 13v7c0 .6-.4 1-1 1H4c-.6 0-1-.4-1-1V4c0-.6.4-1 1-1h7" />
+        <path d="M7 13.4V17h3.7L21 6.7 17.3 3 7 13.4z" />
     </svg>
 );

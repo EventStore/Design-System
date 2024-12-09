@@ -2,7 +2,13 @@
 import type { h as JSXFactory } from '@stencil/core';
 
 export const IconManager = (h: typeof JSXFactory) => (props: any) => (
-    <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M2 2h9v9H2V2m15.5 0C20 2 22 4 22 6.5S20 11 17.5 11 13 9 13 6.5 15 2 17.5 2m-11 12 4.5 8H2l4.5-8M19 17h3v2h-3v3h-2v-3h-3v-2h3v-3h2v3Z" />
+    <svg
+        {...props}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+    >
+        <path d="M19 15H5a3 3 0 1 0 0 6h14a3 3 0 1 0 0-6ZM18 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM2 7l4.5-4.5L11 7l-4.5 4.5L2 7Z" />
     </svg>
 );
