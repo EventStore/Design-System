@@ -197,6 +197,7 @@ export class DevRoot {
                                 >
                                     <div class={'padder'} />
                                     {'hello'}
+                                    <l2-theme-picker />
                                     <div class={'padder'} />
                                     <l2-toolbar>
                                         <menu>
