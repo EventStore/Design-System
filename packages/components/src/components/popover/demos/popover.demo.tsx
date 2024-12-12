@@ -13,7 +13,7 @@ export class Demo {
     @State() autoSize: Constrain = 'none';
     @State() constrain: Constrain = 'none';
     @State() placement: Placement = 'top';
-    @State() offset: number = 16;
+    @State() offset: number = 14;
 
     render() {
         return (
