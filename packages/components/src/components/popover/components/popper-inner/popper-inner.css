@@ -29,16 +29,18 @@
     &::after {
         content: '';
         display: block;
-        height: 24px;
-        width: 24px;
+        height: 16px;
+        width: 16px;
         position: absolute;
         background-color: var(--color-highlight);
-        border-radius: 50%;
         transition:
             opacity 400ms ease,
-            transform 400ms ease;
+            translate 400ms ease;
         opacity: 0;
-        transform: translateY(0px);
+        rotate: 45deg;
+        translate: 0px 0px;
+        inset: 0;
+        margin: auto;
     }
 
     &[data-placement^='top'] {
@@ -46,11 +48,13 @@
 
         &::after {
             bottom: 100%;
+            top: unset;
+            border-bottom-right-radius: var(--br-2, 4px);
         }
 
         &.entered::after {
             opacity: 1;
-            transform: translateY(9px);
+            translate: 0px 8px;
         }
     }
 
@@ -59,11 +63,13 @@
 
         &::after {
             top: 100%;
+            bottom: unset;
+            border-top-left-radius: var(--br-2, 4px);
         }
 
         &.entered::after {
             opacity: 1;
-            transform: translateY(-9px);
+            translate: 0px -8px;
         }
     }
 
@@ -72,11 +78,13 @@
 
         &::after {
             right: 100%;
+            left: unset;
+            border-top-right-radius: var(--br-2, 4px);
         }
 
         &.entered::after {
             opacity: 1;
-            transform: translateX(9px);
+            translate: 8px 0px;
         }
     }
 
@@ -85,11 +93,13 @@
 
         &::after {
             left: 100%;
+            right: unset;
+            border-bottom-left-radius: var(--br-2, 4px);
         }
 
         &.entered::after {
             opacity: 1;
-            transform: translateX(-9px);
+            translate: -8px 0px;
         }
     }
 }

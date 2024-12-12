@@ -95,8 +95,7 @@ header {
 }
 
 .panel {
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
+    border-top: 2px solid var(--border-color);
     padding: 10px 30px;
     flex: 1 1 100%;
     position: relative;
@@ -108,7 +107,6 @@ header {
 
         & ::slotted(*) {
             overflow: hidden;
-            border-radius: 20px;
         }
     }
 }
@@ -121,7 +119,7 @@ header {
     transition-duration: 500ms;
     transition-timing-function: ease;
     position: absolute;
-    top: -2px;
+    top: -3px;
     left: 0;
     z-index: 20000;
 }

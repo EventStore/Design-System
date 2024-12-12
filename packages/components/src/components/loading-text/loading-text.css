@@ -2,7 +2,7 @@
     display: inline-block;
     background-color: var(--color-foreground);
     opacity: 0.1;
-    border-radius: 12px;
+    border-radius: var(--br, 2px);
     white-space: pre;
     color: transparent;
     user-select: none;
