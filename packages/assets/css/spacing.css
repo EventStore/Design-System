@@ -1,7 +1,6 @@
 :root {
-    /** The basic unit of spacing */
+    /* Spacing, used for padding, margins and gaps */
     --spacing-base: 8px;
-
     --spacing-0: 0;
     --spacing-0_5: calc(var(--spacing-base) * 0.5);
     --spacing-1: var(--spacing-base);
@@ -12,4 +11,28 @@
     --spacing-4: calc(var(--spacing-base) * 4);
     --spacing-5: calc(var(--spacing-base) * 5);
     --spacing-6: calc(var(--spacing-base) * 6);
+    /*
+        | n   | size | usage                    |
+        | --- | ---- | ------------------------ |
+        | 0   | 0px  | var(--spacing-0, 0px)    |
+        | 0.5 | 4px  | var(--spacing-0_5, 4px)  |
+        | 1   | 8px  | var(--spacing-1, 8px)    |
+        | 1.5 | 12px | var(--spacing-1_5, 12px) |
+        | 2   | 16px | var(--spacing-2, 16px)   |
+        | 2.5 | 20px | var(--spacing-2_5, 20px) |
+        | 3   | 24px | var(--spacing-3, 24px)   |
+        | 4   | 32px | var(--spacing-4, 32px)   |
+        | 5   | 40px | var(--spacing-5, 40px)   |
+        | 6   | 48px | var(--spacing-6, 48px)   |
+    */
+
+    /* Border radiuses */
+    --br: 2px;
+    --br-2: calc(--br * 2);
+    /* 
+        | n   | size | usage            |
+        | --- | ---- | ---------------- |
+        |     | 2px  | var(--br, 2px)   |
+        | 2   | 4px  | var(--br-2, 4px) |
+    */
 }
