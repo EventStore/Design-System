@@ -53,7 +53,7 @@
     width: 300px;
     border: 1px solid var(--color-shade-30);
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 2px;
     justify-self: flex-end;
     display: flex;
     flex-direction: column;

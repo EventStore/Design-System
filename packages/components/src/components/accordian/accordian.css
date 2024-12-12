@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     border: 2px solid var(--color-shade-10);
-    border-radius: 20px;
+    border-radius: var(--br, 2px);
     padding: 12px 30px;
 }
 

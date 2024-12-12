@@ -51,6 +51,7 @@ export class EsToast {
                     <div class={'icon_holder'}>
                         {this.count > 1 ? (
                             <c2-counter
+                                size={38}
                                 count={this.count}
                                 variant={'minimal'}
                             />

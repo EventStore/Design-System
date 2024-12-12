@@ -60,7 +60,6 @@ export class Demo {
         'dot',
         'exclamation-mark',
         'info',
-        'lightbulb',
         'more',
         'sort',
         'sorted',

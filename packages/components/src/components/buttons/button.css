@@ -22,7 +22,7 @@
     --height: 40px;
 
     --border-style: solid;
-    --border-radius: 30px;
+    --border-radius: var(--br, 2px);
     --border-width: 2px;
     --text-decoration: none;
     --transition-duration: 500ms;

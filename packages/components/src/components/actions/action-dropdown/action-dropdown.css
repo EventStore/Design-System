@@ -7,7 +7,6 @@
 :host > c2-button {
     --current-color: var(--color-shade-60);
     --spacing: 6px;
-    --border-radius: 50%;
 
     &[disabled] {
         --current-color: var(--color-shade-50);
