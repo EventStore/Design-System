@@ -16,11 +16,11 @@
     flex: 1 1 100%;
 
     border-width: 1px;
-    border-radius: 20px;
+    border-radius: var(--br, 2px);
     border-style: solid;
     border-color: var(--color-shade-60);
     outline: none;
-    padding: 0 var(--spacing-2_5, 20px);
+    padding: 0 var(--spacing-2, 16px);
     transition-property: border-color;
     transition-duration: 500ms;
     transition-timing-function: ease;

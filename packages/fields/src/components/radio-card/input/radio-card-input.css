@@ -28,7 +28,7 @@ label {
     border: 1px solid var(--color-shade-50);
     outline: 2px solid transparent;
     outline-offset: -2px;
-    border-radius: 8px;
+    border-radius: var(--br, 2px);
     cursor: pointer;
     overflow: hidden;
     transition-property: outline-color, border-color, filter;

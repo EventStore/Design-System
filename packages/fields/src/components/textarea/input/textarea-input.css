@@ -2,8 +2,7 @@
 
 .input {
     height: 120px;
-    border-radius: 20px;
-    border-bottom-right-radius: 0;
+    border-radius: var(--br, 2px);
     resize: vertical;
-    padding: 15px 20px;
+    padding: var(--spacing-2, 16px);
 }
