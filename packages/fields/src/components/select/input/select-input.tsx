@@ -92,7 +92,7 @@ export class Select {
                       )
                     : this.renderPlaceholder()
                 : null}
-            <c2-icon class={'chevron'} icon={this.chevronIcon} size={14} />
+            <c2-icon class={'chevron'} icon={this.chevronIcon} size={20} />
         </div>
     );
 
