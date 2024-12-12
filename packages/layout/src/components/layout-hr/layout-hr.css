@@ -2,7 +2,7 @@
     display: block;
     margin: 10px 20px;
     height: 4px;
-    border-radius: 2px;
+    border-radius: var(--br, 2px);
     background-color: var(--color-shade-20);
 }
 
