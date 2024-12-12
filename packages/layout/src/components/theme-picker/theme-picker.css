@@ -25,14 +25,14 @@ form {
 }
 
 label {
-    border-radius: 6px;
+    border-radius: var(--br, 2px);
     overflow: hidden;
     padding-bottom: 5px;
     cursor: pointer;
     font-size: 12px;
 
     & svg {
-        border-radius: 6px;
+        border-radius: var(--br, 2px);
         border: 1px solid var(--color-foreground);
     }
 

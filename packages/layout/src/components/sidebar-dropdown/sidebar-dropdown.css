@@ -12,7 +12,6 @@
 .sidebar_button {
     --border-color: transparent;
     --border-width: 1px;
-    --border-radius: 30px;
     --spacing: 12px;
 
     height: 40px;
