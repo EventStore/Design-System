@@ -1,7 +1,7 @@
 import { palette } from './palette';
 import type { BaseScheme } from '../types';
 
-// 22 steps between foreground and background, in oklab
+// 22 steps between black and powder_blue, in oklab
 const shades = {
     // #000000
     // #000000
@@ -29,39 +29,39 @@ const shades = {
 
 export const dark: BaseScheme = {
     // basic
-    background: palette.black,
+    background: palette.powder_black,
     foreground: palette.powder_blue,
 
     title: palette.powder_blue,
-    title_contrast: palette.black,
+    title_contrast: palette.powder_black,
 
     highlight: palette.seaglass_green,
-    highlight_contrast: palette.black,
+    highlight_contrast: palette.powder_black,
 
     link: palette.pacific_blue,
-    link_contrast: palette.black,
+    link_contrast: palette.powder_black,
 
     focus: palette.electric_lilac,
-    focus_contrast: palette.black,
+    focus_contrast: palette.powder_black,
 
     // levels
     error: palette.coral,
-    error_contrast: palette.black,
+    error_contrast: palette.powder_black,
     error_alt: palette.plum,
     error_alt_contrast: palette.white,
 
     warning: palette.sunflower,
-    warning_contrast: palette.black,
+    warning_contrast: palette.powder_black,
     warning_alt: palette.olive_green,
     warning_alt_contrast: palette.white,
 
     success: palette.seaglass_green,
-    success_contrast: palette.black,
+    success_contrast: palette.powder_black,
     success_alt: palette.dark_cyan,
     success_alt_contrast: palette.white,
 
     info: palette.pacific_blue,
-    info_contrast: palette.black,
+    info_contrast: palette.powder_black,
     info_alt: palette.cobalt_night,
     info_alt_contrast: palette.white,
 

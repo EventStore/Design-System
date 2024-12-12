@@ -36,4 +36,7 @@ export const palette = {
     // plum
     dusty_rose: '#B75781',
     rose: '#DBABC0',
+
+    // UI
+    powder_black: '#080b0d',
 };
