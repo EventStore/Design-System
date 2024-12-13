@@ -1,5 +1,11 @@
 # @kurrent-ui/layout
 
+## 2.1.0
+
+### Minor Changes
+
+-   [`cbf9b64a`](https://github.com/EventStore/Design-System/commit/cbf9b64aa6741bc992ab46f0d36386d56a4ab86a) - `l2-panel-header` has new `hasTabs` prop to improve look when heading a panel with tabs.
+
 ## 2.0.0
 
 ### Major Changes
