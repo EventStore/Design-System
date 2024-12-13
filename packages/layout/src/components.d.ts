@@ -356,6 +356,10 @@ export namespace Components {
      * A header for `l2-panel`.
      */
     interface L2PanelHeader {
+        /**
+          * If the panel has tabs.
+         */
+        "hasTabs": boolean;
     }
     /**
      * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.
@@ -1008,6 +1012,10 @@ declare namespace LocalJSX {
      * A header for `l2-panel`.
      */
     interface L2PanelHeader {
+        /**
+          * If the panel has tabs.
+         */
+        "hasTabs"?: boolean;
     }
     /**
      * A sidebar. Automatically sets `--layout-sidebar-width` based on it's own width.

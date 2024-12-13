@@ -1,4 +1,4 @@
-import { Component, h, Host } from '@stencil/core';
+import { Component, h, Host, Prop } from '@stencil/core';
 
 /**
  * A header for `l2-panel`.
@@ -12,6 +12,9 @@ import { Component, h, Host } from '@stencil/core';
     shadow: true,
 })
 export class YPanelHeader {
+    /** If the panel has tabs. */
+    @Prop({ reflect: true }) hasTabs: boolean = false;
+
     render() {
         return (
             <Host>

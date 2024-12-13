@@ -735,6 +735,10 @@ export namespace Components {
          */
         "data": any;
         /**
+          * If the panel has tabs.
+         */
+        "hasTabs": boolean;
+        /**
           * Passed to cell renderer as `parent`.
          */
         "identifier": string;
@@ -2369,6 +2373,10 @@ declare namespace LocalJSX {
           * The data to render.
          */
         "data": any;
+        /**
+          * If the panel has tabs.
+         */
+        "hasTabs"?: boolean;
         /**
           * Passed to cell renderer as `parent`.
          */

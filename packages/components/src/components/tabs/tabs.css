@@ -54,8 +54,9 @@ header {
     color: var(--tab-color);
     font-weight: 700;
     font-size: 16px;
+    line-height: 1.5;
     border: 0;
-    padding: 20px;
+    padding: var(--spacing-1_5);
     cursor: pointer;
     outline: none;
     transition-property: color;
@@ -63,6 +64,10 @@ header {
     transition-timing-function: ease;
     z-index: 1;
     overflow: hidden;
+
+    &:first-child {
+        padding-left: 0;
+    }
 
     &::after {
         content: '';
@@ -96,7 +101,7 @@ header {
 
 .panel {
     border-top: 2px solid var(--border-color);
-    padding: 10px 30px;
+    padding: 0;
     flex: 1 1 100%;
     position: relative;
     min-height: 80px;
