@@ -8,6 +8,7 @@ export interface Tab {
     /** Function to determine if a dot badge should be displayed. */
     badge?: () => boolean;
     /**
+     * @deprecated No style difference
      * Apply styling to a panel:
      * - 'default': Default styling.
      * - 'no_pad': No padding.

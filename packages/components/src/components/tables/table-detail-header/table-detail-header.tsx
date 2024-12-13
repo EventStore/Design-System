@@ -10,6 +10,8 @@ import type { TableCells } from '../types';
 export class TableDetailHeader {
     /** Passed to cell renderer as `parent`. */
     @Prop() identifier: string = 'detail-header';
+    /** If the panel has tabs. */
+    @Prop({ reflect: true }) hasTabs: boolean = false;
     /** The data to render. */
     @Prop() data!: any;
     /** Which cell to place as the title */

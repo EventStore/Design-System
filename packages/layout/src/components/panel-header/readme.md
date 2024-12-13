@@ -35,6 +35,13 @@ export default () => (
 
 
 
+## Properties
+
+| Property  | Attribute  | Description            | Type      | Default |
+| --------- | ---------- | ---------------------- | --------- | ------- |
+| `hasTabs` | `has-tabs` | If the panel has tabs. | `boolean` | `false` |
+
+
 ## Slots
 
 | Slot        | Description                            |
