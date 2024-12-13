@@ -1,6 +1,6 @@
 {
     "name": "@kurrent-ui/editor",
-    "version": "3.0.0-alpha.0",
+    "version": "3.0.0",
     "description": "Monaco Editor for Kurrent Design System",
     "license": "Apache-2.0",
     "main": "dist/index.cjs.js",

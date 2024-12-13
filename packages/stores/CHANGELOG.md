@@ -1,5 +1,11 @@
 # @kurrent-ui/stores
 
+## 2.0.0
+
+### Major Changes
+
+-   [`e0c7cfdf`](https://github.com/EventStore/Design-System/commit/e0c7cfdf8c14e5bb5183e0c9f8c947e44fb8f368) - Move to @kurrent-ui namespace
+
 ## 1.1.2
 
 ### Patch Changes
