@@ -26,7 +26,7 @@ const defaultExtractDetails: ExtractDetails = async (response) => {
 
 const ERROR_KEY = Symbol.for('HTTPError');
 
-/** A standardised HTTP request error. Works together with [Working Data](/fields/utils/createWorkingData) to assign HTTPProblemDetails fields to errors on form fields. */
+/** A standardised HTTP request error. Works together with @kurrent-ui/forms to assign HTTPProblemDetails fields to errors on form fields. */
 export class HTTPError extends Error {
     static isHTTPError(error: unknown): error is HTTPError {
         return error instanceof Error && ERROR_KEY in error;
@@ -68,4 +68,31 @@ export class HTTPError extends Error {
         }
         return this.detailsPromise;
     };
+
+    /** Returns a new HTTPError that calls the passed function on it's details when they are read. */
+    public mapProblemDetails = (
+        callbackfn: (details: HTTPProblemDetails) => HTTPProblemDetails,
+    ): HTTPError =>
+        new HTTPError(this.response, async () => {
+            const details = await this.details();
+            return callbackfn(details);
+        });
+
+    /** Returns a new HTTPError that calls the passed function on it's detail's fields when they are read. */
+    public mapFieldKeys = (
+        callbackfn: (key: string, value: string) => string,
+    ): HTTPError =>
+        this.mapProblemDetails((details) => {
+            if (details.fields == null) return details;
+            const { fields, ...rest } = details;
+            return {
+                ...rest,
+                fields: Object.fromEntries(
+                    Object.entries(fields).map(([key, value]) => [
+                        callbackfn(key, value),
+                        value,
+                    ]),
+                ),
+            };
+        });
 }
