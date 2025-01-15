@@ -1,5 +1,11 @@
 # @kurrent-ui/stores
 
+## 2.0.1
+
+### Patch Changes
+
+-   [`e63b24dd`](https://github.com/EventStore/Design-System/commit/e63b24ddb98f52cafaf6c47abb1dfaf5b91c0609) - Bug Fix: `updateOrSet` returns the current value as-is, in line with `update`
+
 ## 2.0.0
 
 ### Major Changes
