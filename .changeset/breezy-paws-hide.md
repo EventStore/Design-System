@@ -2,10 +2,10 @@
 '@kurrent-ui/forms': minor
 ---
 
-`createValidatedForm` has a new option `branchIsActive` for helping to create branching forms.
+`createValidatedForm` has a new option `shouldValidateBranch` for helping to create branching forms.
 
-When a parent validated form is validated, it will only call validation on a nested validated form if `branchIsActive` returns true (or is `undefined`).
-`branchIsActive` is passed the data of the top level form which had validation called on it, it's own data, and the reason for validating.
+When a parent validated form is validated, it will only call validation on a nested validated form if `shouldValidateBranch` returns true (or is `undefined`).
+`shouldValidateBranch` is passed the data of the top level form which had validation called on it, it's own data, and the reason for validating.
 
 Example usage
 
@@ -26,7 +26,7 @@ const form = createValidatedForm<DinnerForm, DinnerForm>({
             pineapple: true,
         },
         {
-            branchIsActive: (root) => root.mealType === 'pizza',
+            shouldValidateBranch: (root) => root.mealType === 'pizza',
         },
     ),
 });

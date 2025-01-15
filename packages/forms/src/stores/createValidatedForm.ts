@@ -15,7 +15,7 @@ import type {
     ValidatedFormControlOptions,
 } from '../types';
 import {
-    branchIsActive,
+    shouldValidateBranch,
     focusError,
     insertError,
     triggerValidation,
@@ -269,7 +269,7 @@ export const createValidatedForm = <T extends object, Root = any>(
                 if (isValidatedForm(field)) {
                     const dataToPass = rootData ?? fullData();
 
-                    if (!field[branchIsActive](dataToPass, trigger)) {
+                    if (!field[shouldValidateBranch](dataToPass, trigger)) {
                         continue;
                     }
 
@@ -626,9 +626,13 @@ export const createValidatedForm = <T extends object, Root = any>(
         [triggerValidation]: validate,
         [focusError]: focusFirstError,
         [insertError]: insertValidationError,
-        [branchIsActive]: (root, trigger) => {
-            if (controlOptions.branchIsActive == null) return true;
-            return controlOptions.branchIsActive(root, fullData(), trigger);
+        [shouldValidateBranch]: (root, trigger) => {
+            if (controlOptions.shouldValidateBranch == null) return true;
+            return controlOptions.shouldValidateBranch(
+                root,
+                fullData(),
+                trigger,
+            );
         },
     };
 };

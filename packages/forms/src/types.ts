@@ -4,7 +4,7 @@ import type {
     focusError,
     insertError,
     triggerValidation,
-    branchIsActive,
+    shouldValidateBranch,
 } from './symbols';
 
 interface ChangeEventValue<T extends object, K extends keyof T> {
@@ -101,7 +101,7 @@ export interface ValidatedForm<T extends object, Root = any> {
         id: string,
     ) => void;
     /** @internal */
-    [branchIsActive]: (root: Root, trigger: ValidateOn) => boolean;
+    [shouldValidateBranch]: (root: Root, trigger: ValidateOn) => boolean;
 }
 
 interface BasicConnection<K extends string, V> {
@@ -219,7 +219,11 @@ export type ValidatedFormOptions<T extends object, Root = any> = {
 /** Additional global options for the entire validated form. */
 export interface ValidatedFormControlOptions<T, Root = any> {
     /** Called to see if the child should be validated when the parent form is validated or submitted. */
-    branchIsActive?: (root: Root, self: T, trigger: ValidateOn) => boolean;
+    shouldValidateBranch?: (
+        root: Root,
+        self: T,
+        trigger: ValidateOn,
+    ) => boolean;
 }
 
 /** Validation and setup options for fields */
