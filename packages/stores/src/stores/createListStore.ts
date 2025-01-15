@@ -151,7 +151,7 @@ export const createListStore = <T>(
         },
         updateOrSet: (id, updater, creator) => {
             if (id in state) {
-                state[id] = updater({ ...state[id] });
+                state[id] = updater(state[id]);
                 return true;
             }
             state[id] = creator();
