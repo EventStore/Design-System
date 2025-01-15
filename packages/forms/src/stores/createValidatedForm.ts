@@ -12,8 +12,15 @@ import type {
     ValidationMessages,
     ValidateOn,
     ValidationMessage,
+    ValidatedFormControlOptions,
 } from '../types';
-import { focusError, insertError, triggerValidation, wDKey } from '../symbols';
+import {
+    branchIsActive,
+    focusError,
+    insertError,
+    triggerValidation,
+    wDKey,
+} from '../symbols';
 import { logger } from '../utils/logger';
 import { expandOptions } from '../utils/expandOptions';
 import {
@@ -31,9 +38,10 @@ import { isValidatedForm } from '../utils/isValidatedForm';
  * - Another ValidatedForm store
  * - A ValidatedFormArray store, to back an array.
  */
-export const createValidatedForm = <T extends object>(
-    options: ValidatedFormOptions<T>,
-): ValidatedForm<T> => {
+export const createValidatedForm = <T extends object, Root = any>(
+    options: ValidatedFormOptions<T, Root>,
+    controlOptions: ValidatedFormControlOptions<T, Root> = {},
+): ValidatedForm<T, Root> => {
     const fullOptions = expandOptions(options);
     const {
         dataStore: { state: data, reset: resetData, onChange: onDataChange },
@@ -246,7 +254,11 @@ export const createValidatedForm = <T extends object>(
         return new Set(triggers.slice(triggers.indexOf(trigger)));
     };
 
-    const runValidation = async (trigger: ValidateOn, forceFocus = true) => {
+    const runValidation = async (
+        trigger: ValidateOn,
+        forceFocus = true,
+        rootData?: Root,
+    ) => {
         const validationPromises: Promise<void>[] = [];
         const toValidate = validationSets[trigger];
         const triggers = includeTriggers(trigger);
@@ -255,11 +267,18 @@ export const createValidatedForm = <T extends object>(
         try {
             for (const [key, field] of fields) {
                 if (isValidatedForm(field)) {
+                    const dataToPass = rootData ?? fullData();
+
+                    if (!field[branchIsActive](dataToPass, trigger)) {
+                        continue;
+                    }
+
                     validationPromises.push(
                         (async () => {
                             const success = await field[triggerValidation](
                                 trigger,
                                 false,
+                                dataToPass,
                             );
                             if (success) return;
                             failures.add(key);
@@ -374,13 +393,21 @@ export const createValidatedForm = <T extends object>(
         return false;
     };
 
-    const validate = (event: ValidateOn, forceFocus = true) => {
+    const validate = (
+        event: ValidateOn,
+        forceFocus = true,
+        rootData?: Root,
+    ) => {
         return new Promise<boolean>((resolve) => {
             forcingFocus = forcingFocus || forceFocus;
             awaiters.push(resolve);
             clearTimeout(validationTimeout);
             validationTimeout = window.setTimeout(async () => {
-                const success = await runValidation(event, forcingFocus);
+                const success = await runValidation(
+                    event,
+                    forcingFocus,
+                    rootData,
+                );
                 awaiters.forEach((resolve) => resolve(success));
                 awaiters = [];
                 forcingFocus = false;
@@ -599,5 +626,9 @@ export const createValidatedForm = <T extends object>(
         [triggerValidation]: validate,
         [focusError]: focusFirstError,
         [insertError]: insertValidationError,
+        [branchIsActive]: (root, trigger) => {
+            if (controlOptions.branchIsActive == null) return true;
+            return controlOptions.branchIsActive(root, fullData(), trigger);
+        },
     };
 };

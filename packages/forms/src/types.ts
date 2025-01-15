@@ -1,9 +1,10 @@
 import type { h as jsxFactory, VNode } from '@stencil/core';
-import {
-    type wDKey,
-    type focusError,
-    type insertError,
-    type triggerValidation,
+import type {
+    wDKey,
+    focusError,
+    insertError,
+    triggerValidation,
+    branchIsActive,
 } from './symbols';
 
 interface ChangeEventValue<T extends object, K extends keyof T> {
@@ -38,7 +39,7 @@ interface SetOptions {
     templated?: Templated;
 }
 
-export interface ValidatedForm<T extends object> {
+export interface ValidatedForm<T extends object, Root = any> {
     /** The access the contained data directly */
     readonly data: T;
     /** If modifications are currently frozen, (for example, by submitting the data). */
@@ -87,7 +88,8 @@ export interface ValidatedForm<T extends object> {
     /** @internal */
     [triggerValidation]: (
         trigger: ValidateOn,
-        forceFocus?: boolean,
+        forceFocus: boolean,
+        rootData: Root,
     ) => Promise<any>;
     /** @internal */
     [focusError]: () => Promise<boolean>;
@@ -98,6 +100,8 @@ export interface ValidatedForm<T extends object> {
         message: string,
         id: string,
     ) => void;
+    /** @internal */
+    [branchIsActive]: (root: Root, trigger: ValidateOn) => boolean;
 }
 
 interface BasicConnection<K extends string, V> {
@@ -204,15 +208,21 @@ export type ExtendOptions<T> = {
  * - Another ValidatedForm store
  * - A ValidatedFormArray store, to back an array.
  */
-export type ValidatedFormOptions<T> = {
+export type ValidatedFormOptions<T extends object, Root = any> = {
     [key in keyof T]: T[key] extends Array<any> | Map<any, any> | Set<any>
         ? FieldOptions<T[key], T> | T[key]
         : T[key] extends object
-        ? FieldOptions<T[key], T> | T[key] | ValidatedForm<T[key]>
+        ? FieldOptions<T[key], T> | T[key] | ValidatedForm<T[key], Root>
         : FieldOptions<T[key], T> | T[key];
 };
 
-/** Validation and setup otions for fields */
+/** Additional global options for the entire validated form. */
+export interface ValidatedFormControlOptions<T, Root = any> {
+    /** Called to see if the child should be validated when the parent form is validated or submitted. */
+    branchIsActive?: (root: Root, self: T, trigger: ValidateOn) => boolean;
+}
+
+/** Validation and setup options for fields */
 export interface FieldOptions<ItemType, T> {
     /** The initial value of the field. */
     initialValue: ItemType;
