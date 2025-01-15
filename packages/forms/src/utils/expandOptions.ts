@@ -16,8 +16,8 @@ const defaults: InternalFieldOptions<any, any> = {
     templated: false,
 };
 
-export const expandOptions = <T>(
-    options: ValidatedFormOptions<T>,
+export const expandOptions = <T extends object>(
+    options: ValidatedFormOptions<T, any>,
 ): InternalValidatedFormOptions<T> => {
     const expandedOptions: Record<
         string,
