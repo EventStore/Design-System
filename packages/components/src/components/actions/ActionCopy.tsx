@@ -9,6 +9,8 @@ import type { ToastOptions } from '../toast/types';
 export interface ActionCopyProps {
     /** If the action is within an `c2-action-dropdown`. */
     dropdownItem?: boolean;
+    /** If the action should display it's text content. */
+    displayContent?: boolean;
     /** The value to be copied when clicked. */
     value: string;
     /** If the action should be disabled. */
@@ -26,6 +28,7 @@ export interface ActionCopyProps {
 export const ActionCopy: FunctionalComponent<ActionCopyProps> = (
     {
         dropdownItem = false,
+        displayContent = false,
         value,
         disabled = false,
         icon = [ICON_NAMESPACE, 'copy'],
@@ -35,6 +38,7 @@ export const ActionCopy: FunctionalComponent<ActionCopyProps> = (
 ) => (
     <c2-action
         dropdownItem={dropdownItem}
+        displayContent={displayContent}
         action={copyText({ value, toast })}
         disabled={disabled}
         icon={icon}

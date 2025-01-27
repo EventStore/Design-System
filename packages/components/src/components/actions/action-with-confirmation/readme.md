@@ -45,6 +45,7 @@ export default () => (
 | --------------------- | ----------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------- | ----------- |
 | `action` _(required)_ | --                | The action to take when the button is clicked.                                | `() => any`                                             | `undefined` |
 | `disabled`            | `disabled`        | if the action should be disabled.                                             | `boolean`                                               | `false`     |
+| `displayContent`      | `display-content` | If the action should display it's text content.                               | `boolean`                                               | `false`     |
 | `dot`                 | `dot`             | If a dot should be shown on the action, to indicate attention being required. | `"error" \| "okay" \| "warning" \| undefined`           | `undefined` |
 | `dropdownItem`        | `dropdown-item`   | If the action is within an `c2-action-dropdown`.                              | `boolean`                                               | `false`     |
 | `icon` _(required)_   | `icon`            | The icon to show for the action.                                              | `[namespace: string \| symbol, name: string] \| string` | `undefined` |

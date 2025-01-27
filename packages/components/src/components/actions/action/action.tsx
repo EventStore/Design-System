@@ -15,6 +15,8 @@ export class ESActionGeneric {
 
     /** If the action is within an `c2-action-dropdown`. */
     @Prop({ reflect: true, attribute: 'dropdown-item' }) dropdownItem = false;
+    /** If the action should display it's text content. */
+    @Prop() displayContent = false;
     /** The action to take when the button is clicked. */
     @Prop() action!: (e: MouseEvent) => any;
     /** If the action should be disabled. */
@@ -25,6 +27,7 @@ export class ESActionGeneric {
     @Prop() dot?: HTMLC2BadgeElement['color'];
 
     render() {
+        const showContent = this.displayContent || this.dropdownItem;
         return (
             <c2-button
                 onClick={this.action}
@@ -33,14 +36,14 @@ export class ESActionGeneric {
                 disabled={this.disabled}
             >
                 <c2-badge
-                    slot={this.dropdownItem ? 'before' : undefined}
+                    slot={showContent ? 'before' : undefined}
                     variant={'dot'}
                     color={this.dot}
                     count={this.dot ? 1 : 0}
                 >
                     <c2-icon icon={this.icon} size={20} />
                 </c2-badge>
-                {this.dropdownItem && <slot />}
+                {showContent && <slot />}
             </c2-button>
         );
     }

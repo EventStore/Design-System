@@ -4,7 +4,7 @@
     & > c2-button,
     & > c2-button-link {
         --current-color: var(--color-shade-60);
-        --spacing: 6px;
+        --spacing: var(--spacing-1);
         --height: 32px;
 
         &[disabled] {
@@ -19,7 +19,7 @@
         --border-radius: 0;
         --align-inner: flex-start;
         --height: 46px;
-        --spacing: 12px;
+        --spacing: var(--spacing-1_5);
         width: 100%;
 
         &::part(button),
