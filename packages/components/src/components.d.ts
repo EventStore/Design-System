@@ -66,6 +66,10 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * If the action should display it's text content.
+         */
+        "displayContent": boolean;
+        /**
           * If a dot should be shown on the action, to indicate attention being required.
          */
         "dot"?: HTMLC2BadgeElement['color'];
@@ -101,6 +105,10 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * If the action should display it's text content.
+         */
+        "displayContent": boolean;
+        /**
           * If a dot should be shown on the action, to indicate attention being required.
          */
         "dot"?: HTMLC2BadgeElement['color'];
@@ -129,6 +137,10 @@ export namespace Components {
           * if the action should be disabled.
          */
         "disabled": boolean;
+        /**
+          * If the action should display it's text content.
+         */
+        "displayContent": boolean;
         /**
           * If a dot should be shown on the action, to indicate attention being required.
          */
@@ -1676,6 +1688,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * If the action should display it's text content.
+         */
+        "displayContent"?: boolean;
+        /**
           * If a dot should be shown on the action, to indicate attention being required.
          */
         "dot"?: HTMLC2BadgeElement['color'];
@@ -1711,6 +1727,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * If the action should display it's text content.
+         */
+        "displayContent"?: boolean;
+        /**
           * If a dot should be shown on the action, to indicate attention being required.
          */
         "dot"?: HTMLC2BadgeElement['color'];
@@ -1739,6 +1759,10 @@ declare namespace LocalJSX {
           * if the action should be disabled.
          */
         "disabled"?: boolean;
+        /**
+          * If the action should display it's text content.
+         */
+        "displayContent"?: boolean;
         /**
           * If a dot should be shown on the action, to indicate attention being required.
          */

@@ -10,6 +10,8 @@ import type { ToastOptions } from '../toast/types';
 export interface ActionDeleteProps {
     /** If the action is within an `c2-action-dropdown`. */
     dropdownItem?: boolean;
+    /** If the action should display it's text content. */
+    displayContent?: boolean;
     /** The name of the item to delete. */
     description: string;
     /** The function to call to delete the item. */
@@ -32,6 +34,7 @@ export interface ActionDeleteProps {
  */
 export const ActionDelete: FunctionalComponent<ActionDeleteProps> = ({
     dropdownItem = false,
+    displayContent = false,
     description,
     deleteItem,
     disabled = false,
@@ -42,6 +45,7 @@ export const ActionDelete: FunctionalComponent<ActionDeleteProps> = ({
 }) => (
     <c2-action-with-confirmation
         dropdownItem={dropdownItem}
+        displayContent={displayContent}
         action={handleDeletion({ deleteItem, description, toast })}
         disabled={disabled}
         icon={icon}
