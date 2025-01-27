@@ -1,5 +1,11 @@
 # @kurrent-ui/components
 
+## 2.2.0
+
+### Minor Changes
+
+-   [`9d32b252`](https://github.com/EventStore/Design-System/commit/9d32b2527b4ed0b3dbf711c8026406dd8ddce5ad) - Actions have a new prop `displayContent` which allows them to display text content independently of if they are in a dropdown or not.
+
 ## 2.1.0
 
 ### Minor Changes
