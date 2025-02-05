@@ -9,5 +9,5 @@
 
 form {
     display: block;
-    padding: var(--spacing-2);
+    padding: var(--spacing-2, 16px);
 }

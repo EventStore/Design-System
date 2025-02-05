@@ -140,14 +140,14 @@ input {
 
     text-align: left;
     text-transform: capitalize;
-    margin-bottom: var(--spacing-2);
+    margin-bottom: var(--spacing-2, 16px);
     display: block;
 }
 
 .group-inner + .group-title {
-    margin-top: var(--spacing-2);
+    margin-top: var(--spacing-2, 12px);
 }
 
 .default_card {
-    padding: var(--spacing-2);
+    padding: var(--spacing-2, 12px);
 }
