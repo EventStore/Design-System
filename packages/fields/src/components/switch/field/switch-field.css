@@ -4,5 +4,5 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: var(--spacing-0_5);
+    gap: var(--spacing-0_5, 4px);
 }

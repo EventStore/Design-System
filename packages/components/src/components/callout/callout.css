@@ -13,7 +13,7 @@
     display: block;
     background-color: var(--background-color);
     position: relative;
-    padding: var(--spacing-3);
+    padding: var(--spacing-3, 24px);
     color: var(--foreground-color);
     border-width: 4px;
     border-style: solid;
@@ -61,5 +61,5 @@ h1 {
     color: var(--foreground-color);
     margin: 0;
     line-height: 1.5;
-    margin-bottom: var(--spacing-1_5);
+    margin-bottom: var(--spacing-1_5, 12px);
 }

@@ -43,7 +43,6 @@
 
 header {
     display: flex;
-    overflow: hidden;
 }
 
 .tab {
@@ -56,7 +55,7 @@ header {
     font-size: 16px;
     line-height: 1.5;
     border: 0;
-    padding: var(--spacing-1_5);
+    padding: var(--spacing-1_5, 12px);
     cursor: pointer;
     outline: none;
     transition-property: color;
