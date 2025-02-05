@@ -13,6 +13,7 @@ export type {
 } from './components/Page/Page';
 export type { PageViewProps } from './components/PageView/PageView';
 export type { LoadingBarStatus } from './components/loading-bar/types';
+export type { RouteTab } from './components/tab-bar/types';
 export type { PageViewEvent, PageViewEventDetail } from './utils/pageView';
 
 export { ICON_NAMESPACE as K_LAYOUT_ICON_NAMESPACE } from './icons/namespace';

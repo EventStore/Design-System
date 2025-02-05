@@ -13,6 +13,7 @@ import { PanelMode } from "./components/panel";
 import { LoadingBarStatus } from "./components/loading-bar/types";
 import { NavNode, NavTree } from "./components/nav/types";
 import { ClosedMode, PanelDetailsListener, PanelMode as PanelMode1, TargetableArea, TargetableEdge } from "./components/panel/types";
+import { RouteTab } from "./components/tab-bar/types";
 export { Crumb } from "./components/breadcrumb/types";
 export { DisplayErrorVariant } from "./components/display-error/types";
 export { EmptyStateLayout } from "./components/empty-state/types";
@@ -21,6 +22,7 @@ export { PanelMode } from "./components/panel";
 export { LoadingBarStatus } from "./components/loading-bar/types";
 export { NavNode, NavTree } from "./components/nav/types";
 export { ClosedMode, PanelDetailsListener, PanelMode as PanelMode1, TargetableArea, TargetableEdge } from "./components/panel/types";
+export { RouteTab } from "./components/tab-bar/types";
 export namespace Components {
     /**
      * A list of breadcrumbs to the current page
@@ -398,6 +400,23 @@ export namespace Components {
         "start"?: TargetableEdge;
     }
     /**
+     * A navigating tab bar.
+     */
+    interface L2TabBar {
+        /**
+          * Icon to be rendered between each tab.
+         */
+        "interTabIcon"?: IconDescription;
+        /**
+          * thu size of the icon to be rendered between each tab.
+         */
+        "interTabIconSize": number;
+        /**
+          * A list of tabs.
+         */
+        "tabs": RouteTab[];
+    }
+    /**
      * A theme picker dropdown for the header
      */
     interface L2ThemeDropdown {
@@ -417,6 +436,10 @@ export interface L2LayoutButtonCustomEvent<T> extends CustomEvent<T> {
 export interface L2PanelCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLL2PanelElement;
+}
+export interface L2TabBarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLL2TabBarElement;
 }
 declare global {
     /**
@@ -631,6 +654,26 @@ declare global {
         prototype: HTMLL2SizedPanelElement;
         new (): HTMLL2SizedPanelElement;
     };
+    interface HTMLL2TabBarElementEventMap {
+        "tabChange": string;
+    }
+    /**
+     * A navigating tab bar.
+     */
+    interface HTMLL2TabBarElement extends Components.L2TabBar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLL2TabBarElementEventMap>(type: K, listener: (this: HTMLL2TabBarElement, ev: L2TabBarCustomEvent<HTMLL2TabBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLL2TabBarElementEventMap>(type: K, listener: (this: HTMLL2TabBarElement, ev: L2TabBarCustomEvent<HTMLL2TabBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLL2TabBarElement: {
+        prototype: HTMLL2TabBarElement;
+        new (): HTMLL2TabBarElement;
+    };
     /**
      * A theme picker dropdown for the header
      */
@@ -678,6 +721,7 @@ declare global {
         "l2-sidebar": HTMLL2SidebarElement;
         "l2-sidebar-dropdown": HTMLL2SidebarDropdownElement;
         "l2-sized-panel": HTMLL2SizedPanelElement;
+        "l2-tab-bar": HTMLL2TabBarElement;
         "l2-theme-dropdown": HTMLL2ThemeDropdownElement;
         "l2-theme-picker": HTMLL2ThemePickerElement;
         "l2-toolbar": HTMLL2ToolbarElement;
@@ -1054,6 +1098,27 @@ declare namespace LocalJSX {
         "start"?: TargetableEdge;
     }
     /**
+     * A navigating tab bar.
+     */
+    interface L2TabBar {
+        /**
+          * Icon to be rendered between each tab.
+         */
+        "interTabIcon"?: IconDescription;
+        /**
+          * thu size of the icon to be rendered between each tab.
+         */
+        "interTabIconSize"?: number;
+        /**
+          * Triggered when the active tab is changed. `detail` is the newly active tab.
+         */
+        "onTabChange"?: (event: L2TabBarCustomEvent<string>) => void;
+        /**
+          * A list of tabs.
+         */
+        "tabs": RouteTab[];
+    }
+    /**
      * A theme picker dropdown for the header
      */
     interface L2ThemeDropdown {
@@ -1088,6 +1153,7 @@ declare namespace LocalJSX {
         "l2-sidebar": L2Sidebar;
         "l2-sidebar-dropdown": L2SidebarDropdown;
         "l2-sized-panel": L2SizedPanel;
+        "l2-tab-bar": L2TabBar;
         "l2-theme-dropdown": L2ThemeDropdown;
         "l2-theme-picker": L2ThemePicker;
         "l2-toolbar": L2Toolbar;
@@ -1177,6 +1243,10 @@ declare module "@stencil/core" {
              * Automatically sets the relevant layout var based on it's size.
              */
             "l2-sized-panel": LocalJSX.L2SizedPanel & JSXBase.HTMLAttributes<HTMLL2SizedPanelElement>;
+            /**
+             * A navigating tab bar.
+             */
+            "l2-tab-bar": LocalJSX.L2TabBar & JSXBase.HTMLAttributes<HTMLL2TabBarElement>;
             /**
              * A theme picker dropdown for the header
              */
