@@ -1,0 +1,126 @@
+/**
+ * @prop --inactive-color: The inactive text color of the tab;
+ * @prop --active-color: The active text color of the tab, and color of the active indicator;
+ * @prop --focus-color: The focused text color of the tab;
+ * @prop --focus-indicator-color: The color of the focus indicator;
+ * @prop --border-color: The color of border surrounding the tab content;
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+:host {
+    --tab-color: var(--color-foreground);
+    --active-color: var(--color-highlight);
+    --focus-color: var(--color-focus);
+    --focus-indicator-color: var(--color-shade-40);
+    --border-color: var(--color-shade-30);
+
+    display: flex;
+    position: relative;
+    border-bottom: 2px solid var(--border-color);
+    background-color: var(--color-background);
+    padding: 0 var(--spacing-1_5, 12px);
+}
+
+:host([high-contrast]) {
+    & .indicator {
+        display: none;
+    }
+
+    & .tab {
+        &:hover::after {
+            height: 2px;
+            background-color: var(--active-color);
+        }
+
+        &.active::after {
+            height: 6px;
+            background-color: var(--active-color);
+        }
+
+        &:focus {
+            outline: solid var(--color-focus);
+            outline-offset: -10px;
+        }
+    }
+}
+
+.tab {
+    display: block;
+    flex: 0 1 auto;
+    position: relative;
+    appearance: none;
+    background-color: transparent;
+    color: var(--tab-color);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+    border: 0;
+    padding: var(--spacing-1_5, 12px);
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    transition-property: color;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+    z-index: 1;
+    overflow: hidden;
+
+    &:first-child {
+        padding-left: 0;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: -1px;
+        transform: translateY(50%);
+        height: 0px;
+        background-color: transparent;
+
+        transition-property: background-color, height;
+        transition-duration: 500ms;
+        transition-timing-function: ease;
+    }
+
+    &.drag_over,
+    &:focus-visible {
+        color: var(--focus-color);
+
+        &::after {
+            background-color: var(--focus-indicator-color);
+            height: 4px;
+        }
+    }
+
+    &.active {
+        color: var(--color-highlight);
+    }
+}
+
+.indicator {
+    display: block;
+    height: 4px;
+    background-color: var(--active-color);
+    transition-property: none;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    z-index: 20000;
+}
+
+c2-badge {
+    align-items: flex-start;
+}
+
+.elipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
