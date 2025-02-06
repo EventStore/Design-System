@@ -313,7 +313,7 @@ export class Table {
                                   data,
                                   parent: this.identifier,
                               })
-                            : autoExtract(data, name)}
+                            : autoExtract(h, data, name)}
                     </div>
                 );
             }),

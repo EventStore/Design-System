@@ -1,3 +1,11 @@
+/**
+ * @prop --max-columns: The maximum number of columns.
+ * @prop --min-column-width: The minimum width columns can be before reducing the number of columns.
+ * @prop --column-gap: The gap between columns.
+ * @prop --row-gap: The gap between rows.
+ * @prop --grid-columns: Take full control of the grids column layout.
+ */
+
 *,
 *:before,
 *:after {
@@ -6,32 +14,55 @@
 
 c2-table-detail {
     display: block;
-    --grid-columns: repeat(2, 1fr);
+
+    --max-columns: 4;
+    --min-column-width: 250px;
+    --column-gap: var(--spacing-3, 24px);
+    --row-gap: var(--spacing-2, 16px);
+    --grid-columns: repeat(
+        auto-fill,
+        minmax(
+            max(
+                /* The maximum width a column can ever be is 100% / the maximum number of columns, with width of the gaps subtracted. */
+                    calc(
+                        (100% / var(--max-columns)) -
+                            (var(--column-gap) * (var(--max-columns) - 1))
+                    ),
+                var(--min-column-width)
+            ),
+            1fr
+        )
+    );
 }
 
 dl {
     display: grid;
     grid-template-columns: var(--grid-columns);
-    gap: 20px;
-    padding: 20px 0;
+    row-gap: var(--row-gap);
+    column-gap: var(--column-gap);
+    padding: 0;
+    margin: var(--spacing-2_5, 20px) 0;
 }
 
 .cell {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     line-height: 1.5;
+    gap: calc(var(--spacing-0_5, 4px) / 2);
 
     &.full_width {
         grid-column: 1 / -1;
+    }
+
+    & .none {
+        opacity: 0.6;
     }
 }
 
 dt {
     font-weight: bold;
     text-align: left;
-    flex: 0 0 150px;
     margin: 0;
-    margin-right: 20px;
 
     &::after {
         content: ':';
@@ -39,6 +70,6 @@ dt {
 }
 
 dd {
-    flex: 1 1 100%;
     margin: 0;
+    overflow-wrap: break-word;
 }

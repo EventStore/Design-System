@@ -216,7 +216,7 @@ export class Table {
                 parent: this.identifier,
             });
         } else {
-            return autoExtract(data, name);
+            return autoExtract(h, data, name);
         }
     };
 

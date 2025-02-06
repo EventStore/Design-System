@@ -1,4 +1,4 @@
-import { Component, h, Prop, Host } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 import type { TableCells, TableCell } from '../types';
 import { autoExtract } from '../utils/autoExtract';
 
@@ -43,7 +43,7 @@ export class TableDetail {
                 parent: this.identifier,
             });
         } else {
-            return autoExtract(this.data, name);
+            return autoExtract(h, this.data, name);
         }
     };
 
@@ -53,34 +53,30 @@ export class TableDetail {
             Object.keys(this.cells).filter((name) => name !== 'actions');
 
         return (
-            <Host>
-                <dl class={{ loading: !!this.loading }}>
-                    {columns.map((name) => {
-                        const {
-                            title,
-                            variant,
-                            align = 'start',
-                        } = this.getCell(name);
-                        const variants =
-                            typeof variant === 'string'
-                                ? [variant]
-                                : variant ?? [];
+            <dl class={{ loading: !!this.loading }}>
+                {columns.map((name) => {
+                    const {
+                        title,
+                        variant,
+                        align = 'start',
+                    } = this.getCell(name);
+                    const variants =
+                        typeof variant === 'string' ? [variant] : variant ?? [];
 
-                        return (
-                            <div
-                                class={{
-                                    cell: true,
-                                    full_width: variants.includes('full-width'),
-                                    [align]: align !== 'start',
-                                }}
-                            >
-                                <dt>{title}</dt>
-                                <dd>{this.renderCell(name)}</dd>
-                            </div>
-                        );
-                    })}
-                </dl>
-            </Host>
+                    return (
+                        <div
+                            class={{
+                                cell: true,
+                                full_width: variants.includes('full-width'),
+                                [align]: align !== 'start',
+                            }}
+                        >
+                            <dt>{title}</dt>
+                            <dd>{this.renderCell(name)}</dd>
+                        </div>
+                    );
+                })}
+            </dl>
         );
     }
 

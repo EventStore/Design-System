@@ -63,6 +63,17 @@ export default () => (
 | `loading`            | `loading`    | Indicates if the loading indicators should be displayed                                 | `boolean \| undefined`                  | `undefined` |
 
 
+## CSS Custom Properties
+
+| Name                 | Description                                                             |
+| -------------------- | ----------------------------------------------------------------------- |
+| `--column-gap`       | The gap between columns.                                                |
+| `--grid-columns`     | Take full control of the grids column layout.                           |
+| `--max-columns`      | The maximum number of columns.                                          |
+| `--min-column-width` | The minimum width columns can be before reducing the number of columns. |
+| `--row-gap`          | The gap between rows.                                                   |
+
+
 ## Dependencies
 
 ### Depends on
