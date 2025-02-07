@@ -1,5 +1,12 @@
 # @kurrent-ui/layout
 
+## 2.2.0
+
+### Minor Changes
+
+-   [`9ea92fb0`](https://github.com/EventStore/Design-System/commit/9ea92fb0563b4c43e7fbe9a6de580b1e48fdf670) - New Component: `<l2-tab-bar />`
+    Displays a set of links as tabs, matching the style of `<c2-tabs />`
+
 ## 2.1.0
 
 ### Minor Changes

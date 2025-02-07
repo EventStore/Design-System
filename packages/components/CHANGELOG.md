@@ -1,5 +1,23 @@
 # @kurrent-ui/components
 
+## 2.3.0
+
+### Minor Changes
+
+-   [`214f35df`](https://github.com/EventStore/Design-System/commit/214f35df89a403d472f1c0a78888af0e6d6a6dfc) - Table Details overhaul
+
+    Table details has been redesigned to be
+
+    -   More information dense
+    -   Handle longer labels and data
+    -   Fluidly size itself to it's available space
+
+    Additionally, cell auto extract now handles more data types by attempting to convert all data type to a string, otherwise returning an empty placeholder.
+
+### Patch Changes
+
+-   [`b04e459e`](https://github.com/EventStore/Design-System/commit/b04e459e98473685d83782d8c4d878ec709640b8) - Fix missing spacing fallbacks
+
 ## 2.2.0
 
 ### Minor Changes
