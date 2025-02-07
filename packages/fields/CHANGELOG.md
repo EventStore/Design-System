@@ -1,5 +1,11 @@
 # @kurrent-ui/fields
 
+## 2.1.1
+
+### Patch Changes
+
+-   [`b04e459e`](https://github.com/EventStore/Design-System/commit/b04e459e98473685d83782d8c4d878ec709640b8) - Fix missing spacing fallbacks
+
 ## 2.1.0
 
 ### Minor Changes
