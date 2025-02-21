@@ -2,35 +2,29 @@
 import { createValidatedForm } from '@kurrent-ui/forms';
 
 interface Example {
-    name: string | null;
+    notifications: boolean;
+    maintenance: boolean;
 }
 
 const form = createValidatedForm<Example>({
-    name: null,
+    notifications: true,
+    maintenance: false,
 });
-
-const options = [
-    { name: 'Jim', value: 'jim' },
-    { name: 'John', value: 'john' },
-    { name: 'Nathanial', value: 'nathanial' },
-];
 
 export default () => (
     <f2-form>
-        <f2-select-field
-            label={'Choose a name from the list'}
-            documentation={"It doesn't matter who it is."}
-            placeholder={'Choose a name from the list'}
-            options={options}
-            {...form.connect('name')}
+        <f2-switch-field
+            label={'Enable notifications'}
+            documentation={
+                'Receive real-time updates and alerts about system events'
+            }
+            {...form.connect('notifications')}
         />
-        <f2-select-field
+        <f2-switch-field
             disabled
-            label={'Choose a name from the list'}
+            label={'Maintenance mode'}
             documentation={'This field is disabled'}
-            placeholder={'Choose a name from the list'}
-            options={options}
-            {...form.connect('name')}
+            {...form.connect('maintenance')}
         />
     </f2-form>
 );

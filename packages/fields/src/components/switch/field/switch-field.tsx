@@ -28,9 +28,7 @@ export class SwitchField {
     @AttachInternals() internals?: ElementInternals;
 
     /** Emitted when the value of the field is changed. */
-    @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<string>>;
-    /** Emitted on keyup of enter, if no modifier keys are held. */
-    @Event() enter!: EventEmitter;
+    @Event({ bubbles: true }) fieldchange!: EventEmitter<FieldChange<boolean>>;
     /** Emitted when the user requests to edit. */
     @Event({ bubbles: true }) requestEdit!: EventEmitter<string>;
 
