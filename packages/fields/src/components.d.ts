@@ -1410,8 +1410,7 @@ declare global {
         new (): HTMLF2SwitchElement;
     };
     interface HTMLF2SwitchFieldElementEventMap {
-        "fieldchange": FieldChange<string>;
-        "enter": any;
+        "fieldchange": FieldChange<boolean>;
         "requestEdit": string;
     }
     /**
@@ -2410,13 +2409,9 @@ declare namespace LocalJSX {
          */
         "name": string;
         /**
-          * Emitted on keyup of enter, if no modifier keys are held.
-         */
-        "onEnter"?: (event: F2SwitchFieldCustomEvent<any>) => void;
-        /**
           * Emitted when the value of the field is changed.
          */
-        "onFieldchange"?: (event: F2SwitchFieldCustomEvent<FieldChange<string>>) => void;
+        "onFieldchange"?: (event: F2SwitchFieldCustomEvent<FieldChange<boolean>>) => void;
         /**
           * Emitted when the user requests to edit.
          */
