@@ -17,7 +17,8 @@
     --zindex: calc(var(--zindex-base, 0) + var(--zindex-modal, 3100));
     z-index: var(--zindex);
     pointer-events: all;
-    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.1))
+        drop-shadow(0px 25px 45px rgba(0, 0, 0, 0.3));
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -29,8 +30,10 @@
 
 .close {
     position: absolute;
-    top: var(--spacing-1, 8px);
-    right: var(--spacing-1, 8px);
+    top: 0;
+    bottom: calc(100% - 70px);
+    right: var(--spacing-2, 16px);
+    margin: auto;
     border: 0;
     width: 38px;
     height: 38px;
@@ -52,30 +55,32 @@
 }
 
 header {
-    border-bottom: 5px solid var(--color-shade-20);
-    padding: 32px 30px;
-    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-0_5, 4px);
+    justify-content: center;
+    border-bottom: 2px solid var(--color-shade-20);
+    padding: var(--spacing-1_5, 12px) var(--spacing-2_5, 20px);
     margin: 0;
+    min-height: 70px;
 }
 
 ::slotted(h1[slot='header']) {
-    font-weight: 300;
-    font-size: 36px;
+    font-weight: 600;
+    font-size: 16px;
     color: var(--color-foreground);
     margin: 0;
-    margin-bottom: 23px;
 }
 
 ::slotted(h2[slot='header']) {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: var(--color-foreground);
     margin: 0;
-    margin-bottom: 17px;
 }
 
 .body {
-    padding: 15px 30px;
+    padding: var(--spacing-2_5, 12px);
     overflow: auto;
     overscroll-behavior: none;
 }
@@ -84,8 +89,8 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    padding: 32px 30px;
-    padding-top: 0;
+    padding: var(--spacing-1_5, 12px) var(--spacing-2_5, 20px);
+    border-top: 2px solid var(--color-shade-20);
     margin: 0;
 }
 
