@@ -1,5 +1,11 @@
 # @kurrent-ui/components
 
+## 2.4.0
+
+### Minor Changes
+
+-   [`919cdb25`](https://github.com/EventStore/Design-System/commit/919cdb250e9fbdcbf6e139079fd8c5c7371bd2d3) - c2-modal has been redesigned to fit with kurrent design language.
+
 ## 2.3.0
 
 ### Minor Changes
