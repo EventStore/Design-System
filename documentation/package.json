@@ -50,7 +50,7 @@
         "@kurrent-ui/theme": "workspace:*",
         "@kurrent-ui/utils": "workspace:*",
         "highlight.js": "11.2.0",
-        "markdown-it": "14.2.0",
+        "markdown-it": "14.3.1",
         "markdown-it-anchor": "9.2.1"
     },
     "devDependencies": {
